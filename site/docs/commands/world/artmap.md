@@ -31,9 +31,9 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `artmap.admin` | Allows administrative commands | op |
-| `artmap.artist` | Allows players to paint, and place/break easels in any region they own, or are a member of. | op |
-| `artmap.artkit` | Gives players a kit of art supplies while they use an easel | op |
-| `artmap.menu` | Allows players to open the ArtMap menu | True |
-| `artmap.prevent.afk` | Player will not be kicked for being AFK at easel. Supports Eseentials and CMI. | — |
-| `artmap.region.member` | Allows players to place/break easels in regions that they are a member of, but DO NOT own. | op |
+| `artmap.admin` | 允许管理命令 | op |
+| `artmap.artist` | 允许玩家在他们拥有或是其成员的任何区域中绘画和放置/打破画架。 | op |
+| `artmap.artkit` | 使用画架时为玩家提供一套艺术用品 | op |
+| `artmap.menu` | 允许玩家打开ArtMap菜单 | True |
+| `artmap.prevent.afk` | 在画架上，玩家不会因为是AFK而被踢出。支持Eseentials和CMI。 | — |
+| `artmap.region.member` | 允许玩家在他们是成员但不拥有的地区放置/打破画架。 | op |

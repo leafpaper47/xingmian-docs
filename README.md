@@ -95,6 +95,8 @@ cd site && pnpm build
 
 ```bash
 python translate_ui.py          # 断点续跑，结果存 data/zh_cache.json
+python polish_zh.py             # 人工修订：常用术语、<参数> 前补空格
+python fix_commands.py          # 把机翻掉的 /tab、/exp 这类指令名换回英文
 python check_zh.py              # 看还差多少、哪些译文可疑
 python gen_docs.py              # 重新生成页面（会自动读 zh_cache.json）
 ```

@@ -249,7 +249,7 @@ def main():
             L.append("| --- | --- | --- |")
             for k, v in sorted(perms.items()):
                 v = v if isinstance(v, dict) else {}
-                L.append("| `%s` | %s | %s |" % (k, cell(v.get("description") or ""), cell(v.get("default") or "—")))
+                L.append("| `%s` | %s | %s |" % (k, cell(zh(v.get("description") or "")), cell(v.get("default") or "—")))
             L.append("")
         open(os.path.join(DOCS, "commands", p["cat"], p["slug"] + ".md"), "w", encoding="utf-8", newline="\n").write("\n".join(L))
 

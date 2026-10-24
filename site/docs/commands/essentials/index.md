@@ -14,7 +14,7 @@ Essentials 系与各类物品/背包/生存辅助工具。
 | [ArmorUnbreaking](./armorunbreaking.md) | 1.0.0 | 1 | 让护甲上的耐久附魔按 L/(L+1) 概率豁免耐久扣减（覆盖全部损耗来源） |
 | [BookEdit](./bookedit.md) | 2.0 | 1 | 让玩家在书里用标签写颜色和效果，支持把作者改为匿名、把书设为破旧。 |
 | [CMILib](./cmilib.md) | 1.5.9.9 | 1 | CMI库 |
-| [CraftBench](./craftbench.md) | 1.1.14 | 2 | 5x5工艺表，带CraftEngine定制项目支持、纯GUI配方编辑器、配方书和无形和生态成本 |
+| [CraftBench](./craftbench.md) | 1.1.14 | 2 | 5×5 工作台，支持 CraftEngine 自定义物品、纯 GUI 配方编辑器、配方书，无形状限制且不消耗经济 |
 | [Essentials](./essentials.md) | 2.22.1-dev+12-776f709 | 153 | 为Bukkit提供基本的核心命令集。 |
 | [InBlock](./inblock.md) | 1.0.0 | 1 | 自定义命令方块插件 —— 像工作台一样右键执行自定义指令 |
 | [InfiniteFuel](./infinitefuel.md) | 1.0.0 | 1 | 无限煤炭块 —— 熔炉永燃且燃料不消耗，取出燃料立即熄火 |

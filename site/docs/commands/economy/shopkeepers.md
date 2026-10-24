@@ -32,55 +32,55 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `shopkeeper.*` | Access to everything | op |
-| `shopkeeper.admin` | Create and modify admin shopkeepers | op |
-| `shopkeeper.bypass` | Bypass player shop restrictions (access player shops of others) | op |
-| `shopkeeper.citizen` | Create Citizens NPC shopkeepers | op |
-| `shopkeeper.cleanup-citizen-shopkeepers` | Delete invalid Citizen shopkeepers via command | op |
-| `shopkeeper.create` | Allows the creation of shopkeepers via command | op |
-| `shopkeeper.debug` | Toggle debug mode and access debugging commands | op |
-| `shopkeeper.delete-unspawnable-shopkeepers` | Delete unspawnable shopkeepers via command | op |
-| `shopkeeper.edit-villagers` | Edit regular villagers | op |
-| `shopkeeper.edit-wandering-traders` | Edit regular wandering traders | op |
-| `shopkeeper.entity.*` | Create shopkeepers of any mob type | True |
-| `shopkeeper.give` | Give shop creation items via command | op |
-| `shopkeeper.givecurrency` | Give currency items via command | op |
-| `shopkeeper.hanging-sign` | Create hanging sign shopkeepers | True |
-| `shopkeeper.help` | Display the command help | True |
-| `shopkeeper.hire` | Allows hiring of shopkeepers | True |
-| `shopkeeper.history.admin` | View the trading history of others and admin shops | op |
-| `shopkeeper.history.own` | View your own trading history | True |
-| `shopkeeper.list.admin` | List the admin shops | op |
-| `shopkeeper.list.others` | List the player shops of other players | op |
-| `shopkeeper.list.own` | List your own player shops | True |
-| `shopkeeper.maxshops.unlimited` | Allows the creation of an unlimited number of shops | op |
-| `shopkeeper.notify.trades` | Allows turning trade notifications for you on or off by command | True |
-| `shopkeeper.player` | Create any type of player shopkeeper | True |
-| `shopkeeper.player.book` | Create books selling player shopkeepers | — |
-| `shopkeeper.player.buy` | Create buying player shopkeepers | — |
-| `shopkeeper.player.sell` | Create selling player shopkeepers | — |
-| `shopkeeper.player.trade` | Create trading player shopkeepers | — |
-| `shopkeeper.reload` | Reload the plugin | op |
-| `shopkeeper.remote` | Remotely open shops via command | op |
-| `shopkeeper.remote.otherplayers` | Remotely open shops for other players | op |
-| `shopkeeper.remoteedit` | Remotely edit shops via command | op |
-| `shopkeeper.remove-all.admin` | Remove all admin shops via command | op |
-| `shopkeeper.remove-all.others` | Remove all the shops of another player via command | op |
-| `shopkeeper.remove-all.own` | Remove all of your own shops via command | op |
-| `shopkeeper.remove-all.player` | Remove the player shops of all players via command | op |
-| `shopkeeper.remove.admin` | Remove admin shops via command | op |
-| `shopkeeper.remove.others` | Remove the shops of other players via command | op |
-| `shopkeeper.remove.own` | Remove your own shops via command | op |
-| `shopkeeper.setcurrency` | Set the currency items via command | op |
-| `shopkeeper.setforhire` | Set a shopkeeper to be for hire | op |
-| `shopkeeper.settradedcommand` | Set the traded command for the held item | op |
-| `shopkeeper.settradeperm` | Set the trade permissions for admin shops | op |
-| `shopkeeper.sign` | Create sign shopkeepers | True |
-| `shopkeeper.snapshot` | Access shopkeeper snapshot commands | op |
-| `shopkeeper.teleport` | Teleport to shopkeepers via command | op |
-| `shopkeeper.teleport.others` | Teleport other players to shopkeepers | op |
-| `shopkeeper.trade` | Allows trading with shopkeepers | True |
-| `shopkeeper.trade-notifications.admin` | Receive trade notifications for admin shops | — |
-| `shopkeeper.trade-notifications.player` | Receive trade notifications for player shops | — |
-| `shopkeeper.transfer` | Transfer ownership of player shops | op |
-| `shopkeeper.updateitems` | Update third-party items | op |
+| `shopkeeper.*` | 无障碍通道 | op |
+| `shopkeeper.admin` | 创建和修改管理员店主 | op |
+| `shopkeeper.bypass` | 绕过玩家商店限制（进入其他玩家的商店） | op |
+| `shopkeeper.citizen` | 创建公民NPC店主 | op |
+| `shopkeeper.cleanup-citizen-shopkeepers` | 通过命令删除无效的公民店主 | op |
+| `shopkeeper.create` | 允许通过命令创建店主 | op |
+| `shopkeeper.debug` | 切换调试模式并访问调试命令 | op |
+| `shopkeeper.delete-unspawnable-shopkeepers` | 通过命令删除不可生成的店主 | op |
+| `shopkeeper.edit-villagers` | 编辑常规村民 | op |
+| `shopkeeper.edit-wandering-traders` | 编辑经常流浪的商人 | op |
+| `shopkeeper.entity.*` | 创建任何类型的店主 | True |
+| `shopkeeper.give` | 通过命令给商店创建道具 | op |
+| `shopkeeper.givecurrency` | 通过命令提供货币道具 | op |
+| `shopkeeper.hanging-sign` | 创建吊牌店主 | True |
+| `shopkeeper.help` | 显示命令帮助 | True |
+| `shopkeeper.hire` | 允许雇佣店主 | True |
+| `shopkeeper.history.admin` | 查看他人和管理员商店的交易历史记录 | op |
+| `shopkeeper.history.own` | 查看您自己的交易历史记录 | True |
+| `shopkeeper.list.admin` | 列出管理员商店 | op |
+| `shopkeeper.list.others` | 列出其他玩家的玩家商店 | op |
+| `shopkeeper.list.own` | 列出您自己的玩家商店 | True |
+| `shopkeeper.maxshops.unlimited` | 允许创建无限数量的商店 | op |
+| `shopkeeper.notify.trades` | 允许通过命令为您打开或关闭交易通知 | True |
+| `shopkeeper.player` | 创建任何类型的玩家店主 | True |
+| `shopkeeper.player.book` | 创建出售玩家店主的书籍 | — |
+| `shopkeeper.player.buy` | 创建购买玩家店主 | — |
+| `shopkeeper.player.sell` | 创建销售玩家店主 | — |
+| `shopkeeper.player.trade` | 创建交易玩家店主 | — |
+| `shopkeeper.reload` | 重新加载插件 | op |
+| `shopkeeper.remote` | 通过命令远程打开商店 | op |
+| `shopkeeper.remote.otherplayers` | 为其他玩家远程开放商店 | op |
+| `shopkeeper.remoteedit` | 通过命令远程编辑商店 | op |
+| `shopkeeper.remove-all.admin` | 通过命令删除所有管理员商店 | op |
+| `shopkeeper.remove-all.others` | 通过命令移除其他玩家的所有商店 | op |
+| `shopkeeper.remove-all.own` | 通过命令移除您自己的所有商店 | op |
+| `shopkeeper.remove-all.player` | 通过命令移除所有玩家的商店 | op |
+| `shopkeeper.remove.admin` | 通过命令删除管理员商店 | op |
+| `shopkeeper.remove.others` | 通过命令移除其他玩家的商店 | op |
+| `shopkeeper.remove.own` | 通过命令移除您自己的商店 | op |
+| `shopkeeper.setcurrency` | 通过命令设置货币项目 | op |
+| `shopkeeper.setforhire` | 将店主设置为出租 | op |
+| `shopkeeper.settradedcommand` | 为持有的道具设置交易命令 | op |
+| `shopkeeper.settradeperm` | 设置管理员商店的交易权限 | op |
+| `shopkeeper.sign` | 创建标志店主 | True |
+| `shopkeeper.snapshot` | 访问店主快照命令 | op |
+| `shopkeeper.teleport` | 通过命令传送给店主 | op |
+| `shopkeeper.teleport.others` | 将其他玩家传送给店主 | op |
+| `shopkeeper.trade` | 允许与店主交易 | True |
+| `shopkeeper.trade-notifications.admin` | 接收管理员商店的交易通知 | — |
+| `shopkeeper.trade-notifications.player` | 接收玩家商店的交易通知 | — |
+| `shopkeeper.transfer` | 转让玩家商店的所有权 | op |
+| `shopkeeper.updateitems` | 更新第三方餐点 | op |

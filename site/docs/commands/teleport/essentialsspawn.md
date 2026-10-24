@@ -39,7 +39,7 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `essentials.setspawn` | Allows access to the /setspawn command | — |
-| `essentials.spawn` | Allows access to the /spawn command | — |
-| `essentials.spawn-on-join.exempt` | Bypass spawn teleportation on join when spawn-on-join is true | — |
-| `essentials.spawn.others` | Allows access to the /spawn command for other players | — |
+| `essentials.setspawn` | 允许访问/setspawn命令 | — |
+| `essentials.spawn` | 允许访问/spawn命令 | — |
+| `essentials.spawn-on-join.exempt` | 当spawn-on-join为true时，在加入时绕过spawn传送 | — |
+| `essentials.spawn.others` | 允许其他玩家访问/spawn命令 | — |

@@ -21,7 +21,7 @@ createTime: 2026/10/24
 | `/copydisguise` | 将伪装输出到可用字符串 | `libsdisguises.seecmd.copydisguise` |
 | `/disguise` | 把自己伪装成一个实体。 | `libsdisguises.seecmd.disguise` |
 | `/disguiseanimation` | 在您自己的伪装上播放受支持的动画 | `libsdisguises.disguiseanimation` |
-| `/disguiseclone` | 复制伪装（或实体） ，稍后再使用。 | `libsdisguises.seecmd.disguiseclone` |
+| `/disguiseclone` | 复制伪装（或实体），稍后再使用。 | `libsdisguises.seecmd.disguiseclone` |
 | `/disguiseentity` | 将实体伪装成另一个实体。 | `libsdisguises.seecmd.disguiseentity` |
 | `/disguiseentityanimation` | 在右键单击的实体的伪装上播放支持的动画 | `libsdisguises.disguiseentityanimation` |
 | `/disguisehelp` | LibsDisguises的帮助命令。 | `libsdisguises.seecmd.disguisehelp` |
@@ -68,7 +68,7 @@ createTime: 2026/10/24
 
 ### /disguiseclone
 
-- **说明**：复制伪装（或实体） ，稍后再使用。
+- **说明**：复制伪装（或实体），稍后再使用。
 - **别名**：`/disguisec`、`/disc`、`/disclone`、`/dclone`、`/clonedisguise`、`/clonedis`、`/cdisguise`、`/cdis`、`/clonedisg`、`/disgclone`
 - **权限**：`libsdisguises.seecmd.disguiseclone`
 
@@ -216,56 +216,56 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `libsdisguises.config` | Allows player to check Lib's Disguises config for values | — |
-| `libsdisguises.count` | Allows the user to see how many disguises are active | — |
-| `libsdisguises.debug` | Allows a server admin to test a player disguise for scoreboard issues | — |
-| `libsdisguises.disguiseanimation` | Play a supported animation on your own disguise | op |
-| `libsdisguises.disguiseentityanimation` | Play a supported animation on a right clicked entity's disguise | op |
-| `libsdisguises.disguiseplayeranimation` | Play a supported animation on a player/uuid's disguise | op |
-| `libsdisguises.disguiseradiusanimation` | Play a supported animation on all supported disguises in a radius | op |
-| `libsdisguises.disguiseselectoranimation` | Play a supported animation on all supported disguises via entity selector | op |
-| `libsdisguises.grabhead` | Allows the command user to use /grabhead | — |
-| `libsdisguises.hidename` | Allows player to ignore name being forced above disguise | — |
-| `libsdisguises.json` | Allows player to parse held item to json | — |
-| `libsdisguises.metainfo` | Allows player to get meta info | — |
-| `libsdisguises.mods` | Allows the user to see mods in use. | — |
-| `libsdisguises.multiname` | Allows the command user to set names on different heights | — |
-| `libsdisguises.noactionbar` | Hides the action bar even if enabled in config | — |
-| `libsdisguises.permtest` | Allows player to test permissions | — |
-| `libsdisguises.pve` | Allows player to ignore pve restrictions. | — |
-| `libsdisguises.pvp` | Allows player to ignore pvp restrictions. | — |
-| `libsdisguises.ratelimitbypass` | Allows a living player to bypass the 500ms rate limit on disguise commands, used to prevent crashes | — |
-| `libsdisguises.reload` | Allows the user to reload LibsDisguises. | — |
-| `libsdisguises.scoreboardtest` | Test if the scoreboard is valid, this is a simple test. | — |
-| `libsdisguises.seecmd` | See all commands in tab-completion | True |
-| `libsdisguises.seecmd.copydisguise` | See the /copydisguise command in tab-completion | — |
-| `libsdisguises.seecmd.disguise` | See the /disguise command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseanimation` | See the /disguiseanimation command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseclone` | See the /disguiseclone command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseentity` | See the /disguiseentity command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseentityanimation` | See the /disguiseentityanimation command in tab-completion | — |
-| `libsdisguises.seecmd.disguisehelp` | See the /disguisehelp command in tab-completion | — |
-| `libsdisguises.seecmd.disguisemodify` | See the /disguisemodify command in tab-completion | — |
-| `libsdisguises.seecmd.disguisemodifyentity` | See the /disguisemodifyentity command in tab-completion | — |
-| `libsdisguises.seecmd.disguisemodifyplayer` | See the /disguisemodifyplayer command in tab-completion | — |
-| `libsdisguises.seecmd.disguisemodifyradius` | See the /disguisemodifyradius command in tab-completion | — |
-| `libsdisguises.seecmd.disguisemodifyselector` | See the /disguisemodifyselector command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseplayer` | See the /disguiseplayer command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseplayeranimation` | See the /disguiseplayeranimation command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseradius` | See the /disguiseradius command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseradiusanimation` | See the /disguiseradiusanimation command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseselector` | See the /disguiseselector command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseselectoranimation` | See the /disguiseselectoranimation command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseviewbar` | See the /disguiseviewbar command in tab-completion | — |
-| `libsdisguises.seecmd.disguiseviewself` | See the /disguiseviewself command in tab-completion | — |
-| `libsdisguises.seecmd.grabhead` | See the /grabhead command in tab-completion | — |
-| `libsdisguises.seecmd.grabskin` | See the /grabskin command in tab-completion | — |
-| `libsdisguises.seecmd.savedisguise` | See the /savedisguise command in tab-completion | — |
-| `libsdisguises.seecmd.undisguise` | See the /undisguise command in tab-completion | — |
-| `libsdisguises.seecmd.undisguiseentity` | See the /undisguiseentity command in tab-completion | — |
-| `libsdisguises.seecmd.undisguiseplayer` | See the /undisguiseplayer command in tab-completion | — |
-| `libsdisguises.seecmd.undisguiseradius` | See the /undisguiseradius command in tab-completion | — |
-| `libsdisguises.seecmd.undisguiseselector` | See the /undisguiseselector command in tab-completion | — |
-| `libsdisguises.seethrough` | Allows player to see through disguises. | — |
-| `libsdisguises.selfdisguises` | Controls if the player can view a self disguise, defaults to true. Only checked when disguise starts and toggling self disguises command. If the player has access to /disguisemodify they can turn it back on. | True |
-| `libsdisguises.update` | Allows the user to update Libs Disguises | — |
+| `libsdisguises.config` | 允许玩家检查Lib的伪装配置的值 | — |
+| `libsdisguises.count` | 允许用户查看有多少伪装处于活动状态 | — |
+| `libsdisguises.debug` | 允许服务器管理员测试玩家伪装在计分板上是否正常 | — |
+| `libsdisguises.disguiseanimation` | 在您自己的伪装上播放受支持的动画 | op |
+| `libsdisguises.disguiseentityanimation` | 在右键单击的实体的伪装上播放支持的动画 | op |
+| `libsdisguises.disguiseplayeranimation` | 在玩家/UUID的伪装上播放支持的动画 | op |
+| `libsdisguises.disguiseradiusanimation` | 在半径范围内的所有受支持的伪装上播放受支持的动画 | op |
+| `libsdisguises.disguiseselectoranimation` | 通过实体选择器在所有受支持的伪装上播放受支持的动画 | op |
+| `libsdisguises.grabhead` | 允许用户使用/grabhead命令 | — |
+| `libsdisguises.hidename` | 允许玩家忽略被迫高于伪装的名称 | — |
+| `libsdisguises.json` | 允许玩家将保留的项目解析为json | — |
+| `libsdisguises.metainfo` | 允许玩家获取元信息 | — |
+| `libsdisguises.mods` | 允许用户查看正在使用的MOD。 | — |
+| `libsdisguises.multiname` | 允许命令用户设置不同高度的名称 | — |
+| `libsdisguises.noactionbar` | 隐藏操作栏，即使在配置中启用 | — |
+| `libsdisguises.permtest` | 允许玩家测试权限 | — |
+| `libsdisguises.pve` | 允许玩家忽略pve限制。 | — |
+| `libsdisguises.pvp` | 允许玩家忽略pvp限制。 | — |
+| `libsdisguises.ratelimitbypass` | 允许活着的玩家绕过伪装命令的500ms速率限制，用于防止崩溃 | — |
+| `libsdisguises.reload` | 允许用户重新加载LibsDisguises。 | — |
+| `libsdisguises.scoreboardtest` | 测试计分板是否有效，这是一个简单的测试。 | — |
+| `libsdisguises.seecmd` | 在选项卡完成中查看所有命令 | True |
+| `libsdisguises.seecmd.copydisguise` | 请参阅TAB 补全中的/copydisguise命令 | — |
+| `libsdisguises.seecmd.disguise` | 请参阅TAB 补全中的/disguise命令 | — |
+| `libsdisguises.seecmd.disguiseanimation` | 参见TAB 补全中的/disguiseanimation命令 | — |
+| `libsdisguises.seecmd.disguiseclone` | 请参阅TAB 补全中的/disguiseclone命令 | — |
+| `libsdisguises.seecmd.disguiseentity` | 请参阅TAB 补全中的/disguiseentity命令 | — |
+| `libsdisguises.seecmd.disguiseentityanimation` | 请参阅TAB 补全中的/disguiseentityanimation命令 | — |
+| `libsdisguises.seecmd.disguisehelp` | 请参阅选项卡完成中的/disguisehelp命令 | — |
+| `libsdisguises.seecmd.disguisemodify` | 请参阅TAB 补全中的/disguisemodify命令 | — |
+| `libsdisguises.seecmd.disguisemodifyentity` | 请参阅TAB 补全中的/disguisemodifyentity命令 | — |
+| `libsdisguises.seecmd.disguisemodifyplayer` | 请参阅选项卡完成中的/disguisemodifyplayer命令 | — |
+| `libsdisguises.seecmd.disguisemodifyradius` | 请参阅TAB 补全中的/disguisemodifyradius命令 | — |
+| `libsdisguises.seecmd.disguisemodifyselector` | 请参阅TAB 补全中的/disguisemodifyselector命令 | — |
+| `libsdisguises.seecmd.disguiseplayer` | 请参阅制表符完成中的/disguiseplayer命令 | — |
+| `libsdisguises.seecmd.disguiseplayeranimation` | 请参阅制表符完成中的/disguiseplayeranimation命令 | — |
+| `libsdisguises.seecmd.disguiseradius` | 请参阅TAB 补全中的/disguiseradius命令 | — |
+| `libsdisguises.seecmd.disguiseradiusanimation` | 请参阅TAB 补全中的/disguiseradiusanimation命令 | — |
+| `libsdisguises.seecmd.disguiseselector` | 请参阅选项卡完成中的/disguiseselector命令 | — |
+| `libsdisguises.seecmd.disguiseselectoranimation` | 请参阅TAB 补全中的/disguiseselectoranimation命令 | — |
+| `libsdisguises.seecmd.disguiseviewbar` | 请参阅选项卡完成中的/disguiseviewbar命令 | — |
+| `libsdisguises.seecmd.disguiseviewself` | 请参阅TAB 补全中的/disguiseviewself命令 | — |
+| `libsdisguises.seecmd.grabhead` | 在TAB 补全中查看/grabhead命令 | — |
+| `libsdisguises.seecmd.grabskin` | 在选项卡完成中查看/grabskin命令 | — |
+| `libsdisguises.seecmd.savedisguise` | 在选项卡完成中查看/savedisguise命令 | — |
+| `libsdisguises.seecmd.undisguise` | 请参阅TAB 补全中的/undisguise命令 | — |
+| `libsdisguises.seecmd.undisguiseentity` | 请参阅TAB 补全中的/undisguiseentity命令 | — |
+| `libsdisguises.seecmd.undisguiseplayer` | 请参阅制表符完成中的/undisguiseplayer命令 | — |
+| `libsdisguises.seecmd.undisguiseradius` | 请参阅TAB 补全中的/undisguiseradius命令 | — |
+| `libsdisguises.seecmd.undisguiseselector` | 请参阅TAB 补全中的/undisguiseselector命令 | — |
+| `libsdisguises.seethrough` | 允许玩家看穿伪装。 | — |
+| `libsdisguises.selfdisguises` | 控制玩家是否可以查看自我伪装，默认为true。仅在伪装开始和切换自我伪装命令时选中。如果玩家有权访问/disguisemodify，他们可以将其重新打开。 | True |
+| `libsdisguises.update` | 允许用户更新Libs伪装 | — |

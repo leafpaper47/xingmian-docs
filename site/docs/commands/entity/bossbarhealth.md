@@ -31,6 +31,6 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `BossBarHealth.Admin` | Give access to all commands | op |
-| `BossBarHealth.Hide` | Give access to /bbh hide | True |
-| `BossBarHealth.Show` | Give access to /bbh show | True |
+| `BossBarHealth.Admin` | 授予对所有命令的访问权限 | op |
+| `BossBarHealth.Hide` | 允许访问/bbh hide | True |
+| `BossBarHealth.Show` | 允许访问/bbh节目 | True |

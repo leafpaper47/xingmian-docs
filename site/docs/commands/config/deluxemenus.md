@@ -31,11 +31,11 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `deluxemenus.admin` | admin commands | op |
-| `deluxemenus.menu.*` | permission for all menus | op |
-| `deluxemenus.open` | open a menu with /dm open &lt;menu&gt; | op |
-| `deluxemenus.open.bypass` | attempt to open a menu for a viewer skipping view requirement checking for the player | op |
-| `deluxemenus.open.others` | open a menu with /dm open &lt;menu&gt; &lt;player&gt; | op |
-| `deluxemenus.openrequirement.bypass.*` | Allows the viewer to bypass all menu open requirements | op |
-| `deluxemenus.placeholdersfor` | permission to parse menu placeholders with /dm open &lt;menu&gt; p:&lt;player&gt; | op |
-| `deluxemenus.placeholdersfor.exempt` | exempt from placeholders being parsed when targeted with /dm open &lt;menu p:&lt;player&gt; for players with this permission | op |
+| `deluxemenus.admin` | 管理员指令 | op |
+| `deluxemenus.menu.*` | 所有菜单的权限 | op |
+| `deluxemenus.open` | 打开菜单，打开/dm &lt;menu&gt; | op |
+| `deluxemenus.open.bypass` | 尝试为观众打开菜单，跳过播放器的观看要求检查 | op |
+| `deluxemenus.open.others` | 打开菜单，打开/dm &lt;menu&gt; &lt;player&gt; | op |
+| `deluxemenus.openrequirement.bypass.*` | 允许查看器绕过所有菜单打开要求 | op |
+| `deluxemenus.placeholdersfor` | /dm open &lt;menu&gt; p解析菜单占位符的权限：&lt;player&gt; | op |
+| `deluxemenus.placeholdersfor.exempt` | 当/dm为具有&lt;menu p:&lt;player&gt;此权限的玩家打开时，免于解析占位符 | op |

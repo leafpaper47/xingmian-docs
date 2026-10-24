@@ -41,7 +41,7 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `lobbygames.admin` | Access to /lg leaderboard, /lg create, and /lg delete | — |
-| `lobbygames.command` | Access to /lg list, /lg tp | — |
-| `lobbygames.forcejoin` | Access to /lgjoinplayer | — |
-| `lobbygames.kickplayer` | Access to /lg kick | — |
+| `lobbygames.admin` | 访问/lg排行榜、/lg创建和/lg删除 | — |
+| `lobbygames.command` | 访问/lg列表，/lg tp | — |
+| `lobbygames.forcejoin` | 访问/lgjoinplayer | — |
+| `lobbygames.kickplayer` | 进入/lg kick | — |

@@ -23,6 +23,11 @@ OVERRIDE = {
     "Permissions associated with tools": "与工具相关的权限",
     "Gives full access to the plugin": "拥有该插件的全部权限",
     "Allows access to particular command": "允许使用指定指令",
+    "Allows access to the /exp command": "允许使用 /exp 指令",
+    "Allows access to the /ice command": "允许使用 /ice 指令",
+    "Allows access to the /ice command for other players": "允许对其他玩家使用 /ice 指令",
+    "Give players with op everything by default": "默认让 OP 玩家拥有全部权限",
+    "5x5 crafting table with CraftEngine custom item support, pure-GUI recipe editor, recipe book & shapeless & eco cost": "5×5 工作台，支持 CraftEngine 自定义物品、纯 GUI 配方编辑器、配方书，无形状限制且不消耗经济",
 }
 
 # 全局术语替换（顺序敏感，长的在前）

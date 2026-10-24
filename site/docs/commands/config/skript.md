@@ -34,7 +34,7 @@ createTime: 2026/10/24
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
 | `skript.*` | — | — |
-| `skript.admin` | Allows use of administrative commands and receiving notifications of new versions. | op |
-| `skript.effectcommands` | Allows to use effects as commands, e.g. '!set health to 10' | — |
-| `skript.reloadnotify` | Notifies when others are reloading script files. | — |
-| `skript.see_runtime_errors` | Shows notifications in chat when runtime errors occur. | op |
+| `skript.admin` | 允许使用管理命令并接收新版本的通知。 | op |
+| `skript.effectcommands` | 允许将效果用作命令，例如“! set health to 10” | — |
+| `skript.reloadnotify` | 当其他人正在重新加载脚本文件时通知。 | — |
+| `skript.see_runtime_errors` | 发生运行时错误时在聊天中显示通知。 | op |

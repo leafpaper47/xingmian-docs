@@ -33,4 +33,4 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `fominingcomp.admin` | Access to all FoMiningComp admin commands | op |
+| `fominingcomp.admin` | 访问所有FoMiningComp管理命令 | op |

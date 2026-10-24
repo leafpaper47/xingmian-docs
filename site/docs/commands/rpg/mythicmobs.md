@@ -50,6 +50,6 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `mythicmobs.admin` | Gives access to everything! | op |
-| `mythicmobs.reload` | Gives access /mm reload! | op |
-| `mythicmobs.signal` | Gives access /mm signal! | op |
+| `mythicmobs.admin` | 方便您使用所有设施！ | op |
+| `mythicmobs.reload` | 允许访问/mm重新加载！ | op |
+| `mythicmobs.signal` | 提供接入/mm信号！ | op |

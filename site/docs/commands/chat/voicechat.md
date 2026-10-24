@@ -31,7 +31,7 @@ Minecraft中的有效语音聊天
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `voicechat.admin` | Allows to test voice chat connections | — |
-| `voicechat.groups` | Allows to join groups | — |
-| `voicechat.listen` | Allows to listen to voice chat | — |
-| `voicechat.speak` | Allows to speak in voice chat | — |
+| `voicechat.admin` | 允许测试语音聊天连接 | — |
+| `voicechat.groups` | 允许加入群组 | — |
+| `voicechat.listen` | 允许收听语音聊天 | — |
+| `voicechat.speak` | 允许语音聊天 | — |

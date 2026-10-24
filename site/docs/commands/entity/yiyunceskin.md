@@ -32,5 +32,5 @@ CraftEngine兼容项目皮肤插件
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `yiyunceskin.admin` | Admin permission for YiyunCEskin | op |
-| `yiyunceskin.use` | Basic skin usage permission | true |
+| `yiyunceskin.admin` | YiyunCEskin的管理员权限 | op |
+| `yiyunceskin.use` | 基本皮肤使用权限 | true |

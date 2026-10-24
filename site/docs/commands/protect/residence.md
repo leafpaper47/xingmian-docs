@@ -50,96 +50,96 @@ Cuboid Residence插件
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `residence.admin` | Gives you access to /resadmin | op |
-| `residence.admin.move` | Allows to override move flag | op |
-| `residence.admin.tp` | Allows to override tp flag | op |
-| `residence.bypass.command` | Bypasses command flag in residence | op |
-| `residence.bypass.nofly` | Bypasses nofly flag in residence | op |
-| `residence.chatcolor` | Allows to change residence chat color | True |
-| `residence.chatkick` | Allows to kick players from residence chat | True |
-| `residence.chatprefix` | Allows to change residence chat prefix | op |
-| `residence.command.area` | Allows to access particular command | True |
-| `residence.command.auto` | Allows to create max residence | True |
-| `residence.command.bank` | Allows to access particular command | True |
-| `residence.command.check` | Allows to access particular command | True |
-| `residence.command.clearflags` | Allows to access particular command | op |
-| `residence.command.command` | Allows to access particular command | True |
-| `residence.command.compass` | Allows to access particular command | True |
-| `residence.command.confirm` | Allows to access particular command | True |
-| `residence.command.contract` | Allows to access particular command | True |
-| `residence.command.create` | Allows to access particular command | True |
-| `residence.command.current` | Allows to access particular command | True |
-| `residence.command.expand` | Allows to access particular command | True |
-| `residence.command.flags` | Allows to access particular command | True |
-| `residence.command.give` | Allows to access particular command | True |
-| `residence.command.gset` | Allows to access particular command | True |
-| `residence.command.gui` | Allows to access particular command | True |
-| `residence.command.info` | Allows to access particular command | True |
-| `residence.command.kick` | Allows to access particular command | True |
-| `residence.command.lease` | Allows to access particular command | True |
-| `residence.command.limits` | Allows to access particular command | True |
-| `residence.command.list` | Allows to access particular command | True |
-| `residence.command.list.others` | Allows to access particular command | True |
-| `residence.command.listall` | Allows to access particular command | True |
-| `residence.command.listallhidden` | Allows to access particular command | op |
-| `residence.command.listhidden` | Allows to access particular command | op |
-| `residence.command.lists` | Allows to access particular command | True |
-| `residence.command.lset` | Allows to access particular command | True |
-| `residence.command.market` | Allows to access particular command | True |
-| `residence.command.material` | Allows to access particular command | True |
-| `residence.command.message` | Allows to access particular command | True |
-| `residence.command.message.enter` | Allows to access particular command | True |
-| `residence.command.message.enter.remove` | Allows to access particular command | True |
-| `residence.command.message.leave` | Allows to access particular command | True |
-| `residence.command.message.leave.remove` | Allows to access particular command | True |
-| `residence.command.mirror` | Allows to access particular command | True |
-| `residence.command.padd` | Allows to access particular command | True |
-| `residence.command.pdel` | Allows to access particular command | True |
-| `residence.command.pset` | Allows to access particular command | True |
-| `residence.command.rc` | Allows to access particular command | True |
-| `residence.command.reload` | Allows to access particular command | op |
-| `residence.command.remove` | Allows to access particular command | True |
-| `residence.command.removeall` | Allows to access particular command | op |
-| `residence.command.removeworld` | Allows to access particular command | op |
-| `residence.command.rename` | Allows to access particular command | True |
-| `residence.command.renamearea` | Allows to access particular command | True |
-| `residence.command.resadmin` | Allows to access particular command | op |
-| `residence.command.resbank` | Allows to access particular command | True |
-| `residence.command.reset` | Allows to access particular command | True |
-| `residence.command.rt` | Allows to access particular command | True |
-| `residence.command.select` | Allows to access particular command | True |
-| `residence.command.server` | Allows to access particular command | op |
-| `residence.command.set` | Allows to access particular command | True |
-| `residence.command.setdefaultflags` | Allows to access particular command | True |
-| `residence.command.setmain` | Allows to access particular command | True |
-| `residence.command.setowner` | Allows to access particular command | op |
-| `residence.command.shop` | Allows to access particular command | True |
-| `residence.command.show` | Allows to access particular command | True |
-| `residence.command.siege` | Allows to access particular command | True |
-| `residence.command.signconvert` | Allows to access particular command | op |
-| `residence.command.signupdate` | Allows to access particular command | op |
-| `residence.command.sublist` | Allows to access particular command | True |
-| `residence.command.subzone` | Allows to access particular command | True |
-| `residence.command.tool` | Allows to access particular command | True |
-| `residence.command.tp` | Allows to access particular command | True |
-| `residence.command.tpconfirm` | Allows to access particular command | True |
-| `residence.command.tpset` | Allows to access particular command | True |
-| `residence.command.unstuck` | Allows to access particular command | True |
-| `residence.command.version` | Allows to access particular command | True |
-| `residence.compass` | Allows to set compass pointer to residence | True |
-| `residence.contract` | Allows you to contract residence | True |
-| `residence.contract.subzone` | Allows you to contract residences subzone | True |
-| `residence.create` | Allows you to create residences | True |
-| `residence.create.subzone` | Allows you to create residences subzone | True |
-| `residence.delete` | Allows you to delete residences | True |
-| `residence.delete.subzone` | Allows you to delete residences subzone | True |
-| `residence.expand` | Allows you to expand residence | True |
-| `residence.expand.subzone` | Allows you to expand residences subzone | True |
-| `residence.newguyresidence` | Allows for auto residence creation on chest place | True |
-| `residence.randomtp` | Allows to use /res rt command | True |
-| `residence.rename` | Allows you to rename residences | True |
-| `residence.resize` | Allows you to resize an area | True |
-| `residence.select` | Allows you to select an area to make residences | True |
-| `residence.select.auto.others` | Allows to turn on auto selection for other players | op |
-| `residence.topadmin` | Gives you access to /resreload and /resload commands | op |
-| `residence.versioncheck` | Notice to new version after connect | op |
+| `residence.admin` | 允许您访问/resadmin | op |
+| `residence.admin.move` | 允许覆盖移动标志 | op |
+| `residence.admin.tp` | 允许覆盖tp标志 | op |
+| `residence.bypass.command` | 在驻留中绕过命令标志 | op |
+| `residence.bypass.nofly` | 在住宅内绕过禁飞旗 | op |
+| `residence.chatcolor` | 允许更改住宅聊天颜色 | True |
+| `residence.chatkick` | 允许将玩家从住宅聊天中踢出 | True |
+| `residence.chatprefix` | 允许更改住宅聊天前缀 | op |
+| `residence.command.area` | 允许访问特定命令 | True |
+| `residence.command.auto` | 允许创建最大住宅 | True |
+| `residence.command.bank` | 允许访问特定命令 | True |
+| `residence.command.check` | 允许访问特定命令 | True |
+| `residence.command.clearflags` | 允许访问特定命令 | op |
+| `residence.command.command` | 允许访问特定命令 | True |
+| `residence.command.compass` | 允许访问特定命令 | True |
+| `residence.command.confirm` | 允许访问特定命令 | True |
+| `residence.command.contract` | 允许访问特定命令 | True |
+| `residence.command.create` | 允许访问特定命令 | True |
+| `residence.command.current` | 允许访问特定命令 | True |
+| `residence.command.expand` | 允许访问特定命令 | True |
+| `residence.command.flags` | 允许访问特定命令 | True |
+| `residence.command.give` | 允许访问特定命令 | True |
+| `residence.command.gset` | 允许访问特定命令 | True |
+| `residence.command.gui` | 允许访问特定命令 | True |
+| `residence.command.info` | 允许访问特定命令 | True |
+| `residence.command.kick` | 允许访问特定命令 | True |
+| `residence.command.lease` | 允许访问特定命令 | True |
+| `residence.command.limits` | 允许访问特定命令 | True |
+| `residence.command.list` | 允许访问特定命令 | True |
+| `residence.command.list.others` | 允许访问特定命令 | True |
+| `residence.command.listall` | 允许访问特定命令 | True |
+| `residence.command.listallhidden` | 允许访问特定命令 | op |
+| `residence.command.listhidden` | 允许访问特定命令 | op |
+| `residence.command.lists` | 允许访问特定命令 | True |
+| `residence.command.lset` | 允许访问特定命令 | True |
+| `residence.command.market` | 允许访问特定命令 | True |
+| `residence.command.material` | 允许访问特定命令 | True |
+| `residence.command.message` | 允许访问特定命令 | True |
+| `residence.command.message.enter` | 允许访问特定命令 | True |
+| `residence.command.message.enter.remove` | 允许访问特定命令 | True |
+| `residence.command.message.leave` | 允许访问特定命令 | True |
+| `residence.command.message.leave.remove` | 允许访问特定命令 | True |
+| `residence.command.mirror` | 允许访问特定命令 | True |
+| `residence.command.padd` | 允许访问特定命令 | True |
+| `residence.command.pdel` | 允许访问特定命令 | True |
+| `residence.command.pset` | 允许访问特定命令 | True |
+| `residence.command.rc` | 允许访问特定命令 | True |
+| `residence.command.reload` | 允许访问特定命令 | op |
+| `residence.command.remove` | 允许访问特定命令 | True |
+| `residence.command.removeall` | 允许访问特定命令 | op |
+| `residence.command.removeworld` | 允许访问特定命令 | op |
+| `residence.command.rename` | 允许访问特定命令 | True |
+| `residence.command.renamearea` | 允许访问特定命令 | True |
+| `residence.command.resadmin` | 允许访问特定命令 | op |
+| `residence.command.resbank` | 允许访问特定命令 | True |
+| `residence.command.reset` | 允许访问特定命令 | True |
+| `residence.command.rt` | 允许访问特定命令 | True |
+| `residence.command.select` | 允许访问特定命令 | True |
+| `residence.command.server` | 允许访问特定命令 | op |
+| `residence.command.set` | 允许访问特定命令 | True |
+| `residence.command.setdefaultflags` | 允许访问特定命令 | True |
+| `residence.command.setmain` | 允许访问特定命令 | True |
+| `residence.command.setowner` | 允许访问特定命令 | op |
+| `residence.command.shop` | 允许访问特定命令 | True |
+| `residence.command.show` | 允许访问特定命令 | True |
+| `residence.command.siege` | 允许访问特定命令 | True |
+| `residence.command.signconvert` | 允许访问特定命令 | op |
+| `residence.command.signupdate` | 允许访问特定命令 | op |
+| `residence.command.sublist` | 允许访问特定命令 | True |
+| `residence.command.subzone` | 允许访问特定命令 | True |
+| `residence.command.tool` | 允许访问特定命令 | True |
+| `residence.command.tp` | 允许访问特定命令 | True |
+| `residence.command.tpconfirm` | 允许访问特定命令 | True |
+| `residence.command.tpset` | 允许访问特定命令 | True |
+| `residence.command.unstuck` | 允许访问特定命令 | True |
+| `residence.command.version` | 允许访问特定命令 | True |
+| `residence.compass` | 允许设置指向驻留的指南针指针 | True |
+| `residence.contract` | 允许您签约居住 | True |
+| `residence.contract.subzone` | 允许您签约住宅子区 | True |
+| `residence.create` | 允许您创建住宅 | True |
+| `residence.create.subzone` | 允许您创建住宅子区域 | True |
+| `residence.delete` | 允许您删除住宅 | True |
+| `residence.delete.subzone` | 允许您删除住宅子区域 | True |
+| `residence.expand` | 允许您扩展住所 | True |
+| `residence.expand.subzone` | 允许您扩展住宅子区域 | True |
+| `residence.newguyresidence` | 允许在胸部位置自动创建居所 | True |
+| `residence.randomtp` | 允许使用/res rt命令 | True |
+| `residence.rename` | 允许您重命名住宅 | True |
+| `residence.resize` | 允许您调整区域的大小 | True |
+| `residence.select` | 允许您选择一个区域来建造住宅 | True |
+| `residence.select.auto.others` | 允许为其他玩家打开自动选择 | op |
+| `residence.topadmin` | 允许您访问/resreload和/resload命令 | op |
+| `residence.versioncheck` | 连接后通知新版本 | op |

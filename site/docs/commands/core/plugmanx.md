@@ -33,25 +33,25 @@ Bukkit服务器的插件管理器
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `plugman.admin` | Allows use of all PlugMan commands. | op |
-| `plugman.check` | Allows use of the check command. | op |
-| `plugman.check.all` | Allows use of the check all command. | op |
-| `plugman.deps` | Allows use of the deps command. | op |
-| `plugman.disable` | Allows use of the disable command. | op |
-| `plugman.disable.all` | Allows use of the disable all command. | op |
-| `plugman.dump` | Allows use of the dump command. | op |
-| `plugman.enable` | Allows use of the enable command. | op |
-| `plugman.enable.all` | Allows use of the enable all command. | op |
-| `plugman.help` | Allows use of the help command. | op |
-| `plugman.info` | Allows use of the info command. | op |
-| `plugman.list` | Allows use of the list command. | op |
-| `plugman.load` | Allows use of the load command. | op |
-| `plugman.lookup` | Allows use of the lookup command. | op |
-| `plugman.reload` | Allows use of the reload command. | op |
-| `plugman.reloadconfig` | Allows use of the reload config command. | op |
-| `plugman.reloadmode` | Allows use of the reload mode command. | op |
-| `plugman.restart` | Allows use of the restart command. | op |
-| `plugman.restart.all` | Allows use of the restart all command. | op |
-| `plugman.unload` | Allows use of the unload command. | op |
-| `plugman.update` | Allows the player to see the update alerts. | op |
-| `plugman.usage` | Allows use of the usage command. | op |
+| `plugman.admin` | 允许使用所有PlugMan命令。 | op |
+| `plugman.check` | 允许使用check命令。 | op |
+| `plugman.check.all` | 允许使用check all命令。 | op |
+| `plugman.deps` | 允许使用deps命令。 | op |
+| `plugman.disable` | 允许使用disable命令。 | op |
+| `plugman.disable.all` | 允许使用disable all命令。 | op |
+| `plugman.dump` | 允许使用dump命令。 | op |
+| `plugman.enable` | 允许使用enable命令。 | op |
+| `plugman.enable.all` | 允许使用enable all命令。 | op |
+| `plugman.help` | 允许使用help命令。 | op |
+| `plugman.info` | 允许使用info命令。 | op |
+| `plugman.list` | 允许使用list命令。 | op |
+| `plugman.load` | 允许使用load命令。 | op |
+| `plugman.lookup` | 允许使用查找命令。 | op |
+| `plugman.reload` | 允许使用reload命令。 | op |
+| `plugman.reloadconfig` | 允许使用reload config命令。 | op |
+| `plugman.reloadmode` | 允许使用reload mode命令。 | op |
+| `plugman.restart` | 允许使用重新启动命令。 | op |
+| `plugman.restart.all` | 允许使用RESTART ALL命令。 | op |
+| `plugman.unload` | 允许使用unload命令。 | op |
+| `plugman.update` | 允许玩家查看更新警报。 | op |
+| `plugman.usage` | 允许使用usage命令。 | op |

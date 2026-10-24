@@ -39,5 +39,5 @@ Vault的公关友好版本；实际上接受公关。
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `vault.admin` | Grants access to the administrative tools. | op |
-| `vault.update` | Notifies the player when Vault is in need of an update. | op |
+| `vault.admin` | 授予对管理工具的访问权限。 | op |
+| `vault.update` | 当避难所需要更新时通知玩家。 | op |

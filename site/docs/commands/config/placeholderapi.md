@@ -31,24 +31,24 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `placeholderapi.*` | Ability to use all PAPI commands | — |
-| `placeholderapi.admin` | Ability to use all PAPI commands | — |
-| `placeholderapi.ecloud` | Allows you to access PAPI eCloud | op |
-| `placeholderapi.ecloud.*` | Ability to use all PAPI ecloud commands | — |
-| `placeholderapi.ecloud.clear` | Allows you to clear the local eCloud expansion cache | op |
-| `placeholderapi.ecloud.download` | Allows you to download an expansion from the eCloud | op |
-| `placeholderapi.ecloud.info` | Allows you to view cloud expansion information | op |
-| `placeholderapi.ecloud.list` | Allows you to list eCloud expansions | op |
-| `placeholderapi.ecloud.placeholders` | Allows you to view the placeholders of a eCloud expansion | op |
-| `placeholderapi.ecloud.refresh` | Allows you to refresh the local eCloud expansion cache | op |
-| `placeholderapi.ecloud.status` | Allows you to view the status of eCloud expansions | op |
-| `placeholderapi.ecloud.update` | Allows you to update registered eCloud expansions | op |
-| `placeholderapi.help` | Allows you to view the list of PAPI commands | op |
-| `placeholderapi.info` | Allows you to view expansion information | op |
-| `placeholderapi.list` | Allows you to list active expansions | op |
-| `placeholderapi.parse` | Allows you to parse placeholders | op |
-| `placeholderapi.register` | Allows you to register expansions | op |
-| `placeholderapi.reload` | Allows you to reload PAPI and its configuration | op |
-| `placeholderapi.unregister` | Allows you to unregister expansions | op |
-| `placeholderapi.updatenotify` | Notifies you when there is a PAPI update | op |
-| `placeholderapi.version` | Allows you to view the version of PAPI installed | op |
+| `placeholderapi.*` | 能够使用所有PAPI命令 | — |
+| `placeholderapi.admin` | 能够使用所有PAPI命令 | — |
+| `placeholderapi.ecloud` | 允许您访问PAPI eCloud | op |
+| `placeholderapi.ecloud.*` | 能够使用所有PAPI ecloud命令 | — |
+| `placeholderapi.ecloud.clear` | 允许您清除本地eCloud扩展缓存 | op |
+| `placeholderapi.ecloud.download` | 允许您从eCloud下载扩展 | op |
+| `placeholderapi.ecloud.info` | 允许您查看云扩展信息 | op |
+| `placeholderapi.ecloud.list` | 允许您列出eCloud扩展 | op |
+| `placeholderapi.ecloud.placeholders` | 允许您查看eCloud扩展的占位符 | op |
+| `placeholderapi.ecloud.refresh` | 允许您刷新本地eCloud扩展缓存 | op |
+| `placeholderapi.ecloud.status` | 允许您查看eCloud扩展的状态 | op |
+| `placeholderapi.ecloud.update` | 允许您更新已注册的eCloud扩展 | op |
+| `placeholderapi.help` | 允许您查看PAPI命令列表 | op |
+| `placeholderapi.info` | 允许您查看扩展信息 | op |
+| `placeholderapi.list` | 允许您列出活动扩展 | op |
+| `placeholderapi.parse` | 允许您分析占位符 | op |
+| `placeholderapi.register` | 允许您注册扩展 | op |
+| `placeholderapi.reload` | 允许您重新加载PAPI及其配置 | op |
+| `placeholderapi.unregister` | 允许您取消注册扩展 | op |
+| `placeholderapi.updatenotify` | 当有PAPI更新时通知您 | op |
+| `placeholderapi.version` | 允许您查看已安装的PAPI版本 | op |

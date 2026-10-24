@@ -33,4 +33,4 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `meteorshowers.admin` | Access to all MeteorShowers admin commands | op |
+| `meteorshowers.admin` | 访问所有MeteorShowers管理命令 | op |

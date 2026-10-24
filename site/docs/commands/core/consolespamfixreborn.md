@@ -24,4 +24,4 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `csf.admin` | Admin commands access. | op |
+| `csf.admin` | 管理员命令访问。 | op |

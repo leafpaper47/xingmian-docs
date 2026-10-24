@@ -33,7 +33,7 @@ FancyNpcs的非官方游戏内编辑器
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
 | `fancynpcsgui.actions` | — | op |
-| `fancynpcsgui.admin` | Grants all NPC GUI permissions | op |
+| `fancynpcsgui.admin` | 授予所有NPC GUI权限 | op |
 | `fancynpcsgui.create` | — | op |
 | `fancynpcsgui.delete` | — | op |
 | `fancynpcsgui.edit` | — | op |

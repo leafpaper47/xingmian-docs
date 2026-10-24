@@ -24,31 +24,31 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `tab.admin` | Grants all TAB permissions | op |
-| `tab.announce.bar` | Allows player to run /tab bossbar announce | op |
-| `tab.announce.scoreboard` | Allows player to run /tab scoreboard announce | op |
-| `tab.bossbar.toggle` | Allows player to run /tab bossbar | op |
-| `tab.bypass` | Makes player bypass per world playerlist if bypass permission is enabled | op |
-| `tab.change.*` | Allows player to change property using command | op |
-| `tab.cpu` | Allows player to run /tab cpu | op |
-| `tab.dump` | Allows player to run /tab dump &lt;player&gt; | op |
-| `tab.group.*` | Considers player in group if assigning by permissions | op |
-| `tab.groupinfo` | Allows player to run /tab group &lt;group&gt; | op |
-| `tab.grouplist` | Allows player to run /tab groups | op |
-| `tab.mysql.download` | Allows player to run /tab mysql download | op |
-| `tab.mysql.upload` | Allows player to run /tab mysql upload | op |
-| `tab.nametag.toggle` | Allows player to run /tab nametag toggle | op |
-| `tab.nametag.toggle.other` | Allows player to run /tab nametag toggle [other player] | op |
-| `tab.parse` | Allows player to run /tab parse &lt;player&gt; &lt;placeholder&gt; | op |
-| `tab.reload` | Allows player to run /tab reload | op |
-| `tab.remove` | Allows player to remove group/user using commands | op |
-| `tab.scoreboard.show` | Allows player to run /tab scoreboard show | op |
-| `tab.scoreboard.show.other` | Allows player to run /tab scoreboard show for other players | op |
-| `tab.scoreboard.toggle` | Allows player to run /tab scoreboard | op |
-| `tab.scoreboard.toggle.other` | Allows player to run /tab scoreboard for other players | op |
-| `tab.seevanished` | Marks player as able to see vanished players for features hooking into vanish plugins | op |
-| `tab.send.bar` | Allows player to run /tab bossbar send | op |
-| `tab.setcollision` | Allows player to run /tab setcollision &lt;player&gt; &lt;true/false&gt; | op |
-| `tab.spectatorbypass` | Makes player bypass spectator fix | op |
-| `tab.staff` | Makes player counted in %staffonline% placeholder | op |
-| `tab.tabcomplete` | Allows player to complete all TAB commands | op |
+| `tab.admin` | 授予所有标签页权限 | op |
+| `tab.announce.bar` | 允许玩家运行/tab bossbar公告 | op |
+| `tab.announce.scoreboard` | 允许玩家运行/tab 计分板公告 | op |
+| `tab.bossbar.toggle` | 允许玩家运行/tab bossbar | op |
+| `tab.bypass` | 如果启用了绕过权限，则使每个世界玩家列表的玩家绕过 | op |
+| `tab.change.*` | 允许玩家使用命令更改属性 | op |
+| `tab.cpu` | 允许播放器运行/tab cpu | op |
+| `tab.dump` | 允许播放器运行/tab 转储 &lt;player&gt; | op |
+| `tab.group.*` | 如果通过权限分配，则考虑组中的玩家 | op |
+| `tab.groupinfo` | 允许播放器运行/tab 组 &lt;group&gt; | op |
+| `tab.grouplist` | 允许玩家运行/tab 组 | op |
+| `tab.mysql.download` | 允许播放器运行/tab mysql下载 | op |
+| `tab.mysql.upload` | 允许播放器运行/tab mysql上传 | op |
+| `tab.nametag.toggle` | 允许玩家运行/tab 名称标签切换 | op |
+| `tab.nametag.toggle.other` | 允许玩家运行/tab 名称标签切换[其他玩家] | op |
+| `tab.parse` | 允许播放器运行/tab 解析 &lt;player&gt; &lt;placeholder&gt; | op |
+| `tab.reload` | 允许播放器运行/tab 重新加载 | op |
+| `tab.remove` | 允许玩家使用命令删除组/user | op |
+| `tab.scoreboard.show` | 允许玩家运行/tab 记分板显示 | op |
+| `tab.scoreboard.show.other` | 允许玩家为其他玩家运行/tab 计分板显示 | op |
+| `tab.scoreboard.toggle` | 允许玩家运行/tab 记分板 | op |
+| `tab.scoreboard.toggle.other` | 允许玩家为其他玩家运行/tab 记分板 | op |
+| `tab.seevanished` | 将玩家标记为能够看到消失的玩家，因为功能挂钩到消失的插件中 | op |
+| `tab.send.bar` | 允许玩家运行/tab BOSSBAR发送 | op |
+| `tab.setcollision` | 允许玩家运行/tab setcollision &lt;player&gt; &lt;true/false&gt; | op |
+| `tab.spectatorbypass` | 使玩家绕过旁观者修复 | op |
+| `tab.staff` | 使玩家在% staffonline %占位符中计数 | op |
+| `tab.tabcomplete` | 允许玩家完成所有选项卡命令 | op |

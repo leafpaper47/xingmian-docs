@@ -22,4 +22,4 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `modelengine.command` | Access to all Model Engine commands. | op |
+| `modelengine.command` | 访问所有模型引擎命令。 | op |

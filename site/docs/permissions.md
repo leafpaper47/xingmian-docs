@@ -55,7 +55,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [BookEdit](/commands/essentials/bookedit.md) | `bookedit.use` | 允许修改自己写的书（作者改匿名、设为破旧） | True |
 | [CraftBench](/commands/essentials/craftbench.md) | `craftbench.admin` | 允许管理配方 | op |
 | [CraftBench](/commands/essentials/craftbench.md) | `craftbench.use` | 允许使用合成台 | True |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.*` | 默认情况下，为玩家提供操作一切 | op |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.*` | 默认让 OP 玩家拥有全部权限 | op |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.afk` | 允许访问/afk命令 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.afk.auto` | 拥有此权限的玩家在配置文件中定义的无操作时间段后将被设置为afk | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.afk.kickexempt` | 拥有此权限的玩家不会因为是AFK而被踢出 | — |
@@ -130,7 +130,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Essentials](/commands/essentials/essentials.md) | `essentials.enderchest.others` | 允许其他玩家访问/enderchest命令 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.essentials` | 允许访问/essentials命令 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.exempt` | 豁免许多版主操作的父级权限 | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.exp` | 允许访问/EXP命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.exp` | 允许使用 /exp 指令 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.exp.give` | 允许持有人为自己提供经验 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.exp.give.others` | 允许持有人为其他玩家提供经验 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.exp.others` | 允许持有人查看其他玩家的体验 | — |
@@ -189,8 +189,8 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Essentials](/commands/essentials/essentials.md) | `essentials.home.bed` | 允许访问床的/home命令 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.home.compass` | 将玩家的指南针指向他们的第一个主页。需要在配置中启用compass-towards-home-per | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.home.others` | 允许使用/home命令传送到其他玩家家园 | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ice` | 允许访问/ice命令 | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ice.others` | 允许其他玩家访问/ICE命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ice` | 允许使用 /ice 指令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ice.others` | 允许对其他玩家使用 /ice 指令 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.ignore` | 允许访问/ignore命令 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.info` | 允许访问/info命令 | — |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.invsee` | 允许访问/invsee命令 | — |
@@ -628,13 +628,13 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemeditimport` | 授予对命令/itemeditimport的完全访问权限 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemeditinfo` | 授予对command/itemeditinfo的完全访问权限 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemeditreload` | 授予对命令/itemeditreload的完全访问权限 | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.*` | 提供对命令/项存储的完全访问权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.*` | 提供对命令/itemstorage | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.delete` | 允许删除已存储的物品 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.get` | 允许获取存储的物料 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.save` | 允许存储物品 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.show` | 允许查看已存储的物品 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.update` | 允许更新已存储的物品 | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.*` | 授予对命令/服务器项的完全访问权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.*` | 授予对命令/serveritem | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.buy` | 允许购买固定数量的存储项目 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.buymax` | 允许购买已存储的物品 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.delete` | 允许删除已存储的物品 | op |
@@ -1090,30 +1090,30 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.outdate.default` | — | True |
 | [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.price.default` | — | True |
 | [TAB](/commands/chat/tab.md) | `tab.admin` | 授予所有标签页权限 | op |
-| [TAB](/commands/chat/tab.md) | `tab.announce.bar` | 允许玩家运行/选项卡bossbar公告 | op |
-| [TAB](/commands/chat/tab.md) | `tab.announce.scoreboard` | 允许玩家运行/制表符计分板公告 | op |
-| [TAB](/commands/chat/tab.md) | `tab.bossbar.toggle` | 允许玩家运行/选项卡bossbar | op |
+| [TAB](/commands/chat/tab.md) | `tab.announce.bar` | 允许玩家运行/tab bossbar公告 | op |
+| [TAB](/commands/chat/tab.md) | `tab.announce.scoreboard` | 允许玩家运行/tab 计分板公告 | op |
+| [TAB](/commands/chat/tab.md) | `tab.bossbar.toggle` | 允许玩家运行/tab bossbar | op |
 | [TAB](/commands/chat/tab.md) | `tab.bypass` | 如果启用了绕过权限，则使每个世界玩家列表的玩家绕过 | op |
 | [TAB](/commands/chat/tab.md) | `tab.change.*` | 允许玩家使用命令更改属性 | op |
-| [TAB](/commands/chat/tab.md) | `tab.cpu` | 允许播放器运行/制表符cpu | op |
-| [TAB](/commands/chat/tab.md) | `tab.dump` | 允许播放器运行/选项卡转储 &lt;player&gt; | op |
+| [TAB](/commands/chat/tab.md) | `tab.cpu` | 允许播放器运行/tab cpu | op |
+| [TAB](/commands/chat/tab.md) | `tab.dump` | 允许播放器运行/tab 转储 &lt;player&gt; | op |
 | [TAB](/commands/chat/tab.md) | `tab.group.*` | 如果通过权限分配，则考虑组中的玩家 | op |
-| [TAB](/commands/chat/tab.md) | `tab.groupinfo` | 允许播放器运行/选项卡组 &lt;group&gt; | op |
-| [TAB](/commands/chat/tab.md) | `tab.grouplist` | 允许玩家运行/选项卡组 | op |
-| [TAB](/commands/chat/tab.md) | `tab.mysql.download` | 允许播放器运行/标签mysql下载 | op |
-| [TAB](/commands/chat/tab.md) | `tab.mysql.upload` | 允许播放器运行/标签mysql上传 | op |
-| [TAB](/commands/chat/tab.md) | `tab.nametag.toggle` | 允许玩家运行/制表符名称标签切换 | op |
-| [TAB](/commands/chat/tab.md) | `tab.nametag.toggle.other` | 允许玩家运行/标签名称标签切换[其他玩家] | op |
-| [TAB](/commands/chat/tab.md) | `tab.parse` | 允许播放器运行/制表符解析 &lt;player&gt; &lt;placeholder&gt; | op |
-| [TAB](/commands/chat/tab.md) | `tab.reload` | 允许播放器运行/选项卡重新加载 | op |
-| [TAB](/commands/chat/tab.md) | `tab.remove` | 允许玩家使用命令删除组/用户 | op |
-| [TAB](/commands/chat/tab.md) | `tab.scoreboard.show` | 允许玩家运行/制表符记分板显示 | op |
-| [TAB](/commands/chat/tab.md) | `tab.scoreboard.show.other` | 允许玩家为其他玩家运行/制表符计分板显示 | op |
-| [TAB](/commands/chat/tab.md) | `tab.scoreboard.toggle` | 允许玩家运行/制表符记分板 | op |
-| [TAB](/commands/chat/tab.md) | `tab.scoreboard.toggle.other` | 允许玩家为其他玩家运行/制表符记分板 | op |
+| [TAB](/commands/chat/tab.md) | `tab.groupinfo` | 允许播放器运行/tab 组 &lt;group&gt; | op |
+| [TAB](/commands/chat/tab.md) | `tab.grouplist` | 允许玩家运行/tab 组 | op |
+| [TAB](/commands/chat/tab.md) | `tab.mysql.download` | 允许播放器运行/tab mysql下载 | op |
+| [TAB](/commands/chat/tab.md) | `tab.mysql.upload` | 允许播放器运行/tab mysql上传 | op |
+| [TAB](/commands/chat/tab.md) | `tab.nametag.toggle` | 允许玩家运行/tab 名称标签切换 | op |
+| [TAB](/commands/chat/tab.md) | `tab.nametag.toggle.other` | 允许玩家运行/tab 名称标签切换[其他玩家] | op |
+| [TAB](/commands/chat/tab.md) | `tab.parse` | 允许播放器运行/tab 解析 &lt;player&gt; &lt;placeholder&gt; | op |
+| [TAB](/commands/chat/tab.md) | `tab.reload` | 允许播放器运行/tab 重新加载 | op |
+| [TAB](/commands/chat/tab.md) | `tab.remove` | 允许玩家使用命令删除组/user | op |
+| [TAB](/commands/chat/tab.md) | `tab.scoreboard.show` | 允许玩家运行/tab 记分板显示 | op |
+| [TAB](/commands/chat/tab.md) | `tab.scoreboard.show.other` | 允许玩家为其他玩家运行/tab 计分板显示 | op |
+| [TAB](/commands/chat/tab.md) | `tab.scoreboard.toggle` | 允许玩家运行/tab 记分板 | op |
+| [TAB](/commands/chat/tab.md) | `tab.scoreboard.toggle.other` | 允许玩家为其他玩家运行/tab 记分板 | op |
 | [TAB](/commands/chat/tab.md) | `tab.seevanished` | 将玩家标记为能够看到消失的玩家，因为功能挂钩到消失的插件中 | op |
-| [TAB](/commands/chat/tab.md) | `tab.send.bar` | 允许玩家运行/选项卡BOSSBAR发送 | op |
-| [TAB](/commands/chat/tab.md) | `tab.setcollision` | 允许玩家运行/标签setcollision &lt;player&gt; &lt;true/fals | op |
+| [TAB](/commands/chat/tab.md) | `tab.send.bar` | 允许玩家运行/tab BOSSBAR发送 | op |
+| [TAB](/commands/chat/tab.md) | `tab.setcollision` | 允许玩家运行/tab setcollision &lt;player&gt; &lt;true/fa | op |
 | [TAB](/commands/chat/tab.md) | `tab.spectatorbypass` | 使玩家绕过旁观者修复 | op |
 | [TAB](/commands/chat/tab.md) | `tab.staff` | 使玩家在% staffonline %占位符中计数 | op |
 | [TAB](/commands/chat/tab.md) | `tab.tabcomplete` | 允许玩家完成所有选项卡命令 | op |

@@ -41,14 +41,14 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `ecoenchants.*` | All ecoenchants permissions | op |
-| `ecoenchants.anvil.*` | All anvil perks | op |
-| `ecoenchants.anvil.color` | Allows using color codes in anvils | op |
-| `ecoenchants.command.*` | All commands | op |
-| `ecoenchants.command.ecoenchants` | Allows the use of /ecoenchants. | True |
-| `ecoenchants.command.enchant` | Allows the use of /enchant. | op |
-| `ecoenchants.command.enchantinfo` | Allows the use of /enchantinfo. | True |
-| `ecoenchants.command.giverandombook` | Allows giving random books | op |
-| `ecoenchants.command.gui` | Allows the use of /ecoenchants gui. | True |
-| `ecoenchants.command.reload` | Allows reloading the config | op |
-| `ecoenchants.command.toggledescriptions` | Allows the use of /ecoenchants toggledescriptions. | True |
+| `ecoenchants.*` | 所有ecoenchants权限 | op |
+| `ecoenchants.anvil.*` | 所有铁砧特权 | op |
+| `ecoenchants.anvil.color` | 允许在砧座中使用颜色代码 | op |
+| `ecoenchants.command.*` | 所有指令 | op |
+| `ecoenchants.command.ecoenchants` | 允许使用/ecoenchants。 | True |
+| `ecoenchants.command.enchant` | 允许使用/enchant。 | op |
+| `ecoenchants.command.enchantinfo` | 允许使用/enchantinfo。 | True |
+| `ecoenchants.command.giverandombook` | 允许随机赠送图书 | op |
+| `ecoenchants.command.gui` | 允许使用/ecoenchants gui。 | True |
+| `ecoenchants.command.reload` | 允许重新加载配置 | op |
+| `ecoenchants.command.toggledescriptions` | 允许使用/ecoenchants切换描述。 | True |

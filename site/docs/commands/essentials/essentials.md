@@ -130,7 +130,7 @@ createTime: 2026/10/24
 | `/showkit` | 显示试剂盒的内容。 | — |
 | `/skull` | 设置玩家头骨的所有者 | — |
 | `/smithingtable` | 打开一张锻造桌。 | — |
-| `/socialspy` | 切换是否可以在聊天中看到消息/邮件命令。 | — |
+| `/socialspy` | 切换是否可以在聊天中看到消息/mail。 | — |
 | `/spawner` | 更改生成器的mob类型。 | — |
 | `/spawnmob` | 生成一群暴徒。 | — |
 | `/speed` | 更改速度限制。 | — |
@@ -847,7 +847,7 @@ createTime: 2026/10/24
 
 ### /socialspy
 
-- **说明**：切换是否可以在聊天中看到消息/邮件命令。
+- **说明**：切换是否可以在聊天中看到消息/mail。
 - **用法**：`/&lt;command&gt; [player] [on|off]`
 - **别名**：`/esocialspy`
 
@@ -1095,456 +1095,456 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `essentials.*` | Give players with op everything by default | op |
-| `essentials.afk` | Allows access to the /afk command | — |
-| `essentials.afk.auto` | Players with this permission will be set to afk after a period of inaction as defined in the config file | — |
-| `essentials.afk.kickexempt` | Players with this permission will not be kicked for being AFK | — |
-| `essentials.afk.message` | Allows the player to set a custom AFK message | — |
-| `essentials.afk.others` | Allows the player to set another player's AFK status | — |
-| `essentials.antioch` | Allows access to the /antioch command | — |
-| `essentials.anvil` | Allows access to the /anvil command | — |
-| `essentials.back` | Allows access to the /back command | — |
-| `essentials.back.into.<world>` | Allows the player to use the /back command to travel to a specific world | — |
-| `essentials.back.ondeath` | Players with this permission will have back location stored during death | — |
-| `essentials.back.onteleport` | Players with this permission will have back location stored during any teleportation | True |
-| `essentials.back.others` | Allows access to the /back command for other players | — |
-| `essentials.backup` | Allows access to the /backup command | — |
-| `essentials.balance` | Allows access to the /balance command | — |
-| `essentials.balance.others` | Allows view other players balance with the /balance command | — |
-| `essentials.balancetop` | Allows access to the /balancetop command | — |
-| `essentials.balancetop.exclude` | Players with this permission are excluded from the balancetop | — |
-| `essentials.balancetop.force` | Allows access to force refresh the balancetop list | — |
-| `essentials.ban` | Allows access to the /ban command | — |
-| `essentials.ban.exempt` | Prevent a specified group or player from being banned | — |
-| `essentials.ban.notify` | Allows the bearer to be notified when a player is banned | — |
-| `essentials.ban.offline` | Allows access to the /ban command for offline players, which may in turn by used to ban exempt players who are offline | — |
-| `essentials.banip` | Allows access to the /banip command | — |
-| `essentials.banip.notify` | Allows the bearer to be notified when a player is banned | — |
-| `essentials.beezooka` | Allows access to the /beezooka command | — |
-| `essentials.bigtree` | Allows access to the /bigtree command | — |
-| `essentials.book` | Allows access to the /book command | — |
-| `essentials.book.author` | Allows access to edit book authors with the /book command | — |
-| `essentials.book.others` | Allows access to edit other players books with the /book command | — |
-| `essentials.book.title` | Allows access to edit book titles with the /book command | — |
-| `essentials.bottom` | Allows access to the /bottom command | — |
-| `essentials.break` | Allows access to the /break command | — |
-| `essentials.break.bedrock` | Allows access to the /break command for bedrock | — |
-| `essentials.broadcast` | Allows access to the /broadcast command | — |
-| `essentials.broadcastworld` | Allows access to the /broadcastworld command | — |
-| `essentials.burn` | Allows access to the /burn command | — |
-| `essentials.cartographytable` | Allows access to the /cartographytable command | — |
-| `essentials.chat.ignoreexempt` | Someone with this permission will not be ignored, even if they are on another persons ignore list | — |
-| `essentials.chat.spy` | Allows the bearers to see all local chat messages, regardless of their proximity to the sender | — |
-| `essentials.chat.spy.exempt` | Allows the bearer to be exempt from the local chat spy permission | — |
-| `essentials.clearinventory` | Allows access to the /clearinventory command | — |
-| `essentials.clearinventory.all` | Allows access to clear the inventory of all players with the /clearinventory command | — |
-| `essentials.clearinventory.others` | Allows access to clear the inventory of other players with the /clearinventory command | — |
-| `essentials.clearinventoryconfirmtoggle` | Allows access to the /clearinventoryconfirmtoggle command | — |
-| `essentials.commandcooldowns.bypass` | Allows the bypassing of all command cooldowns | — |
-| `essentials.commandcooldowns.bypass.<commandname>` | Allows the bypassing of the cooldown for a specific command | — |
-| `essentials.compass` | Allows access to the /compass command | — |
-| `essentials.condense` | Allows access to the /condense command | — |
-| `essentials.createkit` | Allows access to the /createkit command | — |
-| `essentials.customtext` | Allows access to the /customtext command and all aliases | — |
-| `essentials.delhome` | Allows access to the /delhome command | — |
-| `essentials.delhome.others` | Allows access to delete other players homes with the /delhome command | — |
-| `essentials.deljail` | Allows access to the /deljail command | — |
-| `essentials.delkit` | Allows access to the /delkit command | — |
-| `essentials.delwarp` | Allows access to the /delwarp command | — |
-| `essentials.depth` | Allows access to the /depth command | — |
-| `essentials.disposal` | Allows access to the /disposal command | — |
-| `essentials.eco` | Allows access to the /eco command | — |
-| `essentials.eco.loan` | Allows the bearer to possess a negative balance | — |
-| `essentials.editsign` | Allows access to the /editsign command | — |
-| `essentials.editsign.color` | Allows the bearer to use color codes on signs | — |
-| `essentials.editsign.format` | Allows the bearer to use formatting codes on signs | — |
-| `essentials.editsign.magic` | Allows the bearer to use magic codes on signs | — |
-| `essentials.editsign.rgb` | Allows the bearer to use RGB codes on signs | — |
-| `essentials.editsign.unlimited` | Allows the bearer to exceed the 15 character limit on signs | — |
-| `essentials.editsign.waxed.exempt` | Allows the bearer to edit waxed signs | — |
-| `essentials.enchant` | Allows access to the /enchant command | — |
-| `essentials.enchantments.<enchantment>` | Allows the bearer to use a specific enchantment with the /enchant command | — |
-| `essentials.enchantments.allowunsafe` | Allows the bearer to enchant items with unsafe enchantments | — |
-| `essentials.enderchest` | Allows access to the /enderchest command | — |
-| `essentials.enderchest.modify` | Allows the bearer to modify other players enderchests | — |
-| `essentials.enderchest.others` | Allows access to the /enderchest command for other players | — |
-| `essentials.essentials` | Allows access to the /essentials command | — |
-| `essentials.exempt` | Parent permission to be exempt from many moderator actions | — |
-| `essentials.exp` | Allows access to the /exp command | — |
-| `essentials.exp.give` | Allows the bearer to give experience to themselves | — |
-| `essentials.exp.give.others` | Allows the bearer to give experience to other players | — |
-| `essentials.exp.others` | Allows the bearer to view other players experience | — |
-| `essentials.exp.set` | Allows the bearer to set experience for themselves | — |
-| `essentials.exp.set.others` | Allows the bearer to set experience for other players | — |
-| `essentials.ext` | Allows access to the /ext command | — |
-| `essentials.ext.others` | Allows access to the /ext command for other players | — |
-| `essentials.feed` | Allows access to the /feed command | — |
-| `essentials.feed.others` | Allows access to the /feed command for other players | — |
-| `essentials.fireball` | Allows access to the /fireball command. Additional permissions are required for each type of fireball. | — |
-| `essentials.fireball.arrow` | Allows access to use the arrows in the /fireball command | — |
-| `essentials.fireball.dragon` | Allows access to use the dragon in the /fireball command | — |
-| `essentials.fireball.egg` | Allows access to use the egg in the /fireball command | — |
-| `essentials.fireball.fireball` | Allows access to use the fireball in the /fireball command | — |
-| `essentials.fireball.large` | Allows access to use the large fireball in the /fireball command | — |
-| `essentials.fireball.lingeringpotion` | Allows access to use the lingering potion in the /fireball command | — |
-| `essentials.fireball.skull` | Allows access to use the skull in the /fireball command | — |
-| `essentials.fireball.small` | Allows access to use the small fireball in the /fireball command | — |
-| `essentials.fireball.snowball` | Allows access to use the snowball in the /fireball command | — |
-| `essentials.fireball.splashpotion` | Allows access to use the splash potion in the /fireball command | — |
-| `essentials.fireball.trident` | Allows access to use the trident in the /fireball command | — |
-| `essentials.firework` | Allows access to the /firework command | — |
-| `essentials.firework.fire` | Allows the bearer to use the firework command to launch a copy of the firework in hand | — |
-| `essentials.firework.multiple` | Allows the bearer to use the firework command to launch multiple fireworks | — |
-| `essentials.fly` | Allows access to the /fly command | — |
-| `essentials.fly.others` | Allows access to the /fly command for other players | — |
-| `essentials.fly.safelogin` | Bearers of this permission will be put into fly mode if they log in while in the air | — |
-| `essentials.gamemode` | Allows access to the /gamemode command | — |
-| `essentials.gamemode.*` | Allows access to all gamemodes with the /gamemode command | op |
-| `essentials.gamemode.adventure` | Allows access to the adventure gamemode with the /gamemode command | — |
-| `essentials.gamemode.all` | Allows access to all gamemodes with the /gamemode command | — |
-| `essentials.gamemode.creative` | Allows access to the creative gamemode with the /gamemode command | — |
-| `essentials.gamemode.others` | Allows access to the /gamemode command for other players | — |
-| `essentials.gamemode.spectator` | Allows access to the spectator gamemode with the /gamemode command | — |
-| `essentials.gamemode.survival` | Allows access to the survival gamemode with the /gamemode command | — |
-| `essentials.gc` | Allows access to the /gc command | — |
-| `essentials.getpos` | Allows access to the /getpos command | — |
-| `essentials.getpos.others` | Allows access to the /getpos command for other players | — |
-| `essentials.give` | Allows access to the /give command | — |
-| `essentials.give.item-<item-name>` | Allows access to the /give command for a specific item when permission-based-item-spawn is enabled | — |
-| `essentials.give.item-all` | Allows access to the /give command for all items when permission-based-item-spawn is enabled | — |
-| `essentials.god` | Allows access to the /god command | — |
-| `essentials.god.others` | Allows access to the /god command for other players | — |
-| `essentials.god.pvp` | Allows the bearer to attack players while in god mode | — |
-| `essentials.grindstone` | Allows access to the /grindstone command | — |
-| `essentials.hat` | Allows access to the /hat command | — |
-| `essentials.hat.ignore-binding` | Allows the bearer to use the /hat command when they have equipped an item with curse of binding | — |
-| `essentials.hat.prevent-type.<item-name>` | Prevents the player from using the /hat command with the specified item | — |
-| `essentials.heal` | Allows access to the /heal command | — |
-| `essentials.heal.others` | Allows access to the /heal command for other players | — |
-| `essentials.help` | Allows access to the /help command | — |
-| `essentials.help.<plugin-name>` | Allows access to the /help command for a specific plugin | — |
-| `essentials.helpop` | Allows access to the /helpop command | — |
-| `essentials.helpop.receive` | Allows the bearer to receive helpop messages | — |
-| `essentials.home` | Allows access to the /home command | — |
-| `essentials.home.bed` | Allows access to the /home command for beds | — |
-| `essentials.home.compass` | Point the player's compass at their first home. compass-towards-home-perm needs to be enabled in the configuration. | — |
-| `essentials.home.others` | Allows access to teleport to other players homes with the /home command | — |
-| `essentials.ice` | Allows access to the /ice command | — |
-| `essentials.ice.others` | Allows access to the /ice command for other players | — |
-| `essentials.ignore` | Allows access to the /ignore command | — |
-| `essentials.info` | Allows access to the /info command | — |
-| `essentials.invsee` | Allows access to the /invsee command | — |
-| `essentials.invsee.equip` | Allows access to view items in armor slots with the /invsee command | — |
-| `essentials.invsee.modify` | Allows access to modify items in other players inventories with the /invsee command | — |
-| `essentials.invsee.preventmodify` | Prevents other players from modifying the players inventory. | — |
-| `essentials.item` | Allows access to the /item command | — |
-| `essentials.itemdb` | Allows access to the /itemdb command | — |
-| `essentials.itemlore` | Allows access to the /itemlore command | — |
-| `essentials.itemname` | Allows access to the /itemname command | — |
-| `essentials.itemname.color` | Allows access to the /itemname command with color text | — |
-| `essentials.itemname.format` | Allows access to the /itemname command with formatting text | — |
-| `essentials.itemname.magic` | Allows access to the /itemname command with magic text | — |
-| `essentials.itemname.prevent-type.<item-name>` | Prevents the player from using the /itemname command with the specified item | — |
-| `essentials.itemname.rgb` | Allows access to the /itemname command with RGB text | — |
-| `essentials.itemspawn.exempt` | Allows the bearer to spawn items in the item blacklist | — |
-| `essentials.itemspawn.meta-author` | Allows the bearer to spawn items with author metadata | — |
-| `essentials.itemspawn.meta-book` | Allows the bearer to spawn items with pre-filled content from book.txt | — |
-| `essentials.itemspawn.meta-chapter-<chapter>` | Allows the bearer to spawn specific books only, from book.txt. with the /give command. | — |
-| `essentials.itemspawn.meta-firework` | Allows the bearer to spawn items with firework metadata | — |
-| `essentials.itemspawn.meta-head` | Allows the bearer to spawn items with head metadata | — |
-| `essentials.itemspawn.meta-lore` | Allows the bearer to spawn items with lore metadata | — |
-| `essentials.itemspawn.meta-title` | Allows the bearer to spawn items with title metadata | — |
-| `essentials.jail.allow-block-damage` | Allows the bearer to damage blocks while jailed | — |
-| `essentials.jail.allow-break` | Allows the bearer to break blocks while jailed | — |
-| `essentials.jail.allow-interact` | Allows the bearer to interact with blocks while jailed | — |
-| `essentials.jail.allow-place` | Allows the bearer to place blocks while jailed | — |
-| `essentials.jail.allow.<command>` | Allows the bearer to use the specified command while jailed | — |
-| `essentials.jail.exempt` | Prevent a specified group or player from being jailed | — |
-| `essentials.jail.notify` | Allows the bearer to be notified when other players are jailed | — |
-| `essentials.jailedplayers` | Allows access to the /jailedplayers command | — |
-| `essentials.jails` | Allows access to the /jails command | — |
-| `essentials.joinfullserver` | Allows the to join the server even if it is full | — |
-| `essentials.jump` | Allows access to the /jump command | — |
-| `essentials.jump.lock` | Allows access to the /jump lock command | — |
-| `essentials.keepinv` | Controls whether players keep their inventory on death. | — |
-| `essentials.keepxp` | Allows the user to keep their exp on death, instead of dropping it. | — |
-| `essentials.kick` | Allows access to the /kick command | — |
-| `essentials.kick.exempt` | Prevents the player from being kicked. | — |
-| `essentials.kick.notify` | Allows the bearer to be notified when other players are kicked | — |
-| `essentials.kickall` | Allows access to the /kickall command | — |
-| `essentials.kickall.exempt` | Prevents the player from being kicked by /kickall | — |
-| `essentials.kill` | Allows access to the /kill command | — |
-| `essentials.kill.exempt` | Prevents the player from being killed by /kill | — |
-| `essentials.kill.force` | Allows the bearer to be killed by /kill even if their death is canceled | — |
-| `essentials.kit` | Allows access to the /kit command | — |
-| `essentials.kit.exemptdelay` | Exempts you from the kit delay feature, this affects signs as well as command. | — |
-| `essentials.kit.others` | Allows access to the /kit command for other players | — |
-| `essentials.kitreset` | Allows access to the /kitreset command | — |
-| `essentials.kitreset.others` | Allows access to reset other players kits with the /kitreset command | — |
-| `essentials.kits.*` | Allows access to all kits | — |
-| `essentials.kits.<kit-name>` | Allows access to a specific kit | — |
-| `essentials.kittycannon` | Allows access to the /kittycannon command | — |
-| `essentials.lightning` | Allows access to the /lightning command | — |
-| `essentials.lightning.others` | Allows access to the /lightning command for other players | — |
-| `essentials.list` | Allows access to the /list command | — |
-| `essentials.list.hidden` | Allow access to view hidden players in the /list command | — |
-| `essentials.loom` | Allows access to the /loom command | — |
-| `essentials.mail` | Allows access to the /mail command | — |
-| `essentials.mail.clear.others` | Allows access to clear other players mail with the /mail command | — |
-| `essentials.mail.clearall` | Allows access to clear all mail with the /mail command | — |
-| `essentials.mail.send` | Allows access to send mail with the /mail command | — |
-| `essentials.mail.sendall` | Allows access to send mail to all players with the /mail command | — |
-| `essentials.mail.sendtemp` | Allows access to send temporary mail with the /mail command | — |
-| `essentials.me` | Allows access to the /me command | — |
-| `essentials.more` | Allows access to the /more command | — |
-| `essentials.motd` | Allows access to the /motd command | — |
-| `essentials.msg` | Allows access to the /msg command | — |
-| `essentials.msg.color` | Allows access to the /msg command with color text | — |
-| `essentials.msg.format` | Allows access to the /msg command with formatting text | — |
-| `essentials.msg.magic` | Allows access to the /msg command with magic text | — |
-| `essentials.msg.multiple` | Allows access to send messages to multiple players with the /msg command | — |
-| `essentials.msg.rgb` | Allows access to the /msg command with RGB text | — |
-| `essentials.msg.url` | Allows access to send URLs in the /msg command | — |
-| `essentials.msgtoggle` | Allows access to the /msgtoggle command | — |
-| `essentials.msgtoggle.bypass` | Allows the bearer to bypass the msgtoggle setting for other players | — |
-| `essentials.msgtoggle.others` | Allows access to the /msgtoggle command for other players | — |
-| `essentials.mute` | Allows access to the /mute command | — |
-| `essentials.mute.exempt` | Prevent a specified group or player from being muted | — |
-| `essentials.mute.notify` | Allows the bearer to be notified when other players are muted | — |
-| `essentials.mute.offline` | Allows access to mute offline players | — |
-| `essentials.mute.unlimited` | Allows the bearer to override the max-mute-time setting | — |
-| `essentials.near` | Allows access to the /near command | — |
-| `essentials.near.exclude` | If the player should be excluded from near lookups. | — |
-| `essentials.near.maxexempt` | Allows the bearer to bypass the radius limit for the /near command | — |
-| `essentials.near.others` | Allows access to the /near command for other players | — |
-| `essentials.nick` | Allows access to the /nick command | — |
-| `essentials.nick.allowunsafe` | If a player has this, they can set their username to any value. Use with caution, as this has the potential to break userdata files. | — |
-| `essentials.nick.blacklist.bypass` | Allows the bearer to bypass the nickname blacklist | — |
-| `essentials.nick.changecolors` | Allows the bearer to change **only** the color of their nickname | — |
-| `essentials.nick.color` | Allows access to the /nick command with color text | — |
-| `essentials.nick.format` | Allows access to the /nick command with formatting text | — |
-| `essentials.nick.hideprefix` | Players with this permission will not have the nickname prefix applied to them | — |
-| `essentials.nick.magic` | Allows access to the /nick command with magic text | — |
-| `essentials.nick.others` | Allows access to the /nick command for other players | — |
-| `essentials.nick.rgb` | Allows access to the /nick command with RGB text | — |
-| `essentials.nocommandcost.<command>` | Allows the bearer to use the specified command without cost | — |
-| `essentials.nocommandcost.all` | Allows the bearer to use all commands without cost | — |
-| `essentials.nuke` | Allows access to the /nuke command | — |
-| `essentials.oversizedstacks` | Allows the bearer to spawn oversized stacks | — |
-| `essentials.pay` | Allows access to the /pay command | — |
-| `essentials.pay.multiple` | Allows access to pay multiple players with the /pay command | — |
-| `essentials.pay.offline` | Allows access to pay offline players with the /pay command | — |
-| `essentials.payconfirmtoggle` | Allows access to the /payconfirmtoggle command | — |
-| `essentials.paytoggle` | Allows access to the /paytoggle command | — |
-| `essentials.ping` | Allows access to the /ping command | — |
-| `essentials.playtime` | Allows access to the /playtime command | — |
-| `essentials.playtime.others` | Allows access to the /playtime command for other players | — |
-| `essentials.potion` | Allows access to the /potion command | — |
-| `essentials.potion.<potion-type>` | Allows access to the /potion command for a specific potion type | — |
-| `essentials.potion.apply` | Allows access to the /potion apply command | — |
-| `essentials.powertool` | Allows access to the /powertool command | — |
-| `essentials.powertool.append` | Allows access to add multiple commands to a powertool | — |
-| `essentials.powertoollist` | Allows access to the /powertoollist command | — |
-| `essentials.powertooltoggle` | Allows access to the /powertooltoggle command | — |
-| `essentials.ptime` | Allows access to the /ptime command | — |
-| `essentials.ptime.others` | Allows access to the /ptime command for other players | — |
-| `essentials.pvpdelay.exempt` | Allows the bearer to bypass the pvp delay setting | — |
-| `essentials.pweather` | Allows access to the /pweather command | — |
-| `essentials.pweather.others` | Allows access to the /pweather command for other players | — |
-| `essentials.realname` | Allows access to the /realname command | — |
-| `essentials.recipe` | Allows access to the /recipe command | — |
-| `essentials.remove` | Allows access to the /remove command | — |
-| `essentials.renamehome` | Allows access to the /renamehome command | — |
-| `essentials.renamehome.others` | Allows access to rename other players homes with the /renamehome command | — |
-| `essentials.repair` | Allows access to the /repair command | — |
-| `essentials.repair.all` | Allows access to the /repair all command | — |
-| `essentials.repair.armor` | Allows access to the /repair armor command | — |
-| `essentials.repair.enchanted` | Allows access to use the /repair command on enchanted items | — |
-| `essentials.rest` | Allows access to the /rest command | — |
-| `essentials.rest.others` | Allows access to the /rest command for other players | — |
-| `essentials.rtoggle` | Allows access to the /rtoggle command | — |
-| `essentials.rules` | Allows access to the /rules command | — |
-| `essentials.seen` | Allows access to the /seen command | — |
-| `essentials.seen.alts` | Allows access to the /seen command with alts | — |
-| `essentials.seen.banreason` | Allows access to the /seen command with ban reason | — |
-| `essentials.seen.extra` | Allows access to the /seen command with extra information | — |
-| `essentials.seen.firstlogin` | Allows access to the /seen command with first login time | — |
-| `essentials.seen.ip` | Allows access to the /seen command with IP address | — |
-| `essentials.seen.ipsearch` | Allows access to use IP addresses with the /seen command | — |
-| `essentials.seen.location` | Allows access to the /seen command with location | — |
-| `essentials.seen.uuid` | Allows access to the /seen command with UUID | — |
-| `essentials.seen.whitelist` | Allows access to the /seen command with whitelist status | — |
-| `essentials.sell` | Allows access to the /sell command | — |
-| `essentials.sell.bulk` | Allows access to bulk sell items with the /sell command | — |
-| `essentials.sell.hand` | Allows access to sell the item in hand with the /sell command | — |
-| `essentials.sethome` | Allows access to the /sethome command | — |
-| `essentials.sethome.bed` | Allows the player to right click a bed during daytime to update their 'bed' home. | — |
-| `essentials.sethome.multiple` | Allows access to set multiple homes with the /sethome command | — |
-| `essentials.sethome.multiple.<set name>` | Raises the limit of homes to a specific number defined in the config | — |
-| `essentials.sethome.multiple.unlimited` | Allows access to set unlimited homes with the /sethome command | — |
-| `essentials.sethome.others` | Allows access to set other players homes with the /sethome command | — |
-| `essentials.setjail` | Allows access to the /setjail command | — |
-| `essentials.settpr` | Allows access to the /settpr command | — |
-| `essentials.setwarp` | Allows access to the /setwarp command | — |
-| `essentials.setworth` | Allows access to the /setworth command | — |
-| `essentials.showkit` | Allows access to the /showkit command | — |
-| `essentials.signs.break.balance` | Allows the bearer to break balance signs | — |
-| `essentials.signs.break.buy` | Allows the bearer to break buy signs | — |
-| `essentials.signs.break.disposal` | Allows the bearer to break disposal signs | — |
-| `essentials.signs.break.enchant` | Allows the bearer to break enchant signs | — |
-| `essentials.signs.break.free` | Allows the bearer to break free signs | — |
-| `essentials.signs.break.gamemode` | Allows the bearer to break gamemode signs | — |
-| `essentials.signs.break.heal` | Allows the bearer to break heal signs | — |
-| `essentials.signs.break.info` | Allows the bearer to break info signs | — |
-| `essentials.signs.break.kit` | Allows the bearer to break kit signs | — |
-| `essentials.signs.break.mail` | Allows the bearer to break mail signs | — |
-| `essentials.signs.break.protection` | Allows the bearer to break protection signs | — |
-| `essentials.signs.break.repair` | Allows the bearer to break repair signs | — |
-| `essentials.signs.break.sell` | Allows the bearer to break sell signs | — |
-| `essentials.signs.break.spawnmob` | Allows the bearer to break spawnmob signs | — |
-| `essentials.signs.break.time` | Allows the bearer to break time signs | — |
-| `essentials.signs.break.trade` | Allows the bearer to break trade signs | — |
-| `essentials.signs.break.warp` | Allows the bearer to break warp signs | — |
-| `essentials.signs.break.weather` | Allows the bearer to break weather signs | — |
-| `essentials.signs.color` | Allows the bearer to create and use color signs | — |
-| `essentials.signs.create.balance` | Allows the bearer to create balance signs | — |
-| `essentials.signs.create.buy` | Allows the bearer to create buy signs | — |
-| `essentials.signs.create.disposal` | Allows the bearer to create disposal signs | — |
-| `essentials.signs.create.enchant` | Allows the bearer to create enchant signs | — |
-| `essentials.signs.create.free` | Allows the bearer to create free signs | — |
-| `essentials.signs.create.gamemode` | Allows the bearer to create gamemode signs | — |
-| `essentials.signs.create.heal` | Allows the bearer to create heal signs | — |
-| `essentials.signs.create.info` | Allows the bearer to create info signs | — |
-| `essentials.signs.create.kit` | Allows the bearer to create kit signs | — |
-| `essentials.signs.create.mail` | Allows the bearer to create mail signs | — |
-| `essentials.signs.create.protection` | Allows the bearer to create protection signs | — |
-| `essentials.signs.create.repair` | Allows the bearer to create repair signs | — |
-| `essentials.signs.create.sell` | Allows the bearer to create sell signs | — |
-| `essentials.signs.create.spawnmob` | Allows the bearer to create spawnmob signs | — |
-| `essentials.signs.create.time` | Allows the bearer to create time signs | — |
-| `essentials.signs.create.trade` | Allows the bearer to create trade signs | — |
-| `essentials.signs.create.warp` | Allows the bearer to create warp signs | — |
-| `essentials.signs.create.weather` | Allows the bearer to create weather signs | — |
-| `essentials.signs.enchant.allowunsafe` | Allows the bearer to create and use unsafe enchantment signs | — |
-| `essentials.signs.format` | Allows the bearer to create and use format signs | — |
-| `essentials.signs.magic` | Allows the bearer to create and use magic signs | — |
-| `essentials.signs.protection.override` | Allows the bearer to break signs created by other players | — |
-| `essentials.signs.rgb` | Allows the bearer to create and use RGB signs | — |
-| `essentials.signs.trade.override` | Allows the bearer to break trade signs created by other players | — |
-| `essentials.signs.trade.override.collect` | Allows the bearer to collect items from trade signs created by other players | — |
-| `essentials.signs.use.balance` | Allows the bearer to use balance signs | — |
-| `essentials.signs.use.buy` | Allows the bearer to use buy signs | — |
-| `essentials.signs.use.disposal` | Allows the bearer to use disposal signs | — |
-| `essentials.signs.use.enchant` | Allows the bearer to use enchant signs | — |
-| `essentials.signs.use.free` | Allows the bearer to use free signs | — |
-| `essentials.signs.use.gamemode` | Allows the bearer to use gamemode signs | — |
-| `essentials.signs.use.heal` | Allows the bearer to use heal signs | — |
-| `essentials.signs.use.info` | Allows the bearer to use info signs | — |
-| `essentials.signs.use.kit` | Allows the bearer to use kit signs | — |
-| `essentials.signs.use.mail` | Allows the bearer to use mail signs | — |
-| `essentials.signs.use.protection` | Allows the bearer to use protection signs | — |
-| `essentials.signs.use.repair` | Allows the bearer to use repair signs | — |
-| `essentials.signs.use.sell` | Allows the bearer to use sell signs | — |
-| `essentials.signs.use.spawnmob` | Allows the bearer to use spawnmob signs | — |
-| `essentials.signs.use.time` | Allows the bearer to use time signs | — |
-| `essentials.signs.use.trade` | Allows the bearer to use trade signs | — |
-| `essentials.signs.use.warp` | Allows the bearer to use warp signs | — |
-| `essentials.signs.use.weather` | Allows the bearer to use weather signs | — |
-| `essentials.silentjoin` | Allow to join silently | — |
-| `essentials.silentjoin.vanish` | Allow to join silently, and get put in vanish mode | — |
-| `essentials.silentquit` | Suppress leave/quit messages for users with this permission. | — |
-| `essentials.skull` | Allows access to the /skull command | — |
-| `essentials.skull.modify` | Allows access to modify other players skulls with the /skull command | — |
-| `essentials.skull.others` | Allows access to creating other players skulls with the /skull command | — |
-| `essentials.skull.spawn` | Allows access to spawn a skull with the /skull command | — |
-| `essentials.sleepingignored` | Allows the bearer to not be required to sleep to skip the night | — |
-| `essentials.smithingtable` | Allows access to the /smithingtable command | — |
-| `essentials.socialspy` | Allows access to the /socialspy command | — |
-| `essentials.socialspy.others` | Allows access to the /socialspy command for other players | — |
-| `essentials.spawner` | Allows access to the /spawner command | — |
-| `essentials.spawner.*` | Allows access to set the type of a spawner with the /spawner command to all types | — |
-| `essentials.spawner.<mob-type>` | Allows access to set the type of a spawner with the /spawner command to a specific type | — |
-| `essentials.spawner.delay` | Allows access to set the delay of a spawner with the /spawner command | — |
-| `essentials.spawnerconvert.*` | Allows the bearer to place spawners of any type | — |
-| `essentials.spawnerconvert.<mob-type>` | Allows the bearer to place spawners of a specific type | — |
-| `essentials.spawnmob` | Allows access to the /spawnmob command | — |
-| `essentials.spawnmob.*` | Allows access to spawn all mobs with the /spawnmob command | — |
-| `essentials.spawnmob.<mob-type>` | Allows access to spawn a specific mob with the /spawnmob command | — |
-| `essentials.spawnmob.stack` | Allows access to spawn mobs in stacks with the /spawnmob command | — |
-| `essentials.speed` | Allows access to the /speed command | — |
-| `essentials.speed.bypass` | Allows the bearer to bypass the speed limit set in the config | — |
-| `essentials.speed.fly` | Allows access to the /speed command for fly speed | — |
-| `essentials.speed.others` | Allows access to the /speed command for other players | — |
-| `essentials.speed.walk` | Allows access to the /speed command for walk speed | — |
-| `essentials.stonecutter` | Allows access to the /stonecutter command | — |
-| `essentials.sudo` | Allows access to the /sudo command | — |
-| `essentials.sudo.exempt` | Prevents the player from being sudo'ed by another user | — |
-| `essentials.sudo.multiple` | Allows access to the /sudo command for multiple players | — |
-| `essentials.suicide` | Allows access to the /suicide command for multiple players | — |
-| `essentials.teleport.cooldown.bypass.back` | If the player does not have this permission, /back will have cooldown even with the parent bypass perm | True |
-| `essentials.teleport.cooldown.bypass.tpa` | If the player does not have this permission, /tpa will have cooldown even with the parent bypass perm | True |
-| `essentials.teleport.timer.bypass` | Allows the bearer to bypass the teleport delay | — |
-| `essentials.teleport.timer.move` | Allows the bearer to move while waiting for a teleport | — |
-| `essentials.tempban` | Allows access to the /tempban command | — |
-| `essentials.tempban.exempt` | Prevent a specified group or player from being tempbanned | — |
-| `essentials.tempban.offline` | Allows access to tempban offline players | — |
-| `essentials.tempban.unlimited` | Allows the bearer to override the max-tempban-time setting | — |
-| `essentials.tempbanip` | Allows access to the /tempbanip command | — |
-| `essentials.thunder` | Allows access to the /thunder command | — |
-| `essentials.time` | Allows access to the /time command | — |
-| `essentials.time.set` | Allows access to set the time with the /time command | — |
-| `essentials.time.world.all` | Allows access to set the time for all worlds with the /time command | — |
-| `essentials.togglejail` | Allows access to the /togglejail command | — |
-| `essentials.togglejail.offline` | Allows access to the /togglejail command for offline players | — |
-| `essentials.top` | Allows access to the /top command | — |
-| `essentials.tp` | Allows access to the /tp command | — |
-| `essentials.tp.others` | Allows access to teleporting to other users with the /tp command | — |
-| `essentials.tp.position` | Allows access to teleporting to a position with the /tp command | — |
-| `essentials.tpa` | Allows access to the /tpa command | — |
-| `essentials.tpaall` | Allows access to the /tpaall command | — |
-| `essentials.tpacancel` | Allows access to the /tpaccept command | — |
-| `essentials.tpaccept` | Allows access to the /tpaccept command | — |
-| `essentials.tpahere` | Allows access to the /tpahere command | — |
-| `essentials.tpall` | Allows access to the /tpall command | — |
-| `essentials.tpauto` | Allows access to the /tpauto command | — |
-| `essentials.tpauto.others` | Allows access to the /tpauto command for other players | — |
-| `essentials.tpdeny` | Allows access to the /tpdeny command | — |
-| `essentials.tphere` | Allows access to the /tphere command | — |
-| `essentials.tpo` | Allows access to the /tpo command | — |
-| `essentials.tpoffline` | Allows access to the /tpoffline command | — |
-| `essentials.tpohere` | Allows access to the /tpohere command | — |
-| `essentials.tppos` | Allows access to the /tppos command | — |
-| `essentials.tpr` | Allows access to the /tpr command | — |
-| `essentials.tptoggle` | Allows access to the /tptoggle command | — |
-| `essentials.tptoggle.others` | Allows access to the /tptoggle command for other players | — |
-| `essentials.tree` | Allows access to the /tree command | — |
-| `essentials.unban` | Allows access to the /unban command | — |
-| `essentials.unbanip` | Allows access to the /unbanip command | — |
-| `essentials.unlimited` | Allows access to the /unlimited command | — |
-| `essentials.unlimited.item-<item-name>` | Allows access to the /unlimited command for a specific item when permission-based-item-spawn is enabled | — |
-| `essentials.unlimited.item-all` | Allows access to the /unlimited command for all items when permission-based-item-spawn is enabled | — |
-| `essentials.unlimited.item-bucket` | Allows access to the /unlimited command for buckets of water and lava | — |
-| `essentials.unlimited.others` | Allows access to the /unlimited command for other players | — |
-| `essentials.updatecheck` | The bearer will be notified of updates to EssentialsX | — |
-| `essentials.vanish` | Allows access to the /vanish command | — |
-| `essentials.vanish.effect` | Applies invisibility effects to the player when they are in vanish mode | — |
-| `essentials.vanish.interact` | Allows the bearer to interact with players in vanish mode | — |
-| `essentials.vanish.others` | Allows access to the /vanish command for other players | — |
-| `essentials.vanish.pickup` | Allows the bearer to pick up items while in vanish mode | — |
-| `essentials.vanish.pvp` | Allows the bearer to attack players while in vanish mode | — |
-| `essentials.vanish.see` | Allows the bearer to see other players in vanish mode | — |
-| `essentials.version` | Allows access to the /version command | — |
-| `essentials.warp` | Allows access to the /warp command | — |
-| `essentials.warp.list` | Allows access to the /warp list command | — |
-| `essentials.warp.others` | Allows access to the /warp command for other players | — |
-| `essentials.warp.overwrite.*` | Allows the bearer to overwrite all warps | — |
-| `essentials.warp.overwrite.<warp-name>` | Allows the bearer to overwrite a specific warp | — |
-| `essentials.warpinfo` | Allows access to the /warpinfo command | — |
-| `essentials.weather` | Allows access to the /weather command | — |
-| `essentials.whitelist.bypass` | Allows a player to join the server even if they are not whitelisted. | — |
-| `essentials.whois` | Allows access to the /whois command | — |
-| `essentials.whois.ip` | Allows access to the /whois command with IP address | — |
-| `essentials.workbench` | Allows access to the /workbench command | — |
-| `essentials.world` | Allows access to the /world command | — |
-| `essentials.worlds.<world-name>` | Allows access to the specific world with various commands | — |
-| `essentials.worth` | Allows access to the /worth command | — |
+| `essentials.*` | 默认让 OP 玩家拥有全部权限 | op |
+| `essentials.afk` | 允许访问/afk命令 | — |
+| `essentials.afk.auto` | 拥有此权限的玩家在配置文件中定义的无操作时间段后将被设置为afk | — |
+| `essentials.afk.kickexempt` | 拥有此权限的玩家不会因为是AFK而被踢出 | — |
+| `essentials.afk.message` | 允许玩家设置自定义AFK消息 | — |
+| `essentials.afk.others` | 允许玩家设置其他玩家的AFK状态 | — |
+| `essentials.antioch` | 允许访问/antioch命令 | — |
+| `essentials.anvil` | 允许访问/anvil命令 | — |
+| `essentials.back` | 允许访问/back命令 | — |
+| `essentials.back.into.<world>` | 允许玩家使用/back命令前往特定世界 | — |
+| `essentials.back.ondeath` | 拥有此权限的玩家将在死亡期间存储返回位置 | — |
+| `essentials.back.onteleport` | 拥有此权限的玩家将在任何传送过程中存储返回位置 | True |
+| `essentials.back.others` | 允许其他玩家访问/back命令 | — |
+| `essentials.backup` | 允许访问/backup命令 | — |
+| `essentials.balance` | 允许访问/balance命令 | — |
+| `essentials.balance.others` | 允许使用/balance命令查看其他玩家的余额 | — |
+| `essentials.balancetop` | 允许访问/balancetop命令 | — |
+| `essentials.balancetop.exclude` | 拥有此权限的玩家将被排除在平衡台之外 | — |
+| `essentials.balancetop.force` | 允许访问强制刷新平衡顶列表 | — |
+| `essentials.ban` | 允许访问/ban命令 | — |
+| `essentials.ban.exempt` | 防止指定的群组或玩家被封禁 | — |
+| `essentials.ban.notify` | 允许在玩家被禁用时通知持有人 | — |
+| `essentials.ban.offline` | 允许离线玩家访问/ban命令，这可能反过来用于禁止离线的豁免玩家 | — |
+| `essentials.banip` | 允许访问/banip命令 | — |
+| `essentials.banip.notify` | 允许在玩家被禁用时通知持有人 | — |
+| `essentials.beezooka` | 允许访问/beezooka命令 | — |
+| `essentials.bigtree` | 允许访问/bigtree命令 | — |
+| `essentials.book` | 允许访问/book命令 | — |
+| `essentials.book.author` | 允许使用/book命令访问编辑图书作者 | — |
+| `essentials.book.others` | 允许使用/book命令编辑其他玩家的书籍 | — |
+| `essentials.book.title` | 允许使用/book命令编辑图书标题 | — |
+| `essentials.bottom` | 允许访问/bottom命令 | — |
+| `essentials.break` | 允许访问/break命令 | — |
+| `essentials.break.bedrock` | 允许访问基岩的/break命令 | — |
+| `essentials.broadcast` | 允许访问/broadcast命令 | — |
+| `essentials.broadcastworld` | 允许访问/broadcastworld命令 | — |
+| `essentials.burn` | 允许访问/burn命令 | — |
+| `essentials.cartographytable` | 允许访问/cartographytable命令 | — |
+| `essentials.chat.ignoreexempt` | 拥有此权限的人员将不会被忽略，即使他们在其他人员忽略列表中 | — |
+| `essentials.chat.spy` | 允许承载者查看所有本地聊天消息，无论其是否靠近发件人 | — |
+| `essentials.chat.spy.exempt` | 允许承载免除本地聊天间谍权限 | — |
+| `essentials.clearinventory` | 允许访问/clearinventory命令 | — |
+| `essentials.clearinventory.all` | 允许使用/clearinventory命令清除所有玩家的库存 | — |
+| `essentials.clearinventory.others` | 允许使用/clearinventory命令清除其他玩家的库存 | — |
+| `essentials.clearinventoryconfirmtoggle` | 允许访问/clearinventoryconfirmtoggle命令 | — |
+| `essentials.commandcooldowns.bypass` | 允许绕过所有命令冷却时间 | — |
+| `essentials.commandcooldowns.bypass.<commandname>` | 允许绕过特定命令的冷却时间 | — |
+| `essentials.compass` | 允许访问/compass命令 | — |
+| `essentials.condense` | 允许访问/condense命令 | — |
+| `essentials.createkit` | 允许访问/createkit命令 | — |
+| `essentials.customtext` | 允许访问/customtext命令和所有别名 | — |
+| `essentials.delhome` | 允许访问/delhome命令 | — |
+| `essentials.delhome.others` | 允许使用/delhome命令删除其他玩家主页 | — |
+| `essentials.deljail` | 允许访问/deljail命令 | — |
+| `essentials.delkit` | 允许访问/delkit命令 | — |
+| `essentials.delwarp` | 允许访问/delwarp命令 | — |
+| `essentials.depth` | 允许访问/depth命令 | — |
+| `essentials.disposal` | 允许访问/disposal命令 | — |
+| `essentials.eco` | 允许访问/eco命令 | — |
+| `essentials.eco.loan` | 允许持有人拥有负余额 | — |
+| `essentials.editsign` | 允许访问/editsign命令 | — |
+| `essentials.editsign.color` | 允许持有人在标志上使用颜色代码 | — |
+| `essentials.editsign.format` | 允许持有人在标志上使用格式代码 | — |
+| `essentials.editsign.magic` | 允许持有人在标志上使用魔法代码 | — |
+| `essentials.editsign.rgb` | 允许持有人在标志上使用RGB代码 | — |
+| `essentials.editsign.unlimited` | 允许持有人超过标志上的15个字符限制 | — |
+| `essentials.editsign.waxed.exempt` | 允许持有人编辑打蜡标志 | — |
+| `essentials.enchant` | 允许访问/enchant命令 | — |
+| `essentials.enchantments.<enchantment>` | 允许持有人使用/enchant命令使用特定的魔法 | — |
+| `essentials.enchantments.allowunsafe` | 允许携带者使用不安全的附魔物品 | — |
+| `essentials.enderchest` | 允许访问/enderchest命令 | — |
+| `essentials.enderchest.modify` | 允许持有人修改其他玩家的义务 | — |
+| `essentials.enderchest.others` | 允许其他玩家访问/enderchest命令 | — |
+| `essentials.essentials` | 允许访问/essentials命令 | — |
+| `essentials.exempt` | 豁免许多版主操作的父级权限 | — |
+| `essentials.exp` | 允许使用 /exp 指令 | — |
+| `essentials.exp.give` | 允许持有人为自己提供经验 | — |
+| `essentials.exp.give.others` | 允许持有人为其他玩家提供经验 | — |
+| `essentials.exp.others` | 允许持有人查看其他玩家的体验 | — |
+| `essentials.exp.set` | 允许持有人为自己设置体验 | — |
+| `essentials.exp.set.others` | 允许持有人为其他玩家设置经验 | — |
+| `essentials.ext` | 允许访问/ext命令 | — |
+| `essentials.ext.others` | 允许其他玩家访问/ext命令 | — |
+| `essentials.feed` | 允许访问/feed命令 | — |
+| `essentials.feed.others` | 允许其他玩家访问/feed命令 | — |
+| `essentials.fireball` | 允许访问/fireball命令。每种类型的火球都需要额外的权限。 | — |
+| `essentials.fireball.arrow` | 允许访问/fireball命令中的箭头 | — |
+| `essentials.fireball.dragon` | 允许在/fireball命令中使用龙 | — |
+| `essentials.fireball.egg` | 允许访问/fireball命令中的egg | — |
+| `essentials.fireball.fireball` | 允许访问/fireball命令中的fireball | — |
+| `essentials.fireball.large` | 允许访问/fireball命令中的大火球 | — |
+| `essentials.fireball.lingeringpotion` | 允许在/fireball命令中使用挥之不去的药水 | — |
+| `essentials.fireball.skull` | 允许在/fireball命令中使用头骨 | — |
+| `essentials.fireball.small` | 允许访问/fireball命令中的小火球 | — |
+| `essentials.fireball.snowball` | 允许访问/fireball命令中的雪球 | — |
+| `essentials.fireball.splashpotion` | 允许访问/fireball命令中的飞溅药水 | — |
+| `essentials.fireball.trident` | 允许访问/fireball命令中的三叉戟 | — |
+| `essentials.firework` | 允许访问/firework命令 | — |
+| `essentials.firework.fire` | 允许携带者使用烟花命令启动手中的烟花副本 | — |
+| `essentials.firework.multiple` | 允许携带者使用烟花指令发射多支烟花 | — |
+| `essentials.fly` | 允许访问/fly命令 | — |
+| `essentials.fly.others` | 允许其他玩家访问/fly命令 | — |
+| `essentials.fly.safelogin` | 如果此权限的持有者在空中登录，他们将被置于飞行模式 | — |
+| `essentials.gamemode` | 允许访问/gamemode命令 | — |
+| `essentials.gamemode.*` | 允许使用/gamemode命令访问所有游戏模式 | op |
+| `essentials.gamemode.adventure` | 允许使用/gamemode命令访问冒险游戏模式 | — |
+| `essentials.gamemode.all` | 允许使用/gamemode命令访问所有游戏模式 | — |
+| `essentials.gamemode.creative` | 允许使用/gamemode命令访问创意游戏模式 | — |
+| `essentials.gamemode.others` | 允许其他玩家访问/gamemode命令 | — |
+| `essentials.gamemode.spectator` | 允许使用/gamemode命令访问旁观者游戏模式 | — |
+| `essentials.gamemode.survival` | 允许使用/gamemode命令访问生存游戏模式 | — |
+| `essentials.gc` | 允许访问/gc命令 | — |
+| `essentials.getpos` | 允许访问/getpos命令 | — |
+| `essentials.getpos.others` | 允许其他玩家访问/getpos命令 | — |
+| `essentials.give` | 允许访问/give命令 | — |
+| `essentials.give.item-<item-name>` | 允许在启用基于权限的项目生成时访问特定项目的/give命令 | — |
+| `essentials.give.item-all` | 允许在启用基于权限的项目生成时访问所有项目的/give命令 | — |
+| `essentials.god` | 允许访问/god命令 | — |
+| `essentials.god.others` | 允许其他玩家访问/god命令 | — |
+| `essentials.god.pvp` | 允许持有者在上帝模式下攻击玩家 | — |
+| `essentials.grindstone` | 允许访问/grindstone命令 | — |
+| `essentials.hat` | 允许访问/hat命令 | — |
+| `essentials.hat.ignore-binding` | 允许持有者在为物品配备了绑定诅咒时使用/hat命令 | — |
+| `essentials.hat.prevent-type.<item-name>` | 防止玩家对指定项目使用/hat命令 | — |
+| `essentials.heal` | 允许访问/heal命令 | — |
+| `essentials.heal.others` | 允许其他玩家访问/heal命令 | — |
+| `essentials.help` | 允许访问/help命令 | — |
+| `essentials.help.<plugin-name>` | 允许访问特定插件的/help命令 | — |
+| `essentials.helpop` | 允许访问/helpop命令 | — |
+| `essentials.helpop.receive` | 允许持有人接收帮助消息 | — |
+| `essentials.home` | 允许访问/home命令 | — |
+| `essentials.home.bed` | 允许访问床的/home命令 | — |
+| `essentials.home.compass` | 将玩家的指南针指向他们的第一个主页。需要在配置中启用compass-towards-home-perm。 | — |
+| `essentials.home.others` | 允许使用/home命令传送到其他玩家家园 | — |
+| `essentials.ice` | 允许使用 /ice 指令 | — |
+| `essentials.ice.others` | 允许对其他玩家使用 /ice 指令 | — |
+| `essentials.ignore` | 允许访问/ignore命令 | — |
+| `essentials.info` | 允许访问/info命令 | — |
+| `essentials.invsee` | 允许访问/invsee命令 | — |
+| `essentials.invsee.equip` | 允许使用/invsee命令查看盔甲槽中的项目 | — |
+| `essentials.invsee.modify` | 允许使用/invsee命令访问修改其他玩家库存中的项目 | — |
+| `essentials.invsee.preventmodify` | 防止其他玩家修改玩家库存。 | — |
+| `essentials.item` | 允许访问/item命令 | — |
+| `essentials.itemdb` | 允许访问/itemdb命令 | — |
+| `essentials.itemlore` | 允许访问/itemlore命令 | — |
+| `essentials.itemname` | 允许访问/itemname命令 | — |
+| `essentials.itemname.color` | 允许使用彩色文本访问/itemname命令 | — |
+| `essentials.itemname.format` | 允许访问带有格式文本的/itemname命令 | — |
+| `essentials.itemname.magic` | 允许使用魔术文本访问/itemname命令 | — |
+| `essentials.itemname.prevent-type.<item-name>` | 防止玩家对指定项目使用/itemname命令 | — |
+| `essentials.itemname.rgb` | 允许访问带有RGB文本的/itemname命令 | — |
+| `essentials.itemspawn.exempt` | 允许持有人生成项目黑名单中的项目 | — |
+| `essentials.itemspawn.meta-author` | 允许承载使用作者元数据生成项目 | — |
+| `essentials.itemspawn.meta-book` | 允许承载从book.txt中生成具有预填充内容的项目 | — |
+| `essentials.itemspawn.meta-chapter-<chapter>` | 仅允许持有人使用/give命令从book.txt.中生成特定的书籍。 | — |
+| `essentials.itemspawn.meta-firework` | 允许持有者使用烟花元数据生成项目 | — |
+| `essentials.itemspawn.meta-head` | 允许持有人生成具有头部元数据的项目 | — |
+| `essentials.itemspawn.meta-lore` | 允许持有人生成具有知识元数据的项目 | — |
+| `essentials.itemspawn.meta-title` | 允许持有人生成具有标题元数据的项目 | — |
+| `essentials.jail.allow-block-damage` | 允许持有人在入狱期间损坏格挡 | — |
+| `essentials.jail.allow-break` | 允许持票人在入狱时打破障碍 | — |
+| `essentials.jail.allow-interact` | 允许持有人在入狱时与区块进行交互 | — |
+| `essentials.jail.allow-place` | 允许持有人在入狱时放置区块 | — |
+| `essentials.jail.allow.<command>` | 允许持有人在被监禁时使用指定的命令 | — |
+| `essentials.jail.exempt` | 防止指定的组或玩家被监禁 | — |
+| `essentials.jail.notify` | 允许在其他玩家被监禁时通知持有人 | — |
+| `essentials.jailedplayers` | 允许访问/jailedplayers命令 | — |
+| `essentials.jails` | 允许访问/jails命令 | — |
+| `essentials.joinfullserver` | 允许加入服务器，即使服务器已满 | — |
+| `essentials.jump` | 允许访问/jump命令 | — |
+| `essentials.jump.lock` | 允许访问/jump lock命令 | — |
+| `essentials.keepinv` | 控制玩家是否在死亡时保留库存。 | — |
+| `essentials.keepxp` | 允许用户在死亡时保留经验值，而不是将其丢弃。 | — |
+| `essentials.kick` | 允许访问/kick命令 | — |
+| `essentials.kick.exempt` | 防止玩家被踢出。 | — |
+| `essentials.kick.notify` | 允许在其他玩家被踢出时通知持有人 | — |
+| `essentials.kickall` | 允许访问/kickall命令 | — |
+| `essentials.kickall.exempt` | 防止玩家被/kickall踢出 | — |
+| `essentials.kill` | 允许访问/kill命令 | — |
+| `essentials.kill.exempt` | 防止玩家被击杀/击杀 | — |
+| `essentials.kill.force` | 允许持票人被杀/杀死，即使他们的死亡被取消 | — |
+| `essentials.kit` | 允许访问/kit命令 | — |
+| `essentials.kit.exemptdelay` | 免除您的套件延迟功能，这会影响标志和命令。 | — |
+| `essentials.kit.others` | 允许其他玩家访问/kit命令 | — |
+| `essentials.kitreset` | 允许访问/kitreset命令 | — |
+| `essentials.kitreset.others` | 允许使用/kitreset命令重置其他玩家套件 | — |
+| `essentials.kits.*` | 允许访问所有套件 | — |
+| `essentials.kits.<kit-name>` | 允许访问特定套件 | — |
+| `essentials.kittycannon` | 允许访问/kittycannon命令 | — |
+| `essentials.lightning` | 允许访问/lightning命令 | — |
+| `essentials.lightning.others` | 允许其他玩家访问/lightning命令 | — |
+| `essentials.list` | 允许访问/list命令 | — |
+| `essentials.list.hidden` | 允许在/list命令中查看隐藏的玩家 | — |
+| `essentials.loom` | 允许访问/loom命令 | — |
+| `essentials.mail` | 允许访问/mail命令 | — |
+| `essentials.mail.clear.others` | 允许使用/mail命令清除其他玩家的邮件 | — |
+| `essentials.mail.clearall` | 允许使用/mail命令清除所有邮件 | — |
+| `essentials.mail.send` | 允许使用/mail命令访问发送邮件 | — |
+| `essentials.mail.sendall` | 允许使用/mail命令向所有玩家发送邮件 | — |
+| `essentials.mail.sendtemp` | 允许使用/mail命令访问发送临时邮件 | — |
+| `essentials.me` | 允许访问/me命令 | — |
+| `essentials.more` | 允许访问/more命令 | — |
+| `essentials.motd` | 允许访问/motd命令 | — |
+| `essentials.msg` | 允许访问/msg命令 | — |
+| `essentials.msg.color` | 允许使用彩色文本访问/msg命令 | — |
+| `essentials.msg.format` | 允许访问带有格式文本的/msg命令 | — |
+| `essentials.msg.magic` | 允许使用魔术文本访问/msg命令 | — |
+| `essentials.msg.multiple` | 允许使用/msg命令向多个玩家发送消息 | — |
+| `essentials.msg.rgb` | 允许使用RGB文本访问/msg命令 | — |
+| `essentials.msg.url` | 允许访问/msg命令中的发送URL | — |
+| `essentials.msgtoggle` | 允许访问/msgtoggle命令 | — |
+| `essentials.msgtoggle.bypass` | 允许持有人绕过其他玩家的msgtoggle设置 | — |
+| `essentials.msgtoggle.others` | 允许其他玩家访问/msgtoggle命令 | — |
+| `essentials.mute` | 允许访问/mute命令 | — |
+| `essentials.mute.exempt` | 防止指定的组或玩家被静音 | — |
+| `essentials.mute.notify` | 允许在其他玩家被静音时通知持有人 | — |
+| `essentials.mute.offline` | 允许访问静音离线播放器 | — |
+| `essentials.mute.unlimited` | 允许持有人覆盖最大静音时间设置 | — |
+| `essentials.near` | 允许访问/near命令 | — |
+| `essentials.near.exclude` | 如果玩家应被排除在近距离查找之外。 | — |
+| `essentials.near.maxexempt` | 允许承载绕过/near命令的半径限制 | — |
+| `essentials.near.others` | 允许其他玩家访问/near命令 | — |
+| `essentials.nick` | 允许访问/nick命令 | — |
+| `essentials.nick.allowunsafe` | 如果玩家有这个，他们可以将其用户名设置为任何值。请谨慎使用，因为这有可能破坏用户数据文件。 | — |
+| `essentials.nick.blacklist.bypass` | 允许持有人绕过昵称黑名单 | — |
+| `essentials.nick.changecolors` | 允许持有人* *仅* *更改其昵称的颜色 | — |
+| `essentials.nick.color` | 允许使用彩色文本访问/nick命令 | — |
+| `essentials.nick.format` | 允许访问带有格式文本的/nick命令 | — |
+| `essentials.nick.hideprefix` | 拥有此权限的玩家将不会应用昵称前缀 | — |
+| `essentials.nick.magic` | 允许使用魔术文本访问/nick命令 | — |
+| `essentials.nick.others` | 允许其他玩家访问/nick命令 | — |
+| `essentials.nick.rgb` | 允许访问带有RGB文本的/nick命令 | — |
+| `essentials.nocommandcost.<command>` | 允许持有人免费使用指定的命令 | — |
+| `essentials.nocommandcost.all` | 允许持有人免费使用所有命令 | — |
+| `essentials.nuke` | 允许访问/nuke命令 | — |
+| `essentials.oversizedstacks` | 允许承载生成超大堆栈 | — |
+| `essentials.pay` | 允许访问/pay命令 | — |
+| `essentials.pay.multiple` | 允许使用/pay命令向多个玩家付款 | — |
+| `essentials.pay.offline` | 允许使用/pay命令向离线玩家付款 | — |
+| `essentials.payconfirmtoggle` | 允许访问/payconfirmtoggle命令 | — |
+| `essentials.paytoggle` | 允许访问/paytoggle命令 | — |
+| `essentials.ping` | 允许访问/ping命令 | — |
+| `essentials.playtime` | 允许访问/playtime命令 | — |
+| `essentials.playtime.others` | 允许其他玩家访问/playtime命令 | — |
+| `essentials.potion` | 允许访问/potion命令 | — |
+| `essentials.potion.<potion-type>` | 允许访问特定药剂类型的/potion命令 | — |
+| `essentials.potion.apply` | 允许访问/potion apply命令 | — |
+| `essentials.powertool` | 允许访问/powertool命令 | — |
+| `essentials.powertool.append` | 允许访问将多个命令添加到动力工具 | — |
+| `essentials.powertoollist` | 允许访问/powertoollist命令 | — |
+| `essentials.powertooltoggle` | 允许访问/powertooltoggle命令 | — |
+| `essentials.ptime` | 允许访问/ptime命令 | — |
+| `essentials.ptime.others` | 允许其他玩家访问/ptime命令 | — |
+| `essentials.pvpdelay.exempt` | 允许承载绕过pvp延迟设置 | — |
+| `essentials.pweather` | 允许访问/pweather命令 | — |
+| `essentials.pweather.others` | 允许其他玩家访问/pweather命令 | — |
+| `essentials.realname` | 允许访问/realname命令 | — |
+| `essentials.recipe` | 允许访问/recipe命令 | — |
+| `essentials.remove` | 允许访问/remove命令 | — |
+| `essentials.renamehome` | 允许访问/renamehome命令 | — |
+| `essentials.renamehome.others` | 允许使用/renamehome命令重命名其他玩家主页 | — |
+| `essentials.repair` | 允许访问/repair命令 | — |
+| `essentials.repair.all` | 允许访问/repair all命令 | — |
+| `essentials.repair.armor` | 允许访问/repair armor命令 | — |
+| `essentials.repair.enchanted` | 允许访问对附魔物品使用/repair命令 | — |
+| `essentials.rest` | 允许访问/rest命令 | — |
+| `essentials.rest.others` | 允许其他玩家访问/rest命令 | — |
+| `essentials.rtoggle` | 允许访问/rtoggle命令 | — |
+| `essentials.rules` | 允许访问/rules命令 | — |
+| `essentials.seen` | 允许访问/seen命令 | — |
+| `essentials.seen.alts` | 允许使用alts访问/seen命令 | — |
+| `essentials.seen.banreason` | 允许使用禁止原因访问/seen命令 | — |
+| `essentials.seen.extra` | 允许访问带有额外信息的/seen命令 | — |
+| `essentials.seen.firstlogin` | 允许在首次登录时访问/seen命令 | — |
+| `essentials.seen.ip` | 允许使用IP地址访问/seen命令 | — |
+| `essentials.seen.ipsearch` | 允许使用/seen命令访问IP地址 | — |
+| `essentials.seen.location` | 允许通过位置访问/seen命令 | — |
+| `essentials.seen.uuid` | 允许使用UUID访问/seen命令 | — |
+| `essentials.seen.whitelist` | 允许以白名单状态访问/seen命令 | — |
+| `essentials.sell` | 允许访问/sell命令 | — |
+| `essentials.sell.bulk` | 允许使用/sell命令访问批量销售项目 | — |
+| `essentials.sell.hand` | 允许使用/sell命令出售手头的商品 | — |
+| `essentials.sethome` | 允许访问/sethome命令 | — |
+| `essentials.sethome.bed` | 允许玩家在白天右键单击床以更新其“床”主页。 | — |
+| `essentials.sethome.multiple` | 允许使用/sethome命令设置多个房源 | — |
+| `essentials.sethome.multiple.<set name>` | 将房源数量限制提高到配置中定义的特定数量 | — |
+| `essentials.sethome.multiple.unlimited` | 允许使用/sethome命令设置无限个房源 | — |
+| `essentials.sethome.others` | 允许使用/sethome命令设置其他玩家主页 | — |
+| `essentials.setjail` | 允许访问/setjail命令 | — |
+| `essentials.settpr` | 允许访问/settpr命令 | — |
+| `essentials.setwarp` | 允许访问/setwarp命令 | — |
+| `essentials.setworth` | 允许访问/setworth命令 | — |
+| `essentials.showkit` | 允许访问/showkit命令 | — |
+| `essentials.signs.break.balance` | 允许持票人打破平衡标志 | — |
+| `essentials.signs.break.buy` | 允许持票人打破买入标志 | — |
+| `essentials.signs.break.disposal` | 允许持有人打破处置标志 | — |
+| `essentials.signs.break.enchant` | 允许持有人打破附魔标志 | — |
+| `essentials.signs.break.free` | 允许持票人打破自由标志 | — |
+| `essentials.signs.break.gamemode` | 允许持有人打破游戏模式标志 | — |
+| `essentials.signs.break.heal` | 允许持有人打破治疗标志 | — |
+| `essentials.signs.break.info` | 允许持有人破坏信息标志 | — |
+| `essentials.signs.break.kit` | 允许持有人打破试剂盒标志 | — |
+| `essentials.signs.break.mail` | 允许持票人打破邮件标志 | — |
+| `essentials.signs.break.protection` | 允许承载者打破保护标志 | — |
+| `essentials.signs.break.repair` | 允许持票人打破维修标志 | — |
+| `essentials.signs.break.sell` | 允许持票人打破卖出标志 | — |
+| `essentials.signs.break.spawnmob` | 允许持有人打破产卵怪迹象 | — |
+| `essentials.signs.break.time` | 允许持有人打破时间标志 | — |
+| `essentials.signs.break.trade` | 允许持票人打破贸易标志 | — |
+| `essentials.signs.break.warp` | 允许持有人打破曲速标志 | — |
+| `essentials.signs.break.weather` | 允许持票人打破天气标志 | — |
+| `essentials.signs.color` | 允许持有人创建和使用彩色标志 | — |
+| `essentials.signs.create.balance` | 允许持有人创建平衡标志 | — |
+| `essentials.signs.create.buy` | 允许持票人创建购买标志 | — |
+| `essentials.signs.create.disposal` | 允许持有人创建处置标志 | — |
+| `essentials.signs.create.enchant` | 允许持有人创建附魔标志 | — |
+| `essentials.signs.create.free` | 允许持有人创建免费标志 | — |
+| `essentials.signs.create.gamemode` | 允许持有人创建游戏模式标志 | — |
+| `essentials.signs.create.heal` | 允许持有人创建治疗标志 | — |
+| `essentials.signs.create.info` | 允许持有人创建信息标志 | — |
+| `essentials.signs.create.kit` | 允许持有人创建试剂盒标志 | — |
+| `essentials.signs.create.mail` | 允许持票人创建邮件标志 | — |
+| `essentials.signs.create.protection` | 允许持有人创建保护标志 | — |
+| `essentials.signs.create.repair` | 允许持有人创建维修标志 | — |
+| `essentials.signs.create.sell` | 允许持有人创建卖出标志 | — |
+| `essentials.signs.create.spawnmob` | 允许持有人创建spawnmob标志 | — |
+| `essentials.signs.create.time` | 允许持有人创建时间标志 | — |
+| `essentials.signs.create.trade` | 允许持票人创建商标 | — |
+| `essentials.signs.create.warp` | 允许持有人创建经纱标志 | — |
+| `essentials.signs.create.weather` | 允许持有人创建天气标志 | — |
+| `essentials.signs.enchant.allowunsafe` | 允许持有人创建和使用不安全的附魔标志 | — |
+| `essentials.signs.format` | 允许持有人创建和使用格式标志 | — |
+| `essentials.signs.magic` | 允许持有人创建和使用魔法标志 | — |
+| `essentials.signs.protection.override` | 允许持有人打破其他玩家创建的标志 | — |
+| `essentials.signs.rgb` | 允许持有人创建和使用RGB标志 | — |
+| `essentials.signs.trade.override` | 允许持票人打破其他玩家创建的商标 | — |
+| `essentials.signs.trade.override.collect` | 允许持票人从其他玩家创建的商标中收集道具 | — |
+| `essentials.signs.use.balance` | 允许持票人使用平衡标志 | — |
+| `essentials.signs.use.buy` | 允许持票人使用购买标志 | — |
+| `essentials.signs.use.disposal` | 允许持有人使用处置标志 | — |
+| `essentials.signs.use.enchant` | 允许持有人使用附魔标志 | — |
+| `essentials.signs.use.free` | 允许持有人使用自由标志 | — |
+| `essentials.signs.use.gamemode` | 允许持有人使用游戏模式标志 | — |
+| `essentials.signs.use.heal` | 允许持有者使用治疗告示牌 | — |
+| `essentials.signs.use.info` | 允许持有人使用信息标志 | — |
+| `essentials.signs.use.kit` | 允许持有人使用套件标志 | — |
+| `essentials.signs.use.mail` | 允许持票人使用邮件标志 | — |
+| `essentials.signs.use.protection` | 允许持有人使用保护标志 | — |
+| `essentials.signs.use.repair` | 允许持票人使用维修标志 | — |
+| `essentials.signs.use.sell` | 允许持有人使用卖出标志 | — |
+| `essentials.signs.use.spawnmob` | 允许持有人使用spawnmob标志 | — |
+| `essentials.signs.use.time` | 允许持有人使用时间标志 | — |
+| `essentials.signs.use.trade` | 允许持票人使用商标 | — |
+| `essentials.signs.use.warp` | 允许持有人使用经纱标志 | — |
+| `essentials.signs.use.weather` | 允许持有人使用天气标志 | — |
+| `essentials.silentjoin` | 允许静默加入 | — |
+| `essentials.silentjoin.vanish` | 允许静默加入，并进入消失模式 | — |
+| `essentials.silentquit` | 禁止具有此权限的用户离开/退出消息。 | — |
+| `essentials.skull` | 允许访问/skull命令 | — |
+| `essentials.skull.modify` | 允许使用/skull命令修改其他玩家的头骨 | — |
+| `essentials.skull.others` | 允许使用/skull命令创建其他玩家的头骨 | — |
+| `essentials.skull.spawn` | 允许使用/skull命令生成头骨 | — |
+| `essentials.sleepingignored` | 允许持票人无需睡觉即可度过夜晚 | — |
+| `essentials.smithingtable` | 允许访问/smithingtable命令 | — |
+| `essentials.socialspy` | 允许访问/socialspy命令 | — |
+| `essentials.socialspy.others` | 允许其他玩家访问/socialspy命令 | — |
+| `essentials.spawner` | 允许访问/spawner命令 | — |
+| `essentials.spawner.*` | 允许访问使用/spawner命令将spawner的类型设置为所有类型 | — |
+| `essentials.spawner.<mob-type>` | 允许访问使用/spawner命令将spawner的类型设置为特定类型 | — |
+| `essentials.spawner.delay` | 允许使用/spawner命令访问以设置生成器的延迟 | — |
+| `essentials.spawnerconvert.*` | 允许承载者放置任何类型的产卵器 | — |
+| `essentials.spawnerconvert.<mob-type>` | 允许持有人放置特定类型的产卵器 | — |
+| `essentials.spawnmob` | 允许访问/spawnmob命令 | — |
+| `essentials.spawnmob.*` | 允许使用/spawnmob命令生成所有mob | — |
+| `essentials.spawnmob.<mob-type>` | 允许使用/spawnmob命令生成特定的mob | — |
+| `essentials.spawnmob.stack` | 允许使用/spawnmob命令访问堆栈中的生成mob | — |
+| `essentials.speed` | 允许访问/speed命令 | — |
+| `essentials.speed.bypass` | 允许承载绕过配置中设置的速度限制 | — |
+| `essentials.speed.fly` | 允许访问飞行速度的/speed命令 | — |
+| `essentials.speed.others` | 允许其他玩家访问/speed命令 | — |
+| `essentials.speed.walk` | 允许访问步行速度的/speed命令 | — |
+| `essentials.stonecutter` | 允许访问/stonecutter命令 | — |
+| `essentials.sudo` | 允许访问/sudo命令 | — |
+| `essentials.sudo.exempt` | 防止玩家被其他用户使用 | — |
+| `essentials.sudo.multiple` | 允许多个玩家访问/sudo命令 | — |
+| `essentials.suicide` | 允许多个玩家访问/suicide命令 | — |
+| `essentials.teleport.cooldown.bypass.back` | 如果玩家没有此权限，/back将具有冷却时间，即使使用父旁路烫印 | True |
+| `essentials.teleport.cooldown.bypass.tpa` | 如果玩家没有此权限，/tpa将具有冷却时间，即使有父旁路perm | True |
+| `essentials.teleport.timer.bypass` | 允许承载绕过传送延迟 | — |
+| `essentials.teleport.timer.move` | 允许携带者在等待传送时移动 | — |
+| `essentials.tempban` | 允许访问/tempban命令 | — |
+| `essentials.tempban.exempt` | 防止指定的组或玩家被临时禁用 | — |
+| `essentials.tempban.offline` | 允许访问临时禁用离线玩家 | — |
+| `essentials.tempban.unlimited` | 允许持有人覆盖max-tempban-time设置 | — |
+| `essentials.tempbanip` | 允许访问/tempbanip命令 | — |
+| `essentials.thunder` | 允许访问/thunder命令 | — |
+| `essentials.time` | 允许访问/time命令 | — |
+| `essentials.time.set` | 允许访问使用/time命令设置时间 | — |
+| `essentials.time.world.all` | 允许访问使用/time命令设置所有世界的时间 | — |
+| `essentials.togglejail` | 允许访问/togglejail命令 | — |
+| `essentials.togglejail.offline` | 允许离线玩家访问/togglejail命令 | — |
+| `essentials.top` | 允许访问/top命令 | — |
+| `essentials.tp` | 允许访问/tp命令 | — |
+| `essentials.tp.others` | 允许使用/tp命令远程传送给其他用户 | — |
+| `essentials.tp.position` | 允许使用/tp命令传送到某个位置 | — |
+| `essentials.tpa` | 允许访问/tpa命令 | — |
+| `essentials.tpaall` | 允许访问/tpaall命令 | — |
+| `essentials.tpacancel` | 允许访问/tpaccept命令 | — |
+| `essentials.tpaccept` | 允许访问/tpaccept命令 | — |
+| `essentials.tpahere` | 允许访问/tpahere命令 | — |
+| `essentials.tpall` | 允许访问/tpall命令 | — |
+| `essentials.tpauto` | 允许访问/tpauto命令 | — |
+| `essentials.tpauto.others` | 允许其他玩家访问/tpauto命令 | — |
+| `essentials.tpdeny` | 允许访问/tpdeny命令 | — |
+| `essentials.tphere` | 允许访问/tphere命令 | — |
+| `essentials.tpo` | 允许访问/tpo命令 | — |
+| `essentials.tpoffline` | 允许访问/tpoffline命令 | — |
+| `essentials.tpohere` | 允许访问/tpohere命令 | — |
+| `essentials.tppos` | 允许访问/tppos命令 | — |
+| `essentials.tpr` | 允许访问/tpr命令 | — |
+| `essentials.tptoggle` | 允许访问/tptoggle命令 | — |
+| `essentials.tptoggle.others` | 允许其他玩家访问/tptoggle命令 | — |
+| `essentials.tree` | 允许访问/tree命令 | — |
+| `essentials.unban` | 允许访问/unban命令 | — |
+| `essentials.unbanip` | 允许访问/unbanip命令 | — |
+| `essentials.unlimited` | 允许访问/unlimited命令 | — |
+| `essentials.unlimited.item-<item-name>` | 允许在启用基于权限的项目生成时访问特定项目的/unlimited命令 | — |
+| `essentials.unlimited.item-all` | 允许在启用基于权限的项目生成时访问所有项目的/unlimited命令 | — |
+| `essentials.unlimited.item-bucket` | 允许访问水桶和熔岩的/unlimited命令 | — |
+| `essentials.unlimited.others` | 允许其他玩家访问/unlimited命令 | — |
+| `essentials.updatecheck` | 持有人将收到EssentialsX更新的通知 | — |
+| `essentials.vanish` | 允许访问/vanish命令 | — |
+| `essentials.vanish.effect` | 在消失模式下对玩家应用隐身效果 | — |
+| `essentials.vanish.interact` | 允许持有人在消失模式下与玩家互动 | — |
+| `essentials.vanish.others` | 允许其他玩家访问/vanish命令 | — |
+| `essentials.vanish.pickup` | 允许持票人在消失模式下领取物品 | — |
+| `essentials.vanish.pvp` | 允许持有者在消失模式下攻击玩家 | — |
+| `essentials.vanish.see` | 允许持有人在消失模式下看到其他玩家 | — |
+| `essentials.version` | 允许访问/version命令 | — |
+| `essentials.warp` | 允许访问/warp命令 | — |
+| `essentials.warp.list` | 允许访问/warp list命令 | — |
+| `essentials.warp.others` | 允许其他玩家访问/warp命令 | — |
+| `essentials.warp.overwrite.*` | 允许承载覆盖所有翘曲 | — |
+| `essentials.warp.overwrite.<warp-name>` | 允许承载覆盖特定曲线 | — |
+| `essentials.warpinfo` | 允许访问/warpinfo命令 | — |
+| `essentials.weather` | 允许访问/weather命令 | — |
+| `essentials.whitelist.bypass` | 允许玩家加入服务器，即使他们没有列入白名单。 | — |
+| `essentials.whois` | 允许访问/whois命令 | — |
+| `essentials.whois.ip` | 允许使用IP地址访问/whois命令 | — |
+| `essentials.workbench` | 允许访问/workbench命令 | — |
+| `essentials.world` | 允许访问/world命令 | — |
+| `essentials.worlds.<world-name>` | 允许使用各种命令访问特定世界 | — |
+| `essentials.worth` | 允许访问/worth命令 | — |

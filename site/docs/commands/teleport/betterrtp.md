@@ -30,22 +30,22 @@ createTime: 2026/10/24
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
 | `betterrtp.*` | — | — |
-| `betterrtp.biome` | RTP to specific biomes | — |
+| `betterrtp.biome` | 特定生物群落的RTP | — |
 | `betterrtp.bypass.*` | — | — |
-| `betterrtp.bypass.cooldown` | Bypass cooldowns | — |
-| `betterrtp.bypass.delay` | Bypass delays | — |
-| `betterrtp.bypass.economy` | Bypass economy | — |
-| `betterrtp.bypass.hunger` | Bypass hunger | — |
-| `betterrtp.edit` | Edit a custom/default world rtp center/radius | op |
-| `betterrtp.group.*` | Use a permission group to rtp with different restrictions | — |
-| `betterrtp.info` | View info about all worlds rtp will work in | op |
-| `betterrtp.location` | RTP using a specific location | — |
-| `betterrtp.player` | RTP another player | — |
-| `betterrtp.reload` | Reload the config | op |
-| `betterrtp.sign` | Ability to create an RTP sign | — |
-| `betterrtp.test` | While debugger enabled, be able to test particles, potion effects and sounds | op |
-| `betterrtp.updater` | Get notification on new updates | op |
-| `betterrtp.use` | Use RTP command | True |
-| `betterrtp.version` | See which version is running | — |
-| `betterrtp.world` | Use world command | — |
-| `betterrtp.world.*` | RTP in all enabled worlds | — |
+| `betterrtp.bypass.cooldown` | 绕过冷却时间 | — |
+| `betterrtp.bypass.delay` | 绕过延迟 | — |
+| `betterrtp.bypass.economy` | 旁路经济 | — |
+| `betterrtp.bypass.hunger` | 绕过饥饿 | — |
+| `betterrtp.edit` | 编辑自定义/默认世界rtp中心/半径 | op |
+| `betterrtp.group.*` | 使用权限组以不同的限制进行rtp | — |
+| `betterrtp.info` | 查看有关rtp将工作的所有世界的信息 | op |
+| `betterrtp.location` | 使用特定位置的RTP | — |
+| `betterrtp.player` | RTP其他玩家 | — |
+| `betterrtp.reload` | 重新加载配置 | op |
+| `betterrtp.sign` | 能够创建RTP标志 | — |
+| `betterrtp.test` | 启用调试器后，能够测试粒子、药水效果和声音 | op |
+| `betterrtp.updater` | 获取有关新更新的通知 | op |
+| `betterrtp.use` | 使用RTP命令 | True |
+| `betterrtp.version` | 查看正在运行的版本 | — |
+| `betterrtp.world` | 使用世界命令 | — |
+| `betterrtp.world.*` | 所有已启用世界中的RTP | — |

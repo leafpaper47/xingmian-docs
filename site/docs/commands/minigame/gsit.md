@@ -79,29 +79,29 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `GSit.*` | GSit \| Permissions | op |
-| `GSit.BellyFlop` | BellyFlop command \| Permission | True |
-| `GSit.ByPass.*` | ByPass \| Permissions | op |
-| `GSit.ByPass.Command` | ByPass command \| Permission | op |
-| `GSit.ByPass.Region` | ByPass region \| Permission | op |
-| `GSit.ByPass.World` | ByPass world \| Permission | op |
-| `GSit.Crawl` | Crawl command \| Permission | True |
-| `GSit.Crawl.*` | Crawl \| Permissions | op |
-| `GSit.CrawlSneak` | Crawl sneak \| Permission | True |
-| `GSit.CrawlToggle` | Toggle crawl ability \| Permission | True |
-| `GSit.Kick.*` | Kick \| Permissions | op |
-| `GSit.Kick.Pose` | Kick pose \| Permission | op |
-| `GSit.Kick.Sit` | Kick sit \| Permission | op |
-| `GSit.Lay` | Lay command \| Permission | True |
-| `GSit.LayBack` | LayBack command \| Permission | True |
-| `GSit.PlayerSit` | PlayerSit click \| Permission | True |
-| `GSit.PlayerSit.*` | PlayerSit \| Permissions | op |
-| `GSit.PlayerSitToggle` | Toggle PlayerSit ability \| Permission | True |
-| `GSit.Pose.*` | Pose \| Permissions | op |
-| `GSit.Reload` | Plugin reload command \| Permission | op |
-| `GSit.Sit` | Sit command \| Permission | True |
-| `GSit.Sit.*` | Sit \| Permissions | op |
-| `GSit.SitClick` | Sit click \| Permission | True |
-| `GSit.SitToggle` | Toggle sit ability \| Permission | True |
-| `GSit.Spin` | Spin command \| Permission | True |
-| `GSit.Update` | Update notification \| Permission | op |
+| `GSit.*` | GSit \|权限 | op |
+| `GSit.BellyFlop` | BellyFlop命令\|权限 | True |
+| `GSit.ByPass.*` | ByPass \|权限 | op |
+| `GSit.ByPass.Command` | ByPass命令\|权限 | op |
+| `GSit.ByPass.Region` | ByPass区域\|权限 | op |
+| `GSit.ByPass.World` | ByPass WORLD \|权限 | op |
+| `GSit.Crawl` | 爬网命令\|权限 | True |
+| `GSit.Crawl.*` | 爬网\|权限 | op |
+| `GSit.CrawlSneak` | 潜行\|权限 | True |
+| `GSit.CrawlToggle` | 切换爬网能力\|权限 | True |
+| `GSit.Kick.*` | 踢出\|权限 | op |
+| `GSit.Kick.Pose` | 踢腿姿势\|权限 | op |
+| `GSit.Kick.Sit` | Kick SIT \|权限 | op |
+| `GSit.Lay` | Lay命令\|权限 | True |
+| `GSit.LayBack` | LayBack命令\|权限 | True |
+| `GSit.PlayerSit` | PlayerSit单击\|权限 | True |
+| `GSit.PlayerSit.*` | PlayerSit \|权限 | op |
+| `GSit.PlayerSitToggle` | 切换PlayerSit能力\|权限 | True |
+| `GSit.Pose.*` | 姿势\|权限 | op |
+| `GSit.Reload` | 插件重新加载命令\|权限 | op |
+| `GSit.Sit` | SIT命令\|权限 | True |
+| `GSit.Sit.*` | SIT \|权限 | op |
+| `GSit.SitClick` | SIT单击\|权限 | True |
+| `GSit.SitToggle` | 切换坐姿能力\|权限 | True |
+| `GSit.Spin` | 旋转命令\|权限 | True |
+| `GSit.Update` | 更新通知\|权限 | op |

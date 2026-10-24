@@ -31,8 +31,8 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `blocklocker.admin` | Edit someone's protection signs, or remove the protection entirely. | op |
-| `blocklocker.bypass` | Bypass someone else's protection, but don't allow destroying it. | op |
-| `blocklocker.protect` | Protect containers and doors. | True |
-| `blocklocker.reload` | Reload the plugin using /blocklocker reload. | op |
-| `blocklocker.wilderness` | Place chests in the wilderness (outside of Towny claims) | True |
+| `blocklocker.admin` | 编辑某人的防护标志，或完全取消防护。 | op |
+| `blocklocker.bypass` | 绕过他人的保护，但不要允许破坏它。 | op |
+| `blocklocker.protect` | 保护容器和门。 | True |
+| `blocklocker.reload` | 使用/blocklocker reload重新加载插件。 | op |
+| `blocklocker.wilderness` | 在荒野中放置宝箱（在Towny领地之外） | True |

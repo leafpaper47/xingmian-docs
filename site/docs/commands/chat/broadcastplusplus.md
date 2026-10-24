@@ -30,6 +30,6 @@ createTime: 2026/10/24
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `broadcastplusplus.admin` | Full control — send, studio, reload. | op |
-| `broadcastplusplus.send` | Send broadcasts and preview presets. | op |
-| `broadcastplusplus.studio` | Open the Broadcast Studio GUI. | op |
+| `broadcastplusplus.admin` | 完全控制—发送、单间公寓、重新加载。 | op |
+| `broadcastplusplus.send` | 发送广播和预览预设。 | op |
+| `broadcastplusplus.studio` | 打开Broadcast Studio GUI。 | op |
