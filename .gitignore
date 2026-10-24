@@ -1,0 +1,23 @@
+# 依赖与构建产物
+site/node_modules/
+site/.pnpm-store/
+site/docs/.vuepress/.cache/
+site/docs/.vuepress/.temp/
+site/docs/.vuepress/dist/
+
+# 本地打包产物
+*.zip
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 数据采集用的凭据（如果你把凭据写进本地脚本，别提交）
+.env
+credentials.*
