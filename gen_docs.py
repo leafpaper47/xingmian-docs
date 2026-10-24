@@ -237,7 +237,7 @@ def main():
         for p in items:
             heads = "、".join("`/%s`" % x["name"] for x in p["rows"][:6])
             more = "…" if len(p["rows"]) > 6 else ""
-            L.append("| [%s](/%s/%s.md) | %s%s | %d |" % (p["name"], c, p["slug"], heads, more, len(p["rows"])))
+            L.append("| [%s](/commands/%s/%s.md) | %s%s | %d |" % (p["name"], c, p["slug"], heads, more, len(p["rows"])))
         L.append("")
     open(os.path.join(DOCS, "commands", "index.md"), "w", encoding="utf-8").write("\n".join(L))
 
@@ -268,7 +268,7 @@ def main():
         for p, perms in block:
             for k, v in sorted(perms.items()):
                 v = v if isinstance(v, dict) else {}
-                L.append("| [%s](/%s/%s.md) | `%s` | %s | %s |" % (p["name"], c, p["slug"], k, cell(v.get("description") or "")[:50], cell(v.get("default") or "—")))
+                L.append("| [%s](/commands/%s/%s.md) | `%s` | %s | %s |" % (p["name"], c, p["slug"], k, cell(v.get("description") or "")[:50], cell(v.get("default") or "—")))
         L.append("")
     open(os.path.join(DOCS, "permissions.md"), "w", encoding="utf-8").write("\n".join(L))
 
