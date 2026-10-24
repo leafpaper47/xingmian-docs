@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `1.0.0` · 指令 1 条 · api-version `1.21` · 文件 `MeteorShowers-v7-fix.jar`
 
-Survival-friendly random meteor shower events with warnings, craters, and loot.
+生存友好型随机流星雨事件，包含警告、陨石坑和战利品。
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ Survival-friendly random meteor shower events with warnings, craters, and loot.
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/meteorshowers` | Manage meteor showers (toggle, reload, summon) | `meteorshowers.admin` |
+| `/meteorshowers` | 管理流星雨（切换、重新加载、召唤） | `meteorshowers.admin` |
 
 ## 详细用法
 
 ### /meteorshowers
 
-- **说明**：Manage meteor showers (toggle, reload, summon)
+- **说明**：管理流星雨（切换、重新加载、召唤）
 - **用法**：`/meteorshowers &lt;toggle|reload|summon&gt; [player]`
 - **别名**：`/ms`、`/meteor`
 - **权限**：`meteorshowers.admin`

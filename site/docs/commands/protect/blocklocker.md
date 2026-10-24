@@ -16,13 +16,13 @@ createTime: 2026/10/24
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/blocklocker` | Administration commands for BlockLocker. | `blocklocker.reload` |
+| `/blocklocker` | BlockLocker的管理命令。 | `blocklocker.reload` |
 
 ## 详细用法
 
 ### /blocklocker
 
-- **说明**：Administration commands for BlockLocker.
+- **说明**：BlockLocker的管理命令。
 - **用法**：`/&lt;command&gt; reload`
 - **别名**：`/b`、`/l`
 - **权限**：`blocklocker.reload`

@@ -18,13 +18,13 @@ createTime: 2026/10/24
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/infinitefuel` | Give infinite coal blocks / reload config | `infinitefuel.admin` |
+| `/infinitefuel` | 提供无限煤块/重新加载配置 | `infinitefuel.admin` |
 
 ## 详细用法
 
 ### /infinitefuel
 
-- **说明**：Give infinite coal blocks / reload config
+- **说明**：提供无限煤块/重新加载配置
 - **用法**：`/infinitefuel give &lt;player&gt; [amount] | reload`
 - **权限**：`infinitefuel.admin`
 

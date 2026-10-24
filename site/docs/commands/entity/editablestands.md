@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `1.0.0` · 指令 1 条 · api-version `1.21` · 文件 `EditableStands-1.0.0.jar`
 
-Sneak right-click an armor stand with tools to toggle arms, size, base plate, visibility and gravity.
+右键单击带有工具的盔甲支架，以切换手臂、尺寸、底板、能见度和重力。
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。

@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `1.1.14` · 指令 2 条 · api-version `1.21` · 文件 `CraftBench-1.1.12.jar`
 
-5x5 crafting table with CraftEngine custom item support, pure-GUI recipe editor, recipe book &amp; shapeless &amp; eco cost
+5x5工艺表，带CraftEngine定制项目支持、纯GUI配方编辑器、配方书和无形和生态成本
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。

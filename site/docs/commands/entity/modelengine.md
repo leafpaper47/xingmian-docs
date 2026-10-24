@@ -16,7 +16,7 @@ createTime: 2026/10/24
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/meg` | All things Model Engine related. | — |
+| `/meg` | 与模型引擎相关的所有内容。 | — |
 
 ## 权限节点
 

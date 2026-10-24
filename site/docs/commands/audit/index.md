@@ -10,4 +10,4 @@ createTime: 2026/10/24
 | 插件 | 版本 | 指令数 | 说明 |
 | --- | --- | --- | --- |
 | [CoreProtect](./coreprotect.md) | 24.2-dev | 1 | 为你的服务器提供方块保护。 |
-| [spark](./spark.md) | 1.10.175 | 1 | spark is a performance profiling plugin/mod for Minecraft cl |
+| [spark](./spark.md) | 1.10.175 | 1 | spark是用于Minecraft客户端、服务器和代理的性能分析插件/模块。 |

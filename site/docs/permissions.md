@@ -15,33 +15,33 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [ConsoleSpamFixReborn](/commands/core/consolespamfixreborn.md) | `csf.admin` | Admin commands access. | op |
+| [ConsoleSpamFixReborn](/commands/core/consolespamfixreborn.md) | `csf.admin` | 管理员命令访问。 | op |
 | [MaintenanceMode](/commands/core/maintenancemode.md) | `maintenance.bypass` | 免除维护模式限制（不被踢、可进服） | op |
 | [MaintenanceMode](/commands/core/maintenancemode.md) | `maintenance.use` | 允许使用维护模式指令 | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.admin` | Allows use of all PlugMan commands. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.check` | Allows use of the check command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.check.all` | Allows use of the check all command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.deps` | Allows use of the deps command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.disable` | Allows use of the disable command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.disable.all` | Allows use of the disable all command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.dump` | Allows use of the dump command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.enable` | Allows use of the enable command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.enable.all` | Allows use of the enable all command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.help` | Allows use of the help command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.info` | Allows use of the info command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.list` | Allows use of the list command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.load` | Allows use of the load command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.lookup` | Allows use of the lookup command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.reload` | Allows use of the reload command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.reloadconfig` | Allows use of the reload config command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.reloadmode` | Allows use of the reload mode command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.restart` | Allows use of the restart command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.restart.all` | Allows use of the restart all command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.unload` | Allows use of the unload command. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.update` | Allows the player to see the update alerts. | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.usage` | Allows use of the usage command. | op |
-| [Vault](/commands/core/vault.md) | `vault.admin` | Grants access to the administrative tools. | op |
-| [Vault](/commands/core/vault.md) | `vault.update` | Notifies the player when Vault is in need of an up | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.admin` | 允许使用所有PlugMan命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.check` | 允许使用check命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.check.all` | 允许使用check all命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.deps` | 允许使用deps命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.disable` | 允许使用disable命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.disable.all` | 允许使用disable all命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.dump` | 允许使用dump命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.enable` | 允许使用enable命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.enable.all` | 允许使用enable all命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.help` | 允许使用help命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.info` | 允许使用info命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.list` | 允许使用list命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.load` | 允许使用load命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.lookup` | 允许使用查找命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.reload` | 允许使用reload命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.reloadconfig` | 允许使用reload config命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.reloadmode` | 允许使用reload mode命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.restart` | 允许使用重新启动命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.restart.all` | 允许使用RESTART ALL命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.unload` | 允许使用unload命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.update` | 允许玩家查看更新警报。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.usage` | 允许使用usage命令。 | op |
+| [Vault](/commands/core/vault.md) | `vault.admin` | 授予对管理工具的访问权限。 | op |
+| [Vault](/commands/core/vault.md) | `vault.update` | 当避难所需要更新时通知玩家。 | op |
 
 ## 🧰 基础工具
 
@@ -55,459 +55,459 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [BookEdit](/commands/essentials/bookedit.md) | `bookedit.use` | 允许修改自己写的书（作者改匿名、设为破旧） | True |
 | [CraftBench](/commands/essentials/craftbench.md) | `craftbench.admin` | 允许管理配方 | op |
 | [CraftBench](/commands/essentials/craftbench.md) | `craftbench.use` | 允许使用合成台 | True |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.*` | Give players with op everything by default | op |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.afk` | Allows access to the /afk command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.afk.auto` | Players with this permission will be set to afk af | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.afk.kickexempt` | Players with this permission will not be kicked fo | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.afk.message` | Allows the player to set a custom AFK message | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.afk.others` | Allows the player to set another player's AFK stat | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.antioch` | Allows access to the /antioch command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.anvil` | Allows access to the /anvil command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.back` | Allows access to the /back command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.back.into.<world>` | Allows the player to use the /back command to trav | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.back.ondeath` | Players with this permission will have back locati | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.back.onteleport` | Players with this permission will have back locati | True |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.back.others` | Allows access to the /back command for other playe | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.backup` | Allows access to the /backup command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.balance` | Allows access to the /balance command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.balance.others` | Allows view other players balance with the /balanc | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.balancetop` | Allows access to the /balancetop command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.balancetop.exclude` | Players with this permission are excluded from the | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.balancetop.force` | Allows access to force refresh the balancetop list | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ban` | Allows access to the /ban command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ban.exempt` | Prevent a specified group or player from being ban | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ban.notify` | Allows the bearer to be notified when a player is  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ban.offline` | Allows access to the /ban command for offline play | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.banip` | Allows access to the /banip command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.banip.notify` | Allows the bearer to be notified when a player is  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.beezooka` | Allows access to the /beezooka command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.bigtree` | Allows access to the /bigtree command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.book` | Allows access to the /book command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.book.author` | Allows access to edit book authors with the /book  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.book.others` | Allows access to edit other players books with the | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.book.title` | Allows access to edit book titles with the /book c | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.bottom` | Allows access to the /bottom command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.break` | Allows access to the /break command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.break.bedrock` | Allows access to the /break command for bedrock | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.broadcast` | Allows access to the /broadcast command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.broadcastworld` | Allows access to the /broadcastworld command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.burn` | Allows access to the /burn command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.cartographytable` | Allows access to the /cartographytable command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.chat.ignoreexempt` | Someone with this permission will not be ignored,  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.chat.spy` | Allows the bearers to see all local chat messages, | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.chat.spy.exempt` | Allows the bearer to be exempt from the local chat | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.clearinventory` | Allows access to the /clearinventory command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.clearinventory.all` | Allows access to clear the inventory of all player | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.clearinventory.others` | Allows access to clear the inventory of other play | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.clearinventoryconfirmtoggle` | Allows access to the /clearinventoryconfirmtoggle  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.commandcooldowns.bypass` | Allows the bypassing of all command cooldowns | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.commandcooldowns.bypass.<commandname>` | Allows the bypassing of the cooldown for a specifi | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.compass` | Allows access to the /compass command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.condense` | Allows access to the /condense command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.createkit` | Allows access to the /createkit command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.customtext` | Allows access to the /customtext command and all a | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.delhome` | Allows access to the /delhome command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.delhome.others` | Allows access to delete other players homes with t | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.deljail` | Allows access to the /deljail command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.delkit` | Allows access to the /delkit command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.delwarp` | Allows access to the /delwarp command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.depth` | Allows access to the /depth command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.disposal` | Allows access to the /disposal command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.eco` | Allows access to the /eco command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.eco.loan` | Allows the bearer to possess a negative balance | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign` | Allows access to the /editsign command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.color` | Allows the bearer to use color codes on signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.format` | Allows the bearer to use formatting codes on signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.magic` | Allows the bearer to use magic codes on signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.rgb` | Allows the bearer to use RGB codes on signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.unlimited` | Allows the bearer to exceed the 15 character limit | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.waxed.exempt` | Allows the bearer to edit waxed signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.enchant` | Allows access to the /enchant command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.enchantments.<enchantment>` | Allows the bearer to use a specific enchantment wi | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.enchantments.allowunsafe` | Allows the bearer to enchant items with unsafe enc | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.enderchest` | Allows access to the /enderchest command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.enderchest.modify` | Allows the bearer to modify other players enderche | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.enderchest.others` | Allows access to the /enderchest command for other | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.essentials` | Allows access to the /essentials command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.exempt` | Parent permission to be exempt from many moderator | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.exp` | Allows access to the /exp command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.give` | Allows the bearer to give experience to themselves | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.give.others` | Allows the bearer to give experience to other play | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.others` | Allows the bearer to view other players experience | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.set` | Allows the bearer to set experience for themselves | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.set.others` | Allows the bearer to set experience for other play | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ext` | Allows access to the /ext command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ext.others` | Allows access to the /ext command for other player | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.feed` | Allows access to the /feed command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.feed.others` | Allows access to the /feed command for other playe | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball` | Allows access to the /fireball command. Additional | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.arrow` | Allows access to use the arrows in the /fireball c | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.dragon` | Allows access to use the dragon in the /fireball c | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.egg` | Allows access to use the egg in the /fireball comm | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.fireball` | Allows access to use the fireball in the /fireball | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.large` | Allows access to use the large fireball in the /fi | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.lingeringpotion` | Allows access to use the lingering potion in the / | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.skull` | Allows access to use the skull in the /fireball co | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.small` | Allows access to use the small fireball in the /fi | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.snowball` | Allows access to use the snowball in the /fireball | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.splashpotion` | Allows access to use the splash potion in the /fir | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.trident` | Allows access to use the trident in the /fireball  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.firework` | Allows access to the /firework command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.firework.fire` | Allows the bearer to use the firework command to l | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.firework.multiple` | Allows the bearer to use the firework command to l | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fly` | Allows access to the /fly command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fly.others` | Allows access to the /fly command for other player | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.fly.safelogin` | Bearers of this permission will be put into fly mo | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode` | Allows access to the /gamemode command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.*` | Allows access to all gamemodes with the /gamemode  | op |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.adventure` | Allows access to the adventure gamemode with the / | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.all` | Allows access to all gamemodes with the /gamemode  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.creative` | Allows access to the creative gamemode with the /g | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.others` | Allows access to the /gamemode command for other p | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.spectator` | Allows access to the spectator gamemode with the / | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.survival` | Allows access to the survival gamemode with the /g | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.gc` | Allows access to the /gc command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.getpos` | Allows access to the /getpos command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.getpos.others` | Allows access to the /getpos command for other pla | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.give` | Allows access to the /give command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.give.item-<item-name>` | Allows access to the /give command for a specific  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.give.item-all` | Allows access to the /give command for all items w | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.god` | Allows access to the /god command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.god.others` | Allows access to the /god command for other player | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.god.pvp` | Allows the bearer to attack players while in god m | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.grindstone` | Allows access to the /grindstone command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.hat` | Allows access to the /hat command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.hat.ignore-binding` | Allows the bearer to use the /hat command when the | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.hat.prevent-type.<item-name>` | Prevents the player from using the /hat command wi | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.heal` | Allows access to the /heal command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.heal.others` | Allows access to the /heal command for other playe | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.help` | Allows access to the /help command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.help.<plugin-name>` | Allows access to the /help command for a specific  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.helpop` | Allows access to the /helpop command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.helpop.receive` | Allows the bearer to receive helpop messages | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.home` | Allows access to the /home command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.home.bed` | Allows access to the /home command for beds | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.home.compass` | Point the player's compass at their first home. co | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.home.others` | Allows access to teleport to other players homes w | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ice` | Allows access to the /ice command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ice.others` | Allows access to the /ice command for other player | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ignore` | Allows access to the /ignore command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.info` | Allows access to the /info command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.invsee` | Allows access to the /invsee command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.invsee.equip` | Allows access to view items in armor slots with th | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.invsee.modify` | Allows access to modify items in other players inv | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.invsee.preventmodify` | Prevents other players from modifying the players  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.item` | Allows access to the /item command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemdb` | Allows access to the /itemdb command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemlore` | Allows access to the /itemlore command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname` | Allows access to the /itemname command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.color` | Allows access to the /itemname command with color  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.format` | Allows access to the /itemname command with format | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.magic` | Allows access to the /itemname command with magic  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.prevent-type.<item-name>` | Prevents the player from using the /itemname comma | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.rgb` | Allows access to the /itemname command with RGB te | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.exempt` | Allows the bearer to spawn items in the item black | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-author` | Allows the bearer to spawn items with author metad | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-book` | Allows the bearer to spawn items with pre-filled c | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-chapter-<chapter>` | Allows the bearer to spawn specific books only, fr | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-firework` | Allows the bearer to spawn items with firework met | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-head` | Allows the bearer to spawn items with head metadat | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-lore` | Allows the bearer to spawn items with lore metadat | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-title` | Allows the bearer to spawn items with title metada | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow-block-damage` | Allows the bearer to damage blocks while jailed | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow-break` | Allows the bearer to break blocks while jailed | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow-interact` | Allows the bearer to interact with blocks while ja | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow-place` | Allows the bearer to place blocks while jailed | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow.<command>` | Allows the bearer to use the specified command whi | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.exempt` | Prevent a specified group or player from being jai | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.notify` | Allows the bearer to be notified when other player | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jailedplayers` | Allows access to the /jailedplayers command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jails` | Allows access to the /jails command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.joinfullserver` | Allows the to join the server even if it is full | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jump` | Allows access to the /jump command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.jump.lock` | Allows access to the /jump lock command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.keepinv` | Controls whether players keep their inventory on d | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.keepxp` | Allows the user to keep their exp on death, instea | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kick` | Allows access to the /kick command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kick.exempt` | Prevents the player from being kicked. | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kick.notify` | Allows the bearer to be notified when other player | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kickall` | Allows access to the /kickall command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kickall.exempt` | Prevents the player from being kicked by /kickall | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kill` | Allows access to the /kill command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kill.exempt` | Prevents the player from being killed by /kill | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kill.force` | Allows the bearer to be killed by /kill even if th | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kit` | Allows access to the /kit command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kit.exemptdelay` | Exempts you from the kit delay feature, this affec | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kit.others` | Allows access to the /kit command for other player | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kitreset` | Allows access to the /kitreset command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kitreset.others` | Allows access to reset other players kits with the | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kits.*` | Allows access to all kits | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kits.<kit-name>` | Allows access to a specific kit | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.kittycannon` | Allows access to the /kittycannon command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.lightning` | Allows access to the /lightning command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.lightning.others` | Allows access to the /lightning command for other  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.list` | Allows access to the /list command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.list.hidden` | Allow access to view hidden players in the /list c | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.loom` | Allows access to the /loom command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mail` | Allows access to the /mail command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.clear.others` | Allows access to clear other players mail with the | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.clearall` | Allows access to clear all mail with the /mail com | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.send` | Allows access to send mail with the /mail command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.sendall` | Allows access to send mail to all players with the | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.sendtemp` | Allows access to send temporary mail with the /mai | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.me` | Allows access to the /me command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.more` | Allows access to the /more command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.motd` | Allows access to the /motd command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msg` | Allows access to the /msg command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.color` | Allows access to the /msg command with color text | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.format` | Allows access to the /msg command with formatting  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.magic` | Allows access to the /msg command with magic text | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.multiple` | Allows access to send messages to multiple players | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.rgb` | Allows access to the /msg command with RGB text | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.url` | Allows access to send URLs in the /msg command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msgtoggle` | Allows access to the /msgtoggle command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msgtoggle.bypass` | Allows the bearer to bypass the msgtoggle setting  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.msgtoggle.others` | Allows access to the /msgtoggle command for other  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mute` | Allows access to the /mute command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mute.exempt` | Prevent a specified group or player from being mut | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mute.notify` | Allows the bearer to be notified when other player | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mute.offline` | Allows access to mute offline players | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.mute.unlimited` | Allows the bearer to override the max-mute-time se | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.near` | Allows access to the /near command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.near.exclude` | If the player should be excluded from near lookups | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.near.maxexempt` | Allows the bearer to bypass the radius limit for t | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.near.others` | Allows access to the /near command for other playe | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick` | Allows access to the /nick command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.allowunsafe` | If a player has this, they can set their username  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.blacklist.bypass` | Allows the bearer to bypass the nickname blacklist | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.changecolors` | Allows the bearer to change **only** the color of  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.color` | Allows access to the /nick command with color text | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.format` | Allows access to the /nick command with formatting | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.hideprefix` | Players with this permission will not have the nic | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.magic` | Allows access to the /nick command with magic text | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.others` | Allows access to the /nick command for other playe | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.rgb` | Allows access to the /nick command with RGB text | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nocommandcost.<command>` | Allows the bearer to use the specified command wit | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nocommandcost.all` | Allows the bearer to use all commands without cost | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.nuke` | Allows access to the /nuke command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.oversizedstacks` | Allows the bearer to spawn oversized stacks | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.pay` | Allows access to the /pay command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.pay.multiple` | Allows access to pay multiple players with the /pa | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.pay.offline` | Allows access to pay offline players with the /pay | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.payconfirmtoggle` | Allows access to the /payconfirmtoggle command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.paytoggle` | Allows access to the /paytoggle command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ping` | Allows access to the /ping command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.playtime` | Allows access to the /playtime command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.playtime.others` | Allows access to the /playtime command for other p | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.potion` | Allows access to the /potion command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.potion.<potion-type>` | Allows access to the /potion command for a specifi | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.potion.apply` | Allows access to the /potion apply command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.powertool` | Allows access to the /powertool command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.powertool.append` | Allows access to add multiple commands to a powert | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.powertoollist` | Allows access to the /powertoollist command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.powertooltoggle` | Allows access to the /powertooltoggle command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ptime` | Allows access to the /ptime command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.ptime.others` | Allows access to the /ptime command for other play | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.pvpdelay.exempt` | Allows the bearer to bypass the pvp delay setting | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.pweather` | Allows access to the /pweather command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.pweather.others` | Allows access to the /pweather command for other p | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.realname` | Allows access to the /realname command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.recipe` | Allows access to the /recipe command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.remove` | Allows access to the /remove command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.renamehome` | Allows access to the /renamehome command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.renamehome.others` | Allows access to rename other players homes with t | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.repair` | Allows access to the /repair command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.repair.all` | Allows access to the /repair all command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.repair.armor` | Allows access to the /repair armor command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.repair.enchanted` | Allows access to use the /repair command on enchan | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.rest` | Allows access to the /rest command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.rest.others` | Allows access to the /rest command for other playe | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.rtoggle` | Allows access to the /rtoggle command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.rules` | Allows access to the /rules command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen` | Allows access to the /seen command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.alts` | Allows access to the /seen command with alts | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.banreason` | Allows access to the /seen command with ban reason | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.extra` | Allows access to the /seen command with extra info | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.firstlogin` | Allows access to the /seen command with first logi | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.ip` | Allows access to the /seen command with IP address | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.ipsearch` | Allows access to use IP addresses with the /seen c | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.location` | Allows access to the /seen command with location | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.uuid` | Allows access to the /seen command with UUID | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.whitelist` | Allows access to the /seen command with whitelist  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sell` | Allows access to the /sell command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sell.bulk` | Allows access to bulk sell items with the /sell co | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sell.hand` | Allows access to sell the item in hand with the /s | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome` | Allows access to the /sethome command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.bed` | Allows the player to right click a bed during dayt | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.multiple` | Allows access to set multiple homes with the /seth | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.multiple.<set name>` | Raises the limit of homes to a specific number def | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.multiple.unlimited` | Allows access to set unlimited homes with the /set | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.others` | Allows access to set other players homes with the  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.setjail` | Allows access to the /setjail command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.settpr` | Allows access to the /settpr command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.setwarp` | Allows access to the /setwarp command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.setworth` | Allows access to the /setworth command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.showkit` | Allows access to the /showkit command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.balance` | Allows the bearer to break balance signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.buy` | Allows the bearer to break buy signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.disposal` | Allows the bearer to break disposal signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.enchant` | Allows the bearer to break enchant signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.free` | Allows the bearer to break free signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.gamemode` | Allows the bearer to break gamemode signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.heal` | Allows the bearer to break heal signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.info` | Allows the bearer to break info signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.kit` | Allows the bearer to break kit signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.mail` | Allows the bearer to break mail signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.protection` | Allows the bearer to break protection signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.repair` | Allows the bearer to break repair signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.sell` | Allows the bearer to break sell signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.spawnmob` | Allows the bearer to break spawnmob signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.time` | Allows the bearer to break time signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.trade` | Allows the bearer to break trade signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.warp` | Allows the bearer to break warp signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.weather` | Allows the bearer to break weather signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.color` | Allows the bearer to create and use color signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.balance` | Allows the bearer to create balance signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.buy` | Allows the bearer to create buy signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.disposal` | Allows the bearer to create disposal signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.enchant` | Allows the bearer to create enchant signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.free` | Allows the bearer to create free signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.gamemode` | Allows the bearer to create gamemode signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.heal` | Allows the bearer to create heal signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.info` | Allows the bearer to create info signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.kit` | Allows the bearer to create kit signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.mail` | Allows the bearer to create mail signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.protection` | Allows the bearer to create protection signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.repair` | Allows the bearer to create repair signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.sell` | Allows the bearer to create sell signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.spawnmob` | Allows the bearer to create spawnmob signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.time` | Allows the bearer to create time signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.trade` | Allows the bearer to create trade signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.warp` | Allows the bearer to create warp signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.weather` | Allows the bearer to create weather signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.enchant.allowunsafe` | Allows the bearer to create and use unsafe enchant | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.format` | Allows the bearer to create and use format signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.magic` | Allows the bearer to create and use magic signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.protection.override` | Allows the bearer to break signs created by other  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.rgb` | Allows the bearer to create and use RGB signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.trade.override` | Allows the bearer to break trade signs created by  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.trade.override.collect` | Allows the bearer to collect items from trade sign | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.balance` | Allows the bearer to use balance signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.buy` | Allows the bearer to use buy signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.disposal` | Allows the bearer to use disposal signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.enchant` | Allows the bearer to use enchant signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.free` | Allows the bearer to use free signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.gamemode` | Allows the bearer to use gamemode signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.heal` | Allows the bearer to use heal signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.info` | Allows the bearer to use info signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.kit` | Allows the bearer to use kit signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.mail` | Allows the bearer to use mail signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.protection` | Allows the bearer to use protection signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.repair` | Allows the bearer to use repair signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.sell` | Allows the bearer to use sell signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.spawnmob` | Allows the bearer to use spawnmob signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.time` | Allows the bearer to use time signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.trade` | Allows the bearer to use trade signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.warp` | Allows the bearer to use warp signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.weather` | Allows the bearer to use weather signs | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.silentjoin` | Allow to join silently | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.silentjoin.vanish` | Allow to join silently, and get put in vanish mode | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.silentquit` | Suppress leave/quit messages for users with this p | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.skull` | Allows access to the /skull command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.skull.modify` | Allows access to modify other players skulls with  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.skull.others` | Allows access to creating other players skulls wit | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.skull.spawn` | Allows access to spawn a skull with the /skull com | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sleepingignored` | Allows the bearer to not be required to sleep to s | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.smithingtable` | Allows access to the /smithingtable command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.socialspy` | Allows access to the /socialspy command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.socialspy.others` | Allows access to the /socialspy command for other  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawner` | Allows access to the /spawner command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawner.*` | Allows access to set the type of a spawner with th | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawner.<mob-type>` | Allows access to set the type of a spawner with th | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawner.delay` | Allows access to set the delay of a spawner with t | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnerconvert.*` | Allows the bearer to place spawners of any type | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnerconvert.<mob-type>` | Allows the bearer to place spawners of a specific  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnmob` | Allows access to the /spawnmob command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnmob.*` | Allows access to spawn all mobs with the /spawnmob | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnmob.<mob-type>` | Allows access to spawn a specific mob with the /sp | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnmob.stack` | Allows access to spawn mobs in stacks with the /sp | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.speed` | Allows access to the /speed command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.speed.bypass` | Allows the bearer to bypass the speed limit set in | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.speed.fly` | Allows access to the /speed command for fly speed | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.speed.others` | Allows access to the /speed command for other play | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.speed.walk` | Allows access to the /speed command for walk speed | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.stonecutter` | Allows access to the /stonecutter command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sudo` | Allows access to the /sudo command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sudo.exempt` | Prevents the player from being sudo'ed by another  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.sudo.multiple` | Allows access to the /sudo command for multiple pl | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.suicide` | Allows access to the /suicide command for multiple | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.teleport.cooldown.bypass.back` | If the player does not have this permission, /back | True |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.teleport.cooldown.bypass.tpa` | If the player does not have this permission, /tpa  | True |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.teleport.timer.bypass` | Allows the bearer to bypass the teleport delay | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.teleport.timer.move` | Allows the bearer to move while waiting for a tele | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tempban` | Allows access to the /tempban command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tempban.exempt` | Prevent a specified group or player from being tem | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tempban.offline` | Allows access to tempban offline players | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tempban.unlimited` | Allows the bearer to override the max-tempban-time | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tempbanip` | Allows access to the /tempbanip command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.thunder` | Allows access to the /thunder command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.time` | Allows access to the /time command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.time.set` | Allows access to set the time with the /time comma | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.time.world.all` | Allows access to set the time for all worlds with  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.togglejail` | Allows access to the /togglejail command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.togglejail.offline` | Allows access to the /togglejail command for offli | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.top` | Allows access to the /top command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tp` | Allows access to the /tp command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tp.others` | Allows access to teleporting to other users with t | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tp.position` | Allows access to teleporting to a position with th | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpa` | Allows access to the /tpa command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpaall` | Allows access to the /tpaall command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpacancel` | Allows access to the /tpaccept command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpaccept` | Allows access to the /tpaccept command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpahere` | Allows access to the /tpahere command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpall` | Allows access to the /tpall command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpauto` | Allows access to the /tpauto command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpauto.others` | Allows access to the /tpauto command for other pla | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpdeny` | Allows access to the /tpdeny command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tphere` | Allows access to the /tphere command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpo` | Allows access to the /tpo command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpoffline` | Allows access to the /tpoffline command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpohere` | Allows access to the /tpohere command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tppos` | Allows access to the /tppos command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tpr` | Allows access to the /tpr command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tptoggle` | Allows access to the /tptoggle command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tptoggle.others` | Allows access to the /tptoggle command for other p | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.tree` | Allows access to the /tree command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.unban` | Allows access to the /unban command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.unbanip` | Allows access to the /unbanip command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited` | Allows access to the /unlimited command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited.item-<item-name>` | Allows access to the /unlimited command for a spec | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited.item-all` | Allows access to the /unlimited command for all it | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited.item-bucket` | Allows access to the /unlimited command for bucket | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited.others` | Allows access to the /unlimited command for other  | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.updatecheck` | The bearer will be notified of updates to Essentia | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish` | Allows access to the /vanish command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.effect` | Applies invisibility effects to the player when th | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.interact` | Allows the bearer to interact with players in vani | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.others` | Allows access to the /vanish command for other pla | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.pickup` | Allows the bearer to pick up items while in vanish | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.pvp` | Allows the bearer to attack players while in vanis | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.see` | Allows the bearer to see other players in vanish m | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.version` | Allows access to the /version command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.warp` | Allows access to the /warp command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.warp.list` | Allows access to the /warp list command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.warp.others` | Allows access to the /warp command for other playe | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.warp.overwrite.*` | Allows the bearer to overwrite all warps | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.warp.overwrite.<warp-name>` | Allows the bearer to overwrite a specific warp | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.warpinfo` | Allows access to the /warpinfo command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.weather` | Allows access to the /weather command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.whitelist.bypass` | Allows a player to join the server even if they ar | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.whois` | Allows access to the /whois command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.whois.ip` | Allows access to the /whois command with IP addres | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.workbench` | Allows access to the /workbench command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.world` | Allows access to the /world command | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.worlds.<world-name>` | Allows access to the specific world with various c | — |
-| [Essentials](/commands/essentials/essentials.md) | `essentials.worth` | Allows access to the /worth command | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.*` | 默认情况下，为玩家提供操作一切 | op |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.afk` | 允许访问/afk命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.afk.auto` | 拥有此权限的玩家在配置文件中定义的无操作时间段后将被设置为afk | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.afk.kickexempt` | 拥有此权限的玩家不会因为是AFK而被踢出 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.afk.message` | 允许玩家设置自定义AFK消息 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.afk.others` | 允许玩家设置其他玩家的AFK状态 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.antioch` | 允许访问/antioch命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.anvil` | 允许访问/anvil命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.back` | 允许访问/back命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.back.into.<world>` | 允许玩家使用/back命令前往特定世界 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.back.ondeath` | 拥有此权限的玩家将在死亡期间存储返回位置 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.back.onteleport` | 拥有此权限的玩家将在任何传送过程中存储返回位置 | True |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.back.others` | 允许其他玩家访问/back命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.backup` | 允许访问/backup命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.balance` | 允许访问/balance命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.balance.others` | 允许使用/balance命令查看其他玩家的余额 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.balancetop` | 允许访问/balancetop命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.balancetop.exclude` | 拥有此权限的玩家将被排除在平衡台之外 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.balancetop.force` | 允许访问强制刷新平衡顶列表 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ban` | 允许访问/ban命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ban.exempt` | 防止指定的群组或玩家被封禁 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ban.notify` | 允许在玩家被禁用时通知持有人 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ban.offline` | 允许离线玩家访问/ban命令，这可能反过来用于禁止离线的豁免玩家 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.banip` | 允许访问/banip命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.banip.notify` | 允许在玩家被禁用时通知持有人 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.beezooka` | 允许访问/beezooka命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.bigtree` | 允许访问/bigtree命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.book` | 允许访问/book命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.book.author` | 允许使用/book命令访问编辑图书作者 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.book.others` | 允许使用/book命令编辑其他玩家的书籍 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.book.title` | 允许使用/book命令编辑图书标题 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.bottom` | 允许访问/bottom命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.break` | 允许访问/break命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.break.bedrock` | 允许访问基岩的/break命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.broadcast` | 允许访问/broadcast命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.broadcastworld` | 允许访问/broadcastworld命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.burn` | 允许访问/burn命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.cartographytable` | 允许访问/cartographytable命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.chat.ignoreexempt` | 拥有此权限的人员将不会被忽略，即使他们在其他人员忽略列表中 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.chat.spy` | 允许承载者查看所有本地聊天消息，无论其是否靠近发件人 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.chat.spy.exempt` | 允许承载免除本地聊天间谍权限 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.clearinventory` | 允许访问/clearinventory命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.clearinventory.all` | 允许使用/clearinventory命令清除所有玩家的库存 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.clearinventory.others` | 允许使用/clearinventory命令清除其他玩家的库存 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.clearinventoryconfirmtoggle` | 允许访问/clearinventoryconfirmtoggle命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.commandcooldowns.bypass` | 允许绕过所有命令冷却时间 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.commandcooldowns.bypass.<commandname>` | 允许绕过特定命令的冷却时间 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.compass` | 允许访问/compass命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.condense` | 允许访问/condense命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.createkit` | 允许访问/createkit命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.customtext` | 允许访问/customtext命令和所有别名 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.delhome` | 允许访问/delhome命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.delhome.others` | 允许使用/delhome命令删除其他玩家主页 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.deljail` | 允许访问/deljail命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.delkit` | 允许访问/delkit命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.delwarp` | 允许访问/delwarp命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.depth` | 允许访问/depth命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.disposal` | 允许访问/disposal命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.eco` | 允许访问/eco命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.eco.loan` | 允许持有人拥有负余额 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign` | 允许访问/editsign命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.color` | 允许持有人在标志上使用颜色代码 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.format` | 允许持有人在标志上使用格式代码 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.magic` | 允许持有人在标志上使用魔法代码 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.rgb` | 允许持有人在标志上使用RGB代码 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.unlimited` | 允许持有人超过标志上的15个字符限制 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.editsign.waxed.exempt` | 允许持有人编辑打蜡标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.enchant` | 允许访问/enchant命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.enchantments.<enchantment>` | 允许持有人使用/enchant命令使用特定的魔法 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.enchantments.allowunsafe` | 允许携带者使用不安全的附魔物品 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.enderchest` | 允许访问/enderchest命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.enderchest.modify` | 允许持有人修改其他玩家的义务 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.enderchest.others` | 允许其他玩家访问/enderchest命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.essentials` | 允许访问/essentials命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.exempt` | 豁免许多版主操作的父级权限 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.exp` | 允许访问/EXP命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.give` | 允许持有人为自己提供经验 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.give.others` | 允许持有人为其他玩家提供经验 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.others` | 允许持有人查看其他玩家的体验 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.set` | 允许持有人为自己设置体验 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.exp.set.others` | 允许持有人为其他玩家设置经验 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ext` | 允许访问/ext命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ext.others` | 允许其他玩家访问/ext命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.feed` | 允许访问/feed命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.feed.others` | 允许其他玩家访问/feed命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball` | 允许访问/fireball命令。每种类型的火球都需要额外的权限。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.arrow` | 允许访问/fireball命令中的箭头 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.dragon` | 允许在/fireball命令中使用龙 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.egg` | 允许访问/fireball命令中的egg | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.fireball` | 允许访问/fireball命令中的fireball | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.large` | 允许访问/fireball命令中的大火球 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.lingeringpotion` | 允许在/fireball命令中使用挥之不去的药水 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.skull` | 允许在/fireball命令中使用头骨 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.small` | 允许访问/fireball命令中的小火球 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.snowball` | 允许访问/fireball命令中的雪球 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.splashpotion` | 允许访问/fireball命令中的飞溅药水 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fireball.trident` | 允许访问/fireball命令中的三叉戟 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.firework` | 允许访问/firework命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.firework.fire` | 允许携带者使用烟花命令启动手中的烟花副本 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.firework.multiple` | 允许携带者使用烟花指令发射多支烟花 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fly` | 允许访问/fly命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fly.others` | 允许其他玩家访问/fly命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.fly.safelogin` | 如果此权限的持有者在空中登录，他们将被置于飞行模式 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode` | 允许访问/gamemode命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.*` | 允许使用/gamemode命令访问所有游戏模式 | op |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.adventure` | 允许使用/gamemode命令访问冒险游戏模式 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.all` | 允许使用/gamemode命令访问所有游戏模式 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.creative` | 允许使用/gamemode命令访问创意游戏模式 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.others` | 允许其他玩家访问/gamemode命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.spectator` | 允许使用/gamemode命令访问旁观者游戏模式 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.gamemode.survival` | 允许使用/gamemode命令访问生存游戏模式 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.gc` | 允许访问/gc命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.getpos` | 允许访问/getpos命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.getpos.others` | 允许其他玩家访问/getpos命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.give` | 允许访问/give命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.give.item-<item-name>` | 允许在启用基于权限的项目生成时访问特定项目的/give命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.give.item-all` | 允许在启用基于权限的项目生成时访问所有项目的/give命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.god` | 允许访问/god命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.god.others` | 允许其他玩家访问/god命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.god.pvp` | 允许持有者在上帝模式下攻击玩家 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.grindstone` | 允许访问/grindstone命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.hat` | 允许访问/hat命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.hat.ignore-binding` | 允许持有者在为物品配备了绑定诅咒时使用/hat命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.hat.prevent-type.<item-name>` | 防止玩家对指定项目使用/hat命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.heal` | 允许访问/heal命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.heal.others` | 允许其他玩家访问/heal命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.help` | 允许访问/help命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.help.<plugin-name>` | 允许访问特定插件的/help命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.helpop` | 允许访问/helpop命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.helpop.receive` | 允许持有人接收帮助消息 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.home` | 允许访问/home命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.home.bed` | 允许访问床的/home命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.home.compass` | 将玩家的指南针指向他们的第一个主页。需要在配置中启用compass-towards-home-per | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.home.others` | 允许使用/home命令传送到其他玩家家园 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ice` | 允许访问/ice命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ice.others` | 允许其他玩家访问/ICE命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ignore` | 允许访问/ignore命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.info` | 允许访问/info命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.invsee` | 允许访问/invsee命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.invsee.equip` | 允许使用/invsee命令查看盔甲槽中的项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.invsee.modify` | 允许使用/invsee命令访问修改其他玩家库存中的项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.invsee.preventmodify` | 防止其他玩家修改玩家库存。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.item` | 允许访问/item命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemdb` | 允许访问/itemdb命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemlore` | 允许访问/itemlore命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname` | 允许访问/itemname命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.color` | 允许使用彩色文本访问/itemname命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.format` | 允许访问带有格式文本的/itemname命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.magic` | 允许使用魔术文本访问/itemname命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.prevent-type.<item-name>` | 防止玩家对指定项目使用/itemname命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemname.rgb` | 允许访问带有RGB文本的/itemname命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.exempt` | 允许持有人生成项目黑名单中的项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-author` | 允许承载使用作者元数据生成项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-book` | 允许承载从book.txt中生成具有预填充内容的项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-chapter-<chapter>` | 仅允许持有人使用/give命令从book.txt.中生成特定的书籍。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-firework` | 允许持有者使用烟花元数据生成项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-head` | 允许持有人生成具有头部元数据的项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-lore` | 允许持有人生成具有知识元数据的项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.itemspawn.meta-title` | 允许持有人生成具有标题元数据的项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow-block-damage` | 允许持有人在入狱期间损坏格挡 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow-break` | 允许持票人在入狱时打破障碍 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow-interact` | 允许持有人在入狱时与区块进行交互 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow-place` | 允许持有人在入狱时放置区块 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.allow.<command>` | 允许持有人在被监禁时使用指定的命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.exempt` | 防止指定的组或玩家被监禁 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jail.notify` | 允许在其他玩家被监禁时通知持有人 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jailedplayers` | 允许访问/jailedplayers命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jails` | 允许访问/jails命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.joinfullserver` | 允许加入服务器，即使服务器已满 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jump` | 允许访问/jump命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.jump.lock` | 允许访问/jump lock命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.keepinv` | 控制玩家是否在死亡时保留库存。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.keepxp` | 允许用户在死亡时保留经验值，而不是将其丢弃。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kick` | 允许访问/kick命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kick.exempt` | 防止玩家被踢出。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kick.notify` | 允许在其他玩家被踢出时通知持有人 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kickall` | 允许访问/kickall命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kickall.exempt` | 防止玩家被/kickall踢出 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kill` | 允许访问/kill命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kill.exempt` | 防止玩家被击杀/击杀 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kill.force` | 允许持票人被杀/杀死，即使他们的死亡被取消 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kit` | 允许访问/kit命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kit.exemptdelay` | 免除您的套件延迟功能，这会影响标志和命令。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kit.others` | 允许其他玩家访问/kit命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kitreset` | 允许访问/kitreset命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kitreset.others` | 允许使用/kitreset命令重置其他玩家套件 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kits.*` | 允许访问所有套件 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kits.<kit-name>` | 允许访问特定套件 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.kittycannon` | 允许访问/kittycannon命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.lightning` | 允许访问/lightning命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.lightning.others` | 允许其他玩家访问/lightning命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.list` | 允许访问/list命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.list.hidden` | 允许在/list命令中查看隐藏的玩家 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.loom` | 允许访问/loom命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mail` | 允许访问/mail命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.clear.others` | 允许使用/mail命令清除其他玩家的邮件 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.clearall` | 允许使用/mail命令清除所有邮件 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.send` | 允许使用/mail命令访问发送邮件 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.sendall` | 允许使用/mail命令向所有玩家发送邮件 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mail.sendtemp` | 允许使用/mail命令访问发送临时邮件 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.me` | 允许访问/me命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.more` | 允许访问/more命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.motd` | 允许访问/motd命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msg` | 允许访问/msg命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.color` | 允许使用彩色文本访问/msg命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.format` | 允许访问带有格式文本的/msg命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.magic` | 允许使用魔术文本访问/msg命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.multiple` | 允许使用/msg命令向多个玩家发送消息 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.rgb` | 允许使用RGB文本访问/msg命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msg.url` | 允许访问/msg命令中的发送URL | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msgtoggle` | 允许访问/msgtoggle命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msgtoggle.bypass` | 允许持有人绕过其他玩家的msgtoggle设置 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.msgtoggle.others` | 允许其他玩家访问/msgtoggle命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mute` | 允许访问/mute命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mute.exempt` | 防止指定的组或玩家被静音 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mute.notify` | 允许在其他玩家被静音时通知持有人 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mute.offline` | 允许访问静音离线播放器 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.mute.unlimited` | 允许持有人覆盖最大静音时间设置 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.near` | 允许访问/near命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.near.exclude` | 如果玩家应被排除在近距离查找之外。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.near.maxexempt` | 允许承载绕过/near命令的半径限制 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.near.others` | 允许其他玩家访问/near命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick` | 允许访问/nick命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.allowunsafe` | 如果玩家有这个，他们可以将其用户名设置为任何值。请谨慎使用，因为这有可能破坏用户数据文件。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.blacklist.bypass` | 允许持有人绕过昵称黑名单 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.changecolors` | 允许持有人* *仅* *更改其昵称的颜色 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.color` | 允许使用彩色文本访问/nick命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.format` | 允许访问带有格式文本的/nick命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.hideprefix` | 拥有此权限的玩家将不会应用昵称前缀 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.magic` | 允许使用魔术文本访问/nick命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.others` | 允许其他玩家访问/nick命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nick.rgb` | 允许访问带有RGB文本的/nick命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nocommandcost.<command>` | 允许持有人免费使用指定的命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nocommandcost.all` | 允许持有人免费使用所有命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.nuke` | 允许访问/nuke命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.oversizedstacks` | 允许承载生成超大堆栈 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.pay` | 允许访问/pay命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.pay.multiple` | 允许使用/pay命令向多个玩家付款 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.pay.offline` | 允许使用/pay命令向离线玩家付款 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.payconfirmtoggle` | 允许访问/payconfirmtoggle命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.paytoggle` | 允许访问/paytoggle命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ping` | 允许访问/ping命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.playtime` | 允许访问/playtime命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.playtime.others` | 允许其他玩家访问/playtime命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.potion` | 允许访问/potion命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.potion.<potion-type>` | 允许访问特定药剂类型的/potion命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.potion.apply` | 允许访问/potion apply命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.powertool` | 允许访问/powertool命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.powertool.append` | 允许访问将多个命令添加到动力工具 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.powertoollist` | 允许访问/powertoollist命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.powertooltoggle` | 允许访问/powertooltoggle命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ptime` | 允许访问/ptime命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.ptime.others` | 允许其他玩家访问/ptime命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.pvpdelay.exempt` | 允许承载绕过pvp延迟设置 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.pweather` | 允许访问/pweather命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.pweather.others` | 允许其他玩家访问/pweather命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.realname` | 允许访问/realname命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.recipe` | 允许访问/recipe命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.remove` | 允许访问/remove命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.renamehome` | 允许访问/renamehome命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.renamehome.others` | 允许使用/renamehome命令重命名其他玩家主页 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.repair` | 允许访问/repair命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.repair.all` | 允许访问/repair all命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.repair.armor` | 允许访问/repair armor命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.repair.enchanted` | 允许访问对附魔物品使用/repair命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.rest` | 允许访问/rest命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.rest.others` | 允许其他玩家访问/rest命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.rtoggle` | 允许访问/rtoggle命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.rules` | 允许访问/rules命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen` | 允许访问/seen命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.alts` | 允许使用alts访问/seen命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.banreason` | 允许使用禁止原因访问/seen命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.extra` | 允许访问带有额外信息的/seen命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.firstlogin` | 允许在首次登录时访问/seen命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.ip` | 允许使用IP地址访问/seen命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.ipsearch` | 允许使用/seen命令访问IP地址 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.location` | 允许通过位置访问/seen命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.uuid` | 允许使用UUID访问/seen命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.seen.whitelist` | 允许以白名单状态访问/seen命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sell` | 允许访问/sell命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sell.bulk` | 允许使用/sell命令访问批量销售项目 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sell.hand` | 允许使用/sell命令出售手头的商品 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome` | 允许访问/sethome命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.bed` | 允许玩家在白天右键单击床以更新其“床”主页。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.multiple` | 允许使用/sethome命令设置多个房源 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.multiple.<set name>` | 将房源数量限制提高到配置中定义的特定数量 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.multiple.unlimited` | 允许使用/sethome命令设置无限个房源 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sethome.others` | 允许使用/sethome命令设置其他玩家主页 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.setjail` | 允许访问/setjail命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.settpr` | 允许访问/settpr命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.setwarp` | 允许访问/setwarp命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.setworth` | 允许访问/setworth命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.showkit` | 允许访问/showkit命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.balance` | 允许持票人打破平衡标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.buy` | 允许持票人打破买入标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.disposal` | 允许持有人打破处置标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.enchant` | 允许持有人打破附魔标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.free` | 允许持票人打破自由标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.gamemode` | 允许持有人打破游戏模式标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.heal` | 允许持有人打破治疗标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.info` | 允许持有人破坏信息标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.kit` | 允许持有人打破试剂盒标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.mail` | 允许持票人打破邮件标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.protection` | 允许承载者打破保护标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.repair` | 允许持票人打破维修标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.sell` | 允许持票人打破卖出标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.spawnmob` | 允许持有人打破产卵怪迹象 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.time` | 允许持有人打破时间标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.trade` | 允许持票人打破贸易标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.warp` | 允许持有人打破曲速标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.break.weather` | 允许持票人打破天气标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.color` | 允许持有人创建和使用彩色标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.balance` | 允许持有人创建平衡标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.buy` | 允许持票人创建购买标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.disposal` | 允许持有人创建处置标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.enchant` | 允许持有人创建附魔标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.free` | 允许持有人创建免费标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.gamemode` | 允许持有人创建游戏模式标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.heal` | 允许持有人创建治疗标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.info` | 允许持有人创建信息标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.kit` | 允许持有人创建试剂盒标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.mail` | 允许持票人创建邮件标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.protection` | 允许持有人创建保护标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.repair` | 允许持有人创建维修标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.sell` | 允许持有人创建卖出标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.spawnmob` | 允许持有人创建spawnmob标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.time` | 允许持有人创建时间标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.trade` | 允许持票人创建商标 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.warp` | 允许持有人创建经纱标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.create.weather` | 允许持有人创建天气标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.enchant.allowunsafe` | 允许持有人创建和使用不安全的附魔标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.format` | 允许持有人创建和使用格式标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.magic` | 允许持有人创建和使用魔法标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.protection.override` | 允许持有人打破其他玩家创建的标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.rgb` | 允许持有人创建和使用RGB标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.trade.override` | 允许持票人打破其他玩家创建的商标 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.trade.override.collect` | 允许持票人从其他玩家创建的商标中收集道具 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.balance` | 允许持票人使用平衡标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.buy` | 允许持票人使用购买标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.disposal` | 允许持有人使用处置标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.enchant` | 允许持有人使用附魔标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.free` | 允许持有人使用自由标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.gamemode` | 允许持有人使用游戏模式标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.heal` | 允许持有者使用治疗告示牌 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.info` | 允许持有人使用信息标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.kit` | 允许持有人使用套件标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.mail` | 允许持票人使用邮件标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.protection` | 允许持有人使用保护标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.repair` | 允许持票人使用维修标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.sell` | 允许持有人使用卖出标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.spawnmob` | 允许持有人使用spawnmob标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.time` | 允许持有人使用时间标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.trade` | 允许持票人使用商标 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.warp` | 允许持有人使用经纱标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.signs.use.weather` | 允许持有人使用天气标志 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.silentjoin` | 允许静默加入 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.silentjoin.vanish` | 允许静默加入，并进入消失模式 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.silentquit` | 禁止具有此权限的用户离开/退出消息。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.skull` | 允许访问/skull命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.skull.modify` | 允许使用/skull命令修改其他玩家的头骨 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.skull.others` | 允许使用/skull命令创建其他玩家的头骨 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.skull.spawn` | 允许使用/skull命令生成头骨 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sleepingignored` | 允许持票人无需睡觉即可度过夜晚 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.smithingtable` | 允许访问/smithingtable命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.socialspy` | 允许访问/socialspy命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.socialspy.others` | 允许其他玩家访问/socialspy命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawner` | 允许访问/spawner命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawner.*` | 允许访问使用/spawner命令将spawner的类型设置为所有类型 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawner.<mob-type>` | 允许访问使用/spawner命令将spawner的类型设置为特定类型 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawner.delay` | 允许使用/spawner命令访问以设置生成器的延迟 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnerconvert.*` | 允许承载者放置任何类型的产卵器 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnerconvert.<mob-type>` | 允许持有人放置特定类型的产卵器 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnmob` | 允许访问/spawnmob命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnmob.*` | 允许使用/spawnmob命令生成所有mob | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnmob.<mob-type>` | 允许使用/spawnmob命令生成特定的mob | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.spawnmob.stack` | 允许使用/spawnmob命令访问堆栈中的生成mob | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.speed` | 允许访问/speed命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.speed.bypass` | 允许承载绕过配置中设置的速度限制 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.speed.fly` | 允许访问飞行速度的/speed命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.speed.others` | 允许其他玩家访问/speed命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.speed.walk` | 允许访问步行速度的/speed命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.stonecutter` | 允许访问/stonecutter命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sudo` | 允许访问/sudo命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sudo.exempt` | 防止玩家被其他用户使用 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.sudo.multiple` | 允许多个玩家访问/sudo命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.suicide` | 允许多个玩家访问/suicide命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.teleport.cooldown.bypass.back` | 如果玩家没有此权限，/back将具有冷却时间，即使使用父旁路烫印 | True |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.teleport.cooldown.bypass.tpa` | 如果玩家没有此权限，/tpa将具有冷却时间，即使有父旁路perm | True |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.teleport.timer.bypass` | 允许承载绕过传送延迟 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.teleport.timer.move` | 允许携带者在等待传送时移动 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tempban` | 允许访问/tempban命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tempban.exempt` | 防止指定的组或玩家被临时禁用 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tempban.offline` | 允许访问临时禁用离线玩家 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tempban.unlimited` | 允许持有人覆盖max-tempban-time设置 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tempbanip` | 允许访问/tempbanip命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.thunder` | 允许访问/thunder命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.time` | 允许访问/time命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.time.set` | 允许访问使用/time命令设置时间 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.time.world.all` | 允许访问使用/time命令设置所有世界的时间 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.togglejail` | 允许访问/togglejail命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.togglejail.offline` | 允许离线玩家访问/togglejail命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.top` | 允许访问/top命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tp` | 允许访问/tp命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tp.others` | 允许使用/tp命令远程传送给其他用户 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tp.position` | 允许使用/tp命令传送到某个位置 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpa` | 允许访问/tpa命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpaall` | 允许访问/tpaall命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpacancel` | 允许访问/tpaccept命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpaccept` | 允许访问/tpaccept命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpahere` | 允许访问/tpahere命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpall` | 允许访问/tpall命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpauto` | 允许访问/tpauto命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpauto.others` | 允许其他玩家访问/tpauto命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpdeny` | 允许访问/tpdeny命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tphere` | 允许访问/tphere命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpo` | 允许访问/tpo命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpoffline` | 允许访问/tpoffline命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpohere` | 允许访问/tpohere命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tppos` | 允许访问/tppos命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tpr` | 允许访问/tpr命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tptoggle` | 允许访问/tptoggle命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tptoggle.others` | 允许其他玩家访问/tptoggle命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.tree` | 允许访问/tree命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.unban` | 允许访问/unban命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.unbanip` | 允许访问/unbanip命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited` | 允许访问/unlimited命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited.item-<item-name>` | 允许在启用基于权限的项目生成时访问特定项目的/unlimited命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited.item-all` | 允许在启用基于权限的项目生成时访问所有项目的/unlimited命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited.item-bucket` | 允许访问水桶和熔岩的/unlimited命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.unlimited.others` | 允许其他玩家访问/unlimited命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.updatecheck` | 持有人将收到EssentialsX更新的通知 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish` | 允许访问/vanish命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.effect` | 在消失模式下对玩家应用隐身效果 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.interact` | 允许持有人在消失模式下与玩家互动 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.others` | 允许其他玩家访问/vanish命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.pickup` | 允许持票人在消失模式下领取物品 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.pvp` | 允许持有者在消失模式下攻击玩家 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.vanish.see` | 允许持有人在消失模式下看到其他玩家 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.version` | 允许访问/version命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.warp` | 允许访问/warp命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.warp.list` | 允许访问/warp list命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.warp.others` | 允许其他玩家访问/warp命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.warp.overwrite.*` | 允许承载覆盖所有翘曲 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.warp.overwrite.<warp-name>` | 允许承载覆盖特定曲线 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.warpinfo` | 允许访问/warpinfo命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.weather` | 允许访问/weather命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.whitelist.bypass` | 允许玩家加入服务器，即使他们没有列入白名单。 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.whois` | 允许访问/whois命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.whois.ip` | 允许使用IP地址访问/whois命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.workbench` | 允许访问/workbench命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.world` | 允许访问/world命令 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.worlds.<world-name>` | 允许使用各种命令访问特定世界 | — |
+| [Essentials](/commands/essentials/essentials.md) | `essentials.worth` | 允许访问/worth命令 | — |
 | [InBlock](/commands/essentials/inblock.md) | `Inblock.give` | 允许给予自定义方块物品 | op |
 | [InBlock](/commands/essentials/inblock.md) | `Inblock.open` | 允许打开仓库界面 | op |
 | [InBlock](/commands/essentials/inblock.md) | `Inblock.reload` | 允许重载配置 | op |
@@ -517,136 +517,136 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [InvSaver](/commands/essentials/invsaver.md) | `invSaver.reload` | — | op |
 | [InvSaver](/commands/essentials/invsaver.md) | `invSaver.restore` | — | op |
 | [InvSaver](/commands/essentials/invsaver.md) | `invSaver.save` | — | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.admin` | Gives full access to the plugin | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.*` | Gives full access to the plugin | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.censure` | Bypass words restrictions when editing items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.lore_length_limit` | Bypass restrictions on lore line max length set on | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.lore_line_limit` | Bypass restrictions on lore line amount set on con | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.lore_type_restriction` | Bypass type restrictions when editing item lore | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.rename_length_limit` | Bypass restrictions on rename line max length set  | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.rename_type_restriction` | Bypass type restrictions when renaming items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.creativeuser` | Gives full access to the plugin | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.*` | Gives full access to command /itemedit | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.amount` | Allow editing item amount | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.armortrim` | Allow setting trims on armor | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.axolotlvariant` | Allow editing axolotl variant on axolotl buckets | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.banner` | Allow editing banners | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.bookauthor` | Allow editing book author | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.bookenchant` | Allow editing book enchants | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.bookenchant.bypass_max_level` | Allow editing book enchants above vanilla limits | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.booktype` | Allow editing book type | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color` | Allow editing items colors | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color.firework_star` | Allow editing firework star color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color.leather` | Allow editing leather color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color.potion` | Allow editing potion color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color.tipped_arrow` | Allow editing tipped arrow color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.compass` | Allow editing compass location | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.custommodeldata` | Allow editing custom model data of items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.damage` | Allow editing item durability-damage | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.enchant` | Allow editing item enchants | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.enchant.bypass_max_level` | Allow editing item enchants above vanilla limits | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.equipment` | Allow setting equipment properties | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.fireresistent` | Allow setting fire resistance of this stack | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.firework` | Allow editing fireworks with a gui | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.fireworkpower` | Allow editing fireworks power | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.food` | Allow editing potion effects | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.food.bypass_limits` | Allow editing potion effects above level 2 | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.glider` | Allow setting the item behavior | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.glow` | Allow setting glow visual effect | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.goathornsound` | Allow editing goat horn sound | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.hide` | Allow editing item flags | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.hideall` | Allow to hide all item flags at once | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.hidetooltip` | Allow hiding tooltips | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.itemmodel` | Allow setting item texture model | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.listaliases` | Shows aliases | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore` | Allow editing item lore | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.*` | Allow editing item lore and use all colors | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.aqua` | Allow editing item lore and use aqua color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.black` | Allow editing item lore and use black color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.blue` | Allow editing item lore and use blue color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_aqua` | Allow editing item lore and use dark_aqua color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_blue` | Allow editing item lore and use dark_blue color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_gray` | Allow editing item lore and use dark_gray color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_green` | Allow editing item lore and use dark_green color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_purple` | Allow editing item lore and use dark_purple color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_red` | Allow editing item lore and use dark_red color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.gold` | Allow editing item lore and use gold color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.gray` | Allow editing item lore and use gray color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.green` | Allow editing item lore and use green color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.hexa` | Allow editing item lore and use hexa colors | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.light_purple` | Allow editing item lore and use light_purple color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.red` | Allow editing item lore and use red color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.white` | Allow editing item lore and use white color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.yellow` | Allow editing item lore and use yellow color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.copy` | Allow to use lore sub commands copy, copybook and  | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.*` | Allow editing item lore and use all formats | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.bold` | Allow editing item lore and use bold format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.italic` | Allow editing item lore and use italic format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.magic` | Allow editing item lore and use magic format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.reset` | Allow editing item lore and use reset format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.strikethrough` | Allow editing item lore and use strikethrough form | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.underline` | Allow editing item lore and use underline format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.minimessage` | Allow editing item lore using minimessage placehol | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.maxstacksize` | Allow setting max stack size | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.potioneffect` | Allow editing potion effects | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.potioneffect.bypass_limits` | Allow editing potion effects above level 2 | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rarity` | Allow setting rarity of an item | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename` | Allow editing item name | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.*` | Allow editing item name and use all colors | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.aqua` | Allow editing item name and use aqua color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.black` | Allow editing item name and use black color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.blue` | Allow editing item name and use blue color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_aqua` | Allow editing item name and use dark_aqua color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_blue` | Allow editing item name and use dark_blue color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_gray` | Allow editing item name and use dark_gray color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_green` | Allow editing item name and use dark_green color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_purple` | Allow editing item name and use dark_purple color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_red` | Allow editing item name and use dark_red color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.gold` | Allow editing item name and use gold color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.gray` | Allow editing item name and use gray color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.green` | Allow editing item name and use green color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.hexa` | Allow editing item name and use hexa colors | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.light_purple` | Allow editing item name and use light_purple color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.red` | Allow editing item name and use red color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.white` | Allow editing item name and use white color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.yellow` | Allow editing item name and use yellow color | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.*` | Allow editing item name and use all formats | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.bold` | Allow editing item name and use bold format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.italic` | Allow editing item name and use italic format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.magic` | Allow editing item name and use magic format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.reset` | Allow editing item name and use reset format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.strikethrough` | Allow editing item name and use strikethrough form | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.underline` | Allow editing item name and use underline format | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.minimessage` | Allow editing item name using minimessage placehol | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.repaircost` | Allow editing repair costs | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.repaircost.without_durability` | Allow to set a repair cost even on items which hav | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.skullowner` | Allow editing skull skin owner | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.spawnereggtype` | Allow editing monster's egg | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.tropicalfish` | Allow editing tropical fish buckets | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.type` | Allow editing item material | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.unbreakable` | Allow editing item unbreakablity | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemeditimport` | Gives full access to command /itemeditimport | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemeditinfo` | Gives full access to command /itemeditinfo | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemeditreload` | Gives full access to command /itemeditreload | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.*` | Gives full access to command /itemstorage | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.delete` | Allow to delete stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.get` | Allow to get stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.save` | Allow to store items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.show` | Allow to show stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.update` | Allow to update stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.*` | Gives full access to command /serveritem | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.buy` | Allow to buy fixed amount of stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.buymax` | Allow to buy stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.delete` | Allow to delete stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.drop` | Allow to drop stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.give` | Allow to give stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.save` | Allow to store items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.sell` | Allow to sell fixed amount of stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.sellmax` | Allow to sell stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.setnick` | Allow to set nicks for stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.show` | Allow to show stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.take` | Allow to take stored items | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.update` | Allow to update stored items | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.admin` | 拥有该插件的全部权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.*` | 拥有该插件的全部权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.censure` | 编辑项目时绕过单词限制 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.lore_length_limit` | 在配置上设置的知识线最大长度的旁路限制 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.lore_line_limit` | 绕过配置上设置的知识线数量的限制 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.lore_type_restriction` | 编辑项目知识时绕过类型限制 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.rename_length_limit` | 绕过配置上设置的重命名行最大长度的限制 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.rename_type_restriction` | 重命名项目时绕过类型限制 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.creativeuser` | 拥有该插件的全部权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.*` | 授予对command/itemedit的完全访问权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.amount` | 允许编辑项目金额 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.armortrim` | 允许在盔甲上设置修剪 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.axolotlvariant` | 允许在axolotl桶上编辑axolotl变体 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.banner` | 允许编辑横幅 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.bookauthor` | 允许编辑图书作者 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.bookenchant` | 允许编辑书籍附魔剂 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.bookenchant.bypass_max_level` | 允许编辑高于香草限制的书籍附魔剂 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.booktype` | 允许编辑图书类型 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color` | 允许编辑项目颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color.firework_star` | 允许编辑烟花星星颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color.leather` | 允许编辑皮革颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color.potion` | 允许编辑药水颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.color.tipped_arrow` | 允许编辑提示箭头颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.compass` | 允许编辑罗盘位置 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.custommodeldata` | 允许编辑项目的自定义模型数据 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.damage` | 允许编辑项目耐久度-伤害 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.enchant` | 允许编辑物品附魔 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.enchant.bypass_max_level` | 允许编辑高于香草限制的物品附魔剂 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.equipment` | 允许设置设备属性 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.fireresistent` | 允许设置此堆栈的耐火性 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.firework` | 允许使用GUI编辑烟花 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.fireworkpower` | 允许编辑烟花动力 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.food` | 允许编辑药水效果 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.food.bypass_limits` | 允许编辑2级以上的药水效果 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.glider` | 允许设置项目行为 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.glow` | 允许设置发光视觉效果 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.goathornsound` | 允许编辑山羊喇叭声 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.hide` | 允许编辑项目标记 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.hideall` | 允许一次隐藏所有项目标志 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.hidetooltip` | 允许隐藏工具提示 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.itemmodel` | 允许设置项目纹理模型 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.listaliases` | 显示别名 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore` | 允许编辑物品的说明文本 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.*` | 允许编辑项目知识并使用所有颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.aqua` | 允许编辑项目知识并使用水蓝色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.black` | 允许编辑项目知识并使用黑色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.blue` | 允许编辑项目知识并使用蓝色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_aqua` | 允许编辑项目知识并使用dark_aqua颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_blue` | 允许编辑项目知识并使用DARK_BLUE颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_gray` | 允许编辑项目知识并使用DARK_GREY颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_green` | 允许编辑项目知识并使用DARK_GREEN颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_purple` | 允许编辑项目知识并使用DARK_PURPLE颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.dark_red` | 允许编辑项目知识并使用DARK_RED颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.gold` | 允许编辑项目知识并使用金色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.gray` | 允许编辑项目知识并使用灰色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.green` | 允许编辑项目知识并使用绿色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.hexa` | 允许编辑项目知识并使用十六进制颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.light_purple` | 允许编辑项目知识并使用LIGHT_PURPLE颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.red` | 允许编辑项目知识并使用红色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.white` | 允许编辑项目知识并使用白色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.color.yellow` | 允许编辑项目知识并使用黄色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.copy` | 允许使用lore子命令copy, copybook和copyfile | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.*` | 允许编辑项目知识并使用所有格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.bold` | 允许编辑项目知识并使用粗体格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.italic` | 允许编辑项目知识并使用斜体格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.magic` | 允许编辑项目知识并使用魔法格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.reset` | 允许编辑项目知识并使用重置格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.strikethrough` | 允许编辑项目知识并使用删除线格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.format.underline` | 允许编辑项目知识并使用下划线格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.lore.minimessage` | 允许使用最小消息占位符编辑项目知识 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.maxstacksize` | 允许设置最大堆栈大小 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.potioneffect` | 允许编辑药水效果 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.potioneffect.bypass_limits` | 允许编辑2级以上的药水效果 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rarity` | 允许设置项目的稀有度 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename` | 允许编辑项目名称 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.*` | 允许编辑项目名称并使用所有颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.aqua` | 允许编辑项目名称并使用水蓝色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.black` | 允许编辑项目名称并使用黑色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.blue` | 允许编辑项目名称并使用蓝色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_aqua` | 允许编辑项目名称并使用dark_aqua颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_blue` | 允许编辑项目名称并使用DARK_BLUE颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_gray` | 允许编辑项目名称并使用DARK_GREY颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_green` | 允许编辑项目名称并使用DARK_GREEN颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_purple` | 允许编辑项目名称并使用DARK_PURPLE颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.dark_red` | 允许编辑项目名称并使用DARK_RED颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.gold` | 允许编辑项目名称并使用金色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.gray` | 允许编辑项目名称并使用灰色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.green` | 允许编辑项目名称并使用绿色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.hexa` | 允许编辑项目名称并使用十六进制颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.light_purple` | 允许编辑项目名称并使用LIGHT_PURPLE颜色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.red` | 允许编辑项目名称并使用红色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.white` | 允许编辑项目名称并使用白色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.color.yellow` | 允许编辑项目名称并使用黄色 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.*` | 允许编辑项目名称并使用所有格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.bold` | 允许编辑项目名称并使用粗体格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.italic` | 允许编辑项目名称并使用斜体格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.magic` | 允许编辑项目名称并使用魔术格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.reset` | 允许编辑项目名称并使用重置格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.strikethrough` | 允许编辑项目名称并使用删除线格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.format.underline` | 允许编辑项目名称并使用下划线格式 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.rename.minimessage` | 允许使用最小消息占位符编辑项目名称 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.repaircost` | 允许编辑维修费用 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.repaircost.without_durability` | 即使在没有耐久性的物品上也允许设置维修成本 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.skullowner` | 允许编辑颅骨皮肤所有者 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.spawnereggtype` | 允许编辑怪物的蛋 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.tropicalfish` | 允许编辑热带鱼桶 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.type` | 允许编辑物料材料 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.unbreakable` | 允许编辑项目不可破解 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemeditimport` | 授予对命令/itemeditimport的完全访问权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemeditinfo` | 授予对command/itemeditinfo的完全访问权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemeditreload` | 授予对命令/itemeditreload的完全访问权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.*` | 提供对命令/项存储的完全访问权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.delete` | 允许删除已存储的物品 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.get` | 允许获取存储的物料 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.save` | 允许存储物品 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.show` | 允许查看已存储的物品 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemstorage.update` | 允许更新已存储的物品 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.*` | 授予对命令/服务器项的完全访问权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.buy` | 允许购买固定数量的存储项目 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.buymax` | 允许购买已存储的物品 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.delete` | 允许删除已存储的物品 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.drop` | 允许删除存储的项目 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.give` | 允许提供存储的物料 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.save` | 允许存储物品 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.sell` | 允许销售固定数量的存储项目 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.sellmax` | 允许出售存储的物品 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.setnick` | 允许为存储的项目设置昵称 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.show` | 允许查看已存储的物品 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.take` | 允许取用存储的物料 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.serveritem.update` | 允许更新已存储的物品 | op |
 | [LeafHat](/commands/essentials/leafhat.md) | `leafhat.reload` | 允许使用 /hat reload 重载配置 | op |
 | [LeafHat](/commands/essentials/leafhat.md) | `leafhat.use` | 允许使用 /hat 与 /unhat | op |
 | [OpenInv](/commands/essentials/openinv.md) | `openinv` | — | — |
@@ -690,41 +690,41 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.*` | — | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.biome` | RTP to specific biomes | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.biome` | 特定生物群落的RTP | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.*` | — | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.cooldown` | Bypass cooldowns | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.delay` | Bypass delays | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.economy` | Bypass economy | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.hunger` | Bypass hunger | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.edit` | Edit a custom/default world rtp center/radius | op |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.group.*` | Use a permission group to rtp with different restr | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.info` | View info about all worlds rtp will work in | op |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.location` | RTP using a specific location | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.player` | RTP another player | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.reload` | Reload the config | op |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.sign` | Ability to create an RTP sign | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.test` | While debugger enabled, be able to test particles, | op |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.updater` | Get notification on new updates | op |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.use` | Use RTP command | True |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.version` | See which version is running | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.world` | Use world command | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.world.*` | RTP in all enabled worlds | — |
-| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.setspawn` | Allows access to the /setspawn command | — |
-| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn` | Allows access to the /spawn command | — |
-| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn-on-join.exempt` | Bypass spawn teleportation on join when spawn-on-j | — |
-| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn.others` | Allows access to the /spawn command for other play | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.cooldown` | 绕过冷却时间 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.delay` | 绕过延迟 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.economy` | 旁路经济 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.hunger` | 绕过饥饿 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.edit` | 编辑自定义/默认世界rtp中心/半径 | op |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.group.*` | 使用权限组以不同的限制进行rtp | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.info` | 查看有关rtp将工作的所有世界的信息 | op |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.location` | 使用特定位置的RTP | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.player` | RTP其他玩家 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.reload` | 重新加载配置 | op |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.sign` | 能够创建RTP标志 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.test` | 启用调试器后，能够测试粒子、药水效果和声音 | op |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.updater` | 获取有关新更新的通知 | op |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.use` | 使用RTP命令 | True |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.version` | 查看正在运行的版本 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.world` | 使用世界命令 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.world.*` | 所有已启用世界中的RTP | — |
+| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.setspawn` | 允许访问/setspawn命令 | — |
+| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn` | 允许访问/spawn命令 | — |
+| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn-on-join.exempt` | 当spawn-on-join为true时，在加入时绕过spawn传送 | — |
+| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn.others` | 允许其他玩家访问/spawn命令 | — |
 
 ## 🗺️ 世界与地图
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [ArtMap](/commands/world/artmap.md) | `artmap.admin` | Allows administrative commands | op |
-| [ArtMap](/commands/world/artmap.md) | `artmap.artist` | Allows players to paint, and place/break easels in | op |
-| [ArtMap](/commands/world/artmap.md) | `artmap.artkit` | Gives players a kit of art supplies while they use | op |
-| [ArtMap](/commands/world/artmap.md) | `artmap.menu` | Allows players to open the ArtMap menu | True |
-| [ArtMap](/commands/world/artmap.md) | `artmap.prevent.afk` | Player will not be kicked for being AFK at easel.  | — |
-| [ArtMap](/commands/world/artmap.md) | `artmap.region.member` | Allows players to place/break easels in regions th | op |
-| [MeteorShowers](/commands/world/meteorshowers.md) | `meteorshowers.admin` | Access to all MeteorShowers admin commands | op |
+| [ArtMap](/commands/world/artmap.md) | `artmap.admin` | 允许管理命令 | op |
+| [ArtMap](/commands/world/artmap.md) | `artmap.artist` | 允许玩家在他们拥有或是其成员的任何区域中绘画和放置/打破画架。 | op |
+| [ArtMap](/commands/world/artmap.md) | `artmap.artkit` | 使用画架时为玩家提供一套艺术用品 | op |
+| [ArtMap](/commands/world/artmap.md) | `artmap.menu` | 允许玩家打开ArtMap菜单 | True |
+| [ArtMap](/commands/world/artmap.md) | `artmap.prevent.afk` | 在画架上，玩家不会因为是AFK而被踢出。支持Eseentials和CMI。 | — |
+| [ArtMap](/commands/world/artmap.md) | `artmap.region.member` | 允许玩家在他们是成员但不拥有的地区放置/打破画架。 | op |
+| [MeteorShowers](/commands/world/meteorshowers.md) | `meteorshowers.admin` | 访问所有MeteorShowers管理命令 | op |
 | [Mirrora](/commands/world/mirrora.md) | `mirrora.admin` | — | op |
 | [WeatherCard](/commands/world/weathercard.md) | `weathercard.give` | 允许发放天气卡 | op |
 | [WeatherCard](/commands/world/weathercard.md) | `weathercard.use` | 允许使用天气卡 | op |
@@ -740,104 +740,104 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.admin` | Edit someone's protection signs, or remove the pro | op |
-| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.bypass` | Bypass someone else's protection, but don't allow  | op |
-| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.protect` | Protect containers and doors. | True |
-| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.reload` | Reload the plugin using /blocklocker reload. | op |
-| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.wilderness` | Place chests in the wilderness (outside of Towny c | True |
-| [Residence](/commands/protect/residence.md) | `residence.admin` | Gives you access to /resadmin | op |
-| [Residence](/commands/protect/residence.md) | `residence.admin.move` | Allows to override move flag | op |
-| [Residence](/commands/protect/residence.md) | `residence.admin.tp` | Allows to override tp flag | op |
-| [Residence](/commands/protect/residence.md) | `residence.bypass.command` | Bypasses command flag in residence | op |
-| [Residence](/commands/protect/residence.md) | `residence.bypass.nofly` | Bypasses nofly flag in residence | op |
-| [Residence](/commands/protect/residence.md) | `residence.chatcolor` | Allows to change residence chat color | True |
-| [Residence](/commands/protect/residence.md) | `residence.chatkick` | Allows to kick players from residence chat | True |
-| [Residence](/commands/protect/residence.md) | `residence.chatprefix` | Allows to change residence chat prefix | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.area` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.auto` | Allows to create max residence | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.bank` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.check` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.clearflags` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.command` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.compass` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.confirm` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.contract` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.create` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.current` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.expand` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.flags` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.give` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.gset` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.gui` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.info` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.kick` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.lease` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.limits` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.list` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.list.others` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.listall` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.listallhidden` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.listhidden` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.lists` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.lset` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.market` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.material` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.message` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.message.enter` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.message.enter.remove` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.message.leave` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.message.leave.remove` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.mirror` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.padd` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.pdel` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.pset` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.rc` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.reload` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.remove` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.removeall` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.removeworld` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.rename` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.renamearea` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.resadmin` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.resbank` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.reset` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.rt` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.select` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.server` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.set` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.setdefaultflags` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.setmain` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.setowner` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.shop` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.show` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.siege` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.signconvert` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.signupdate` | Allows to access particular command | op |
-| [Residence](/commands/protect/residence.md) | `residence.command.sublist` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.subzone` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.tool` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.tp` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.tpconfirm` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.tpset` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.unstuck` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.version` | Allows to access particular command | True |
-| [Residence](/commands/protect/residence.md) | `residence.compass` | Allows to set compass pointer to residence | True |
-| [Residence](/commands/protect/residence.md) | `residence.contract` | Allows you to contract residence | True |
-| [Residence](/commands/protect/residence.md) | `residence.contract.subzone` | Allows you to contract residences subzone | True |
-| [Residence](/commands/protect/residence.md) | `residence.create` | Allows you to create residences | True |
-| [Residence](/commands/protect/residence.md) | `residence.create.subzone` | Allows you to create residences subzone | True |
-| [Residence](/commands/protect/residence.md) | `residence.delete` | Allows you to delete residences | True |
-| [Residence](/commands/protect/residence.md) | `residence.delete.subzone` | Allows you to delete residences subzone | True |
-| [Residence](/commands/protect/residence.md) | `residence.expand` | Allows you to expand residence | True |
-| [Residence](/commands/protect/residence.md) | `residence.expand.subzone` | Allows you to expand residences subzone | True |
-| [Residence](/commands/protect/residence.md) | `residence.newguyresidence` | Allows for auto residence creation on chest place | True |
-| [Residence](/commands/protect/residence.md) | `residence.randomtp` | Allows to use /res rt command | True |
-| [Residence](/commands/protect/residence.md) | `residence.rename` | Allows you to rename residences | True |
-| [Residence](/commands/protect/residence.md) | `residence.resize` | Allows you to resize an area | True |
-| [Residence](/commands/protect/residence.md) | `residence.select` | Allows you to select an area to make residences | True |
-| [Residence](/commands/protect/residence.md) | `residence.select.auto.others` | Allows to turn on auto selection for other players | op |
-| [Residence](/commands/protect/residence.md) | `residence.topadmin` | Gives you access to /resreload and /resload comman | op |
-| [Residence](/commands/protect/residence.md) | `residence.versioncheck` | Notice to new version after connect | op |
+| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.admin` | 编辑某人的防护标志，或完全取消防护。 | op |
+| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.bypass` | 绕过他人的保护，但不要允许破坏它。 | op |
+| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.protect` | 保护容器和门。 | True |
+| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.reload` | 使用/blocklocker reload重新加载插件。 | op |
+| [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.wilderness` | 在荒野中放置宝箱（在Towny领地之外） | True |
+| [Residence](/commands/protect/residence.md) | `residence.admin` | 允许您访问/resadmin | op |
+| [Residence](/commands/protect/residence.md) | `residence.admin.move` | 允许覆盖移动标志 | op |
+| [Residence](/commands/protect/residence.md) | `residence.admin.tp` | 允许覆盖tp标志 | op |
+| [Residence](/commands/protect/residence.md) | `residence.bypass.command` | 在驻留中绕过命令标志 | op |
+| [Residence](/commands/protect/residence.md) | `residence.bypass.nofly` | 在住宅内绕过禁飞旗 | op |
+| [Residence](/commands/protect/residence.md) | `residence.chatcolor` | 允许更改住宅聊天颜色 | True |
+| [Residence](/commands/protect/residence.md) | `residence.chatkick` | 允许将玩家从住宅聊天中踢出 | True |
+| [Residence](/commands/protect/residence.md) | `residence.chatprefix` | 允许更改住宅聊天前缀 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.area` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.auto` | 允许创建最大住宅 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.bank` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.check` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.clearflags` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.command` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.compass` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.confirm` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.contract` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.create` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.current` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.expand` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.flags` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.give` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.gset` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.gui` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.info` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.kick` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.lease` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.limits` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.list` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.list.others` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.listall` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.listallhidden` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.listhidden` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.lists` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.lset` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.market` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.material` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.message` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.message.enter` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.message.enter.remove` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.message.leave` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.message.leave.remove` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.mirror` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.padd` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.pdel` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.pset` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.rc` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.reload` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.remove` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.removeall` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.removeworld` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.rename` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.renamearea` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.resadmin` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.resbank` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.reset` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.rt` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.select` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.server` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.set` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.setdefaultflags` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.setmain` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.setowner` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.shop` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.show` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.siege` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.signconvert` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.signupdate` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.sublist` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.subzone` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.tool` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.tp` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.tpconfirm` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.tpset` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.unstuck` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.version` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.compass` | 允许设置指向驻留的指南针指针 | True |
+| [Residence](/commands/protect/residence.md) | `residence.contract` | 允许您签约居住 | True |
+| [Residence](/commands/protect/residence.md) | `residence.contract.subzone` | 允许您签约住宅子区 | True |
+| [Residence](/commands/protect/residence.md) | `residence.create` | 允许您创建住宅 | True |
+| [Residence](/commands/protect/residence.md) | `residence.create.subzone` | 允许您创建住宅子区域 | True |
+| [Residence](/commands/protect/residence.md) | `residence.delete` | 允许您删除住宅 | True |
+| [Residence](/commands/protect/residence.md) | `residence.delete.subzone` | 允许您删除住宅子区域 | True |
+| [Residence](/commands/protect/residence.md) | `residence.expand` | 允许您扩展住所 | True |
+| [Residence](/commands/protect/residence.md) | `residence.expand.subzone` | 允许您扩展住宅子区域 | True |
+| [Residence](/commands/protect/residence.md) | `residence.newguyresidence` | 允许在胸部位置自动创建居所 | True |
+| [Residence](/commands/protect/residence.md) | `residence.randomtp` | 允许使用/res rt命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.rename` | 允许您重命名住宅 | True |
+| [Residence](/commands/protect/residence.md) | `residence.resize` | 允许您调整区域的大小 | True |
+| [Residence](/commands/protect/residence.md) | `residence.select` | 允许您选择一个区域来建造住宅 | True |
+| [Residence](/commands/protect/residence.md) | `residence.select.auto.others` | 允许为其他玩家打开自动选择 | op |
+| [Residence](/commands/protect/residence.md) | `residence.topadmin` | 允许您访问/resreload和/resload命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.versioncheck` | 连接后通知新版本 | op |
 | [TownPlugin](/commands/protect/townplugin.md) | `town.admin` | 城镇系统管理权限 | op |
 | [TownPlugin](/commands/protect/townplugin.md) | `town.use` | 允许使用城镇功能 | True |
 | [TownPlugin](/commands/protect/townplugin.md) | `town.warehouse.clear` | 城镇仓库清理权限（清理任意城镇仓库） | op |
@@ -867,58 +867,58 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [MagicPointsLog](/commands/economy/magicpointslog.md) | `magicpointslog.top` | 查看点券收支榜单 | op |
 | [SenluoBuyer](/commands/economy/senluobuyer.md) | `senluobuyer.admin` | 允许重载配置 | op |
 | [SenluoBuyer](/commands/economy/senluobuyer.md) | `senluobuyer.use` | 允许使用森罗收购 | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.*` | Access to everything | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.admin` | Create and modify admin shopkeepers | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.bypass` | Bypass player shop restrictions (access player sho | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.citizen` | Create Citizens NPC shopkeepers | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.cleanup-citizen-shopkeepers` | Delete invalid Citizen shopkeepers via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.create` | Allows the creation of shopkeepers via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.debug` | Toggle debug mode and access debugging commands | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.delete-unspawnable-shopkeepers` | Delete unspawnable shopkeepers via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.edit-villagers` | Edit regular villagers | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.edit-wandering-traders` | Edit regular wandering traders | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.entity.*` | Create shopkeepers of any mob type | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.give` | Give shop creation items via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.givecurrency` | Give currency items via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.hanging-sign` | Create hanging sign shopkeepers | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.help` | Display the command help | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.hire` | Allows hiring of shopkeepers | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.history.admin` | View the trading history of others and admin shops | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.history.own` | View your own trading history | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.list.admin` | List the admin shops | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.list.others` | List the player shops of other players | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.list.own` | List your own player shops | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.maxshops.unlimited` | Allows the creation of an unlimited number of shop | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.notify.trades` | Allows turning trade notifications for you on or o | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player` | Create any type of player shopkeeper | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.book` | Create books selling player shopkeepers | — |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.buy` | Create buying player shopkeepers | — |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.sell` | Create selling player shopkeepers | — |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.trade` | Create trading player shopkeepers | — |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.reload` | Reload the plugin | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remote` | Remotely open shops via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remote.otherplayers` | Remotely open shops for other players | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remoteedit` | Remotely edit shops via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove-all.admin` | Remove all admin shops via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove-all.others` | Remove all the shops of another player via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove-all.own` | Remove all of your own shops via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove-all.player` | Remove the player shops of all players via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove.admin` | Remove admin shops via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove.others` | Remove the shops of other players via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove.own` | Remove your own shops via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.setcurrency` | Set the currency items via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.setforhire` | Set a shopkeeper to be for hire | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.settradedcommand` | Set the traded command for the held item | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.settradeperm` | Set the trade permissions for admin shops | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.sign` | Create sign shopkeepers | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.snapshot` | Access shopkeeper snapshot commands | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.teleport` | Teleport to shopkeepers via command | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.teleport.others` | Teleport other players to shopkeepers | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.trade` | Allows trading with shopkeepers | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.trade-notifications.admin` | Receive trade notifications for admin shops | — |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.trade-notifications.player` | Receive trade notifications for player shops | — |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.transfer` | Transfer ownership of player shops | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.updateitems` | Update third-party items | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.*` | 无障碍通道 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.admin` | 创建和修改管理员店主 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.bypass` | 绕过玩家商店限制（进入其他玩家的商店） | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.citizen` | 创建公民NPC店主 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.cleanup-citizen-shopkeepers` | 通过命令删除无效的公民店主 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.create` | 允许通过命令创建店主 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.debug` | 切换调试模式并访问调试命令 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.delete-unspawnable-shopkeepers` | 通过命令删除不可生成的店主 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.edit-villagers` | 编辑常规村民 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.edit-wandering-traders` | 编辑经常流浪的商人 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.entity.*` | 创建任何类型的店主 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.give` | 通过命令给商店创建道具 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.givecurrency` | 通过命令提供货币道具 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.hanging-sign` | 创建吊牌店主 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.help` | 显示命令帮助 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.hire` | 允许雇佣店主 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.history.admin` | 查看他人和管理员商店的交易历史记录 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.history.own` | 查看您自己的交易历史记录 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.list.admin` | 列出管理员商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.list.others` | 列出其他玩家的玩家商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.list.own` | 列出您自己的玩家商店 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.maxshops.unlimited` | 允许创建无限数量的商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.notify.trades` | 允许通过命令为您打开或关闭交易通知 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player` | 创建任何类型的玩家店主 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.book` | 创建出售玩家店主的书籍 | — |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.buy` | 创建购买玩家店主 | — |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.sell` | 创建销售玩家店主 | — |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.trade` | 创建交易玩家店主 | — |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.reload` | 重新加载插件 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remote` | 通过命令远程打开商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remote.otherplayers` | 为其他玩家远程开放商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remoteedit` | 通过命令远程编辑商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove-all.admin` | 通过命令删除所有管理员商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove-all.others` | 通过命令移除其他玩家的所有商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove-all.own` | 通过命令移除您自己的所有商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove-all.player` | 通过命令移除所有玩家的商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove.admin` | 通过命令删除管理员商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove.others` | 通过命令移除其他玩家的商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.remove.own` | 通过命令移除您自己的商店 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.setcurrency` | 通过命令设置货币项目 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.setforhire` | 将店主设置为出租 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.settradedcommand` | 为持有的道具设置交易命令 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.settradeperm` | 设置管理员商店的交易权限 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.sign` | 创建标志店主 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.snapshot` | 访问店主快照命令 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.teleport` | 通过命令传送给店主 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.teleport.others` | 将其他玩家传送给店主 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.trade` | 允许与店主交易 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.trade-notifications.admin` | 接收管理员商店的交易通知 | — |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.trade-notifications.player` | 接收玩家商店的交易通知 | — |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.transfer` | 转让玩家商店的所有权 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.updateitems` | 更新第三方餐点 | op |
 | [WineSuite](/commands/economy/winesuite.md) | `winebook.admin` | 允许管理图鉴 | op |
 | [WineSuite](/commands/economy/winesuite.md) | `winebook.use` | 允许使用酿酒图鉴 | True |
 | [WineSuite](/commands/economy/winesuite.md) | `winebuyer.admin` | 允许重载/重置收购配置 | op |
@@ -928,27 +928,27 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.*` | All ecoenchants permissions | op |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.anvil.*` | All anvil perks | op |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.anvil.color` | Allows using color codes in anvils | op |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.*` | All commands | op |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.ecoenchants` | Allows the use of /ecoenchants. | True |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.enchant` | Allows the use of /enchant. | op |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.enchantinfo` | Allows the use of /enchantinfo. | True |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.giverandombook` | Allows giving random books | op |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.gui` | Allows the use of /ecoenchants gui. | True |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.reload` | Allows reloading the config | op |
-| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.toggledescriptions` | Allows the use of /ecoenchants toggledescriptions. | True |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.*` | 所有ecoenchants权限 | op |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.anvil.*` | 所有铁砧特权 | op |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.anvil.color` | 允许在砧座中使用颜色代码 | op |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.*` | 所有指令 | op |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.ecoenchants` | 允许使用/ecoenchants。 | True |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.enchant` | 允许使用/enchant。 | op |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.enchantinfo` | 允许使用/enchantinfo。 | True |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.giverandombook` | 允许随机赠送图书 | op |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.gui` | 允许使用/ecoenchants gui。 | True |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.reload` | 允许重新加载配置 | op |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.toggledescriptions` | 允许使用/ecoenchants切换描述。 | True |
 | [EliteMobs](/commands/rpg/elitemobs.md) | `elitemobs.admin` | 管理 EliteMobs（开关/重载/刷怪） | op |
 | [EnchantInfuser](/commands/rpg/enchantinfuser.md) | `infuser.use` | 允许使用铁匠铺 | True |
-| [FoMiningComp](/commands/rpg/fominingcomp.md) | `fominingcomp.admin` | Access to all FoMiningComp admin commands | op |
+| [FoMiningComp](/commands/rpg/fominingcomp.md) | `fominingcomp.admin` | 访问所有FoMiningComp管理命令 | op |
 | [KaoguGuide](/commands/rpg/kaoguguide.md) | `kaoguguide.admin` | 允许重载图鉴数据 | op |
 | [KaoguGuide](/commands/rpg/kaoguguide.md) | `kaoguguide.use` | 允许使用考古图鉴 | True |
 | [KaoguPlugin](/commands/rpg/kaoguplugin.md) | `kaogu.admin` | 考古插件管理权限 | op |
 | [KaoguPlugin](/commands/rpg/kaoguplugin.md) | `kaogu.use` | 使用考古插件基础功能 | True |
-| [MythicMobs](/commands/rpg/mythicmobs.md) | `mythicmobs.admin` | Gives access to everything! | op |
-| [MythicMobs](/commands/rpg/mythicmobs.md) | `mythicmobs.reload` | Gives access /mm reload! | op |
-| [MythicMobs](/commands/rpg/mythicmobs.md) | `mythicmobs.signal` | Gives access /mm signal! | op |
+| [MythicMobs](/commands/rpg/mythicmobs.md) | `mythicmobs.admin` | 方便您使用所有设施！ | op |
+| [MythicMobs](/commands/rpg/mythicmobs.md) | `mythicmobs.reload` | 允许访问/mm重新加载！ | op |
+| [MythicMobs](/commands/rpg/mythicmobs.md) | `mythicmobs.signal` | 提供接入/mm信号！ | op |
 | [MythicTools](/commands/rpg/mythictools.md) | `mythictools.*` | MythicTools 所有权限 | op |
 | [MythicTools](/commands/rpg/mythictools.md) | `mythictools.admin` | 打开并编辑管理 GUI | op |
 | [MythicTools](/commands/rpg/mythictools.md) | `mythictools.command` | 使用 MythicTools 基础命令 | True |
@@ -969,9 +969,9 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [BossBarHealth](/commands/entity/bossbarhealth.md) | `BossBarHealth.Admin` | Give access to all commands | op |
-| [BossBarHealth](/commands/entity/bossbarhealth.md) | `BossBarHealth.Hide` | Give access to /bbh hide | True |
-| [BossBarHealth](/commands/entity/bossbarhealth.md) | `BossBarHealth.Show` | Give access to /bbh show | True |
+| [BossBarHealth](/commands/entity/bossbarhealth.md) | `BossBarHealth.Admin` | 授予对所有命令的访问权限 | op |
+| [BossBarHealth](/commands/entity/bossbarhealth.md) | `BossBarHealth.Hide` | 允许访问/bbh hide | True |
+| [BossBarHealth](/commands/entity/bossbarhealth.md) | `BossBarHealth.Show` | 允许访问/bbh节目 | True |
 | [EditableStands](/commands/entity/editablestands.md) | `editablestands.arms.add` | 允许用木棍给盔甲架添加手臂 | True |
 | [EditableStands](/commands/entity/editablestands.md) | `editablestands.arms.remove` | 允许用剪刀移除盔甲架的手臂 | True |
 | [EditableStands](/commands/entity/editablestands.md) | `editablestands.feather.nogravity` | 允许用羽毛让盔甲架失去重力 | True |
@@ -986,75 +986,75 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [EditableStands](/commands/entity/editablestands.md) | `editablestands.size.big` | 允许用木棍把盔甲架变回大型 | True |
 | [EditableStands](/commands/entity/editablestands.md) | `editablestands.size.small` | 允许用斧把盔甲架变为小型 | True |
 | [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.actions` | — | op |
-| [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.admin` | Grants all NPC GUI permissions | op |
+| [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.admin` | 授予所有NPC GUI权限 | op |
 | [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.create` | — | op |
 | [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.delete` | — | op |
 | [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.edit` | — | op |
 | [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.use` | — | op |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.config` | Allows player to check Lib's Disguises config for  | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.count` | Allows the user to see how many disguises are acti | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.debug` | Allows a server admin to test a player disguise fo | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseanimation` | Play a supported animation on your own disguise | op |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseentityanimation` | Play a supported animation on a right clicked enti | op |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseplayeranimation` | Play a supported animation on a player/uuid's disg | op |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseradiusanimation` | Play a supported animation on all supported disgui | op |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseselectoranimation` | Play a supported animation on all supported disgui | op |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.grabhead` | Allows the command user to use /grabhead | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.hidename` | Allows player to ignore name being forced above di | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.json` | Allows player to parse held item to json | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.metainfo` | Allows player to get meta info | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.mods` | Allows the user to see mods in use. | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.multiname` | Allows the command user to set names on different  | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.noactionbar` | Hides the action bar even if enabled in config | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.permtest` | Allows player to test permissions | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.pve` | Allows player to ignore pve restrictions. | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.pvp` | Allows player to ignore pvp restrictions. | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.ratelimitbypass` | Allows a living player to bypass the 500ms rate li | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.reload` | Allows the user to reload LibsDisguises. | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.scoreboardtest` | Test if the scoreboard is valid, this is a simple  | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd` | See all commands in tab-completion | True |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.copydisguise` | See the /copydisguise command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguise` | See the /disguise command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseanimation` | See the /disguiseanimation command in tab-completi | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseclone` | See the /disguiseclone command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseentity` | See the /disguiseentity command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseentityanimation` | See the /disguiseentityanimation command in tab-co | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisehelp` | See the /disguisehelp command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodify` | See the /disguisemodify command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodifyentity` | See the /disguisemodifyentity command in tab-compl | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodifyplayer` | See the /disguisemodifyplayer command in tab-compl | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodifyradius` | See the /disguisemodifyradius command in tab-compl | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodifyselector` | See the /disguisemodifyselector command in tab-com | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseplayer` | See the /disguiseplayer command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseplayeranimation` | See the /disguiseplayeranimation command in tab-co | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseradius` | See the /disguiseradius command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseradiusanimation` | See the /disguiseradiusanimation command in tab-co | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseselector` | See the /disguiseselector command in tab-completio | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseselectoranimation` | See the /disguiseselectoranimation command in tab- | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseviewbar` | See the /disguiseviewbar command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseviewself` | See the /disguiseviewself command in tab-completio | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.grabhead` | See the /grabhead command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.grabskin` | See the /grabskin command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.savedisguise` | See the /savedisguise command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguise` | See the /undisguise command in tab-completion | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguiseentity` | See the /undisguiseentity command in tab-completio | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguiseplayer` | See the /undisguiseplayer command in tab-completio | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguiseradius` | See the /undisguiseradius command in tab-completio | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguiseselector` | See the /undisguiseselector command in tab-complet | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seethrough` | Allows player to see through disguises. | — |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.selfdisguises` | Controls if the player can view a self disguise, d | True |
-| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.update` | Allows the user to update Libs Disguises | — |
-| [ModelEngine](/commands/entity/modelengine.md) | `modelengine.command` | Access to all Model Engine commands. | op |
-| [YiyunCEskin](/commands/entity/yiyunceskin.md) | `yiyunceskin.admin` | Admin permission for YiyunCEskin | op |
-| [YiyunCEskin](/commands/entity/yiyunceskin.md) | `yiyunceskin.use` | Basic skin usage permission | true |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.config` | 允许玩家检查Lib的伪装配置的值 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.count` | 允许用户查看有多少伪装处于活动状态 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.debug` | 允许服务器管理员测试玩家伪装在计分板上是否正常 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseanimation` | 在您自己的伪装上播放受支持的动画 | op |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseentityanimation` | 在右键单击的实体的伪装上播放支持的动画 | op |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseplayeranimation` | 在玩家/UUID的伪装上播放支持的动画 | op |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseradiusanimation` | 在半径范围内的所有受支持的伪装上播放受支持的动画 | op |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseselectoranimation` | 通过实体选择器在所有受支持的伪装上播放受支持的动画 | op |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.grabhead` | 允许用户使用/grabhead命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.hidename` | 允许玩家忽略被迫高于伪装的名称 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.json` | 允许玩家将保留的项目解析为json | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.metainfo` | 允许玩家获取元信息 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.mods` | 允许用户查看正在使用的MOD。 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.multiname` | 允许命令用户设置不同高度的名称 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.noactionbar` | 隐藏操作栏，即使在配置中启用 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.permtest` | 允许玩家测试权限 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.pve` | 允许玩家忽略pve限制。 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.pvp` | 允许玩家忽略pvp限制。 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.ratelimitbypass` | 允许活着的玩家绕过伪装命令的500ms速率限制，用于防止崩溃 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.reload` | 允许用户重新加载LibsDisguises。 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.scoreboardtest` | 测试计分板是否有效，这是一个简单的测试。 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd` | 在选项卡完成中查看所有命令 | True |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.copydisguise` | 请参阅TAB 补全中的/copydisguise命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguise` | 请参阅TAB 补全中的/disguise命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseanimation` | 参见TAB 补全中的/disguiseanimation命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseclone` | 请参阅TAB 补全中的/disguiseclone命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseentity` | 请参阅TAB 补全中的/disguiseentity命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseentityanimation` | 请参阅TAB 补全中的/disguiseentityanimation命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisehelp` | 请参阅选项卡完成中的/disguisehelp命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodify` | 请参阅TAB 补全中的/disguisemodify命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodifyentity` | 请参阅TAB 补全中的/disguisemodifyentity命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodifyplayer` | 请参阅选项卡完成中的/disguisemodifyplayer命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodifyradius` | 请参阅TAB 补全中的/disguisemodifyradius命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguisemodifyselector` | 请参阅TAB 补全中的/disguisemodifyselector命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseplayer` | 请参阅制表符完成中的/disguiseplayer命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseplayeranimation` | 请参阅制表符完成中的/disguiseplayeranimation命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseradius` | 请参阅TAB 补全中的/disguiseradius命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseradiusanimation` | 请参阅TAB 补全中的/disguiseradiusanimation命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseselector` | 请参阅选项卡完成中的/disguiseselector命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseselectoranimation` | 请参阅TAB 补全中的/disguiseselectoranimation命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseviewbar` | 请参阅选项卡完成中的/disguiseviewbar命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.disguiseviewself` | 请参阅TAB 补全中的/disguiseviewself命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.grabhead` | 在TAB 补全中查看/grabhead命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.grabskin` | 在选项卡完成中查看/grabskin命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.savedisguise` | 在选项卡完成中查看/savedisguise命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguise` | 请参阅TAB 补全中的/undisguise命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguiseentity` | 请参阅TAB 补全中的/undisguiseentity命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguiseplayer` | 请参阅制表符完成中的/undisguiseplayer命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguiseradius` | 请参阅TAB 补全中的/undisguiseradius命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seecmd.undisguiseselector` | 请参阅TAB 补全中的/undisguiseselector命令 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seethrough` | 允许玩家看穿伪装。 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.selfdisguises` | 控制玩家是否可以查看自我伪装，默认为true。仅在伪装开始和切换自我伪装命令时选中。如果玩家有权访问 | True |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.update` | 允许用户更新Libs伪装 | — |
+| [ModelEngine](/commands/entity/modelengine.md) | `modelengine.command` | 访问所有模型引擎命令。 | op |
+| [YiyunCEskin](/commands/entity/yiyunceskin.md) | `yiyunceskin.admin` | YiyunCEskin的管理员权限 | op |
+| [YiyunCEskin](/commands/entity/yiyunceskin.md) | `yiyunceskin.use` | 基本皮肤使用权限 | true |
 
 ## 💬 聊天与社交
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.admin` | Full control — send, studio, reload. | op |
-| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.send` | Send broadcasts and preview presets. | op |
-| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.studio` | Open the Broadcast Studio GUI. | op |
+| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.admin` | 完全控制—发送、单间公寓、重新加载。 | op |
+| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.send` | 发送广播和预览预设。 | op |
+| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.studio` | 打开Broadcast Studio GUI。 | op |
 | [LeafChat](/commands/chat/leafchat.md) | `leafchat.admin` | 管理员直接查看他人背包/末影箱（聊天内 [inv]/[ec] 展示链接无需该权限） | op |
 | [LeafChat](/commands/chat/leafchat.md) | `leafchat.chatcolor` | 允许使用聊天颜色 | True |
 | [LeafChat](/commands/chat/leafchat.md) | `leafchat.color.*` | 授予所有聊天颜色权限（单色/渐变/彩虹） | op |
@@ -1089,40 +1089,40 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.icon.default` | — | True |
 | [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.outdate.default` | — | True |
 | [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.price.default` | — | True |
-| [TAB](/commands/chat/tab.md) | `tab.admin` | Grants all TAB permissions | op |
-| [TAB](/commands/chat/tab.md) | `tab.announce.bar` | Allows player to run /tab bossbar announce | op |
-| [TAB](/commands/chat/tab.md) | `tab.announce.scoreboard` | Allows player to run /tab scoreboard announce | op |
-| [TAB](/commands/chat/tab.md) | `tab.bossbar.toggle` | Allows player to run /tab bossbar | op |
-| [TAB](/commands/chat/tab.md) | `tab.bypass` | Makes player bypass per world playerlist if bypass | op |
-| [TAB](/commands/chat/tab.md) | `tab.change.*` | Allows player to change property using command | op |
-| [TAB](/commands/chat/tab.md) | `tab.cpu` | Allows player to run /tab cpu | op |
-| [TAB](/commands/chat/tab.md) | `tab.dump` | Allows player to run /tab dump &lt;player&gt; | op |
-| [TAB](/commands/chat/tab.md) | `tab.group.*` | Considers player in group if assigning by permissi | op |
-| [TAB](/commands/chat/tab.md) | `tab.groupinfo` | Allows player to run /tab group &lt;group&gt; | op |
-| [TAB](/commands/chat/tab.md) | `tab.grouplist` | Allows player to run /tab groups | op |
-| [TAB](/commands/chat/tab.md) | `tab.mysql.download` | Allows player to run /tab mysql download | op |
-| [TAB](/commands/chat/tab.md) | `tab.mysql.upload` | Allows player to run /tab mysql upload | op |
-| [TAB](/commands/chat/tab.md) | `tab.nametag.toggle` | Allows player to run /tab nametag toggle | op |
-| [TAB](/commands/chat/tab.md) | `tab.nametag.toggle.other` | Allows player to run /tab nametag toggle [other pl | op |
-| [TAB](/commands/chat/tab.md) | `tab.parse` | Allows player to run /tab parse &lt;player&gt; &lt | op |
-| [TAB](/commands/chat/tab.md) | `tab.reload` | Allows player to run /tab reload | op |
-| [TAB](/commands/chat/tab.md) | `tab.remove` | Allows player to remove group/user using commands | op |
-| [TAB](/commands/chat/tab.md) | `tab.scoreboard.show` | Allows player to run /tab scoreboard show | op |
-| [TAB](/commands/chat/tab.md) | `tab.scoreboard.show.other` | Allows player to run /tab scoreboard show for othe | op |
-| [TAB](/commands/chat/tab.md) | `tab.scoreboard.toggle` | Allows player to run /tab scoreboard | op |
-| [TAB](/commands/chat/tab.md) | `tab.scoreboard.toggle.other` | Allows player to run /tab scoreboard for other pla | op |
-| [TAB](/commands/chat/tab.md) | `tab.seevanished` | Marks player as able to see vanished players for f | op |
-| [TAB](/commands/chat/tab.md) | `tab.send.bar` | Allows player to run /tab bossbar send | op |
-| [TAB](/commands/chat/tab.md) | `tab.setcollision` | Allows player to run /tab setcollision &lt;player& | op |
-| [TAB](/commands/chat/tab.md) | `tab.spectatorbypass` | Makes player bypass spectator fix | op |
-| [TAB](/commands/chat/tab.md) | `tab.staff` | Makes player counted in %staffonline% placeholder | op |
-| [TAB](/commands/chat/tab.md) | `tab.tabcomplete` | Allows player to complete all TAB commands | op |
+| [TAB](/commands/chat/tab.md) | `tab.admin` | 授予所有标签页权限 | op |
+| [TAB](/commands/chat/tab.md) | `tab.announce.bar` | 允许玩家运行/选项卡bossbar公告 | op |
+| [TAB](/commands/chat/tab.md) | `tab.announce.scoreboard` | 允许玩家运行/制表符计分板公告 | op |
+| [TAB](/commands/chat/tab.md) | `tab.bossbar.toggle` | 允许玩家运行/选项卡bossbar | op |
+| [TAB](/commands/chat/tab.md) | `tab.bypass` | 如果启用了绕过权限，则使每个世界玩家列表的玩家绕过 | op |
+| [TAB](/commands/chat/tab.md) | `tab.change.*` | 允许玩家使用命令更改属性 | op |
+| [TAB](/commands/chat/tab.md) | `tab.cpu` | 允许播放器运行/制表符cpu | op |
+| [TAB](/commands/chat/tab.md) | `tab.dump` | 允许播放器运行/选项卡转储 &lt;player&gt; | op |
+| [TAB](/commands/chat/tab.md) | `tab.group.*` | 如果通过权限分配，则考虑组中的玩家 | op |
+| [TAB](/commands/chat/tab.md) | `tab.groupinfo` | 允许播放器运行/选项卡组 &lt;group&gt; | op |
+| [TAB](/commands/chat/tab.md) | `tab.grouplist` | 允许玩家运行/选项卡组 | op |
+| [TAB](/commands/chat/tab.md) | `tab.mysql.download` | 允许播放器运行/标签mysql下载 | op |
+| [TAB](/commands/chat/tab.md) | `tab.mysql.upload` | 允许播放器运行/标签mysql上传 | op |
+| [TAB](/commands/chat/tab.md) | `tab.nametag.toggle` | 允许玩家运行/制表符名称标签切换 | op |
+| [TAB](/commands/chat/tab.md) | `tab.nametag.toggle.other` | 允许玩家运行/标签名称标签切换[其他玩家] | op |
+| [TAB](/commands/chat/tab.md) | `tab.parse` | 允许播放器运行/制表符解析 &lt;player&gt; &lt;placeholder&gt; | op |
+| [TAB](/commands/chat/tab.md) | `tab.reload` | 允许播放器运行/选项卡重新加载 | op |
+| [TAB](/commands/chat/tab.md) | `tab.remove` | 允许玩家使用命令删除组/用户 | op |
+| [TAB](/commands/chat/tab.md) | `tab.scoreboard.show` | 允许玩家运行/制表符记分板显示 | op |
+| [TAB](/commands/chat/tab.md) | `tab.scoreboard.show.other` | 允许玩家为其他玩家运行/制表符计分板显示 | op |
+| [TAB](/commands/chat/tab.md) | `tab.scoreboard.toggle` | 允许玩家运行/制表符记分板 | op |
+| [TAB](/commands/chat/tab.md) | `tab.scoreboard.toggle.other` | 允许玩家为其他玩家运行/制表符记分板 | op |
+| [TAB](/commands/chat/tab.md) | `tab.seevanished` | 将玩家标记为能够看到消失的玩家，因为功能挂钩到消失的插件中 | op |
+| [TAB](/commands/chat/tab.md) | `tab.send.bar` | 允许玩家运行/选项卡BOSSBAR发送 | op |
+| [TAB](/commands/chat/tab.md) | `tab.setcollision` | 允许玩家运行/标签setcollision &lt;player&gt; &lt;true/fals | op |
+| [TAB](/commands/chat/tab.md) | `tab.spectatorbypass` | 使玩家绕过旁观者修复 | op |
+| [TAB](/commands/chat/tab.md) | `tab.staff` | 使玩家在% staffonline %占位符中计数 | op |
+| [TAB](/commands/chat/tab.md) | `tab.tabcomplete` | 允许玩家完成所有选项卡命令 | op |
 | [vcm](/commands/chat/vcm.md) | `vcm.admin` | 允许使用管理命令（/vcm give、/vcm reload） | op |
 | [vcm](/commands/chat/vcm.md) | `vcm.use` | 允许使用扩音器 | op |
-| [voicechat](/commands/chat/voicechat.md) | `voicechat.admin` | Allows to test voice chat connections | — |
-| [voicechat](/commands/chat/voicechat.md) | `voicechat.groups` | Allows to join groups | — |
-| [voicechat](/commands/chat/voicechat.md) | `voicechat.listen` | Allows to listen to voice chat | — |
-| [voicechat](/commands/chat/voicechat.md) | `voicechat.speak` | Allows to speak in voice chat | — |
+| [voicechat](/commands/chat/voicechat.md) | `voicechat.admin` | 允许测试语音聊天连接 | — |
+| [voicechat](/commands/chat/voicechat.md) | `voicechat.groups` | 允许加入群组 | — |
+| [voicechat](/commands/chat/voicechat.md) | `voicechat.listen` | 允许收听语音聊天 | — |
+| [voicechat](/commands/chat/voicechat.md) | `voicechat.speak` | 允许语音聊天 | — |
 | [YaoqingPlugin](/commands/chat/yaoqingplugin.md) | `yaoqing.admin` | 邀请系统管理（绑定明细/重置/重算） | op |
 | [YaoqingPlugin](/commands/chat/yaoqingplugin.md) | `yaoqing.use` | 允许使用邀请功能 | True |
 
@@ -1130,42 +1130,42 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.admin` | admin commands | op |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.menu.*` | permission for all menus | op |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open` | open a menu with /dm open &lt;menu&gt; | op |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open.bypass` | attempt to open a menu for a viewer skipping view  | op |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open.others` | open a menu with /dm open &lt;menu&gt; &lt;player& | op |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.openrequirement.bypass.*` | Allows the viewer to bypass all menu open requirem | op |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.placeholdersfor` | permission to parse menu placeholders with /dm ope | op |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.placeholdersfor.exempt` | exempt from placeholders being parsed when targete | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.admin` | 管理员指令 | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.menu.*` | 所有菜单的权限 | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open` | 打开菜单，打开/dm &lt;menu&gt; | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open.bypass` | 尝试为观众打开菜单，跳过播放器的观看要求检查 | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open.others` | 打开菜单，打开/dm &lt;menu&gt; &lt;player&gt; | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.openrequirement.bypass.*` | 允许查看器绕过所有菜单打开要求 | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.placeholdersfor` | /dm open &lt;menu&gt; p解析菜单占位符的权限：&lt;player&gt; | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.placeholdersfor.exempt` | 当/dm为具有&lt;menu p:&lt;player&gt;此权限的玩家打开时，免于解析占位符 | op |
 | [KaleidoscopeCookeryPlugin](/commands/config/kaleidoscopecookeryplugin.md) | `kaleidoscopecookery.recipe.browse` | 允许玩家用 /kcrecipe 浏览全部食谱 | op |
 | [KaleidoscopeCookeryPlugin](/commands/config/kaleidoscopecookeryplugin.md) | `kaleidoscopecookery.recipe.edit` | 允许用 /kcrecipe edit 编辑食谱 | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.*` | Ability to use all PAPI commands | — |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.admin` | Ability to use all PAPI commands | — |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud` | Allows you to access PAPI eCloud | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.*` | Ability to use all PAPI ecloud commands | — |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.clear` | Allows you to clear the local eCloud expansion cac | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.download` | Allows you to download an expansion from the eClou | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.info` | Allows you to view cloud expansion information | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.list` | Allows you to list eCloud expansions | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.placeholders` | Allows you to view the placeholders of a eCloud ex | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.refresh` | Allows you to refresh the local eCloud expansion c | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.status` | Allows you to view the status of eCloud expansions | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.update` | Allows you to update registered eCloud expansions | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.help` | Allows you to view the list of PAPI commands | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.info` | Allows you to view expansion information | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.list` | Allows you to list active expansions | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.parse` | Allows you to parse placeholders | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.register` | Allows you to register expansions | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.reload` | Allows you to reload PAPI and its configuration | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.unregister` | Allows you to unregister expansions | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.updatenotify` | Notifies you when there is a PAPI update | op |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.version` | Allows you to view the version of PAPI installed | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.*` | 能够使用所有PAPI命令 | — |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.admin` | 能够使用所有PAPI命令 | — |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud` | 允许您访问PAPI eCloud | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.*` | 能够使用所有PAPI ecloud命令 | — |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.clear` | 允许您清除本地eCloud扩展缓存 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.download` | 允许您从eCloud下载扩展 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.info` | 允许您查看云扩展信息 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.list` | 允许您列出eCloud扩展 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.placeholders` | 允许您查看eCloud扩展的占位符 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.refresh` | 允许您刷新本地eCloud扩展缓存 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.status` | 允许您查看eCloud扩展的状态 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.update` | 允许您更新已注册的eCloud扩展 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.help` | 允许您查看PAPI命令列表 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.info` | 允许您查看扩展信息 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.list` | 允许您列出活动扩展 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.parse` | 允许您分析占位符 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.register` | 允许您注册扩展 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.reload` | 允许您重新加载PAPI及其配置 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.unregister` | 允许您取消注册扩展 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.updatenotify` | 当有PAPI更新时通知您 | op |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.version` | 允许您查看已安装的PAPI版本 | op |
 | [Skript](/commands/config/skript.md) | `skript.*` | — | — |
-| [Skript](/commands/config/skript.md) | `skript.admin` | Allows use of administrative commands and receivin | op |
-| [Skript](/commands/config/skript.md) | `skript.effectcommands` | Allows to use effects as commands, e.g. '!set heal | — |
-| [Skript](/commands/config/skript.md) | `skript.reloadnotify` | Notifies when others are reloading script files. | — |
-| [Skript](/commands/config/skript.md) | `skript.see_runtime_errors` | Shows notifications in chat when runtime errors oc | op |
+| [Skript](/commands/config/skript.md) | `skript.admin` | 允许使用管理命令并接收新版本的通知。 | op |
+| [Skript](/commands/config/skript.md) | `skript.effectcommands` | 允许将效果用作命令，例如“! set health to 10” | — |
+| [Skript](/commands/config/skript.md) | `skript.reloadnotify` | 当其他人正在重新加载脚本文件时通知。 | — |
+| [Skript](/commands/config/skript.md) | `skript.see_runtime_errors` | 发生运行时错误时在聊天中显示通知。 | op |
 
 ## 📊 记录与性能
 
@@ -1209,38 +1209,38 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Ah-Toy-1.0](/commands/minigame/ah-toy-1-0.md) | `ahtoy.command.reload` | 允许使用 /toy reload 重载玩具配置 | op |
 | [Ah-WolfmanKill-1.0](/commands/minigame/ah-wolfmankill-1-0.md) | `wolfmankill.admin` | 管理员权限 | op |
 | [Ah-WolfmanKill-1.0](/commands/minigame/ah-wolfmankill-1-0.md) | `wolfmankill.use` | 基础使用权限 | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.*` | GSit \| Permissions | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.BellyFlop` | BellyFlop command \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.ByPass.*` | ByPass \| Permissions | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.ByPass.Command` | ByPass command \| Permission | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.ByPass.Region` | ByPass region \| Permission | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.ByPass.World` | ByPass world \| Permission | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Crawl` | Crawl command \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Crawl.*` | Crawl \| Permissions | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.CrawlSneak` | Crawl sneak \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.CrawlToggle` | Toggle crawl ability \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Kick.*` | Kick \| Permissions | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Kick.Pose` | Kick pose \| Permission | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Kick.Sit` | Kick sit \| Permission | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Lay` | Lay command \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.LayBack` | LayBack command \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSit` | PlayerSit click \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSit.*` | PlayerSit \| Permissions | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSitToggle` | Toggle PlayerSit ability \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Pose.*` | Pose \| Permissions | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Reload` | Plugin reload command \| Permission | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Sit` | Sit command \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Sit.*` | Sit \| Permissions | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.SitClick` | Sit click \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.SitToggle` | Toggle sit ability \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Spin` | Spin command \| Permission | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Update` | Update notification \| Permission | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.*` | GSit \|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.BellyFlop` | BellyFlop命令\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.ByPass.*` | ByPass \|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.ByPass.Command` | ByPass命令\|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.ByPass.Region` | ByPass区域\|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.ByPass.World` | ByPass WORLD \|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Crawl` | 爬网命令\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Crawl.*` | 爬网\|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.CrawlSneak` | 潜行\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.CrawlToggle` | 切换爬网能力\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Kick.*` | 踢出\|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Kick.Pose` | 踢腿姿势\|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Kick.Sit` | Kick SIT \|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Lay` | Lay命令\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.LayBack` | LayBack命令\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSit` | PlayerSit单击\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSit.*` | PlayerSit \|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSitToggle` | 切换PlayerSit能力\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Pose.*` | 姿势\|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Reload` | 插件重新加载命令\|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Sit` | SIT命令\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Sit.*` | SIT \|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.SitClick` | SIT单击\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.SitToggle` | 切换坐姿能力\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Spin` | 旋转命令\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Update` | 更新通知\|权限 | op |
 | [LeashPlayers](/commands/minigame/leashplayers.md) | `leashplayers.admin` | 允许管理所有人的栓绳 / 重载配置 | op |
 | [LeashPlayers](/commands/minigame/leashplayers.md) | `leashplayers.use` | 允许使用栓绳栓玩家 | True |
-| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.admin` | Access to /lg leaderboard, /lg create, and /lg del | — |
-| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.command` | Access to /lg list, /lg tp | — |
-| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.forcejoin` | Access to /lgjoinplayer | — |
-| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.kickplayer` | Access to /lg kick | — |
+| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.admin` | 访问/lg排行榜、/lg创建和/lg删除 | — |
+| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.command` | 访问/lg列表，/lg tp | — |
+| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.forcejoin` | 访问/lgjoinplayer | — |
+| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.kickplayer` | 进入/lg kick | — |
 | [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.action` | 允许执行麻将操作 | True |
 | [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.bot` | 允许添加机器人 | — |
 | [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.create` | 允许创建麻将桌 | — |

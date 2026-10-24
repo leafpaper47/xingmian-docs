@@ -16,13 +16,13 @@ createTime: 2026/10/24
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/sweetmail` | SweetMail main command. | — |
+| `/sweetmail` | SweetMail主命令。 | — |
 
 ## 详细用法
 
 ### /sweetmail
 
-- **说明**：SweetMail main command.
+- **说明**：SweetMail主命令。
 - **别名**：`/sm`、`/mail`
 
 ## 权限节点

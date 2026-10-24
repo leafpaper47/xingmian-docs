@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `2.27.0` · 指令 1 条 · api-version `1.21.5` · 文件 `Shopkeepers-2.27.0.jar`
 
-Custom villager shopkeepers
+定制村民店主
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ Custom villager shopkeepers
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/shopkeeper` | Base for all shopkeeper commands. | — |
+| `/shopkeeper` | 所有店主命令的基础。 | — |
 
 ## 详细用法
 
 ### /shopkeeper
 
-- **说明**：Base for all shopkeeper commands.
+- **说明**：所有店主命令的基础。
 - **用法**：`Unknown command! Try /&lt;command&gt; help`
 - **别名**：`/shopkeepers`
 

@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `6.1.2` · 指令 1 条 · api-version `1.13` · 文件 `TAB v6.1.2.jar`
 
-An all-in-one solution that works
+有效的一体化解决方案
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,7 +18,7 @@ An all-in-one solution that works
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/tab` | Plugin's main command | — |
+| `/tab` | 插件的主命令 | — |
 
 ## 权限节点
 

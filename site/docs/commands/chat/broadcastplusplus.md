@@ -16,13 +16,13 @@ createTime: 2026/10/24
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/broadcast` | Send a broadcast or manage Broadcast++. | — |
+| `/broadcast` | 发送广播或管理广播+ +。 | — |
 
 ## 详细用法
 
 ### /broadcast
 
-- **说明**：Send a broadcast or manage Broadcast++.
+- **说明**：发送广播或管理广播+ +。
 - **用法**：`/bc chat|title|actionbar|bossbar &lt;preset|"text"&gt; | /bc scene &lt;preset&gt; [player] | /bc to &lt;player&gt; &lt;channel&gt; &lt;preset|"text"&gt; | /bc preview &lt;type&gt; &lt;preset|"text"&gt; | /bc list [type] | /bc validate | /bc reload | /bc studio`
 - **别名**：`/bc`
 

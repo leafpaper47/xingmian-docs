@@ -16,25 +16,25 @@ createTime: 2026/10/24
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/ecoenchants` | Base Command | `ecoenchants.command.ecoenchants` |
-| `/enchant` | Enchants an item | `ecoenchants.command.enchant` |
-| `/enchantinfo` | Show info about an enchant | `ecoenchants.command.enchantinfo` |
+| `/ecoenchants` | 基础命令 | `ecoenchants.command.ecoenchants` |
+| `/enchant` | 附魔物品 | `ecoenchants.command.enchant` |
+| `/enchantinfo` | 显示关于附魔的信息 | `ecoenchants.command.enchantinfo` |
 
 ## 详细用法
 
 ### /ecoenchants
 
-- **说明**：Base Command
+- **说明**：基础命令
 - **权限**：`ecoenchants.command.ecoenchants`
 
 ### /enchant
 
-- **说明**：Enchants an item
+- **说明**：附魔物品
 - **权限**：`ecoenchants.command.enchant`
 
 ### /enchantinfo
 
-- **说明**：Show info about an enchant
+- **说明**：显示关于附魔的信息
 - **权限**：`ecoenchants.command.enchantinfo`
 
 ## 权限节点

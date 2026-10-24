@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `1.5.9.9` · 指令 1 条 · api-version `1.13` · 文件 `CMILib1.5.9.9.jar`
 
-CMI library
+CMI库
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,4 +18,4 @@ CMI library
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/cmil` | basic command | — |
+| `/cmil` | 基本命令 | — |

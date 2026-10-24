@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `1.1.0` · 指令 1 条 · api-version `1.21` · 文件 `FancyNpcsGUI-1.1.0-zh.jar`
 
-Unofficial in-game editor for FancyNpcs
+FancyNpcs的非官方游戏内编辑器
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ Unofficial in-game editor for FancyNpcs
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/npcgui` | Open the FancyNpcs editor | `fancynpcsgui.use` |
+| `/npcgui` | 打开FancyNpcs编辑器 | `fancynpcsgui.use` |
 
 ## 详细用法
 
 ### /npcgui
 
-- **说明**：Open the FancyNpcs editor
+- **说明**：打开FancyNpcs编辑器
 - **用法**：`/npcgui`
 - **权限**：`fancynpcsgui.use`
 

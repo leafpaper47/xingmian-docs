@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `6.0.2.4` · 指令 5 条 · api-version `1.13` · 文件 `Residence6.0.2.4.jar`
 
-Cuboid Residence Plugin
+Cuboid Residence插件
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,32 +18,32 @@ Cuboid Residence Plugin
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/rc` | Chat in current residence channel. | — |
-| `/res` | Manage Residences | — |
-| `/resadmin` | Residence admin functions. | — |
-| `/resload` | Load the save file again after you have made modifications. | — |
-| `/resreload` | Reload the entire residence plugin. | — |
+| `/rc` | §在当前居住频道中进行聊天。 | — |
+| `/res` | 管理住宅 | — |
+| `/resadmin` | 住宅管理功能。 | — |
+| `/resload` | 修改后再次加载保存文件。 | — |
+| `/resreload` | 重新加载整个住宅插件。 | — |
 
 ## 详细用法
 
 ### /rc
 
-- **说明**：Chat in current residence channel.
+- **说明**：§在当前居住频道中进行聊天。
 - **用法**：`/rc to toggle, /rc l to leave, /rc setprefix to set prefix, /rc setcolor to set color or /rc kick to kick player`
 
 ### /resadmin
 
-- **说明**：Residence admin functions.
+- **说明**：住宅管理功能。
 - **用法**：`/res ? or /resadmin ? for more info`
 
 ### /resload
 
-- **说明**：Load the save file again after you have made modifications.
+- **说明**：修改后再次加载保存文件。
 - **用法**：`/resload`
 
 ### /resreload
 
-- **说明**：Reload the entire residence plugin.
+- **说明**：重新加载整个住宅插件。
 - **用法**：`/resreload`
 
 ## 权限节点

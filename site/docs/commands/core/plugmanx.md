@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `3.1.0-Beta.2` · 指令 1 条 · api-version `1.13` · 文件 `PlugManX-3.1.0-Beta.2.jar`
 
-Plugin manager for Bukkit servers
+Bukkit服务器的插件管理器
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ Plugin manager for Bukkit servers
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/plugman` | Manage plugins. | `plugman.help` |
+| `/plugman` | 管理插件 | `plugman.help` |
 
 ## 详细用法
 
 ### /plugman
 
-- **说明**：Manage plugins.
+- **说明**：管理插件
 - **用法**：`/plugman (help|dump) /plugman list [-v] /plugman check &lt;plugin|all&gt; [-f] /plugman lookup &lt;command&gt; /plugman deps &lt;plugin&gt; /plugman (enable|disable|restart) &lt;plugin|all&gt; /plugman (info|usage|load|reload|unload) &lt;plugin&gt; /plugman reloadconfig /plugman reloadmode [ALL|REQUIRED_ONLY|OFF]`
 - **别名**：`/plm`
 - **权限**：`plugman.help`

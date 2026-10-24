@@ -16,13 +16,13 @@ createTime: 2026/10/24
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/mirror` | Manage mirror regions. | `mirrora.admin` |
+| `/mirror` | 管理镜像区域。 | `mirrora.admin` |
 
 ## 详细用法
 
 ### /mirror
 
-- **说明**：Manage mirror regions.
+- **说明**：管理镜像区域。
 - **权限**：`mirrora.admin`
 
 ## 权限节点

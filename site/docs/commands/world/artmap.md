@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `3.9.26` · 指令 1 条 · api-version `1.13` · 文件 `ArtMap-JDK21-3.9.26.jar`
 
-Make pixel art!
+制作像素艺术！
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。

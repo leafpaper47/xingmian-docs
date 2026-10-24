@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `26.9.26-SNAPSHOT` · 指令 28 条 · api-version `1.13` · 文件 `LibsDisguises.jar`
 
-A disguise plugin with various disguises.
+具有各种伪装的伪装插件。
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,197 +18,197 @@ A disguise plugin with various disguises.
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/copydisguise` | Output a disguise to a usable string | `libsdisguises.seecmd.copydisguise` |
-| `/disguise` | Disguise yourself as an entity. | `libsdisguises.seecmd.disguise` |
-| `/disguiseanimation` | Play a supported animation on your own disguise | `libsdisguises.disguiseanimation` |
-| `/disguiseclone` | Copy a disguise (or entity) and use it later. | `libsdisguises.seecmd.disguiseclone` |
-| `/disguiseentity` | Disguise an entity as another entity. | `libsdisguises.seecmd.disguiseentity` |
-| `/disguiseentityanimation` | Play a supported animation on a right clicked entity's disguise | `libsdisguises.disguiseentityanimation` |
-| `/disguisehelp` | Help command for LibsDisguises. | `libsdisguises.seecmd.disguisehelp` |
-| `/disguisemodify` | Modify your own disguise | `libsdisguises.seecmd.disguisemodify` |
-| `/disguisemodifyentity` | Modify a disguise by right clicking them | `libsdisguises.seecmd.disguisemodifyentity` |
-| `/disguisemodifyplayer` | Modify the disguise of a player | `libsdisguises.seecmd.disguisemodifyplayer` |
-| `/disguisemodifyradius` | Modify disguises in a radius | `libsdisguises.seecmd.disguisemodifyradius` |
-| `/disguisemodifyselector` | Modify entity disguises via entity selector | `libsdisguises.seecmd.disguisemodifyselector` |
-| `/disguiseplayer` | Disguise another player as an entity. | `libsdisguises.seecmd.disguiseplayer` |
-| `/disguiseplayeranimation` | Play a supported animation on a player/uuid's disguise | `libsdisguises.disguiseplayeranimation` |
-| `/disguiseradius` | Disguise all entities within a radius as an entity. | `libsdisguises.seecmd.disguiseradius` |
-| `/disguiseradiusanimation` | Play a supported animation on all supported disguises in a radius | `libsdisguises.disguiseradiusanimation` |
-| `/disguiseselector` | Disguise entities via entity selector. | `libsdisguises.seecmd.disguiseselector` |
-| `/disguiseselectoranimation` | Play a supported animation on all supported disguises via entity selector. | `libsdisguises.disguiseselectoranimation` |
-| `/disguiseviewbar` | Toggle seeing your own disguise on or off. | `libsdisguises.seecmd.disguiseviewbar` |
-| `/grabhead` | Grab the head item of a skin, url or player | `libsdisguises.seecmd.grabhead` |
-| `/grabskin` | Grab a skin from file, url or player name/uuid | `libsdisguises.seecmd.grabskin` |
-| `/libsdisguises` | Main command for libsdisguises. | — |
-| `/savedisguise` | Save a custom disguise to disguises.yml | `libsdisguises.seecmd.savedisguise` |
-| `/undisguise` | Undisguise yourself. | `libsdisguises.seecmd.undisguise` |
-| `/undisguiseentity` | Undisguise an entity. | `libsdisguises.seecmd.undisguiseentity` |
-| `/undisguiseplayer` | Undisguise a player. | `libsdisguises.seecmd.undisguiseplayer` |
-| `/undisguiseradius` | Undisguise all entities within a radius. | `libsdisguises.seecmd.undisguiseradius` |
-| `/undisguiseselector` | Undisguise all entities in an entity selector. | `libsdisguises.seecmd.undisguiseselector` |
+| `/copydisguise` | 将伪装输出到可用字符串 | `libsdisguises.seecmd.copydisguise` |
+| `/disguise` | 把自己伪装成一个实体。 | `libsdisguises.seecmd.disguise` |
+| `/disguiseanimation` | 在您自己的伪装上播放受支持的动画 | `libsdisguises.disguiseanimation` |
+| `/disguiseclone` | 复制伪装（或实体） ，稍后再使用。 | `libsdisguises.seecmd.disguiseclone` |
+| `/disguiseentity` | 将实体伪装成另一个实体。 | `libsdisguises.seecmd.disguiseentity` |
+| `/disguiseentityanimation` | 在右键单击的实体的伪装上播放支持的动画 | `libsdisguises.disguiseentityanimation` |
+| `/disguisehelp` | LibsDisguises的帮助命令。 | `libsdisguises.seecmd.disguisehelp` |
+| `/disguisemodify` | 修改自己的伪装 | `libsdisguises.seecmd.disguisemodify` |
+| `/disguisemodifyentity` | 右键单击修改伪装 | `libsdisguises.seecmd.disguisemodifyentity` |
+| `/disguisemodifyplayer` | 修改玩家的伪装 | `libsdisguises.seecmd.disguisemodifyplayer` |
+| `/disguisemodifyradius` | 修改半径内的伪装 | `libsdisguises.seecmd.disguisemodifyradius` |
+| `/disguisemodifyselector` | 通过实体选择器修改实体伪装 | `libsdisguises.seecmd.disguisemodifyselector` |
+| `/disguiseplayer` | 将另一个玩家伪装成一个实体。 | `libsdisguises.seecmd.disguiseplayer` |
+| `/disguiseplayeranimation` | 在玩家/UUID的伪装上播放支持的动画 | `libsdisguises.disguiseplayeranimation` |
+| `/disguiseradius` | 将半径内的所有实体伪装成实体。 | `libsdisguises.seecmd.disguiseradius` |
+| `/disguiseradiusanimation` | 在半径范围内的所有受支持的伪装上播放受支持的动画 | `libsdisguises.disguiseradiusanimation` |
+| `/disguiseselector` | 通过实体选择器伪装实体。 | `libsdisguises.seecmd.disguiseselector` |
+| `/disguiseselectoranimation` | 通过实体选择器在所有支持的伪装上播放支持的动画。 | `libsdisguises.disguiseselectoranimation` |
+| `/disguiseviewbar` | 打开或关闭您自己的伪装。 | `libsdisguises.seecmd.disguiseviewbar` |
+| `/grabhead` | 抓取皮肤、网址或播放器的头部项目 | `libsdisguises.seecmd.grabhead` |
+| `/grabskin` | 从文件、网址或玩家名称/uuid中获取皮肤 | `libsdisguises.seecmd.grabskin` |
+| `/libsdisguises` | Libsdisguises的主命令。 | — |
+| `/savedisguise` | 将自定义伪装保存到disguises.yml | `libsdisguises.seecmd.savedisguise` |
+| `/undisguise` | 不伪装自己。 | `libsdisguises.seecmd.undisguise` |
+| `/undisguiseentity` | 隐藏实体。 | `libsdisguises.seecmd.undisguiseentity` |
+| `/undisguiseplayer` | 隐藏玩家。 | `libsdisguises.seecmd.undisguiseplayer` |
+| `/undisguiseradius` | 隐藏半径内的所有实体。 | `libsdisguises.seecmd.undisguiseradius` |
+| `/undisguiseselector` | 在实体选择器中隐藏所有实体。 | `libsdisguises.seecmd.undisguiseselector` |
 
 ## 详细用法
 
 ### /copydisguise
 
-- **说明**：Output a disguise to a usable string
+- **说明**：将伪装输出到可用字符串
 - **别名**：`/disguisecopy`、`/disgcopy`、`/dcopy`、`/copydisg`、`/copyd`、`/parsedisguise`、`/disguiseparse`
 - **权限**：`libsdisguises.seecmd.copydisguise`
 
 ### /disguise
 
-- **说明**：Disguise yourself as an entity.
+- **说明**：把自己伪装成一个实体。
 - **别名**：`/d`、`/dis`、`/disg`
 - **权限**：`libsdisguises.seecmd.disguise`
 
 ### /disguiseanimation
 
-- **说明**：Play a supported animation on your own disguise
+- **说明**：在您自己的伪装上播放受支持的动画
 - **权限**：`libsdisguises.disguiseanimation`
 
 ### /disguiseclone
 
-- **说明**：Copy a disguise (or entity) and use it later.
+- **说明**：复制伪装（或实体） ，稍后再使用。
 - **别名**：`/disguisec`、`/disc`、`/disclone`、`/dclone`、`/clonedisguise`、`/clonedis`、`/cdisguise`、`/cdis`、`/clonedisg`、`/disgclone`
 - **权限**：`libsdisguises.seecmd.disguiseclone`
 
 ### /disguiseentity
 
-- **说明**：Disguise an entity as another entity.
+- **说明**：将实体伪装成另一个实体。
 - **别名**：`/dentity`、`/disentity`、`/disgentity`
 - **权限**：`libsdisguises.seecmd.disguiseentity`
 
 ### /disguiseentityanimation
 
-- **说明**：Play a supported animation on a right clicked entity's disguise
+- **说明**：在右键单击的实体的伪装上播放支持的动画
 - **权限**：`libsdisguises.disguiseentityanimation`
 
 ### /disguisehelp
 
-- **说明**：Help command for LibsDisguises.
+- **说明**：LibsDisguises的帮助命令。
 - **别名**：`/dhelp`、`/dishelp`、`/disghelp`
 - **权限**：`libsdisguises.seecmd.disguisehelp`
 
 ### /disguisemodify
 
-- **说明**：Modify your own disguise
+- **说明**：修改自己的伪装
 - **别名**：`/dmodify`、`/dmod`、`/disgmodify`、`/modifydisguise`、`/moddisguise`、`/mdisguise`
 - **权限**：`libsdisguises.seecmd.disguisemodify`
 
 ### /disguisemodifyentity
 
-- **说明**：Modify a disguise by right clicking them
+- **说明**：右键单击修改伪装
 - **别名**：`/dmodifyentity`、`/dmodentity`、`/disgmodentity`、`/dismodentity`、`/modifydisguiseentity`、`/modifydisgentity`、`/modifydentity`、`/moddisguiseentity`、`/moddisgentity`、`/mdisguiseentity`、`/mdisgentity`
 - **权限**：`libsdisguises.seecmd.disguisemodifyentity`
 
 ### /disguisemodifyplayer
 
-- **说明**：Modify the disguise of a player
+- **说明**：修改玩家的伪装
 - **别名**：`/dmodifyplayer`、`/dmodplayer`、`/disgmodifyplayer`、`/dismodplayer`、`/disgmodplayer`、`/modifydisguiseplayer`、`/moddisguiseplayer`、`/mdisguiseplayer`、`/mdisgplayer`、`/dmodifyuuid`、`/dmoduuid`、`/disgmodifyuuid`、`/dismoduuid`、`/disgmoduuid`、`/modifydisguiseuuid`、`/moddisguiseuuid`、`/mdisguiseuuid`、`/mdisguuid`
 - **权限**：`libsdisguises.seecmd.disguisemodifyplayer`
 
 ### /disguisemodifyradius
 
-- **说明**：Modify disguises in a radius
+- **说明**：修改半径内的伪装
 - **别名**：`/dmodifyradius`、`/dmodradius`、`/disgmodradius`、`/dismodradius`、`/modifydisguiseradius`、`/modifydisgradius`、`/moddisguiseradius`、`/mdisguiseradius`、`/moddisgradius`
 - **权限**：`libsdisguises.seecmd.disguisemodifyradius`
 
 ### /disguisemodifyselector
 
-- **说明**：Modify entity disguises via entity selector
+- **说明**：通过实体选择器修改实体伪装
 - **别名**：`/dmodifyselector`、`/dmodselector`、`/disgmodselector`、`/dismodselector`、`/modifydisguiseselector`、`/modifydisgselector`、`/moddisguiseselector`、`/mdisguiseselector`、`/moddisgselector`
 - **权限**：`libsdisguises.seecmd.disguisemodifyselector`
 
 ### /disguiseplayer
 
-- **说明**：Disguise another player as an entity.
+- **说明**：将另一个玩家伪装成一个实体。
 - **别名**：`/dplayer`、`/displayer`、`/disgplayer`、`/disguiseuuid`、`/disguuid`、`/duuid`
 - **权限**：`libsdisguises.seecmd.disguiseplayer`
 
 ### /disguiseplayeranimation
 
-- **说明**：Play a supported animation on a player/uuid's disguise
+- **说明**：在玩家/UUID的伪装上播放支持的动画
 - **别名**：`/disguiseuuidanimation`
 - **权限**：`libsdisguises.disguiseplayeranimation`
 
 ### /disguiseradius
 
-- **说明**：Disguise all entities within a radius as an entity.
+- **说明**：将半径内的所有实体伪装成实体。
 - **别名**：`/disradius`、`/dradius`、`/disgradius`
 - **权限**：`libsdisguises.seecmd.disguiseradius`
 
 ### /disguiseradiusanimation
 
-- **说明**：Play a supported animation on all supported disguises in a radius
+- **说明**：在半径范围内的所有受支持的伪装上播放受支持的动画
 - **权限**：`libsdisguises.disguiseradiusanimation`
 
 ### /disguiseselector
 
-- **说明**：Disguise entities via entity selector.
+- **说明**：通过实体选择器伪装实体。
 - **别名**：`/dselector`、`/disselector`、`/disgselector`
 - **权限**：`libsdisguises.seecmd.disguiseselector`
 
 ### /disguiseselectoranimation
 
-- **说明**：Play a supported animation on all supported disguises via entity selector.
+- **说明**：通过实体选择器在所有支持的伪装上播放支持的动画。
 - **权限**：`libsdisguises.disguiseselectoranimation`
 
 ### /disguiseviewbar
 
-- **说明**：Toggle seeing your own disguise on or off.
+- **说明**：打开或关闭您自己的伪装。
 - **别名**：`/dviewbar`、`/dvb`、`/disguisevb`、`/disvb`、`/viewdisguisebar`、`/viewbardisguise`、`/bardisguise`、`/bardisg`、`/bard`、`/notifybar`、`/viewnotifybar`、`/disguisenotifybar`、`/disgnotifybar`、`/dnotifybar`
 - **权限**：`libsdisguises.seecmd.disguiseviewbar`
 
 ### /grabhead
 
-- **说明**：Grab the head item of a skin, url or player
+- **说明**：抓取皮肤、网址或播放器的头部项目
 - **别名**：`/grabskull`、`/playerhead`、`/savehead`、`/gethead`
 - **权限**：`libsdisguises.seecmd.grabhead`
 
 ### /grabskin
 
-- **说明**：Grab a skin from file, url or player name/uuid
+- **说明**：从文件、网址或玩家名称/uuid中获取皮肤
 - **别名**：`/uploadskin`、`/skin`、`/saveskin`、`/cacheskin`、`/downloadskin`、`/skincache`
 - **权限**：`libsdisguises.seecmd.grabskin`
 
 ### /libsdisguises
 
-- **说明**：Main command for libsdisguises.
+- **说明**：Libsdisguises的主命令。
 - **别名**：`/libsdisg`、`/ld`
 
 ### /savedisguise
 
-- **说明**：Save a custom disguise to disguises.yml
+- **说明**：将自定义伪装保存到disguises.yml
 - **别名**：`/customdisguise`、`/savedisg`、`/customdisg`、`/createdisguise`、`/createdisg`
 - **权限**：`libsdisguises.seecmd.savedisguise`
 
 ### /undisguise
 
-- **说明**：Undisguise yourself.
+- **说明**：不伪装自己。
 - **别名**：`/und`、`/undis`、`/undisg`
 - **权限**：`libsdisguises.seecmd.undisguise`
 
 ### /undisguiseentity
 
-- **说明**：Undisguise an entity.
+- **说明**：隐藏实体。
 - **别名**：`/undisentity`、`/undentity`、`/undisgentity`
 - **权限**：`libsdisguises.seecmd.undisguiseentity`
 
 ### /undisguiseplayer
 
-- **说明**：Undisguise a player.
+- **说明**：隐藏玩家。
 - **别名**：`/undisplayer`、`/undplayer`、`/undisgplayer`、`/undisguiseuuid`、`/unduuid`、`/undisguuid`
 - **权限**：`libsdisguises.seecmd.undisguiseplayer`
 
 ### /undisguiseradius
 
-- **说明**：Undisguise all entities within a radius.
+- **说明**：隐藏半径内的所有实体。
 - **别名**：`/undisradius`、`/undradius`、`/undisgradius`
 - **权限**：`libsdisguises.seecmd.undisguiseradius`
 
 ### /undisguiseselector
 
-- **说明**：Undisguise all entities in an entity selector.
+- **说明**：在实体选择器中隐藏所有实体。
 - **别名**：`/undisselector`、`/undselector`、`/undisgselector`
 - **权限**：`libsdisguises.seecmd.undisguiseselector`
 

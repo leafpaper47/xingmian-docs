@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `2.12.3` · 指令 1 条 · api-version `1.13` · 文件 `PlaceholderAPI-2.12.3.jar`
 
-An awesome placeholder provider!
+一个很棒的占位符提供程序！
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ An awesome placeholder provider!
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/placeholderapi` | PlaceholderAPI Command | — |
+| `/placeholderapi` | PlaceholderAPI命令 | — |
 
 ## 详细用法
 
 ### /placeholderapi
 
-- **说明**：PlaceholderAPI Command
+- **说明**：PlaceholderAPI命令
 - **别名**：`/papi`
 
 ## 权限节点

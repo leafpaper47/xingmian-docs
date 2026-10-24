@@ -16,13 +16,13 @@ createTime: 2026/10/24
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/betterrtp` | Randomly teleport to a location | — |
+| `/betterrtp` | 随机传送到一个位置 | — |
 
 ## 详细用法
 
 ### /betterrtp
 
-- **说明**：Randomly teleport to a location
+- **说明**：随机传送到一个位置
 - **别名**：`/brtp`、`/rtp`、`/randomtp`、`/wild`、`/wildtp`
 
 ## 权限节点

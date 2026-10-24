@@ -115,6 +115,22 @@ def cell(s):
     return s if s else "—"
 
 
+# 英文说明的中文对照表（由 translate_ui.py 生成，可人工修订后重跑生成器）
+ZH_CACHE = {}
+_ZH_FILE = os.path.join(os.path.dirname(DATA), "zh_cache.json")
+if os.path.isfile(_ZH_FILE):
+    with open(_ZH_FILE, encoding="utf-8") as _f:
+        ZH_CACHE = json.load(_f)
+
+
+def zh(s):
+    """英文说明查表翻成中文，没命中就原样返回"""
+    if not s:
+        return ""
+    s = str(s).strip()
+    return ZH_CACHE.get(s, s)
+
+
 def usage_block(cmd, usage):
     u = clean(usage)
     if not u:
@@ -144,7 +160,7 @@ def collect_commands(rec):
         seen.add(sig)
         rows.append({
             "name": key,
-            "desc": clean(v.get("description")),
+            "desc": clean(zh(v.get("description"))),
             "usage": v.get("usage"),
             "aliases": [str(a) for a in (v.get("aliases") or [])],
             "permission": clean(v.get("permission")),
@@ -161,7 +177,7 @@ def main():
         cat = ASSIGN.get(name, "other")
         plugins.append({
             "name": name, "cat": cat, "version": str(r.get("version") or "-"),
-            "desc": clean(r.get("desc")), "file": r.get("file"), "rows": rows,
+            "desc": clean(zh(r.get("desc"))), "file": r.get("file"), "rows": rows,
             "perms": r.get("permissions") or {},
             "api": r.get("api"),
         })
@@ -300,7 +316,7 @@ def main():
         for p, perms in block:
             for k, v in sorted(perms.items()):
                 v = v if isinstance(v, dict) else {}
-                L.append("| [%s](/commands/%s/%s.md) | `%s` | %s | %s |" % (p["name"], c, p["slug"], k, cell(v.get("description") or "")[:50], cell(v.get("default") or "—")))
+                L.append("| [%s](/commands/%s/%s.md) | `%s` | %s | %s |" % (p["name"], c, p["slug"], k, cell(zh(v.get("description")))[:50], cell(v.get("default") or "—")))
         L.append("")
     open(os.path.join(DOCS, "permissions.md"), "w", encoding="utf-8").write("\n".join(L))
 

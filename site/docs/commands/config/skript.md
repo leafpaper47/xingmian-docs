@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `2.16.1` · 指令 1 条 · api-version `1.21` · 文件 `Skript-2.16.1.jar`
 
-Customize Minecraft's mechanics with simple scripts written in plain English sentences.
+用简单的英语句子编写简单的脚本，定制Minecraft的机制。
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ Customize Minecraft's mechanics with simple scripts written in plain English sen
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/skript` | Skript's main command. Type '/skript help' for more information. | `skript.admin` |
+| `/skript` | Skript的主命令。键入“/skript help”以获取更多信息。 | `skript.admin` |
 
 ## 详细用法
 
 ### /skript
 
-- **说明**：Skript's main command. Type '/skript help' for more information.
+- **说明**：Skript的主命令。键入“/skript help”以获取更多信息。
 - **用法**：`/skript help`
 - **别名**：`/sk`
 - **权限**：`skript.admin`

@@ -16,25 +16,25 @@ createTime: 2026/10/24
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/lgjoin` | Directly join a Lobby Game | — |
-| `/lgjoinplayer` | Console command to send a player into a game | — |
-| `/lobbygames` | LobbyGames plugin main command | — |
+| `/lgjoin` | 直接加入大堂游戏 | — |
+| `/lgjoinplayer` | 将玩家送入游戏的控制台命令 | — |
+| `/lobbygames` | LobbyGames插件主命令 | — |
 
 ## 详细用法
 
 ### /lgjoin
 
-- **说明**：Directly join a Lobby Game
+- **说明**：直接加入大堂游戏
 - **别名**：`/clicker`、`/minesweeper`、`/snake`、`/soccer`、`/football`、`/spleef`、`/sudoku`、`/soduko`、`/2048`、`/tictactoe`、`/tic`、`/ttt`、`/pool`、`/minesw`、`/connect4`
 
 ### /lgjoinplayer
 
-- **说明**：Console command to send a player into a game
+- **说明**：将玩家送入游戏的控制台命令
 - **别名**：`/lgforcejoin`
 
 ### /lobbygames
 
-- **说明**：LobbyGames plugin main command
+- **说明**：LobbyGames插件主命令
 - **别名**：`/lg`、`/minigames`
 
 ## 权限节点

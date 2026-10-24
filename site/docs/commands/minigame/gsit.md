@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `3.5.1` · 指令 7 条 · api-version `1.16` · 文件 `GSit-3.5.1.jar`
 
-Relax with other players on nice seats!
+与其他玩家在漂亮的座位上放松身心！
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,59 +18,59 @@ Relax with other players on nice seats!
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/gbellyflop` | Bellyflop command | `GSit.Bellyflop` |
-| `/gcrawl` | Crawl command | — |
-| `/glay` | Lay command | `GSit.Lay` |
-| `/glayback` | Lay back command | `GSit.LayBack` |
-| `/gsit` | Sit command | — |
-| `/gsitreload` | Plugin reload command | `GSit.Reload` |
-| `/gspin` | Spin command | `GSit.Spin` |
+| `/gbellyflop` | Bellyflop命令 | `GSit.Bellyflop` |
+| `/gcrawl` | 爬网命令 | — |
+| `/glay` | Lay命令 | `GSit.Lay` |
+| `/glayback` | Lay back命令 | `GSit.LayBack` |
+| `/gsit` | SIT命令 | — |
+| `/gsitreload` | 插件重新加载命令 | `GSit.Reload` |
+| `/gspin` | 旋转命令 | `GSit.Spin` |
 
 ## 详细用法
 
 ### /gbellyflop
 
-- **说明**：Bellyflop command
+- **说明**：Bellyflop命令
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/bellyflop`
 - **权限**：`GSit.Bellyflop`
 
 ### /gcrawl
 
-- **说明**：Crawl command
+- **说明**：爬网命令
 - **用法**：`/&lt;command&gt; [toggle]`
 - **别名**：`/crawl`
 
 ### /glay
 
-- **说明**：Lay command
+- **说明**：Lay命令
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/lay`
 - **权限**：`GSit.Lay`
 
 ### /glayback
 
-- **说明**：Lay back command
+- **说明**：Lay back命令
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/layback`
 - **权限**：`GSit.LayBack`
 
 ### /gsit
 
-- **说明**：Sit command
+- **说明**：SIT命令
 - **用法**：`/&lt;command&gt; [toggle|playertoggle]`
 - **别名**：`/sit`
 
 ### /gsitreload
 
-- **说明**：Plugin reload command
+- **说明**：插件重新加载命令
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/gsitrl`
 - **权限**：`GSit.Reload`
 
 ### /gspin
 
-- **说明**：Spin command
+- **说明**：旋转命令
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/spin`
 - **权限**：`GSit.Spin`

@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `1.6` · 指令 1 条 · api-version `1.21` · 文件 `FoMiningComp-1.6.jar`
 
-Highly configurable, low-lag mining competition plugin
+高度可配置、低滞后的挖矿竞赛插件
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ Highly configurable, low-lag mining competition plugin
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/fominingcomp` | Main command for FoMiningComp | `fominingcomp.admin` |
+| `/fominingcomp` | FoMiningComp的主命令 | `fominingcomp.admin` |
 
 ## 详细用法
 
 ### /fominingcomp
 
-- **说明**：Main command for FoMiningComp
+- **说明**：FoMiningComp的主命令
 - **用法**：`/&lt;command&gt; help`
 - **别名**：`/miningcomp`
 - **权限**：`fominingcomp.admin`

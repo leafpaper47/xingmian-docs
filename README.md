@@ -11,8 +11,11 @@
 ```
 .
 ├─ data/plugin_commands.json     # 解析结果（唯一数据源）
+├─ data/zh_cache.json            # 英文说明 → 中文对照（可人工修订）
 ├─ zipyml.py                     # 用 SFTP 读 jar 内 plugin.yml，生成上面的 json
 ├─ gen_docs.py                   # 生成 docs/ 下所有 markdown + 侧边栏
+├─ translate_ui.py               # 把英文说明批量翻成中文，结果写入 zh_cache.json
+├─ check_zh.py                   # 检查还有多少英文没翻、译文是否可疑
 ├─ list_plugins.py               # 列出服务器 plugins 目录（排查用）
 └─ site/                         # VuePress 工程
    ├─ package.json / pnpm-lock.yaml / .npmrc
@@ -20,7 +23,7 @@
       ├─ .vuepress/config.ts     # 站点配置（base、hostname、主题）
       ├─ .vuepress/sidebar.ts    # 由 gen_docs.py 生成，别手改
       ├─ commands/               # 指令页（按分类分目录）
-      ├─ index.md / about.md     # 首页与使用说明
+      ├─ index.md                # 首页（分类导航）
       └─ permissions.md          # 权限节点总表
 ```
 
@@ -85,3 +88,17 @@ cd site && pnpm build
 - 只解析 `plugin.yml`：代码里动态注册的指令（Skript 自定义命令、DeluxeMenus 菜单指令、MythicMobs 内嵌命令）不会出现
 - 子指令不展开：`/lp`、`/co`、`/mm` 这类主指令请用游戏内 `help`
 - 颜色码 `§x` 在生成时已清除
+
+## 说明文字汉化
+
+文档里插件自带的英文说明（指令 description、插件简介、权限说明）会先翻成中文再写入页面：
+
+```bash
+python translate_ui.py          # 断点续跑，结果存 data/zh_cache.json
+python check_zh.py              # 看还差多少、哪些译文可疑
+python gen_docs.py              # 重新生成页面（会自动读 zh_cache.json）
+```
+
+- 译文有机器翻译成分，`data/zh_cache.json` 是纯文本可版本化文件，**发现译得不对直接改这个文件再重跑 `gen_docs.py` 即可**，不需要重新翻译。
+- 想重新翻某一条：从 `zh_cache.json` 里删掉那一条，再跑 `translate_ui.py`。
+- 指令参数、权限节点、`/co lookup i:stone` 这类**语法**保持英文，是刻意的，不要翻。

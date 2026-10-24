@@ -10,4 +10,4 @@ createTime: 2026/10/24
 | 插件 | 版本 | 指令数 | 说明 |
 | --- | --- | --- | --- |
 | [BetterRTP](./betterrtp.md) | 3.6.13 | 1 | — |
-| [EssentialsSpawn](./essentialsspawn.md) | 2.22.1-dev+12-776f709 | 2 | Provides spawn control commands, utilizing Essentials. |
+| [EssentialsSpawn](./essentialsspawn.md) | 2.22.1-dev+12-776f709 | 2 | 提供生成控制命令，利用Essentials。 |

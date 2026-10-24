@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `2.22.1-dev+12-776f709` · 指令 153 条 · api-version `1.13` · 文件 `EssentialsX-2.22.1-dev+12-776f709.jar`
 
-Provides an essential, core set of commands for Bukkit.
+为Bukkit提供基本的核心命令集。
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,1076 +18,1076 @@ Provides an essential, core set of commands for Bukkit.
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/afk` | Marks you as away-from-keyboard. | — |
-| `/antioch` | A little surprise for operators. | — |
-| `/anvil` | Opens up an Anvil. | — |
-| `/back` | Teleports you to your location prior to tp/spawn/warp. | — |
-| `/backup` | Runs the backup if configured. | — |
-| `/balance` | States the current balance of a player. | — |
-| `/balancetop` | Gets the top balance values. | — |
-| `/ban` | Bans a player. | — |
-| `/banip` | Bans an IP address. | — |
-| `/beezooka` | Throw an exploding bee at your opponent. | — |
-| `/bigtree` | Spawn a big tree where you are looking. | — |
-| `/book` | Allows reopening and editing of sealed books. | — |
-| `/bottom` | Teleport to the lowest block at your current position. | — |
-| `/break` | Breaks the block you are looking at. | — |
-| `/broadcast` | Broadcasts a message to the entire server. | — |
-| `/broadcastworld` | Broadcasts a message to a world. | — |
-| `/burn` | Set a player on fire. | — |
-| `/cartographytable` | Opens up a cartography table. | — |
-| `/clearinventory` | Clear all items in your inventory. | — |
-| `/clearinventoryconfirmtoggle` | Toggles whether you are prompted to confirm inventory clears. | — |
-| `/compass` | Describes your current bearing. | — |
-| `/condense` | Condenses items into a more compact blocks. | — |
-| `/createkit` | Create a kit in game! | — |
-| `/customtext` | Allows you to create custom text commands. | — |
-| `/delhome` | Removes a home. | — |
-| `/deljail` | Removes a jail. | — |
-| `/delkit` | Deletes the specified kit. | — |
-| `/delwarp` | Deletes the specified warp. | — |
-| `/depth` | States current depth, relative to sea level. | — |
-| `/disposal` | Opens a portable disposal menu. | — |
-| `/eco` | Manages the server economy. | — |
-| `/editsign` | Edits a sign in the world. | — |
-| `/enchant` | Enchants the item the user is holding. | — |
-| `/enderchest` | Lets you see inside an enderchest. | — |
-| `/essentials` | Reloads essentials. | — |
-| `/exp` | Give, set, reset, or look at a players experience. | — |
-| `/ext` | Extinguish players. | — |
-| `/feed` | Satisfy the hunger. | — |
-| `/fireball` | Throw a fireball or other assorted projectiles. | — |
-| `/firework` | Allows you to modify a stack of fireworks. | — |
-| `/fly` | Take off, and soar! | — |
-| `/gamemode` | Change player gamemode. | — |
-| `/gc` | Reports memory, uptime and tick info. | — |
-| `/getpos` | Get your current coordinates or those of a player. | — |
-| `/give` | Give a player an item. | — |
-| `/god` | Enables your godly powers. | — |
-| `/grindstone` | Opens up a grindstone. | — |
-| `/hat` | Get some cool new headgear. | — |
-| `/heal` | Heals you or the given player. | — |
-| `/help` | Views a list of available commands. | — |
-| `/helpop` | Message online admins. | — |
-| `/home` | Teleport to your home. | — |
-| `/ice` | Cools a player off. | — |
-| `/ignore` | Ignore or unignore other players. | — |
-| `/info` | Shows information set by the server owner. | — |
-| `/invsee` | See the inventory of other players. | — |
-| `/item` | Spawn an item. | — |
-| `/itemdb` | Searches for an item. | — |
-| `/itemlore` | Edit the lore of an item. | — |
-| `/itemname` | Names an item. | — |
-| `/jailedplayers` | List all jailed players. | — |
-| `/jails` | List all jails. | — |
-| `/jump` | Jumps to the nearest block in the line of sight. | — |
-| `/kick` | Kicks a specified player with a reason. | — |
-| `/kickall` | Kicks all players off the server except the issuer. | — |
-| `/kill` | Kills specified player. | — |
-| `/kit` | Obtains the specified kit or views all available kits. | — |
-| `/kitreset` | Resets the cooldown on the specified kit. | — |
-| `/kittycannon` | Throw an exploding kitten at your opponent. | — |
-| `/lightning` | The power of Thor. Strike at cursor or player. | — |
-| `/list` | List all online players. | — |
-| `/loom` | Opens up a loom. | — |
-| `/mail` | Manages inter-player, intra-server mail. | — |
-| `/me` | Describes an action in the context of the player. | — |
-| `/more` | Fills the item stack in hand to specified amount, or to maximum size if none is specified. | — |
-| `/motd` | Views the Message Of The Day. | — |
-| `/msg` | Sends a private message to the specified player. | — |
-| `/msgtoggle` | Blocks receiving all private messages. | — |
-| `/mute` | Mutes or unmutes a player. | — |
-| `/near` | Lists the players near by or around a player. | — |
-| `/nick` | Change your nickname or that of another player. | — |
-| `/nuke` | May death rain upon them. | — |
-| `/pay` | Pays another player from your balance. | — |
-| `/payconfirmtoggle` | Toggles whether you are prompted to confirm payments. | — |
-| `/paytoggle` | Toggles whether you are accepting payments. | — |
-| `/ping` | Pong! | — |
-| `/playtime` | Shows a player's time played in game | — |
-| `/potion` | Adds custom potion effects to a potion. | — |
-| `/powertool` | Assigns a command to the item in hand. | — |
-| `/powertoollist` | Lists all current powertools. | — |
-| `/powertooltoggle` | Enables or disables all current powertools. | — |
-| `/ptime` | Adjust player's client time. Add @ prefix to fix. | — |
-| `/pweather` | Adjust a player's weather | — |
-| `/r` | Quickly reply to the last player to message you. | — |
-| `/realname` | Displays the username of a user based on nick. | — |
-| `/recipe` | Displays how to craft items. | — |
-| `/remove` | Removes entities in your world. | — |
-| `/renamehome` | Renames a home. | — |
-| `/repair` | Repairs the durability of one or all items. | — |
-| `/rest` | Rests you or the given player. | — |
-| `/rtoggle` | Change whether the recipient of the reply is last recipient or last sender | — |
-| `/rules` | Views the server rules. | — |
-| `/seen` | Shows the last logout time of a player. | — |
-| `/sell` | Sells the item currently in your hand. | — |
-| `/sethome` | Set your home to your current location. | — |
-| `/setjail` | Creates a jail where you specified named [jailname]. | — |
-| `/settpr` | Set the random teleport location and parameters. | — |
-| `/setwarp` | Creates a new warp. | — |
-| `/setworth` | Set the sell value of an item. | — |
-| `/showkit` | Show contents of a kit. | — |
-| `/skull` | Set the owner of a player skull | — |
-| `/smithingtable` | Opens up a smithing table. | — |
-| `/socialspy` | Toggles if you can see msg/mail commands in chat. | — |
-| `/spawner` | Change the mob type of a spawner. | — |
-| `/spawnmob` | Spawns a mob. | — |
-| `/speed` | Change your speed limits. | — |
-| `/stonecutter` | Opens up a stonecutter. | — |
-| `/sudo` | Make another user perform a command. | — |
-| `/suicide` | Causes you to perish. | — |
-| `/tempban` | Temporary ban a user. | — |
-| `/tempbanip` | Temporarily ban an IP Address. | — |
-| `/thunder` | Enable/disable thunder. | — |
-| `/time` | Display/Change the world time. Defaults to current world. | — |
-| `/togglejail` | Jails/Unjails a player, TPs them to the jail specified. | — |
-| `/top` | Teleport to the highest block at your current position. | — |
-| `/tp` | Teleport to a player. | — |
-| `/tpa` | Request to teleport to the specified player. | — |
-| `/tpaall` | Requests all players online to teleport to you. | — |
-| `/tpacancel` | Cancel all outstanding teleport requests. Specify [player] to cancel requests with them. | — |
-| `/tpaccept` | Accepts teleport requests. | — |
-| `/tpahere` | Request that the specified player teleport to you. | — |
-| `/tpall` | Teleport all online players to another player. | — |
-| `/tpauto` | Automatically accept teleportation requests. | — |
-| `/tpdeny` | Rejects teleport requests. | — |
-| `/tphere` | Teleport a player to you. | — |
-| `/tpo` | Teleport override for tptoggle. | — |
-| `/tpoffline` | Teleport to a player's last known logout location | — |
-| `/tpohere` | Teleport here override for tptoggle. | — |
-| `/tppos` | Teleport to coordinates. | — |
-| `/tpr` | Teleport randomly. | — |
-| `/tptoggle` | Blocks all forms of teleportation. | — |
-| `/tree` | Spawn a tree where you are looking. | — |
-| `/unban` | Unbans the specified player. | — |
-| `/unbanip` | Unbans the specified IP address. | — |
-| `/unlimited` | Allows the unlimited placing of items. | — |
-| `/vanish` | Hide yourself from other players. | — |
-| `/warp` | List all warps or warp to the specified location. | — |
-| `/warpinfo` | Finds location information for a specified warp. | — |
-| `/weather` | Sets the weather. | — |
-| `/whois` | Determine basic information about the specified player. | — |
-| `/workbench` | Opens up a workbench. | — |
-| `/world` | Switch between worlds. | — |
-| `/worth` | Calculates the worth of items in hand or as specified. | — |
+| `/afk` | 将您标记为远离键盘。 | — |
+| `/antioch` | 给操作员一个小小的惊喜。 | — |
+| `/anvil` | 打开一个铁砧。 | — |
+| `/back` | 在tp/spawn/warp之前将您传送到您的位置。 | — |
+| `/backup` | 如果已配置，则运行备份。 | — |
+| `/balance` | 说明玩家的当前余额。 | — |
+| `/balancetop` | 获取最高余额值。 | — |
+| `/ban` | 封禁玩家。 | — |
+| `/banip` | 一个IP地址 | — |
+| `/beezooka` | 向你的对手投掷一只爆炸的蜜蜂。 | — |
+| `/bigtree` | 在你正在寻找的地方产下一棵大树。 | — |
+| `/book` | 允许重新打开和编辑密封的书籍。 | — |
+| `/bottom` | 传送到您当前位置的最低格挡。 | — |
+| `/break` | 打破您正在查看的块。 | — |
+| `/broadcast` | 将消息广播到整个服务器。 | — |
+| `/broadcastworld` | 向世界广播消息。 | — |
+| `/burn` | 点燃一名玩家。 | — |
+| `/cartographytable` | 打开制图表。 | — |
+| `/clearinventory` | 清除库存中的所有项目。 | — |
+| `/clearinventoryconfirmtoggle` | 切换是否提示您确认库存清除。 | — |
+| `/compass` | 描述您当前的轴承。 | — |
+| `/condense` | 将物品压缩成更紧凑的块。 | — |
+| `/createkit` | 在游戏中创建套件！ | — |
+| `/customtext` | 允许您创建自定义文本命令。 | — |
+| `/delhome` | 移除房源。 | — |
+| `/deljail` | 移除监狱。 | — |
+| `/delkit` | 删除指定的试剂盒。 | — |
+| `/delwarp` | 删除指定的扭曲。 | — |
+| `/depth` | 状态相对于海平面的当前深度。 | — |
+| `/disposal` | 打开便携式处理菜单。 | — |
+| `/eco` | 管理服务器经济。 | — |
+| `/editsign` | 编辑世界上的标志。 | — |
+| `/enchant` | 对用户持有的物品施魔法。 | — |
+| `/enderchest` | 让您看到enderchest的内部。 | — |
+| `/essentials` | 充值必需品。 | — |
+| `/exp` | 提供、设置、重置或查看玩家体验。 | — |
+| `/ext` | 消灭玩家。 | — |
+| `/feed` | 满足饥饿感。 | — |
+| `/fireball` | 投掷火球或其他各种射弹。 | — |
+| `/firework` | 允许您修改一堆烟花。 | — |
+| `/fly` | 起飞，翱翔！ | — |
+| `/gamemode` | 更改玩家游戏模式。 | — |
+| `/gc` | 报告内存、正常运行时间和滴答声信息。 | — |
+| `/getpos` | 获取您当前的坐标或玩家的坐标。 | — |
+| `/give` | 给玩家一件物品。 | — |
+| `/god` | 提升你的神圣力量。 | — |
+| `/grindstone` | 打开磨石。 | — |
+| `/hat` | 获得一些很酷的新头饰。 | — |
+| `/heal` | 治疗你或给定的玩家。 | — |
+| `/help` | 查看可用命令的列表。 | — |
+| `/helpop` | 向在线管理员发送消息。 | — |
+| `/home` | 传送到您的家。 | — |
+| `/ice` | 让玩家冷静下来。 | — |
+| `/ignore` | 忽略或忽略其他玩家。 | — |
+| `/info` | 显示由服务器所有者设置的信息。 | — |
+| `/invsee` | 查看其他玩家的库存。 | — |
+| `/item` | 生成一个项目。 | — |
+| `/itemdb` | 搜索项目。 | — |
+| `/itemlore` | 编辑项目的知识。 | — |
+| `/itemname` | 命名项目。 | — |
+| `/jailedplayers` | 列出所有被监禁的玩家。 | — |
+| `/jails` | 列出所有监狱。 | — |
+| `/jump` | 跳转到视线中最近的街区。 | — |
+| `/kick` | 踢出有原因的指定玩家。 | — |
+| `/kickall` | 除发行者外，将所有玩家从服务器上踢出。 | — |
+| `/kill` | 击杀指定玩家。 | — |
+| `/kit` | 获取指定试剂盒或查看所有可用试剂盒。 | — |
+| `/kitreset` | 重置指定工具包的冷却时间。 | — |
+| `/kittycannon` | 向你的对手扔一只爆炸的小猫。 | — |
+| `/lightning` | 索尔的力量。敲击光标或玩家。 | — |
+| `/list` | 在线玩家列表 | — |
+| `/loom` | 打开织机。 | — |
+| `/mail` | 管理玩家间、服务器内邮件。 | — |
+| `/me` | 描述玩家上下文中的操作。 | — |
+| `/more` | 将手头的物料堆栈填充到指定数量，如果没有指定，则填充到最大尺寸。 | — |
+| `/motd` | 查看当天的消息。 | — |
+| `/msg` | 向指定的玩家发送私信。 | — |
+| `/msgtoggle` | 阻止接收所有私人消息。 | — |
+| `/mute` | 将玩家静音或取消静音。 | — |
+| `/near` | 列出玩家附近或周围的玩家。 | — |
+| `/nick` | 更改您的昵称或其他玩家的昵称。 | — |
+| `/nuke` | 愿死亡降临在他们身上。 | — |
+| `/pay` | 从您的余额中支付其他玩家。 | — |
+| `/payconfirmtoggle` | 切换是否提示您确认付款。 | — |
+| `/paytoggle` | 切换是否接受付款。 | — |
+| `/ping` | 乒乓球 | — |
+| `/playtime` | 显示玩家在游戏中的时间 | — |
+| `/potion` | 在药水中添加自定义药水效果。 | — |
+| `/powertool` | 将命令分配给手头的项目。 | — |
+| `/powertoollist` | 列出所有当前动力工具。 | — |
+| `/powertooltoggle` | 启用或禁用所有当前动力工具。 | — |
+| `/ptime` | 调整玩家的客户端时间。添加@前缀进行修复。 | — |
+| `/pweather` | 调整玩家的天气 | — |
+| `/r` | 快速回复最后一位要给您发消息的玩家。 | — |
+| `/realname` | 根据昵称显示用户的用户名。 | — |
+| `/recipe` | 显示如何制作物品。 | — |
+| `/remove` | 删除您所在世界中的实体。 | — |
+| `/renamehome` | 重命名房源。 | — |
+| `/repair` | 修复一个或所有项目的耐用性。 | — |
+| `/rest` | 阻止您或给定的玩家。 | — |
+| `/rtoggle` | 更改回复的收件人是最后一个收件人还是最后一个发件人 | — |
+| `/rules` | 查看服务器规则。 | — |
+| `/seen` | 显示玩家的最后一次注销时间。 | — |
+| `/sell` | 出售当前手中的道具。 | — |
+| `/sethome` | 将房源设置为当前位置。 | — |
+| `/setjail` | 创建一个指定名为[jailname]的监狱。 | — |
+| `/settpr` | 设置随机传送位置和参数。 | — |
+| `/setwarp` | 创建新的曲速。 | — |
+| `/setworth` | 设置商品的卖出价值。 | — |
+| `/showkit` | 显示试剂盒的内容。 | — |
+| `/skull` | 设置玩家头骨的所有者 | — |
+| `/smithingtable` | 打开一张锻造桌。 | — |
+| `/socialspy` | 切换是否可以在聊天中看到消息/邮件命令。 | — |
+| `/spawner` | 更改生成器的mob类型。 | — |
+| `/spawnmob` | 生成一群暴徒。 | — |
+| `/speed` | 更改速度限制。 | — |
+| `/stonecutter` | 打开一个石匠。 | — |
+| `/sudo` | 让其他用户执行命令。 | — |
+| `/suicide` | 导致你死亡。 | — |
+| `/tempban` | 暂时禁止用户。 | — |
+| `/tempbanip` | 暂时禁止IP地址。 | — |
+| `/thunder` | 启用/禁用雷霆。 | — |
+| `/time` | 显示/更改世界时间。默认为当前世界。 | — |
+| `/togglejail` | 监禁/释放玩家，将他们TP到指定的监狱。 | — |
+| `/top` | 传送到您当前位置的最高格挡。 | — |
+| `/tp` | 传送到玩家 | — |
+| `/tpa` | 请求传送到指定的玩家。 | — |
+| `/tpaall` | 要求所有在线玩家传送到您身边。 | — |
+| `/tpacancel` | 取消所有未完成的传送请求。指定[player]取消与他们的请求。 | — |
+| `/tpaccept` | 接受传送请求。 | — |
+| `/tpahere` | 请求指定的玩家传送到您身边。 | — |
+| `/tpall` | 将所有在线玩家传送到另一个玩家。 | — |
+| `/tpauto` | 自动接受传送请求。 | — |
+| `/tpdeny` | 拒绝传送请求。 | — |
+| `/tphere` | 将玩家传送给您。 | — |
+| `/tpo` | Tptoggle的传送覆盖。 | — |
+| `/tpoffline` | 传送到玩家最后已知的注销位置 | — |
+| `/tpohere` | Tptoggle的传送在此处覆盖。 | — |
+| `/tppos` | 传送到坐标处。 | — |
+| `/tpr` | 随机传送。 | — |
+| `/tptoggle` | 阻止所有形式的传送。 | — |
+| `/tree` | 在你正在寻找的地方生成一棵树。 | — |
+| `/unban` | 解除对指定玩家的封禁。 | — |
+| `/unbanip` | 取消对指定IP地址的封禁。 | — |
+| `/unlimited` | 允许无限制地放置物品。 | — |
+| `/vanish` | 躲避其他玩家。 | — |
+| `/warp` | 列出到指定位置的所有经纱或经纱。 | — |
+| `/warpinfo` | 查找指定曲速的位置信息。 | — |
+| `/weather` | 设置天气。 | — |
+| `/whois` | 确定有关指定玩家的基本信息。 | — |
+| `/workbench` | 打开工作台。 | — |
+| `/world` | 在世界之间切换。 | — |
+| `/worth` | 计算手头或指定项目的价值。 | — |
 
 ## 详细用法
 
 ### /afk
 
-- **说明**：Marks you as away-from-keyboard.
+- **说明**：将您标记为远离键盘。
 - **用法**：`/&lt;command&gt; [player/message...]`
 - **别名**：`/eafk`、`/away`、`/eaway`
 
 ### /antioch
 
-- **说明**：A little surprise for operators.
+- **说明**：给操作员一个小小的惊喜。
 - **用法**：`/&lt;command&gt; [message]`
 - **别名**：`/eantioch`、`/grenade`、`/egrenade`、`/tnt`、`/etnt`
 
 ### /anvil
 
-- **说明**：Opens up an Anvil.
+- **说明**：打开一个铁砧。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/eanvil`
 
 ### /back
 
-- **说明**：Teleports you to your location prior to tp/spawn/warp.
+- **说明**：在tp/spawn/warp之前将您传送到您的位置。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/eback`、`/return`、`/ereturn`
 
 ### /backup
 
-- **说明**：Runs the backup if configured.
+- **说明**：如果已配置，则运行备份。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/ebackup`
 
 ### /balance
 
-- **说明**：States the current balance of a player.
+- **说明**：说明玩家的当前余额。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/bal`、`/ebal`、`/ebalance`、`/money`、`/emoney`
 
 ### /balancetop
 
-- **说明**：Gets the top balance values.
+- **说明**：获取最高余额值。
 - **用法**：`/&lt;command&gt; [page]`
 - **别名**：`/ebalancetop`、`/baltop`、`/ebaltop`
 
 ### /ban
 
-- **说明**：Bans a player.
+- **说明**：封禁玩家。
 - **用法**：`/&lt;command&gt; &lt;player&gt; [reason]`
 - **别名**：`/eban`
 
 ### /banip
 
-- **说明**：Bans an IP address.
+- **说明**：一个IP地址
 - **用法**：`/&lt;command&gt; &lt;address&gt; [reason]`
 - **别名**：`/ebanip`
 
 ### /beezooka
 
-- **说明**：Throw an exploding bee at your opponent.
+- **说明**：向你的对手投掷一只爆炸的蜜蜂。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/ebeezooka`、`/beecannon`、`/ebeecannon`
 
 ### /bigtree
 
-- **说明**：Spawn a big tree where you are looking.
+- **说明**：在你正在寻找的地方产下一棵大树。
 - **用法**：`/&lt;command&gt; &lt;tree|redwood|jungle|darkoak&gt;`
 - **别名**：`/ebigtree`、`/largetree`、`/elargetree`
 
 ### /book
 
-- **说明**：Allows reopening and editing of sealed books.
+- **说明**：允许重新打开和编辑密封的书籍。
 - **用法**：`/&lt;command&gt; [title|author [name]]`
 - **别名**：`/ebook`
 
 ### /bottom
 
-- **说明**：Teleport to the lowest block at your current position.
+- **说明**：传送到您当前位置的最低格挡。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/ebottom`
 
 ### /break
 
-- **说明**：Breaks the block you are looking at.
+- **说明**：打破您正在查看的块。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/ebreak`
 
 ### /broadcast
 
-- **说明**：Broadcasts a message to the entire server.
+- **说明**：将消息广播到整个服务器。
 - **用法**：`/&lt;command&gt; &lt;msg&gt;`
 - **别名**：`/bc`、`/ebc`、`/bcast`、`/ebcast`、`/ebroadcast`、`/shout`、`/eshout`
 
 ### /broadcastworld
 
-- **说明**：Broadcasts a message to a world.
+- **说明**：向世界广播消息。
 - **用法**：`/&lt;command&gt; &lt;world&gt; &lt;msg&gt;`
 - **别名**：`/bcw`、`/ebcw`、`/bcastw`、`/ebcastw`、`/ebroadcastworld`、`/shoutworld`、`/eshoutworld`
 
 ### /burn
 
-- **说明**：Set a player on fire.
+- **说明**：点燃一名玩家。
 - **用法**：`/&lt;command&gt; &lt;player&gt; &lt;seconds&gt;`
 - **别名**：`/eburn`
 
 ### /cartographytable
 
-- **说明**：Opens up a cartography table.
+- **说明**：打开制图表。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/ecartographytable`、`/carttable`、`/ecarttable`
 
 ### /clearinventory
 
-- **说明**：Clear all items in your inventory.
+- **说明**：清除库存中的所有项目。
 - **用法**：`/&lt;command&gt; [player|*] [item[:&lt;data&gt;]|*|**] [amount]`
 - **别名**：`/ci`、`/eci`、`/clean`、`/eclean`、`/clear`、`/eclear`、`/clearinvent`、`/eclearinvent`、`/eclearinventory`
 
 ### /clearinventoryconfirmtoggle
 
-- **说明**：Toggles whether you are prompted to confirm inventory clears.
+- **说明**：切换是否提示您确认库存清除。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/eclearinventoryconfirmtoggle`、`/clearinventoryconfirmoff`、`/eclearinventoryconfirmoff`、`/clearconfirmoff`、`/eclearconfirmoff`、`/clearconfirmon`、`/eclearconfirmon`、`/clearconfirm`、`/eclearconfirm`
 
 ### /compass
 
-- **说明**：Describes your current bearing.
+- **说明**：描述您当前的轴承。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/ecompass`、`/direction`、`/edirection`
 
 ### /condense
 
-- **说明**：Condenses items into a more compact blocks.
+- **说明**：将物品压缩成更紧凑的块。
 - **用法**：`/&lt;command&gt; [itemname]`
 - **别名**：`/econdense`、`/compact`、`/ecompact`、`/blocks`、`/eblocks`、`/toblocks`、`/etoblocks`
 
 ### /createkit
 
-- **说明**：Create a kit in game!
+- **说明**：在游戏中创建套件！
 - **用法**：`/&lt;command&gt; &lt;kitname&gt; &lt;delay&gt;`
 - **别名**：`/kitcreate`、`/createk`、`/kc`、`/ck`
 
 ### /customtext
 
-- **说明**：Allows you to create custom text commands.
+- **说明**：允许您创建自定义文本命令。
 - **用法**：`/&lt;alias&gt; - Define in bukkit.yml`
 
 ### /delhome
 
-- **说明**：Removes a home.
+- **说明**：移除房源。
 - **用法**：`/&lt;command&gt; [player:]&lt;name&gt;`
 - **别名**：`/edelhome`、`/remhome`、`/eremhome`、`/rmhome`、`/ermhome`
 
 ### /deljail
 
-- **说明**：Removes a jail.
+- **说明**：移除监狱。
 - **用法**：`/&lt;command&gt; &lt;jailname&gt;`
 - **别名**：`/edeljail`、`/remjail`、`/eremjail`、`/rmjail`、`/ermjail`
 
 ### /delkit
 
-- **说明**：Deletes the specified kit.
+- **说明**：删除指定的试剂盒。
 - **用法**：`/&lt;command&gt; &lt;kit&gt;`
 - **别名**：`/edelkit`、`/remkit`、`/eremkit`、`/rmkit`、`/ermkit`、`/deletekit`、`/edeletekit`
 
 ### /delwarp
 
-- **说明**：Deletes the specified warp.
+- **说明**：删除指定的扭曲。
 - **用法**：`/&lt;command&gt; &lt;warp&gt;`
 - **别名**：`/edelwarp`、`/remwarp`、`/eremwarp`、`/rmwarp`、`/ermwarp`
 
 ### /depth
 
-- **说明**：States current depth, relative to sea level.
+- **说明**：状态相对于海平面的当前深度。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/edepth`、`/height`、`/eheight`
 
 ### /disposal
 
-- **说明**：Opens a portable disposal menu.
+- **说明**：打开便携式处理菜单。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/edisposal`、`/trash`、`/etrash`
 
 ### /eco
 
-- **说明**：Manages the server economy.
+- **说明**：管理服务器经济。
 - **用法**：`/&lt;command&gt; &lt;give|take|set|reset&gt; &lt;player&gt; &lt;amount&gt;`
 - **别名**：`/eeco`、`/economy`、`/eeconomy`
 
 ### /editsign
 
-- **说明**：Edits a sign in the world.
+- **说明**：编辑世界上的标志。
 - **用法**：`/&lt;command&gt; &lt;set/clear/copy/paste&gt; [line number] [text]`
 - **别名**：`/sign`、`/esign`、`/eeditsign`
 
 ### /enchant
 
-- **说明**：Enchants the item the user is holding.
+- **说明**：对用户持有的物品施魔法。
 - **用法**：`/&lt;command&gt; &lt;enchantmentname&gt; [level]`
 - **别名**：`/eenchant`、`/enchantment`、`/eenchantment`
 
 ### /enderchest
 
-- **说明**：Lets you see inside an enderchest.
+- **说明**：让您看到enderchest的内部。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/echest`、`/eechest`、`/eenderchest`、`/endersee`、`/eendersee`、`/ec`、`/eec`
 
 ### /essentials
 
-- **说明**：Reloads essentials.
+- **说明**：充值必需品。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/eessentials`、`/ess`、`/eess`、`/essversion`
 
 ### /exp
 
-- **说明**：Give, set, reset, or look at a players experience.
+- **说明**：提供、设置、重置或查看玩家体验。
 - **用法**：`/&lt;command&gt; [reset|show|set|give] [playername [amount]]`
 - **别名**：`/eexp`、`/xp`
 
 ### /ext
 
-- **说明**：Extinguish players.
+- **说明**：消灭玩家。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/eext`、`/extinguish`、`/eextinguish`
 
 ### /feed
 
-- **说明**：Satisfy the hunger.
+- **说明**：满足饥饿感。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/eat`、`/eeat`、`/efeed`
 
 ### /fireball
 
-- **说明**：Throw a fireball or other assorted projectiles.
+- **说明**：投掷火球或其他各种射弹。
 - **用法**：`/&lt;command&gt; [fireball|small|large|arrow|skull|egg|snowball|expbottle|dragon|splashpotion|lingeringpotion|trident] [speed]`
 - **别名**：`/efireball`、`/fireentity`、`/efireentity`、`/fireskull`、`/efireskull`
 
 ### /firework
 
-- **说明**：Allows you to modify a stack of fireworks.
+- **说明**：允许您修改一堆烟花。
 - **用法**：`/&lt;command&gt; &lt;&lt;meta param&gt;|power [amount]|clear|fire [amount]&gt;`
 - **别名**：`/efirework`
 
 ### /fly
 
-- **说明**：Take off, and soar!
+- **说明**：起飞，翱翔！
 - **用法**：`/&lt;command&gt; [player] [on|off]`
 - **别名**：`/efly`
 
 ### /gamemode
 
-- **说明**：Change player gamemode.
+- **说明**：更改玩家游戏模式。
 - **用法**：`/&lt;command&gt; &lt;survival|creative|adventure|spectator&gt; [player]`
 - **别名**：`/adventure`、`/eadventure`、`/adventuremode`、`/eadventuremode`、`/creative`、`/ecreative`、`/eecreative`、`/creativemode`、`/ecreativemode`、`/egamemode`、`/gm`、`/egm`、`/gma`、`/egma`、`/gmc`、`/egmc`、`/gms`、`/egms`、`/gmt`、`/egmt`、`/survival`、`/esurvival`、`/survivalmode`、`/esurvivalmode`、`/gmsp`、`/sp`、`/egmsp`、`/spec`、`/spectator`
 
 ### /gc
 
-- **说明**：Reports memory, uptime and tick info.
+- **说明**：报告内存、正常运行时间和滴答声信息。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/lag`、`/elag`、`/egc`、`/mem`、`/emem`、`/memory`、`/ememory`、`/uptime`、`/euptime`、`/tps`、`/etps`、`/entities`、`/eentities`
 
 ### /getpos
 
-- **说明**：Get your current coordinates or those of a player.
+- **说明**：获取您当前的坐标或玩家的坐标。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/coords`、`/egetpos`、`/position`、`/eposition`、`/whereami`、`/ewhereami`、`/getlocation`、`/egetlocation`、`/getloc`、`/egetloc`
 
 ### /give
 
-- **说明**：Give a player an item.
+- **说明**：给玩家一件物品。
 - **用法**：`/&lt;command&gt; &lt;player&gt; &lt;item|numeric&gt; [amount [itemmeta...]]`
 - **别名**：`/egive`
 
 ### /god
 
-- **说明**：Enables your godly powers.
+- **说明**：提升你的神圣力量。
 - **用法**：`/&lt;command&gt; [player] [on|off]`
 - **别名**：`/egod`、`/godmode`、`/egodmode`、`/tgm`、`/etgm`
 
 ### /grindstone
 
-- **说明**：Opens up a grindstone.
+- **说明**：打开磨石。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/egrindstone`
 
 ### /hat
 
-- **说明**：Get some cool new headgear.
+- **说明**：获得一些很酷的新头饰。
 - **用法**：`/&lt;command&gt; [remove]`
 - **别名**：`/ehat`、`/head`、`/ehead`
 
 ### /heal
 
-- **说明**：Heals you or the given player.
+- **说明**：治疗你或给定的玩家。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/eheal`
 
 ### /help
 
-- **说明**：Views a list of available commands.
+- **说明**：查看可用命令的列表。
 - **用法**：`/&lt;command&gt; [search term] [page]`
 - **别名**：`/ehelp`
 
 ### /helpop
 
-- **说明**：Message online admins.
+- **说明**：向在线管理员发送消息。
 - **用法**：`/&lt;command&gt; &lt;message&gt;`
 - **别名**：`/ac`、`/eac`、`/amsg`、`/eamsg`、`/ehelpop`
 
 ### /home
 
-- **说明**：Teleport to your home.
+- **说明**：传送到您的家。
 - **用法**：`/&lt;command&gt; [player:][name]`
 - **别名**：`/ehome`、`/homes`、`/ehomes`
 
 ### /ice
 
-- **说明**：Cools a player off.
+- **说明**：让玩家冷静下来。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/eice`、`/efreeze`
 
 ### /ignore
 
-- **说明**：Ignore or unignore other players.
+- **说明**：忽略或忽略其他玩家。
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/eignore`、`/unignore`、`/eunignore`、`/delignore`、`/edelignore`、`/remignore`、`/eremignore`、`/rmignore`、`/ermignore`
 
 ### /info
 
-- **说明**：Shows information set by the server owner.
+- **说明**：显示由服务器所有者设置的信息。
 - **用法**：`/&lt;command&gt; [chapter] [page]`
 - **别名**：`/about`、`/eabout`、`/ifo`、`/eifo`、`/einfo`、`/inform`、`/einform`、`/news`、`/enews`
 
 ### /invsee
 
-- **说明**：See the inventory of other players.
+- **说明**：查看其他玩家的库存。
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/einvsee`
 
 ### /item
 
-- **说明**：Spawn an item.
+- **说明**：生成一个项目。
 - **用法**：`/&lt;command&gt; &lt;item|numeric&gt; [amount [itemmeta...]]`
 - **别名**：`/i`、`/eitem`、`/ei`
 
 ### /itemdb
 
-- **说明**：Searches for an item.
+- **说明**：搜索项目。
 - **用法**：`/&lt;command&gt; &lt;item&gt;`
 - **别名**：`/dura`、`/edura`、`/durability`、`/edurability`、`/eitemdb`、`/itemno`、`/eitemno`
 
 ### /itemlore
 
-- **说明**：Edit the lore of an item.
+- **说明**：编辑项目的知识。
 - **用法**：`/&lt;command&gt; &lt;add/set/clear&gt; [text/line] [text]`
 - **别名**：`/lore`、`/elore`、`/ilore`、`/eilore`、`/eitemlore`
 
 ### /itemname
 
-- **说明**：Names an item.
+- **说明**：命名项目。
 - **用法**：`/&lt;command&gt; [name]`
 - **别名**：`/iname`、`/einame`、`/eitemname`、`/itemrename`、`/irename`、`/eitemrename`、`/eirename`
 
 ### /jailedplayers
 
-- **说明**：List all jailed players.
+- **说明**：列出所有被监禁的玩家。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/ejailedplayers`、`/ejailed`、`/ejp`
 
 ### /jails
 
-- **说明**：List all jails.
+- **说明**：列出所有监狱。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/ejails`
 
 ### /jump
 
-- **说明**：Jumps to the nearest block in the line of sight.
+- **说明**：跳转到视线中最近的街区。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/j`、`/ej`、`/ejump`、`/jumpto`、`/ejumpto`
 
 ### /kick
 
-- **说明**：Kicks a specified player with a reason.
+- **说明**：踢出有原因的指定玩家。
 - **用法**：`/&lt;command&gt; &lt;player&gt; [reason]`
 - **别名**：`/ekick`
 
 ### /kickall
 
-- **说明**：Kicks all players off the server except the issuer.
+- **说明**：除发行者外，将所有玩家从服务器上踢出。
 - **用法**：`/&lt;command&gt; [reason]`
 - **别名**：`/ekickall`
 
 ### /kill
 
-- **说明**：Kills specified player.
+- **说明**：击杀指定玩家。
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/ekill`
 
 ### /kit
 
-- **说明**：Obtains the specified kit or views all available kits.
+- **说明**：获取指定试剂盒或查看所有可用试剂盒。
 - **用法**：`/&lt;command&gt; [kit] [player]`
 - **别名**：`/ekit`、`/kits`、`/ekits`
 
 ### /kitreset
 
-- **说明**：Resets the cooldown on the specified kit.
+- **说明**：重置指定工具包的冷却时间。
 - **用法**：`/&lt;command&gt; &lt;kit&gt; [player]`
 - **别名**：`/ekitreset`、`/kitr`、`/ekitr`、`/resetkit`、`/eresetkit`
 
 ### /kittycannon
 
-- **说明**：Throw an exploding kitten at your opponent.
+- **说明**：向你的对手扔一只爆炸的小猫。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/ekittycannon`
 
 ### /lightning
 
-- **说明**：The power of Thor. Strike at cursor or player.
+- **说明**：索尔的力量。敲击光标或玩家。
 - **用法**：`/&lt;command&gt; [player] [power]`
 - **别名**：`/elightning`、`/shock`、`/eshock`、`/smite`、`/esmite`、`/strike`、`/estrike`、`/thor`、`/ethor`
 
 ### /list
 
-- **说明**：List all online players.
+- **说明**：在线玩家列表
 - **用法**：`/&lt;command&gt; [group]`
 - **别名**：`/elist`、`/online`、`/eonline`、`/playerlist`、`/eplayerlist`、`/plist`、`/eplist`、`/who`、`/ewho`
 
 ### /loom
 
-- **说明**：Opens up a loom.
+- **说明**：打开织机。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/eloom`
 
 ### /mail
 
-- **说明**：Manages inter-player, intra-server mail.
+- **说明**：管理玩家间、服务器内邮件。
 - **用法**：`/&lt;command&gt; [read|clear|clear [number]|clear &lt;player&gt; [number]|send [to] [message]|sendtemp [to] [expire time] [message]|sendall [message]]`
 - **别名**：`/email`、`/eemail`、`/memo`、`/ememo`
 
 ### /me
 
-- **说明**：Describes an action in the context of the player.
+- **说明**：描述玩家上下文中的操作。
 - **用法**：`/&lt;command&gt; &lt;description&gt;`
 - **别名**：`/action`、`/eaction`、`/describe`、`/edescribe`、`/eme`
 
 ### /more
 
-- **说明**：Fills the item stack in hand to specified amount, or to maximum size if none is specified.
+- **说明**：将手头的物料堆栈填充到指定数量，如果没有指定，则填充到最大尺寸。
 - **用法**：`/&lt;command&gt; [amount]`
 - **别名**：`/emore`
 
 ### /motd
 
-- **说明**：Views the Message Of The Day.
+- **说明**：查看当天的消息。
 - **用法**：`/&lt;command&gt; [chapter] [page]`
 - **别名**：`/emotd`
 
 ### /msg
 
-- **说明**：Sends a private message to the specified player.
+- **说明**：向指定的玩家发送私信。
 - **用法**：`/&lt;command&gt; &lt;to&gt; &lt;message&gt;`
 - **别名**：`/w`、`/m`、`/t`、`/pm`、`/emsg`、`/epm`、`/tell`、`/etell`、`/whisper`、`/ewhisper`
 
 ### /msgtoggle
 
-- **说明**：Blocks receiving all private messages.
+- **说明**：阻止接收所有私人消息。
 - **用法**：`/&lt;command&gt; [player] [on|off]`
 - **别名**：`/emsgtoggle`
 
 ### /mute
 
-- **说明**：Mutes or unmutes a player.
+- **说明**：将玩家静音或取消静音。
 - **用法**：`/&lt;command&gt; &lt;player&gt; [datediff] [reason]`
 - **别名**：`/emute`、`/silence`、`/esilence`、`/unmute`、`/eunmute`
 
 ### /near
 
-- **说明**：Lists the players near by or around a player.
+- **说明**：列出玩家附近或周围的玩家。
 - **用法**：`/&lt;command&gt; [playername] [radius]`
 - **别名**：`/enear`、`/nearby`、`/enearby`
 
 ### /nick
 
-- **说明**：Change your nickname or that of another player.
+- **说明**：更改您的昵称或其他玩家的昵称。
 - **用法**：`/&lt;command&gt; [player] &lt;nickname|off&gt;`
 - **别名**：`/enick`、`/nickname`、`/enickname`
 
 ### /nuke
 
-- **说明**：May death rain upon them.
+- **说明**：愿死亡降临在他们身上。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/enuke`
 
 ### /pay
 
-- **说明**：Pays another player from your balance.
+- **说明**：从您的余额中支付其他玩家。
 - **用法**：`/&lt;command&gt; &lt;player&gt; &lt;amount&gt;`
 - **别名**：`/epay`
 
 ### /payconfirmtoggle
 
-- **说明**：Toggles whether you are prompted to confirm payments.
+- **说明**：切换是否提示您确认付款。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/epayconfirmtoggle`、`/payconfirmoff`、`/epayconfirmoff`、`/payconfirmon`、`/epayconfirmon`、`/payconfirm`、`/epayconfirm`
 
 ### /paytoggle
 
-- **说明**：Toggles whether you are accepting payments.
+- **说明**：切换是否接受付款。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/epaytoggle`、`/payoff`、`/epayoff`、`/payon`、`/epayon`
 
 ### /ping
 
-- **说明**：Pong!
+- **说明**：乒乓球
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/echo`、`/eecho`、`/eping`、`/pong`、`/epong`
 
 ### /playtime
 
-- **说明**：Shows a player's time played in game
+- **说明**：显示玩家在游戏中的时间
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/eplaytime`
 
 ### /potion
 
-- **说明**：Adds custom potion effects to a potion.
+- **说明**：在药水中添加自定义药水效果。
 - **用法**：`/&lt;command&gt; &lt;clear|apply|effect:&lt;effect&gt; power:&lt;power&gt; duration:&lt;duration&gt;&gt;`
 - **别名**：`/epotion`、`/elixer`、`/eelixer`
 
 ### /powertool
 
-- **说明**：Assigns a command to the item in hand.
+- **说明**：将命令分配给手头的项目。
 - **用法**：`/&lt;command&gt; [l:|a:|r:|c:|d:][command] [arguments] - {player} can be replaced by name of a clicked player.`
 - **别名**：`/epowertool`、`/pt`、`/ept`
 
 ### /powertoollist
 
-- **说明**：Lists all current powertools.
+- **说明**：列出所有当前动力工具。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/epowertoollist`、`/ptlist`、`/eptlist`
 
 ### /powertooltoggle
 
-- **说明**：Enables or disables all current powertools.
+- **说明**：启用或禁用所有当前动力工具。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/epowertooltoggle`、`/ptt`、`/eptt`、`/pttoggle`、`/epttoggle`
 
 ### /ptime
 
-- **说明**：Adjust player's client time. Add @ prefix to fix.
+- **说明**：调整玩家的客户端时间。添加@前缀进行修复。
 - **用法**：`/&lt;command&gt; [list|reset|day|night|dawn|17:30|4pm|4000ticks] [player|*]`
 - **别名**：`/playertime`、`/eplayertime`、`/eptime`
 
 ### /pweather
 
-- **说明**：Adjust a player's weather
+- **说明**：调整玩家的天气
 - **用法**：`/&lt;command&gt; [list|reset|storm|sun|clear] [player|*]`
 - **别名**：`/playerweather`、`/eplayerweather`、`/epweather`
 
 ### /r
 
-- **说明**：Quickly reply to the last player to message you.
+- **说明**：快速回复最后一位要给您发消息的玩家。
 - **用法**：`/&lt;command&gt; &lt;message&gt;`
 - **别名**：`/er`、`/reply`、`/ereply`
 
 ### /realname
 
-- **说明**：Displays the username of a user based on nick.
+- **说明**：根据昵称显示用户的用户名。
 - **用法**：`/&lt;command&gt; &lt;nickname&gt;`
 - **别名**：`/erealname`
 
 ### /recipe
 
-- **说明**：Displays how to craft items.
+- **说明**：显示如何制作物品。
 - **用法**：`/&lt;command&gt; &lt;item&gt; [number]`
 - **别名**：`/formula`、`/eformula`、`/method`、`/emethod`、`/erecipe`、`/recipes`、`/erecipes`
 
 ### /remove
 
-- **说明**：Removes entities in your world.
+- **说明**：删除您所在世界中的实体。
 - **用法**：`/&lt;command&gt; &lt;all|tamed|named|drops|arrows|boats|minecarts|xp|paintings|itemframes|endercrystals|monsters|animals|ambient|mobs|[mobType]&gt; [radius|world]`
 - **别名**：`/eremove`、`/butcher`、`/ebutcher`、`/killall`、`/ekillall`、`/mobkill`、`/emobkill`
 
 ### /renamehome
 
-- **说明**：Renames a home.
+- **说明**：重命名房源。
 - **用法**：`/&lt;command&gt; &lt;[player:]name&gt; &lt;new name&gt;`
 - **别名**：`/erenamehome`
 
 ### /repair
 
-- **说明**：Repairs the durability of one or all items.
+- **说明**：修复一个或所有项目的耐用性。
 - **用法**：`/&lt;command&gt; [hand|all]`
 - **别名**：`/fix`、`/efix`、`/erepair`
 
 ### /rest
 
-- **说明**：Rests you or the given player.
+- **说明**：阻止您或给定的玩家。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/erest`
 
 ### /rtoggle
 
-- **说明**：Change whether the recipient of the reply is last recipient or last sender
+- **说明**：更改回复的收件人是最后一个收件人还是最后一个发件人
 - **用法**：`/&lt;command&gt; [player] [on|off]`
 - **别名**：`/ertoggle`、`/replytoggle`、`/ereplytoggle`
 
 ### /rules
 
-- **说明**：Views the server rules.
+- **说明**：查看服务器规则。
 - **用法**：`/&lt;command&gt; [chapter] [page]`
 - **别名**：`/erules`
 
 ### /seen
 
-- **说明**：Shows the last logout time of a player.
+- **说明**：显示玩家的最后一次注销时间。
 - **用法**：`/&lt;command&gt; &lt;playername&gt;`
 - **别名**：`/eseen`、`/ealts`、`/alts`
 
 ### /sell
 
-- **说明**：Sells the item currently in your hand.
+- **说明**：出售当前手中的道具。
 - **用法**：`/&lt;command&gt; &lt;&lt;itemname&gt;|&lt;id&gt;|hand|inventory|blocks&gt; [amount]`
 - **别名**：`/esell`
 
 ### /sethome
 
-- **说明**：Set your home to your current location.
+- **说明**：将房源设置为当前位置。
 - **用法**：`/&lt;command&gt; [[player:]name]`
 - **别名**：`/esethome`、`/createhome`、`/ecreatehome`
 
 ### /setjail
 
-- **说明**：Creates a jail where you specified named [jailname].
+- **说明**：创建一个指定名为[jailname]的监狱。
 - **用法**：`/&lt;command&gt; &lt;jailname&gt;`
 - **别名**：`/esetjail`、`/createjail`、`/ecreatejail`
 
 ### /settpr
 
-- **说明**：Set the random teleport location and parameters.
+- **说明**：设置随机传送位置和参数。
 - **用法**：`/&lt;command&gt; [center|minrange|maxrange] [value]`
 - **别名**：`/esettpr`、`/settprandom`、`/esettprandom`
 
 ### /setwarp
 
-- **说明**：Creates a new warp.
+- **说明**：创建新的曲速。
 - **用法**：`/&lt;command&gt; &lt;warp&gt;`
 - **别名**：`/createwarp`、`/ecreatewarp`、`/esetwarp`
 
 ### /setworth
 
-- **说明**：Set the sell value of an item.
+- **说明**：设置商品的卖出价值。
 - **用法**：`/&lt;command&gt; [itemname|id] &lt;price&gt;`
 - **别名**：`/esetworth`
 
 ### /showkit
 
-- **说明**：Show contents of a kit.
+- **说明**：显示试剂盒的内容。
 - **用法**：`/&lt;command&gt; &lt;kitname&gt;`
 - **别名**：`/kitpreview`、`/preview`、`/kitshow`
 
 ### /skull
 
-- **说明**：Set the owner of a player skull
+- **说明**：设置玩家头骨的所有者
 - **用法**：`/&lt;command&gt; [owner] [player]`
 - **别名**：`/eskull`、`/playerskull`、`/eplayerskull`、`/head`、`/ehead`
 
 ### /smithingtable
 
-- **说明**：Opens up a smithing table.
+- **说明**：打开一张锻造桌。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/esmithingtable`、`/smithtable`、`/esmithtable`
 
 ### /socialspy
 
-- **说明**：Toggles if you can see msg/mail commands in chat.
+- **说明**：切换是否可以在聊天中看到消息/邮件命令。
 - **用法**：`/&lt;command&gt; [player] [on|off]`
 - **别名**：`/esocialspy`
 
 ### /spawner
 
-- **说明**：Change the mob type of a spawner.
+- **说明**：更改生成器的mob类型。
 - **用法**：`/&lt;command&gt; &lt;mob&gt; [delay]`
 - **别名**：`/changems`、`/echangems`、`/espawner`、`/mobspawner`、`/emobspawner`
 
 ### /spawnmob
 
-- **说明**：Spawns a mob.
+- **说明**：生成一群暴徒。
 - **用法**：`/&lt;command&gt; &lt;mob&gt;[:data][,&lt;mount&gt;[:data]] [amount] [player]`
 - **别名**：`/mob`、`/emob`、`/spawnentity`、`/espawnentity`、`/espawnmob`
 
 ### /speed
 
-- **说明**：Change your speed limits.
+- **说明**：更改速度限制。
 - **用法**：`/&lt;command&gt; [type] &lt;speed&gt; [player]`
 - **别名**：`/flyspeed`、`/eflyspeed`、`/fspeed`、`/efspeed`、`/espeed`、`/walkspeed`、`/ewalkspeed`、`/wspeed`、`/ewspeed`
 
 ### /stonecutter
 
-- **说明**：Opens up a stonecutter.
+- **说明**：打开一个石匠。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/estonecutter`
 
 ### /sudo
 
-- **说明**：Make another user perform a command.
+- **说明**：让其他用户执行命令。
 - **用法**：`/&lt;command&gt; &lt;player&gt; &lt;command [args]&gt;`
 - **别名**：`/esudo`
 
 ### /suicide
 
-- **说明**：Causes you to perish.
+- **说明**：导致你死亡。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/esuicide`
 
 ### /tempban
 
-- **说明**：Temporary ban a user.
+- **说明**：暂时禁止用户。
 - **用法**：`/&lt;command&gt; &lt;playername&gt; &lt;datediff&gt; [reason]`
 - **别名**：`/etempban`
 
 ### /tempbanip
 
-- **说明**：Temporarily ban an IP Address.
+- **说明**：暂时禁止IP地址。
 - **用法**：`/&lt;command&gt; &lt;playername&gt; &lt;datediff&gt; [reason]`
 - **别名**：`/etempbanip`
 
 ### /thunder
 
-- **说明**：Enable/disable thunder.
+- **说明**：启用/禁用雷霆。
 - **用法**：`/&lt;command&gt; &lt;true/false&gt; [duration]`
 - **别名**：`/ethunder`
 
 ### /time
 
-- **说明**：Display/Change the world time. Defaults to current world.
+- **说明**：显示/更改世界时间。默认为当前世界。
 - **用法**：`/&lt;command&gt; [set|add] [day|night|dawn|17:30|4pm|4000ticks] [worldname|all]`
 - **别名**：`/day`、`/eday`、`/night`、`/enight`、`/etime`
 
 ### /togglejail
 
-- **说明**：Jails/Unjails a player, TPs them to the jail specified.
+- **说明**：监禁/释放玩家，将他们TP到指定的监狱。
 - **用法**：`/&lt;command&gt; &lt;player&gt; &lt;jailname&gt; [datediff]`
 - **别名**：`/jail`、`/ejail`、`/tjail`、`/etjail`、`/etogglejail`、`/unjail`、`/eunjail`
 
 ### /top
 
-- **说明**：Teleport to the highest block at your current position.
+- **说明**：传送到您当前位置的最高格挡。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/etop`
 
 ### /tp
 
-- **说明**：Teleport to a player.
+- **说明**：传送到玩家
 - **用法**：`/&lt;command&gt; &lt;player&gt; [otherplayer]`
 - **别名**：`/tele`、`/etele`、`/teleport`、`/eteleport`、`/etp`、`/tp2p`、`/etp2p`
 
 ### /tpa
 
-- **说明**：Request to teleport to the specified player.
+- **说明**：请求传送到指定的玩家。
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/call`、`/ecall`、`/etpa`、`/tpask`、`/etpask`
 
 ### /tpaall
 
-- **说明**：Requests all players online to teleport to you.
+- **说明**：要求所有在线玩家传送到您身边。
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/etpaall`
 
 ### /tpacancel
 
-- **说明**：Cancel all outstanding teleport requests. Specify [player] to cancel requests with them.
+- **说明**：取消所有未完成的传送请求。指定[player]取消与他们的请求。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/etpacancel`
 
 ### /tpaccept
 
-- **说明**：Accepts teleport requests.
+- **说明**：接受传送请求。
 - **用法**：`/&lt;command&gt; [player|*]`
 - **别名**：`/etpaccept`、`/tpyes`、`/etpyes`
 
 ### /tpahere
 
-- **说明**：Request that the specified player teleport to you.
+- **说明**：请求指定的玩家传送到您身边。
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/etpahere`
 
 ### /tpall
 
-- **说明**：Teleport all online players to another player.
+- **说明**：将所有在线玩家传送到另一个玩家。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/etpall`
 
 ### /tpauto
 
-- **说明**：Automatically accept teleportation requests.
+- **说明**：自动接受传送请求。
 - **用法**：`/&lt;command&gt; [player]`
 - **别名**：`/etpauto`
 
 ### /tpdeny
 
-- **说明**：Rejects teleport requests.
+- **说明**：拒绝传送请求。
 - **用法**：`/&lt;command&gt; [player|*]`
 - **别名**：`/etpdeny`、`/tpno`、`/etpno`
 
 ### /tphere
 
-- **说明**：Teleport a player to you.
+- **说明**：将玩家传送给您。
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/s`、`/etphere`
 
 ### /tpo
 
-- **说明**：Teleport override for tptoggle.
+- **说明**：Tptoggle的传送覆盖。
 - **用法**：`/&lt;command&gt; &lt;player&gt; [otherplayer]`
 - **别名**：`/etpo`
 
 ### /tpoffline
 
-- **说明**：Teleport to a player's last known logout location
+- **说明**：传送到玩家最后已知的注销位置
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/otp`、`/offlinetp`、`/tpoff`、`/tpoffline`、`/etpoffline`
 
 ### /tpohere
 
-- **说明**：Teleport here override for tptoggle.
+- **说明**：Tptoggle的传送在此处覆盖。
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/etpohere`
 
 ### /tppos
 
-- **说明**：Teleport to coordinates.
+- **说明**：传送到坐标处。
 - **用法**：`/&lt;command&gt; &lt;x&gt; &lt;y&gt; &lt;z&gt; [yaw] [pitch] [world]`
 - **别名**：`/etppos`
 
 ### /tpr
 
-- **说明**：Teleport randomly.
+- **说明**：随机传送。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/etpr`、`/tprandom`、`/etprandom`
 
 ### /tptoggle
 
-- **说明**：Blocks all forms of teleportation.
+- **说明**：阻止所有形式的传送。
 - **用法**：`/&lt;command&gt; [player] [on|off]`
 - **别名**：`/etptoggle`
 
 ### /tree
 
-- **说明**：Spawn a tree where you are looking.
+- **说明**：在你正在寻找的地方生成一棵树。
 - **用法**：`/&lt;command&gt; &lt;tree|birch|redwood|redmushroom|brownmushroom|jungle|junglebush|swamp&gt;`
 - **别名**：`/etree`
 
 ### /unban
 
-- **说明**：Unbans the specified player.
+- **说明**：解除对指定玩家的封禁。
 - **用法**：`/&lt;command&gt; &lt;player&gt;`
 - **别名**：`/pardon`、`/eunban`、`/epardon`
 
 ### /unbanip
 
-- **说明**：Unbans the specified IP address.
+- **说明**：取消对指定IP地址的封禁。
 - **用法**：`/&lt;command&gt; &lt;address&gt;`
 - **别名**：`/eunbanip`、`/pardonip`、`/epardonip`
 
 ### /unlimited
 
-- **说明**：Allows the unlimited placing of items.
+- **说明**：允许无限制地放置物品。
 - **用法**：`/&lt;command&gt; &lt;list|item|clear&gt; [player]`
 - **别名**：`/eunlimited`、`/ul`、`/unl`、`/eul`、`/eunl`
 
 ### /vanish
 
-- **说明**：Hide yourself from other players.
+- **说明**：躲避其他玩家。
 - **用法**：`/&lt;command&gt; [player] [on|off]`
 - **别名**：`/v`、`/ev`、`/evanish`
 
 ### /warp
 
-- **说明**：List all warps or warp to the specified location.
+- **说明**：列出到指定位置的所有经纱或经纱。
 - **用法**：`/&lt;command&gt; &lt;pagenumber|warp&gt; [player]`
 - **别名**：`/ewarp`、`/warps`、`/ewarps`
 
 ### /warpinfo
 
-- **说明**：Finds location information for a specified warp.
+- **说明**：查找指定曲速的位置信息。
 - **用法**：`/&lt;command&gt; &lt;warp&gt;`
 - **别名**：`/ewarpinfo`
 
 ### /weather
 
-- **说明**：Sets the weather.
+- **说明**：设置天气。
 - **用法**：`/&lt;command&gt; &lt;storm/sun&gt; [duration]`
 - **别名**：`/rain`、`/erain`、`/sky`、`/esky`、`/storm`、`/estorm`、`/sun`、`/esun`、`/eweather`
 
 ### /whois
 
-- **说明**：Determine basic information about the specified player.
+- **说明**：确定有关指定玩家的基本信息。
 - **用法**：`/&lt;command&gt; &lt;nickname&gt;`
 - **别名**：`/ewhois`
 
 ### /workbench
 
-- **说明**：Opens up a workbench.
+- **说明**：打开工作台。
 - **用法**：`/&lt;command&gt;`
 - **别名**：`/craft`、`/ecraft`、`/wb`、`/ewb`、`/wbench`、`/ewbench`、`/eworkbench`
 
 ### /world
 
-- **说明**：Switch between worlds.
+- **说明**：在世界之间切换。
 - **用法**：`/&lt;command&gt; [world]`
 - **别名**：`/eworld`
 
 ### /worth
 
-- **说明**：Calculates the worth of items in hand or as specified.
+- **说明**：计算手头或指定项目的价值。
 - **用法**：`/&lt;command&gt; &lt;&lt;itemname&gt;|&lt;id&gt;|hand|inventory|blocks&gt; [-][amount]`
 - **别名**：`/eprice`、`/price`、`/eworth`
 

@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `1.14.1-Release` · 指令 1 条 · api-version `1.13` · 文件 `DeluxeMenus-1.14.1-Release.jar`
 
-All in one inventory menu system
+一体化库存菜单系统
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ All in one inventory menu system
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/deluxemenus` | DeluxeMenus main commands | — |
+| `/deluxemenus` | DeluxeMenus主命令 | — |
 
 ## 详细用法
 
 ### /deluxemenus
 
-- **说明**：DeluxeMenus main commands
+- **说明**：DeluxeMenus主命令
 - **别名**：`/dm`、`/deluxemenu`、`/dmenu`
 
 ## 权限节点

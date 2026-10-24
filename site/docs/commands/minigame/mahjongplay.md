@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `1.5` · 指令 1 条 · api-version `26.2` · 文件 `MahjongPlay-1.5.jar`
 
-Japanese Riichi Mahjong in Minecraft
+《我的世界》中的日本Riichi麻将
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ Japanese Riichi Mahjong in Minecraft
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/mahjong` | Mahjong game commands | — |
+| `/mahjong` | 麻将游戏指令 | — |
 
 ## 详细用法
 
 ### /mahjong
 
-- **说明**：Mahjong game commands
+- **说明**：麻将游戏指令
 - **用法**：`/mahjong &lt;create|join|leave|ready|start|bot|destroy|info|list|action&gt;`
 - **别名**：`/mj`、`/majiang`
 

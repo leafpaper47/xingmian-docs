@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 版本 `2.6.21` · 指令 1 条 · api-version `1.13` · 文件 `voicechat-bukkit-2.6.21.jar`
 
-A working voice chat in Minecraft
+Minecraft中的有效语音聊天
 
 ::: tip 用法提示
 本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
@@ -18,13 +18,13 @@ A working voice chat in Minecraft
 
 | 指令 | 说明 | 权限节点 |
 | --- | --- | --- |
-| `/voicechat` | Manage voice chat | — |
+| `/voicechat` | 管理语音聊天 | — |
 
 ## 详细用法
 
 ### /voicechat
 
-- **说明**：Manage voice chat
+- **说明**：管理语音聊天
 - **用法**：`Invalid command syntax`
 
 ## 权限节点
