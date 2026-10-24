@@ -251,7 +251,7 @@ def main():
                 v = v if isinstance(v, dict) else {}
                 L.append("| `%s` | %s | %s |" % (k, cell(v.get("description") or ""), cell(v.get("default") or "—")))
             L.append("")
-        open(os.path.join(DOCS, "commands", p["cat"], p["slug"] + ".md"), "w", encoding="utf-8").write("\n".join(L))
+        open(os.path.join(DOCS, "commands", p["cat"], p["slug"] + ".md"), "w", encoding="utf-8", newline="\n").write("\n".join(L))
 
     # ---------- 分类首页 ----------
     for c in CAT_ORDER:
@@ -267,7 +267,7 @@ def main():
         for p in items:
             L.append("| [%s](%s) | %s | %d | %s |" % (p["name"], "./" + p["slug"] + ".md", p["version"], len(p["rows"]), cell(p["desc"])[:60]))
         L.append("")
-        open(os.path.join(DOCS, "commands", c, "index.md"), "w", encoding="utf-8").write("\n".join(L))
+        open(os.path.join(DOCS, "commands", c, "index.md"), "w", encoding="utf-8", newline="\n").write("\n".join(L))
 
     # ---------- 指令总览 ----------
     L = ["---", "title: 指令总览", "createTime: 2026/10/24", "---", "", "# 指令总览", ""]
@@ -287,7 +287,7 @@ def main():
             more = "…" if len(p["rows"]) > 6 else ""
             L.append("| [%s](/commands/%s/%s.md) | %s%s | %d |" % (p["name"], c, p["slug"], heads, more, len(p["rows"])))
         L.append("")
-    open(os.path.join(DOCS, "commands", "index.md"), "w", encoding="utf-8").write("\n".join(L))
+    open(os.path.join(DOCS, "commands", "index.md"), "w", encoding="utf-8", newline="\n").write("\n".join(L))
 
     # ---------- 权限节点总表 ----------
     L = ["---", "title: 权限节点总表", "createTime: 2026/10/24", "---", "", "# 权限节点总表", ""]
@@ -318,7 +318,7 @@ def main():
                 v = v if isinstance(v, dict) else {}
                 L.append("| [%s](/commands/%s/%s.md) | `%s` | %s | %s |" % (p["name"], c, p["slug"], k, cell(zh(v.get("description")))[:50], cell(v.get("default") or "—")))
         L.append("")
-    open(os.path.join(DOCS, "permissions.md"), "w", encoding="utf-8").write("\n".join(L))
+    open(os.path.join(DOCS, "permissions.md"), "w", encoding="utf-8", newline="\n").write("\n".join(L))
 
     # ---------- 侧边栏 ----------
     T = ["import type { ThemeNavItem, ThemeSidebarMulti } from 'vuepress-theme-plume'", ""]
@@ -351,7 +351,7 @@ def main():
     T.append("  ],")
     T.append("}")
     os.makedirs(os.path.join(DOCS, ".vuepress"), exist_ok=True)
-    open(os.path.join(DOCS, ".vuepress", "sidebar.ts"), "w", encoding="utf-8").write("\n".join(T))
+    open(os.path.join(DOCS, ".vuepress", "sidebar.ts"), "w", encoding="utf-8", newline="\n").write("\n".join(T))
 
     print("插件页 %d 个，指令 %d 条，分类 %d 个" % (len(plugins), total_cmds, len([c for c in CAT_ORDER if index[c]])))
 
