@@ -56,6 +56,38 @@ ASSIGN = {
     "YiyunCEskin": "entity",
 }
 
+# 侧边栏显示名：功能简称-插件名，例如 控制台屏蔽-ConsoleSpamFixReborn
+# 没登记的新插件会退化成「分类名-插件名」，补一行即可
+FUNC_CN = {
+    "ALCERecipeViewer": "配方查询", "AfDianPay": "爱发电支付", "Ah-Toy-1.0": "小玩具",
+    "Ah-WolfmanKill-1.0": "狼人杀", "ArchitectPlugin": "建筑师工具", "ArmorUnbreaking": "盔甲免损耗",
+    "ArmoredElytra": "鞘翅护甲", "ArtMap": "画板地图", "BetterRTP": "随机传送",
+    "BlockLocker": "箱子锁", "BookEdit": "成书编辑", "BossBarHealth": "BOSS血条",
+    "BroadcastPlusPlus": "公告广播", "CMILib": "CMI前置库", "ConsoleSpamFixReborn": "控制台屏蔽",
+    "CoreProtect": "方块日志", "CraftBench": "随身工作台", "DeluxeMenus": "菜单配置",
+    "DummyPool": "假人池", "EcoEnchants": "自定义附魔", "EditableStands": "盔甲架编辑",
+    "EliteMobs": "精英怪物", "EnchantInfuser": "附魔注入", "Essentials": "基础指令",
+    "EssentialsSpawn": "出生点", "FancyNpcsGUI": "NPC界面", "FoMiningComp": "挖矿加成",
+    "GSit": "坐下趴下", "InBlock": "方块内藏身", "InfiniteFuel": "无限燃料",
+    "InvSaver": "背包快照", "ItemEdit": "物品编辑", "KaleidoscopeCookeryPlugin": "森罗厨房",
+    "KaoguGuide": "考古指南", "KaoguPlugin": "考古系统", "LeafChat": "聊天管理",
+    "LeafHat": "头顶帽子", "LeashPlayers": "玩家拴绳", "LibsDisguises": "伪装",
+    "LobbyGames": "大厅小游戏", "LuckPerms": "权限组", "MagicPointsLog": "点券流水",
+    "MahjongPlay": "麻将", "MaintenanceMode": "维护模式", "MeteorShowers": "流星雨",
+    "Mirrora": "镜像方块", "ModelEngine": "模型引擎", "MythicMobs": "自定义怪物",
+    "MythicTools": "神话工具", "OpenInv": "远程背包", "PlaceholderAPI": "变量占位符",
+    "PlayerSignIn": "每日签到", "PlayerTask": "玩家任务", "PlayerTitle": "称号",
+    "PlugManX": "插件热管", "PVPPlugin": "PVP管理", "Residence": "领地",
+    "SenluoBuyer": "森罗商店", "Shopkeepers": "商店NPC", "Skript": "脚本引擎",
+    "spark": "性能分析", "StarAFK": "挂机检测", "StarPact": "星契",
+    "SweetMail": "邮件", "TAB": "列表计分板", "TownPlugin": "城镇",
+    "Vault": "经济前置", "vcm": "语音喇叭", "voicechat": "语音聊天",
+    "WeatherCard": "天气卡", "WebBridge": "网页桥接", "WineSuite": "酿酒",
+    "WorldGuardGUI": "保护区界面", "XaeroTracker": "小地图追踪", "XingmianElement": "元素系统",
+    "XingmianQuiz": "知识问答", "XingmianRPG": "星冕RPG", "YaoqingPlugin": "玩家邀请",
+    "YiyunCEskin": "云皮肤", "allmusic": "全服音乐",
+}
+
 COLOR = re.compile(r"[§&][0-9a-fk-orxA-FK-ORX]")
 
 
@@ -278,7 +310,6 @@ def main():
     T.append("  { text: '首页', link: '/' },")
     T.append("  { text: '指令总览', link: '/commands/' },")
     T.append("  { text: '权限总表', link: '/permissions.md' },")
-    T.append("  { text: '使用说明', link: '/about.md' },")
     T.append("]")
     T.append("")
     T.append("export const sidebar: ThemeSidebarMulti = {")
@@ -293,14 +324,14 @@ def main():
         T.append("      collapsed: false,")
         T.append("      items: [")
         for p in index[c]:
-            T.append("        { text: '%s', link: '/commands/%s/%s.md' }," % (p["name"], c, p["slug"]))
+            label = FUNC_CN.get(p["name"], meta["title"])
+            T.append("        { text: '%s-%s', link: '/commands/%s/%s.md' }," % (label, p["name"], c, p["slug"]))
         T.append("      ],")
         T.append("    },")
     T.append("  ],")
     T.append("  '/': [")
     T.append("    { text: '指令总览', link: '/commands/' },")
     T.append("    { text: '权限节点总表', link: '/permissions.md' },")
-    T.append("    { text: '使用说明', link: '/about.md' },")
     T.append("  ],")
     T.append("}")
     os.makedirs(os.path.join(DOCS, ".vuepress"), exist_ok=True)
