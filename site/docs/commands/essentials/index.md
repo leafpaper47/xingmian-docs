@@ -7,21 +7,21 @@ createTime: 2026/10/24
 
 Essentials 系与各类物品/背包/生存辅助工具。
 
-| 插件 | 版本 | 指令数 | 说明 |
+| 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
-| [ALCERecipeViewer](./alcerecipeviewer.md) | 1.0.8 | 1 | AL合成表查看器 - 按分类浏览合成配方，支持搜索与用途查看 |
-| [ArmoredElytra](./armoredelytra.md) | 1.0.0 | 1 | 装甲鞘翅 - 胸甲与鞘翅合成，保留护甲值与附魔，兼容 EcoEnchants |
-| [ArmorUnbreaking](./armorunbreaking.md) | 1.0.0 | 1 | 让护甲上的耐久附魔按 L/(L+1) 概率豁免耐久扣减（覆盖全部损耗来源） |
-| [BookEdit](./bookedit.md) | 2.0 | 1 | 让玩家在书里用标签写颜色和效果，支持把作者改为匿名、把书设为破旧。 |
-| [CMILib](./cmilib.md) | 1.5.9.9 | 1 | CMI库 |
-| [CraftBench](./craftbench.md) | 1.1.14 | 2 | 5×5 工作台，支持 CraftEngine 自定义物品、纯 GUI 配方编辑器、配方书，无形状限制且不消耗经济 |
-| [Essentials](./essentials.md) | 2.22.1-dev+12-776f709 | 153 | 为Bukkit提供基本的核心命令集。 |
-| [InBlock](./inblock.md) | 1.0.0 | 1 | 自定义命令方块插件 —— 像工作台一样右键执行自定义指令 |
-| [InfiniteFuel](./infinitefuel.md) | 1.0.0 | 1 | 无限煤炭块 —— 熔炉永燃且燃料不消耗，取出燃料立即熄火 |
-| [InvSaver](./invsaver.md) | 1.0.1 | 1 | — |
-| [ItemEdit](./itemedit.md) | 3.7.10 | 6 | — |
-| [LeafHat](./leafhat.md) | 1.0.3 | 2 | 功能完善的帽子穿戴插件，替代 Essentials 的 hat 功能 |
-| [OpenInv](./openinv.md) | 5.3.3 | 10 | 以宝箱的形式打开玩家的库存，并实时与之互动。 |
-| [PlayerSignIn](./playersignin.md) | 1.4.0 | 1 | 玩家签到 |
-| [PlayerTask](./playertask.md) | 2.12.4 | 1 | 一款有点好用的玩家任务插件 |
-| [StarAFK](./starafk.md) | 0.2.0 | 1 | 星冕服挂机插件 —— 自动/手动 AFK、Tab 图标、头顶飘 Zzz、视距降低 |
+| [ALCERecipeViewer](/commands/essentials/alcerecipeviewer.md) | 按分类浏览和搜索合成配方的合成表查看器 | `/alcerecipes` | 1 |
+| [ArmoredElytra](/commands/essentials/armoredelytra.md) | 把胸甲和鞘翅合成一件带护甲的鞘翅 | `/armoredelytra` | 1 |
+| [ArmorUnbreaking](/commands/essentials/armorunbreaking.md) | 让护甲耐久附魔按概率豁免耐久扣减 | `/armordura` | 1 |
+| [BookEdit](/commands/essentials/bookedit.md) | 成书排版与作者信息编辑小工具 | `/book` | 1 |
+| [CMILib](/commands/essentials/cmilib.md) | CMI 等插件的前置依赖库，本身不提供玩法 | `/cmil` | 1 |
+| [CraftBench](/commands/essentials/craftbench.md) | 随身 5×5 合成台与配方编辑工具 | `/craftbench`、`/craftbenchadmin` | 2 |
+| [Essentials](/commands/essentials/essentials.md) | 服务器基础指令总控，管理、传送、经济全靠它 | `/afk`、`/antioch`、`/anvil`… | 153 |
+| [InBlock](/commands/essentials/inblock.md) | 自定义命令方块：右键方块执行指令 | `/inb` | 1 |
+| [InfiniteFuel](/commands/essentials/infinitefuel.md) | 让熔炉烧不完的无限燃料小插件 | `/infinitefuel` | 1 |
+| [InvSaver](/commands/essentials/invsaver.md) | 背包快照保存与回滚工具 | `/invSaver` | 1 |
+| [ItemEdit](/commands/essentials/itemedit.md) | 手持物品的图形化编辑器，改名改 Lore 改属性 | `/itemedit`、`/itemeditimport`、`/itemeditinfo`… | 6 |
+| [LeafHat](/commands/essentials/leafhat.md) | 把手上物品戴到头上，替代 Essentials 帽子功能 | `/hat`、`/unhat` | 2 |
+| [OpenInv](/commands/essentials/openinv.md) | 宝箱式远程查看与编辑玩家背包、末影箱 | `/anycontainer`、`/clearender`、`/clearinv`… | 10 |
+| [PlayerSignIn](/commands/essentials/playersignin.md) | 每日签到与补签卡管理插件 | `/playerSignIn` | 1 |
+| [PlayerTask](/commands/essentials/playertask.md) | 每日任务、任务目标与任务币商城系统 | `/playerTask` | 1 |
+| [StarAFK](/commands/essentials/starafk.md) | 自动与手动挂机状态管理 | `/afk` | 1 |

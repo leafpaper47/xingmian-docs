@@ -1,16 +1,16 @@
 import type { ThemeNavItem, ThemeSidebarMulti } from 'vuepress-theme-plume'
 
 export const navbar: ThemeNavItem[] = [
-  { text: '首页', link: '/' },
-  { text: '指令总览', link: '/commands/' },
+  { text: '指令总览', link: '/' },
   { text: '权限总表', link: '/permissions.md' },
 ]
 
 export const sidebar: ThemeSidebarMulti = {
   '/commands/': [
-    { text: '指令总览', link: '/commands/' },
+    { text: '← 指令总览', link: '/' },
     {
       text: '🛡️ 基础与权限',
+      link: '/commands/core/',
       collapsed: false,
       items: [
         { text: '控制台屏蔽-ConsoleSpamFixReborn', link: '/commands/core/consolespamfixreborn.md' },
@@ -23,6 +23,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '🧰 基础工具',
+      link: '/commands/essentials/',
       collapsed: false,
       items: [
         { text: '配方查询-ALCERecipeViewer', link: '/commands/essentials/alcerecipeviewer.md' },
@@ -45,6 +46,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '🌀 传送与出生点',
+      link: '/commands/teleport/',
       collapsed: false,
       items: [
         { text: '随机传送-BetterRTP', link: '/commands/teleport/betterrtp.md' },
@@ -53,6 +55,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '🗺️ 世界与地图',
+      link: '/commands/world/',
       collapsed: false,
       items: [
         { text: '画板地图-ArtMap', link: '/commands/world/artmap.md' },
@@ -64,6 +67,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '🔒 领地与保护',
+      link: '/commands/protect/',
       collapsed: false,
       items: [
         { text: '箱子锁-BlockLocker', link: '/commands/protect/blocklocker.md' },
@@ -74,6 +78,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '🪙 经济与商店',
+      link: '/commands/economy/',
       collapsed: false,
       items: [
         { text: '爱发电支付-AfDianPay', link: '/commands/economy/afdianpay.md' },
@@ -86,6 +91,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '⚔️ 战斗与 RPG',
+      link: '/commands/rpg/',
       collapsed: false,
       items: [
         { text: '自定义附魔-EcoEnchants', link: '/commands/rpg/ecoenchants.md' },
@@ -104,6 +110,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '🧟 生物与展示',
+      link: '/commands/entity/',
       collapsed: false,
       items: [
         { text: 'BOSS血条-BossBarHealth', link: '/commands/entity/bossbarhealth.md' },
@@ -116,6 +123,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '💬 聊天与社交',
+      link: '/commands/chat/',
       collapsed: false,
       items: [
         { text: '公告广播-BroadcastPlusPlus', link: '/commands/chat/broadcastplusplus.md' },
@@ -130,6 +138,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '🧩 脚本与菜单',
+      link: '/commands/config/',
       collapsed: false,
       items: [
         { text: '菜单配置-DeluxeMenus', link: '/commands/config/deluxemenus.md' },
@@ -140,6 +149,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '📊 记录与性能',
+      link: '/commands/audit/',
       collapsed: false,
       items: [
         { text: '方块日志-CoreProtect', link: '/commands/audit/coreprotect.md' },
@@ -148,6 +158,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '🎲 小游戏与娱乐',
+      link: '/commands/minigame/',
       collapsed: false,
       items: [
         { text: '小玩具-Ah-Toy-1.0', link: '/commands/minigame/ah-toy-1-0.md' },
@@ -162,6 +173,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
     {
       text: '📦 其他',
+      link: '/commands/other/',
       collapsed: false,
       items: [
         { text: '建筑师工具-ArchitectPlugin', link: '/commands/other/architectplugin.md' },
@@ -169,7 +181,7 @@ export const sidebar: ThemeSidebarMulti = {
     },
   ],
   '/': [
-    { text: '指令总览', link: '/commands/' },
+    { text: '指令总览', link: '/' },
     { text: '权限节点总表', link: '/permissions.md' },
   ],
 }

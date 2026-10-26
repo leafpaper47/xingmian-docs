@@ -3,39 +3,85 @@ title: LobbyGames
 createTime: 2026/10/24
 ---
 
-# LobbyGames
+# 大厅小游戏 · LobbyGames
 
-> 版本 `2.6.1` · 指令 3 条 · api-version `1.13` · 文件 `LobbyGames-2.6.1.jar`
+> 分类 🎲 小游戏与娱乐 · 版本 `2.6.1` · 指令 3 条 · api-version `1.13`
 
-::: tip 用法提示
-本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
-具体子参数可以执行 `/lgjoin help` 或该插件对应子命令的 `help` 查看。
+::: tip 在大厅里开小游戏对局，玩家随进随玩
+LobbyGames 把一堆轻量小游戏（扫雷、贪吃蛇、五子棋、2048、斯诺克、踢球、打地鼠之类）打包进服务端，让玩家在主城等待时有事可做。玩家用一条指令就能进游戏，管理员可以把指定玩家直接送进对局、踢出对局、看排行榜和开新游戏。它一般和主城/大厅系统、权限插件配合，权限靠 luckperms 之类的插件按节点分配。
 :::
+
+## 什么时候会用到它
+
+- 主城大厅玩家等待传送、等人组队时，想给点不占地图资源的消遣玩法
+- 服务器活动日想组织几局小游戏比赛，需要把玩家直接送进对局
+- 想给普通玩家开放部分小游戏、只给管理员开放踢人和创建游戏
+
+## 上手流程
+
+1. 先确认插件已加载，控制台或游戏内试一下 /lobbygames（别名 /lg），看是否有回应
+2. 用 /lgjoin 进一局小游戏，确认地图、计分板、结算都正常
+3. 在 LuckPerms 里给默认组 lobbygames.command，给管理员组 lobbygames.admin、lobbygames.kickplayer、lobbygames.forcejoin
+4. 把 /lobbygames 或某个小游戏指令挂到主城菜单/NPC 交互上，方便玩家一键进
 
 ## 指令一览
 
-| 指令 | 说明 | 权限节点 |
-| --- | --- | --- |
-| `/lgjoin` | 直接加入大堂游戏 | — |
-| `/lgjoinplayer` | 将玩家送入游戏的控制台命令 | — |
-| `/lobbygames` | LobbyGames插件主命令 | — |
+| 指令 | 功能 | 用法 | 权限节点 |
+| --- | --- | --- | --- |
+| `/lgjoin` | 直接加入大厅小游戏，游戏名用指令别名区分<br>别名 `/clicker`、`/minesweeper`、`/snake`、`/soccer`、`/football`、`/spleef`、`/sudoku`、`/soduko`、`/2048`、`/tictactoe`、`/tic`、`/ttt`、`/pool`、`/minesw`、`/connect4` | `/lgjoin` | — |
+| `/lgjoinplayer` | 把指定玩家送进对局的强制加入指令，别名 /lgforcejoin<br>别名 `/lgforcejoin` | `/lgjoinplayer` | — |
+| `/lobbygames` | 插件主命令，别名 /lg、/minigames，管游戏列表、传送、踢人、排行榜<br>别名 `/lg`、`/minigames` | `/lobbygames` | — |
 
-## 详细用法
+## 指令详解
 
-### /lgjoin
+### `/lgjoin` — 直接加入大厅小游戏，游戏名用指令别名区分
 
-- **说明**：直接加入大堂游戏
+- **语法**：`/lgjoin`
+
+- **示例**：
+
+```
+/lgjoin
+```
+
 - **别名**：`/clicker`、`/minesweeper`、`/snake`、`/soccer`、`/football`、`/spleef`、`/sudoku`、`/soduko`、`/2048`、`/tictactoe`、`/tic`、`/ttt`、`/pool`、`/minesw`、`/connect4`
+- **备注**：该指令带多个别名（如 clicker、minesweeper、snake、soccer、spleef、sudoku、2048、tictactoe、pool、connect4 等），很可能每个别名对应直接进某一款小游戏；具体对应关系与是否还能带游戏名，以游戏内 help 为准。
 
-### /lgjoinplayer
+### `/lgjoinplayer` — 把指定玩家送进对局的强制加入指令，别名 /lgforcejoin
 
-- **说明**：将玩家送入游戏的控制台命令
+- **语法**：`/lgjoinplayer`
+
+- **示例**：
+
+```
+/lgjoinplayer
+```
+
 - **别名**：`/lgforcejoin`
+- **备注**：说明里写的是控制台命令，权限节点为 lobbygames.forcejoin；目标玩家参数怎么写以游戏内 help 为准。
 
-### /lobbygames
+### `/lobbygames` — 插件主命令，别名 /lg、/minigames，管游戏列表、传送、踢人、排行榜
 
-- **说明**：LobbyGames插件主命令
+- **语法**：`/lobbygames`
+
+- **示例**：
+
+```
+/lobbygames
+/lg
+```
+
 - **别名**：`/lg`、`/minigames`
+- **备注**：从权限节点看，/lg 下面大概有列表、tp、kick、排行榜、创建、删除等子命令，权限分别是 lobbygames.command、lobbygames.kickplayer、lobbygames.admin；子命令拼写以游戏内 help 为准。
+
+## 注意事项
+
+::: warning
+- 这是小众/私家插件，具体参数与子指令以游戏内 help（或 /lg help）为准，别照抄别的服教程
+- /lgjoinplayer 走的是 lobbygames.forcejoin 权限，普通玩家不该有这个节点，否则能被互相拉进对局
+- 踢人和创建/删除游戏属于 lobbygames.admin，权限建议只给管理组，避免玩家删掉你配好的游戏
+- 改完权限或配置后先自己进一局验证，小游戏涉及计分与背包状态，出问题容易卡住玩家
+:::
 
 ## 权限节点
 
@@ -45,3 +91,7 @@ createTime: 2026/10/24
 | `lobbygames.command` | 访问/lg列表，/lg tp | — |
 | `lobbygames.forcejoin` | 访问/lgjoinplayer | — |
 | `lobbygames.kickplayer` | 进入/lg kick | — |
+
+## 相关插件
+
+[LuckPerms](/commands/core/luckperms.md)、[DeluxeMenus](/commands/config/deluxemenus.md)

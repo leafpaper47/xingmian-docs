@@ -3,29 +3,58 @@ title: PlayerSignIn
 createTime: 2026/10/24
 ---
 
-# PlayerSignIn
+# 每日签到 · PlayerSignIn
 
-> 版本 `1.4.0` · 指令 1 条 · api-version `1.13` · 文件 `PlayerSignIn-1.4.0.jar`
+> 分类 🧰 基础工具 · 版本 `1.4.0` · 指令 1 条 · api-version `1.13`
 
-玩家签到
-
-::: tip 用法提示
-本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
-具体子参数可以执行 `/playerSignIn help` 或该插件对应子命令的 `help` 查看。
+::: tip 每日签到与补签卡管理插件
+PlayerSignIn 是一个每日签到插件，玩家通过签到指令打开图形界面完成当日签到并领取奖励。插件附带虚拟补签卡机制，管理员可以给玩家发放补签卡来补上漏签的日子。签到数据按配置的数据源保存，可通过权限节点区分谁能签到、谁能补签、谁能重载配置。
 :::
+
+## 什么时候会用到它
+
+- 给玩家做每日签到、连续签到奖励的活动
+- 用补签卡补偿漏签玩家，避免玩家因断签流失
+- 管理员调整签到配置或数据源后热重载生效
+- 通过权限节点控制签到入口与补签卡管理权限
+
+## 上手流程
+
+1. 确认已装好 Vault 等前置与经济或奖励插件，让玩家签到后能拿到实际奖励
+2. 检查并调整签到配置（奖励内容、连签规则、数据源），保存后重载插件配置
+3. 给需要的玩家发放补签卡，或按需调整补签卡数量
+4. 用玩家账号测试一次签到，确认界面能打开且奖励正确到账
 
 ## 指令一览
 
-| 指令 | 说明 | 权限节点 |
-| --- | --- | --- |
-| `/playerSignIn` | 玩家签到 | — |
+| 指令 | 功能 | 用法 | 权限节点 |
+| --- | --- | --- | --- |
+| `/playerSignIn` | 打开签到界面完成当日签到，别名 psi<br>别名 `/psi` | `/playerSignIn` | — |
 
-## 详细用法
+## 指令详解
 
-### /playerSignIn
+### `/playerSignIn` — 打开签到界面完成当日签到，别名 psi
 
-- **说明**：玩家签到
+- **语法**：`/playerSignIn`
+
+- **示例**：
+
+```
+/playerSignIn
+/psi
+```
+
 - **别名**：`/psi`
+- **备注**：官方文档未给出额外参数，通常会直接拉起签到 GUI，具体子指令与参数请以游戏内 help 为准；需要 playerSignIn.signIn 权限（默认所有玩家拥有）。
+
+## 注意事项
+
+::: warning
+- 该插件为服务器自研或小众插件，官方说明较简略，具体参数与子指令以游戏内 help 为准
+- 重载配置（playerSignIn.reload）与转换数据源（playerSignIn.convert）都是 op 级操作，转换数据源前务必备份原有数据
+- 补签卡分为实体卡与虚拟卡两种授权（giveSignCard 与 card），发放前先确认玩家需要的是哪一种，避免发错
+- 签到往往与奖励发放绑定，测试时用普通权限账号验证，避免管理员权限掩盖权限节点配置错误
+:::
 
 ## 权限节点
 
@@ -38,3 +67,7 @@ createTime: 2026/10/24
 | `playerSignIn.giveSignCard` | 给予实体补签卡 | op |
 | `playerSignIn.reload` | 重新加载配置 | op |
 | `playerSignIn.signIn` | 签到gui | True |
+
+## 相关插件
+
+[Vault](/commands/core/vault.md)、[LuckPerms](/commands/core/luckperms.md)、[PlaceholderAPI](/commands/config/placeholderapi.md)

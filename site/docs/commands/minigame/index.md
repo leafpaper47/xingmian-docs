@@ -7,13 +7,13 @@ createTime: 2026/10/24
 
 服务器自研玩法与休闲小游戏。
 
-| 插件 | 版本 | 指令数 | 说明 |
+| 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
-| [Ah-Toy-1.0](./ah-toy-1-0.md) | 1.0 | 1 | 玩具商阿叶 - 独立配置的趣味玩具 |
-| [Ah-WolfmanKill-1.0](./ah-wolfmankill-1-0.md) | 1.0 | 1 | WolfmanKill 我的世界狼人杀完整玩法插件 |
-| [allmusic](./allmusic.md) | 4.0.2 | 1 | — |
-| [GSit](./gsit.md) | 3.5.1 | 7 | 与其他玩家在漂亮的座位上放松身心！ |
-| [LeashPlayers](./leashplayers.md) | 1.0.0 | 1 | 用栓绳栓住玩家，像栓动物一样牵着走 |
-| [LobbyGames](./lobbygames.md) | 2.6.1 | 3 | — |
-| [MahjongPlay](./mahjongplay.md) | 1.5 | 1 | 《我的世界》中的日本Riichi麻将 |
-| [XingmianQuiz](./xingmianquiz.md) | 1.0.0 | 1 | 星冕答题 - 每 15 分钟一道百科题，第一个答对的玩家获得星点 |
+| [Ah-Toy-1.0](/commands/minigame/ah-toy-1-0.md) | 趣味小玩具发放与配置管理插件 | `/toy` | 1 |
+| [Ah-WolfmanKill-1.0](/commands/minigame/ah-wolfmankill-1-0.md) | 狼人杀小游戏的开局与场地管理插件 | `/wk` | 1 |
+| [allmusic](/commands/minigame/allmusic.md) | 全服音乐播放与广播的点歌类插件 | `/music` | 1 |
+| [GSit](/commands/minigame/gsit.md) | 让玩家坐下、躺下、爬行与旋转的姿势插件 | `/gbellyflop`、`/gcrawl`、`/glay`… | 7 |
+| [LeashPlayers](/commands/minigame/leashplayers.md) | 用栓绳把玩家当动物一样牵走的小游戏插件 | `/leash` | 1 |
+| [LobbyGames](/commands/minigame/lobbygames.md) | 在大厅里开小游戏对局，玩家随进随玩 | `/lgjoin`、`/lgjoinplayer`、`/lobbygames` | 3 |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | 在服务器里打日本立直麻将的小游戏 | `/mahjong` | 1 |
+| [XingmianQuiz](/commands/minigame/xingmianquiz.md) | 定时自动百科答题，首个答对者得星点 | `/quiz` | 1 |

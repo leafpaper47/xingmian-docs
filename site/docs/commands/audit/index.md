@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 方块回滚、性能采样、审计。
 
-| 插件 | 版本 | 指令数 | 说明 |
+| 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
-| [CoreProtect](./coreprotect.md) | 24.2-dev | 1 | 为你的服务器提供方块保护。 |
-| [spark](./spark.md) | 1.10.175 | 1 | spark是用于Minecraft客户端、服务器和代理的性能分析插件/模块。 |
+| [CoreProtect](/commands/audit/coreprotect.md) | 方块日志：查谁动过箱子、回滚破坏 | `/co` | 1 |
+| [spark](/commands/audit/spark.md) | 服务器卡顿排查与性能采样工具 | `/spark` | 1 |

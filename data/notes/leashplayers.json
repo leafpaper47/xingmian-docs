@@ -1,0 +1,85 @@
+{
+  "name": "LeashPlayers",
+  "role": "用栓绳把玩家当动物一样牵走的小游戏插件",
+  "summary": "LeashPlayers 让管理员或玩家用栓绳栓住其他玩家，被栓的人会像拴着的动物一样被牵着走。默认所有玩家都能使用 /leash 指令，谁被栓、谁在牵都可以在指令里查询或解除。适合做整活、惩罚、小游戏和直播互动环节。",
+  "whatFor": [
+    "小游戏或活动里把玩家当宠物牵来牵去",
+    "对捣乱玩家做无伤大雅的整活式惩罚",
+    "直播互动时逗弄观众或队友",
+    "测试服务器时快速搬动不能或不愿自己走路的玩家"
+  ],
+  "flow": [
+    "先确认权限：普通玩家默认有 leashplayers.use，管理别人的拴绳和重载配置需要 leashplayers.admin（默认仅 OP）",
+    "用 /leash 加上目标玩家名，把栓绳栓到对方身上",
+    "用 /leash list 或 /leash status 查看当前谁被栓、谁在牵",
+    "用 /leash release 解除，完事可以 /leash reload 重载配置，/leash version 看插件版本"
+  ],
+  "commands": [
+    {
+      "cmd": "leash",
+      "what": "栓住目标玩家、查询或解除已有的栓绳",
+      "syntax": "/leash &lt;player|release|list|status|info|selftest|reload|version&gt;",
+      "params": [
+        {
+          "name": "player",
+          "required": true,
+          "note": "要栓住的玩家名字，把栓绳拴到这名玩家身上"
+        },
+        {
+          "name": "release",
+          "required": false,
+          "note": "解除栓绳，不填玩家名时一般解除自己相关的拴绳"
+        },
+        {
+          "name": "list",
+          "required": false,
+          "note": "列出当前所有生效的栓绳关系"
+        },
+        {
+          "name": "status",
+          "required": false,
+          "note": "查看指定玩家或自己当前的被栓状态"
+        },
+        {
+          "name": "info",
+          "required": false,
+          "note": "查看插件信息"
+        },
+        {
+          "name": "selftest",
+          "required": false,
+          "note": "插件自检，排查功能是否正常"
+        },
+        {
+          "name": "reload",
+          "required": false,
+          "note": "重载插件配置，需要 leashplayers.admin"
+        },
+        {
+          "name": "version",
+          "required": false,
+          "note": "显示插件版本号"
+        }
+      ],
+      "examples": [
+        "/leash Steve",
+        "/leash list",
+        "/leash release Steve",
+        "/leash version"
+      ],
+      "notes": "子参数的实际写法与是否支持在线玩家自动补全以游戏内 help 为准；用完记得 release，避免玩家一直被栓着。"
+    }
+  ],
+  "subcommands": [],
+  "caution": [
+    "具体参数以游戏内 help 为准，不同版本的子指令可能略有差异",
+    "reload 属于管理操作，需要 leashplayers.admin，普通权限执行会被拒",
+    "别在正式活动或玩家不方便时长时间拴着人，容易被当成恶意整活投诉",
+    "被栓玩家跨越传送、死亡、掉线后的状态不一定自动解除，活动结束前统一 /leash release 清理一遍"
+  ],
+  "related": [
+    "Essentials",
+    "LuckPerms",
+    "Vault"
+  ]
+}

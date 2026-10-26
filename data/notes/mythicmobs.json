@@ -1,0 +1,95 @@
+{
+  "name": "MythicMobs",
+  "role": "用配置定义怪物、技能与掉落的自定义怪物引擎",
+  "summary": "MythicMobs 让服务器不依赖改客户端就能造出全新怪物：血量、装备、技能、掉落、刷怪点都写在 YAML 里，游戏内用指令即可生成和调试。它是 RPG、副本、BOSS 战这类玩法的地基，常和 PlaceholderAPI、ModelEngine 一起用，前者把怪物数据接到计分板菜单，后者给怪物换自制模型。管理员日常打交道最多的就是 /mm 系列指令和 /spawnmob。",
+  "whatFor": [
+    "要做副本或世界 BOSS，需要一只带阶段技能、专门掉落表的自定义怪物",
+    "节日活动要在主城刷一批活动怪，活动结束要一键清干净",
+    "给怪物配了技能但不生效，需要开关调试输出看哪一步条件没过",
+    "改完怪物配置文件，想不重启服务器就让它生效并当场召唤出来验证",
+    "做 RPG 装备体系，需要把自定义物品发放给玩家或挂进怪物掉落表"
+  ],
+  "flow": [
+    "先确认插件正常：执行 /mm info 看版本与已加载的怪物、物品数量，再执行 /mm reload 观察控制台有没有报错",
+    "在插件目录的 Mobs 文件夹里写怪物 YAML（血量、伤害、技能、掉落），保存后在服务器里执行 /mm reload mobs",
+    "回到游戏执行 /mm mobs list 确认新怪物 ID 出现在列表里，ID 区分大小写",
+    "站到空地上执行 /spawnmob 怪物ID 召唤一只，实测血量、技能和掉落是否符合预期",
+    "行为不对就执行 /mm debug 打开调试，再召唤一次，按控制台输出逐条修正配置"
+  ],
+  "commands": [
+    {
+      "cmd": "mythicmobs",
+      "what": "插件主指令，几乎所有管理功能的统一入口",
+      "syntax": "/mm [子指令] [参数]",
+      "params": [
+        { "name": "子指令", "required": false, "note": "例如 reload、mobs、items、skills、debug；不带则列出可用子指令" },
+        { "name": "参数", "required": false, "note": "子指令后面的具体参数，随子指令而定" }
+      ],
+      "examples": ["/mm reload", "/mm mobs list", "/mm help"],
+      "notes": "别名 /mythicmobs。记不住子指令就直接敲 /mm 或 /mm help，游戏内 Tab 补全也能看到全部用法。"
+    },
+    {
+      "cmd": "mythicmobsmenu",
+      "what": "打开插件的图形化管理菜单",
+      "syntax": "/mmmenu",
+      "params": [],
+      "examples": ["/mmmenu"],
+      "notes": "别名 /mmm。适合不想记子指令时随手点一点，但功能比命令行少，重载、调试这类操作还是得回 /mm。"
+    },
+    {
+      "cmd": "spawnmob",
+      "what": "按 ID 在现场生成一只或多只自定义怪物",
+      "syntax": "/spawnmob 怪物ID:等级 数量",
+      "params": [
+        { "name": "怪物ID", "required": true, "note": "Mobs 配置里的内部名，区分大小写，写错会提示找不到" },
+        { "name": "等级", "required": false, "note": "紧跟 ID 用冒号连接，省略则用配置里的默认等级" },
+        { "name": "数量", "required": false, "note": "一次生成几只，省略为 1" }
+      ],
+      "examples": ["/spawnmob SkeletalKnight", "/spawnmob SkeletalKnight:5 3"],
+      "notes": "别名 /spawnmythicmob、/mspawn、/msummon，效果等同于 /mm mobs spawn，怪物生成在指令执行者附近。"
+    },
+    {
+      "cmd": "addpin",
+      "what": "快速登记一条 PIN 码记录",
+      "syntax": "/addpin [PIN码]",
+      "params": [
+        { "name": "PIN码", "required": false, "note": "要登记的内容，具体格式以游戏内 Tab 补全为准" }
+      ],
+      "examples": ["/addpin"],
+      "notes": "官方文档没有收录这条指令，它属于插件注册表里附带的命令，和自定义怪物主流程无关。参数和生效对象务必先在测试服实测，别直接在生产服用。"
+    },
+    {
+      "cmd": "pins",
+      "what": "查看或管理已登记的 PIN 码",
+      "syntax": "/pin [参数]",
+      "params": [
+        { "name": "参数", "required": false, "note": "子参数以游戏内 Tab 补全为准" }
+      ],
+      "examples": ["/pin"],
+      "notes": "别名 /pins。同样不在官方文档里，用途以实测为准；如果确认没人用，可以连同 /addpin 一起关掉权限减少误用。"
+    }
+  ],
+  "subcommands": [
+    { "cmd": "reload [类型]", "desc": "重新载入配置，可以只重载某一类，比如 mobs、items、skills", "example": "/mm reload mobs" },
+    { "cmd": "mobs spawn 怪物ID:等级 数量", "desc": "在当前位置附近生成自定义怪物", "example": "/mm mobs spawn SkeletalKnight:3 2" },
+    { "cmd": "mobs list [页码]", "desc": "列出所有已加载的自定义怪物 ID", "example": "/mm mobs list" },
+    { "cmd": "mobs kill 怪物ID或all [半径]", "desc": "清除指定的 MythicMobs 怪物或全部，可限定半径", "example": "/mm mobs kill all 50" },
+    { "cmd": "mobs info 怪物ID", "desc": "查看某个怪物的等级、血量、技能等配置详情", "example": "/mm mobs info SkeletalKnight" },
+    { "cmd": "items get 物品ID [数量]", "desc": "把自己配置里的自定义物品取出来给自己", "example": "/mm items get SkeletonSword 1" },
+    { "cmd": "items list [页码]", "desc": "列出所有自定义物品 ID", "example": "/mm items list" },
+    { "cmd": "egg get 怪物ID [数量]", "desc": "拿到某个自定义怪物的刷怪蛋", "example": "/mm egg get SkeletalKnight" },
+    { "cmd": "skills test 技能名", "desc": "手动触发一次技能，用来验证技能有没有写对", "example": "/mm skills test Fireball" },
+    { "cmd": "debug [等级]", "desc": "开关调试输出，排查技能不触发、条件不满足的问题", "example": "/mm debug" },
+    { "cmd": "info", "desc": "查看插件版本和已加载的怪物、物品数量", "example": "/mm info" },
+    { "cmd": "signal 信号名", "desc": "向技能系统发一个自定义信号，对应权限 mythicmobs.signal", "example": "/mm signal test" },
+    { "cmd": "help [页码]", "desc": "列出全部子指令与用法", "example": "/mm help" }
+  ],
+  "caution": [
+    "reload 只重载配置文件，已经在世界里活着的怪物不会换上新配置，要看效果先杀掉再重新召唤",
+    "怪物 ID、物品 ID、技能名都区分大小写，写错时往往只是静默不生效或者提示找不到，不会明确指出你哪里写错了",
+    "spawnmob 带数量参数时别一次刷几百只，每只怪物都在跑技能和 AI，很容易把 TPS 拖垮",
+    "权限 mythicmobs.admin 一次给全套功能，普通管理员建议只给 mythicmobs.reload，改配置的重载权限也别随便外放",
+    "YAML 对缩进敏感，改完一定要 /mm reload 看控制台输出，有报错就说明这一份配置整块没加载进去"
+  ],
+  "related": ["PlaceholderAPI", "ModelEngine", "MythicCrucible", "Vault"]
+}

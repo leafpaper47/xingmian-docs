@@ -1,0 +1,75 @@
+{
+  "name": "InfiniteFuel",
+  "role": "让熔炉烧不完的无限燃料小插件",
+  "summary": "InfiniteFuel 给服务器提供一种“无限煤块”类燃料：放进熔炉后熔炉会一直燃烧，燃料槽里的那块煤不会被消耗。把燃料取出或换成普通燃料，熔炉立刻恢复正常消耗与熄火逻辑。管理员可以用指令给玩家发放这种特殊燃料，也可以在不重启服务端的前提下重载配置。",
+  "whatFor": [
+    "玩家挂机烧矿时反复添煤太麻烦，需要一次点火长期燃烧",
+    "公共熔炉点、出生点免费熔炉等场景想省燃料消耗",
+    "活动或福利向发放“无限燃料”作为奖励道具",
+    "改完插件配置后想立刻生效而不用重启服务端"
+  ],
+  "flow": [
+    "确认插件已安装并正常启用，管理员账号拥有无限燃料的管理权限节点",
+    "需要发给玩家时，用发放指令指定玩家并可选填数量",
+    "玩家把拿到手的无限燃料放进熔炉燃料槽，熔炉即进入永燃状态",
+    "调整过配置文件后执行重载指令让其生效，再实际点火验证一次",
+    "要恢复普通玩法时把该燃料从燃料槽取出即可，熔炉会立即熄火"
+  ],
+  "commands": [
+    {
+      "cmd": "infinitefuel",
+      "what": "给玩家发放无限燃料，或重载插件配置",
+      "syntax": "/infinitefuel give [玩家名] [数量] | /infinitefuel reload",
+      "params": [
+        {
+          "name": "give",
+          "required": false,
+          "note": "子动作：给指定玩家发放无限燃料"
+        },
+        {
+          "name": "玩家名",
+          "required": true,
+          "note": "give 的目标玩家，需在线"
+        },
+        {
+          "name": "数量",
+          "required": false,
+          "note": "发放的燃料数量，省略时按默认值发放"
+        },
+        {
+          "name": "reload",
+          "required": false,
+          "note": "子动作：重新载入插件配置，不重启服务端"
+        }
+      ],
+      "examples": [
+        "/infinitefuel give Steve",
+        "/infinitefuel give Steve 8",
+        "/infinitefuel reload"
+      ],
+      "notes": "只有两个子动作：give 发放、reload 重载；不带子动作时通常只会提示用法。指令需要 infinitefuel.admin 权限（默认仅 OP 拥有）。"
+    }
+  ],
+  "subcommands": [
+    {
+      "cmd": "give [玩家名] [数量]",
+      "desc": "给指定在线玩家发放无限燃料，数量可省略",
+      "example": "/infinitefuel give Steve 8"
+    },
+    {
+      "cmd": "reload",
+      "desc": "重新加载插件配置，无需重启服务端",
+      "example": "/infinitefuel reload"
+    }
+  ],
+  "caution": [
+    "重载后一定要实际点火一次并检查燃料槽，确认永燃生效、取出后确实立刻熄火",
+    "该燃料只对放进熔炉燃料槽的用法生效，不要用它在其他燃料相关机制上做收益玩法，容易出预期外结果",
+    "给玩家发放前先想清楚回收方式：无限燃料一旦流出，建议只发给可信玩家或限定在公共熔炉",
+    "具体参数以游戏内 help 为准，例如数量上限与默认值以插件实际行为为准"
+  ],
+  "related": [
+    "Essentials",
+    "LuckPerms"
+  ]
+}

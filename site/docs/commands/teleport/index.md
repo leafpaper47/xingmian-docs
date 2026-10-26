@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 随机传送、出生点、回家相关。
 
-| 插件 | 版本 | 指令数 | 说明 |
+| 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
-| [BetterRTP](./betterrtp.md) | 3.6.13 | 1 | — |
-| [EssentialsSpawn](./essentialsspawn.md) | 2.22.1-dev+12-776f709 | 2 | 提供生成控制命令，利用Essentials。 |
+| [BetterRTP](/commands/teleport/betterrtp.md) | 功能全面的随机传送插件，主世界野外探索标配 | `/betterrtp` | 1 |
+| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | 管理服务器出生点的传送与设置 | `/setspawn`、`/spawn` | 2 |

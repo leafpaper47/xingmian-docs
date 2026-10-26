@@ -3,37 +3,71 @@ title: CraftBench
 createTime: 2026/10/24
 ---
 
-# CraftBench
+# 随身工作台 · CraftBench
 
-> 版本 `1.1.14` · 指令 2 条 · api-version `1.21` · 文件 `CraftBench-1.1.12.jar`
+> 分类 🧰 基础工具 · 版本 `1.1.14` · 指令 2 条 · api-version `1.21`
 
-5×5 工作台，支持 CraftEngine 自定义物品、纯 GUI 配方编辑器、配方书，无形状限制且不消耗经济
-
-::: tip 用法提示
-本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
-具体子参数可以执行 `/craftbench help` 或该插件对应子命令的 `help` 查看。
+::: tip 随身 5×5 合成台与配方编辑工具
+给玩家一个随时可开的 5×5 大工作台，配方不限形状、不消耗经济，方便在野外或副本地图里直接合成。服务端侧提供纯图形界面的配方编辑器，可自定义任意配方并写入配方书，还支持 CraftEngine 的自定义物品参与合成。和权限插件配合控制谁能用、谁能改配方。
 :::
+
+## 什么时候会用到它
+
+- 玩家在挖矿、跑图、打副本时不想回主城找工作台，希望原地开一个大合成台
+- 需要给服务器加自定义配方，比如用特殊材料做专属装备，又不想写复杂配置文件
+- 想把自研物品（如 CraftEngine 自定义物品）接进合成体系，让玩家能正常合成出来
+- 服主想统一管理配方内容，让所有玩家都能在配方书里查到本服加过什么配方
+
+## 上手流程
+
+1. 确认插件已加载，并给玩家组分配 craftbench.use 权限（默认所有玩家已有）
+2. 玩家在游戏内输入 /craftbench 打开 5×5 合成台直接使用
+3. 管理员输入 /craftbenchadmin 打开配方编辑界面，放入材料与产物即可保存自定义配方
+4. 配方保存后建议重载或重启，让配方书与合成判定生效，再让玩家试合一次确认
 
 ## 指令一览
 
-| 指令 | 说明 | 权限节点 |
-| --- | --- | --- |
-| `/craftbench` | 打开 5x5 合成台 | `craftbench.use` |
-| `/craftbenchadmin` | 打开配方编辑界面 | `craftbench.admin` |
+| 指令 | 功能 | 用法 | 权限节点 |
+| --- | --- | --- | --- |
+| `/craftbench` | 打开 5×5 随身合成台界面 | `/craftbench` | `craftbench.use` |
+| `/craftbenchadmin` | 打开配方编辑界面，增删自定义配方 | `/craftbenchadmin` | `craftbench.admin` |
 
-## 详细用法
+## 指令详解
 
-### /craftbench
+### `/craftbench` — 打开 5×5 随身合成台界面
 
-- **说明**：打开 5x5 合成台
-- **用法**：`/craftbench`
+- **语法**：`/craftbench`
+
+- **示例**：
+
+```
+/craftbench
+```
+
 - **权限**：`craftbench.use`
+- **备注**：默认权限 craftbench.use 对所有人开放；若关掉该权限，玩家执行会提示无权限。合成台为纯界面，关闭界面时请注意材料是否已取出。
 
-### /craftbenchadmin
+### `/craftbenchadmin` — 打开配方编辑界面，增删自定义配方
 
-- **说明**：打开配方编辑界面
-- **用法**：`/craftbenchadmin`
+- **语法**：`/craftbenchadmin`
+
+- **示例**：
+
+```
+/craftbenchadmin
+```
+
 - **权限**：`craftbench.admin`
+- **备注**：需要 craftbench.admin（默认仅 OP）。这是纯 GUI 操作，不需要手写配置；改完配方后最好让玩家测一次实际合成结果，确认产物与数量正确。
+
+## 注意事项
+
+::: warning
+- 配方改动属于服务端数据，改完后建议重载插件或重启服务器，避免只改了界面、合成判定没更新
+- 只给信任的管理员 craftbench.admin：能改配方就等于能定义任意物品产出，权限外泄会导致刷物品
+- 涉及 CraftEngine 等自定义物品的配方，需确认对应物品已正确注册，否则合成会失败或产出异常
+- 具体参数与子指令以游戏内 help 为准，本页只覆盖已知的两个入口指令
+:::
 
 ## 权限节点
 
@@ -41,3 +75,7 @@ createTime: 2026/10/24
 | --- | --- | --- |
 | `craftbench.admin` | 允许管理配方 | op |
 | `craftbench.use` | 允许使用合成台 | True |
+
+## 相关插件
+
+CraftEngine、[LuckPerms](/commands/core/luckperms.md)

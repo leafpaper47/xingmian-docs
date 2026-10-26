@@ -1,19 +1,24 @@
 # 星冕服务器 · 管理员插件指令手册
 
-用 VuePress 2 + `vuepress-theme-plume` 做的服内指令速查站。全部内容由服务器 `plugins/` 下各插件 jar 里的 `plugin.yml` **直接解析生成**，不是网上抄的通用文档。
+用 VuePress 2 + `vuepress-theme-plume` 做的服内指令速查站。内容分两层：
+
+1. **机器解析层**：服务器 `plugins/` 下各插件 jar 里的 `plugin.yml` 直接解析出指令名、别名、用法、权限节点 —— 保证「和这台服务器对得上」。
+2. **人工注解层**：`data/notes/*.json` 里为每个插件手写的定位、适用场景、上手流程、子指令速查、坑 —— 解决「`plugin.yml` 只有一行潦草说明」的问题。
 
 - 扫描 125 个插件 jar → 80 个插件声明了指令 → 322 条指令，合并别名后文档展示 **318 条**
-- 13 个功能分类、80 个插件页、权限节点总表
-- 搜索（`Ctrl + K`）为本地索引，纯静态，不需要后端
+- 站点**没有首页**：打开就是「指令总览」，按分类扫一遍或直接 `Ctrl + K` 搜指令名
+- 13 个功能分类、80 个插件页、权限节点总表；纯静态，不需要后端
 
 ## 目录
 
 ```
 .
-├─ data/plugin_commands.json     # 解析结果（唯一数据源）
+├─ data/plugin_commands.json     # 解析结果（机器层唯一数据源）
 ├─ data/zh_cache.json            # 英文说明 → 中文对照（可人工修订）
+├─ data/notes/<slug>.json        # 人工注解（定位/场景/流程/子指令/坑），见 notes/README.md
 ├─ zipyml.py                     # 用 SFTP 读 jar 内 plugin.yml，生成上面的 json
-├─ gen_docs.py                   # 生成 docs/ 下所有 markdown + 侧边栏
+├─ gen_docs.py                   # 生成 docs/ 下所有 markdown + 侧边栏（合并机器层与注解层）
+├─ check_notes.py                # 校验注解：结构、指令名是否真实存在、示例格式
 ├─ translate_ui.py               # 把英文说明批量翻成中文，结果写入 zh_cache.json
 ├─ check_zh.py                   # 检查还有多少英文没翻、译文是否可疑
 ├─ list_plugins.py               # 列出服务器 plugins 目录（排查用）
@@ -22,10 +27,21 @@
    └─ docs/
       ├─ .vuepress/config.ts     # 站点配置（base、hostname、主题）
       ├─ .vuepress/sidebar.ts    # 由 gen_docs.py 生成，别手改
-      ├─ commands/               # 指令页（按分类分目录）
-      ├─ index.md                # 首页（分类导航）
+      ├─ commands/<分类>/<插件>.md  # 插件页
+      ├─ index.md                # 指令总览（站点根页面）
       └─ permissions.md          # 权限节点总表
 ```
+
+## 页面结构
+
+| 路径 | 内容 |
+| --- | --- |
+| `/` | 指令总览：13 个分类 × 全部插件（定位一句话 + 主要指令 + 指令数） |
+| `/commands/<分类>/` | 分类索引 |
+| `/commands/<分类>/<插件>.md` | 插件页：定位 → 什么时候会用到 → 上手流程 → 指令一览 → 指令详解（语法/参数/示例/权限）→ 子指令速查 → 注意事项 → 权限节点 → 相关插件 |
+| `/permissions.md` | 权限节点总表 |
+
+有注解的插件页是完整版；没有注解的会退回 `plugin.yml` 的极简版（并在页面上标注「尚未补人工注解」）。
 
 ## 本地开发
 
@@ -38,18 +54,37 @@ pnpm build    # 产物在 site/docs/.vuepress/dist
 
 > 首次安装注意：`.npmrc` 里已固定 `node-linker=hoisted`。如果之前用别的 linker 装过，先删掉 `node_modules` 和 `pnpm-lock.yaml` 再装，否则会报 `Cannot find package '@vuepress/cli'`。
 
-## 更新数据
+## 日常更新
 
-服务器装了新插件或插件升级后：
+**只改文案 / 补注解**（最常见）：
+
+```bash
+python check_notes.py     # 先校验，ERROR 必须为 0
+python gen_docs.py        # 重新生成页面与侧边栏
+cd site && pnpm build
+```
+
+**服务器装了新插件或插件升级**：
 
 ```bash
 export SH=n6-2.yxsjmc.cn SP=2422 SU=<sftp用户名> SW=<sftp密码>
-python zipyml.py       # 重新解析 → data/plugin_commands.json
-python gen_docs.py     # 重新生成 docs/ 下所有页面与侧边栏
+python zipyml.py          # 重新解析 → data/plugin_commands.json
+python gen_docs.py        # 重新生成（新插件会先以极简版出现）
 cd site && pnpm build
 ```
 
 `zipyml.py` 的凭据只从环境变量读，**不要写进脚本里再提交**。
+
+## 人工注解（data/notes）
+
+每个插件一个 `data/notes/<slug>.json`（slug = 插件名小写、非字母数字转 `-`）。字段与硬规则见 `data/notes/README.md`，可直接照抄 `luckperms.json`（单主指令 + 大量子指令）和 `coreprotect.json`（流程与风险型）两种范例。
+
+要点：
+
+- `commands[].cmd` 必须是插件**真实注册**的指令名，不能编；子指令写进 `subcommands[]`
+- 自研插件（Xingmian / Kaogu / Senluo / Leaf / Star 等）不写子指令，`syntax` 直接用 `plugin.yml` 的 usage，坑里标注「以游戏内 help 为准」
+- 竖线 `|` 会在生成时换成全角，尖括号参数在页面里会正确显示，不用自己转义
+- `check_notes.py` 会拦：JSON 语法错、`name` 对不上、`cmd` 不存在、示例不以 `/` 开头、含 `{{ }}`
 
 ## 发布到 GitHub Pages
 
@@ -86,7 +121,7 @@ cd site && pnpm build
 ## 已知限制
 
 - 只解析 `plugin.yml`：代码里动态注册的指令（Skript 自定义命令、DeluxeMenus 菜单指令、MythicMobs 内嵌命令）不会出现
-- 子指令不展开：`/lp`、`/co`、`/mm` 这类主指令请用游戏内 `help`
+- 子指令靠人工注解补：`/lp`、`/co`、`/mm` 这类主指令的真子指令写在 `data/notes/` 里；没写注解的插件仍只显示主指令
 - 颜色码 `§x` 在生成时已清除
 
 ## 说明文字汉化
@@ -104,3 +139,19 @@ python gen_docs.py              # 重新生成页面（会自动读 zh_cache.jso
 - 译文有机器翻译成分，`data/zh_cache.json` 是纯文本可版本化文件，**发现译得不对直接改这个文件再重跑 `gen_docs.py` 即可**，不需要重新翻译。
 - 想重新翻某一条：从 `zh_cache.json` 里删掉那一条，再跑 `translate_ui.py`。
 - 指令参数、权限节点、`/co lookup i:stone` 这类**语法**保持英文，是刻意的，不要翻。
+
+## 指令说明的三层来源
+
+每个插件页的「指令一览」与「指令详解」按下面的优先级拼装，改数据不用改生成器：
+
+1. `data/notes/<插件>.json` —— 人工注解（插件定位、上手流程、每条指令的 what/语法/参数/示例/备注），优先级最高
+2. `data/auto_usage.json` —— 补充表，键为 `插件名|指令名`，用于补注解里没写到的指令（LibsDisguises、OpenInv、GSit、Residence 等）
+3. `plugin.yml` 自动推导 —— 上面两层都没有时，用 usage 整理成一行语法，并把 `<player>`/`[amount]` 这类占位符替换成样例值自动生成示例
+
+新增一个插件的完整说明，只需要新建 `data/notes/<slug>.json`（字段参考 `data/notes/README.md`），或在 `data/auto_usage.json` 里加一条 `'插件名|指令名'`。
+
+## 站点结构
+
+- `/` 直接是**指令总览**（不再有单独首页），进来就是 13 个分类的插件表
+- `/commands/<分类>/<插件>.md` 插件页：定位 → 上手流程 → 指令一览（指令/功能/用法/权限）→ 指令详解（语法/参数/示例/别名/权限/备注）→ 子指令速查 → 注意事项 → 权限节点 → 相关插件
+- `/permissions.md` 权限节点总表（含「别外传」提醒）

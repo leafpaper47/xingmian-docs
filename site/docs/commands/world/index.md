@@ -7,10 +7,10 @@ createTime: 2026/10/24
 
 地图渲染、坐标同步、天气与天象、镜像世界。
 
-| 插件 | 版本 | 指令数 | 说明 |
+| 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
-| [ArtMap](./artmap.md) | 3.9.26 | 1 | 制作像素艺术！ |
-| [MeteorShowers](./meteorshowers.md) | 1.0.0 | 1 | 生存友好型随机流星雨事件，包含警告、陨石坑和战利品。 |
-| [Mirrora](./mirrora.md) | 1.2.1 | 1 | — |
-| [WeatherCard](./weathercard.md) | 1.0.10 | 1 | 星冕MC 天气卡插件 - 4种扑克牌卡(黑桃·夜/红桃·昼/梅花·雨/方片·晴)，四张卡均可在 家园世界 / 星陨之地  |
-| [XaeroTracker](./xaerotracker.md) | 1.4.0-xm | 1 | — |
+| [ArtMap](/commands/world/artmap.md) | 把画架变成像素画板，作画、存作、发放作品 | `/art` | 1 |
+| [MeteorShowers](/commands/world/meteorshowers.md) | 生存向随机流星雨事件：预警、陨石坑、战利品 | `/meteorshowers` | 1 |
+| [Mirrora](/commands/world/mirrora.md) | 镜像方块插件，把一块区域的建筑按轴镜像复制 | `/mirror` | 1 |
+| [WeatherCard](/commands/world/weathercard.md) | 四张扑克天气卡，手动切换家园与星陨之地的天气 | `/weathercard` | 1 |
+| [XaeroTracker](/commands/world/xaerotracker.md) | 在小地图上显示与追踪玩家位置 | `/xaerotracker` | 1 |

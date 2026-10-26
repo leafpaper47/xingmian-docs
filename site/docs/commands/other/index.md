@@ -7,6 +7,6 @@ createTime: 2026/10/24
 
 未归类的插件。
 
-| 插件 | 版本 | 指令数 | 说明 |
+| 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
-| [ArchitectPlugin](./architectplugin.md) | 1.3.7 | 4 | 星冕服务器建筑师认证与雇佣插件 |
+| [ArchitectPlugin](/commands/other/architectplugin.md) | 星冕服务器的建筑师认证与接单系统 | `/arch`、`/archadmin`、`/archshop`… | 4 |

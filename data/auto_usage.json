@@ -1,0 +1,81 @@
+{
+  "_readme": "缺少人工注解时的补充表：键为 `插件名|指令名`，用于补 what/syntax/params/examples/notes。生成器优先级：data/notes/*.json > 本文件 > plugin.yml 自动推导。",
+
+  "LibsDisguises|libsdisguises": {"what": "主指令，等同于 /disguise 的入口（无参数时打印帮助）", "syntax": "/libsdisguises <子指令>", "examples": ["/libsdisguises help", "/libsdisguises reload"]},
+  "LibsDisguises|disguise": {"what": "把自己伪装成某个实体", "syntax": "/disguise <实体类型> [玩家名] [选项...]", "examples": ["/disguise zombie", "/disguise player Steve setskin", "/disguise armor_stand"], "notes": "实体类型用原版 ID（zombie、creeper、armor_stand、item 等）；想用某个玩家的皮肤就写 `player <玩家名>`。"},
+  "LibsDisguises|disguiseentity": {"what": "把右键选中的实体伪装成另一个实体", "syntax": "/disguiseentity <实体类型> [选项...]", "examples": ["/disguiseentity cow"], "notes": "先用准星右键目标实体，再执行指令。"},
+  "LibsDisguises|disguisehelp": {"what": "查看可用实体类型与参数帮助", "syntax": "/disguisehelp [关键字]", "examples": ["/disguisehelp zombie", "/disguisehelp flag"]},
+  "LibsDisguises|disguiseplayer": {"what": "把别的玩家伪装成某个实体（对方视角里也是伪装后的样子）", "syntax": "/disguiseplayer <玩家> <实体类型> [选项...]", "examples": ["/disguiseplayer Steve wither_skeleton"]},
+  "LibsDisguises|disguiseradius": {"what": "把半径内所有实体批量伪装成同一种实体", "syntax": "/disguiseradius <半径> <实体类型> [选项...]", "examples": ["/disguiseradius 10 sheep"], "notes": "半径按方块计，中心是你所在位置；玩家也会被算进去，谨慎使用。"},
+  "LibsDisguises|disguiseselector": {"what": "用实体选择器批量伪装", "syntax": "/disguiseselector <选择器> <实体类型> [选项...]", "examples": ["/disguiseselector @e[type=cow] pig"]},
+  "LibsDisguises|undisguise": {"what": "解除自己的伪装", "syntax": "/undisguise", "examples": ["/undisguise"]},
+  "LibsDisguises|undisguiseentity": {"what": "解除右键选中实体的伪装", "syntax": "/undisguiseentity", "examples": ["/undisguiseentity"]},
+  "LibsDisguises|undisguiseplayer": {"what": "解除指定玩家的伪装", "syntax": "/undisguiseplayer <玩家>", "examples": ["/undisguiseplayer Steve"]},
+  "LibsDisguises|undisguiseradius": {"what": "解除半径内所有实体的伪装", "syntax": "/undisguiseradius <半径>", "examples": ["/undisguiseradius 10"]},
+  "LibsDisguises|undisguiseselector": {"what": "解除选择器命中实体的伪装", "syntax": "/undisguiseselector <选择器>", "examples": ["/undisguiseselector @e[type=pig]"]},
+  "LibsDisguises|disguiseclone": {"what": "把当前伪装（或右键的实体伪装）存成模板，之后可反复套用", "syntax": "/disguiseclone <save|apply|delete> [模板名]", "examples": ["/disguiseclone save pigTemplate", "/disguiseclone apply pigTemplate"]},
+  "LibsDisguises|disguiseviewself": {"what": "开关「自己能否看到自己的伪装」", "syntax": "/disguiseviewself", "examples": ["/disguiseviewself"]},
+  "LibsDisguises|disguiseviewbar": {"what": "开关伪装状态下是否显示玩家头顶名称条", "syntax": "/disguiseviewbar", "examples": ["/disguiseviewbar"]},
+  "LibsDisguises|disguisemodify": {"what": "修改自己当前伪装的参数（燃烧、隐身、尺寸等）", "syntax": "/disguisemodify <参数> <值>", "examples": ["/disguisemodify setburning true", "/disguisemodify setScale 1.5"], "notes": "参数名用 `/disguisemodify` 不带参数时的列表里的写法。"},
+  "LibsDisguises|disguisemodifyplayer": {"what": "修改指定玩家伪装的参数", "syntax": "/disguisemodifyplayer <玩家> <参数> <值>", "examples": ["/disguisemodifyplayer Steve setinvisible true"]},
+  "LibsDisguises|disguisemodifyradius": {"what": "批量修改半径内伪装的参数", "syntax": "/disguisemodifyradius <半径> <参数> <值>", "examples": ["/disguisemodifyradius 10 setburning false"]},
+  "LibsDisguises|disguisemodifyselector": {"what": "用选择器批量修改伪装参数", "syntax": "/disguisemodifyselector <选择器> <参数> <值>", "examples": ["/disguisemodifyselector @e[type=zombie] setburning false"]},
+  "LibsDisguises|disguisemodifyentity": {"what": "修改右键选中实体伪装的参数", "syntax": "/disguisemodifyentity <参数> <值>", "examples": ["/disguisemodifyentity setglowing true"]},
+  "LibsDisguises|disguiseanimation": {"what": "让自己的伪装播放一次动画", "syntax": "/disguiseanimation <动画名>", "examples": ["/disguiseanimation swing_offhand"]},
+  "LibsDisguises|disguiseplayeranimation": {"what": "让指定玩家的伪装播放动画", "syntax": "/disguiseplayeranimation <玩家> <动画名>", "examples": ["/disguiseplayeranimation Steve swing_mainhand"]},
+  "LibsDisguises|disguiseradiusanimation": {"what": "让半径内所有伪装播放动画", "syntax": "/disguiseradiusanimation <半径> <动画名>", "examples": ["/disguiseradiusanimation 8 swing_offhand"]},
+  "LibsDisguises|disguiseselectoranimation": {"what": "让选择器命中的伪装播放动画", "syntax": "/disguiseselectoranimation <选择器> <动画名>", "examples": ["/disguiseselectoranimation @e[type=pig] swing_offhand"]},
+  "LibsDisguises|disguiseentityanimation": {"what": "让右键选中实体的伪装播放动画", "syntax": "/disguiseentityanimation <动画名>", "examples": ["/disguiseentityanimation swing_mainhand"]},
+  "LibsDisguises|copydisguise": {"what": "把当前伪装导出成一串可保存/复用的文本", "syntax": "/copydisguise", "examples": ["/copydisguise"]},
+  "LibsDisguises|grabskin": {"what": "从本地文件、网址或玩家名抓取皮肤，用于伪装成该皮肤", "syntax": "/grabskin <文件|URL|玩家名> [皮肤名]", "examples": ["/grabskin Steve", "/grabskin https://example.com/skin.png mySkin"], "notes": "抓到的皮肤可在 `/disguise player <皮肤名> setskin` 里用。"},
+  "LibsDisguises|savedisguise": {"what": "把自定义伪装保存到 disguises.yml，之后按名字调用", "syntax": "/savedisguise <名字>", "examples": ["/savedisguise 石像鬼"], "notes": "保存的是当前伪装的全部参数；改名或换皮肤后需重新保存。"},
+  "LibsDisguises|grabhead": {"what": "按皮肤来源生成对应的玩家头颅物品", "syntax": "/grabhead <玩家名|URL|纹理值>", "examples": ["/grabhead Notch"]},
+
+  "OpenInv|openinv": {"what": "远程查看/编辑指定玩家的背包", "syntax": "/openinv [玩家]", "examples": ["/openinv Steve", "/openinv"], "notes": "不带参数时打开「玩家列表」界面，点谁开谁；改完记得让对端刷新背包或重新登录。"},
+  "OpenInv|clearinv": {"what": "清空指定玩家的背包", "syntax": "/clearinv [玩家]", "examples": ["/clearinv Steve"], "notes": "不可撤销，建议先 `/openinv` 确认内容。"},
+  "OpenInv|openender": {"what": "远程打开指定玩家的末影箱", "syntax": "/openender [玩家]", "examples": ["/openender Steve"]},
+  "OpenInv|clearender": {"what": "清空指定玩家的末影箱", "syntax": "/clearender [玩家]", "examples": ["/clearender Steve"], "notes": "不可撤销。"},
+  "OpenInv|searchinv": {"what": "搜索「谁背包里有某个物品」并列出结果", "syntax": "/searchinv <物品ID> [最少数量]", "examples": ["/searchinv diamond 64", "/searchinv minecraft:netherite_ingot"], "notes": "物品用原版 ID，可带命名空间。"},
+  "OpenInv|searchender": {"what": "搜索谁末影箱里有某个物品", "syntax": "/searchender <物品ID> [最少数量]", "examples": ["/searchender shulker_shell"]},
+  "OpenInv|silentcontainer": {"what": "静音容器：开关后开关箱子不再发出声音与动画", "syntax": "/silentcontainer [check|on|off]", "examples": ["/silentcontainer on", "/silentcontainer check"]},
+  "OpenInv|anycontainer": {"what": "允许打开被方块阻挡的容器（例如被方块压住的箱子）", "syntax": "/anycontainer [check|on|off]", "examples": ["/anycontainer on"]},
+  "OpenInv|searchenchant": {"what": "搜索谁持有某个附魔（可限定最低等级）", "syntax": "/searchenchant <附魔名> [最低等级]", "examples": ["/searchenchant sharpness 5", "/searchenchant mending"]},
+  "OpenInv|searchcontainer": {"what": "搜索附近容器里有多少指定物品", "syntax": "/searchcontainer <物品ID> [区块半径]", "examples": ["/searchcontainer diamond_block 5"], "notes": "默认搜索 5 个区块半径，范围越大越慢。"},
+
+  "GSit|gsit": {"what": "主指令：在方块上坐下（台阶、楼梯、地毯等），再次执行站起", "syntax": "/gsit [toggle|playertoggle]", "examples": ["/gsit", "/gsit toggle"], "notes": "`toggle` 用于开关「玩家可以被坐」；具体坐/躺/爬用各自子指令或直接右键。"},
+  "GSit|glay": {"what": "躺下", "syntax": "/glay", "examples": ["/glay"]},
+  "GSit|glayback": {"what": "仰面躺下（背部朝下）", "syntax": "/glayback", "examples": ["/glayback"]},
+  "GSit|gbellyflop": {"what": "俯冲趴地（belly flop）", "syntax": "/gbellyflop", "examples": ["/gbellyflop"]},
+  "GSit|gspin": {"what": "原地旋转", "syntax": "/gspin", "examples": ["/gspin"]},
+  "GSit|gcrawl": {"what": "爬行姿态，开关切换", "syntax": "/gcrawl [toggle]", "examples": ["/gcrawl", "/gcrawl toggle"]},
+  "GSit|gsitreload": {"what": "重载 GSit 配置", "syntax": "/gsitreload", "examples": ["/gsitreload"]},
+
+  "Residence|res": {"what": "领地主指令：创建/管理领地、设置权限、查看列表", "syntax": "/res <子指令> [参数...]", "examples": ["/res create home", "/res list", "/res pset home build true"], "notes": "输入 `/res` 会显示全部子指令；`/res ?` 打印帮助。"},
+  "Residence|residence": {"what": "等同 /res 的完整写法（别名）", "syntax": "/residence <子指令> [参数...]", "examples": ["/residence list"]},
+  "Residence|resadmin": {"what": "管理员指令：绕过领地限制、改他人领地、强制删除", "syntax": "/resadmin <子指令> [参数...]", "examples": ["/resadmin remove 玩家名 领地名", "/resadmin setowner 领地名 新主人"], "notes": "误用会破坏玩家领地数据，操作前先备份 plugins/Residence 目录。"},
+  "Residence|resreload": {"what": "整插件重载（含配置与语言文件）", "syntax": "/resreload", "examples": ["/resreload"], "notes": "重载后已有领地缓存会重建，玩家上线时可能短暂看到默认权限。"},
+  "Residence|resload": {"what": "只重新读取 saves 文件，不重载配置——手工改过 saves 后用它", "syntax": "/resload", "examples": ["/resload"]},
+  "Residence|rc": {"what": "领地频道聊天（只在当前领地内可见）", "syntax": "/rc [消息] · /rc setprefix <前缀> · /rc setcolor <颜色> · /rc kick <玩家>", "examples": ["/rc 有人吗", "/rc setprefix 家园"], "notes": "不进领地或不在领地频道里发消息时是普通聊天。"},
+
+  "CoreProtect|core": {"what": "CoreProtect 主指令别名，等同 /co", "syntax": "/core <子指令>", "examples": ["/core help", "/core lookup u:Steve t:1h"]},
+  "CoreProtect|coreprotect": {"what": "CoreProtect 全名写法，等同 /co", "syntax": "/coreprotect <子指令>", "examples": ["/coreprotect inspect", "/coreprotect rollback t:30m"]},
+
+  "WineSuite|winebook": {"what": "打开酿酒图鉴（查看所有酒类配方与效果）", "syntax": "/winebook [reload]", "examples": ["/winebook", "/winebook reload"]},
+  "WineSuite|winebuyer": {"what": "打开/管理酒水收购商", "syntax": "/winebuyer [list|reload|reset]", "examples": ["/winebuyer", "/winebuyer list", "/winebuyer reset"], "notes": "`reset` 会清空收购进度，按需使用。"},
+
+  "XaeroTracker|xaerotracker": {"what": "小地图（Xaero）玩家追踪：查看谁在追踪你、城镇位置、或全开", "syntax": "/xt <tracked|town|seeall>", "examples": ["/xt tracked", "/xt town", "/xt seeall"]},
+
+  "YiyunCEskin|yiyunceskin": {"what": "云皮肤主指令（CraftEngine 皮肤同步相关操作）", "syntax": "/yiyunceskin <子指令>", "examples": ["/yiyunceskin help"]},
+
+  "PlayerSignIn|playerSignIn": {"what": "每日签到", "syntax": "/playerSignIn", "examples": ["/playerSignIn"], "notes": "签到奖励与补签规则在插件配置里，改奖励需重载。"},
+
+  "TAB|tab": {"what": "TAB 主指令：重载计分板/Tab 列表配置", "syntax": "/tab <子指令>", "examples": ["/tab reload"]},
+
+  "Skript|skript": {"what": "Skript 主指令：重载脚本、查看已加载脚本、执行表达式", "syntax": "/skript <help|reload|scripts|eval|effect>", "examples": ["/skript help", "/skript reload all", "/skript scripts"]},
+
+  "XingmianRPG|rpg": {"what": "星冕 RPG 玩家入口：打开主菜单、进出 RPG 世界、查看伤害统计与秘境钥匙", "syntax": "/rpg [enter|leave|info|dmg|ticket]", "examples": ["/rpg", "/rpg enter", "/rpg dmg"], "notes": "管理员刷怪点/掉落配置请用 `/rpgadmin`。"},
+  "XingmianRPG|rpgadmin": {"what": "星冕 RPG 管理员指令：刷怪点、掉落表、秘境与重置", "syntax": "/rpgadmin <子指令> [参数...]", "examples": ["/rpgadmin sp list", "/rpgadmin drop list <怪物ID>", "/rpgadmin killmobs", "/rpgadmin reset <玩家>"], "notes": "掉落表改动前先 `/rpgadmin drop test <怪物ID>` 验证概率。"},
+  "XingmianRPG|roll": {"what": "掷骰子（玩家用 /roll，打死 boss 自动掷掉落）", "syntax": "/roll", "examples": ["/roll"]},
+  "XingmianRPG|stamina": {"what": "体力值查询与调整（玩家查自己，管理员给他人加减）", "syntax": "/stamina [玩家] · /stamina add|take|set <玩家> <数值>", "examples": ["/stamina", "/stamina add Steve 500", "/stamina reset Steve"], "notes": "上限与刷新规则在配置里，控制台只能对指定玩家操作。"},
+  "XingmianRPG|zjbuyer": {"what": "紫晶收购商：玩家提交材料，管理员查看/打开收购界面", "syntax": "/zjbuyer [info|submit|open|reload] [玩家]", "examples": ["/zjbuyer", "/zjbuyer info Steve", "/zjbuyer reload"]}
+}

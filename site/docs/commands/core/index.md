@@ -7,11 +7,11 @@ createTime: 2026/10/24
 
 权限、插件加载、维护模式、Vault 经济桥等服务器底座。
 
-| 插件 | 版本 | 指令数 | 说明 |
+| 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
-| [ConsoleSpamFixReborn](./consolespamfixreborn.md) | 2.1.0 | 1 | 停止控制台垃圾邮件错误。 |
-| [LuckPerms](./luckperms.md) | 5.5.53 | 1 | 一个权限插件 |
-| [MaintenanceMode](./maintenancemode.md) | 1.0.0 | 1 | — |
-| [PlugManX](./plugmanx.md) | 3.1.0-Beta.2 | 1 | Bukkit服务器的插件管理器 |
-| [Vault](./vault.md) | 2.20.2 | 2 | Vault的公关友好版本；实际上接受公关。 |
-| [WebBridge](./webbridge.md) | 1.0.0 | 1 | 星冕卫星地图网页聊天桥接（网页发言进游戏 + 正版名绑定验证） |
+| [ConsoleSpamFixReborn](/commands/core/consolespamfixreborn.md) | 按规则屏蔽控制台重复报错刷屏 | `/csf` | 1 |
+| [LuckPerms](/commands/core/luckperms.md) | 全局权限系统：组 / 玩家 / 权限节点 | `/luckperms` | 1 |
+| [MaintenanceMode](/commands/core/maintenancemode.md) | 开服维护期间的封服开关 | `/maintenance` | 1 |
+| [PlugManX](/commands/core/plugmanx.md) | 插件热管，不关服就能装、卸、启停插件 | `/plugman` | 1 |
+| [Vault](/commands/core/vault.md) | 经济与权限接口前置库，插件间的通用桥梁 | `/vault-convert`、`/vault-info` | 2 |
+| [WebBridge](/commands/core/webbridge.md) | 打通卫星地图网页聊天与游戏内聊天 | `/mapverify` | 1 |

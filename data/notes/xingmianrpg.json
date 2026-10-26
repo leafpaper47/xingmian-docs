@@ -1,0 +1,131 @@
+{
+  "name": "XingmianRPG",
+  "role": "星陨之地 RPG 世界的整套玩法管控插件",
+  "summary": "XingmianRPG 负责「星陨之地」这个 RPG 世界的全部规则：进出次数管控、星之秘钥（一次性进入道具）、世界内传送与命令封锁、鞘翅限滑翔、按距离触发的刷怪点、怪物掉落与摇点分配、boss 伤害战报，另外附带体力值与紫荆材料收购两个日常系统。命令分成三层：/rpg 给玩家用，/rpgadmin 给管理员配刷怪点和掉落，/stamina 与 /zjbuyer 管两条日常循环。绝大部分配置都在插件自身的 yml 里，改完用 /rpgadmin reload 生效。",
+  "whatFor": [
+    "让玩家进入「星陨之地」RPG 世界并限制每日进入次数",
+    "用星之秘钥道具让玩家额外进入一次，不占当天次数",
+    "在世界内封锁传送与部分命令，并限制鞘翅无限滑翔",
+    "配置按距离触发的刷怪点，按点位管理怪物与刷新冷却",
+    "给 boss 配掉落表：直接给击杀者或走摇点按点数分配",
+    "查看 boss 实时伤害排行与结算战报",
+    "管理玩家体力值，以及紫荆的每日材料收购换星点"
+  ],
+  "flow": [
+    "用 /rpgadmin entry 与 /rpgadmin return 先把进入落点和返回点定好",
+    "用 /rpgadmin sp create 建刷怪点，再用 /rpgadmin sp mob add 往里加怪物",
+    "用 /rpgadmin drop add 给 boss 建掉落规则，必要时改成 roll 摇点并设保底",
+    "玩家用 /rpg 进世界，打完 boss 用 /roll 摇点分装备",
+    "改完配置文件执行 /rpgadmin reload，再用 /rpgadmin info 与 /stamina 核对状态"
+  ],
+  "commands": [
+    {
+      "cmd": "roll",
+      "what": "打开 boss 掉落摇点界面，按点数最高者得奖励",
+      "syntax": "/roll",
+      "params": [],
+      "examples": ["/roll"],
+      "notes": "别名 yaodian、rollpoint、yd。只对配置成 roll 模式的大型 boss 掉落生效，普通怪默认直接给击杀者；摇中后可以点放弃摇点。"
+    },
+    {
+      "cmd": "rpg",
+      "what": "打开 RPG 世界菜单，可进入、离开、查次数与伤害排行",
+      "syntax": "/rpg [enter|leave|info|dmg|ticket]",
+      "params": [
+        {
+          "name": "子指令",
+          "required": false,
+          "note": "不带参数打开菜单；enter 立即进入；leave 离开世界；info 查看今日次数；dmg 查看身边那只 boss 的实时伤害排行；ticket 看星之秘钥说明，ticket buy [数量] 花星点购买"
+        },
+        {
+          "name": "数量",
+          "required": false,
+          "note": "仅 ticket buy 使用，指购买几把星之秘钥，省略时按 1 把处理"
+        }
+      ],
+      "examples": ["/rpg", "/rpg enter", "/rpg info", "/rpg dmg", "/rpg ticket buy 2"],
+      "notes": "别名 rpgmenu、rpgw。建点、加怪、copy 等管理子指令也挂在这个命令下，但需要 xingmianrpg.admin。boss 死亡时插件会自动播报一次战报，不用手动敲 dmg。"
+    },
+    {
+      "cmd": "rpgadmin",
+      "what": "管理 RPG 世界：点位、刷怪、掉落、次数与钥匙",
+      "syntax": "/rpgadmin [reload|info|reset|set|return|entry|tp|killmobs|ticket|sp|drop]",
+      "params": [
+        {
+          "name": "子指令",
+          "required": true,
+          "note": "reload 重载配置；info [玩家] 查进入记录；reset 重置今日次数；set 玩家 次数 直接设已用次数；return 与 entry 用当前位置设返回点与进入落点；tp [玩家] 传进世界且不扣次数；killmobs [点位] 清除本插件刷出的怪；ticket give 玩家 [数量] 发星之秘钥"
+        },
+        {
+          "name": "sp 系列",
+          "required": false,
+          "note": "sp create 建空点位；sp create 新名称 copy 源点位 或 sp copy 复制点位；sp mob add 加怪；sp mob remove|list|clear 管怪；sp remove|list|tp|on|off|test|set|ids 管点位；sp cdreset all 或 点位 刷新补刷冷却"
+        },
+        {
+          "name": "drop 系列",
+          "required": false,
+          "note": "drop add 怪物ID 建掉落规则；drop set 怪物ID mode roll 改摇点；pick chance|weight 切换独立概率或按权重抽件；drop item add 加物品条目；drop cmd add 加命令条目；drop entry list|remove|set 管条目；drop guarantee 设摇点保底；drop list 与 drop test 预览测试"
+        },
+        {
+          "name": "怪物ID",
+          "required": false,
+          "note": "对应怪物插件里的怪物标识，sp mob add 还支持写成 怪物ID:等级 的写法"
+        }
+      ],
+      "examples": [
+        "/rpgadmin reload",
+        "/rpgadmin sp create 荒漠祭坛 16",
+        "/rpgadmin sp mob add 荒漠祭坛 zombie 3",
+        "/rpgadmin drop set boss_sand mode roll",
+        "/rpgadmin ticket give Steve 2"
+      ],
+      "notes": "别名 rgpa、rpgadm、xingmianrpg，需要 xingmianrpg.admin。drop 系列和 /roll 的旧名字完全等价；drop item add 的 CE物品ID 指服务端自定义物品插件里的物品 ID，不是原版物品名。"
+    },
+    {
+      "cmd": "stamina",
+      "what": "查看或增减玩家体力，每天满 100 点",
+      "syntax": "/stamina [玩家] 或 /stamina add|give|take|set|reset 玩家 数值",
+      "params": [
+        {
+          "name": "玩家",
+          "required": false,
+          "note": "目标玩家名，可离线；省略时查自己"
+        },
+        {
+          "name": "数值",
+          "required": false,
+          "note": "add 与 give 为加值（负数即扣），take 为扣除量，set 则设为该值，范围 0 到每日满值"
+        }
+      ],
+      "examples": ["/stamina", "/stamina Steve", "/stamina add Steve -30", "/stamina set Steve 50", "/stamina reset Steve"],
+      "notes": "体力每天 100 点，boss 扣 30、小怪扣 0.1，降到 0 后需要刷新恢复。所有子指令都能由控制台执行，玩家离线也能改。"
+    },
+    {
+      "cmd": "zjbuyer",
+      "what": "紫荆的每日怪物材料收购，交材料换星点",
+      "syntax": "/zjbuyer [info|submit|open|reload] [玩家]",
+      "params": [
+        {
+          "name": "子指令",
+          "required": false,
+          "note": "不带参数打开收购清单界面；info [玩家] 在聊天里列今日清单；submit [玩家] 直接提交今日材料；open [玩家] 为指定玩家打开界面；reload 重载 zijing.yml"
+        },
+        {
+          "name": "玩家",
+          "required": false,
+          "note": "代操作的目标玩家，省略时默认自己"
+        }
+      ],
+      "examples": ["/zjbuyer", "/zjbuyer info", "/zjbuyer submit", "/zjbuyer open Steve"],
+      "notes": "别名 zjb。每天刷 5 种材料，每样交 1 个换星点，每人每天一次；reload 需要 zjbuyer.admin，普通使用要 zjbuyer.use。"
+    }
+  ],
+  "subcommands": [],
+  "caution": [
+    "这是星冕服务器自研插件，具体参数与可用子指令以游戏内 help 和在服上实测为准，别照抄网上的通用教程。",
+    "大部分子指令需要 xingmianrpg.admin（默认 op），/rpg 与 /roll 走 xingmianrpg.use，/zjbuyer 走 zjbuyer.use；权限收回后玩家连菜单都打不开。",
+    "xingmianrpg.bypass 会同时放行传送封锁、命令拦截和鞘翅限制，OP 默认自带，排查「为什么他能飞/能传送」先看这条。",
+    "改完 yml 一定要 /rpgadmin reload（收购配置用 /zjbuyer reload），否则刷怪点与掉落表还是旧数据。"
+  ],
+  "related": ["MythicMobs", "CraftEngine"]
+}

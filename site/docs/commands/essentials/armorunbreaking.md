@@ -3,34 +3,72 @@ title: ArmorUnbreaking
 createTime: 2026/10/24
 ---
 
-# ArmorUnbreaking
+# 盔甲免损耗 · ArmorUnbreaking
 
-> 版本 `1.0.0` · 指令 1 条 · api-version `1.21` · 文件 `ArmorUnbreaking-1.0.0.jar`
+> 分类 🧰 基础工具 · 版本 `1.0.0` · 指令 1 条 · api-version `1.21`
 
-让护甲上的耐久附魔按 L/(L+1) 概率豁免耐久扣减（覆盖全部损耗来源）
-
-::: tip 用法提示
-本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。
-具体子参数可以执行 `/armordura help` 或该插件对应子命令的 `help` 查看。
+::: tip 让护甲耐久附魔按概率豁免耐久扣减
+护甲免损耗插件，把护甲上的耐久（Unbreaking）附魔从原版机制改成按等级算概率豁免耐久扣减，规则为等级除以等级加一，覆盖所有会产生耐久损耗的来源。它不是给玩家发装备的插件，而是调整装备损耗手感，通常和装备发放、副本、生存经济类玩法搭配，让高等级护甲更耐穿。管理员可用一条指令查看当前概率表或重载配置。
 :::
+
+## 什么时候会用到它
+
+- 生存服想让耐久附魔更强、护甲不那么快坏，减少玩家反复修装备的负担
+- 副本或高强度战斗服里，避免玩家在关键战斗中途护甲碎掉
+- 调整过配置文件（概率或豁免范围）后，需要不重启服务器就让改动生效
+- 向玩家或自己确认各耐久等级对应的实际豁免概率，方便讲解或写公告
+
+## 上手流程
+
+1. 确认插件已正常加载，先执行 /armordura table 看一遍当前各耐久等级对应的豁免概率
+2. 按需修改配置文件中的相关设置，改完执行 /armordura reload 让改动即时生效
+3. 再次执行 /armordura table 复核概率是否符合预期，再去游戏内实测耐久消耗
+4. 给管理员组授予 armorunbreaking.admin 权限，普通玩家无需任何权限
 
 ## 指令一览
 
-| 指令 | 说明 | 权限节点 |
+| 指令 | 功能 | 用法 | 权限节点 |
+| --- | --- | --- | --- |
+| `/armordura` | 查看护甲耐久豁免概率表，或重载插件配置<br>别名 `/adura` | `/armordura table｜reload` | `armorunbreaking.admin` |
+
+## 指令详解
+
+### `/armordura` — 查看护甲耐久豁免概率表，或重载插件配置
+
+- **语法**：`/armordura table｜reload`
+
+| 参数 | 必填 | 说明 |
 | --- | --- | --- |
-| `/armordura` | 护甲耐久强化 - 查看概率表 / 重载配置 | `armorunbreaking.admin` |
+| `table 或 reload` | 必填 | table 查看概率表；reload 重新读取配置文件 |
 
-## 详细用法
 
-### /armordura
+- **示例**：
 
-- **说明**：护甲耐久强化 - 查看概率表 / 重载配置
-- **用法**：`/armordura &lt;table|reload&gt;`
+```
+/armordura table
+/armordura reload
+/adura table
+```
+
 - **别名**：`/adura`
 - **权限**：`armorunbreaking.admin`
+- **备注**：别名 adura 可直接替代 armordura。reload 只重读配置，不会补发或改动已有装备；权限节点为 armorunbreaking.admin，默认仅 OP 可用。
+
+## 注意事项
+
+::: warning
+- 具体参数与子指令以游戏内 help 为准，本文只按官方用法说明整理
+- 概率规则是等级除以等级加一，等级越高越接近但不等于完全免损耗，别向玩家承诺永不掉耐久
+- reload 后建议用 table 复核一次，确认配置真的读进去了再对外公告
+- 该指令需要 armorunbreaking.admin 权限，给管理组授权时注意别误发给普通玩家
+:::
 
 ## 权限节点
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
 | `armorunbreaking.admin` | 允许使用 /armordura | op |
+
+## 相关插件
+
+[LuckPerms](/commands/core/luckperms.md)

@@ -7,9 +7,9 @@ createTime: 2026/10/24
 
 领地、容器锁、WorldGuard 图形界面。
 
-| 插件 | 版本 | 指令数 | 说明 |
+| 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
-| [BlockLocker](./blocklocker.md) | 1.14.1 | 1 | — |
-| [Residence](./residence.md) | 6.0.2.4 | 5 | Cuboid Residence插件 |
-| [TownPlugin](./townplugin.md) | 1.4.6-title | 5 | 星冕服务器城镇系统（聚落/乡镇/城镇/王都 繁荣度升级、债券、贷款、多物品任务、缴纳面板、丰收节、城镇传送、执政官称号、 |
-| [WorldGuardGUI](./worldguardgui.md) | 1.0.6 | 1 | WorldGuard 图形化区域管理工具 (Paper 26.2 / WG 7.0.18) |
+| [BlockLocker](/commands/protect/blocklocker.md) | 用告示牌给箱子门做私有上锁 | `/blocklocker` | 1 |
+| [Residence](/commands/protect/residence.md) | 方块领地保护与经济租赁一体化管理 | `/rc`、`/res`、`/resadmin`… | 5 |
+| [TownPlugin](/commands/protect/townplugin.md) | 星冕服自研城镇系统，聚落建城与城镇管理 | `/town`、`/townadmin`、`/townui`… | 5 |
+| [WorldGuardGUI](/commands/protect/worldguardgui.md) | WorldGuard 区域的图形化管理界面 | `/wggui` | 1 |

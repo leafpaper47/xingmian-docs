@@ -1,12 +1,22 @@
 # -*- coding: utf-8 -*-
 """根据服务器插件 jar 中 plugin.yml 的解析结果（wcdoc/data/plugin_commands.json）
-生成 VuePress + theme-plume 的管理员指令文档站内容。"""
-import json, os, re, unicodedata, hashlib
++ 人工注解库（wcdoc/data/notes/*.json）
+生成 VuePress + theme-plume 的管理员指令文档站内容。
+
+页面结构：
+  /                    指令总览（站点入口，不再有「首页」）
+  /permissions.md      权限节点总表
+  /commands/<cat>/     分类索引
+  /commands/<cat>/<slug>.md   单插件页（有注解 → 完整版；无注解 → plugin.yml 极简版）
+"""
+import json, os, re, hashlib
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data", "plugin_commands.json")
+NOTES = os.path.join(ROOT, "data", "notes")
 SITE = os.path.join(ROOT, "site")
 DOCS = os.path.join(SITE, "docs")
+TODAY = "2026/10/24"
 
 # ---------------- 分类定义 ----------------
 CATS = [
@@ -56,8 +66,7 @@ ASSIGN = {
     "YiyunCEskin": "entity",
 }
 
-# 侧边栏显示名：功能简称-插件名，例如 控制台屏蔽-ConsoleSpamFixReborn
-# 没登记的新插件会退化成「分类名-插件名」，补一行即可
+# 侧边栏 / 标题用的功能简称
 FUNC_CN = {
     "ALCERecipeViewer": "配方查询", "AfDianPay": "爱发电支付", "Ah-Toy-1.0": "小玩具",
     "Ah-WolfmanKill-1.0": "狼人杀", "ArchitectPlugin": "建筑师工具", "ArmorUnbreaking": "盔甲免损耗",
@@ -88,11 +97,20 @@ FUNC_CN = {
     "YiyunCEskin": "云皮肤", "allmusic": "全服音乐",
 }
 
-COLOR = re.compile(r"[§&][0-9a-fk-orxA-FK-ORX]")
+COLOR = re.compile(r"[§&](?![a-zA-Z]+;)[0-9a-fk-orxA-FK-ORX]")
+
+
+def decolor(s):
+    """只去颜色码、不转义（用于把人工注解读进来后再统一转义一次）"""
+    if s is None:
+        return ""
+    s = COLOR.sub("", str(s)).replace("\r", "")
+    s = s.replace("|", "\uff5c")  # 全角竖线：笔记里的 <true|false> 之类在表格里不必转义
+    return s.strip()
 
 
 def clean(s):
-    """去颜色码 + HTML 转义（页面会被当作 Vue 模板编译，裸 < > 会导致构建失败）"""
+    """去颜色码 + HTML/模板转义（页面会被当作 Vue 模板编译，裸 < > {{ }} 会导致构建失败）"""
     if s is None:
         return ""
     s = str(s)
@@ -107,6 +125,17 @@ def slug(name):
     s = name.lower()
     s = re.sub(r"[^a-z0-9\u4e00-\u9fff]+", "-", s).strip("-")
     return s or hashlib.md5(name.encode()).hexdigest()[:8]
+
+
+CODE_SPAN = re.compile(r"`[^`\n]*`")
+
+
+def fix_code_spans(text):
+    """反引号代码段里不该预先 HTML 转义：markdown-it 会自己转义，预先转义会显示成 &lt;x&gt;"""
+    def _one(m):
+        t = m.group(0)
+        return t.replace("&lt;", "<").replace("&gt;", ">").replace("&amp;", "&")
+    return CODE_SPAN.sub(_one, text)
 
 
 def cell(s):
@@ -131,11 +160,100 @@ def zh(s):
     return ZH_CACHE.get(s, s)
 
 
+# 补充表：data/notes/*.json 没覆盖到的指令，用它补 what/syntax/examples/notes
+AUTO = {}
+_AUTO_FILE = os.path.join(os.path.dirname(DATA), "auto_usage.json")
+if os.path.isfile(_AUTO_FILE):
+    with open(_AUTO_FILE, encoding="utf-8") as _f:
+        AUTO = {k: v for k, v in json.load(_f).items() if not k.startswith("_")}
+
+# 参数占位符 → 样例值（用于自动生成「示例」）
+SAMPLE = [
+    ("player", "Steve"), ("玩家", "Steve"), ("name", "Steve"), ("uuid", "069a79f4-44e9-4726-a5be-fca90e38aaf5"),
+    ("material", "diamond"), ("item", "diamond_sword"), ("block", "stone"), ("物品", "diamond_sword"), ("方块", "stone"),
+    ("amount", "10"), ("数量", "10"), ("count", "10"), ("number", "10"), ("page", "1"), ("页码", "1"),
+    ("world", "world"), ("世界", "world"), ("radius", "10"), ("半径", "10"), ("distance", "10"),
+    ("message", "你好"), ("text", "你好"), ("reason", "测试"), ("原因", "测试"), ("msg", "你好"),
+    ("second", "30"), ("时间", "30"), ("minute", "5"), ("time", "30"), ("duration", "30"),
+    ("x", "0"), ("y", "64"), ("z", "0"), ("enchantment", "sharpness"), ("附魔", "sharpness"),
+    ("level", "1"), ("等级", "1"), ("command", "help"), ("子指令", "help"), ("arg", "参数"),
+]
+
+TOKEN = re.compile(r"<[^<>]+>|\[[^\[\]]+\]")
+
+
+def _sample(token):
+    """把 <player> / [amount] 这类占位符换成样例值；认不出来就返回空串（表示可选、可省略）"""
+    t = token.strip("<>[]").lower()
+    t = re.sub(r"[\s_\-:/]+", " ", t).strip()
+    for key, val in SAMPLE:
+        if t == key or t.startswith(key + " ") or t.endswith(" " + key) or (" " + key + " ") in t:
+            return val
+    return ""
+
+
+def derive_syntax(cmd, usage):
+    """把 plugin.yml 的 usage（如 `/<command> [Player] - Open ...`）整理成一行语法"""
+    if not usage:
+        return ""
+    u = decolor(usage)
+    u = u.replace("/<command>", "/" + cmd).replace("<command>", cmd)
+    u = re.split(r"\s+[-\u2013\u2014]\s+", u)[0]      # 去掉 usage 后面的英文解释
+    u = re.sub(r"^/(?!%s)" % re.escape(cmd), "/", u)  # 归一化开头的斜杠
+    u = re.sub(r"\s+", " ", u).strip()
+    return u
+
+
+def derive_examples(cmd, usage):
+    """按语法自动造两条示例：①参数填满 ②只留必填参数"""
+    syn = derive_syntax(cmd, usage)
+    if not syn:
+        return []
+
+    def fill(tokens, keep_optional):
+        out, last = [], 0
+        for m in TOKEN.finditer(syn):
+            out.append(syn[last:m.start()])
+            tok = m.group(0)
+            val = _sample(tok)
+            optional = tok.startswith("[")
+            if optional and not keep_optional:
+                pass
+            else:
+                out.append(val or "")
+            last = m.end()
+        out.append(syn[last:])
+        s = re.sub(r"\s+", " ", "".join(out)).strip()
+        return s.rstrip(" ").replace("  ", " ")
+
+    full = fill(syn, True)
+    mini = fill(syn, False)
+    res = [full]
+    if mini != full:
+        res.append(mini)
+    return res
+
+
+def cmd_info(plugin_name, row, note):
+    """合并三层信息：人工注解 > auto_usage.json > plugin.yml 推导"""
+    nc = (note or {}).get("commands", {}).get(row["name"], {})
+    au = AUTO.get("%s|%s" % (plugin_name, row["name"]), {})
+    usage = row.get("usage")
+    info = {
+        "what": nc.get("what") or au.get("what") or row.get("desc") or "",
+        "syntax": nc.get("syntax") or au.get("syntax") or derive_syntax(row["name"], usage),
+        "params": nc.get("params") or au.get("params") or [],
+        "examples": nc.get("examples") or au.get("examples") or derive_examples(row["name"], usage),
+        "notes": nc.get("notes") or au.get("notes") or "",
+    }
+    return info
+
+
 def usage_block(cmd, usage):
     u = clean(usage)
     if not u:
         return ""
-    u = u.replace("<command>", cmd)
+    u = u.replace("&lt;command&gt;", cmd).replace("<command>", cmd)
     lines = [l.strip() for l in u.split("\n") if l.strip()]
     return "<br>".join(f"`{l}`" for l in lines)
 
@@ -168,6 +286,66 @@ def collect_commands(rec):
     return rows
 
 
+# ---------------- 人工注解 ----------------
+def load_note(name):
+    """读 data/notes/<slug>.json，返回规整后的 dict 或 None"""
+    fn = os.path.join(NOTES, slug(name) + ".json")
+    if not os.path.isfile(fn):
+        return None
+    try:
+        with open(fn, encoding="utf-8") as f:
+            raw = json.load(f)
+    except Exception as ex:  # 坏文件不阻塞整站生成
+        print("  !! 注解解析失败 %s: %r" % (fn, ex))
+        return None
+    if str(raw.get("name", "")).strip() != name:
+        print("  !! 注解 name 不匹配（%s != %s），已跳过：%s" % (raw.get("name"), name, fn))
+        return None
+
+    def s(v):
+        return decolor(v) if isinstance(v, str) else ""
+
+    def sl(v):
+        return [decolor(x) for x in v if isinstance(x, str) and str(x).strip()] if isinstance(v, list) else []
+
+    cmds = {}
+    for c in raw.get("commands") or []:
+        if not isinstance(c, dict):
+            continue
+        key = str(c.get("cmd") or "").strip().lstrip("/")
+        if not key:
+            continue
+        params = []
+        for p in c.get("params") or []:
+            if isinstance(p, dict) and p.get("name"):
+                params.append({
+                    "name": decolor(p.get("name")),
+                    "required": bool(p.get("required")),
+                    "note": decolor(p.get("note")),
+                })
+        cmds[key] = {
+            "what": s(c.get("what")),
+            "syntax": s(c.get("syntax")),
+            "params": params,
+            "examples": sl(c.get("examples")),
+            "notes": s(c.get("notes")),
+        }
+    subs = []
+    for x in raw.get("subcommands") or []:
+        if isinstance(x, dict) and x.get("cmd"):
+            subs.append({"cmd": decolor(x.get("cmd")), "desc": decolor(x.get("desc")), "example": decolor(x.get("example"))})
+    return {
+        "role": s(raw.get("role")),
+        "summary": s(raw.get("summary")),
+        "whatFor": sl(raw.get("whatFor")),
+        "flow": sl(raw.get("flow")),
+        "commands": cmds,
+        "subcommands": subs,
+        "caution": sl(raw.get("caution")),
+        "related": sl(raw.get("related")),
+    }
+
+
 def main():
     data = [r for r in json.load(open(DATA, encoding="utf-8")) if r.get("commands")]
     plugins = []
@@ -178,14 +356,13 @@ def main():
         plugins.append({
             "name": name, "cat": cat, "version": str(r.get("version") or "-"),
             "desc": clean(zh(r.get("desc"))), "file": r.get("file"), "rows": rows,
-            "perms": r.get("permissions") or {},
-            "api": r.get("api"),
+            "perms": r.get("permissions") or {}, "api": r.get("api"),
+            "func": FUNC_CN.get(name, ""), "note": load_note(name),
         })
 
-    for d in ("", "commands") + tuple("commands/" + c for c in CAT_ORDER):
+    for d in ("",) + tuple("commands/" + c for c in CAT_ORDER):
         os.makedirs(os.path.join(DOCS, d), exist_ok=True)
 
-    # ---------- 单插件页面 ----------
     index = {c: [] for c in CAT_ORDER}
     total_cmds = 0
     for p in sorted(plugins, key=lambda x: (CAT_ORDER.index(x["cat"]), x["name"].lower())):
@@ -194,84 +371,187 @@ def main():
         total_cmds += len(p["rows"])
         index[p["cat"]].append(p)
 
-        L = []
-        L.append("---")
-        L.append("title: %s" % p["name"].replace(":", "："))
-        L.append("createTime: 2026/10/24")
-        L.append("---")
-        L.append("")
-        L.append("# %s" % p["name"])
-        L.append("")
-        meta = []
-        meta.append("版本 `%s`" % p["version"])
-        meta.append("指令 %d 条" % len(p["rows"]))
-        if p["api"]:
-            meta.append("api-version `%s`" % p["api"])
-        meta.append("文件 `%s`" % p["file"])
-        L.append("> " + " · ".join(meta))
-        L.append("")
-        if p["desc"]:
-            L.append(p["desc"])
-            L.append("")
-        L.append("::: tip 用法提示")
-        L.append("本页数据由服务器上该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**。")
-        L.append("具体子参数可以执行 `/%s help` 或该插件对应子命令的 `help` 查看。" % (p["rows"][0]["name"] if p["rows"] else p["name"]))
-        L.append(":::")
-        L.append("")
-        L.append("## 指令一览")
-        L.append("")
-        L.append("| 指令 | 说明 | 权限节点 |")
-        L.append("| --- | --- | --- |")
-        for c in p["rows"]:
-            L.append("| `/%s` | %s | %s |" % (c["name"], cell(c["desc"]), ("`%s`" % c["permission"]) if c["permission"] else "—"))
-        L.append("")
-        detail = [c for c in p["rows"] if c["usage"] or c["aliases"] or c["permission"]]
-        if detail:
-            L.append("## 详细用法")
-            L.append("")
-            for c in detail:
-                L.append("### /%s" % c["name"])
-                L.append("")
-                if c["desc"]:
-                    L.append("- **说明**：%s" % c["desc"])
-                if c["usage"]:
-                    L.append("- **用法**：%s" % usage_block(c["name"], c["usage"]))
-                if c["aliases"]:
-                    L.append("- **别名**：%s" % "、".join("`/%s`" % a for a in c["aliases"]))
-                if c["permission"]:
-                    L.append("- **权限**：`%s`" % c["permission"])
-                L.append("")
-        perms = p["perms"] if isinstance(p["perms"], dict) else {}
-        if perms:
-            L.append("## 权限节点")
-            L.append("")
-            L.append("| 节点 | 说明 | 默认 |")
-            L.append("| --- | --- | --- |")
-            for k, v in sorted(perms.items()):
-                v = v if isinstance(v, dict) else {}
-                L.append("| `%s` | %s | %s |" % (k, cell(zh(v.get("description") or "")), cell(v.get("default") or "—")))
-            L.append("")
-        open(os.path.join(DOCS, "commands", p["cat"], p["slug"] + ".md"), "w", encoding="utf-8", newline="\n").write("\n".join(L))
+    # 名称 → 页面，供「相关插件」建链
+    PMAP = {p["name"]: p for p in plugins}
 
-    # ---------- 分类首页 ----------
+    noted = 0
+    for c in CAT_ORDER:
+        for p in index[c]:
+            n = p["note"]
+            if n:
+                noted += 1
+            rows = p["rows"]
+            head = ("%s · %s" % (p["func"], p["name"])) if p["func"] else p["name"]
+            L = ["---", "title: %s" % p["name"].replace(":", "："), "createTime: %s" % TODAY, "---", ""]
+            L.append("# %s" % head)
+            L.append("")
+            meta = ["分类 %s %s" % (CAT_META[p["cat"]]["icon"], CAT_META[p["cat"]]["title"])]
+            meta.append("版本 `%s`" % p["version"])
+            meta.append("指令 %d 条" % len(rows))
+            if p["api"]:
+                meta.append("api-version `%s`" % p["api"])
+            L.append("> " + " · ".join(meta))
+            L.append("")
+
+            if n:
+                if n["summary"] or n["role"]:
+                    L.append("::: tip %s" % (n["role"] or "这个插件是干什么的"))
+                    if n["summary"]:
+                        L.append(n["summary"])
+                    L.append(":::")
+                    L.append("")
+                if n["whatFor"]:
+                    L.append("## 什么时候会用到它")
+                    L.append("")
+                    for x in n["whatFor"]:
+                        L.append("- %s" % x)
+                    L.append("")
+                if n["flow"]:
+                    L.append("## 上手流程")
+                    L.append("")
+                    for i, x in enumerate(n["flow"], 1):
+                        L.append("%d. %s" % (i, x))
+                    L.append("")
+            else:
+                if p["desc"]:
+                    L.append(p["desc"])
+                    L.append("")
+                L.append("::: tip 用法提示")
+                L.append("本页数据由该插件 jar 内的 `plugin.yml` 自动解析生成，只包含**指令名、说明、用法格式、别名与权限节点**，尚未补人工注解。")
+                mint = rows[0]["name"] if rows else p["name"]
+                L.append("具体子参数请执行 `/%s help` 查看；需要补注解见 `data/notes/README.md`。" % mint)
+                L.append(":::")
+                L.append("")
+
+            # 三层信息合并（注解 > 补充表 > plugin.yml 推导）
+            infos = {x["name"]: cmd_info(p["name"], x, n) for x in rows}
+
+            # ---------- 指令一览 ----------
+            L.append("## 指令一览")
+            L.append("")
+            L.append("| 指令 | 功能 | 用法 | 权限节点 |")
+            L.append("| --- | --- | --- | --- |")
+            for x in rows:
+                inf = infos[x["name"]]
+                what = cell(inf["what"]) if inf["what"] else "—"
+                alias = ("<br>别名 %s" % "、".join("`/%s`" % a for a in x["aliases"])) if x["aliases"] else ""
+                syn = inf["syntax"]
+                if len(syn) > 52:
+                    syn = syn[:50] + "…"
+                syn_cell = ("`%s`" % syn) if syn else "—"
+                perm = ("`%s`" % x["permission"]) if x["permission"] else "—"
+                L.append("| `/%s` | %s%s | %s | %s |" % (x["name"], what, alias, cell(syn_cell), perm))
+            L.append("")
+
+            # ---------- 指令详解 ----------
+            if rows:
+                L.append("## 指令详解")
+                L.append("")
+                for x in rows:
+                    inf = infos[x["name"]]
+                    title = "`/%s`" % x["name"]
+                    if inf["what"]:
+                        title += " — %s" % inf["what"]
+                    L.append("### %s" % title)
+                    L.append("")
+                    if inf["syntax"]:
+                        L.append("- **语法**：`%s`" % inf["syntax"])
+                    if inf["params"]:
+                        L.append("")
+                        L.append("| 参数 | 必填 | 说明 |")
+                        L.append("| --- | --- | --- |")
+                        for pr in inf["params"]:
+                            L.append("| `%s` | %s | %s |" % (cell(pr.get("name")), "必填" if pr.get("required") else "可选", cell(pr.get("note"))))
+                        L.append("")
+                    if inf["examples"]:
+                        L.append("")
+                        L.append("- **示例**：")
+                        L.append("")
+                        L.append("```")
+                        for ex in inf["examples"]:
+                            L.append(ex)
+                        L.append("```")
+                        L.append("")
+                    if x["aliases"]:
+                        L.append("- **别名**：%s" % "、".join("`/%s`" % a for a in x["aliases"]))
+                    if x["permission"]:
+                        L.append("- **权限**：`%s`" % x["permission"])
+                    if inf["notes"]:
+                        L.append("- **备注**：%s" % inf["notes"])
+                    L.append("")
+
+            # ---------- 子指令速查 ----------
+            if n and n["subcommands"]:
+                L.append("## 子指令速查")
+                L.append("")
+                L.append("| 子指令 | 功能 | 示例 |")
+                L.append("| --- | --- | --- |")
+                for sc in n["subcommands"]:
+                    L.append("| `%s` | %s | %s |" % (cell(sc["cmd"]), cell(sc["desc"]), ("`%s`" % sc["example"]) if sc["example"] else "—"))
+                L.append("")
+
+            # ---------- 注意事项 ----------
+            if n and n["caution"]:
+                L.append("## 注意事项")
+                L.append("")
+                L.append("::: warning")
+                for x in n["caution"]:
+                    L.append("- %s" % x)
+                L.append(":::")
+                L.append("")
+
+            # ---------- 权限节点 ----------
+            perms = p["perms"] if isinstance(p["perms"], dict) else {}
+            if perms:
+                L.append("## 权限节点")
+                L.append("")
+                L.append("| 节点 | 说明 | 默认 |")
+                L.append("| --- | --- | --- |")
+                for k, v in sorted(perms.items()):
+                    v = v if isinstance(v, dict) else {}
+                    L.append("| `%s` | %s | %s |" % (k, cell(zh(v.get("description") or "")), cell(v.get("default") or "—")))
+                L.append("")
+
+            # ---------- 相关插件 ----------
+            rel = [x for x in (n or {}).get("related", []) if x]
+            if rel:
+                parts = []
+                for rn in rel:
+                    if rn in PMAP:
+                        parts.append("[%s](%s)" % (rn, PMAP[rn]["path"]))
+                    else:
+                        parts.append(rn)
+                L.append("## 相关插件")
+                L.append("")
+                L.append("、".join(parts))
+                L.append("")
+
+            open(os.path.join(DOCS, "commands", p["cat"], p["slug"] + ".md"), "w", encoding="utf-8", newline="\n").write(fix_code_spans("\n".join(L)))
+
+    # ---------- 分类索引 ----------
     for c in CAT_ORDER:
         items = index[c]
         if not items:
             continue
         meta = CAT_META[c]
-        L = ["---", "title: %s" % meta["title"], "createTime: 2026/10/24", "---", "", "# %s %s" % (meta["icon"], meta["title"]), ""]
+        L = ["---", "title: %s" % meta["title"], "createTime: %s" % TODAY, "---", "", "# %s %s" % (meta["icon"], meta["title"]), ""]
         L.append(meta["desc"])
         L.append("")
-        L.append("| 插件 | 版本 | 指令数 | 说明 |")
+        L.append("| 插件 | 定位 | 指令 | 指令数 |")
         L.append("| --- | --- | --- | --- |")
         for p in items:
-            L.append("| [%s](%s) | %s | %d | %s |" % (p["name"], "./" + p["slug"] + ".md", p["version"], len(p["rows"]), cell(p["desc"])[:60]))
+            n = p["note"]
+            role = (n["role"] if n and n["role"] else p["desc"])[:70]
+            heads = "、".join("`/%s`" % x["name"] for x in p["rows"][:3])
+            more = "…" if len(p["rows"]) > 3 else ""
+            L.append("| [%s](%s) | %s | %s%s | %d |" % (p["name"], p["path"], cell(role), heads, more, len(p["rows"])))
         L.append("")
-        open(os.path.join(DOCS, "commands", c, "index.md"), "w", encoding="utf-8", newline="\n").write("\n".join(L))
+        open(os.path.join(DOCS, "commands", c, "index.md"), "w", encoding="utf-8", newline="\n").write(fix_code_spans("\n".join(L)))
 
-    # ---------- 指令总览 ----------
-    L = ["---", "title: 指令总览", "createTime: 2026/10/24", "---", "", "# 指令总览", ""]
-    L.append("共 **%d** 个插件、**%d** 条指令，按功能分类。" % (len(plugins), total_cmds))
+    # ---------- 指令总览（站点根页面，取代原「首页」） ----------
+    L = ["---", "title: 指令总览", "createTime: %s" % TODAY, "---", "", "# 星冕服务器 · 指令总览", ""]
+    L.append("共 **%d** 个插件、**%d** 条指令。每个插件页含「指令一览（指令/功能/用法/权限）」与「指令详解（语法、参数、示例）」。用右上角搜索（`Ctrl + K`）可直接搜指令名，例如 `co`、`lp`、`res`。"
+             % (len(plugins), total_cmds))
     L.append("")
     for c in CAT_ORDER:
         items = index[c]
@@ -280,33 +560,38 @@ def main():
         meta = CAT_META[c]
         L.append("## %s %s" % (meta["icon"], meta["title"]))
         L.append("")
-        L.append("| 插件 | 指令 | 指令数 |")
-        L.append("| --- | --- | --- |")
-        for p in items:
-            heads = "、".join("`/%s`" % x["name"] for x in p["rows"][:6])
-            more = "…" if len(p["rows"]) > 6 else ""
-            L.append("| [%s](/commands/%s/%s.md) | %s%s | %d |" % (p["name"], c, p["slug"], heads, more, len(p["rows"])))
+        L.append(meta["desc"])
         L.append("")
-    open(os.path.join(DOCS, "commands", "index.md"), "w", encoding="utf-8", newline="\n").write("\n".join(L))
+        L.append("| 插件 | 定位 | 主要指令 | 指令数 |")
+        L.append("| --- | --- | --- | --- |")
+        for p in items:
+            n = p["note"]
+            role = (n["role"] if n and n["role"] else p["desc"])[:60]
+            heads = "、".join("`/%s`" % x["name"] for x in p["rows"][:4])
+            more = "…" if len(p["rows"]) > 4 else ""
+            L.append("| [%s](%s) | %s | %s%s | %d |" % (p["name"], p["path"], cell(role), heads, more, len(p["rows"])))
+        L.append("")
+    open(os.path.join(DOCS, "index.md"), "w", encoding="utf-8", newline="\n").write(fix_code_spans("\n".join(L)))
+
+    # 旧的「指令总览」二级页不再生成，避免和根页面重复
+    old_cmd_index = os.path.join(DOCS, "commands", "index.md")
+    if os.path.isfile(old_cmd_index):
+        os.remove(old_cmd_index)
 
     # ---------- 权限节点总表 ----------
-    L = ["---", "title: 权限节点总表", "createTime: 2026/10/24", "---", "", "# 权限节点总表", ""]
+    L = ["---", "title: 权限节点总表", "createTime: %s" % TODAY, "---", "", "# 权限节点总表", ""]
     L.append("下表汇总了各插件 `plugin.yml` 中声明的权限节点。默认值 `op` 表示仅管理员组默认拥有，`true` 表示所有玩家默认拥有。")
     L.append("")
     L.append("::: warning")
     L.append("LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 `lp group <组> permission info` 或游戏内测试为准。")
     L.append(":::")
     L.append("")
+    L.append("::: warning 别外传")
+    L.append("本手册包含服务器权限节点与内部指令结构，仅供服内管理组使用。")
+    L.append(":::")
+    L.append("")
     for c in CAT_ORDER:
-        items = index[c]
-        if not items:
-            continue
-        block = []
-        for p in items:
-            perms = p["perms"] if isinstance(p["perms"], dict) else {}
-            if not perms:
-                continue
-            block.append((p, perms))
+        block = [(p, p["perms"]) for p in index[c] if isinstance(p["perms"], dict) and p["perms"]]
         if not block:
             continue
         L.append("## %s %s" % (CAT_META[c]["icon"], CAT_META[c]["title"]))
@@ -316,44 +601,45 @@ def main():
         for p, perms in block:
             for k, v in sorted(perms.items()):
                 v = v if isinstance(v, dict) else {}
-                L.append("| [%s](/commands/%s/%s.md) | `%s` | %s | %s |" % (p["name"], c, p["slug"], k, cell(zh(v.get("description")))[:50], cell(v.get("default") or "—")))
+                L.append("| [%s](%s) | `%s` | %s | %s |" % (p["name"], p["path"], k, cell(zh(v.get("description")))[:50], cell(v.get("default") or "—")))
         L.append("")
-    open(os.path.join(DOCS, "permissions.md"), "w", encoding="utf-8", newline="\n").write("\n".join(L))
+    open(os.path.join(DOCS, "permissions.md"), "w", encoding="utf-8", newline="\n").write(fix_code_spans("\n".join(L)))
 
-    # ---------- 侧边栏 ----------
+    # ---------- 侧边栏 / 导航 ----------
     T = ["import type { ThemeNavItem, ThemeSidebarMulti } from 'vuepress-theme-plume'", ""]
     T.append("export const navbar: ThemeNavItem[] = [")
-    T.append("  { text: '首页', link: '/' },")
-    T.append("  { text: '指令总览', link: '/commands/' },")
+    T.append("  { text: '指令总览', link: '/' },")
     T.append("  { text: '权限总表', link: '/permissions.md' },")
     T.append("]")
     T.append("")
     T.append("export const sidebar: ThemeSidebarMulti = {")
     T.append("  '/commands/': [")
-    T.append("    { text: '指令总览', link: '/commands/' },")
+    T.append("    { text: '← 指令总览', link: '/' },")
     for c in CAT_ORDER:
         if not index[c]:
             continue
         meta = CAT_META[c]
         T.append("    {")
         T.append("      text: '%s %s'," % (meta["icon"], meta["title"]))
+        T.append("      link: '/commands/%s/'," % c)
         T.append("      collapsed: false,")
         T.append("      items: [")
         for p in index[c]:
             label = FUNC_CN.get(p["name"], meta["title"])
-            T.append("        { text: '%s-%s', link: '/commands/%s/%s.md' }," % (label, p["name"], c, p["slug"]))
+            T.append("        { text: '%s-%s', link: '%s' }," % (label, p["name"].replace("'", ""), p["path"]))
         T.append("      ],")
         T.append("    },")
     T.append("  ],")
     T.append("  '/': [")
-    T.append("    { text: '指令总览', link: '/commands/' },")
+    T.append("    { text: '指令总览', link: '/' },")
     T.append("    { text: '权限节点总表', link: '/permissions.md' },")
     T.append("  ],")
     T.append("}")
     os.makedirs(os.path.join(DOCS, ".vuepress"), exist_ok=True)
     open(os.path.join(DOCS, ".vuepress", "sidebar.ts"), "w", encoding="utf-8", newline="\n").write("\n".join(T))
 
-    print("插件页 %d 个，指令 %d 条，分类 %d 个" % (len(plugins), total_cmds, len([c for c in CAT_ORDER if index[c]])))
+    print("插件页 %d 个（其中带人工注解 %d 个），指令 %d 条，分类 %d 个"
+          % (len(plugins), noted, total_cmds, len([c for c in CAT_ORDER if index[c]])))
 
 
 if __name__ == "__main__":

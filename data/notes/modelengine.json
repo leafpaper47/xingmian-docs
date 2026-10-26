@@ -1,0 +1,79 @@
+{
+  "name": "ModelEngine",
+  "role": "让服务器用自定义 3D 模型替换生物外观并播放动画",
+  "summary": "ModelEngine 是自定义模型引擎，把 Blockbench 导出的模型做成可动的服务器实体，用来替换原版生物外观或摆出纯装饰的模型。它本身只负责生成模型和播动画，实际玩法一般交给 MythicMobs、DeluxeMenus 之类去调用，配合资源包下发模型文件才能被客户端看见。",
+  "whatFor": [
+    "想把原版僵尸、苦力怕换成自制 BOSS 或宠物外观",
+    "需要摆一个会动的装饰模型，比如雕像、坐骑、NPC",
+    "排查模型显示不出来、材质发白、动画不播放的问题",
+    "给 MythicMobs 的技能或副本准备模型与动画"
+  ],
+  "flow": [
+    "先把模型文件夹放进 plugins/ModelEngine/blueprints，并确保服务器资源包已下发对应贴图与模型文件",
+    "执行 /meg reload 让引擎重新加载所有模型，观察控制台有没有加载报错",
+    "用 /meg model list 确认模型已被识别，再用 /meg spawn 生成一只测试并检查外观与动画",
+    "确认无误后再交给 MythicMobs 等插件在技能里正式调用模型"
+  ],
+  "commands": [
+    {
+      "cmd": "meg",
+      "what": "模型引擎主指令，下面所有操作都通过它的子指令完成",
+      "syntax": "/meg",
+      "params": [],
+      "examples": [
+        "/meg help",
+        "/meg reload",
+        "/meg model list"
+      ],
+      "notes": "需要权限 modelengine.command（默认仅 OP）。控制台也可直接执行，但生成类子指令依赖具体坐标，通常还是游戏内用。"
+    }
+  ],
+  "subcommands": [
+    {
+      "cmd": "help",
+      "desc": "列出全部可用子指令与用法",
+      "example": "/meg help"
+    },
+    {
+      "cmd": "reload",
+      "desc": "重新加载所有模型与配置，改完模型文件后用",
+      "example": "/meg reload"
+    },
+    {
+      "cmd": "model list",
+      "desc": "列出当前已加载的全部模型名",
+      "example": "/meg model list"
+    },
+    {
+      "cmd": "model info 模型名",
+      "desc": "查看某个模型的详细信息，含动画、骨骼、贴图等",
+      "example": "/meg model info example_model"
+    },
+    {
+      "cmd": "spawn 模型名",
+      "desc": "在指定坐标生成一个模型实体，可附加朝向参数",
+      "example": "/meg spawn example_model 0 64 0"
+    },
+    {
+      "cmd": "remove",
+      "desc": "移除已生成的模型实体，用于清理测试模型",
+      "example": "/meg remove"
+    },
+    {
+      "cmd": "status",
+      "desc": "查看引擎当前状态，包括已生成的模型数量等信息",
+      "example": "/meg status"
+    }
+  ],
+  "caution": [
+    "模型要先在客户端资源包里存在，只装插件不会有外观；玩家没拿到资源包时会看到隐形或原版生物",
+    "改完模型文件必须 /meg reload，但重载后已经生成的实体可能外观错乱，建议清掉重新生成",
+    "子指令在不同 R4 小版本间略有差异，具体参数以游戏内 /meg help 的输出为准",
+    "模型数量多时重载会卡顿几秒，尽量在低峰期操作"
+  ],
+  "related": [
+    "MythicMobs",
+    "PlaceholderAPI",
+    "DeluxeMenus"
+  ]
+}

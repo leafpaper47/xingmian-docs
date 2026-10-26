@@ -7,13 +7,13 @@ createTime: 2026/10/24
 
 聊天格式、公告、邮件、称号、语音、计分板。
 
-| 插件 | 版本 | 指令数 | 说明 |
+| 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
-| [BroadcastPlusPlus](./broadcastplusplus.md) | 2.6.0 | 1 | — |
-| [LeafChat](./leafchat.md) | 1.0.5 | 8 | 现代化聊天管理插件（聊天颜色 / 物品展示 / 私聊 / 禁言 / 跨服） |
-| [PlayerTitle](./playertitle.md) | 5.0.6 | 1 | 一个有点好用的称号插件 |
-| [SweetMail](./sweetmail.md) | 1.1.12-unstable | 1 | — |
-| [TAB](./tab.md) | 6.1.2 | 1 | 有效的一体化解决方案 |
-| [vcm](./vcm.md) | 0.1.1+26.2 | 1 | 在服务器上添加语音扩音器（Simple Voice Chat 附属，已适配 26.2 并汉化） |
-| [voicechat](./voicechat.md) | 2.6.21 | 1 | Minecraft中的有效语音聊天 |
-| [YaoqingPlugin](./yaoqingplugin.md) | 1.0.0 | 1 | 星冕服务器「星友同行」老玩家拉新插件：邀请码绑定、里程碑奖励、全GUI交互 |
+| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | 统一管理全服公告广播与多种显示通道 | `/broadcast` | 1 |
+| [LeafChat](/commands/chat/leafchat.md) | 统一管理聊天格式、私聊、禁言与物品展示 | `/chatcolor`、`/leafchat`、`/leafchatview`… | 8 |
+| [PlayerTitle](/commands/chat/playertitle.md) | 称号系统：发放、展示、商城与收藏 | `/playerTitle` | 1 |
+| [SweetMail](/commands/chat/sweetmail.md) | 玩家之间离线寄信与寄物品的邮件系统 | `/sweetmail` | 1 |
+| [TAB](/commands/chat/tab.md) | 统一管理 TAB 列表、计分板、侧边栏与名称标签 | `/tab` | 1 |
+| [vcm](/commands/chat/vcm.md) | 语音扩音器：用喇叭向全场广播语音 | `/vcm` | 1 |
+| [voicechat](/commands/chat/voicechat.md) | 近距离语音聊天与临时语音群组 | `/voicechat` | 1 |
+| [YaoqingPlugin](/commands/chat/yaoqingplugin.md) | 老玩家拉新与邀请码绑定奖励系统 | `/yaoqing` | 1 |
