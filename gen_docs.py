@@ -329,11 +329,16 @@ def load_note(name):
             "params": params,
             "examples": sl(c.get("examples")),
             "notes": s(c.get("notes")),
+            "permission": s(c.get("permission")),
         }
     subs = []
     for x in raw.get("subcommands") or []:
         if isinstance(x, dict) and x.get("cmd"):
             subs.append({"cmd": decolor(x.get("cmd")), "desc": decolor(x.get("desc")), "example": decolor(x.get("example"))})
+    perm_desc = {}
+    for k, v in (raw.get("permissions") or {}).items():
+        if isinstance(v, str) and k:
+            perm_desc[str(k)] = decolor(v)
     return {
         "role": s(raw.get("role")),
         "summary": s(raw.get("summary")),
@@ -343,6 +348,7 @@ def load_note(name):
         "subcommands": subs,
         "caution": sl(raw.get("caution")),
         "related": sl(raw.get("related")),
+        "permissions": perm_desc,
     }
 
 
@@ -353,11 +359,20 @@ def main():
         name = r.get("name") or r.get("file")
         rows = collect_commands(r)
         cat = ASSIGN.get(name, "other")
+        note = load_note(name)
+        perms = dict(r.get("permissions") or {}) if isinstance(r.get("permissions"), dict) else {}
+        if note and note.get("permissions"):
+            for k, d in note["permissions"].items():
+                cur = perms.get(k)
+                cur = dict(cur) if isinstance(cur, dict) else {}
+                if d:
+                    cur["description"] = d
+                perms[k] = cur
         plugins.append({
             "name": name, "cat": cat, "version": str(r.get("version") or "-"),
             "desc": clean(zh(r.get("desc"))), "file": r.get("file"), "rows": rows,
-            "perms": r.get("permissions") or {}, "api": r.get("api"),
-            "func": FUNC_CN.get(name, ""), "note": load_note(name),
+            "perms": perms, "api": r.get("api"),
+            "func": FUNC_CN.get(name, ""), "note": note,
         })
 
     for d in ("",) + tuple("commands/" + c for c in CAT_ORDER):
@@ -380,7 +395,14 @@ def main():
             n = p["note"]
             if n:
                 noted += 1
-            rows = p["rows"]
+            rows = list(p["rows"])
+            # 注解里写了、但 plugin.yml 没单独注册的写法（如 /invSaver save 这类子指令）也补进来
+            known = {x["name"] for x in rows}
+            for k, nc0 in ((n or {}).get("commands") or {}).items():
+                if k in known or " " not in k:
+                    continue
+                rows.append({"name": k, "desc": nc0.get("what") or "", "usage": None,
+                             "aliases": [], "permission": nc0.get("permission") or ""})
             head = ("%s · %s" % (p["func"], p["name"])) if p["func"] else p["name"]
             L = ["---", "title: %s" % p["name"].replace(":", "："), "createTime: %s" % TODAY, "---", ""]
             L.append("# %s" % head)

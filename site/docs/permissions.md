@@ -516,11 +516,11 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [InBlock](/commands/essentials/inblock.md) | `Inblock.open` | 允许打开仓库界面 | op |
 | [InBlock](/commands/essentials/inblock.md) | `Inblock.reload` | 允许重载配置 | op |
 | [InfiniteFuel](/commands/essentials/infinitefuel.md) | `infinitefuel.admin` | — | op |
-| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.list` | — | op |
-| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.preview` | — | op |
-| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.reload` | — | op |
-| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.restore` | — | op |
-| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.save` | — | op |
+| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.list` | 查看玩家的备份记录列表 | op |
+| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.preview` | 预览（或加 -e 编辑）玩家的备份记录 | op |
+| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.reload` | 重载插件配置文件 | op |
+| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.restore` | 恢复玩家背包到指定备份记录 | op |
+| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.save` | 保存玩家背包快照 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.admin` | 拥有该插件的全部权限 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.*` | 拥有该插件的全部权限 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.censure` | 编辑项目时绕过单词限制 | op |
