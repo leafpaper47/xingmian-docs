@@ -30,7 +30,9 @@ export default defineUserConfig({
     hostname: HOSTNAME,
     navbar,
     sidebar,
-    outline: { level: [2, 3] },
+    // 右侧「此页内容」小节跳转：必须是 [起始级, 结束级] 数组或 'deep'，
+    // 写成 { level: [...] } 主题解析不出来，会导致大纲恒为空、整块被隐藏
+    outline: [2, 3],
     search: { provider: 'local' },
     editLink: false,
     // 只关掉随机 permalink（保留 title/createTime 自动注入），否则页面会变成 /xxxxxx/ 这种 URL
