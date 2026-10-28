@@ -27,6 +27,8 @@
    └─ docs/
       ├─ .vuepress/config.ts     # 站点配置（base、hostname、主题）
       ├─ .vuepress/sidebar.ts    # 由 gen_docs.py 生成，别手改
+      ├─ .vuepress/client.ts     # 挂载自定义样式
+      ├─ .vuepress/styles/index.scss  # 表格列宽等站点样式
       ├─ commands/<分类>/<插件>.md  # 插件页
       ├─ index.md                # 指令总览（站点根页面）
 ```

@@ -1,6 +1,6 @@
 {
  "name": "BossBarHealth",
- "role": "用BOSS栏实时显示玩家",
+ "role": "用BOSS栏实时显示玩家与敌人血量",
  "summary": "BossBarHealth 把玩家自己以及当前目标生物的生命值画在屏幕顶部的 BOSS 栏上，打架时不用一直盯着血条也知道还剩多少。",
  "quick": [
   {

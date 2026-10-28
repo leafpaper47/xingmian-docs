@@ -1,6 +1,6 @@
 {
  "name": "XaeroTracker",
- "role": "在小地图上显示与追踪玩家",
+ "role": "在小地图上显示与追踪玩家位置",
  "summary": "XaeroTracker 是配合 Xaero 小地图使用的服务端追踪插件，负责决定玩家在地图上能不能看到别人、别人能不能看到自己。",
  "quick": [
   {

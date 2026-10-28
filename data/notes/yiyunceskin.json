@@ -1,6 +1,6 @@
 {
  "name": "YiyunCEskin",
- "role": "给 CraftEngin",
+ "role": "给 CraftEngine 物品套用皮肤",
  "summary": "YiyunCEskin 是星冕自研的皮肤类插件，定位是 CraftEngine 兼容项目，用于把皮肤外观挂到 CraftEngine 的条目上。",
  "quick": [
   {

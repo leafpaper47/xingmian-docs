@@ -1,6 +1,6 @@
 {
  "name": "AntiBoom",
- "role": "Explosion pr",
+ "role": "爆炸伤害防护与区域豁免",
  "summary": "Explosion protection plugin for Paper 26.1.2+, including 26.2, and Folia",
  "quick": [
   {

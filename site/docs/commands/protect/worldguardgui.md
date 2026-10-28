@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 分类 🔒 领地与保护 · 版本 `1.0.6` · 指令 1 条 · api-version `1.20`
 
-::: tip WorldGuard 区
+::: tip WorldGuard 区域
 把 WorldGuard 那套要背指令的区域管理搬进箱子界面：列出玩家自己名下的区域，点几下就能查看信息、调整归属和常用开关，不用记 /rg 的复杂参数。
 :::
 

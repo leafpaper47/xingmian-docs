@@ -1,6 +1,6 @@
 {
  "name": "YccHongBao",
- "role": "GUI and chat",
+ "role": "红包发放与领取记录查询",
  "summary": "GUI and chat red packet economy plugin for Bukkit, Spigot, Paper, Purpur, and Folia cores.",
  "quick": [
   {

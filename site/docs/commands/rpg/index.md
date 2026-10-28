@@ -16,8 +16,8 @@ MythicMobs 系、附魔、Boss、属性、自定义战斗。
 | [KaoguGuide](/commands/rpg/kaoguguide.md) | 考古图鉴 | `/kaoguguide` | 1 |
 | [KaoguPlugin](/commands/rpg/kaoguplugin.md) | 考古玩法 | `/kaogu` | 1 |
 | [MythicMobs](/commands/rpg/mythicmobs.md) | 自定义怪物 | `/addpin`、`/mythicmobs`、`/mythicmobsmenu`… | 5 |
-| [MythicTools](/commands/rpg/mythictools.md) | MythicMobs 掉 | `/mythictools` | 1 |
-| [PVPPlugin](/commands/rpg/pvpplugin.md) | 玩家间决斗与公平排位的可 | `/pvp` | 1 |
+| [MythicTools](/commands/rpg/mythictools.md) | MythicMobs 掉落与 Boss 工具 | `/mythictools` | 1 |
+| [PVPPlugin](/commands/rpg/pvpplugin.md) | 玩家间决斗与公平排位的可视化管理插件 | `/pvp` | 1 |
 | [StarPact](/commands/rpg/starpact.md) | 关系契约社交 | `/gender`、`/xzqy`、`/xzqyxb` | 16 |
 | [XingmianElement](/commands/rpg/xingmianelement.md) | 元素职业 | `/element`、`/xmbe` | 2 |
 | [XingmianRPG](/commands/rpg/xingmianrpg.md) | RPG 世界管控 | `/roll`、`/rpg`、`/rpgadmin`… | 49 |

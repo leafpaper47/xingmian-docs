@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 分类 📦 其他 · 版本 `1.0.0` · 指令 1 条 · api-version `1.21`
 
-::: tip 森罗厨房图鉴：炒出或做出
+::: tip 森罗厨房图鉴
 森罗厨房图鉴：炒出或做出 kaleidoscopecookery 菜品即解锁，全菜品图鉴 GUI。
 :::
 

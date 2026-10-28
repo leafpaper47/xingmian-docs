@@ -7,7 +7,7 @@ createTime: 2026/10/24
 
 > 分类 🧟 生物与展示 · 版本 `1.3.0` · 指令 1 条 · api-version `1.21`
 
-::: tip 给 CraftEngin
+::: tip 给 CraftEngine 物品套用皮肤
 YiyunCEskin 是星冕自研的皮肤类插件，定位是 CraftEngine 兼容项目，用于把皮肤外观挂到 CraftEngine 的条目上。
 :::
 

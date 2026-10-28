@@ -1,0 +1,90 @@
+/**
+ * 星冕服务器 · 管理员指令手册 —— 表格样式
+ *
+ * 背景：plume 主题给 `.vp-doc table` 设了 `display: block; overflow-x: auto`，
+ * 表格因此退化成「按内容撑开的块」，列宽完全由最长的单元格决定：
+ * 指令总览里「插件」列被长插件名撑宽、「定位」列被挤成窄条、
+ * 「指令数」列又占掉一大片空白，整表还会横向滚动。
+ *
+ * 这里把表格恢复成真正的 table 布局并固定列宽比例。
+ * 选择器统一加 `:root` 前缀 + 关键属性 `!important`，确保盖过主题样式（两者特异性相同，只能靠顺序，不可靠）。
+ */
+
+:root .vp-doc table {
+  display: table !important;
+  width: 100% !important;
+  max-width: 100%;
+  table-layout: fixed !important;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 14px;
+  overflow-x: visible !important;
+}
+
+:root .vp-doc table th,
+:root .vp-doc table td {
+  padding: 8px 12px;
+  vertical-align: top;
+  line-height: 1.65;
+  /* 长指令名 / 长权限节点强制折行，不再把某一列撑开 */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+:root .vp-doc table th {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* 单元格里的行内代码不要撑破列宽 */
+:root .vp-doc table td code {
+  white-space: normal;
+  word-break: break-all;
+}
+
+/* ---------- 4 列表格：指令总览 / 分类索引 / 指令一览 ---------- */
+/* 插件 | 定位 | 主要指令 | 指令数 ；指令 | 功能 | 用法 | 权限节点 */
+:root .vp-doc table:has(> thead > tr > th:nth-child(4)) > thead > tr > :nth-child(1),
+:root .vp-doc table:has(> thead > tr > th:nth-child(4)) > tbody > tr > :nth-child(1) {
+  width: 19% !important;
+}
+:root .vp-doc table:has(> thead > tr > th:nth-child(4)) > thead > tr > :nth-child(2),
+:root .vp-doc table:has(> thead > tr > th:nth-child(4)) > tbody > tr > :nth-child(2) {
+  width: 41% !important;
+}
+:root .vp-doc table:has(> thead > tr > th:nth-child(4)) > thead > tr > :nth-child(3),
+:root .vp-doc table:has(> thead > tr > th:nth-child(4)) > tbody > tr > :nth-child(3) {
+  width: 28% !important;
+}
+:root .vp-doc table:has(> thead > tr > th:nth-child(4)) > thead > tr > :nth-child(4),
+:root .vp-doc table:has(> thead > tr > th:nth-child(4)) > tbody > tr > :nth-child(4) {
+  width: 12% !important;
+}
+
+/* ---------- 3 列表格：常用用法 / 权限节点 / 参数 / 子指令速查 ---------- */
+:root .vp-doc table:not(:has(> thead > tr > th:nth-child(4))) > thead > tr > :nth-child(1),
+:root .vp-doc table:not(:has(> thead > tr > th:nth-child(4))) > tbody > tr > :nth-child(1) {
+  width: 27% !important;
+}
+:root .vp-doc table:not(:has(> thead > tr > th:nth-child(4))) > thead > tr > :nth-child(2),
+:root .vp-doc table:not(:has(> thead > tr > th:nth-child(4))) > tbody > tr > :nth-child(2) {
+  width: 37% !important;
+}
+:root .vp-doc table:not(:has(> thead > tr > th:nth-child(4))) > thead > tr > :nth-child(3),
+:root .vp-doc table:not(:has(> thead > tr > th:nth-child(4))) > tbody > tr > :nth-child(3) {
+  width: 36% !important;
+}
+
+/* 窄屏：列宽交还给浏览器，避免内容被压成一条 */
+@media (max-width: 720px) {
+  :root .vp-doc table {
+    display: block !important;
+    table-layout: auto !important;
+    overflow-x: auto !important;
+  }
+  :root .vp-doc table th,
+  :root .vp-doc table td {
+    width: auto !important;
+    white-space: normal;
+  }
+}

@@ -1,6 +1,6 @@
 {
  "name": "WorldGuardGUI",
- "role": "WorldGuard 区",
+ "role": "WorldGuard 区域",
  "summary": "把 WorldGuard 那套要背指令的区域管理搬进箱子界面：列出玩家自己名下的区域，点几下就能查看信息、调整归属和常用开关，不用记 /rg 的复杂参数。",
  "quick": [
   {

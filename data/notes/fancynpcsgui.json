@@ -1,6 +1,6 @@
 {
  "name": "FancyNpcsGUI",
- "role": "FancyNpcs 的图",
+ "role": "FancyNpcs 图形化 NPC 编辑",
  "summary": "这是 FancyNpcs 的第三方非官方图形编辑器，把原本要敲命令才能完成的 NPC 增删改操作搬到界面里点。",
  "quick": [
   {

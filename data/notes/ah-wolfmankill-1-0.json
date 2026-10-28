@@ -1,6 +1,6 @@
 {
  "name": "Ah-WolfmanKill-1.0",
- "role": "狼人杀小游戏的开局与场地",
+ "role": "狼人杀小游戏的开局与场地管理插件",
  "summary": "Ah-WolfmanKill 是星冕服务器上的狼人杀（WolfmanKill）玩法插件，把一个房间从建图、开桌到结算的流程打包成一条主指令。",
  "quick": [
   {

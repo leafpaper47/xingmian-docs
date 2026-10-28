@@ -1,6 +1,6 @@
 {
  "name": "ALCERecipeViewer",
- "role": "按分类浏览和搜索合成配方",
+ "role": "按分类浏览和搜索合成配方的合成表查看器",
  "summary": "ALCERecipeViewer 提供一个游戏内的合成表界面，让玩家不用查网页就能按分类翻看合成配方，并能搜索某个物品的配方或反查它的用途。",
  "quick": [
   {
