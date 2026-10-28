@@ -832,15 +832,26 @@ body::before {
 
 /* 主题在 ≥1440px 会把侧栏按居中版心右推，左侧留出一大片空白；
    这里把侧栏拉回视口最左边，导航栏标题也同步贴左。 */
+/* 侧栏离屏幕左边留一点呼吸位（贴太紧会显得字被切在边上） */
+:root {
+  --sc-gutter: 24px;
+}
+
+@media (min-width: 960px) {
+  .vp-sidebar {
+    padding-left: var(--sc-gutter);
+  }
+}
+
 @media (min-width: 1440px) {
   .vp-sidebar {
-    width: var(--vp-sidebar-width) !important;
-    padding-left: 0 !important;
+    width: calc(var(--vp-sidebar-width) + var(--sc-gutter)) !important;
+    padding-left: var(--sc-gutter) !important;
   }
 
   .vp-navbar.has-sidebar .title {
     width: auto !important;
-    padding-left: 20px !important;
+    padding-left: calc(var(--sc-gutter) + 8px) !important;
   }
 
   .vp-navbar .container {
