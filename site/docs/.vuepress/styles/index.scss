@@ -185,6 +185,13 @@ body::before {
   white-space: nowrap;
 }
 
+/* 站点图标：像素图在 22px 下边缘发毛，加圆角 + 轻微描边让它像个徽标 */
+.vp-navbar-title .title > .logo,
+.vp-navbar-title .title > img {
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgb(37 99 235 / 0.16);
+}
+
 /* 顶栏菜单项 */
 .vp-navbar .vp-nav-item .vp-link,
 .vp-navbar .vp-nav-item a {
