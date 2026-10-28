@@ -3,7 +3,7 @@ title: ArtMap
 createTime: 2026/10/24
 ---
 
-# 画板地图 · ArtMap
+# 像素画板 · ArtMap
 
 > 分类 🗺️ 世界与地图 · 版本 `3.9.26` · 指令 1 条 · api-version `1.13`
 

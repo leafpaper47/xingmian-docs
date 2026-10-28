@@ -3,7 +3,7 @@ title: ArmoredElytra
 createTime: 2026/10/24
 ---
 
-# 鞘翅护甲 · ArmoredElytra
+# 装甲鞘翅 · ArmoredElytra
 
 > 分类 🧰 基础工具 · 版本 `1.0.0` · 指令 1 条 · api-version `1.21`
 

@@ -3,7 +3,7 @@ title: CoreProtect
 createTime: 2026/10/24
 ---
 
-# 方块日志 · CoreProtect
+# 日志回滚 · CoreProtect
 
 > 分类 📊 记录与性能 · 版本 `24.2-dev` · 指令 17 条 · api-version `1.16`
 

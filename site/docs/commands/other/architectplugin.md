@@ -3,7 +3,7 @@ title: ArchitectPlugin
 createTime: 2026/10/24
 ---
 
-# 建筑师工具 · ArchitectPlugin
+# 建筑师认证 · ArchitectPlugin
 
 > 分类 📦 其他 · 版本 `1.3.7` · 指令 4 条 · api-version `1.21`
 

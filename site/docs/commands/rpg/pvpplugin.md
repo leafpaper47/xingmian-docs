@@ -3,7 +3,7 @@ title: PVPPlugin
 createTime: 2026/10/24
 ---
 
-# PVP管理 · PVPPlugin
+# 决斗排位 · PVPPlugin
 
 > 分类 ⚔️ 战斗与 RPG · 版本 `1.2.28` · 指令 1 条 · api-version `1.21`
 

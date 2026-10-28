@@ -3,7 +3,7 @@ title: KaoguGuide
 createTime: 2026/10/24
 ---
 
-# 考古指南 · KaoguGuide
+# 考古图鉴 · KaoguGuide
 
 > 分类 ⚔️ 战斗与 RPG · 版本 `1.0.0` · 指令 1 条 · api-version `1.13`
 

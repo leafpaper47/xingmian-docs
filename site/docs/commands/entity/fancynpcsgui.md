@@ -3,7 +3,7 @@ title: FancyNpcsGUI
 createTime: 2026/10/24
 ---
 
-# NPC界面 · FancyNpcsGUI
+# 图形化NPC · FancyNpcsGUI
 
 > 分类 🧟 生物与展示 · 版本 `1.1.0` · 指令 1 条 · api-version `1.21`
 

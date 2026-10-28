@@ -3,7 +3,7 @@ title: DeluxeMenus
 createTime: 2026/10/24
 ---
 
-# 菜单配置 · DeluxeMenus
+# GUI菜单 · DeluxeMenus
 
 > 分类 🧩 脚本与菜单 · 版本 `1.14.1-Release` · 指令 1 条 · api-version `1.13`
 

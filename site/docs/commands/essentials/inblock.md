@@ -3,7 +3,7 @@ title: InBlock
 createTime: 2026/10/24
 ---
 
-# 方块内藏身 · InBlock
+# 指令方块 · InBlock
 
 > 分类 🧰 基础工具 · 版本 `1.0.0` · 指令 1 条 · api-version `1.21`
 

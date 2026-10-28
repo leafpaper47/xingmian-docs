@@ -3,7 +3,7 @@ title: SenluoBuyer
 createTime: 2026/10/24
 ---
 
-# 森罗商店 · SenluoBuyer
+# 菜品收购 · SenluoBuyer
 
 > 分类 🪙 经济与商店 · 版本 `1.0.0` · 指令 1 条 · api-version `1.21`
 

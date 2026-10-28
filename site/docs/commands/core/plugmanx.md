@@ -3,7 +3,7 @@ title: PlugManX
 createTime: 2026/10/24
 ---
 
-# 插件热管 · PlugManX
+# 插件管理 · PlugManX
 
 > 分类 🛡️ 基础与权限 · 版本 `3.1.0-Beta.2` · 指令 1 条 · api-version `1.13`
 

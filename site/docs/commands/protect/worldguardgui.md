@@ -3,7 +3,7 @@ title: WorldGuardGUI
 createTime: 2026/10/24
 ---
 
-# 保护区界面 · WorldGuardGUI
+# 区域管理 · WorldGuardGUI
 
 > 分类 🔒 领地与保护 · 版本 `1.0.6` · 指令 1 条 · api-version `1.20`
 

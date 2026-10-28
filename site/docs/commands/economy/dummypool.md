@@ -3,7 +3,7 @@ title: DummyPool
 createTime: 2026/10/24
 ---
 
-# 假人池 · DummyPool
+# 台球 · DummyPool
 
 > 分类 🪙 经济与商店 · 版本 `1.1.1-leaf` · 指令 2 条 · api-version `1.21`
 

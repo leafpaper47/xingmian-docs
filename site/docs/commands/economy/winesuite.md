@@ -3,7 +3,7 @@ title: WineSuite
 createTime: 2026/10/24
 ---
 
-# 酿酒 · WineSuite
+# 酿酒图鉴 · WineSuite
 
 > 分类 🪙 经济与商店 · 版本 `1.2.0` · 指令 2 条 · api-version `1.21`
 

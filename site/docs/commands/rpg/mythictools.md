@@ -3,7 +3,7 @@ title: MythicTools
 createTime: 2026/10/24
 ---
 
-# 神话工具 · MythicTools
+# 神话工具包 · MythicTools
 
 > 分类 ⚔️ 战斗与 RPG · 版本 `1.0.4` · 指令 1 条 · api-version `1.20`
 

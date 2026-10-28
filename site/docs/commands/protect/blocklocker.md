@@ -3,7 +3,7 @@ title: BlockLocker
 createTime: 2026/10/24
 ---
 
-# 箱子锁 · BlockLocker
+# 告示牌锁 · BlockLocker
 
 > 分类 🔒 领地与保护 · 版本 `1.14.1` · 指令 1 条 · api-version `1.20`
 

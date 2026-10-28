@@ -3,7 +3,7 @@ title: XingmianRPG
 createTime: 2026/10/24
 ---
 
-# 星冕RPG · XingmianRPG
+# 星陨RPG · XingmianRPG
 
 > 分类 ⚔️ 战斗与 RPG · 版本 `1.1.53` · 指令 49 条 · api-version `1.21`
 
