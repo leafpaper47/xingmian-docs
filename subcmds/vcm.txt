@@ -1,0 +1,82 @@
+# vcm  (VoiceChatMegaphone-0.1.1+26.2-all.jar)
+## 注册指令
+  /vcm  usage='/<command> <子命令>' desc='语音扩音器管理面板' alias=None perm=None
+
+## 代码类
+  org.litkoit.vcm.commands.SubCommand
+  org.litkoit.vcm.commands.vcm.VCMCommandGive
+  org.litkoit.vcm.commands.vcm.VCMCommandManager
+  org.litkoit.vcm.commands.vcm.VCMCommandReload
+
+## javap 字符串 token
+  give reload
+
+## 文本资源里的帮助/用法行
+  · # 语音扩音器（VCM）配置文件
+  · # 扩音器物品设置
+  · # 注意：修改以下设置可能会让已经发放出去的旧物品失效
+  · # 支持 MiniMessage 颜色格式
+  · name: "<gold>扩音器"
+  · - "<gray>放大你的说话声。"
+  · - "<yellow>右键使用。"
+  · custom-model-data: 7641 # 换成你自己资源包里的 CustomModelData
+  · # 音量分类的名称与说明（显示在 Simple Voice Chat 的音量设置界面里）
+  · name: "扩音器"
+  · description: "使用扩音器的玩家的音频"
+  · # 开启扩音器时是否播放提示音
+  · squeak-on-use: true # 功能尚未完成（W.I.P）
+  · # 总开关：设为 false 时音频原样透传，完全不做任何音效处理。
+  · # 下面各项音效也可以单独关闭。
+  · # 是否在动作栏显示当前正在使用扩音器的玩家
+  · text: "<green>正在使用扩音器：{players}" # 支持 MiniMessage
+  · #   音频音效（DSP）设置
+  · # 所有音效仅在 process-voice: true 时生效。
+  · # 修改后需要 /vcm reload 才会生效（而且只对之后新开启的会话生效，
+  · # 重载前就已经开着扩音器的玩家需要先关掉再打开）。
+  · # 高通滤波器
+  · # 滤掉截止频率以下的低频轰鸣声。
+  · # 真实扩音器一般会把 300Hz 以下的声音全部切掉。
+  · highpass-freq: 300.0        # 截止频率（Hz），范围 50 – 20000
+  · # 低通滤波器
+  · # 滤掉截止频率以上的高频嘶声。
+  · # 保留真实扩音器那种"闷在盒子里"的音色。
+  · lowpass-freq: 4500.0        # 截止频率（Hz），范围 50 – 20000
+  · # 存在感均衡（EQ 峰值）
+  · # 提升一个窄频段，让声音更清晰、更有"喇叭味"。
+  · peak-freq: 2000.0           # 中心频率（Hz），范围 100 – 8000
+  · peak-gain-db: 8.0           # 增益（dB），范围 -24 – +24
+  · peak-q: 1.0                 # 滤波器宽度：Q 越大频段越窄（0.1 – 10）
+  · # 失真（软饱和）
+  · # 加入类似喇叭过载的谐波破音。
+  · # 采用 tanh 软削波：drive 1.0 = 干净，3.0 = 明显破音。
+  · distortion-drive: 2.2       # 软削波前的预增益（0.1 – 5.0）
+  · # 背景噪声
+  · # 叠加一层轻微的白噪声，营造真实环境感。
+  · noise-level: 0.008          # 噪声振幅 0.0 – 1.0（0.005 – 0.02 比较自然）
+  · # 混响（Schroeder）
+  · # 加入一点房间反射音。默认关闭——在空旷的 Minecraft 环境里
+  · # 容易让语音变得发糊。
+  · reverb-wet: 0.22            # 干湿比：0.0（全干）– 1.0（全湿）
+  · # 本插件会向 bStats 发送匿名使用统计，
+  · # 用于帮助改进项目，不会收集任何个人信息。
+  · # 设为 false 即可关闭。
+  · description: 在服务器上添加语音扩音器（Simple Voice Chat 附属，已适配 26.2 并汉化）
+  · description: 允许使用扩音器
+  · description: 允许使用管理命令（/vcm give、/vcm reload）
+  · description: 语音扩音器管理面板
+  · usage: /<command> <子命令>
+
+## 常量池帮助/描述文本
+  · org/litkoit/vcm/commands/SubCommand
+  · 获取一个扩音器
+  · org/litkoit/vcm/VCMPlugin
+  · org/litkoit/vcm/items/MegaphoneItem
+  · 已把扩音器发放给玩家 
+  · 请指定玩家名！
+  · 找不到该玩家（可能不在线）！
+  · org/litkoit/vcm/commands/vcm/VCMCommandGive
+  · org/litkoit/vcm/commands/vcm/VCMCommandManager
+  · org/litkoit/vcm/commands/vcm/VCMCommandReload
+  · Ljava/util/ArrayList<Lorg/litkoit/vcm/commands/SubCommand;>;
+  · 重载 VCM 配置文件
+  · VCM 配置文件已重载！

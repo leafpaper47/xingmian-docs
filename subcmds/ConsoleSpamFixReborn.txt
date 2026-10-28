@@ -1,0 +1,33 @@
+# ConsoleSpamFixReborn  (ConsoleSpamFixReborn-2.1.0.jar)
+## 注册指令
+  /csf  usage=None desc='The main command.' alias=None perm=None
+
+## 代码类
+  link.star_dust.consolefix.bukkit.CommandHandler
+  link.star_dust.consolefix.bungee.BungeeCommandHandler
+  link.star_dust.consolefix.common.CommandBridge
+  link.star_dust.consolefix.fabric.FabricClientCommandBridge
+  link.star_dust.consolefix.fabric.FabricClientCommandHandler
+  link.star_dust.consolefix.fabric.FabricCommandBridge
+  link.star_dust.consolefix.fabric.FabricCommandHandler
+  link.star_dust.consolefix.forge.ForgeCommandBridge
+  link.star_dust.consolefix.forge.ForgeCommandHandler
+  link.star_dust.consolefix.neoforge.NeoForgeCommandBridge
+  link.star_dust.consolefix.neoforge.NeoForgeCommandHandler
+  link.star_dust.consolefix.velocity.VelocityCommandHandler
+
+## javap 字符串 token
+  asboolean check checkpermission csf csfb csfc false get getcacheddata getentity getgameprofile getpermission getpermissiondata getplayer getplayerlist getuser getusermanager getuuid haspermission isop isplayer reload senderror sendfailure sendfeedback sendmessage sendsuccess sendsystemmessage true
+
+## 文本资源里的帮助/用法行
+  · CmdHelp: '[System] &cAvailable commands:&6 /csf reload'
+
+## 常量池帮助/描述文本
+  · Llink/star_dust/consolefix/bukkit/CSF;
+  · link/star_dust/consolefix/bukkit/CSF
+  · Usage: /csfb reload
+  · Llink/star_dust/consolefix/common/CsfContext;
+  · link/star_dust/consolefix/common/CsfContext
+  · Reload Config: /csfc reload
+  · Reload Config: /csf reload
+  · Reload Config: /csfv reload

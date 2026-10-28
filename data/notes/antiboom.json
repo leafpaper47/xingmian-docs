@@ -1,0 +1,16 @@
+{
+ "name": "AntiBoom",
+ "role": "Explosion pr",
+ "summary": "Explosion protection plugin for Paper 26.1.2+, including 26.2, and Folia",
+ "quick": [],
+ "commands": [
+  {
+   "cmd": "antiboom",
+   "what": "Manage AntiBoom plugin settings.",
+   "syntax": "/antiboom reload",
+   "examples": [
+    "/antiboom reload"
+   ]
+  }
+ ]
+}

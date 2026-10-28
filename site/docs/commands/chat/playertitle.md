@@ -7,54 +7,56 @@ createTime: 2026/10/24
 
 > 分类 💬 聊天与社交 · 版本 `5.0.6` · 指令 1 条 · api-version `1.13`
 
-::: tip 称号系统：发放、展示、商城与收藏
-PlayerTitle 给服务器加一套完整的「称号」玩法：玩家可以从称号仓库里更换头顶/聊天显示的称号，也能在称号商城里用称号币购买新称号。管理侧负责发称号、发称号币和称号卡，并可给称号挂粒子和属性 buff。它通常和聊天格式、经济类插件一起用，称号通过占位符显示到聊天、计分板或 TAB 列表里。
+::: tip 称号系统
+玩家称号的发放、佩戴、商城与粒子特效，称号可带属性增益与展示粒子，是常用的氪金/活动奖励载体。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 想给服务器加一个玩家可以自己收集、切换的称号系统时
-- 做活动或充值回馈，要给玩家发限定称号、称号币、称号卡时
-- 需要称号带粒子特效或属性加成，做成「有特效的称号」时
-- 玩家称号显示错乱或数据异常，需要查人、清理某人称号数据时
-
-## 上手流程
-
-1. 先把插件放进 plugins 目录启动一次，生成配置与数据库，再按需改配置里的称号列表和商城价格
-2. 执行 /playerTitle 打开主界面，确认自己能看到称号仓库和称号商城的入口
-3. 给自己的管理账号加上 playerTitle.* 或其下需要的子权限，避免用 OP 直接测
-4. 给测试玩家发一个称号并让他在仓库里换上，确认聊天/头顶显示正常
-5. 接第三方显示时，到聊天格式或 TAB 配置里写 PlayerTitle 提供的称号占位符
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 玩家看自己的称号 | /plt open | 主界面里佩戴/卸下 |
+| 打开称号商城 | /plt shop | 用点券或称号币购买 |
+| 给玩家发称号 | /plt title give Steve &lt;称号id&gt; | 补偿/活动发放 |
+| 改完配置生效 | /plt reload | 称号表在配置文件里 |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/playerTitle` | 称号插件主指令，打开界面或进入各类称号子功能<br>别名 `/plt` | `/playerTitle` | — |
+| `/playerTitle` | 玩家称号<br>别名 `/plt` | — | — |
 
 ## 指令详解
 
-### `/playerTitle` — 称号插件主指令，打开界面或进入各类称号子功能
-
-- **语法**：`/playerTitle`
-
-- **示例**：
-
-```
-/playerTitle
-/plt
-```
+### `/playerTitle` — 玩家称号
 
 - **别名**：`/plt`
-- **备注**：别名 /plt。输入后一般会输出可用子指令列表或直接打开称号仓库界面；具体子指令与参数以游戏内输入该指令后的提示和 help 输出为准。玩家侧常用的是打开仓库和商城，管理侧对应 reload、发放称号、称号币、称号卡、buff、粒子、查人、清理数据等权限节点。
+
+## 子指令速查
+
+| 子指令 | 功能 | 示例 |
+| --- | --- | --- |
+| `/plt open` | 打开称号界面（玩家端） | `/plt open` |
+| `/plt shop` | 打称号商城（玩家端） | `/plt shop` |
+| `/plt title <give｜remove｜list> <玩家> [称号]` | 发放/回收/查询玩家称号 | `/plt title give Steve vip_2025` |
+| `/plt card <玩家> <数量>` | 发放称号卡（抽称号的道具） | `/plt card Steve 5` |
+| `/plt buff <玩家> <buff> <时长>` | 给玩家的称号附加临时增益 | `/plt buff Steve speed 600` |
+| `/plt particle <玩家> <粒子>` | 设置称号展示粒子效果 | `/plt particle Steve flame` |
+| `/plt coin <玩家> <数量>` | 调整玩家称号币余额 | `/plt coin Steve 100` |
+| `/plt reward <玩家>` | 手动触发称号奖励结算 | `/plt reward Steve` |
+| `/plt clear <玩家>` | 清空玩家已获得的称号 | `/plt clear Steve` |
+| `/plt player <玩家>` | 查看玩家称号数据面板 | `/plt player Steve` |
+| `/plt view <玩家>` | 以只读方式查看玩家当前佩戴的称号 | `/plt view Steve` |
+| `/plt getip <玩家>` | 按称号来源查询相关玩家 IP 归属（风控用） | `/plt getip Steve` |
+| `/plt reload` | 重载称号配置与商城 | `/plt reload` |
+| `/plt convert` | 转换数据源（换存档格式前先备份） | `/plt convert` |
 
 ## 注意事项
 
 ::: warning
-- 本插件以主指令加子功能的形式工作，具体参数与子指令以游戏内 help 为准，不同版本可能增删，不要照抄网上旧教程的写法
-- playerTitle.open 与 playerTitle.shop 默认对所有人开放，其余权限默认仅 OP；给普通玩家放开时要逐个确认，别直接给 playerTitle.*
-- 称号数据存数据库，重载配置前先在测试服验证；涉及清数据、转数据库类操作务必先备份
-- 称号粒子与 buff 可能受世界限制（有忽略世界限制的独立权限），换世界后效果消失属正常现象，先确认是不是被世界限制了
+- clear 会清掉玩家所有已获得称号，且通常不带二次确认，操作前先 /plt player 确认。
+- 称号带属性增益时，改称号属性会让在线玩家立即生效，注意别把平衡性调崩。
+- convert 属于数据迁移，跑之前备份 plugins/PlayerTitle/。
 :::
 
 ## 权限节点
@@ -78,7 +80,6 @@ PlayerTitle 给服务器加一套完整的「称号」玩法：玩家可以从�
 | `playerTitle.shop.custom` | 自定义称号 | True |
 | `playerTitle.title` | 称号相关 | op |
 | `playerTitle.view` | 查看管理 | op |
-
-## 相关插件
-
-[PlaceholderAPI](/commands/config/placeholderapi.md)、[LuckPerms](/commands/core/luckperms.md)、[Vault](/commands/core/vault.md)、[TAB](/commands/chat/tab.md)
+| `playertitle.admin` | 称号管理（发放/回收/重载） | — |
+| `playertitle.shop` | 使用称号商城 | — |
+| `playertitle.use` | 使用称号界面（默认开启） | — |

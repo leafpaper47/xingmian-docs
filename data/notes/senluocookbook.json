@@ -1,0 +1,17 @@
+{
+ "name": "SenluoCookbook",
+ "role": "森罗厨房图鉴：炒出或做出",
+ "summary": "森罗厨房图鉴：炒出或做出 kaleidoscopecookery 菜品即解锁，全菜品图鉴 GUI。",
+ "quick": [],
+ "commands": [
+  {
+   "cmd": "cookbook",
+   "what": "打开森罗厨房图鉴",
+   "syntax": "/cookbook [reload|debug|sync]",
+   "examples": [
+    "/cookbook",
+    "/cookbook 64"
+   ]
+  }
+ ]
+}

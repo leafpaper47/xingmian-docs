@@ -1,0 +1,34 @@
+{
+  "name": "Vault",
+  "role": "经济与权限接口层",
+  "summary": "给插件之间提供统一接口：扣钱、查权限、发聊天前缀都走它，自己不带任何玩法。商店、地皮、任务类插件大多把它列为必需前置。",
+  "quick": [
+    {"scene": "确认经济挂上了没", "cmd": "/vault-info", "note": "经济那一栏为空 = 没有经济插件注册，扣钱类插件全会报错"},
+    {"scene": "换经济插件后搬余额", "cmd": "/vault-convert Essentials CMI", "note": "把前一个经济插件的数据倒进后一个，先备份两边数据"},
+    {"scene": "开管理权限", "cmd": "/lp group admin permission set vault.admin true", "note": "否则 info 与 convert 都会提示无权限"}
+  ],
+  "commands": [
+    {"cmd": "vault-info", "what": "显示 Vault 版本与已接入的经济、权限、聊天实现", "syntax": "/vault-info",
+     "examples": ["/vault-info"],
+     "notes": "「商店能打开但结账报错」先跑这条，经济一栏为空就是没装经济插件或没注册成功",
+     "permission": "vault.admin.info"},
+    {"cmd": "vault-convert", "what": "把一个经济插件的余额数据整体倒入另一个经济插件", "syntax": "/vault-convert <源经济> <目标经济>",
+     "params": [{"name": "源经济", "required": true, "note": "经济插件在 Vault 里注册的名字，如 Essentials"},
+                {"name": "目标经济", "required": true, "note": "要接管的那个，如 CMI"}],
+     "examples": ["/vault-convert Essentials CMI"],
+     "notes": "两边都必须已安装并注册到 Vault；目标里同名玩家的余额会被覆盖，跑之前备份数据库",
+     "permission": "vault.admin.convert"}
+  ],
+  "subcommands": [
+    {"cmd": "/vault-info", "desc": "排查前置问题第一站：看版本与各 provider 是否注册成功", "example": "/vault-info"}
+  ],
+  "caution": [
+    "Vault 不给玩家任何指令，玩家侧的 /bal、/pay 来自 Essentials；Vault 出问题的表现是第三方插件报 Vault 相关错误。",
+    "同时装两个经济插件（Essentials 经济 + CMI 经济）时以最后注册的为准，余额会分叉，只留一个。",
+    "vault-convert 不可撤销，迁移前把两边的经济数据文件都备份一份。"
+  ],
+  "permissions": {
+    "vault.admin": "Vault 管理工具总权限（含 info、convert）",
+    "vault.update": "有新版本时收到提示"
+  }
+}

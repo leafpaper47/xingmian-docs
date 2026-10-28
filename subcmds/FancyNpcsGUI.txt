@@ -1,0 +1,14 @@
+# FancyNpcsGUI  (FancyNpcsGUI-1.1.0-zh.jar)
+## 注册指令
+  /npcgui  usage='/npcgui' desc='Open the FancyNpcs editor' alias=None perm='fancynpcsgui.use'
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · usage: /npcgui
+
+## 常量池帮助/描述文本

@@ -1,153 +1,153 @@
 {
-  "name": "LeafChat",
-  "role": "统一管理聊天格式、私聊、禁言与物品展示",
-  "summary": "LeafChat 接管服务器的公屏与私聊，提供聊天颜色、渐变与彩虹字、@提及、背包物品展示链接、私聊与禁言管理。管理员用它统一聊天样式和处罚口径，普通玩家用它发彩色消息、私聊和展示手上的物品。它和权限插件配合控制谁能用颜色、谁能禁言。",
-  "whatFor": [
-    "玩家想让自己说的话带颜色、渐变或彩虹效果时，用 /chatcolor 挑颜色",
-    "玩家想私聊某人，或回复刚刚私聊过自己的人时，用 /msg 和 /r",
-    "有人在公屏刷屏、骂人，需要临时或永久闭麦时，用 /mute 和 /unmute",
-    "服主排查玩家举报的私聊纠纷，用 /spymsg 打开私聊监听抄送",
-    "改完配置想立刻生效，用 /leafchat reload 重载，不用重启服务器"
-  ],
-  "flow": [
-    "先确认插件已加载，聊天里能看到 LeafChat 处理过的格式（颜色/前缀），说明接管成功",
-    "用权限插件给不同组分配 leafchat.chatcolor、leafchat.color.use、leafchat.color.gradient 等节点，决定谁能用颜色和渐变",
-    "让玩家试一次 /chatcolor 打开颜色面板或用 /chatcolor 颜色ID 直接设定，确认显示正常",
-    "日常管理时用 /mute 与 /unmute 处理违规，用 /spymsg 随时开关私聊监听",
-    "改过配置后执行 /leafchat reload，并留意控制台是否有报错"
-  ],
-  "commands": [
+ "name": "LeafChat",
+ "role": "统一管理聊天格式",
+ "summary": "LeafChat 接管服务器的公屏与私聊，提供聊天颜色、渐变与彩虹字、@提及、背包物品展示链接、私聊与禁言管理。",
+ "quick": [
+  {
+   "scene": "改聊天颜色",
+   "cmd": "/chatcolor",
+   "note": ""
+  },
+  {
+   "scene": "改完配置生效",
+   "cmd": "/leafchat reload",
+   "note": ""
+  },
+  {
+   "scene": "谁在用物品展示",
+   "cmd": "/leafchatview",
+   "note": "由聊天标记自动触发"
+  },
+  {
+   "scene": "私聊某人",
+   "cmd": "/msg Steve 你好，在吗",
+   "note": "不需要加感叹号"
+  }
+ ],
+ "commands": [
+  {
+   "cmd": "chatcolor",
+   "what": "打开聊天颜色选择界面或直接设定颜色",
+   "syntax": "/chatcolor [颜色ID]",
+   "params": [
     {
-      "cmd": "chatcolor",
-      "what": "打开聊天颜色选择界面或直接设定颜色",
-      "syntax": "/chatcolor [颜色ID]",
-      "params": [
-        {
-          "name": "颜色ID",
-          "required": false,
-          "note": "颜色标识，留空则打开颜色选择界面；具体可用的 ID 以游戏内提示为准"
-        }
-      ],
-      "examples": [
-        "/chatcolor",
-        "/chatcolor red"
-      ],
-      "notes": "另有渐变写法：/chatcolor gradient 起色 止色，两种颜色各填一个颜色 ID，需具备 leafchat.color.gradient 权限；能否用单色、渐变、彩虹分别由 leafchat.color.* 下的节点控制。"
-    },
-    {
-      "cmd": "leafchat",
-      "what": "插件主命令，目前用于重载配置",
-      "syntax": "/leafchat reload",
-      "params": [],
-      "examples": [
-        "/leafchat reload"
-      ],
-      "notes": "重载需要 leafchat.reload 权限（默认仅管理员）；改完配置文件后执行，若控制台报错通常是配置项写坏了，改回后再重载。"
-    },
-    {
-      "cmd": "leafchatview",
-      "what": "物品展示链接的后端入口，由聊天里的标记自动触发",
-      "syntax": "/leafchatview",
-      "params": [],
-      "examples": [
-        "/leafchatview"
-      ],
-      "notes": "正常玩法中不需要手动输入：玩家在聊天里发 [inv] 或 [ec] 这类标记时插件会自己生成可点击的展示链接。管理员用 leafchat.admin 权限可以直接查看他人背包/末影箱内容，而普通人只能看别人主动展示出来的那份。"
-    },
-    {
-      "cmd": "msg",
-      "what": "给指定玩家发送私聊消息",
-      "syntax": "/msg 玩家名 消息内容",
-      "params": [
-        {
-          "name": "玩家名",
-          "required": true,
-          "note": "接收私聊的目标玩家"
-        },
-        {
-          "name": "消息内容",
-          "required": true,
-          "note": "要发送的文字，可一次输入整句"
-        }
-      ],
-      "examples": [
-        "/msg Steve 你好，在吗"
-      ],
-      "notes": "需要 leafchat.msg 权限，默认所有人可用；被禁言的玩家通常也无法私聊。若服里开了私聊监听，具备 leafchat.spy 的管理员会同时看到这条内容。"
-    },
-    {
-      "cmd": "mute",
-      "what": "禁言玩家，不填时长即永久禁言",
-      "syntax": "/mute 玩家名 [时长]",
-      "params": [
-        {
-          "name": "玩家名",
-          "required": true,
-          "note": "被禁言的目标玩家"
-        },
-        {
-          "name": "时长",
-          "required": false,
-          "note": "禁言持续时间，留空表示永久；具体时长格式以游戏内提示为准"
-        }
-      ],
-      "examples": [
-        "/mute Steve",
-        "/mute Steve 10m"
-      ],
-      "notes": "需要 leafchat.mute 权限（默认仅管理员）。建议对骂人、刷屏先给短时长，反复违规再上永久；永久禁言记得到时候复查，别忘了解。"
-    },
-    {
-      "cmd": "r",
-      "what": "回复上一位和自己私聊过的玩家",
-      "syntax": "/r 消息内容",
-      "params": [
-        {
-          "name": "消息内容",
-          "required": true,
-          "note": "要回复的文字"
-        }
-      ],
-      "examples": [
-        "/r 好，我马上到"
-      ],
-      "notes": "需要 leafchat.msg 权限。只有本次在线期间有过一次私聊往来才有回复目标，服务器重启或对方下线后可能提示没有可回复的对象。"
-    },
-    {
-      "cmd": "spymsg",
-      "what": "开关自己的私聊监听，抄送他人的私聊内容",
-      "syntax": "/spymsg",
-      "params": [],
-      "examples": [
-        "/spymsg"
-      ],
-      "notes": "需要 leafchat.spy 权限（默认仅管理员），再执行一次即关闭。监听只对开关之后新发生的私聊生效，开启前已经聊过的内容看不到。"
-    },
-    {
-      "cmd": "unmute",
-      "what": "解除指定玩家的禁言",
-      "syntax": "/unmute 玩家名",
-      "params": [
-        {
-          "name": "玩家名",
-          "required": true,
-          "note": "要解除禁言的目标玩家"
-        }
-      ],
-      "examples": [
-        "/unmute Steve"
-      ],
-      "notes": "需要 leafchat.unmute 权限（默认仅管理员）。玩家申诉或误封时用它恢复；解禁后让对方发一句话确认真的能说话了。"
+     "name": "颜色ID",
+     "required": false,
+     "note": "颜色标识，留空则打开颜色选择界面；具体可用的 ID 以游戏内提示为准"
     }
-  ],
-  "subcommands": [],
-  "caution": [
-    "该插件为服务器自研/小众插件，具体参数与子指令以游戏内 help 为准，本文档中的用法来自插件自身命令表",
-    "颜色、渐变、彩虹、@全体 分属不同权限节点，权限没给全时玩家会看到「无权限」而不是报错，先查权限插件再怀疑插件坏了",
-    "禁言留空时长等于永久禁言，处理完记得 /unmute 或查记录，避免玩家长期无法说话",
-    "私聊监听涉及玩家隐私，只建议在处理举报时临时开启，用完立刻关闭"
-  ],
-  "related": [
-    "LuckPerms"
-  ]
+   ],
+   "examples": [
+    "/chatcolor",
+    "/chatcolor red"
+   ],
+   "notes": "另有渐变写法：/chatcolor gradient 起色 止色，两种颜色各填一个颜色 ID，需具备 leafchat.color.gradient 权限；能否…"
+  },
+  {
+   "cmd": "leafchat",
+   "what": "插件主命令，目前用于重载配置",
+   "syntax": "/leafchat reload",
+   "examples": [
+    "/leafchat reload"
+   ],
+   "notes": "重载需要 leafchat.reload 权限（默认仅管理员）；改完配置文件后执行，若控制台报错通常是配置项写坏了，改回后再重载。"
+  },
+  {
+   "cmd": "leafchatview",
+   "what": "物品展示链接的后端入口，由聊天里的标记自动触发",
+   "syntax": "/leafchatview",
+   "examples": [
+    "/leafchatview"
+   ],
+   "notes": "正常玩法中不需要手动输入：玩家在聊天里发 [inv] 或 [ec] 这类标记时插件会自己生成可点击的展示链接。管理员用 leafchat.admin 权限可以直…"
+  },
+  {
+   "cmd": "msg",
+   "what": "给指定玩家发送私聊消息",
+   "syntax": "/msg 玩家名 消息内容",
+   "params": [
+    {
+     "name": "玩家名",
+     "required": true,
+     "note": "接收私聊的目标玩家"
+    },
+    {
+     "name": "消息内容",
+     "required": true,
+     "note": "要发送的文字，可一次输入整句"
+    }
+   ],
+   "examples": [
+    "/msg Steve 你好，在吗"
+   ],
+   "notes": "需要 leafchat.msg 权限，默认所有人可用；被禁言的玩家通常也无法私聊。若服里开了私聊监听，具备 leafchat.spy 的管理员会同时看到这条内容…"
+  },
+  {
+   "cmd": "mute",
+   "what": "禁言玩家，不填时长即永久禁言",
+   "syntax": "/mute 玩家名 [时长]",
+   "params": [
+    {
+     "name": "玩家名",
+     "required": true,
+     "note": "被禁言的目标玩家"
+    },
+    {
+     "name": "时长",
+     "required": false,
+     "note": "禁言持续时间，留空表示永久；具体时长格式以游戏内提示为准"
+    }
+   ],
+   "examples": [
+    "/mute Steve",
+    "/mute Steve 10m"
+   ],
+   "notes": "需要 leafchat.mute 权限（默认仅管理员）。建议对骂人、刷屏先给短时长，反复违规再上永久；永久禁言记得到时候复查，别忘了解。"
+  },
+  {
+   "cmd": "r",
+   "what": "回复上一位和自己私聊过的玩家",
+   "syntax": "/r 消息内容",
+   "params": [
+    {
+     "name": "消息内容",
+     "required": true,
+     "note": "要回复的文字"
+    }
+   ],
+   "examples": [
+    "/r 好，我马上到"
+   ],
+   "notes": "需要 leafchat.msg 权限。只有本次在线期间有过一次私聊往来才有回复目标，服务器重启或对方下线后可能提示没有可回复的对象。"
+  },
+  {
+   "cmd": "spymsg",
+   "what": "开关自己的私聊监听，抄送他人的私聊内容",
+   "syntax": "/spymsg",
+   "examples": [
+    "/spymsg"
+   ],
+   "notes": "需要 leafchat.spy 权限（默认仅管理员），再执行一次即关闭。监听只对开关之后新发生的私聊生效，开启前已经聊过的内容看不到。"
+  },
+  {
+   "cmd": "unmute",
+   "what": "解除指定玩家的禁言",
+   "syntax": "/unmute 玩家名",
+   "params": [
+    {
+     "name": "玩家名",
+     "required": true,
+     "note": "要解除禁言的目标玩家"
+    }
+   ],
+   "examples": [
+    "/unmute Steve"
+   ],
+   "notes": "需要 leafchat.unmute 权限（默认仅管理员）。玩家申诉或误封时用它恢复；解禁后让对方发一句话确认真的能说话了。"
+  }
+ ],
+ "caution": [
+  "该插件为服务器自研/小众插件，具体参数与子指令以游戏内 help 为准，本文档中的用法来自插件自身命令表",
+  "颜色、渐变、彩虹、@全体 分属不同权限节点，权限没给全时玩家会看到「无权限」而不是报错，先查权限插件再怀疑插件坏了",
+  "禁言留空时长等于永久禁言，处理完记得 /unmute 或查记录，避免玩家长期无法说话"
+ ]
 }

@@ -1,0 +1,836 @@
+# Shopkeepers  (Shopkeepers-2.27.0.jar)
+## 注册指令
+  /shopkeeper  usage='Unknown command! Try /<command> help' desc='Base for all shopkeeper commands.' alias=['shopkeepers'] perm=None
+
+## 代码类
+  com.nisovin.shopkeepers.commands.Commands
+  com.nisovin.shopkeepers.commands.Confirmations$PendingConfirmation
+  com.nisovin.shopkeepers.commands.Confirmations
+  com.nisovin.shopkeepers.commands.package-info
+  com.nisovin.shopkeepers.commands.arguments.AmbiguousShopkeeperNameHandler
+  com.nisovin.shopkeepers.commands.arguments.AmbiguousTargetShopkeeperHandler
+  com.nisovin.shopkeepers.commands.arguments.AmbiguousUserNameHandler
+  com.nisovin.shopkeepers.commands.arguments.EntityFilter$1
+  com.nisovin.shopkeepers.commands.arguments.EntityFilter$2
+  com.nisovin.shopkeepers.commands.arguments.EntityFilter
+  com.nisovin.shopkeepers.commands.arguments.package-info
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperArgument$1
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperArgument
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperByIdArgument$1
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperByIdArgument
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperByNameArgument$1
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperByNameArgument
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperByUUIDArgument$1
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperByUUIDArgument
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperFilter$1
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperFilter$2
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperFilter$3
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperFilter$4
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperFilter
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperIdArgument
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperNameArgument
+  com.nisovin.shopkeepers.commands.arguments.ShopkeeperUUIDArgument
+  com.nisovin.shopkeepers.commands.arguments.ShopObjectTypeArgument
+  com.nisovin.shopkeepers.commands.arguments.ShopTypeArgument
+  com.nisovin.shopkeepers.commands.arguments.ShopTypeFilter$1
+  com.nisovin.shopkeepers.commands.arguments.ShopTypeFilter$2
+  com.nisovin.shopkeepers.commands.arguments.ShopTypeFilter
+  com.nisovin.shopkeepers.commands.arguments.TargetShopkeeperArgument
+  com.nisovin.shopkeepers.commands.arguments.TargetShopkeeperFallback
+  com.nisovin.shopkeepers.commands.arguments.UserArgument$1
+  com.nisovin.shopkeepers.commands.arguments.UserArgument$2
+  com.nisovin.shopkeepers.commands.arguments.UserArgument
+  com.nisovin.shopkeepers.commands.arguments.UserByNameArgument$1
+  com.nisovin.shopkeepers.commands.arguments.UserByNameArgument
+  com.nisovin.shopkeepers.commands.arguments.UserByUUIDArgument$1
+  com.nisovin.shopkeepers.commands.arguments.UserByUUIDArgument
+  com.nisovin.shopkeepers.commands.arguments.UserNameArgument
+  com.nisovin.shopkeepers.commands.arguments.UserUUIDArgument
+  com.nisovin.shopkeepers.commands.arguments.snapshot.package-info
+  com.nisovin.shopkeepers.commands.arguments.snapshot.ShopkeeperSnapshotIndexArgument
+  com.nisovin.shopkeepers.commands.arguments.snapshot.ShopkeeperSnapshotIndexByIdArgument$1
+  com.nisovin.shopkeepers.commands.arguments.snapshot.ShopkeeperSnapshotIndexByIdArgument
+  com.nisovin.shopkeepers.commands.arguments.snapshot.ShopkeeperSnapshotIndexByNameArgument$1
+  com.nisovin.shopkeepers.commands.arguments.snapshot.ShopkeeperSnapshotIndexByNameArgument
+  com.nisovin.shopkeepers.commands.lib.BaseCommand
+  com.nisovin.shopkeepers.commands.lib.Command$Fallback
+  com.nisovin.shopkeepers.commands.lib.Command$ParsingContext
+  com.nisovin.shopkeepers.commands.lib.Command
+  com.nisovin.shopkeepers.commands.lib.CommandException
+  com.nisovin.shopkeepers.commands.lib.CommandInput
+  com.nisovin.shopkeepers.commands.lib.CommandRegistry
+  com.nisovin.shopkeepers.commands.lib.CommandSourceRejectedException
+  com.nisovin.shopkeepers.commands.lib.CommandUtils
+  com.nisovin.shopkeepers.commands.lib.NoPermissionException
+  com.nisovin.shopkeepers.commands.lib.package-info
+  com.nisovin.shopkeepers.commands.lib.argument.ArgumentParseException
+  com.nisovin.shopkeepers.commands.lib.argument.ArgumentsReader
+  com.nisovin.shopkeepers.commands.lib.argument.ArgumentsReaderView
+  com.nisovin.shopkeepers.commands.lib.argument.CommandArgument
+  com.nisovin.shopkeepers.commands.lib.argument.InvalidArgumentException
+  com.nisovin.shopkeepers.commands.lib.argument.MissingArgumentException
+  com.nisovin.shopkeepers.commands.lib.argument.package-info
+  com.nisovin.shopkeepers.commands.lib.argument.RequiresPlayerArgumentException
+  com.nisovin.shopkeepers.commands.lib.argument.ambiguity.AmbiguousInputHandler
+  com.nisovin.shopkeepers.commands.lib.argument.ambiguity.package-info
+  com.nisovin.shopkeepers.commands.lib.argument.fallback.FallbackArgument
+  com.nisovin.shopkeepers.commands.lib.argument.fallback.FallbackArgumentException
+  com.nisovin.shopkeepers.commands.lib.argument.fallback.package-info
+  com.nisovin.shopkeepers.commands.lib.argument.filter.ArgumentFilter$1
+  com.nisovin.shopkeepers.commands.lib.argument.filter.ArgumentFilter$2
+  com.nisovin.shopkeepers.commands.lib.argument.filter.ArgumentFilter
+  com.nisovin.shopkeepers.commands.lib.argument.filter.ArgumentRejectedException
+  com.nisovin.shopkeepers.commands.lib.argument.filter.package-info
+  com.nisovin.shopkeepers.commands.lib.arguments.AbstractAmbiguousPlayerNameHandler
+  com.nisovin.shopkeepers.commands.lib.arguments.AmbiguousPlayerEntryNameHandler
+
+## javap 字符串 token
+  argument argumentformat argumentname arguments command description header id index more name other usage uuid
+
+## 文本资源里的帮助/用法行
+  · # Wiki: https://github.com/Shopkeepers/Shopkeepers-Wiki/wiki/Configuration
+  · # https://bstats.org/plugin/bukkit/Shopkeepers
+  · # Find community translations at https://github.com/Shopkeepers/Language-Files
+  · # Wiki: https://github.com/Shopkeepers/Shopkeepers-Wiki/wiki/Language-Files
+  · # '/shopkeepers deleteUnspawnableShopkeepers' command to manually delete these
+  · # Use the '/shopkeeper give' command to give yourself this item in-game.
+  · # when created via the '/shopkeeper give' command.
+  · # Alternatively, the command '/shopkeepers cleanupCitizenShopkeepers' can also
+  · # Note: The "/shopkeeper history" command is current only supported for the
+  · website: 'https://dev.bukkit.org/projects/shopkeepers/'
+  · disable-trade-notifications-hint-command: "/shopkeeper notify trades"
+  · confirmation-required: "&7Bitte bestätige diese Aktion mittels &6/shopkeepers confirm"
+  · # Community translations: https://github.com/Shopkeepers/Language-Files
+  · disable-trade-notifications-hint-command: "/shopkeeper notify trades"
+  · confirmation-required: "&7Please confirm this action by typing &6/shopkeepers confirm"
+
+## 常量池帮助/描述文本
+  · com/nisovin/shopkeepers/commands/Commands
+  · Lcom/nisovin/shopkeepers/SKShopkeepersPlugin;
+  · com/nisovin/shopkeepers/commands/Confirmations
+  · Lcom/nisovin/shopkeepers/commands/Confirmations;
+  · com/nisovin/shopkeepers/commands/shopkeepers/ShopkeepersCommand
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/ShopkeepersCommand;
+  · com/nisovin/shopkeepers/util/java/Validate$State
+  · Lcom/nisovin/shopkeepers/commands/Commands;
+  · com/nisovin/shopkeepers/util/java/Validate
+  · com/nisovin/shopkeepers/commands/Confirmations$PendingConfirmation
+  · Lcom/nisovin/shopkeepers/commands/Confirmations$PendingConfirmation;
+  · com/nisovin/shopkeepers/lang/Messages
+  · Lcom/nisovin/shopkeepers/text/Text;
+  · com/nisovin/shopkeepers/util/bukkit/TextUtils
+  · Ljava/util/Map<Ljava/lang/Object;Lcom/nisovin/shopkeepers/commands/Confirmations$PendingConfirmation;>;
+  · com/nisovin/shopkeepers/commands/package-info
+  · com/nisovin/shopkeepers/commands/lib/argument/ambiguity/AmbiguousInputHandler
+  · com/nisovin/shopkeepers/commands/arguments/AmbiguousShopkeeperNameHandler
+  · com/nisovin/shopkeepers/text/Text
+  · com/nisovin/shopkeepers/api/shopkeeper/Shopkeeper
+  · com/nisovin/shopkeepers/text/TextBuilder
+  · Lcom/nisovin/shopkeepers/commands/arguments/AmbiguousShopkeeperNameHandler;
+  · Ljava/lang/Iterable<+Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/ambiguity/AmbiguousInputHandler<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/commands/arguments/AmbiguousTargetShopkeeperHandler
+  · Lcom/nisovin/shopkeepers/commands/arguments/AmbiguousTargetShopkeeperHandler;
+  · com/nisovin/shopkeepers/commands/arguments/AmbiguousUserNameHandler
+  · com/nisovin/shopkeepers/commands/lib/arguments/AbstractAmbiguousPlayerNameHandler
+  · com/nisovin/shopkeepers/api/user/User
+  · Lcom/nisovin/shopkeepers/commands/arguments/AmbiguousUserNameHandler;
+  · Ljava/lang/Iterable<+Lcom/nisovin/shopkeepers/api/user/User;>;
+  · Lcom/nisovin/shopkeepers/api/user/User;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AbstractAmbiguousPlayerNameHandler<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · com/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter
+  · com/nisovin/shopkeepers/commands/arguments/EntityFilter
+  · com/nisovin/shopkeepers/commands/lib/argument/CommandArgument
+  · com/nisovin/shopkeepers/commands/arguments/EntityFilter$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/EntityFilter$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/CommandInput;
+  · Lcom/nisovin/shopkeepers/commands/lib/context/CommandContextView;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<*>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<Lorg/bukkit/entity/Entity;>;
+  · com/nisovin/shopkeepers/commands/arguments/EntityFilter$2
+  · com/nisovin/shopkeepers/commands/lib/arguments/TargetEntityArgument$TargetEntityFilter
+  · Lcom/nisovin/shopkeepers/commands/arguments/EntityFilter$2;
+  · com/nisovin/shopkeepers/commands/lib/arguments/TargetEntityArgument
+  · com/nisovin/shopkeepers/shopobjects/ShopkeeperMetadata
+  · com/nisovin/shopkeepers/dependencies/citizens/CitizensUtils
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TargetEntityArgument$TargetEntityFilter;
+  · Lcom/nisovin/shopkeepers/commands/arguments/EntityFilter;
+  · com/nisovin/shopkeepers/commands/arguments/package-info
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperArgument$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperArgument;
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperByNameArgument
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/commands/lib/argument/ArgumentParseException
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperNameArgument
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperUUIDArgument
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperByUUIDArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperByUUIDArgument;
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperByIdArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperByIdArgument;
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperByNameArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/TypedFirstOfArgument
+  · com/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFirstOfArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFirstOfArgument<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentRejectedException
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/ArgumentsReader;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperByIdArgument$1
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperIdArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperByIdArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-Ljava/lang/Integer;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument$IdArgumentArgs
+  · com/nisovin/shopkeepers/api/ShopkeepersAPI
+  · com/nisovin/shopkeepers/api/shopkeeper/ShopkeeperRegistry
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument$IdArgumentArgs;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/lang/Integer;Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperByNameArgument$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperByNameArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-Ljava/lang/String;>;
+  · com/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$ShopkeeperNameMatchers
+  · Lcom/nisovin/shopkeepers/commands/lib/util/ObjectMatcher;
+  · com/nisovin/shopkeepers/commands/lib/util/ObjectMatcher
+  · com/nisovin/shopkeepers/util/java/CollectionUtils
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/ambiguity/AmbiguousInputHandler;
+  · Ljava/util/stream/Stream<+Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/lang/String;Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperByUUIDArgument$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperByUUIDArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-Ljava/util/UUID;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/util/UUID;Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/api/shopkeeper/admin/AdminShopkeeper
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter
+  · com/nisovin/shopkeepers/api/shopkeeper/player/PlayerShopkeeper
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter$2
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter$2;
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter$3
+  · Lcom/nisovin/shopkeepers/api/ui/UIType;
+  · com/nisovin/shopkeepers/util/bukkit/PermissionUtils
+  · com/nisovin/shopkeepers/shopkeeper/AbstractShopkeeper
+  · com/nisovin/shopkeepers/commands/lib/CommandInput
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter$3;
+  · com/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter$4
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/player/members/PlayerShopAccessLevel;
+  · com/nisovin/shopkeepers/shopkeeper/player/AbstractPlayerShopkeeper
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter$4;
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperFilter;
+  · com/nisovin/shopkeepers/commands/lib/arguments/IntegerArgument
+  · com/nisovin/shopkeepers/commands/lib/arguments/ObjectIdArgument
+  · com/nisovin/shopkeepers/util/java/ConversionUtils
+  · com/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeeperFilter
+  · Lcom/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeeperFilter;
+  · com/nisovin/shopkeepers/api/internal/util/Unsafe
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperIdArgument;
+  · Ljava/util/stream/Stream<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · Ljava/util/List<+Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectIdArgument<Ljava/lang/Integer;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/ObjectNameArgument
+  · com/nisovin/shopkeepers/util/java/StringUtils
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperNameArgument;
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/ShopkeeperRegistry;
+  · com/nisovin/shopkeepers/commands/lib/arguments/ObjectUUIDArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopkeeperUUIDArgument;
+  · com/nisovin/shopkeepers/commands/lib/argument/ArgumentsReader
+  · com/nisovin/shopkeepers/commands/arguments/ShopObjectTypeArgument
+  · com/nisovin/shopkeepers/api/ShopkeepersPlugin
+  · com/nisovin/shopkeepers/api/shopobjects/ShopObjectTypesRegistry
+  · com/nisovin/shopkeepers/api/shopobjects/ShopObjectType
+  · com/nisovin/shopkeepers/util/java/ObjectUtils
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopObjectTypeArgument;
+  · Lcom/nisovin/shopkeepers/api/shopobjects/ShopObjectType;
+  · Lcom/nisovin/shopkeepers/api/shopobjects/ShopObjectType<*>;
+  · com/nisovin/shopkeepers/commands/lib/context/CommandContextView
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Lcom/nisovin/shopkeepers/api/shopobjects/ShopObjectType<*>;>;
+  · com/nisovin/shopkeepers/commands/arguments/ShopTypeFilter
+  · com/nisovin/shopkeepers/commands/arguments/ShopTypeArgument
+  · com/nisovin/shopkeepers/api/shopkeeper/ShopTypesRegistry
+  · com/nisovin/shopkeepers/api/shopkeeper/ShopType
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-Lcom/nisovin/shopkeepers/api/shopkeeper/ShopType<*>;>;
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopTypeArgument;
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/ShopType;
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/ShopType<*>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Lcom/nisovin/shopkeepers/api/shopkeeper/ShopType<*>;>;
+  · com/nisovin/shopkeepers/api/shopkeeper/admin/AdminShopType
+  · com/nisovin/shopkeepers/commands/arguments/ShopTypeFilter$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopTypeFilter$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<Lcom/nisovin/shopkeepers/api/shopkeeper/ShopType<*>;>;
+  · com/nisovin/shopkeepers/api/shopkeeper/player/PlayerShopType
+  · com/nisovin/shopkeepers/commands/arguments/ShopTypeFilter$2
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopTypeFilter$2;
+  · Lcom/nisovin/shopkeepers/commands/arguments/ShopTypeFilter;
+  · com/nisovin/shopkeepers/commands/arguments/TargetShopkeeperArgument
+  · com/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeepersResult
+  · Lcom/nisovin/shopkeepers/commands/arguments/TargetShopkeeperArgument;
+  · Lcom/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeepersResult;
+  · com/nisovin/shopkeepers/commands/arguments/TargetShopkeeperFallback
+  · com/nisovin/shopkeepers/commands/lib/arguments/TypedFallbackArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/TargetShopkeeperFallback;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFallbackArgument<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/commands/arguments/UserArgument$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/UserArgument;
+  · com/nisovin/shopkeepers/commands/arguments/UserByUUIDArgument
+  · com/nisovin/shopkeepers/commands/arguments/UserArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/UserArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-Lcom/nisovin/shopkeepers/api/user/User;>;
+  · com/nisovin/shopkeepers/commands/arguments/UserArgument$2
+  · com/nisovin/shopkeepers/commands/arguments/UserByNameArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/UserArgument$2;
+  · com/nisovin/shopkeepers/commands/arguments/UserNameArgument
+  · com/nisovin/shopkeepers/commands/arguments/UserUUIDArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/UserByUUIDArgument;
+  · Lcom/nisovin/shopkeepers/commands/arguments/UserByNameArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFirstOfArgument<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · com/nisovin/shopkeepers/commands/arguments/UserByNameArgument$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/UserByNameArgument$1;
+  · com/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher
+  · Lcom/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher;
+  · Ljava/util/stream/Stream<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/ambiguity/AmbiguousInputHandler<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/lang/String;Lcom/nisovin/shopkeepers/api/user/User;>;
+  · com/nisovin/shopkeepers/commands/util/UserArgumentUtils
+  · com/nisovin/shopkeepers/commands/arguments/UserByUUIDArgument$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/UserByUUIDArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/util/UUID;Lcom/nisovin/shopkeepers/api/user/User;>;
+  · Lcom/nisovin/shopkeepers/commands/arguments/UserNameArgument;
+  · Lcom/nisovin/shopkeepers/commands/arguments/UserUUIDArgument;
+  · com/nisovin/shopkeepers/commands/arguments/snapshot/package-info
+  · com/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexArgument
+  · com/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexByIdArgument
+  · com/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexByNameArgument
+  · Lcom/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexByIdArgument;
+  · Lcom/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexByNameArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFirstOfArgument<Ljava/lang/Integer;>;
+  · Lcom/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<+Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Ljava/lang/Integer;>;
+  · com/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexByIdArgument$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexByIdArgument$1;
+  · com/nisovin/shopkeepers/commands/lib/arguments/PositiveIntegerArgument
+  · Ljava/util/List<+Lcom/nisovin/shopkeepers/api/shopkeeper/ShopkeeperSnapshot;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/lang/Integer;Ljava/lang/Integer;>;
+  · com/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexByNameArgument$1
+  · Lcom/nisovin/shopkeepers/commands/arguments/snapshot/ShopkeeperSnapshotIndexByNameArgument$1;
+  · com/nisovin/shopkeepers/api/shopkeeper/ShopkeeperSnapshot
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/ShopkeeperSnapshot;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/lang/String;Ljava/lang/Integer;>;
+  · com/nisovin/shopkeepers/commands/lib/BaseCommand
+  · com/nisovin/shopkeepers/commands/lib/Command
+  · Lcom/nisovin/shopkeepers/commands/lib/BaseCommand;
+  · com/nisovin/shopkeepers/commands/lib/Command$Fallback
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/fallback/FallbackArgumentException;
+  · Lcom/nisovin/shopkeepers/commands/lib/context/BufferedCommandContext;
+  · com/nisovin/shopkeepers/commands/lib/argument/fallback/FallbackArgumentException
+  · Lcom/nisovin/shopkeepers/commands/lib/Command$Fallback;
+  · com/nisovin/shopkeepers/commands/lib/context/BufferedCommandContext
+  · com/nisovin/shopkeepers/commands/lib/Command$ParsingContext
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/ArgumentParseException;
+  · Lcom/nisovin/shopkeepers/commands/lib/context/CommandContext;
+  · Lcom/nisovin/shopkeepers/commands/lib/Command$ParsingContext;
+  · com/nisovin/shopkeepers/commands/lib/context/CommandContext
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentRejectedException;
+  · Lcom/nisovin/shopkeepers/commands/lib/Command;
+  · com/nisovin/shopkeepers/commands/lib/CommandRegistry
+  · Lcom/nisovin/shopkeepers/commands/lib/CommandRegistry;
+  · com/nisovin/shopkeepers/util/text/MessageArguments
+  · Lcom/nisovin/shopkeepers/util/text/MessageArguments;
+  · com/nisovin/shopkeepers/commands/lib/NoPermissionException
+  · com/nisovin/shopkeepers/commands/lib/CommandSourceRejectedException
+  · com/nisovin/shopkeepers/commands/lib/context/SimpleCommandContext
+  · com/nisovin/shopkeepers/debug/DebugOptions
+  · com/nisovin/shopkeepers/util/logging/Log
+  · com/nisovin/shopkeepers/commands/lib/CommandException
+  · com/nisovin/shopkeepers/commands/lib/argument/fallback/FallbackArgument
+  · com/nisovin/shopkeepers/commands/lib/CommandUtils
+  · com/nisovin/shopkeepers/util/java/MapUtils
+  · Ljava/util/List<Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<*>;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/CommandException;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/fallback/FallbackArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/fallback/FallbackArgument<*>;
+  · Ljava/util/ListIterator<Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<*>;>;
+  · Ljava/util/Map$Entry<+Ljava/lang/String;+Lcom/nisovin/shopkeepers/commands/lib/Command;>;
+  · Ljava/util/Set<Lcom/nisovin/shopkeepers/commands/lib/Command;>;
+  · Ljava/util/Map<Ljava/lang/String;Lcom/nisovin/shopkeepers/commands/lib/Command;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/CommandSourceRejectedException;
+  · Lcom/nisovin/shopkeepers/commands/lib/CommandUtils;
+  · Lcom/nisovin/shopkeepers/commands/lib/NoPermissionException;
+  · com/nisovin/shopkeepers/commands/lib/package-info
+  · com/nisovin/shopkeepers/commands/lib/argument/ArgumentsReaderView
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/ArgumentsReaderView;
+  · com/nisovin/shopkeepers/commands/lib/argument/RequiresPlayerArgumentException
+  · com/nisovin/shopkeepers/commands/lib/argument/MissingArgumentException
+  · com/nisovin/shopkeepers/commands/lib/argument/InvalidArgumentException
+  · com/nisovin/shopkeepers/commands/lib/arguments/OptionalArgument
+  · com/nisovin/shopkeepers/commands/lib/arguments/DefaultValueFallback
+  · com/nisovin/shopkeepers/commands/lib/arguments/TransformedArgument
+  · Ljava/util/Optional<Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<*>;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<TT;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TransformedArgument$ArgumentTransformer;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TransformedArgument$ArgumentTransformer<TT;TR;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/TransformedArgument$ArgumentTransformer
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/InvalidArgumentException;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/MissingArgumentException;
+  · com/nisovin/shopkeepers/commands/lib/argument/package-info
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/RequiresPlayerArgumentException;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/ambiguity/AmbiguousInputHandler<TO;>;
+  · Lcom/nisovin/shopkeepers/text/TextBuilder;
+  · com/nisovin/shopkeepers/commands/lib/argument/ambiguity/package-info
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/fallback/FallbackArgument<TT;>;
+  · com/nisovin/shopkeepers/commands/lib/argument/fallback/package-info
+  · com/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter$1
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<Ljava/lang/Object;>;
+  · com/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter$2
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter$2;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<TT;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-TT;>;
+  · com/nisovin/shopkeepers/commands/lib/argument/filter/package-info
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AbstractAmbiguousPlayerNameHandler;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AbstractAmbiguousPlayerNameHandler<TP;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/AmbiguousPlayerEntryNameHandler
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AmbiguousPlayerEntryNameHandler;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AbstractAmbiguousPlayerNameHandler<Ljava/util/Map$Entry<+Ljava/util/UUID;+Ljava/lang/String;>;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/AmbiguousPlayerNameHandler
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AmbiguousPlayerNameHandler;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AmbiguousPlayerNameHandler<TP;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/AnyFallbackArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AnyFallbackArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/fallback/FallbackArgument<Ljava/lang/Object;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/AnyStringFallback
+  · com/nisovin/shopkeepers/commands/lib/arguments/StringArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AnyStringFallback;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Ljava/lang/String;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFallbackArgument<Ljava/lang/String;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/BooleanArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/BooleanArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Ljava/lang/Boolean;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/DoubleArgument
+  · com/nisovin/shopkeepers/commands/lib/arguments/BoundedDoubleArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/BoundedDoubleArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/BoundedIntegerArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/BoundedIntegerArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/CompoundArgument
+  · Ljava/util/List<+Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<*>;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/CompoundArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/CompoundArgument<TT;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/FixedValueArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/DefaultValueFallback;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/DefaultValueFallback<TT;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/DoubleArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Ljava/lang/Double;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/EntityArgument$1
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/EntityArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/EntityByUUIDArgument
+  · com/nisovin/shopkeepers/commands/lib/arguments/EntityArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/EntityArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-Lorg/bukkit/entity/Entity;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/EntityUUIDArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/EntityByUUIDArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFirstOfArgument<Lorg/bukkit/entity/Entity;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Lorg/bukkit/entity/Entity;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/EntityByUUIDArgument$1
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/EntityByUUIDArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/util/UUID;Lorg/bukkit/entity/Entity;>;
+  · com/nisovin/shopkeepers/util/bukkit/EntityUtils
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/EntityUUIDArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/EnumArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/EnumArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/EnumArgument<TT;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/FirstOfArgument$FirstOfFallbackException
+  · com/nisovin/shopkeepers/commands/lib/arguments/FirstOfArgument
+  · Ljava/util/List<+Lcom/nisovin/shopkeepers/commands/lib/argument/fallback/FallbackArgumentException;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/FirstOfArgument$FirstOfFallbackException;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/FirstOfArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/FirstOfArgument$Parser
+  · com/nisovin/shopkeepers/util/java/Pair
+  · Ljava/util/ListIterator<+Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<*>;>;
+  · Lcom/nisovin/shopkeepers/util/java/Pair;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/FirstOfArgument$Parser;
+  · Ljava/util/List<Lcom/nisovin/shopkeepers/commands/lib/argument/fallback/FallbackArgumentException;>;
+  · Lcom/nisovin/shopkeepers/util/java/Pair<+Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<*>;*>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/FirstOfArgument$Parser<TI;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/FixedValueArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/FixedValueArgument<TT;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/FixedValuesArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/FixedValuesArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Ljava/lang/Object;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/IntegerArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/LiteralArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/LiteralArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/NamedArgument$Parser
+  · com/nisovin/shopkeepers/commands/lib/arguments/NamedArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/NamedArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/NamedArgument<TT;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/NamedArgument$Parser;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/NamedArgument$Parser<TR;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectIdArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-TO;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectIdArgument<TI;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<TI;TO;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<TI;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-TI;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectNameArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectIdArgument<Ljava/lang/String;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/UUIDArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectUUIDArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectIdArgument<Ljava/util/UUID;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/OptionalArgument$Parser
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/OptionalArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/OptionalArgument<TT;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/OptionalArgument$Parser;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/OptionalArgument$Parser<TT;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/package-info
+  · com/nisovin/shopkeepers/commands/lib/arguments/PlayerArgument$1
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PlayerArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/PlayerByUUIDArgument
+  · com/nisovin/shopkeepers/commands/lib/arguments/PlayerArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PlayerArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/filter/ArgumentFilter<-Lorg/bukkit/entity/Player;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/PlayerArgument$2
+  · com/nisovin/shopkeepers/commands/lib/arguments/PlayerByNameArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PlayerArgument$2;
+  · com/nisovin/shopkeepers/commands/lib/arguments/PlayerNameArgument
+  · com/nisovin/shopkeepers/commands/lib/arguments/PlayerUUIDArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PlayerByUUIDArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PlayerByNameArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFirstOfArgument<Lorg/bukkit/entity/Player;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Lorg/bukkit/entity/Player;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/PlayerByNameArgument$1
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PlayerByNameArgument$1;
+  · com/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher
+  · Lcom/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/AmbiguousPlayerNameHandler<Lorg/bukkit/entity/Player;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/ambiguity/AmbiguousInputHandler<Lorg/bukkit/entity/Player;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/lang/String;Lorg/bukkit/entity/Player;>;
+  · com/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils
+  · com/nisovin/shopkeepers/commands/lib/arguments/PlayerByUUIDArgument$1
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PlayerByUUIDArgument$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/ObjectByIdArgument<Ljava/util/UUID;Lorg/bukkit/entity/Player;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PlayerNameArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PlayerUUIDArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/PositiveIntegerArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/SenderPlayerFallback$SenderPlayerArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/SenderPlayerFallback$SenderPlayerArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/SenderPlayerFallback
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/SenderPlayerFallback;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFallbackArgument<Lorg/bukkit/entity/Player;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/SenderPlayerNameFallback$SenderPlayerNameArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/SenderPlayerNameFallback$SenderPlayerNameArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/SenderPlayerNameFallback
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/SenderPlayerNameFallback;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/StringArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/TargetEntityArgument$TargetEntityFilter$1
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TargetEntityArgument$TargetEntityFilter$1;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TargetEntityArgument;
+  · com/nisovin/shopkeepers/commands/lib/arguments/TargetEntityFallback
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TargetEntityFallback;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFallbackArgument<Lorg/bukkit/entity/Entity;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TransformedArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TransformedArgument<TT;TR;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/TrileanArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TrileanArgument;
+  · Lcom/nisovin/shopkeepers/util/java/Trilean;
+  · com/nisovin/shopkeepers/util/java/Trilean
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Lcom/nisovin/shopkeepers/util/java/Trilean;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFallbackArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFallbackArgument<TT;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/TypedFirstOfArgument<TT;>;
+  · Ljava/util/List<+Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<TT;>;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/UUIDArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Ljava/util/UUID;>;
+  · com/nisovin/shopkeepers/commands/lib/arguments/WorldArgument
+  · Lcom/nisovin/shopkeepers/commands/lib/arguments/WorldArgument;
+  · Lcom/nisovin/shopkeepers/commands/lib/argument/CommandArgument<Lorg/bukkit/World;>;
+  · com/nisovin/shopkeepers/commands/lib/commands/HelpCommand
+  · Lcom/nisovin/shopkeepers/commands/lib/commands/HelpCommand;
+  · com/nisovin/shopkeepers/commands/lib/commands/package-info
+  · com/nisovin/shopkeepers/commands/lib/commands/PlayerCommand
+  · Lcom/nisovin/shopkeepers/commands/lib/commands/PlayerCommand;
+  · com/nisovin/shopkeepers/commands/lib/context/package-info
+  · Lcom/nisovin/shopkeepers/commands/lib/context/SimpleCommandContext;
+  · com/nisovin/shopkeepers/commands/lib/util/package-info
+  · com/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$AbstractPlayerNameMatcher
+  · Lcom/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$AbstractPlayerNameMatcher;
+  · com/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher$1
+  · Lcom/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher$1;
+  · com/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher$2
+  · Lcom/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher$2;
+  · com/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher$3
+  · Lcom/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher$3;
+  · com/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher$4
+  · Lcom/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils$PlayerNameMatcher$4;
+  · Ljava/lang/Object;Lcom/nisovin/shopkeepers/commands/lib/util/ObjectMatcher<Lorg/bukkit/entity/Player;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/util/PlayerArgumentUtils;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandCheck
+  · com/nisovin/shopkeepers/SKShopkeepersPlugin
+  · Lcom/nisovin/shopkeepers/shopkeeper/registry/SKShopkeeperRegistry;
+  · com/nisovin/shopkeepers/shopkeeper/registry/SKShopkeeperRegistry
+  · Lcom/nisovin/shopkeepers/shopkeeper/spawning/ShopkeeperSpawner;
+  · Lcom/nisovin/shopkeepers/shopkeeper/activation/ShopkeeperChunkActivator;
+  · com/nisovin/shopkeepers/shopobjects/entity/base/BaseEntityShops
+  · com/nisovin/shopkeepers/storage/SKShopkeeperStorage
+  · com/nisovin/shopkeepers/shopobjects/entity/base/EntityAI
+  · com/nisovin/shopkeepers/shopkeeper/spawning/ShopkeeperSpawner
+  · com/nisovin/shopkeepers/util/taskqueue/TaskQueueStatistics
+  · com/nisovin/shopkeepers/shopkeeper/activation/ShopkeeperChunkActivator
+  · com/nisovin/shopkeepers/util/timer/Timings
+  · com/nisovin/shopkeepers/config/Settings
+  · com/nisovin/shopkeepers/api/util/ChunkCoords
+  · com/nisovin/shopkeepers/api/shopobjects/ShopObject
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandCheck;
+  · Lcom/nisovin/shopkeepers/api/util/ChunkCoords;
+  · Lcom/nisovin/shopkeepers/api/shopobjects/ShopObject;
+  · Lcom/nisovin/shopkeepers/shopobjects/entity/base/EntityAI;
+  · Lcom/nisovin/shopkeepers/util/taskqueue/TaskQueueStatistics;
+  · Lcom/nisovin/shopkeepers/util/timer/Timings;
+  · Ljava/util/Collection<+Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · Ljava/util/Map$Entry<+Lcom/nisovin/shopkeepers/api/util/ChunkCoords;+Ljava/util/Collection<+Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;>;
+  · Ljava/util/Map<+Lcom/nisovin/shopkeepers/api/util/ChunkCoords;+Ljava/util/Collection<+Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;>;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandCheckItem
+  · com/nisovin/shopkeepers/shopcreation/ShopCreationItem
+  · com/nisovin/shopkeepers/util/inventory/ItemUtils
+  · com/nisovin/shopkeepers/compat/Compat
+  · com/nisovin/shopkeepers/compat/CompatProvider
+  · com/nisovin/shopkeepers/currency/Currencies
+  · com/nisovin/shopkeepers/currency/Currency
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandCheckItem;
+  · Lcom/nisovin/shopkeepers/currency/Currency;
+  · Lcom/nisovin/shopkeepers/shopcreation/ShopCreationItem;
+  · Ljava/util/function/Predicate<-Lcom/nisovin/shopkeepers/shopcreation/ShopCreationItem;>;
+  · com/nisovin/shopkeepers/util/inventory/ItemData
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandCleanupCitizenShopkeepers
+  · com/nisovin/shopkeepers/shopobjects/citizens/CitizensShops
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandCleanupCitizenShopkeepers;
+  · Lcom/nisovin/shopkeepers/shopobjects/citizens/CitizensShops;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandConfirm
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandConfirm;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandDebug$DebugOptionArgument
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandDebug$DebugOptionArgument;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandDebug
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandDebug;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandDebugCreateShops
+  · com/nisovin/shopkeepers/util/bukkit/BlockFaceUtils$BlockFaceDirections
+  · Lcom/nisovin/shopkeepers/util/bukkit/BlockFaceUtils$BlockFaceDirections;
+  · com/nisovin/shopkeepers/api/shopkeeper/DefaultShopTypes
+  · com/nisovin/shopkeepers/api/shopobjects/DefaultShopObjectTypes
+  · com/nisovin/shopkeepers/api/shopobjects/living/LivingShopObjectTypes
+  · com/nisovin/shopkeepers/api/shopkeeper/admin/AdminShopCreationData
+  · com/nisovin/shopkeepers/api/shopobjects/living/LivingShopObject
+  · com/nisovin/shopkeepers/api/util/UnmodifiableItemStack
+  · com/nisovin/shopkeepers/api/shopobjects/living/LivingShopEquipment
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandDebugCreateShops;
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/admin/AdminShopType;
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/admin/AdminShopType<*>;
+  · Lcom/nisovin/shopkeepers/api/shopobjects/living/LivingShopObject;
+  · Lcom/nisovin/shopkeepers/api/shopobjects/living/LivingShopEquipment;
+  · com/nisovin/shopkeepers/util/bukkit/BlockFaceUtils
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandDeleteUnspawnableShopkeepers
+  · com/nisovin/shopkeepers/shopobjects/AbstractShopObject
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandDeleteUnspawnableShopkeepers;
+  · Ljava/util/List<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · Lcom/nisovin/shopkeepers/shopobjects/AbstractShopObject;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandEdit
+  · com/nisovin/shopkeepers/api/ui/DefaultUITypes
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandEdit;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandEditVillager
+  · com/nisovin/shopkeepers/ui/villager/editor/VillagerEditorViewProvider
+  · com/nisovin/shopkeepers/ui/lib/UISessionManager
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandEditVillager;
+  · Lcom/nisovin/shopkeepers/ui/villager/editor/VillagerEditorViewProvider;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandGive
+  · com/nisovin/shopkeepers/util/inventory/InventoryUtils
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandGive;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandGiveCurrency
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandGiveCurrency;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandHelp
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandHelp;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandHistory
+  · com/nisovin/shopkeepers/tradelog/history/PlayerSelector
+  · Lcom/nisovin/shopkeepers/tradelog/history/PlayerSelector;
+  · com/nisovin/shopkeepers/tradelog/history/PlayerSelector$ByUUID
+  · com/nisovin/shopkeepers/tradelog/history/ShopSelector
+  · Lcom/nisovin/shopkeepers/tradelog/history/ShopSelector;
+  · com/nisovin/shopkeepers/tradelog/history/ShopSelector$ByOwnerUUID
+  · com/nisovin/shopkeepers/tradelog/history/ShopSelector$ByExistingShop
+  · com/nisovin/shopkeepers/tradelog/history/ShopSelector$ByShopUUID
+  · com/nisovin/shopkeepers/util/java/Range$PageRange
+  · com/nisovin/shopkeepers/tradelog/history/TradingHistoryRequest
+  · com/nisovin/shopkeepers/tradelog/history/TradingHistoryProvider
+  · com/nisovin/shopkeepers/tradelog/history/TradingHistoryResult
+  · Lcom/nisovin/shopkeepers/util/java/Range;
+  · com/nisovin/shopkeepers/util/java/Range
+  · com/nisovin/shopkeepers/tradelog/history/ShopSelector$ByShopIdentifier
+  · com/nisovin/shopkeepers/tradelog/data/TradeRecord
+  · com/nisovin/shopkeepers/tradelog/data/ShopRecord
+  · com/nisovin/shopkeepers/config/Settings$DerivedSettings
+  · com/nisovin/shopkeepers/util/java/TimeUtils
+  · com/nisovin/shopkeepers/debug/Debug
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandHistory;
+  · Lcom/nisovin/shopkeepers/tradelog/history/TradingHistoryProvider;
+  · Lcom/nisovin/shopkeepers/tradelog/history/TradingHistoryRequest;
+  · Ljava/util/List<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · Lcom/nisovin/shopkeepers/tradelog/history/PlayerSelector$ByUUID;
+  · Lcom/nisovin/shopkeepers/tradelog/history/ShopSelector$ByOwnerUUID;
+  · Lcom/nisovin/shopkeepers/tradelog/history/ShopSelector$ByShopIdentifier;
+  · Lcom/nisovin/shopkeepers/tradelog/data/PlayerRecord;
+  · Lcom/nisovin/shopkeepers/tradelog/data/ShopRecord;
+  · Lcom/nisovin/shopkeepers/api/util/UnmodifiableItemStack;
+  · Lcom/nisovin/shopkeepers/tradelog/data/TradeRecord;
+  · Lcom/nisovin/shopkeepers/tradelog/history/TradingHistoryResult;
+  · com/nisovin/shopkeepers/tradelog/data/PlayerRecord
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandList
+  · com/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$OwnedPlayerShopsResult
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandList;
+  · Lcom/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$OwnedPlayerShopsResult;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandNotify
+  · com/nisovin/shopkeepers/tradenotifications/TradeNotifications
+  · com/nisovin/shopkeepers/tradenotifications/NotificationUserPreferences
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandNotify;
+  · Lcom/nisovin/shopkeepers/tradenotifications/NotificationUserPreferences;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandReload
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandReload;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandRemote
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandRemote;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandRemove
+  · com/nisovin/shopkeepers/api/shopkeeper/player/members/DefaultPlayerShopAccessLevels
+  · com/nisovin/shopkeepers/event/ShopkeeperEventHelper
+  · com/nisovin/shopkeepers/api/events/PlayerDeleteShopkeeperEvent
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandRemove;
+  · Lcom/nisovin/shopkeepers/shopkeeper/AbstractShopkeeper;
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/player/PlayerShopkeeper;
+  · Lcom/nisovin/shopkeepers/api/events/PlayerDeleteShopkeeperEvent;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandRemoveAll
+  · Lcom/nisovin/shopkeepers/api/ShopkeepersPlugin;
+  · com/nisovin/shopkeepers/api/storage/ShopkeeperStorage
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandRemoveAll;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandReplaceAllWithVanillaVillagers
+  · com/nisovin/shopkeepers/shopobjects/living/types/VillagerShop
+  · com/nisovin/shopkeepers/util/bukkit/MerchantUtils
+  · com/nisovin/shopkeepers/world/ForcingEntitySpawner
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandReplaceAllWithVanillaVillagers;
+  · Ljava/util/List<+Lcom/nisovin/shopkeepers/shopkeeper/AbstractShopkeeper;>;
+  · Lcom/nisovin/shopkeepers/shopobjects/living/types/VillagerShop;
+  · Ljava/util/List<+Lcom/nisovin/shopkeepers/api/shopkeeper/TradingRecipe;>;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandSetCurrency
+  · com/nisovin/shopkeepers/api/ui/UIRegistry
+  · Lcom/nisovin/shopkeepers/util/inventory/ItemData;
+  · com/nisovin/shopkeepers/api/ui/UISession
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandSetCurrency;
+  · Lcom/nisovin/shopkeepers/api/ui/UISession;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandSetForHire
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandSetForHire;
+  · Lcom/nisovin/shopkeepers/shopkeeper/player/AbstractPlayerShopkeeper;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandSetTradedCommand
+  · com/nisovin/shopkeepers/trading/commandtrading/CommandTradingUtils
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandSetTradedCommand;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandSetTradePerm
+  · com/nisovin/shopkeepers/shopkeeper/admin/AbstractAdminShopkeeper
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandSetTradePerm;
+  · Lcom/nisovin/shopkeepers/shopkeeper/admin/AbstractAdminShopkeeper;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandTeleport
+  · com/nisovin/shopkeepers/shopkeeper/teleporting/ShopkeeperTeleporter
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandTeleport;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandTestDamage$1
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandTestDamage$1;
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandTestDamage;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandTestDamage
+  · com/nisovin/shopkeepers/util/bukkit/Ticks
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandTestSpawn$Result
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandTestSpawn$Result;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandTestSpawn
+  · com/nisovin/shopkeepers/util/java/MathUtils
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandTestSpawn;
+  · Ljava/util/Collection<+Lcom/nisovin/shopkeepers/shopkeeper/AbstractShopkeeper;>;
+  · Ljava/util/List<Lcom/nisovin/shopkeepers/shopkeeper/AbstractShopkeeper;>;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandTransfer
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandTransfer;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandUpdateItems
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandUpdateItems;
+  · com/nisovin/shopkeepers/commands/shopkeepers/CommandYaml
+  · com/nisovin/shopkeepers/util/bukkit/ConfigUtils
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/CommandYaml;
+  · com/nisovin/shopkeepers/commands/shopkeepers/package-info
+  · com/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshot
+  · com/nisovin/shopkeepers/shopkeeper/SKShopTypesRegistry
+  · com/nisovin/shopkeepers/shopobjects/SKShopObjectTypesRegistry
+  · com/nisovin/shopkeepers/shopcreation/ShopkeeperCreation
+  · com/nisovin/shopkeepers/shopcreation/ShopkeeperPlacement
+  · com/nisovin/shopkeepers/api/shopkeeper/player/PlayerShopCreationData
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/ShopCreationData;
+  · Lcom/nisovin/shopkeepers/shopcreation/ShopkeeperPlacement;
+  · com/nisovin/shopkeepers/api/shopkeeper/ShopCreationData
+  · com/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotHelp
+  · com/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotList
+  · com/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotCreate
+  · com/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotRemove
+  · com/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotRestore
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshot;
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotCreate;
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotHelp;
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotList;
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotRemove;
+  · com/nisovin/shopkeepers/api/shopkeeper/ShopkeeperLoadException
+  · Lcom/nisovin/shopkeepers/commands/shopkeepers/snapshot/CommandSnapshotRestore;
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/ShopkeeperLoadException;
+  · com/nisovin/shopkeepers/commands/shopkeepers/snapshot/package-info
+  · com/nisovin/shopkeepers/commands/util/package-info
+  · Ljava/util/List<+Lcom/nisovin/shopkeepers/api/shopkeeper/player/PlayerShopkeeper;>;
+  · com/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$ShopkeeperNameMatchers$1
+  · Lcom/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$ShopkeeperNameMatchers$1;
+  · Ljava/lang/Object;Lcom/nisovin/shopkeepers/commands/lib/util/ObjectMatcher<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · Lcom/nisovin/shopkeepers/commands/lib/util/ObjectMatcher<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · Lcom/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$ShopkeeperNameMatchers;
+  · com/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeeperFilter$1
+  · Lcom/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeeperFilter$1;
+  · com/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeeperFilter$2
+  · Lcom/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeeperFilter$2;
+  · com/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeeperFilter$3
+  · Lcom/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils$TargetShopkeeperFilter$3;
+  · Ljava/lang/Object;Ljava/util/function/Predicate<Lcom/nisovin/shopkeepers/api/shopkeeper/Shopkeeper;>;
+  · com/nisovin/shopkeepers/container/ShopContainers
+  · com/nisovin/shopkeepers/container/protection/ProtectedContainers
+  · Lcom/nisovin/shopkeepers/container/protection/ProtectedContainers;
+  · Ljava/util/List<Lcom/nisovin/shopkeepers/api/shopkeeper/player/PlayerShopkeeper;>;
+  · Lcom/nisovin/shopkeepers/commands/util/ShopkeeperArgumentUtils;
+  · com/nisovin/shopkeepers/commands/util/UserArgumentUtils$AbstractUserNameMatcher
+  · com/nisovin/shopkeepers/user/SKUser
+  · Lcom/nisovin/shopkeepers/commands/util/UserArgumentUtils$AbstractUserNameMatcher;
+  · Ljava/util/Iterator<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · Ljava/lang/Iterable<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · com/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher$1
+  · Lcom/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher$1;
+  · com/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher$2
+  · Lcom/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher$2;
+  · com/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher$3
+  · Lcom/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher$3;
+  · com/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher$4
+  · Lcom/nisovin/shopkeepers/commands/util/UserArgumentUtils$UserNameMatcher$4;
+  · Ljava/lang/Object;Lcom/nisovin/shopkeepers/commands/lib/util/ObjectMatcher<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · com/nisovin/shopkeepers/util/java/StreamUtils
+  · com/nisovin/shopkeepers/api/shopkeeper/player/members/PlayerShopMember
+  · Ljava/util/Collection<+Lcom/nisovin/shopkeepers/shopkeeper/player/AbstractPlayerShopkeeper;>;
+  · Ljava/util/Optional<Lcom/nisovin/shopkeepers/api/user/User;>;
+  · Lcom/nisovin/shopkeepers/commands/util/UserArgumentUtils;
+  · Lcom/nisovin/shopkeepers/api/shopkeeper/player/members/PlayerShopMember;
+  · com/nisovin/shopkeepers/trading/commandtrading/CommandTrading
+  · com/nisovin/shopkeepers/api/events/ShopkeeperTradeEvent
+  · com/nisovin/shopkeepers/trading/commandtrading/TradedCommandsTradeEffect
+  · Lcom/nisovin/shopkeepers/trading/commandtrading/CommandTrading;
+  · Lcom/nisovin/shopkeepers/api/events/ShopkeeperTradeEvent;
+  · Lcom/nisovin/shopkeepers/trading/commandtrading/TradedCommandsTradeEffect;
+  · com/nisovin/shopkeepers/util/bukkit/NamespacedKeyUtils
+  · Lcom/nisovin/shopkeepers/trading/commandtrading/CommandTradingUtils;
+  · Lcom/nisovin/shopkeepers/util/annotations/ReadWrite;
+  · Lcom/nisovin/shopkeepers/util/annotations/ReadOnly;
+  · com/nisovin/shopkeepers/trading/commandtrading/package-info
+  · com/nisovin/shopkeepers/api/trading/TradeEffect

@@ -1,0 +1,29 @@
+# ArmoredElytra  (ArmoredElytra.jar)
+## 注册指令
+  /armoredelytra  usage='/armoredelytra reload' desc='装甲鞘翅管理命令' alias=None perm='xingmian.armoredelytra.bypass'
+
+## 代码类
+  xingmian.armoredelytra.ArmoredElytraCommand
+
+## javap 字符串 token
+  reload
+
+## 文本资源里的帮助/用法行
+  · # 装甲鞘翅合成费用设置
+  · # 修改此处 cost 数值后，执行 /armoredelytra reload 或重启服务器生效
+  · description: 装甲鞘翅 - 胸甲与鞘翅合成，保留护甲值与附魔，兼容 EcoEnchants
+  · description: 装甲鞘翅管理命令
+  · usage: /armoredelytra reload
+  · description: 允许使用装甲鞘翅合成/穿戴
+  · description: 绕过锻造台合成限制（OP使用）
+
+## 常量池帮助/描述文本
+  · xingmian/armoredelytra/ArmoredElytraCommand
+  · Lxingmian/armoredelytra/ArmoredElytra;
+  · §c你没有权限使用该命令
+  · xingmian/armoredelytra/ArmoredElytra
+  · §c控制台使用：/armoredelytra give <玩家>
+  · §c合成失败
+  · §a已重载合成费用配置，当前合成费用：
+  · §c找不到玩家 
+  · §a已发放装甲鞘翅给 

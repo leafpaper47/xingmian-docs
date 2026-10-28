@@ -1,0 +1,117 @@
+# FoMiningComp  (FoMiningComp-1.6.jar)
+## 注册指令
+  /fominingcomp  usage='/<command> help' desc='Main command for FoMiningComp' alias=['miningcomp'] perm='fominingcomp.admin'
+
+## 代码类
+  me.foesio.foMiningComp.MainCommand
+  me.foesio.foMiningComp.libs.core.command.a
+  me.foesio.foMiningComp.libs.core.command.b$1
+  me.foesio.foMiningComp.libs.core.command.b$2
+  me.foesio.foMiningComp.libs.core.command.b$3
+  me.foesio.foMiningComp.libs.core.command.b
+  me.foesio.foMiningComp.libs.core.command.c$a
+  me.foesio.foMiningComp.libs.core.command.c
+  me.foesio.foMiningComp.libs.core.command.CommandPlaceholders
+  me.foesio.foMiningComp.libs.core.command.CommandVisibilityService$a
+  me.foesio.foMiningComp.libs.core.command.CommandVisibilityService$Builder
+  me.foesio.foMiningComp.libs.core.command.CommandVisibilityService
+  me.foesio.foMiningComp.libs.core.command.d
+  me.foesio.foMiningComp.libs.core.command.e
+  me.foesio.foMiningComp.libs.core.command.f$a
+  me.foesio.foMiningComp.libs.core.command.f$b
+  me.foesio.foMiningComp.libs.core.command.f
+  me.foesio.foMiningComp.libs.core.command.g$a
+  me.foesio.foMiningComp.libs.core.command.g
+  me.foesio.foMiningComp.libs.core.command.h
+
+## javap 字符串 token
+  command current_version editor error executor help help-editor help-header help-help help-list help-reload help-setnext help-start help-status help-stop help-version id identity label list materials messages name off on player plugin reload remaining setnext start status step stop subcommand time usage uuid version
+
+## 文本资源里的帮助/用法行
+  · # plugins/FoMiningComp/competitions/<competition-id>.yml
+  · help-help: "{prefix}{theme}/fominingcomp help {muted}- Show this help"
+  · help-version: "{prefix}{theme}/fominingcomp version {muted}- Show author and plugin version"
+  · help-editor: "{prefix}{theme}/fominingcomp editor {muted}- Open GUI editor"
+  · help-reload: "{prefix}{theme}/fominingcomp reload {muted}- Reload config and messages"
+  · help-start: "{prefix}{theme}/fominingcomp start <id> {muted}- Start competition now"
+  · help-stop: "{prefix}{theme}/fominingcomp stop {muted}- Stop active competition"
+  · help-setnext: "{prefix}{theme}/fominingcomp setnext <id> {muted}- Force the next competition"
+  · help-status: "{prefix}{theme}/fominingcomp status {muted}- Show live status"
+  · help-list: "{prefix}{theme}/fominingcomp list {muted}- List all configured competitions"
+
+## 常量池帮助/描述文本
+  · me/foesio/foMiningComp/MainCommand
+  · Lme/foesio/foMiningComp/FoMiningComp;
+  · Lme/foesio/foMiningComp/libs/core/message/FoMessageService;
+  · Lme/foesio/foMiningComp/CompetitionManager;
+  · Lme/foesio/foMiningComp/EditorGui;
+  · Lme/foesio/foMiningComp/libs/core/update/UpdateNoticeService;
+  · Lme/foesio/foMiningComp/MainCommand;
+  · {prefix}{bad}你没有权限。
+  · me/foesio/foMiningComp/libs/core/message/FoMessageService
+  · {prefix}{theme}版本 {version} {muted}| 作者：{theme}Carrotio
+  · me/foesio/foMiningComp/FoMiningComp
+  · me/foesio/foMiningComp/libs/core/update/UpdateNoticeService
+  · me/foesio/foMiningComp/libs/core/reload/FoReloadResult
+  · {prefix}{bad}重载失败于 {theme}{step}{bad}：{muted}{error}
+  · {prefix}{good}配置已重新加载。
+  · {prefix}{bad}只有玩家才能使用此命令。
+  · me/foesio/foMiningComp/EditorGui
+  · {prefix}{good}编辑器已打开。
+  · {prefix}{bad}用法：{theme}/{label} start <id>
+  · me/foesio/foMiningComp/CompetitionManager
+  · {prefix}{bad}未找到竞赛 {theme}{id}{bad}，或该竞赛已被禁用。
+  · {prefix}{bad}用法：{theme}/{label} setnext <id>
+  · {prefix}{good}已将 {theme}{id}{muted} 排入下一场竞赛。
+  · Lme/foesio/foMiningComp/libs/core/reload/FoReloadResult;
+  · me/foesio/foMiningComp/CompetitionConfig
+  · Lme/foesio/foMiningComp/CompetitionConfig;
+  · Ljava/util/List<Lme/foesio/foMiningComp/CompetitionConfig;>;
+  · {prefix}{muted}命令：
+  · {prefix}{theme}/fominingcomp help {muted}- 显示帮助
+  · {prefix}{theme}/fominingcomp version {muted}- 显示作者和插件版本
+  · {prefix}{theme}/fominingcomp editor {muted}- 打开GUI编辑器
+  · {prefix}{theme}/fominingcomp reload {muted}- 重新加载配置和消息
+  · {prefix}{theme}/fominingcomp start <id> {muted}- 立即开始竞赛
+  · {prefix}{theme}/fominingcomp stop {muted}- 停止当前竞赛
+  · {prefix}{theme}/fominingcomp setnext <id> {muted}- 指定下一场竞赛
+  · {prefix}{theme}/fominingcomp status {muted}- 显示实时状态
+  · {prefix}{theme}/fominingcomp list {muted}- 列出所有已配置的竞赛
+  · me/foesio/foMiningComp/libs/core/command/a
+  · Ljava/lang/Object;Lme/foesio/foMiningComp/libs/core/command/a<Lorg/bukkit/entity/Player;>;
+  · me/foesio/foMiningComp/libs/core/command/b
+  · me/foesio/foMiningComp/libs/core/command/b$1
+  · Ljava/lang/Object;Lme/foesio/foMiningComp/libs/core/command/a<Ljava/lang/Boolean;>;
+  · me/foesio/foMiningComp/libs/core/command/b$2
+  · Ljava/lang/Object;Lme/foesio/foMiningComp/libs/core/command/a<Ljava/lang/String;>;
+  · me/foesio/foMiningComp/libs/core/command/b$3
+  · Lme/foesio/foMiningComp/libs/core/command/a;
+  · Lme/foesio/foMiningComp/libs/core/command/a<Ljava/lang/Boolean;>;
+  · Lme/foesio/foMiningComp/libs/core/command/a<Ljava/lang/String;>;
+  · Lme/foesio/foMiningComp/libs/core/command/a<Lorg/bukkit/entity/Player;>;
+  · Ljava/util/List<Lme/foesio/foMiningComp/libs/core/command/g;>;
+  · Lme/foesio/foMiningComp/libs/core/command/e;
+  · Lme/foesio/foMiningComp/libs/core/command/f;
+  · Lme/foesio/foMiningComp/libs/core/f/a;
+  · Lme/foesio/foMiningComp/libs/core/reload/FoReloadRegistry;
+  · me/foesio/foMiningComp/libs/core/command/c
+  · me/foesio/foMiningComp/libs/core/command/c$a
+  · me/foesio/foMiningComp/libs/core/command/f
+  · me/foesio/foMiningComp/libs/core/command/g
+  · me/foesio/foMiningComp/libs/core/command/g$a
+  · me/foesio/foMiningComp/libs/core/f/a
+  · Ljava/util/Map<Ljava/lang/String;Lme/foesio/foMiningComp/libs/core/command/g;>;
+  · me/foesio/foMiningComp/libs/core/command/d
+  · me/foesio/foMiningComp/libs/core/command/e
+  · me/foesio/foMiningComp/libs/core/command/f$b
+  · me/foesio/foMiningComp/libs/core/f/b
+  · me/foesio/foMiningComp/libs/core/reload/FoReloadRegistry
+  · me/foesio/foMiningComp/libs/core/command/CommandPlaceholders
+  · me/foesio/foMiningComp/libs/core/command/CommandVisibilityService
+  · me/foesio/foMiningComp/libs/core/command/CommandVisibilityService$a
+  · Ljava/util/List<Lme/foesio/foMiningComp/libs/core/command/CommandVisibilityService$a;>;
+  · me/foesio/foMiningComp/libs/core/command/CommandVisibilityService$Builder
+  · Lme/foesio/foMiningComp/libs/core/command/f$b;
+  · me/foesio/foMiningComp/libs/core/command/f$a
+  · Lme/foesio/foMiningComp/libs/core/command/h;
+  · me/foesio/foMiningComp/libs/core/command/h

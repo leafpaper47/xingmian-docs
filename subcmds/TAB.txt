@@ -1,0 +1,765 @@
+# TAB  (TAB v6.1.2.jar)
+## 注册指令
+  /tab  usage=None desc="Plugin's main command" alias=None perm=None
+
+## 代码类
+  com.mysql.cj.protocol.x.XpluginStatementCommand
+  me.neznamy.tab.libs.com.rabbitmq.client.Command
+  me.neznamy.tab.libs.com.rabbitmq.client.impl.AMQCommand
+  me.neznamy.tab.libs.com.rabbitmq.client.impl.CommandAssembler$1
+  me.neznamy.tab.libs.com.rabbitmq.client.impl.CommandAssembler$CAState
+  me.neznamy.tab.libs.com.rabbitmq.client.impl.CommandAssembler
+  me.neznamy.tab.libs.redis.clients.jedis.ClusterCommandArguments
+  me.neznamy.tab.libs.redis.clients.jedis.ClusterCommandObjects
+  me.neznamy.tab.libs.redis.clients.jedis.CommandArguments
+  me.neznamy.tab.libs.redis.clients.jedis.CommandKeyArgumentPreProcessor
+  me.neznamy.tab.libs.redis.clients.jedis.CommandObject
+  me.neznamy.tab.libs.redis.clients.jedis.CommandObjects$1
+  me.neznamy.tab.libs.redis.clients.jedis.CommandObjects$JsonObjectBuilder
+  me.neznamy.tab.libs.redis.clients.jedis.CommandObjects$JsonObjectListBuilder
+  me.neznamy.tab.libs.redis.clients.jedis.CommandObjects$SearchProfileResponseBuilder
+  me.neznamy.tab.libs.redis.clients.jedis.CommandObjects
+  me.neznamy.tab.libs.redis.clients.jedis.Protocol$Command
+  me.neznamy.tab.libs.redis.clients.jedis.ShardedCommandArguments
+  me.neznamy.tab.libs.redis.clients.jedis.ShardedCommandObjects
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.RedisBloomProtocol$BloomFilterCommand
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.RedisBloomProtocol$CountMinSketchCommand
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.RedisBloomProtocol$CuckooFilterCommand
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.RedisBloomProtocol$TDigestCommand
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.RedisBloomProtocol$TopKCommand
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.BloomFilterCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.BloomFilterPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.CountMinSketchCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.CountMinSketchPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.CuckooFilterCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.CuckooFilterPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.package-info
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.RedisBloomCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.RedisBloomPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.TDigestSketchCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.TDigestSketchPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.TopKFilterCommands
+  me.neznamy.tab.libs.redis.clients.jedis.bloom.commands.TopKFilterPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.AccessControlLogBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.AccessControlLogCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.BitBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.BitCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.BitPipelineBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.BitPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ClientBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ClientCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ClusterCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.CommandCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ConfigCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ControlBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ControlCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.DatabaseCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.DatabasePipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.FunctionBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.FunctionCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.FunctionPipelineBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.FunctionPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.GenericControlCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.GeoBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.GeoCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.GeoPipelineBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.GeoPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.HashBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.HashCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.HashPipelineBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.HashPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.HyperLogLogBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.HyperLogLogCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.HyperLogLogPipelineBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.HyperLogLogPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.JedisBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.JedisCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.KeyBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.KeyCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.KeyPipelineBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.KeyPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ListBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ListCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ListPipelineBinaryCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ListPipelineCommands
+  me.neznamy.tab.libs.redis.clients.jedis.commands.ModuleCommands
+
+## javap 字符串 token
+  acl add addnx aggregate aliasadd aliasdel aliasupdate alter append args arrappend arrindex arrinsert arrlen arrpop arrtrim asking auth bgrewriteaof bgsave bitcount bitfield bitfield_ro bitop bitpos blmove blmpop blpop brpop brpoplpush byrank byrevrank bzmpop bzpopmax bzpopmin call card cdf clear client cluster command complete complexity config copy count create create_collection create_collection_index createrule cursor dbsize debug decr decrby del delete deleterule dictadd dictdel dictdump disable_notices discard drop_collection drop_collection_index dropindex dump echo enable_notices eval eval_ro evalsha evalsha_ro exec exists expecting_content_body expecting_content_header expecting_method expire expireat expiretime explain explaincli failover fcall fcall_ro flushall flushdb function geoadd geodist geohash geopos georadius georadius_ro georadiusbymember georadiusbymember_ro geosearch geosearchstore get getbit getdel getex getrange getset group hdel hello hexists hexpire hexpireat hexpiretime hget hgetall hincrby hincrbyfloat history hkeys hlen hmget hmset hpersist hpexpire hpexpireat hpexpiretime hpttl hrandfield hscan hset hsetnx hstrlen httl hvals incr incrby incrbyfloat info initbydim initbyprob insert insertnx keys lastsave latency lcs lindex linsert list list_notices list_objects llen lmove lmpop loadchunk lolwut lpop lpos lpush lpushx lrange lrem lset ltrim madd max memory merge mexists mget migrate min modify_collection_options module monitor move mrange mrevrange mset msetnx multi numincrby object objkeys objlen persist pexpire pexpireat pexpiretime pfadd pfcount pfmerge ping profile psetex psubscribe pttl publish pubsub punsubscribe quantile query queryindex randomkey range rank readonly readwrite rename renamenx replicaof reserve reset resp restore revrange revrank ro_query role rpop rpoplpush rpush rpushx sadd save scan scandump scard script sdiff sdiffstore search select sentinel set setbit setex setnx setrange shutdown since sinter sintercard sinterstore sismember slaveof slowlog smembers smismember smove sort sort_ro spellcheck spop spublish srandmember srem sscan ssubscribe strappend strlen subscribe substr sugadd sugdel sugget suglen summary sunion sunionstore sunsubscribe swapdb syndump synupdate tagvals tfcall tfcallasync tfunction time toggle touch trimmed_mean ttl type unlink unsubscribe unwatch utf-8 wait waitaof watch xack xadd xautoclaim xclaim xdel xgroup xinfo xlen xpending xplugin_stmt_list_notices xplugin_stmt_list_objects xplugin_stmt_ping xrange xread xreadgroup xrevrange xtrim zadd zcard zcount zdiff zdiffstore zincrby zinter zintercard zinterstore zlexcount zmpop zmscore zpopmax zpopmin zrandmember zrange zrangebylex zrangebyscore zrangestore zrank zrem zremrangebylex zremrangebyrank zremrangebyscore zrevrange zrevrangebylex zrevrangebyscore zrevrank zscan zscore zunion zunionstore
+
+## 文本资源里的帮助/用法行
+  · "accessWidener": "resources/tab.accesswidener"
+  · "website": "https://github.com/NEZNAMY/TAB",
+  · website: "https://github.com/NEZNAMY/TAB"
+  · description: Allows player to run /tab reload
+  · description: Allows player to run /tab cpu
+  · description: Allows player to run /tab dump <player>
+  · description: Allows player to run /tab group <group>
+  · description: Allows player to run /tab groups
+  · description: Allows player to run /tab parse <player> <placeholder>
+  · description: Allows player to run /tab setcollision <player> <true/false>
+  · description: Allows player to run /tab bossbar announce
+  · description: Allows player to run /tab bossbar
+  · description: Allows player to run /tab bossbar send
+  · description: Allows player to run /tab mysql download
+  · description: Allows player to run /tab mysql upload
+  · description: Allows player to run /tab nametag toggle
+  · description: Allows player to run /tab nametag toggle [other player]
+  · description: Allows player to run /tab scoreboard announce
+  · description: Allows player to run /tab scoreboard
+  · description: Allows player to run /tab scoreboard for other players
+  · description: Allows player to run /tab scoreboard show
+  · description: Allows player to run /tab scoreboard show for other players
+  · {"id":"tab","name":"TAB","version":"6.1.2","description":"An all-in-one solution that works","url":"https://github.com/NEZNAMY/TAB","authors":["NEZNAMY"],"dependencies":[{"id":"velocity-scoreboard-api
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Header-&-Footer
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Tablist-name-formatting
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Nametags
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Sorting-players-in-tablist
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Playerlist-Objective
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Belowname
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Spectator-fix
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Bossbar
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Scoreboard
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Layout
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Ping-Spoof
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Global-playerlist
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Placeholder-output-replacements
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Conditional-placeholders
+  · # https://github.com/NEZNAMY/TAB/wiki/MySQL
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Multi-server-support
+  · # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Per-world-playerlist
+  · bossbar-announce-command-usage: "Usage: /tab bossbar announce <bar name> <length>"
+  · parse-command-usage: "Usage: /tab parse <player> <placeholder>"
+  · send-command-usage: "Usage: /tab send <type> <player> <bar name> <length>\nCurrently supported types: &lbar"
+  · send-bar-command-usage: "Usage: /tab send bar <player> <bar name> <length>"
+  · collision-command-usage: "Usage: /tab setcollision <player> <true/false>"
+  · scoreboard-announce-command-usage: "Usage: /tab scoreboard announce <scoreboard name> <length>"
+  · scoreboard-show-usage: "Usage: /tab scoreboard show <scoreboard> [player]"
+  · - " &8>> &3&l/tab reload"
+  · - " &8>> &3&l/tab &9group&3/&9player &3<name> &9<property> &3<value...>"
+  · - "      - &7Do &8/tab group/player &7to show properties"
+  · - " &8>> &3&l/tab parse <player> <placeholder> "
+  · - " &8>> &3&l/tab dump <player>"
+  · - " &8>> &3&l/tab cpu"
+  · - " &8>> &3&l/tab group/player <name> remove"
+  · - "&6/tab mysql upload - uploads data from files to mysql"
+  · - "&6/tab mysql download - downloads data from mysql to files"
+  · - "/tab scoreboard [on/off/toggle] [player] [options]"
+  · - "/tab scoreboard show <name> [player]"
+  · - "/tab scoreboard announce <name> <length>"
+  · - "/tab bossbar [on/off/toggle] [player] [options]"
+  · - "/tab bossbar send <name> [player]"
+  · - "/tab bossbar announce <name> <length>"
+  · - "/tab nametag <show/opaque/hide/toggle> [player] [viewer] [-s] - Toggles nametag of specified player"
+  · - "/tab nametag <showview/opaqueview/hideview/toggleview> [viewer] [-s] - Toggles nametag VIEW of specified player"
+
+## 常量池帮助/描述文本
+  · me/neznamy/tab/libs/com/rabbitmq/client/Command
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/AMQCommand
+  · Lme/neznamy/tab/libs/com/rabbitmq/client/impl/CommandAssembler;
+  · Lme/neznamy/tab/libs/com/rabbitmq/client/impl/AMQCommand;
+  · Lme/neznamy/tab/libs/com/rabbitmq/client/Method;
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/CommandAssembler
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/Method
+  · Lme/neznamy/tab/libs/com/rabbitmq/client/impl/AMQContentHeader;
+  · Lme/neznamy/tab/libs/com/rabbitmq/client/impl/Frame;
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/AMQChannel
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/AMQContentHeader
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/AMQConnection
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/Frame
+  · Lme/neznamy/tab/libs/com/rabbitmq/client/impl/Method;
+  · Lme/neznamy/tab/libs/com/rabbitmq/client/impl/AMQChannel;
+  · Lme/neznamy/tab/libs/com/rabbitmq/client/impl/AMQConnection;
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/CommandAssembler$1
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/CommandAssembler$CAState
+  · Lme/neznamy/tab/libs/com/rabbitmq/client/impl/CommandAssembler$CAState;
+  · Ljava/lang/Enum<Lme/neznamy/tab/libs/com/rabbitmq/client/impl/CommandAssembler$CAState;>;
+  · me/neznamy/tab/libs/com/rabbitmq/client/impl/AMQImpl
+  · me/neznamy/tab/libs/com/rabbitmq/client/UnexpectedFrameError
+  · me/neznamy/tab/libs/redis/clients/jedis/ClusterCommandArguments
+  · me/neznamy/tab/libs/redis/clients/jedis/CommandArguments
+  · Lme/neznamy/tab/libs/redis/clients/jedis/ClusterCommandArguments;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/ProtocolCommand;
+  · me/neznamy/tab/libs/redis/clients/jedis/util/JedisClusterCRC16
+  · me/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisClusterOperationException
+  · me/neznamy/tab/libs/redis/clients/jedis/ClusterCommandObjects
+  · me/neznamy/tab/libs/redis/clients/jedis/CommandObjects
+  · me/neznamy/tab/libs/redis/clients/jedis/Protocol$Command
+  · me/neznamy/tab/libs/redis/clients/jedis/Protocol
+  · me/neznamy/tab/libs/redis/clients/jedis/Protocol$Keyword
+  · Lme/neznamy/tab/libs/redis/clients/jedis/ClusterCommandObjects;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandKeyArgumentPreProcessor;
+  · me/neznamy/tab/libs/redis/clients/jedis/util/JedisClusterHashTag
+  · me/neznamy/tab/libs/redis/clients/jedis/CommandObject
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Protocol$Command;
+  · me/neznamy/tab/libs/redis/clients/jedis/BuilderFactory
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Builder;
+  · me/neznamy/tab/libs/redis/clients/jedis/params/ScanParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/ScanParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Protocol$Keyword;
+  · Ljava/lang/Object;Ljava/lang/Iterable<Lme/neznamy/tab/libs/redis/clients/jedis/args/Rawable;>;
+  · Ljava/util/ArrayList<Lme/neznamy/tab/libs/redis/clients/jedis/args/Rawable;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandArguments;
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ProtocolCommand
+  · Lme/neznamy/tab/libs/redis/clients/jedis/annots/Experimental;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/Rawable;
+  · me/neznamy/tab/libs/redis/clients/jedis/args/RawableFactory
+  · me/neznamy/tab/libs/redis/clients/jedis/args/Rawable
+  · me/neznamy/tab/libs/redis/clients/jedis/search/RediSearchUtil
+  · me/neznamy/tab/libs/redis/clients/jedis/GeoCoordinate
+  · Lme/neznamy/tab/libs/redis/clients/jedis/GeoCoordinate;
+  · me/neznamy/tab/libs/redis/clients/jedis/CommandKeyArgumentPreProcessor
+  · me/neznamy/tab/libs/redis/clients/jedis/params/IParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/IParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/annots/Internal;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Builder<TT;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObject<TT;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObject;
+  · Ljava/util/Iterator<Lme/neznamy/tab/libs/redis/clients/jedis/args/Rawable;>;
+  · me/neznamy/tab/libs/redis/clients/jedis/CommandObjects$1
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Builder<Ljava/util/Map$Entry<Ljava/lang/Long;[B>;>;
+  · me/neznamy/tab/libs/redis/clients/jedis/Builder
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObjects$1;
+  · me/neznamy/tab/libs/redis/clients/jedis/util/KeyValue
+  · me/neznamy/tab/libs/redis/clients/jedis/CommandObjects$JsonObjectBuilder
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObjects;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObjects$JsonObjectBuilder<TT;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObjects$JsonObjectBuilder;
+  · me/neznamy/tab/libs/redis/clients/jedis/json/JsonObjectMapper
+  · me/neznamy/tab/libs/redis/clients/jedis/CommandObjects$JsonObjectListBuilder
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObjects$JsonObjectListBuilder<TT;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObjects$JsonObjectListBuilder;
+  · me/neznamy/tab/libs/redis/clients/jedis/CommandObjects$SearchProfileResponseBuilder
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObjects$SearchProfileResponseBuilder<TT;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObjects$SearchProfileResponseBuilder;
+  · me/neznamy/tab/libs/redis/clients/jedis/search/SearchBuilderFactory
+  · Lme/neznamy/tab/libs/redis/clients/jedis/util/KeyValue;
+  · me/neznamy/tab/libs/redis/clients/jedis/search/SearchProtocol$SearchCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/search/SearchProtocol
+  · me/neznamy/tab/libs/redis/clients/jedis/search/Schema$Field
+  · me/neznamy/tab/libs/redis/clients/jedis/search/Schema
+  · me/neznamy/tab/libs/redis/clients/jedis/search/SearchResult$PerFieldDecoderSearchResultBuilder
+  · me/neznamy/tab/libs/redis/clients/jedis/search/SearchResult
+  · me/neznamy/tab/libs/redis/clients/jedis/search/SearchResult$SearchResultBuilder
+  · me/neznamy/tab/libs/redis/clients/jedis/JedisBroadcastAndRoundRobinConfig$RediSearchMode
+  · me/neznamy/tab/libs/redis/clients/jedis/JedisBroadcastAndRoundRobinConfig
+  · me/neznamy/tab/libs/redis/clients/jedis/search/SearchProtocol$SearchKeyword
+  · me/neznamy/tab/libs/redis/clients/jedis/json/JsonProtocol$JsonCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/json/JsonProtocol
+  · me/neznamy/tab/libs/redis/clients/jedis/timeseries/TimeSeriesProtocol$TimeSeriesCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/timeseries/TimeSeriesProtocol
+  · me/neznamy/tab/libs/redis/clients/jedis/timeseries/TimeSeriesProtocol$TimeSeriesKeyword
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$BloomFilterCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$RedisBloomKeyword
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$CuckooFilterCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$CountMinSketchCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$TopKCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$TDigestCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/GraphProtocol$GraphCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/GraphProtocol
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/GraphProtocol$GraphKeyword
+  · me/neznamy/tab/libs/redis/clients/jedis/gears/RedisGearsProtocol$GearsCommand
+  · me/neznamy/tab/libs/redis/clients/jedis/gears/RedisGearsProtocol
+  · me/neznamy/tab/libs/redis/clients/jedis/gears/RedisGearsProtocol$GearsKeyword
+  · Lme/neznamy/tab/libs/redis/clients/jedis/RedisProtocol;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/JedisBroadcastAndRoundRobinConfig;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/json/JsonObjectMapper;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObject<Ljava/lang/String;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Builder<Ljava/lang/Object;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/RestoreParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/ExpiryOption;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/SortingParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/SetParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/GetExParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/BitCountOption;
+  · me/neznamy/tab/libs/redis/clients/jedis/params/BitPosParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/BitPosParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/BitOP;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/LCSParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/LPosParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/ListPosition;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/ListDirection;
+  · me/neznamy/tab/libs/redis/clients/jedis/RedisProtocol
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/ZAddParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/ZIncrByParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/ZRangeParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/ZParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/SortedSetOption;
+  · Ljava/util/Map<Ljava/lang/String;Lme/neznamy/tab/libs/redis/clients/jedis/GeoCoordinate;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/GeoAddParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/GeoUnit;
+  · Ljava/util/Map<[BLme/neznamy/tab/libs/redis/clients/jedis/GeoCoordinate;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/GeoRadiusParam;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/GeoRadiusStoreParam;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/GeoSearchParam;
+  · me/neznamy/tab/libs/redis/clients/jedis/StreamEntryID
+  · Lme/neznamy/tab/libs/redis/clients/jedis/StreamEntryID;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/XAddParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/XTrimParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/XPendingParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/XClaimParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/XAutoClaimParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/XReadParams;
+  · Ljava/util/Map<Ljava/lang/String;Lme/neznamy/tab/libs/redis/clients/jedis/StreamEntryID;>;
+  · Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Lme/neznamy/tab/libs/redis/clients/jedis/StreamEntryID;>;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/XReadGroupParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/params/XReadParams
+  · me/neznamy/tab/libs/redis/clients/jedis/params/XReadGroupParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/FlushMode;
+  · me/neznamy/tab/libs/redis/clients/jedis/resps/LibraryInfo
+  · me/neznamy/tab/libs/redis/clients/jedis/resps/FunctionStats
+  · me/neznamy/tab/libs/redis/clients/jedis/args/FunctionRestorePolicy
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/FunctionRestorePolicy;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/MigrateParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/JedisBroadcastAndRoundRobinConfig$RediSearchMode;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/SearchProtocol$SearchCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/SearchProtocol$SearchKeyword;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/IndexOptions;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/Schema;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/FTCreateParams;
+  · Ljava/lang/Iterable<Lme/neznamy/tab/libs/redis/clients/jedis/search/schemafields/SchemaField;>;
+  · me/neznamy/tab/libs/redis/clients/jedis/search/FTSearchParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/FTSearchParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/search/Query
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/Query;
+  · me/neznamy/tab/libs/redis/clients/jedis/search/aggr/AggregationBuilder
+  · me/neznamy/tab/libs/redis/clients/jedis/search/aggr/AggregationResult
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/aggr/AggregationBuilder;
+  · me/neznamy/tab/libs/redis/clients/jedis/search/FTProfileParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/FTProfileParams;
+  · Ljava/util/function/Supplier<Lme/neznamy/tab/libs/redis/clients/jedis/Builder<Lme/neznamy/tab/libs/redis/clients/jedis/search/SearchResult;>;>;
+  · me/neznamy/tab/libs/redis/clients/jedis/search/FTSpellCheckParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/FTSpellCheckParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/json/JsonProtocol$JsonCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/json/Path2;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/json/Path;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/json/JsonSetParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/json/JsonBuilderFactory
+  · me/neznamy/tab/libs/redis/clients/jedis/json/Path2
+  · me/neznamy/tab/libs/redis/clients/jedis/json/Path
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TimeSeriesProtocol$TimeSeriesCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSCreateParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSAlterParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSAddParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/timeseries/TSElement
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSElement;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TimeSeriesProtocol$TimeSeriesKeyword;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSIncrByParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSDecrByParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/timeseries/TimeSeriesBuilderFactory
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSRangeParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSMRangeParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSGetParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/timeseries/TSMGetParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/TSMGetParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/timeseries/AggregationType;
+  · me/neznamy/tab/libs/redis/clients/jedis/timeseries/TSInfo
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$BloomFilterCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/BFReserveParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$RedisBloomKeyword;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/BFInsertParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$CuckooFilterCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/CFReserveParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/CFInsertParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$CountMinSketchCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$TopKCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/RedisBloomProtocol$TDigestCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/TDigestMergeParams;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/graph/GraphProtocol$GraphCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/graph/GraphProtocol$GraphKeyword;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/gears/RedisGearsProtocol$GearsCommand;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/gears/RedisGearsProtocol$GearsKeyword;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/gears/TFunctionLoadParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/gears/resps/GearsLibraryInfo
+  · Lme/neznamy/tab/libs/redis/clients/jedis/gears/TFunctionListParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/json/DefaultGsonObjectMapper
+  · Ljava/util/Map$Entry<+Ljava/lang/Object;Lme/neznamy/tab/libs/redis/clients/jedis/GeoCoordinate;>;
+  · Ljava/util/Map<*Lme/neznamy/tab/libs/redis/clients/jedis/GeoCoordinate;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/schemafields/SchemaField;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/Schema$Field;
+  · Ljava/lang/Enum<Lme/neznamy/tab/libs/redis/clients/jedis/Protocol$Command;>;Lme/neznamy/tab/libs/redis/clients/jedis/commands/ProtocolCommand;
+  · me/neznamy/tab/libs/redis/clients/jedis/util/SafeEncoder
+  · me/neznamy/tab/libs/redis/clients/jedis/ShardedCommandArguments
+  · Lme/neznamy/tab/libs/redis/clients/jedis/util/Hashing;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/ShardedCommandArguments;
+  · me/neznamy/tab/libs/redis/clients/jedis/util/Hashing
+  · me/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisException
+  · me/neznamy/tab/libs/redis/clients/jedis/ShardedCommandObjects
+  · Lme/neznamy/tab/libs/redis/clients/jedis/ShardedCommandObjects;
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/BloomFilterCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/BloomFilterPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/CountMinSketchCommands
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/commands/CountMinSketchCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/CountMinSketchPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/CuckooFilterCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/CuckooFilterPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/package-info
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/RedisBloomCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/TopKFilterCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/TDigestSketchCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/RedisBloomPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/TopKFilterPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/bloom/commands/TDigestSketchPipelineCommands
+  · Lme/neznamy/tab/libs/redis/clients/jedis/bloom/commands/TopKFilterCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/AccessControlLogBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/AccessControlLogCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/BitBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/BitCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/BitPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/BitPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ClientBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ClientCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ClusterCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/CommandCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ConfigCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ControlBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ControlCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/DatabaseCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/DatabasePipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/FunctionBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/FunctionCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/FunctionPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/FunctionPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/GenericControlCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ScriptingControlCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SlowlogCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/GeoBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/GeoCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/GeoPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/GeoPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/HashBinaryCommands
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/HashBinaryCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/HashCommands
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/HashCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/HashPipelineBinaryCommands
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/HashPipelineBinaryCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/HashPipelineCommands
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/HashPipelineCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/HyperLogLogBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/HyperLogLogCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/HyperLogLogPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/HyperLogLogPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/JedisBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/KeyBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/StringBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ListBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SetBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SortedSetBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/StreamBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ScriptingKeyBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/JedisCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/KeyCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/StringCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ListCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SetCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SortedSetCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/StreamCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ScriptingKeyCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/KeyPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/KeyPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ListPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ListPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ModuleCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/package-info
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/PipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/StringPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SetPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SortedSetPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/StreamPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ScriptingKeyPipelineBinaryCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SampleBinaryKeyedPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/PipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/StringPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SetPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SortedSetPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/StreamPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ScriptingKeyPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SampleKeyedPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/RedisModuleCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/search/RediSearchCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/timeseries/RedisTimeSeriesCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/RedisGraphCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/gears/RedisGearsCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/RedisModulePipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/search/RediSearchPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/timeseries/RedisTimeSeriesPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/RedisGraphPipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SampleBinaryKeyedCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SampleKeyedCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/SentinelCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/commands/ServerCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/params/ShutdownParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/ServerCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/args/SaveMode;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/SetBinaryCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/SetCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/SetPipelineBinaryCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/SetPipelineCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/SortedSetBinaryCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/SortedSetCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/SortedSetPipelineBinaryCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/SortedSetPipelineCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/StreamBinaryCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/StreamCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/StreamPipelineBinaryCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/commands/StreamPipelineCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/executors/ClusterCommandExecutor
+  · me/neznamy/tab/libs/redis/clients/jedis/executors/CommandExecutor
+  · Lme/neznamy/tab/libs/redis/clients/jedis/providers/ClusterConnectionProvider;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/executors/ClusterCommandExecutor;
+  · me/neznamy/tab/libs/redis/clients/jedis/providers/ClusterConnectionProvider
+  · me/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisBroadcastException
+  · me/neznamy/tab/libs/redis/clients/jedis/HostAndPort
+  · me/neznamy/tab/libs/redis/clients/jedis/ConnectionPool
+  · me/neznamy/tab/libs/redis/clients/jedis/Connection
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Connection;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/HostAndPort;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/ConnectionPool;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lme/neznamy/tab/libs/redis/clients/jedis/ConnectionPool;>;
+  · Ljava/util/Map<Ljava/lang/String;Lme/neznamy/tab/libs/redis/clients/jedis/ConnectionPool;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisBroadcastException;
+  · me/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisConnectionException
+  · me/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisRedirectionException
+  · me/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisAskDataException
+  · me/neznamy/tab/libs/redis/clients/jedis/util/IOUtils
+  · me/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisMovedDataException
+  · Lme/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisClusterOperationException;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisConnectionException;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisRedirectionException;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/annots/VisibleForTesting;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/executors/CommandExecutor;
+  · me/neznamy/tab/libs/redis/clients/jedis/executors/DefaultCommandExecutor
+  · Lme/neznamy/tab/libs/redis/clients/jedis/providers/ConnectionProvider;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/executors/DefaultCommandExecutor;
+  · me/neznamy/tab/libs/redis/clients/jedis/providers/ConnectionProvider
+  · me/neznamy/tab/libs/redis/clients/jedis/executors/RetryableCommandExecutor
+  · Lme/neznamy/tab/libs/redis/clients/jedis/executors/RetryableCommandExecutor;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/exceptions/JedisException;
+  · me/neznamy/tab/libs/redis/clients/jedis/executors/SimpleCommandExecutor
+  · Lme/neznamy/tab/libs/redis/clients/jedis/executors/SimpleCommandExecutor;
+  · me/neznamy/tab/libs/redis/clients/jedis/gears/TFunctionLoadParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/gears/RedisGearsCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/gears/TFunctionListParams
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/GraphCommandObjects$GraphCacheImpl
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/GraphCache
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/GraphCommandObjects$GraphCacheList
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/GraphCommandObjects
+  · Lme/neznamy/tab/libs/redis/clients/jedis/graph/GraphCommandObjects$GraphCacheList;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/graph/GraphCommandObjects;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/graph/GraphCommandObjects$GraphCacheImpl;
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/ResultSet
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/Record
+  · Lme/neznamy/tab/libs/redis/clients/jedis/graph/Record;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/graph/ResultSet;
+  · Ljava/util/Iterator<Lme/neznamy/tab/libs/redis/clients/jedis/graph/Record;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/CommandObject<Lme/neznamy/tab/libs/redis/clients/jedis/graph/ResultSet;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/graph/RedisGraphCommands;
+  · Ljava/util/function/Function<Lme/neznamy/tab/libs/redis/clients/jedis/commands/ProtocolCommand;Lme/neznamy/tab/libs/redis/clients/jedis/CommandArguments;>;
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/GraphQueryParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/graph/GraphQueryParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/graph/ResultSetBuilder
+  · Ljava/lang/Enum<Lme/neznamy/tab/libs/redis/clients/jedis/graph/GraphProtocol$GraphCommand;>;Lme/neznamy/tab/libs/redis/clients/jedis/commands/ProtocolCommand;
+  · Ljava/lang/Enum<Lme/neznamy/tab/libs/redis/clients/jedis/json/JsonProtocol$JsonCommand;>;Lme/neznamy/tab/libs/redis/clients/jedis/commands/ProtocolCommand;
+  · me/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonV1Commands
+  · me/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonV2Commands
+  · me/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonV1PipelineCommands
+  · me/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonV2PipelineCommands
+  · Lme/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonV1Commands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonV1PipelineCommands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonV2Commands;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/json/commands/RedisJsonV2PipelineCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/mcf/CircuitBreakerCommandExecutor
+  · me/neznamy/tab/libs/redis/clients/jedis/mcf/CircuitBreakerFailoverBase
+  · me/neznamy/tab/libs/redis/clients/jedis/providers/MultiClusterPooledConnectionProvider$Cluster
+  · me/neznamy/tab/libs/redis/clients/jedis/providers/MultiClusterPooledConnectionProvider
+  · Lme/neznamy/tab/libs/redis/clients/jedis/mcf/CircuitBreakerCommandExecutor;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/providers/MultiClusterPooledConnectionProvider;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/providers/MultiClusterPooledConnectionProvider$Cluster;
+  · me/neznamy/tab/libs/redis/clients/jedis/params/CommandListFilterByParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/params/CommandListFilterByParams;
+  · me/neznamy/tab/libs/redis/clients/jedis/resps/CommandDocument$1
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Builder<Lme/neznamy/tab/libs/redis/clients/jedis/resps/CommandDocument;>;
+  · me/neznamy/tab/libs/redis/clients/jedis/resps/CommandDocument
+  · Lme/neznamy/tab/libs/redis/clients/jedis/resps/CommandDocument$1;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/resps/CommandDocument;
+  · me/neznamy/tab/libs/redis/clients/jedis/resps/CommandInfo$1
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Builder<Lme/neznamy/tab/libs/redis/clients/jedis/resps/CommandInfo;>;
+  · me/neznamy/tab/libs/redis/clients/jedis/resps/CommandInfo
+  · Lme/neznamy/tab/libs/redis/clients/jedis/resps/CommandInfo$1;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/resps/CommandInfo;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/RediSearchCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/search/FTCreateParams
+  · Lme/neznamy/tab/libs/redis/clients/jedis/search/RediSearchPipelineCommands;
+  · me/neznamy/tab/libs/redis/clients/jedis/util/JedisCommandIterationBase
+  · Lme/neznamy/tab/libs/redis/clients/jedis/Builder<TB;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/util/JedisCommandIterationBase<TB;TD;>;
+  · Lme/neznamy/tab/libs/redis/clients/jedis/util/JedisCommandIterationBase;
+  · me/neznamy/tab/libs/redis/clients/jedis/util/Pool
+  · me/neznamy/tab/shared/TAB
+  · me/neznamy/tab/shared/TabConstants$Permission
+  · me/neznamy/tab/shared/command/DisabledCommand
+  · me/neznamy/tab/shared/chat/component/TabComponent
+  · me/neznamy/tab/platforms/bukkit/platform/BukkitPlatform
+  · me/neznamy/tab/shared/command/TabCommand
+  · me/neznamy/tab/platforms/bukkit/BukkitTabCommand
+  · Lme/neznamy/tab/platforms/bukkit/BukkitTabCommand;
+  · Lme/neznamy/tab/shared/chat/component/TabComponent;
+  · Lme/neznamy/tab/shared/platform/TabPlayer;
+  · me/neznamy/tab/shared/platform/TabPlayer
+  · me/neznamy/tab/shared/TabConstants
+  · me/neznamy/tab/platforms/bungeecord/BungeePlatform
+  · me/neznamy/tab/shared/ProtocolVersion
+  · me/neznamy/tab/platforms/bungeecord/BungeeTabCommand
+  · net/md_5/bungee/api/plugin/TabExecutor
+  · Lme/neznamy/tab/platforms/bungeecord/BungeeTabCommand;
+  · me/neznamy/tab/platforms/fabric/FabricCommand
+  · Lme/neznamy/tab/platforms/fabric/FabricCommand;
+  · me/neznamy/tab/platforms/fabric/hook/PermissionsAPIHook
+  · me/neznamy/tab/platforms/fabric/FabricTabCommand
+  · Lme/neznamy/tab/platforms/fabric/FabricTabCommand;
+  · me/neznamy/tab/platforms/fand/FandCommand
+  · Lme/neznamy/tab/platforms/fand/FandCommand;
+  · me/neznamy/tab/platforms/fand/FandTabCommand
+  · Lme/neznamy/tab/platforms/fand/FandTabCommand;
+  · me/neznamy/tab/platforms/forge/ForgeCommand
+  · Lme/neznamy/tab/platforms/forge/ForgeCommand;
+  · me/neznamy/tab/platforms/forge/hook/LuckPermsAPIHook
+  · me/neznamy/tab/platforms/forge/ForgeTabCommand
+  · Lme/neznamy/tab/platforms/forge/ForgeTabCommand;
+  · me/neznamy/tab/platforms/neoforge/NeoForgeCommand
+  · Lme/neznamy/tab/platforms/neoforge/NeoForgeCommand;
+  · me/neznamy/tab/platforms/neoforge/hook/LuckPermsAPIHook
+  · me/neznamy/tab/platforms/neoforge/NeoForgeTabCommand
+  · Lme/neznamy/tab/platforms/neoforge/NeoForgeTabCommand;
+  · me/neznamy/tab/platforms/velocity/VelocityTabCommand
+  · Lme/neznamy/tab/platforms/velocity/VelocityTabCommand;
+  · me/neznamy/tab/shared/command/SubCommand
+  · me/neznamy/tab/shared/command/CpuCommand
+  · me/neznamy/tab/shared/cpu/CpuManager
+  · me/neznamy/tab/shared/cpu/CpuReport
+  · me/neznamy/tab/shared/features/PlaceholderManagerImpl
+  · me/neznamy/tab/shared/placeholders/PlaceholderRefreshConfiguration
+  · me/neznamy/tab/api/placeholder/Placeholder
+  · me/neznamy/tab/shared/platform/Platform
+  · Lme/neznamy/tab/shared/command/CpuCommand;
+  · Lme/neznamy/tab/shared/cpu/CpuReport;
+  · Lme/neznamy/tab/api/placeholder/Placeholder;
+  · me/neznamy/tab/shared/command/DebugCommand
+  · Lme/neznamy/tab/shared/command/DebugCommand;
+  · me/neznamy/tab/shared/chat/component/TabTextComponent
+  · me/neznamy/tab/shared/chat/TabTextColor
+  · Lme/neznamy/tab/shared/chat/TabTextColor;
+  · Ljava/util/List<Lme/neznamy/tab/shared/chat/component/TabComponent;>;
+  · Lme/neznamy/tab/shared/command/DisabledCommand;
+  · me/neznamy/tab/shared/command/DumpCommand
+  · me/neznamy/tab/libs/org/yaml/snakeyaml/DumperOptions$FlowStyle
+  · me/neznamy/tab/libs/org/yaml/snakeyaml/DumperOptions
+  · me/neznamy/tab/shared/chat/TabClickEvent$Action
+  · me/neznamy/tab/shared/chat/TabClickEvent
+  · me/neznamy/tab/shared/TabConstants$Feature
+  · Lme/neznamy/tab/shared/command/DumpCommand;
+  · me/neznamy/tab/shared/config/MessageFile
+  · &cUsage: /tab dump <player>
+  · me/neznamy/tab/shared/platform/TabList
+  · me/neznamy/tab/shared/platform/Scoreboard
+  · Lme/neznamy/tab/libs/org/yaml/snakeyaml/DumperOptions$FlowStyle;
+  · me/neznamy/tab/libs/org/yaml/snakeyaml/Yaml
+  · Lme/neznamy/tab/shared/chat/TabClickEvent$Action;
+  · me/neznamy/tab/shared/chat/TabStyle
+  · me/neznamy/tab/shared/ErrorManager
+  · Lme/neznamy/tab/libs/org/yaml/snakeyaml/DumperOptions;
+  · Lme/neznamy/tab/libs/org/yaml/snakeyaml/Yaml;
+  · me/neznamy/tab/shared/FeatureManager
+  · me/neznamy/tab/shared/features/types/Dumpable
+  · me/neznamy/tab/shared/features/types/TabFeature
+  · Lme/neznamy/tab/shared/features/types/TabFeature;
+  · me/neznamy/tab/shared/config/Configs
+  · me/neznamy/tab/shared/config/files/Config
+  · me/neznamy/tab/shared/chat/ComponentConfiguration
+  · me/neznamy/tab/shared/util/ReflectionUtils
+  · me/neznamy/tab/shared/hook/MiniMessageHook
+  · me/neznamy/tab/shared/config/files/Animations
+  · me/neznamy/tab/shared/config/file/ConfigurationFile
+  · me/neznamy/tab/shared/config/file/YamlPropertyConfigurationFile
+  · Lme/neznamy/tab/shared/config/Configs;
+  · me/neznamy/tab/shared/command/PropertyCommand
+  · me/neznamy/tab/shared/command/GroupCommand
+  · me/neznamy/tab/shared/config/PropertyConfiguration
+  · Lme/neznamy/tab/shared/command/GroupCommand;
+  · Lme/neznamy/tab/shared/data/Server;
+  · Lme/neznamy/tab/shared/data/World;
+  · me/neznamy/tab/shared/data/Server
+  · me/neznamy/tab/shared/data/World
+  · me/neznamy/tab/shared/command/GroupsCommand
+  · Lme/neznamy/tab/shared/command/GroupsCommand;
+  · me/neznamy/tab/shared/command/MySQLCommand
+  · Lme/neznamy/tab/shared/command/MySQLCommand;
+  · me/neznamy/tab/shared/config/mysql/MySQL
+  · me/neznamy/tab/shared/cpu/ThreadExecutor
+  · Lme/neznamy/tab/shared/config/mysql/MySQL;
+  · Lme/neznamy/tab/shared/config/file/YamlPropertyConfigurationFile;
+  · Lme/neznamy/tab/shared/config/PropertyConfiguration;
+  · me/neznamy/tab/libs/org/yaml/snakeyaml/error/YAMLException
+  · me/neznamy/tab/shared/command/NameTagCommand
+  · me/neznamy/tab/shared/features/nametags/NameTag
+  · me/neznamy/tab/shared/features/nametags/VisibilityManager
+  · me/neznamy/tab/shared/features/nametags/NameTagInvisibilityReason
+  · Lme/neznamy/tab/shared/features/nametags/NameTagInvisibilityReason;
+  · Lme/neznamy/tab/shared/command/NameTagCommand;
+  · Lme/neznamy/tab/shared/features/nametags/NameTag;
+  · me/neznamy/tab/shared/command/ParseCommand
+  · me/neznamy/tab/shared/Property
+  · me/neznamy/tab/shared/util/cache/StringToComponentCache
+  · Lme/neznamy/tab/shared/util/cache/StringToComponentCache;
+  · Lme/neznamy/tab/shared/command/ParseCommand;
+  · me/neznamy/tab/shared/command/PlayerCommand
+  · Lme/neznamy/tab/shared/command/PlayerCommand;
+  · me/neznamy/tab/shared/command/PlayerUUIDCommand
+  · Lme/neznamy/tab/shared/command/PlayerUUIDCommand;
+  · &cSyntax&8: &3&l/tab &9group&3/&9player &3<name> &9<property> &3<value...>
+  · Lme/neznamy/tab/shared/command/PropertyCommand;
+  · me/neznamy/tab/shared/command/ReloadCommand
+  · Lme/neznamy/tab/shared/command/ReloadCommand;
+  · me/neznamy/tab/shared/command/SetCollisionCommand
+  · Lme/neznamy/tab/shared/command/SetCollisionCommand;
+  · Ljava/util/Map<Ljava/lang/String;Lme/neznamy/tab/shared/command/SubCommand;>;
+  · Lme/neznamy/tab/shared/command/SubCommand;
+  · me/neznamy/tab/shared/command/bossbar/BossBarCommand
+  · me/neznamy/tab/shared/command/scoreboard/ScoreboardCommand
+  · me/neznamy/tab/shared/ProjectVariables
+  · Lme/neznamy/tab/shared/command/TabCommand;
+  · me/neznamy/tab/api/bossbar/BossBarManager
+  · me/neznamy/tab/shared/command/bossbar/BossBarAnnounceCommand
+  · me/neznamy/tab/api/bossbar/BossBar
+  · Lme/neznamy/tab/shared/command/bossbar/BossBarAnnounceCommand;
+  · Lme/neznamy/tab/api/bossbar/BossBarManager;
+  · Lme/neznamy/tab/api/bossbar/BossBar;
+  · me/neznamy/tab/shared/command/bossbar/BossBarSendCommand
+  · me/neznamy/tab/shared/command/bossbar/BossBarToggleCommand
+  · me/neznamy/tab/shared/command/bossbar/BossBarOnCommand
+  · me/neznamy/tab/shared/command/bossbar/BossBarOffCommand
+  · Lme/neznamy/tab/shared/command/bossbar/BossBarCommand;
+  · Lme/neznamy/tab/shared/command/bossbar/BossBarOffCommand;
+  · Lme/neznamy/tab/shared/command/bossbar/BossBarOnCommand;
+  · Lme/neznamy/tab/shared/command/bossbar/BossBarSendCommand;
+  · Lme/neznamy/tab/shared/command/bossbar/BossBarToggleCommand;
+  · me/neznamy/tab/api/scoreboard/ScoreboardManager
+  · me/neznamy/tab/shared/command/scoreboard/ScoreboardAnnounceCommand
+  · me/neznamy/tab/api/scoreboard/Scoreboard
+  · Lme/neznamy/tab/shared/command/scoreboard/ScoreboardAnnounceCommand;
+  · Lme/neznamy/tab/api/scoreboard/ScoreboardManager;
+  · Lme/neznamy/tab/api/scoreboard/Scoreboard;
+  · me/neznamy/tab/shared/command/scoreboard/ScoreboardShowCommand
+  · me/neznamy/tab/shared/command/scoreboard/ScoreboardToggleCommand
+  · me/neznamy/tab/shared/command/scoreboard/ScoreboardOnCommand
+  · me/neznamy/tab/shared/command/scoreboard/ScoreboardOffCommand
+  · Lme/neznamy/tab/shared/command/scoreboard/ScoreboardCommand;
+  · me/neznamy/tab/shared/features/scoreboard/ScoreboardManagerImpl
+  · Lme/neznamy/tab/shared/command/scoreboard/ScoreboardOffCommand;
+  · Lme/neznamy/tab/shared/features/scoreboard/ScoreboardManagerImpl;
+  · Lme/neznamy/tab/shared/command/scoreboard/ScoreboardOnCommand;
+  · Lme/neznamy/tab/shared/command/scoreboard/ScoreboardShowCommand;
+  · Lme/neznamy/tab/shared/command/scoreboard/ScoreboardToggleCommand;

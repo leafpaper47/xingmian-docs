@@ -1,0 +1,196 @@
+# KaoguPlugin  (KaoguPlugin-1.0.1-CE-fix.jar)
+## 注册指令
+  /kaogu  usage='/kaogu <identify|repair|sell|price|give|reload|help>' desc='考古插件主命令' alias=['kg'] perm=None
+
+## 代码类
+  com.kaogu.command.KaoguCommand
+
+## javap 字符串 token
+  buy cancel confirm create fossil give help hologram identify price reload remove repair select sell set update
+
+## 文本资源里的帮助/用法行
+  · #  考古插件 KaoguPlugin 主配置
+  · #  所有概率、物品、方块均可在此修改
+  · #  修改后执行 /kaogu reload 生效
+  · # 每天小斌摆出的藏品数量（每日随机）
+  · # 每个玩家每日限购古物数量（可重复买同一件，0 = 不限）
+  · # 每个玩家每日限卖古物数量（0 = 不限）
+  · # 消息前缀
+  · prefix: "&8[&6考古&8]&r "
+  · # 鉴定/修复/回收冷却时间（秒）
+  · # 鉴定手续费（每次鉴定消耗的金币）
+  · # 修复手续费（每修复一件完整古物消耗的金币）
+  · # 修复耗时，单位分钟
+  · # 鉴定奖励：花钱鉴定后，有概率直接出以下物品（按顺序判定，概率 0~1）
+  · # 20% 出钻石、30% 出煤炭，剩余 50% 出古物碎片
+  · name: "&b钻石"
+  · name: "&8煤炭"
+  · #  获取方式配置（概率均为 0~1 的小数）
+  · # ---- 钓鱼 ----
+  · # 每次钓到鱼获得化石的概率
+  · # 每个玩家每日最多获得的化石数量（0 = 不限）
+  · # ---- 挖矿 ----
+  · # 每次挖掉下方列表中的矿石获得化石的概率
+  · # 可挖出化石的方块列表
+  · # 后期想加挖石头/泥土等，直接在此追加方块名即可
+  · #  物品配置
+  · #  material  = 原版物品材质（如 BONE、BRICK）
+  · #  oraxen_id = Oraxen 自定义物品 ID，留空 "" 则用原版材质
+  · #  两者填其一：填了 oraxen_id 优先用 Oraxen 物品
+  · # ---- 古物化石（未鉴定）----
+  · name: "&e古代化石"
+  · - "&7可前往主城商店负一层找NPC&6小斌养的猫&7鉴定"
+  · - "&7鉴定费用&6100星点"
+  · # ---- 古物碎片（8 种古物 × 上/中/下）----
+  · # 注意：类型名必须与下方 artifacts 的 8 个类型一一对应
+  · 青铜器:
+  · upper: { material: BRICK, oraxen_id: "suipian", name: "&6未知的化石碎片A·上" }
+  · middle: { material: BRICK, oraxen_id: "suipian", name: "&6未知的化石碎片A·中" }
+  · lower: { material: BRICK, oraxen_id: "suipian", name: "&6未知的化石碎片A·下" }
+  · upper: { material: CLAY_BALL, oraxen_id: "suipian", name: "&f未知的化石碎片B·上" }
+  · middle: { material: CLAY_BALL, oraxen_id: "suipian", name: "&f未知的化石碎片B·中" }
+  · lower: { material: CLAY_BALL, oraxen_id: "suipian", name: "&f未知的化石碎片B·下" }
+  · upper: { material: EMERALD, oraxen_id: "suipian", name: "&a未知的化石碎片C·上" }
+  · middle: { material: EMERALD, oraxen_id: "suipian", name: "&a未知的化石碎片C·中" }
+  · lower: { material: EMERALD, oraxen_id: "suipian", name: "&a未知的化石碎片C·下" }
+  · upper: { material: PAPER, oraxen_id: "suipian", name: "&f未知的化石碎片D·上" }
+  · middle: { material: PAPER, oraxen_id: "suipian", name: "&f未知的化石碎片D·中" }
+  · lower: { material: PAPER, oraxen_id: "suipian", name: "&f未知的化石碎片D·下" }
+  · upper: { material: WHITE_WOOL, oraxen_id: "suipian", name: "&f未知的化石碎片E·上" }
+  · middle: { material: WHITE_WOOL, oraxen_id: "suipian", name: "&f未知的化石碎片E·中" }
+  · lower: { material: WHITE_WOOL, oraxen_id: "suipian", name: "&f未知的化石碎片E·下" }
+  · upper: { material: TERRACOTTA, oraxen_id: "suipian", name: "&6未知的化石碎片F·上" }
+  · middle: { material: TERRACOTTA, oraxen_id: "suipian", name: "&6未知的化石碎片F·中" }
+  · lower: { material: TERRACOTTA, oraxen_id: "suipian", name: "&6未知的化石碎片F·下" }
+  · upper: { material: STONE, oraxen_id: "suipian", name: "&8未知的化石碎片G·上" }
+  · middle: { material: STONE, oraxen_id: "suipian", name: "&8未知的化石碎片G·中" }
+  · lower: { material: STONE, oraxen_id: "suipian", name: "&8未知的化石碎片G·下" }
+  · 金银器:
+  · upper: { material: GOLD_NUGGET, oraxen_id: "suipian", name: "&e未知的化石碎片H·上" }
+  · middle: { material: GOLD_NUGGET, oraxen_id: "suipian", name: "&e未知的化石碎片H·中" }
+  · lower: { material: GOLD_NUGGET, oraxen_id: "suipian", name: "&e未知的化石碎片H·下" }
+  · # ---- 完整古物（修复后产出，贴图/模型均引用古董家具 Oraxen 物品）----
+  · # 每个类型下是一个【列表】，可放多个具体古物
+  · # 修复时从该类型下按权重随机出一个具体古物
+  · # 每个具体古物可单独配置 material / oraxen_id / name / weight
+  · # weight = 出现权重（默认 1），越大越容易出；出现概率 = 该古物 weight / 该类型下所有 weight 之和
+  · # name 必须与古董家具 itemname 一致（不含颜色标签），用于识别与回收定价
+  · # oraxen_id 填古董家具物品 ID，产出后保留其渐变金显示名与模型贴图
+  · 青铜器:
+  · name: "古·传奇鎏金蟠龙"
+  · name: "古·传奇地动仪"
+  · name: "古·传奇维京战斧"
+  · name: "仿·青铜神像"
+  · name: "古·兵器"
+  · name: "古·青花聚宝盆"
+  · name: "近代·青花瓷工艺品"
+  · name: "古·玉璧"
+  · name: "古·唐伯虎仕女图"
+  · name: "古·龙神长卷"
+  · name: "近代·笔墨纸砚"
+  · name: "古·四梅地毯"
+  · name: "仿·公子折扇"
+  · name: "近代·非遗脸谱"
+  · name: "古·陶罐三件套"
+  · name: "古·无名神像"
+  · name: "古·月华神像"
+  · name: "近代·镇宅神像"
+  · name: "近代·雷纹神像"
+  · 金银器:
+  · name: "仿·天尊炉"
+  · # ---- 古代学者凭证（修复 10 种不同古物后自动发放）----
+  · displayName: "&6古代学者凭证"
+  · - "&7修复 10 种不同古物时自动获得"
+  · - "&7凭此凭证可在称号商城购买古代学者称号"
+  · # ---- 考古专家凭证（修复 20 种不同古物后自动发放）----
+  · displayName: "&6考古专家凭证"
+  · - "&7修复 20 种不同古物时自动获得"
+  · - "&7凭此凭证可在称号商城购买考古专家称号"
+  · description: 考古插件：钓鱼/挖矿/开箱获取化石，鉴定修复回收古物
+  · description: 考古插件主命令
+  · usage: /kaogu <identify|repair|sell|price|give|reload|help>
+  · description: 使用考古插件基础功能
+  · description: 考古插件管理权限
+  · #  古物回收价格配置
+  · #  每日价格 = 基础价格 × 当日波动系数
+  · #  炒股模式：每小时波动，次日 00:00 向 1.0 温和回落（保留波动结果，不再强制置 1）
+  · # 基础价格（按【具体古物名】配置，与 config.yml 中 artifacts 的 name 对应）
+  · # 若某具体古物未在此配置，会自动回退到它所属类型的价格（如"青铜器"）
+  · 古·传奇鎏金蟠龙: 13000
+  · 古·传奇地动仪: 12000
+  · 古·传奇维京战斧: 9500
+  · 仿·青铜神像: 3200
+  · 古·兵器: 3200
+  · 古·青花聚宝盆: 5300
+  · 近代·青花瓷工艺品: 3200
+  · 古·玉璧: 7500
+  · 古·唐伯虎仕女图: 5300
+  · 古·龙神长卷: 4800
+  · 近代·笔墨纸砚: 2700
+  · 古·四梅地毯: 4300
+  · 仿·公子折扇: 2700
+  · 近代·非遗脸谱: 2200
+  · 古·陶罐三件套: 3200
+  · 古·无名神像: 4800
+  · 古·月华神像: 3800
+  · 近代·镇宅神像: 2000
+  · 近代·雷纹神像: 2000
+  · 仿·天尊炉: 3800
+  · # 价格模式：
+  · #   stock        = 炒股模式（推荐）：每小时波动一次，累计涨跌到 ±circuit_breaker 当天熔断，次日 00:00 温和回落
+  · #   random_walk  = 随机游走（旧）：每天在【昨日系数】基础上 固定涨幅 + 随机波动，受涨跌幅限制
+  · #   daily_random = 每天独立随机（旧）：每天在 (1-fluctuation) ~ (1+fluctuation) 之间独立随机
+  · # 炒股模式：每小时波动幅度（0.02 = 每小时最多涨跌 2%）
+  · # 炒股模式：熔断阈值（0.2 = 累计涨跌到 ±20% 当天熔断，次日 00:00 解除熔断）
+  · # ===== 买卖价差（炒股模式生效）=====
+  · # 买入价 = 当前 stock 价 × buy_spread（默认 1.10，即买入比行情价贵 10%）
+  · # 卖出价 = 当前 stock 价 × sell_spread（默认 0.90，即卖出比行情价便宜 10%）
+  · # 一买一卖形成 ~20% 价差，配合行情波动实现"有赚有赔"
+  · # 次日温和回落强度：multiplier += (1 - multiplier) × day_decay
+  · # 0.15 = 每天向 1.0 靠近 15%，保留当日波动结果，不再强制归 1
+  · # 固定涨幅：每天在昨日系数基础上固定加/减
+  · # 随机波动幅度：每天在昨日系数基础上随机 ±fluctuation
+  · # 涨跌幅限制：波动系数被限制在 [min_multiplier, max_multiplier] 之间
+  · # 每日价格回落时间（服务器时间，24 小时制）
+
+## 常量池帮助/描述文本
+  · com/kaogu/command/KaoguCommand
+  · Lcom/kaogu/KaoguPlugin;
+  · com/kaogu/KaoguPlugin
+  · 该命令只能由玩家执行
+  · com/kaogu/manager/IdentifyManager
+  · com/kaogu/manager/RepairManager
+  · com/kaogu/manager/SellManager
+  · com/kaogu/config/ConfigManager
+  · com/kaogu/util/ChatUtil
+  · &8===== &6考古插件 &8=====
+  · &e/kaogu identify &7- 鉴定手中的化石
+  · &e/kaogu repair &7- 修复古物（需同类型上中下碎片）
+  · &e/kaogu sell &7- 回收古物（点按钮选择并确认）
+  · &e/kaogu buy &7- 查看今日可购买藏品并购买（点按钮选择并确认）
+  · &e/kaogu price &7- 查看今日古物回收价格
+  · &e/kaogu give <玩家> <物品> [数量] &7- 给予物品
+  · &e/kaogu hologram <set|create|remove|update> &7- 管理大厅全息价格表（自动分页，每页10个）
+  · &e/kaogu reload &7- 重载配置
+  · &c用法: /kaogu hologram <set|create|remove|update>
+  · &c该指令只能在游戏内使用
+  · &c页码必须是数字，如 /kaogu hologram set 1
+  · &c页码从 1 开始
+  · com/kaogu/hologram/HologramManager
+  · &8===== &6今日古物回收价格 &8=====
+  · com/kaogu/manager/ItemManager
+  · com/kaogu/config/PriceManager
+  · com/kaogu/util/IntegrationUtil
+  · &c用法: /kaogu give <玩家> <fossil|fragment:<类型>:<部位>|artifact:<类型>> [数量]
+  · &c物品不存在，请检查物品标识
+  · com/kaogu/util/RankedRewardGuard
+  · &a配置已重载
+  · &c你没有权限执行此命令
+  · &a已设置全息基准位置（第1页）: &f , ,  &7(其余页默认向右自动排，可用 set 2/3... 单独指定位置)
+  · &a已单独设置第 &f&a 页位置: &f , ,  &7(未单独设置的页仍按基准自动横向排，重复 set  可改)
+  · &a已创建全息投影价格表（自动分页，共 &f&a 页，每页最多 10 个）
+  · &a已删除全息投影价格表
+  · &a已更新全息投影价格表（共 &f&a 页）
+  · &7货币单位: &e
+  · &c玩家不在线: 
+  · &a已给予 &f &a 个

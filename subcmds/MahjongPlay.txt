@@ -1,0 +1,159 @@
+# MahjongPlay  (MahjongPlay-1.5.jar)
+## 注册指令
+  /mahjong  usage='/mahjong <create|join|leave|ready|start|bot|destroy|info|list|action>' desc='Mahjong game commands' alias=['mj', 'majiang'] perm=None
+
+## 代码类
+  com.mahjongplay.libs.coroutines.flow.SharingCommand
+  com.mahjongplay.libs.coroutines.flow.StartedLazily$command$1$1$emit$1
+  com.mahjongplay.libs.coroutines.flow.StartedLazily$command$1$1
+  com.mahjongplay.libs.coroutines.flow.StartedLazily$command$1
+  com.mahjongplay.libs.coroutines.flow.StartedWhileSubscribed$command$1
+  com.mahjongplay.libs.coroutines.flow.StartedWhileSubscribed$command$2
+  com.mahjongplay.libs.mccoroutine.bukkit.SuspendingCommandExecutor
+  com.mahjongplay.libs.mccoroutine.bukkit.impl.CoroutineSessionImpl$commandService$2
+  com.mahjongplay.libs.mccoroutine.bukkit.service.CommandServiceImpl$registerSuspendCommandExecutor$1$1
+  com.mahjongplay.libs.mccoroutine.bukkit.service.CommandServiceImpl$registerSuspendTabCompleter$1$1
+  com.mahjongplay.libs.mccoroutine.bukkit.service.CommandServiceImpl
+  com.mahjongplay.table.MahjongCommand$Companion$CommandPermission
+  com.mahjongplay.table.MahjongCommand$Companion
+  com.mahjongplay.table.MahjongCommand
+  org.apache.maven.wagon.CommandExecutionException
+  org.apache.maven.wagon.CommandExecutor$1
+  org.apache.maven.wagon.CommandExecutor
+  org.codehaus.plexus.util.cli.Commandline$Argument
+  org.codehaus.plexus.util.cli.Commandline$Marker
+  org.codehaus.plexus.util.cli.Commandline
+  org.codehaus.plexus.util.cli.CommandLineCallable
+  org.codehaus.plexus.util.cli.CommandLineException
+  org.codehaus.plexus.util.cli.CommandLineTimeOutException
+  org.codehaus.plexus.util.cli.CommandLineUtils$1
+  org.codehaus.plexus.util.cli.CommandLineUtils$ProcessHook
+  org.codehaus.plexus.util.cli.CommandLineUtils$StringStreamConsumer
+  org.codehaus.plexus.util.cli.CommandLineUtils
+  org.codehaus.plexus.util.cli.shell.CmdShell
+  org.codehaus.plexus.util.cli.shell.CommandShell
+
+## javap 字符串 token
+  action alias aqua args bot command commandexecutor context create deniedmessage destroy east gold green info join kick label leave list manager node one p0 p1 p2 p3 plugin plugincommand ready red seconds sender start stop tabcompleter three twowind unready win9x windows yellow
+
+## 文本资源里的帮助/用法行
+  · usage: /mahjong <create|join|leave|ready|start|bot|destroy|info|list|action>
+  · description: 允许创建麻将桌
+  · description: 允许加入麻将桌
+  · description: 允许离开麻将桌
+  · description: 允许准备
+  · description: 允许取消准备
+  · description: 允许强制开始游戏
+  · description: 允许添加机器人
+  · description: 允许踢出玩家
+  · description: 允许销毁麻将桌
+  · description: 允许执行麻将操作
+  · description: 允许查看麻将桌列表
+  · description: 允许查看麻将桌信息
+
+## 常量池帮助/描述文本
+  · com/mahjongplay/libs/coroutines/flow/SharingCommand
+  · Ljava/lang/Enum<Lcom/mahjongplay/libs/coroutines/flow/SharingCommand;>;
+  · Lcom/mahjongplay/libs/coroutines/flow/SharingCommand;
+  · com/mahjongplay/libs/coroutines/flow/StartedLazily$command$1$1$emit$1
+  · com/mahjongplay/libs/coroutines/flow/StartedLazily$command$1$1
+  · com/mahjongplay/libs/coroutines/flow/StartedLazily$command$1
+  · Lcom/mahjongplay/libs/coroutines/flow/StartedLazily$command$1$1;
+  · Lcom/mahjongplay/libs/coroutines/flow/StartedLazily$command$1$1<TT;>;
+  · Lcom/mahjongplay/libs/coroutines/flow/StartedLazily$command$1$1$emit$1;
+  · com/mahjongplay/libs/coroutines/flow/FlowCollector
+  · Lcom/mahjongplay/libs/coroutines/flow/FlowCollector;
+  · Lcom/mahjongplay/libs/coroutines/flow/FlowCollector<Lcom/mahjongplay/libs/coroutines/flow/SharingCommand;>;
+  · com/mahjongplay/libs/coroutines/flow/StartedLazily
+  · Lcom/mahjongplay/libs/coroutines/flow/StateFlow;
+  · Lcom/mahjongplay/libs/coroutines/flow/StateFlow<Ljava/lang/Integer;>;
+  · Lcom/mahjongplay/libs/coroutines/flow/StartedLazily$command$1;
+  · com/mahjongplay/libs/coroutines/flow/StateFlow
+  · com/mahjongplay/libs/coroutines/flow/StartedWhileSubscribed$command$1
+  · com/mahjongplay/libs/coroutines/flow/StartedWhileSubscribed
+  · Lcom/mahjongplay/libs/coroutines/flow/StartedWhileSubscribed;
+  · Lcom/mahjongplay/libs/coroutines/flow/StartedWhileSubscribed$command$1;
+  · com/mahjongplay/libs/coroutines/DelayKt
+  · com/mahjongplay/libs/coroutines/flow/StartedWhileSubscribed$command$2
+  · Lcom/mahjongplay/libs/coroutines/flow/StartedWhileSubscribed$command$2;
+  · com/mahjongplay/libs/mccoroutine/bukkit/SuspendingCommandExecutor
+  · Lcom/mahjongplay/libs/mccoroutine/bukkit/SuspendingCommandExecutor;
+  · com/mahjongplay/libs/mccoroutine/bukkit/impl/CoroutineSessionImpl$commandService$2
+  · Lkotlin/jvm/internal/Lambda;Lkotlin/jvm/functions/Function0<Lcom/mahjongplay/libs/mccoroutine/bukkit/service/CommandServiceImpl;>;
+  · com/mahjongplay/libs/mccoroutine/bukkit/impl/CoroutineSessionImpl
+  · Lcom/mahjongplay/libs/mccoroutine/bukkit/service/CommandServiceImpl;
+  · Lcom/mahjongplay/libs/mccoroutine/bukkit/impl/CoroutineSessionImpl;
+  · Lcom/mahjongplay/libs/mccoroutine/bukkit/impl/CoroutineSessionImpl$commandService$2;
+  · com/mahjongplay/libs/mccoroutine/bukkit/service/CommandServiceImpl
+  · com/mahjongplay/libs/mccoroutine/bukkit/service/CommandServiceImpl$registerSuspendCommandExecutor$1$1
+  · Lcom/mahjongplay/libs/coroutines/CoroutineScope;
+  · Lcom/mahjongplay/libs/mccoroutine/bukkit/service/CommandServiceImpl$registerSuspendCommandExecutor$1$1;
+  · com/mahjongplay/libs/coroutines/CoroutineScope
+  · com/mahjongplay/libs/mccoroutine/bukkit/service/CommandServiceImpl$registerSuspendTabCompleter$1$1
+  · Lcom/mahjongplay/libs/mccoroutine/bukkit/SuspendingTabCompleter;
+  · Lcom/mahjongplay/libs/mccoroutine/bukkit/service/CommandServiceImpl$registerSuspendTabCompleter$1$1;
+  · com/mahjongplay/libs/mccoroutine/bukkit/SuspendingTabCompleter
+  · com/mahjongplay/libs/mccoroutine/bukkit/MCCoroutineKt
+  · com/mahjongplay/table/MahjongCommand$Companion$CommandPermission
+  · Lcom/mahjongplay/table/MahjongCommand$Companion$CommandPermission;
+  · com/mahjongplay/table/MahjongCommand$Companion
+  · com/mahjongplay/table/MahjongCommand
+  · Lcom/mahjongplay/table/MahjongCommand$Companion;
+  · Lcom/mahjongplay/table/MahjongTableManager;
+  · Lcom/mahjongplay/table/MahjongCommand;
+  · com/mahjongplay/model/MahjongRule$GameLength
+  · Lcom/mahjongplay/model/MahjongRule$GameLength;
+  · 可选模式: one(一局) / east(东风) / twowind(半庄) / three(三麻半庄)
+  · com/mahjongplay/table/MahjongTableManager
+  · com/mahjongplay/table/MahjongTableSession
+  · com/mahjongplay/table/MahjongTable
+  · 麻将桌已创建! 
+  · 使用 /mahjong bot 添加机器人, /mahjong start 开始游戏
+  · Lcom/mahjongplay/table/MahjongTableSession;
+  · 没有可用的麻将桌
+  · 已加入麻将桌 
+  · 无法加入 (可能已满或你已在游戏中)
+  · 找不到桌子: 
+  · 已加入麻将桌
+  · 已离开麻将桌
+  · 你不在任何麻将桌中
+  · com/mahjongplay/game/MahjongGame
+  · 已准备
+  · 取消准备
+  · com/mahjongplay/model/MahjongRule
+  · 需要名玩家才能开始 (当前 /, 使用 /mahjong bot 添加机器人)
+  · com/mahjongplay/game/MahjongPlayerBase
+  · 还有玩家未准备
+  · Lcom/mahjongplay/game/MahjongPlayerBase;
+  · com/mahjongplay/game/GameStatus
+  · Lcom/mahjongplay/game/GameStatus;
+  · 游戏已经开始
+  · 桌子已满
+  · 已添加机器人 Bot (/)
+  · 用法: /mahjong kick <座位号0-3>
+  · 已踢出座位 
+  · 找不到麻将桌: 
+  · 麻将桌  已销毁
+  · com/mahjongplay/game/MahjongPlayer
+  · com/mahjongplay/model/MahjongGameBehavior
+  · Lcom/mahjongplay/game/MahjongPlayer;
+  · Lcom/mahjongplay/model/MahjongGameBehavior;
+  · 没有活跃的麻将桌
+  · 活跃的麻将桌:
+  ·    - / 玩家 []
+  · 麻将桌 
+  · 机器人
+  · === 麻将指令 ===
+  · 你没有权限创建麻将桌
+  · 你没有权限加入麻将桌
+  · 你没有权限离开麻将桌
+  · 你没有权限准备
+  · 你没有权限取消准备
+  · 你没有权限强制开始游戏
+  · 你没有权限添加机器人
+  · 你没有权限踢出玩家
+  · 你没有权限销毁麻将桌
+  · 你没有权限执行麻将操作
+  · 你没有权限查看麻将桌列表
+  · 你没有权限查看麻将桌信息
+  · Ljava/util/Map<Ljava/lang/String;Lcom/mahjongplay/table/MahjongCommand$Companion$CommandPermission;>;

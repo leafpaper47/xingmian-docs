@@ -1,0 +1,32 @@
+# CraftBench  (CraftBench-1.1.12.jar)
+## 注册指令
+  /craftbench  usage='/craftbench' desc='打开 5x5 合成台' alias=None perm='craftbench.use'
+  /craftbenchadmin  usage='/craftbenchadmin' desc='打开配方编辑界面' alias=None perm='craftbench.admin'
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · # 无需手动配置；配方请使用游戏内 /craftbenchadmin 界面编辑。
+  · # ================ 1.1.5 双锤合成模式 ================
+  · # 大锤：消耗 big-hammer-cost 星点，必定合成成功。
+  · # 小锤：消耗 small-hammer-cost 星点，以 small-hammer-rate 概率合成成功；
+  · #       失败时不出产物、仅返还 80% 材料（1.1.6 行为）：每种材料独立计算，每格 n 保留 floor(n*0.8)，
+  · #       碎裂部分直接消失，并按种类逐种提示"XX 破碎 xN"；1.1.7 起按钮与文案已同步此口径。
+  · # 扣费方式（1.1.5 起）改为服务器经济真实扣费：
+  · #   权威扣费路径 = 控制台指令 /eco take <玩家> <金额>（EssentialsX）；
+  · #   余额经 /balance <玩家> 读取并二次校验，扣费未生效一律阻止合成（杜绝白嫖）。
+  · # 以下三个键修改后 /reload 或重启生效。
+  · # ---------------- 已废弃（1.1.5 不再参与扣费计算，仅保留作兼容说明）----------------
+  · # 旧版单次固定费用与计费模式键：cost / cost-mode 自 1.1.5 起废弃，双锤金额以上方三个键为准。
+  · description: 打开 5x5 合成台
+  · usage: /craftbench
+  · description: 打开配方编辑界面
+  · usage: /craftbenchadmin
+  · description: 允许使用合成台
+  · description: 允许管理配方
+
+## 常量池帮助/描述文本

@@ -1,131 +1,74 @@
 {
   "name": "XingmianRPG",
-  "role": "星陨之地 RPG 世界的整套玩法管控插件",
-  "summary": "XingmianRPG 负责「星陨之地」这个 RPG 世界的全部规则：进出次数管控、星之秘钥（一次性进入道具）、世界内传送与命令封锁、鞘翅限滑翔、按距离触发的刷怪点、怪物掉落与摇点分配、boss 伤害战报，另外附带体力值与紫荆材料收购两个日常系统。命令分成三层：/rpg 给玩家用，/rpgadmin 给管理员配刷怪点和掉落，/stamina 与 /zjbuyer 管两条日常循环。绝大部分配置都在插件自身的 yml 里，改完用 /rpgadmin reload 生效。",
-  "whatFor": [
-    "让玩家进入「星陨之地」RPG 世界并限制每日进入次数",
-    "用星之秘钥道具让玩家额外进入一次，不占当天次数",
-    "在世界内封锁传送与部分命令，并限制鞘翅无限滑翔",
-    "配置按距离触发的刷怪点，按点位管理怪物与刷新冷却",
-    "给 boss 配掉落表：直接给击杀者或走摇点按点数分配",
-    "查看 boss 实时伤害排行与结算战报",
-    "管理玩家体力值，以及紫荆的每日材料收购换星点"
-  ],
-  "flow": [
-    "用 /rpgadmin entry 与 /rpgadmin return 先把进入落点和返回点定好",
-    "用 /rpgadmin sp create 建刷怪点，再用 /rpgadmin sp mob add 往里加怪物",
-    "用 /rpgadmin drop add 给 boss 建掉落规则，必要时改成 roll 摇点并设保底",
-    "玩家用 /rpg 进世界，打完 boss 用 /roll 摇点分装备",
-    "改完配置文件执行 /rpgadmin reload，再用 /rpgadmin info 与 /stamina 核对状态"
+  "role": "RPG 世界管控",
+  "summary": "管星陨之地的进出次数、传送与鞘翅限制、刷怪点、boss 掉落摇点，另带体力值与紫荆材料收购。",
+  "quick": [
+    {"scene": "进星陨之地", "cmd": "/rpg enter", "note": "每次进入扣一次当日次数"},
+    {"scene": "看今天还能进几次", "cmd": "/rpg info", "note": "用完了用 /rpg ticket buy 买秘钥"},
+    {"scene": "建刷怪点", "cmd": "/rpg create K1 96", "note": "站到位置敲，96 是触发半径"},
+    {"scene": "往里加怪", "cmd": "/rpg mob add K1 skeleton_melee", "note": "加几种就同时出几种"},
+    {"scene": "boss 改摇点", "cmd": "/rpgadmin drop set rock_dragon mode roll", "note": "roll 摇点，direct 给击杀者"}
   ],
   "commands": [
-    {
-      "cmd": "roll",
-      "what": "打开 boss 掉落摇点界面，按点数最高者得奖励",
-      "syntax": "/roll",
-      "params": [],
-      "examples": ["/roll"],
-      "notes": "别名 yaodian、rollpoint、yd。只对配置成 roll 模式的大型 boss 掉落生效，普通怪默认直接给击杀者；摇中后可以点放弃摇点。"
-    },
-    {
-      "cmd": "rpg",
-      "what": "打开 RPG 世界菜单，可进入、离开、查次数与伤害排行",
-      "syntax": "/rpg [enter|leave|info|dmg|ticket]",
-      "params": [
-        {
-          "name": "子指令",
-          "required": false,
-          "note": "不带参数打开菜单；enter 立即进入；leave 离开世界；info 查看今日次数；dmg 查看身边那只 boss 的实时伤害排行；ticket 看星之秘钥说明，ticket buy [数量] 花星点购买"
-        },
-        {
-          "name": "数量",
-          "required": false,
-          "note": "仅 ticket buy 使用，指购买几把星之秘钥，省略时按 1 把处理"
-        }
-      ],
-      "examples": ["/rpg", "/rpg enter", "/rpg info", "/rpg dmg", "/rpg ticket buy 2"],
-      "notes": "别名 rpgmenu、rpgw。建点、加怪、copy 等管理子指令也挂在这个命令下，但需要 xingmianrpg.admin。boss 死亡时插件会自动播报一次战报，不用手动敲 dmg。"
-    },
-    {
-      "cmd": "rpgadmin",
-      "what": "管理 RPG 世界：点位、刷怪、掉落、次数与钥匙",
-      "syntax": "/rpgadmin [reload|info|reset|set|return|entry|tp|killmobs|ticket|sp|drop]",
-      "params": [
-        {
-          "name": "子指令",
-          "required": true,
-          "note": "reload 重载配置；info [玩家] 查进入记录；reset 重置今日次数；set 玩家 次数 直接设已用次数；return 与 entry 用当前位置设返回点与进入落点；tp [玩家] 传进世界且不扣次数；killmobs [点位] 清除本插件刷出的怪；ticket give 玩家 [数量] 发星之秘钥"
-        },
-        {
-          "name": "sp 系列",
-          "required": false,
-          "note": "sp create 建空点位；sp create 新名称 copy 源点位 或 sp copy 复制点位；sp mob add 加怪；sp mob remove|list|clear 管怪；sp remove|list|tp|on|off|test|set|ids 管点位；sp cdreset all 或 点位 刷新补刷冷却"
-        },
-        {
-          "name": "drop 系列",
-          "required": false,
-          "note": "drop add 怪物ID 建掉落规则；drop set 怪物ID mode roll 改摇点；pick chance|weight 切换独立概率或按权重抽件；drop item add 加物品条目；drop cmd add 加命令条目；drop entry list|remove|set 管条目；drop guarantee 设摇点保底；drop list 与 drop test 预览测试"
-        },
-        {
-          "name": "怪物ID",
-          "required": false,
-          "note": "对应怪物插件里的怪物标识，sp mob add 还支持写成 怪物ID:等级 的写法"
-        }
-      ],
-      "examples": [
-        "/rpgadmin reload",
-        "/rpgadmin sp create 荒漠祭坛 16",
-        "/rpgadmin sp mob add 荒漠祭坛 zombie 3",
-        "/rpgadmin drop set boss_sand mode roll",
-        "/rpgadmin ticket give Steve 2"
-      ],
-      "notes": "别名 rgpa、rpgadm、xingmianrpg，需要 xingmianrpg.admin。drop 系列和 /roll 的旧名字完全等价；drop item add 的 CE物品ID 指服务端自定义物品插件里的物品 ID，不是原版物品名。"
-    },
-    {
-      "cmd": "stamina",
-      "what": "查看或增减玩家体力，每天满 100 点",
-      "syntax": "/stamina [玩家] 或 /stamina add|give|take|set|reset 玩家 数值",
-      "params": [
-        {
-          "name": "玩家",
-          "required": false,
-          "note": "目标玩家名，可离线；省略时查自己"
-        },
-        {
-          "name": "数值",
-          "required": false,
-          "note": "add 与 give 为加值（负数即扣），take 为扣除量，set 则设为该值，范围 0 到每日满值"
-        }
-      ],
-      "examples": ["/stamina", "/stamina Steve", "/stamina add Steve -30", "/stamina set Steve 50", "/stamina reset Steve"],
-      "notes": "体力每天 100 点，boss 扣 30、小怪扣 0.1，降到 0 后需要刷新恢复。所有子指令都能由控制台执行，玩家离线也能改。"
-    },
-    {
-      "cmd": "zjbuyer",
-      "what": "紫荆的每日怪物材料收购，交材料换星点",
-      "syntax": "/zjbuyer [info|submit|open|reload] [玩家]",
-      "params": [
-        {
-          "name": "子指令",
-          "required": false,
-          "note": "不带参数打开收购清单界面；info [玩家] 在聊天里列今日清单；submit [玩家] 直接提交今日材料；open [玩家] 为指定玩家打开界面；reload 重载 zijing.yml"
-        },
-        {
-          "name": "玩家",
-          "required": false,
-          "note": "代操作的目标玩家，省略时默认自己"
-        }
-      ],
-      "examples": ["/zjbuyer", "/zjbuyer info", "/zjbuyer submit", "/zjbuyer open Steve"],
-      "notes": "别名 zjb。每天刷 5 种材料，每样交 1 个换星点，每人每天一次；reload 需要 zjbuyer.admin，普通使用要 zjbuyer.use。"
-    }
+    {"cmd": "rpg", "what": "打开 RPG 世界菜单", "examples": ["/rpg"], "notes": "别名 rpgmenu、rpgw"},
+    {"cmd": "rpg enter", "what": "进入星陨之地并扣一次当日次数", "examples": ["/rpg enter"], "notes": "只在进入那一刻计次，死亡、离开都不多扣"},
+    {"cmd": "rpg leave", "what": "离开星陨之地并送回返回点", "examples": ["/rpg leave"], "notes": "还原成进入前记录的游戏模式"},
+    {"cmd": "rpg info", "what": "查今日已用次数与收费档位", "examples": ["/rpg info"]},
+    {"cmd": "rpg dmg", "what": "查身边那只 boss 的实时伤害排行", "examples": ["/rpg dmg"], "notes": "boss 死亡自动播报战报"},
+    {"cmd": "rpg ticket", "what": "查看星之秘钥价格与用法", "examples": ["/rpg ticket"], "notes": "右键消耗 1 把进场，不占每日次数"},
+    {"cmd": "rpg ticket buy", "what": "花星点购买星之秘钥", "examples": ["/rpg ticket buy 2"], "notes": "单次上限看 config 的 max-buy"},
+    {"cmd": "rpg create", "what": "以当前位置建一个空刷怪点", "syntax": "/rpg create <名称> [触发半径]", "examples": ["/rpg create K1 96"], "notes": "建完还要 mob add 加怪才会刷"},
+    {"cmd": "rpg copy", "what": "复制现有点位的怪与配置到你站的位置", "examples": ["/rpg copy K2 K1"]},
+    {"cmd": "rpg mob add", "what": "往点位加一种怪", "syntax": "/rpg mob add <名称> <怪物ID>[:等级] [每种几只]", "examples": ["/rpg mob add K1 skeleton_archer 2"], "notes": "加几种就同时出几种；ID 写错一只也不刷"},
+    {"cmd": "rpgadmin", "what": "RPG 世界管理总入口", "examples": ["/rpgadmin reload"], "notes": "别名 rgpa、rpgadm；整条命令需 xingmianrpg.admin"},
+    {"cmd": "rpgadmin reload", "what": "重载 config.yml", "examples": ["/rpgadmin reload"], "notes": "改点位、掉落表、次数价格后必跑"},
+    {"cmd": "rpgadmin info", "what": "查玩家今日进入记录", "examples": ["/rpgadmin info Steve"], "notes": "标「进行中」多是死亡或掉线残留"},
+    {"cmd": "rpgadmin reset", "what": "把玩家今日次数清零", "examples": ["/rpgadmin reset Steve"]},
+    {"cmd": "rpgadmin set", "what": "直接设玩家今日已用次数", "examples": ["/rpgadmin set Steve 0"]},
+    {"cmd": "rpgadmin return", "what": "以当前位置设置返回点", "examples": ["/rpgadmin return"], "notes": "必须站主世界敲，站 RPG 世界会被拒绝"},
+    {"cmd": "rpgadmin entry", "what": "以当前位置设置进入落点", "examples": ["/rpgadmin entry"], "notes": "必须站 RPG 世界敲，设好立刻生效"},
+    {"cmd": "rpgadmin tp", "what": "把玩家传进星陨之地，不扣次数", "examples": ["/rpgadmin tp Steve"]},
+    {"cmd": "rpgadmin killmobs", "what": "清掉本插件刷出来的怪", "examples": ["/rpgadmin killmobs K1"], "notes": "不点名则清全部"},
+    {"cmd": "rpgadmin ticket give", "what": "给玩家发星之秘钥", "examples": ["/rpgadmin ticket give Steve 2"], "notes": "CE 不可用时退成自制纸片票"},
+    {"cmd": "rpgadmin sp create", "what": "以当前位置建空刷怪点", "examples": ["/rpgadmin sp create K1 96"], "notes": "sp add 是老写法，等同 create"},
+    {"cmd": "rpgadmin sp copy", "what": "复制点位的怪与配置到当前位置", "examples": ["/rpgadmin sp copy K2 K1"]},
+    {"cmd": "rpgadmin sp mob add", "what": "往点位加怪，可带等级与每种只数", "examples": ["/rpgadmin sp mob add K1 skeleton_melee"]},
+    {"cmd": "rpgadmin sp mob remove", "what": "从点位删掉一种怪", "examples": ["/rpgadmin sp mob remove K1 skeleton_archer"], "notes": "删光变空点位，不再刷"},
+    {"cmd": "rpgadmin sp mob list", "what": "看点位配了哪些怪", "examples": ["/rpgadmin sp mob list K1"]},
+    {"cmd": "rpgadmin sp list", "what": "列全部点位与场上/目标怪数", "examples": ["/rpgadmin sp list"]},
+    {"cmd": "rpgadmin sp ids", "what": "列 MythicMobs 全部怪物 ID", "examples": ["/rpgadmin sp ids"], "notes": "拿不到说明 MM 没装或没加载完"},
+    {"cmd": "rpgadmin sp set", "what": "改点位参数", "examples": ["/rpgadmin sp set K1 interval 300"], "notes": "字段 radius、spawn-radius、min、max、interval、level、y、despawn、enabled"},
+    {"cmd": "rpgadmin sp test", "what": "临时试刷点位", "examples": ["/rpgadmin sp test K1"], "notes": "不入名单、不补刷、不影响正式冷却"},
+    {"cmd": "rpgadmin sp cdreset", "what": "清补刷冷却，下一人进圈立刻刷整批", "examples": ["/rpgadmin sp cdreset all"], "notes": "只清冷却不动场上的怪"},
+    {"cmd": "rpgadmin sp remove", "what": "删除整个刷怪点", "examples": ["/rpgadmin sp remove K2"], "notes": "删除后不可撤销"},
+    {"cmd": "rpgadmin drop add", "what": "给一只怪建掉落规则", "examples": ["/rpgadmin drop add skeleton_melee"], "notes": "建了规则才由本插件发掉落，原版掉落被清"},
+    {"cmd": "rpgadmin drop item add", "what": "往规则里加一条物品掉落", "syntax": "/rpgadmin drop item add <怪物ID> <条目名> <CE物品ID> [概率或权重] [最少] [最多]", "examples": ["/rpgadmin drop item add skeleton_melee tooth default:monster_tooth 1"], "notes": "CE物品ID 是 CraftEngine 物品 ID，不是原版物品名"},
+    {"cmd": "rpgadmin drop cmd add", "what": "往规则里加一条命令奖励", "examples": ["/rpgadmin drop cmd add skeleton_melee 星点 10 5 eco give {player} {amount}"], "notes": "模板放最后可带空格，支持 {player} 与 {amount}"},
+    {"cmd": "rpgadmin drop set", "what": "改掉落规则字段", "syntax": "/rpgadmin drop set <怪物ID> <字段> <值>", "examples": ["/rpgadmin drop set rock_dragon mode roll"], "notes": "字段 mode、pick、drops-min、drops-max、min-players、max-points、enabled"},
+    {"cmd": "rpgadmin drop entry set", "what": "改某条掉落的概率、权重或数量区间", "syntax": "/rpgadmin drop entry set <怪物ID> <条目名> <字段> <值>", "examples": ["/rpgadmin drop entry set skeleton_melee tooth chance 1.5"], "notes": "字段 chance、weight、min-amount、max-amount、roll、display、type、value"},
+    {"cmd": "rpgadmin drop entry remove", "what": "删掉某条掉落", "examples": ["/rpgadmin drop entry remove skeleton_melee tooth"]},
+    {"cmd": "rpgadmin drop guarantee", "what": "设摇点保底条目，每次必出", "syntax": "/rpgadmin drop guarantee <怪物ID> <条目名|none>", "examples": ["/rpgadmin drop guarantee Stone_Golem core-3"], "notes": "不占 drops-min/max 件数；none 清空"},
+    {"cmd": "rpgadmin drop list", "what": "看这只怪的规则与全部条目", "examples": ["/rpgadmin drop list rock_dragon"], "notes": "规则建了池子却空着等于白建"},
+    {"cmd": "rpgadmin drop test", "what": "就地模拟抽一次掉落", "examples": ["/rpgadmin drop test skeleton_melee"], "notes": "抽到 roll 条目会发起摇点"},
+    {"cmd": "rpgadmin drop remove", "what": "删掉整条掉落规则", "examples": ["/rpgadmin drop remove skeleton_melee"], "notes": "删后掉落交回原版或 MythicMobs，不可撤销"},
+    {"cmd": "roll", "what": "打开 boss 掉落摇点界面，点数最高者得", "examples": ["/roll"], "notes": "别名 yaodian、rollpoint、yd；只有 mode roll 的掉落要摇，摇中可放弃"},
+    {"cmd": "stamina", "what": "查看玩家体力，不填参数看自己", "examples": ["/stamina Steve"], "notes": "每天满 100，boss 扣 30、小怪扣 0.1，0 点刷新"},
+    {"cmd": "stamina add", "what": "给玩家加体力，负数即扣", "examples": ["/stamina add Steve 30"], "notes": "控制台可执行，离线玩家也生效"},
+    {"cmd": "zjbuyer", "what": "打开紫荆的今日材料收购界面", "examples": ["/zjbuyer"], "notes": "别名 zjb；每天 5 种材料，每样交 1 个换星点，每人每天一次"},
+    {"cmd": "zjbuyer info", "what": "在聊天里列今日收购清单", "examples": ["/zjbuyer info"]},
+    {"cmd": "zjbuyer submit", "what": "直接提交今日材料换星点", "examples": ["/zjbuyer submit Steve"], "notes": "今日已交过会提示，不重复给星点"},
+    {"cmd": "zjbuyer open", "what": "为指定玩家打开收购界面", "examples": ["/zjbuyer open Steve"]},
+    {"cmd": "zjbuyer reload", "what": "重载紫荆收购配置 zijing.yml", "examples": ["/zjbuyer reload"], "notes": "需 zjbuyer.admin；改完材料池与价格必跑"}
   ],
-  "subcommands": [],
+  "subcommands": [
+    {"cmd": "/stamina take", "desc": "扣玩家体力：take <玩家> <数值>", "example": "/stamina take Steve 30"},
+    {"cmd": "/stamina set", "desc": "体力设成指定值，取值 0 到每日满值", "example": "/stamina set Steve 50"},
+    {"cmd": "/stamina reset", "desc": "体力重置为满值", "example": "/stamina reset Steve"},
+    {"cmd": "/rpg sp", "desc": "建点调参短写法：list、ids、set、test、tp、on、off、remove", "example": "/rpg sp set K1 interval 300"}
+  ],
   "caution": [
-    "这是星冕服务器自研插件，具体参数与可用子指令以游戏内 help 和在服上实测为准，别照抄网上的通用教程。",
-    "大部分子指令需要 xingmianrpg.admin（默认 op），/rpg 与 /roll 走 xingmianrpg.use，/zjbuyer 走 zjbuyer.use；权限收回后玩家连菜单都打不开。",
-    "xingmianrpg.bypass 会同时放行传送封锁、命令拦截和鞘翅限制，OP 默认自带，排查「为什么他能飞/能传送」先看这条。",
-    "改完 yml 一定要 /rpgadmin reload（收购配置用 /zjbuyer reload），否则刷怪点与掉落表还是旧数据。"
-  ],
-  "related": ["MythicMobs", "CraftEngine"]
+    "rpgadmin reset 与 set 直接改玩家今日次数，先 /rpgadmin info 核对再动。",
+    "rpgadmin return 只能站主世界敲，entry 只能站 RPG 世界敲，站错会被拒绝。",
+    "权限：/rpg 与 /roll 用 xingmianrpg.use，rpgadmin 子指令用 xingmianrpg.admin，/zjbuyer 用 zjbuyer.use；bypass 一并放行传送、命令拦截与鞘翅限制。"
+  ]
 }

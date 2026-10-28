@@ -1,0 +1,93 @@
+# Ah-WolfmanKill-1.0  (Ah-WolfmanKill-1.0.jar)
+## 注册指令
+  /wk  usage='/wk <menu|join|leave|watch|unwatch|start|reset|setlobby|setmap|select|randommap|reload|roles|maps|settings|setlist|closelist|apple|hunger>' desc='WolfmanKill 主指令' alias=None perm=None
+
+## 代码类
+  com.wolfmankill.command.CloseListCommand
+  com.wolfmankill.command.SetListCommand
+  com.wolfmankill.command.WKCommand
+
+## javap 字符串 token
+  appeal apple closelist deletemap delmap escape hunger join leave maps menu randommap reload removemap reset roles select setlist setlobby setmap settings smk1 smk2 smk3 start unwatch watch
+
+## 文本资源里的帮助/用法行
+  · # WolfmanKill 游戏配置
+  · start-countdown: 10   # 入场后分配身份倒计时（秒）
+  · day-duration: 120     # 白天时长（秒）
+  · night-duration: 60    # 黑夜时长（秒）
+  · fall-damage: true     # 是否启用摔落伤害
+  · # 主大厅位置（通过 /wk setlobby 自动生成）
+  · # 地图数据（通过指令自动生成，请勿手动修改）
+  · description: 'WolfmanKill 我的世界狼人杀完整玩法插件'
+  · description: 'WolfmanKill 主指令'
+  · description: 基础使用权限
+  · description: 管理员权限
+
+## 常量池帮助/描述文本
+  · §7排行榜当前未显示（数据仍然保存在 leaderboard.yml 中）
+  · §a排行榜已隐藏显示，数据不会删除，随时可用 /wk setlist 重新显示
+  · §c该指令只能由玩家使用
+  · §c你没有权限修改排行榜胜率
+  · §c胜率必须是 0-100 的数字
+  · §c该玩家还没有对局记录，无法修改胜率
+  · §a排行榜已显示在当前位置，使用 /wk closelist 隐藏显示（数据不会删除）
+  · §c排行榜显示失败：当前世界无效
+  · §c排行榜中没有该玩家：
+  · §d已黑幕修改  的胜率为 
+  · 退出观战
+  · §c暂无可随机的地图，请先使用 /wk setmap <名称> 保存地图
+  · §c用法：/wk apple <蛇果数量> [玩家|@p|@a]
+  · §c用法：/wk hunger <饥饿值0-10> [玩家|@p|@a]
+  · §c用法：/wk setmap <名称> [出生点编号1-9] [玩家|@p]
+  · §c出生点编号必须是 1-9；不写编号则设置默认出生点 0
+  · §c额外出生点编号必须是 1-9；不写编号则设置默认出生点 0
+  · §c保存地图失败：目标位置没有有效世界
+  · 默认出生点 0
+  · §c用法：/wk select <名称>
+  · §c用法：/wk delmap <名称>
+  · §aWolfmanKill 配置已重载
+  · §7/wk - 打开主菜单
+  · §7/wk menu [玩家|@p|@a] - 为目标打开主菜单
+  · §7/wk join [玩家|@p|@a[distance=..10]] - 加入游戏
+  · §7/wk leave [玩家|@p|@a[distance=..10]] - 退出游戏
+  · §7/wk watch [玩家|@p|@a] - 进入观战模式
+  · §7/wk unwatch [玩家|@p|@a] - 退出观战模式
+  · §7/wk escape [玩家|@p|@a|@r|@s] - 消耗3颗蛇果触发逃离胜利 (管理员/命令方块)
+  · §7/wk apple <数量> [玩家|@p|@a] - 发放蛇果 (管理员)
+  · §7/wk hunger <0-10> [玩家|@p|@a] - 设置饥饿值 (管理员)
+  · §7/wk start - 开始游戏 (管理员)
+  · §7/wk reset - 重置游戏 (管理员)
+  · §7/wk setlobby [玩家|@p|@a] - 用目标位置设置主大厅 (管理员)
+  · §7/wk setmap <名> [玩家|@p|@a] - 设置默认出生点 0 (管理员)
+  · §7/wk setmap <名> <1-9> [玩家|@p|@a] - 设置额外出生点 (管理员)
+  · §7/wk select <名> - 选择地图 (管理员)
+  · §7/wk delmap <名> - 删除地图 (管理员)
+  · §7/wk randommap - 随机选择地图 (管理员)
+  · §7/wk smk1 [玩家] - 获取石墨肯·木棍
+  · §7/wk smk2 [玩家] - 获取石墨肯·烈焰棒
+  · §7/wk smk3 [玩家] - 获取石墨肯·旋风棒
+  · §7/wk roles - 角色池设置
+  · §7/wk maps - 查看地图
+  · §7/wk settings - 游戏设置
+  · §c无权限
+  · §c控制台执行该指令时必须指定玩家，例如：/wk menu @p
+  · §c带 distance 范围的选择器需要有明确的执行位置
+  · §c石墨肯物品生成失败
+  · §d已随机选择地图：
+  · §c随机地图失败：
+  · §a你收到了  颗蛇果
+  · §a已发放蛇果  颗 ×  人
+  · §a已设置饥饿值  ×  人
+  · §a主大厅已设置为  的当前位置
+  · 出生点 
+  · §a地图  的  已保存，位置来自 
+  · §c地图不存在：
+  · §a已选择地图：
+  · §c已删除地图：
+  · §a已对玩家执行：
+  · §a已对  名玩家执行
+  · §a已触发逃离胜利：
+  · §a已触发  名玩家的逃离胜利
+  · §c目标选择器无效：
+  · §c找不到目标玩家：
+  · §d已获得石墨肯：§f

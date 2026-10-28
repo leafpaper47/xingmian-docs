@@ -1,0 +1,21 @@
+# BroadcastPlusPlus  (broadcast-plusplus-paper-2.6.0.jar)
+## 注册指令
+  /broadcast  usage='/bc chat|title|actionbar|bossbar <preset|"text"> | /bc scene <preset> [player] | /bc to <player> <channel> <preset|"text"> | /bc preview <type> <preset|"text"> | /bc list [type] | /bc validate | /bc reload | /bc studio' desc='Send a broadcast or manage Broadcast++.' alias=['bc'] perm=None
+
+## 代码类
+  gluckz.command.BroadcastCommand$StudioOpener
+  gluckz.command.BroadcastCommand
+  gluckz.paper.PaperCommandAdapter
+  gluckz.paper.PaperCommandSource
+  gluckz.platform.CommandSource
+
+## javap 字符串 token
+  ab actionbar actionbars bb bossbar bossbars chat gui list preview progress purple reload scene scenes studio title titles to validate
+
+## 文本资源里的帮助/用法行
+
+## 常量池帮助/描述文本
+  · gluckz/command/BroadcastCommand$StudioOpener
+  · gluckz/command/BroadcastCommand
+  · Lgluckz/command/BroadcastCommand$StudioOpener;
+  · Lgluckz/command/BroadcastCommand;

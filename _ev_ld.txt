@@ -1,0 +1,137 @@
+## 注册指令（plugin.yml）
+/libsdisguises | usage=None | desc='Main command for libsdisguises.' | alias=['libsdisg', 'ld'] | perm=None
+/disguise | usage=None | desc='Disguise yourself as an entity.' | alias=['d', 'dis', 'disg'] | perm='libsdisguises.seecmd.disguise'
+/disguiseentity | usage=None | desc='Disguise an entity as another entity.' | alias=['dentity', 'disentity', 'disgentity'] | perm='libsdisguises.seecmd.disguiseentity'
+/disguisehelp | usage=None | desc='Help command for LibsDisguises.' | alias=['dhelp', 'dishelp', 'disghelp'] | perm='libsdisguises.seecmd.disguisehelp'
+/disguiseplayer | usage=None | desc='Disguise another player as an entity.' | alias=['dplayer', 'displayer', 'disgplayer', 'disguiseuuid', 'disguuid', 'duuid'] | perm='libsdisguises.seecmd.disguiseplayer'
+/disguiseradius | usage=None | desc='Disguise all entities within a radius as an entity.' | alias=['disradius', 'dradius', 'disgradius'] | perm='libsdisguises.seecmd.disguiseradius'
+/disguiseselector | usage=None | desc='Disguise entities via entity selector.' | alias=['dselector', 'disselector', 'disgselector'] | perm='libsdisguises.seecmd.disguiseselector'
+/undisguise | usage=None | desc='Undisguise yourself.' | alias=['und', 'undis', 'undisg'] | perm='libsdisguises.seecmd.undisguise'
+/undisguiseentity | usage=None | desc='Undisguise an entity.' | alias=['undisentity', 'undentity', 'undisgentity'] | perm='libsdisguises.seecmd.undisguiseentity'
+/undisguiseplayer | usage=None | desc='Undisguise a player.' | alias=['undisplayer', 'undplayer', 'undisgplayer', 'undisguiseuuid', 'unduuid', 'undisguuid'] | perm='libsdisguises.seecmd.undisguiseplayer'
+/undisguiseradius | usage=None | desc='Undisguise all entities within a radius.' | alias=['undisradius', 'undradius', 'undisgradius'] | perm='libsdisguises.seecmd.undisguiseradius'
+/undisguiseselector | usage=None | desc='Undisguise all entities in an entity selector.' | alias=['undisselector', 'undselector', 'undisgselector'] | perm='libsdisguises.seecmd.undisguiseselector'
+/disguiseclone | usage=None | desc='Copy a disguise (or entity) and use it later.' | alias=['disguisec', 'disc', 'disclone', 'dclone', 'clonedisguise', 'clonedis', 'cdisguise', 'cdis', 'clonedisg', 'disgclone'] | perm='libsdisguises.seecmd.disguiseclone'
+/disguiseviewself | usage=None | desc='Toggle seeing your own disguise on or off.' | alias=['dviewself', 'dvs', 'disguisevs', 'disvs', 'vsd', 'viewselfdisguise', 'viewselfd', 'selfdisguise', 'selfdisg', 'selfd', 'toggleselfdisguise', 'seeselfdisguise'] | perm='libsdisguises.seecmd.disguiseviewself'
+/disguiseviewbar | usage=None | desc='Toggle seeing your own disguise on or off.' | alias=['dviewbar', 'dvb', 'disguisevb', 'disvb', 'viewdisguisebar', 'viewbardisguise', 'bardisguise', 'bardisg', 'bard', 'notifybar', 'viewnotifybar', 'disguisenotifybar', 'disgnotifybar', 'dnotifybar'] | perm='libsdisguises.seecmd.disguiseviewbar'
+/disguisemodify | usage=None | desc='Modify your own disguise' | alias=['dmodify', 'dmod', 'disgmodify', 'modifydisguise', 'moddisguise', 'mdisguise'] | perm='libsdisguises.seecmd.disguisemodify'
+/disguisemodifyplayer | usage=None | desc='Modify the disguise of a player' | alias=['dmodifyplayer', 'dmodplayer', 'disgmodifyplayer', 'dismodplayer', 'disgmodplayer', 'modifydisguiseplayer', 'moddisguiseplayer', 'mdisguiseplayer', 'mdisgplayer', 'dmodifyuuid', 'dmoduuid', 'disgmodifyuuid', 'dismoduuid', 'disgmoduuid', 'modifydisguiseuuid', 'moddisguiseuuid', 'mdisguiseuuid', 'mdisguuid'] | perm='libsdisguises.seecmd.disguisemodifyplayer'
+/disguisemodifyradius | usage=None | desc='Modify disguises in a radius' | alias=['dmodifyradius', 'dmodradius', 'disgmodradius', 'dismodradius', 'modifydisguiseradius', 'modifydisgradius', 'moddisguiseradius', 'mdisguiseradius', 'moddisgradius'] | perm='libsdisguises.seecmd.disguisemodifyradius'
+/disguisemodifyselector | usage=None | desc='Modify entity disguises via entity selector' | alias=['dmodifyselector', 'dmodselector', 'disgmodselector', 'dismodselector', 'modifydisguiseselector', 'modifydisgselector', 'moddisguiseselector', 'mdisguiseselector', 'moddisgselector'] | perm='libsdisguises.seecmd.disguisemodifyselector'
+/disguisemodifyentity | usage=None | desc='Modify a disguise by right clicking them' | alias=['dmodifyentity', 'dmodentity', 'disgmodentity', 'dismodentity', 'modifydisguiseentity', 'modifydisgentity', 'modifydentity', 'moddisguiseentity', 'moddisgentity', 'mdisguiseentity', 'mdisgentity'] | perm='libsdisguises.seecmd.disguisemodifyentity'
+/disguiseanimation | usage=None | desc='Play a supported animation on your own disguise' | alias=None | perm='libsdisguises.disguiseanimation'
+/disguiseplayeranimation | usage=None | desc="Play a supported animation on a player/uuid's disguise" | alias=['disguiseuuidanimation'] | perm='libsdisguises.disguiseplayeranimation'
+/disguiseradiusanimation | usage=None | desc='Play a supported animation on all supported disguises in a radius' | alias=None | perm='libsdisguises.disguiseradiusanimation'
+/disguiseselectoranimation | usage=None | desc='Play a supported animation on all supported disguises via entity selector.' | alias=None | perm='libsdisguises.disguiseselectoranimation'
+/disguiseentityanimation | usage=None | desc="Play a supported animation on a right clicked entity's disguise" | alias=None | perm='libsdisguises.disguiseentityanimation'
+/copydisguise | usage=None | desc='Output a disguise to a usable string' | alias=['disguisecopy', 'disgcopy', 'dcopy', 'copydisg', 'copyd', 'parsedisguise', 'disguiseparse'] | perm='libsdisguises.seecmd.copydisguise'
+/grabskin | usage=None | desc='Grab a skin from file, url or player name/uuid' | alias=['uploadskin', 'skin', 'saveskin', 'cacheskin', 'downloadskin', 'skincache'] | perm='libsdisguises.seecmd.grabskin'
+/savedisguise | usage=None | desc='Save a custom disguise to disguises.yml' | alias=['customdisguise', 'savedisg', 'customdisg', 'createdisguise', 'createdisg'] | perm='libsdisguises.seecmd.savedisguise'
+/grabhead | usage=None | desc='Grab the head item of a skin, url or player' | alias=['grabskull', 'playerhead', 'savehead', 'gethead'] | perm='libsdisguises.seecmd.grabhead'
+
+## 权限节点（plugin.yml）
+libsdisguises.reload | default=None | desc='Allows the user to reload LibsDisguises.'
+libsdisguises.update | default=None | desc='Allows the user to update Libs Disguises'
+libsdisguises.count | default=None | desc='Allows the user to see how many disguises are active'
+libsdisguises.mods | default=None | desc='Allows the user to see mods in use.'
+libsdisguises.seethrough | default=False | desc='Allows player to see through disguises.'
+libsdisguises.hidename | default=False | desc='Allows player to ignore name being forced above disguise'
+libsdisguises.pve | default=False | desc='Allows player to ignore pve restrictions.'
+libsdisguises.pvp | default=False | desc='Allows player to ignore pvp restrictions.'
+libsdisguises.permtest | default=None | desc='Allows player to test permissions'
+libsdisguises.metainfo | default=None | desc='Allows player to get meta info'
+libsdisguises.json | default=None | desc='Allows player to parse held item to json'
+libsdisguises.scoreboardtest | default=None | desc='Test if the scoreboard is valid, this is a simple test.'
+libsdisguises.config | default=None | desc="Allows player to check Lib's Disguises config for values"
+libsdisguises.debug | default=None | desc='Allows a server admin to test a player disguise for scoreboard issues'
+libsdisguises.noactionbar | default=False | desc='Hides the action bar even if enabled in config'
+libsdisguises.multiname | default=None | desc='Allows the command user to set names on different heights'
+libsdisguises.grabhead | default=None | desc='Allows the command user to use /grabhead'
+libsdisguises.ratelimitbypass | default=None | desc='Allows a living player to bypass the 500ms rate limit on disguise commands, used to prevent crashes'
+libsdisguises.selfdisguises | default=True | desc='Controls if the player can view a self disguise, defaults to true. Only checked when disguise starts and toggling self disguises command. If the player has access to /disguisemodify they can turn it back on.'
+libsdisguises.disguiseanimation | default='op' | desc='Play a supported animation on your own disguise'
+libsdisguises.disguiseplayeranimation | default='op' | desc="Play a supported animation on a player/uuid's disguise"
+libsdisguises.disguiseradiusanimation | default='op' | desc='Play a supported animation on all supported disguises in a radius'
+libsdisguises.disguiseselectoranimation | default='op' | desc='Play a supported animation on all supported disguises via entity selector'
+libsdisguises.disguiseentityanimation | default='op' | desc="Play a supported animation on a right clicked entity's disguise"
+libsdisguises.seecmd | default=True | desc='See all commands in tab-completion'
+libsdisguises.seecmd.disguiseviewself | default=None | desc='See the /disguiseviewself command in tab-completion'
+libsdisguises.seecmd.disguiseviewbar | default=None | desc='See the /disguiseviewbar command in tab-completion'
+libsdisguises.seecmd.disguise | default=None | desc='See the /disguise command in tab-completion'
+libsdisguises.seecmd.disguiseentity | default=None | desc='See the /disguiseentity command in tab-completion'
+libsdisguises.seecmd.disguisehelp | default=None | desc='See the /disguisehelp command in tab-completion'
+libsdisguises.seecmd.disguiseplayer | default=None | desc='See the /disguiseplayer command in tab-completion'
+libsdisguises.seecmd.disguiseradius | default=None | desc='See the /disguiseradius command in tab-completion'
+libsdisguises.seecmd.disguiseselector | default=None | desc='See the /disguiseselector command in tab-completion'
+libsdisguises.seecmd.undisguise | default=None | desc='See the /undisguise command in tab-completion'
+libsdisguises.seecmd.undisguiseentity | default=None | desc='See the /undisguiseentity command in tab-completion'
+libsdisguises.seecmd.undisguiseplayer | default=None | desc='See the /undisguiseplayer command in tab-completion'
+libsdisguises.seecmd.undisguiseradius | default=None | desc='See the /undisguiseradius command in tab-completion'
+libsdisguises.seecmd.undisguiseselector | default=None | desc='See the /undisguiseselector command in tab-completion'
+libsdisguises.seecmd.disguiseclone | default=None | desc='See the /disguiseclone command in tab-completion'
+libsdisguises.seecmd.disguisemodify | default=None | desc='See the /disguisemodify command in tab-completion'
+libsdisguises.seecmd.disguisemodifyplayer | default=None | desc='See the /disguisemodifyplayer command in tab-completion'
+libsdisguises.seecmd.disguisemodifyradius | default=None | desc='See the /disguisemodifyradius command in tab-completion'
+libsdisguises.seecmd.disguisemodifyselector | default=None | desc='See the /disguisemodifyselector command in tab-completion'
+libsdisguises.seecmd.disguisemodifyentity | default=None | desc='See the /disguisemodifyentity command in tab-completion'
+libsdisguises.seecmd.copydisguise | default=None | desc='See the /copydisguise command in tab-completion'
+libsdisguises.seecmd.grabskin | default=None | desc='See the /grabskin command in tab-completion'
+libsdisguises.seecmd.savedisguise | default=None | desc='See the /savedisguise command in tab-completion'
+libsdisguises.seecmd.grabhead | default=None | desc='See the /grabhead command in tab-completion'
+libsdisguises.seecmd.disguiseanimation | default=None | desc='See the /disguiseanimation command in tab-completion'
+libsdisguises.seecmd.disguiseplayeranimation | default=None | desc='See the /disguiseplayeranimation command in tab-completion'
+libsdisguises.seecmd.disguiseradiusanimation | default=None | desc='See the /disguiseradiusanimation command in tab-completion'
+libsdisguises.seecmd.disguiseselectoranimation | default=None | desc='See the /disguiseselectoranimation command in tab-completion'
+libsdisguises.seecmd.disguiseentityanimation | default=None | desc='See the /disguiseentityanimation command in tab-completion'
+
+## 命令包下的类名（≈子指令，共 9 个）
+  DisguiseBaseCommand LibsDisguisesCommand animate disguise interactions libsdisguises modify undisguise utils
+
+## javap 字符串 token
+  agree aliases as b board changelog commands config configuration console content count debug debugging description dev disabled disguise disguiseentity disguiseentitymodify disguiseloop disguisemodify disguisemodifyentity disguisemodifyplayer disguisemodifyradius disguisemodifyselector disguiseplayer disguiseradius disguiseselector disguisetype dropped_item enabled entitytype falling_block forge_mods gson help item json libsdisguises log logs mannequin metadata metadatainfo metaindex metainfo mineskin missing missingdescriptions modifycommands mods name packetevents parse pe permission permissions permissiontest permtest player post profile pushing release releases reload s scoreboard setart setblock setitem setiteminmainhand setitemstack setselfdisguisevisible setskin skin skull_item snapshots teams tostring update updatepacketevents updatepe uploadconfig uploadconfigs uploadlog uploadlogs use user-agent utf-8
+
+## 资源文件里的用法/帮助行
+  · [{"a":-1,"b":-1,"c":false,"d":"void","e":false,"f":"FlagWatcher","g":"setItemInMainHand","h":"setItemInMainHand","i":"org.bukkit.inventory.ItemStack","j":"(Lorg/bukkit/inventory/It
+  · description: Allows the command user to use /grabhead
+  · description: Controls if the player can view a self disguise, defaults to true. Only checked when disguise starts and toggling self disguises command. If the player has access to /
+  · description: See the /disguiseviewself command in tab-completion
+  · description: See the /disguiseviewbar command in tab-completion
+  · description: See the /disguise command in tab-completion
+  · description: See the /disguiseentity command in tab-completion
+  · description: See the /disguisehelp command in tab-completion
+  · description: See the /disguiseplayer command in tab-completion
+  · description: See the /disguiseradius command in tab-completion
+  · description: See the /disguiseselector command in tab-completion
+  · description: See the /undisguise command in tab-completion
+  · description: See the /undisguiseentity command in tab-completion
+  · description: See the /undisguiseplayer command in tab-completion
+  · description: See the /undisguiseradius command in tab-completion
+  · description: See the /undisguiseselector command in tab-completion
+  · description: See the /disguiseclone command in tab-completion
+  · description: See the /disguisemodify command in tab-completion
+  · description: See the /disguisemodifyplayer command in tab-completion
+  · description: See the /disguisemodifyradius command in tab-completion
+  · description: See the /disguisemodifyselector command in tab-completion
+  · description: See the /disguisemodifyentity command in tab-completion
+  · description: See the /copydisguise command in tab-completion
+  · description: See the /grabskin command in tab-completion
+  · description: See the /savedisguise command in tab-completion
+  · description: See the /grabhead command in tab-completion
+  · description: See the /disguiseanimation command in tab-completion
+  · description: See the /disguiseplayeranimation command in tab-completion
+  · description: See the /disguiseradiusanimation command in tab-completion
+  · description: See the /disguiseselectoranimation command in tab-completion
+  · description: See the /disguiseentityanimation command in tab-completion
+  · # The best way to use this is with /savedisguise or /saveskin
+  · # Then use /disguise player MyCustomSkin - To test it
+  · # You can also use /savedisguise MyCustomDisguise player KingKiller setskin <SkinName> - With the same 3 types of skin
+  · # It is strongly recommended you use /savedisguise instead of editing this file!
+  · # You can use /grabskin <Target> <Optional Name> - To get the skin data from a file, another player or website.
+  · # /savedisguise ingame will save a custom disguise in this config, including skin data.
+  · # You can also provide a file or url for 'setSkin'! Just as you would for /grabskin.
+  · # The setSkin argument will be automatically done for all /savedisguise usages, this way the skin never changes.
+  · # /copydisguise <Optional Target Name/UUID> will give you the disguise in a usable string
+  · # These are best used in armor slots, or in settings that accept items. Can also be used alongside /copydisguise
+  · # to get the string format of an item. By /disguise zombie setiteminmainhand %held-item% - Then /copydisguise.
+  · # The following disguises will work if you remove the '#' at the beginning of the line, this creates a disguise which you can use by /disguise libraryaddict
+  · # You can also get this information through /libsdisguises config

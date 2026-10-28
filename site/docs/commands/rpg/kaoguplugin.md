@@ -7,75 +7,63 @@ createTime: 2026/10/24
 
 > 分类 ⚔️ 战斗与 RPG · 版本 `1.0.1-CE-fix` · 指令 1 条 · api-version `1.21`
 
-::: tip 考古玩法主插件：化石获取、鉴定、修复与回收
-这是服务器自研的考古玩法插件，围绕“化石”这一物品做完整链路：玩家通过钓鱼、挖矿、开箱获得化石，再用指令鉴定、修复，最后回收成古物或收益。它自成一套循环，通常需要与服务器的物品、经济或合成体系配合使用，指令以 kaogu 为主入口、kg 为简写。
+::: tip 考古玩法
+星冕自研考古：钓鱼挖矿出化石，花钱鉴定成古物，修复完整后可在 NPC 处卖钱，配收集图鉴与每日限购。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 想给服务器加一条不吃战斗的休闲玩法线，让玩家钓鱼、挖矿、开箱都有额外收益预期时
-- 玩家手里拿到化石却不知道有什么用、需要指引他鉴定与修复流程时
-- 需要快速查某个古物/化石值多少钱，或给玩家补齐缺失的化石时
-- 改过插件配置后需要重载生效，或排查考古功能整体是否正常时
-
-## 上手流程
-
-1. 先在游戏内执行 kaogu help，确认本服版本实际开放的参数和用法
-2. 确认玩家拥有 kaogu.use 权限（默认开启），否则相关功能用不了
-3. 引导玩家正常获取化石：钓鱼、挖矿、开箱产出，拿到后再来用鉴定与修复
-4. 管理员需要发放或查价时，用 give 与 price 辅助，改完配置用 reload 生效
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 鉴定手里的化石 | /kaogu identify | 扣金币手续费，有概率直接出钻石/煤炭 |
+| 修复破损古物 | /kaogu repair | 要花钱且要等修复时长（分钟级） |
+| 卖古物换钱 | /kaogu sell | 每日限卖数量见配置 sell 上限 |
+| 改概率或手续费 | /kaogu reload | 改完 config 必须重载 |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/kaogu` | 考古插件主命令，鉴定、修复、回收、查价、发放与重载都从这里进<br>别名 `/kg` | `/kaogu identify｜repair｜sell｜price｜give｜reload｜help` | — |
+| `/kaogu` | 考古主指令，所有功能都挂在它下面<br>别名 `/kg` | `/kaogu <identify｜repair｜sell｜price｜give｜reload｜help>` | — |
 
 ## 指令详解
 
-### `/kaogu` — 考古插件主命令，鉴定、修复、回收、查价、发放与重载都从这里进
+### `/kaogu` — 考古主指令，所有功能都挂在它下面
 
-- **语法**：`/kaogu identify｜repair｜sell｜price｜give｜reload｜help`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `identify` | 可选 | 鉴定化石，通常用于把未鉴定的化石变成可辨认的古物 |
-| `repair` | 可选 | 修复古物，通常用于把破损状态修成可回收状态 |
-| `sell` | 可选 | 回收/出售古物，换取收益 |
-| `price` | 可选 | 查看古物或化石的回收价格 |
-| `give` | 可选 | 发放化石或古物，管理员补发用，建议确认管理权限后再操作 |
-| `reload` | 可选 | 重载配置，改完配置后执行 |
-| `help` | 可选 | 查看帮助，具体参数以游戏内输出为准 |
-
+- **语法**：`/kaogu <identify｜repair｜sell｜price｜give｜reload｜help>`
 
 - **示例**：
 
 ```
 /kaogu help
-/kaogu price
-/kg identify
-/kaogu reload
 ```
 
 - **别名**：`/kg`
-- **备注**：官方说明很潦草，只给出了这七个可用参数，没有额外语法说明；give、reload 属于管理操作，默认需要 kaogu.admin（OP）权限，普通功能走 kaogu.use（默认开启）。不确定某参数的具体写法时，先跑 kaogu help 看游戏内回显。
+- **备注**：别名 /kg；不带参数等于 /kaogu help
+
+## 子指令速查
+
+| 子指令 | 功能 | 示例 |
+| --- | --- | --- |
+| `/kaogu identify` | 鉴定手持化石，消耗手续费，按概率出钻石/煤炭/古物碎片或完整古物 | `/kaogu identify` |
+| `/kaogu repair` | 修复手里的破损古物，按件收费并需要等待修复时长 | `/kaogu repair` |
+| `/kaogu sell` | 把手上的古物卖给收购方换金币 | `/kaogu sell` |
+| `/kaogu price` | 查询某类古物的鉴定/修复/回收价格 | `/kaogu price` |
+| `/kaogu give <玩家> <物品> [数量]` | 给玩家发化石或古物（管理用） | `/kaogu give Steve fossil 5` |
+| `/kaogu reload` | 重载配置（概率、价格、冷却、方块列表） | `/kaogu reload` |
+| `/kaogu help` | 打印可用子指令与说明 | `/kaogu help` |
 
 ## 注意事项
 
 ::: warning
-- 具体参数与子指令以游戏内 /kaogu help 为准，本页只覆盖官方说明里列出的七个参数
-- give 与 reload 需要 kaogu.admin（默认 OP），误发物品或频繁重载都可能影响在线玩家，操作前最好先告知
-- reload 只影响插件自身配置，改了物品、合成或经济相关内容时通常还要看对应插件是否也需重载
-- 本插件为服务器自研版本（1.0.1-CE-fix），不同服可能有定制差异，跨服搬运配置前先小范围验证
+- 鉴定/修复/回收都有冷却（默认按秒配置），连点会被拦下但不提示，误判成「没反应」时先等冷却。
+- 化石掉落率分钓鱼与挖矿两条线，且都有「每人每日上限」，玩家抱怨「挖一整天不出」先看上限。
+- give 与 reload 只该给 kaogu.admin；把 kaogu.use 全服开没问题，admin 别整组下发。
 :::
 
 ## 权限节点
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `kaogu.admin` | 考古插件管理权限 | op |
-| `kaogu.use` | 使用考古插件基础功能 | True |
-
-## 相关插件
-
-CraftEngine、[Vault](/commands/core/vault.md)、[PlaceholderAPI](/commands/config/placeholderapi.md)
+| `kaogu.admin` | 管理权限：give / reload 等 | op |
+| `kaogu.use` | 使用考古功能（默认开启） | True |

@@ -1,0 +1,146 @@
+# BlockLocker  (blocklocker-1.14.1.jar)
+## 注册指令
+  /blocklocker  usage='/<command> reload' desc='Administration commands for BlockLocker.' alias='bl' perm='blocklocker.reload'
+
+## 代码类
+  nl.rutgerkok.blocklocker.impl.event.BlockLockerCommand
+
+## javap 字符串 token
+  reload
+
+## 文本资源里的帮助/用法行
+  · description: "Reload the plugin using /blocklocker reload."
+  · selected_sign: "&6Schild ausgewählt. Gib \"/blocklocker <Zeilennummer> <Name>\" ein, um das gewählte Schild zu bearbeiten. Alternativ füge Folgendes hinzu: &n[Redstone]&r&6 &n[Jeder]&r&6."
+  · selected_sign: '&6Cartel seleccionado. Escribe "/blocklocker <numero de linea> <nombre>" para editar este cartel.'
+  · selected_sign: 'Tábla kiválasztva. Használd a "/blocklocker <sorszám> <név>" parancsot, hogy módosítsd a táblát. Ezeket is hozzáadhatod: [Vöröskő] vagy [Mindenki]'
+  · cannot_be_used_by_console: "申し訳ありません。このコマンドはコンソールから実行することはできません。"
+  · cannot_edit_owner: "&4保護の所有者を変更できません。代わりに看板を破壊してください。"
+  · line_number_out_of_bounds: "&42から4までの行番号を入力してください。"
+  · no_sign_selected: "&4最初に、保護されたブロックの1つを右クリックしてからそのサインを選択する必要があります。"
+  · no_permission: "&4このコマンドを実行する権限がありません！"
+  · player_name_too_long: "&4プレイヤー名が16文字を超えているため看板に収まりません。また、Mojangが許可するプレイヤー名の長さよりも長くなります。"
+  · plugin_reloaded: "&6構成ファイルを再読み込みしました"
+  · sign_no_longer_part_of_protection: "&4選択された看板は保護されたブロックに付属していません。"
+  · updated_sign: "&6看板を更新しました！"
+  · add_more_users_sign_instead: "&4保護には[プライベート]サインが1つだけ存在できます。代わりに[追加ユーザー]サインを追加してください。"
+  · bypassed: "&6あなたは{0}の保護をバイパスしました。"
+  · can_only_add_protection_sign: "&4保護には、[プライベート]のサインが1つだけで、[追加ユーザー]のサインが0個以上ある場合があります。  他の標識は許可されていません。"
+  · cannot_change_sign: "&4他人の保護されたブロックの看板は編集できません。"
+  · chest_hint: "&6このチェストに看板を設置することで保護することができます！"
+  · claimed_container: "&6このブロックを保護しました。誰もこれにアクセスすることはできません。"
+  · claimed_manually: "&6保護を作成しました。看板に載っているプレイヤーのみがアクセスできます。"
+  · expired: "&6このブロックの保護は、所有者が非アクティブであるために期限切れになりました。"
+  · in_wilderness: "&4ここで保護を作成することはできません。あなたは非管理区域にいます。"
+  · is_claimed_by: "&6このブロックはすでに {0} によって保護されています。"
+  · no_access: "&4このブロックは {0} によって保護されているためアクセスできません。"
+  · no_permission_for_claim: "&4このブロックを保護する権限がありません。"
+  · not_nearby: "&4近くに保護できるブロックがありません。看板を持ってしゃがみながらそのブロックに向けて右クリックしてください。"
+  · selected_sign: "&6看板を選択しました。\"/blocklocker <行番号> <名前>\"を実行することで編集できます。もしくは&n[レッドストーン]&r&6 &n[全員]&r&6を追加してください。"
+  · everyone: "全員"
+  · more_users: "[追加ユーザー]"
+  · more_information: "&6追加の情報： {0}"
+  · unsupported_server: "&4最新のバージョンはBlockLocker (バージョン {0}) です。このマインクラフトのバージョンはサポートされていません。マインクラフト {1} を使用してください"
+  · update_available: "&6新しいバージョン BlockLocker (バージョン {0}) があります。手動でダウンロードしてください。"
+  · updated_automatically: "&6新しいバージョン BlockLocker(バージョン {0}) があります。再起動時に自動的にダウンロードされます"
+  · selected_sign: "&6표지판을 선택했습니다. 이 표지판을 수정하려면 채팅창에 \"/blocklocker <줄 번호> <닉네임>\"을 입력합니다. 또는 이들을 추가합니다: &n[Redstone]&r&6 &n[Everyone]&r&6.}"
+  · selected_sign: '&6Wybrano tabliczkę. Wpisz "/blocklocker <numer linii> <nazwa>", aby edytować tą tabliczkę. Ewentualnie dodaj poniższe: &n[Redstone]&r&6 &n[Wszyscy]&r&6.}'
+  · cannot_be_used_by_console: '抱歉！此指令無法在控制台使用。'
+  · cannot_edit_owner: '&4你不能變更保護的擁有者。而是只能破壞掉這個告示牌。'
+  · line_number_out_of_bounds: '&4請輸入 2～4 之間的行數（包括 2 和 4）。'
+  · no_permission: '&4抱歉！你沒有執行此指令的權限。'
+  · no_sign_selected: '&4必須先對受保護方塊的告示牌點擊右鍵選擇。'
+  · player_name_too_long: '&4玩家名稱超過 16 個字元，告示牌無法容納。它也比 Mojang 允許的玩家名稱還要長。'
+  · plugin_reloaded: '&6已重新載入設定檔！'
+  · sign_no_longer_part_of_protection: '&4選擇的告示牌不再屬於被保護的方塊。'
+  · updated_sign: '&6已更新告示牌！'
+  · add_more_users_sign_instead: '&4只能有一個 [私人] 告示牌。新增 [更多] 告示牌來新增更多玩家。'
+  · bypassed: '&6你剛剛繞過了 {0} 的保護。'
+  · cannot_change_sign: '&4你不能編輯已認領容器的告示牌。'
+  · chest_hint: '&6手持告示牌，並對儲物箱點擊右鍵來認領它。'
+  · claimed_container: '&6已成功認領此容器。其他人將無法使用。'
+  · claimed_manually: '&6已成功認領。只有清單上的人才能存取。'
+  · expired: '&6由於此方塊的擁有者不活躍，保護已失效。'
+  · in_wilderness: '&4你不能在這裏建立保護。'
+  · is_claimed_by: '&6這個方塊屬於 {0}。'
+  · no_access: '&4你不能使用這個方塊，它屬於 {0}。'
+  · no_permission_for_claim: '&4抱歉。你沒有認領容器的權限。'
+  · not_nearby: '&4附近沒有可被保護的方塊。手持告示牌按住 Shift 鍵，並對容器點擊右鍵來保護它。'
+  · - '所有人'
+  · - '計時'
+  · - '紅石'
+  · - '[私人]'
+  · - '[更多]'
+  · more_information: '&6更多資訊：{0}'
+  · unsupported_server: '&4最新版本的 BlockLocker（版本 {0}）不再支援此 Minecraft 版本，需要使用 Minecraft {1}。'
+  · update_available: '&6新版本的 BlockLocker（版本 {0}）已可用，需要手動下載。'
+  · cannot_be_used_by_console: '抱歉！此指令無法在控制台使用。'
+  · cannot_edit_owner: '&4你不能變更保護的擁有者。而是只能破壞掉這個告示牌。'
+  · line_number_out_of_bounds: '&4請輸入 2～4 之間的行數（包括 2 和 4）。'
+  · no_permission: '&4抱歉！你沒有執行此指令的權限。'
+  · no_sign_selected: '&4必須先對受保護方塊的告示牌點擊右鍵選擇。'
+  · player_name_too_long: '&4玩家名稱超過 16 個字元，告示牌無法容納。它也比 Mojang 允許的玩家名稱還要長。'
+  · plugin_reloaded: '&6已重新載入設定檔！'
+  · sign_no_longer_part_of_protection: '&4選擇的告示牌不再屬於被保護的方塊。'
+  · updated_sign: '&6已更新告示牌！'
+  · add_more_users_sign_instead: '&4只能有一個 [私人] 告示牌。新增 [更多] 告示牌來新增更多玩家。'
+  · bypassed: '&6你剛剛繞過了 {0} 的保護。'
+  · cannot_change_sign: '&4你不能編輯已認領容器的告示牌。'
+  · chest_hint: '&6手持告示牌，並對儲物箱點擊右鍵來認領它。'
+  · claimed_container: '&6已成功認領此容器。其他人將無法使用。'
+  · claimed_manually: '&6已成功認領。只有清單上的人才能存取。'
+  · expired: '&6由於此方塊的擁有者不活躍，保護已失效。'
+  · in_wilderness: '&4你不能在這裡建立保護。'
+  · is_claimed_by: '&6這個方塊屬於 {0}。'
+  · no_access: '&4你不能使用這個方塊，它屬於 {0}。'
+  · no_permission_for_claim: '&4抱歉。你沒有認領容器的權限。'
+  · not_nearby: '&4附近沒有可被保護的方塊。手持告示牌按住 Shift 鍵，並對容器點擊右鍵來保護它。'
+  · - '所有人'
+  · - '計時'
+  · - '紅石'
+  · - '[私人]'
+  · - '[私有]'
+  · - '[更多]'
+  · more_information: '&6更多資訊：{0}'
+  · unsupported_server: '&4最新版本的 BlockLocker（版本 {0}）不再支援此 Minecraft 版本，需要使用 Minecraft {1}。'
+  · update_available: '&6新版本的 BlockLocker（版本 {0}）已可用，需要手動下載。'
+  · cannot_be_used_by_console: "该命令无法通过控制台输出."
+  · cannot_edit_owner: "&4你不能编辑使用者."
+  · line_number_out_of_bounds: "&4请输入2~4之间的行数(包括2和4)."
+  · no_sign_selected: "&4你需要右键来选择告示牌."
+  · no_permission: "&4你没有权限."
+  · player_name_too_long: "&4玩家名称过长."
+  · plugin_reloaded: "&6已重新加载配置文件!"
+  · sign_no_longer_part_of_protection: "&4选择的告示牌不再属于被保护的方块."
+  · updated_sign: "&6已更新告示牌!"
+  · add_more_users_sign_instead: "&4只能有一个 [私有] 标签. 添加 [更多] 标签来添加更多人."
+  · bypassed: "&6你绕过了 {0} 的访问限制."
+  · can_only_add_protection_sign: "&4只能有一个 [私有] 标签和零或多个 [更多] 标签. 不允许其他标签."
+  · cannot_change_sign: "&4你不能编辑."
+  · chest_hint: "&6手持告示牌并右键箱子来锁定箱子."
+  · claimed_container: "&6已成功上锁. 其他人将无法使用."
+  · claimed_manually: "&6已成功上锁. 只有名单上的人才能访问."
+  · expired: "&6由于该方块的拥有者不活跃, 保护已失效."
+  · in_wilderness: "&4你不能在这里创建保护."
+  · is_claimed_by: "&6这个方块属于 {0}."
+  · no_access: "&4你不能使用这个方块, 它属于 {0}."
+  · no_permission_for_claim: "&4你没有权限."
+  · not_nearby: "&4附近没有可被保护的方块, 手持告示牌按住Shift并右键容器来保护它."
+  · - "所有人"
+  · - "定时"
+  · - "红石"
+  · - "[私有]"
+  · - "[更多]"
+  · more_information: "&6更多信息: {0}"
+  · unsupported_server: "&4最新版本的 BlockLocker (version {0}) 不再支持这个Minecraft版本, 需要Minecraft {1} 版本."
+  · update_available: "&6新版本 BlockLocker (version {0}) 已经可用, 需要手动下载."
+  · updated_automatically: "&6BlockLocker 有可用更新 (version {0}), 重启服务器以自动更新."
+
+## 常量池帮助/描述文本
+  · nl/rutgerkok/blocklocker/BlockLockerPlugin
+  · nl/rutgerkok/blocklocker/impl/event/BlockLockerCommand
+  · Lnl/rutgerkok/blocklocker/BlockLockerPlugin;
+  · nl/rutgerkok/blocklocker/Permissions
+  · nl/rutgerkok/blocklocker/Translator$Translation
+  · Lnl/rutgerkok/blocklocker/Translator$Translation;
+  · nl/rutgerkok/blocklocker/Translator
+  · Lnl/rutgerkok/blocklocker/impl/event/BlockLockerCommand;

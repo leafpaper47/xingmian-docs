@@ -1,0 +1,20 @@
+# EnchantInfuser  (EnchantInfuser.jar)
+## 注册指令
+  /enin  usage='/enin' desc='打开铁匠铺' alias=None perm=None
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · # 铁匠铺配置
+  · # 各等级强化石成功率区间（%）
+  · # 各类型附魔可锻打到的最高等级（效率/锋利 10，保护 5，耐久 10）
+  · description: 铁匠铺：强化石锻打附魔
+  · description: 打开铁匠铺
+  · usage: /enin
+  · description: 允许使用铁匠铺
+
+## 常量池帮助/描述文本

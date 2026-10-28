@@ -1,0 +1,87 @@
+﻿=== DebugCommand children ===
+io/lumine/mythic/bukkit/commands/debug/ToggleClockCommand
+io/lumine/mythic/bukkit/commands/debug/TimingsCommand
+=== DebugCommand string consts ===
+  &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional
+ | &e/mm d &3[level] &7? &7&oSets debug reporting. Can be between 0 and 4 (0=off,4=too much info).
+ | &e/mm d &fmode &6[true/false] &7? &7&oSets debug mode on or off. See plugin manual for details).
+ | &e/mm d &ftimings &7? &7&oShow basic timing information (timings must be on first).
+ | &e/mm d &ftimings &3[on/off] &7? &7&oTurns timings on/off.
+ | &e/mm d &ftimings skills &7? &7&oShows skill-specific timings in the console.
+ | &e/mm d &ftimings spawners &7? &7&oShows spawner-specific timings in the console.
+ | Debug Level must be an integer (1-5).
+ | mythicmobs.command.debug
+ | debug
+ | d
+
+
+=== UtilitiesCommand tail strings ===
+generatedocs
+ | file.separator
+ | file.separator
+ | file.separator
+ | io.lumine.mythic.core.skills.mechanics
+ | Dummy
+ | file.separator
+ | <WRAP infobox right>
+ | <WRAP infoboxtable>
+ | ,
+ | </WRAP>
+ | </WRAP>
+ | ===== Attributes =====
+ | ^Attribute ^Aliases ^Description ^Default ^
+ | |  |  |  |
+ | ,
+ | \\\\
+ | ===== Examples =====
+ | <code>
+ | Skills:
+ | </code>
+ | file.separator
+ | file.separator
+ | io.lumine.mythic.core.skills.conditions.all
+ | Entity
+ | file.separator
+ | <WRAP infobox right>
+ | <WRAP infoboxtable>
+ | ,
+ | </WRAP>
+ | </WRAP>
+ | ===== Attributes =====
+ | ^Attribute ^Aliases ^Description ^
+ | |  |  |  |
+ | ,
+ | \\\\
+ | ===== Examples =====
+ | <code>
+ | Conditions:
+ | </code>
+ | mythicmobs.command.utilities
+ | utilities
+ | utility
+ | u
+
+=== UtilitiesCommand children ===
+io/lumine/mythic/bukkit/commands/utility/BroadcastCommand
+io/lumine/mythic/bukkit/commands/utility/GetBlockCoordinatesCommand
+io/lumine/mythic/bukkit/commands/utility/GetBlockInfoCommand
+io/lumine/mythic/bukkit/commands/utility/GetItemInfoCommand
+io/lumine/mythic/bukkit/commands/utility/GetTargetInfoCommand
+io/lumine/mythic/bukkit/commands/utility/AddEntityNBTCommand
+io/lumine/mythic/bukkit/commands/utility/TestEntityNBTCommand
+io/lumine/mythic/bukkit/commands/utility/GetTargetNBTCommand
+io/lumine/mythic/bukkit/commands/utility/GetPathStringCommand
+io/lumine/mythic/bukkit/commands/utility/ActiveInfoCommand
+io/lumine/mythic/bukkit/commands/utility/ActiveRemoveCommand
+io/lumine/mythic/bukkit/commands/utility/ListAllEntitiesCommand
+io/lumine/mythic/bukkit/commands/utility/GetLightLevelCommand
+io/lumine/mythic/bukkit/commands/utility/GetStructuresCommand
+io/lumine/mythic/bukkit/commands/utility/GetStatsCommand
+io/lumine/mythic/bukkit/commands/utility/SetBaseStatCommand
+io/lumine/mythic/bukkit/commands/utility/ListValidStructuresCommand
+io/lumine/mythic/bukkit/commands/utility/GetSpawnStateCommand
+io/lumine/mythic/bukkit/commands/utility/PluginDumpCommand
+io/lumine/mythic/bukkit/commands/utility/GetDyeCombinationCommand
+io/lumine/mythic/bukkit/commands/utility/GetOptimalDyesCommand
+io/lumine/mythic/bukkit/commands/utility/ToggleTimerCommand
+io/lumine/mythic/bukkit/commands/utility/OpenColorPickerCommand

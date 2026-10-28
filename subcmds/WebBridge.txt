@@ -1,0 +1,21 @@
+# WebBridge  (WebBridge-1.0.0.jar)
+## 注册指令
+  /mapverify  usage='/mapverify <验证码>' desc='输入网页聊天绑定验证码' alias=None perm=None
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · # 星冕网页聊天桥接配置
+  · # api：网页聊天服务端地址
+  · # key：与服务端约定的共享密钥（请勿外泄）
+  · # poll-seconds：拉取网页消息的间隔（秒）。拉取跑在异步线程，对主线程零影响；
+  · #               间隔越小网页消息进游戏越快，2 秒已足够灵敏。
+  · description: 星冕卫星地图网页聊天桥接（网页发言进游戏 + 正版名绑定验证）
+  · description: 输入网页聊天绑定验证码
+  · usage: /mapverify <验证码>
+
+## 常量池帮助/描述文本

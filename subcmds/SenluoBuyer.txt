@@ -1,0 +1,93 @@
+# SenluoBuyer  (SenluoBuyer-1.0.0.jar)
+## 注册指令
+  /senluobuyer  usage='/senluobuyer [reload]' desc='打开森罗收购界面' alias=['senluo', 'sely', '收购'] perm=None
+
+## 代码类
+  net.senluo.buyer.manager.BuyerCommand
+
+## javap 字符串 token
+  reload
+
+## 文本资源里的帮助/用法行
+  · # ===== 森罗收购 - 配置文件 =====
+  · # 每天 24:00 后每位玩家打开界面会自动刷新为新的 5 道菜（每人随机结果不同）
+  · # 玩家须在背包集齐全部 5 道菜（各 1 个）后，点击界面中的回收按钮提交
+  · # 回收成功后从背包各收走 1 个，并按下方 reward 发放奖励
+  · # 每天随机抽取的菜品种类数量
+  · # 随机池（森罗厨房料理，CE 自定义物品 ID，可增删）
+  · # 菜品中文显示名（键 = 料理 ID，值 = 中文名；GUI 中优先使用这里的名字）
+  · # 可自行修改，保存后执行 /senluobuyer reload 生效
+  · "kaleidoscopecookery:apple_platter": "苹果拼盘"
+  · "kaleidoscopecookery:baozi_plate": "包子"
+  · "kaleidoscopecookery:berry_platter": "浆果拼盘"
+  · "kaleidoscopecookery:blaze_lamb_chop": "烈焰羊排"
+  · "kaleidoscopecookery:braised_fish": "红烧鱼"
+  · "kaleidoscopecookery:braised_pork_ribs": "红烧排骨"
+  · "kaleidoscopecookery:brown_mushroom_pot_soup": "棕色蘑菇煲汤"
+  · "kaleidoscopecookery:buddha_jumps_over_the_wall": "佛跳墙"
+  · "kaleidoscopecookery:candied_potato": "拔丝土豆"
+  · "kaleidoscopecookery:chorus_fried_egg": "紫颂果炒蛋"
+  · "kaleidoscopecookery:chorus_fruit_platter": "紫颂果拼盘"
+  · "kaleidoscopecookery:cold_roasted_meat": "白切烤肉"
+  · "kaleidoscopecookery:cold_style_sashimi": "冷刺身"
+  · "kaleidoscopecookery:crimson_fungus_pot_soup": "绯红菌煲汤"
+  · "kaleidoscopecookery:crystal_lamb_chop": "水晶羊排"
+  · "kaleidoscopecookery:dark_cuisine": "暗黑料理"
+  · "kaleidoscopecookery:desert_style_sashimi": "沙漠风味刺身"
+  · "kaleidoscopecookery:dongpo_pork": "东坡肉"
+  · "kaleidoscopecookery:dough_drop_soup": "面疙瘩汤"
+  · "kaleidoscopecookery:end_style_sashimi": "末地风味刺身"
+  · "kaleidoscopecookery:fondant_pie": "软糖派"
+  · "kaleidoscopecookery:fondant_spider_eye": "软糖蜘蛛眼"
+  · "kaleidoscopecookery:four_joy_meatball_soup": "四喜丸子汤"
+  · "kaleidoscopecookery:fried_caterpillar": "炸毛虫"
+  · "kaleidoscopecookery:fried_spring_roll": "炸春卷"
+  · "kaleidoscopecookery:frost_lamb_chop": "冰霜羊排"
+  · "kaleidoscopecookery:golden_salad": "金色沙拉"
+  · "kaleidoscopecookery:nether_style_sashimi": "下界风味刺身"
+  · "kaleidoscopecookery:numbing_spicy_chicken": "麻辣鸡"
+  · "kaleidoscopecookery:oil_splashed_fish": "油泼鱼"
+  · "kaleidoscopecookery:pan_seared_knight_steak": "香煎骑士牛排"
+  · "kaleidoscopecookery:qingtuan_plate": "青团"
+  · "kaleidoscopecookery:red_mushroom_pot_soup": "红色蘑菇煲汤"
+  · "kaleidoscopecookery:shengjian_mantou": "生煎馒头"
+  · "kaleidoscopecookery:shengjian_mantou_plate": "生煎馒头盘"
+  · "kaleidoscopecookery:slime_ball_meal": "粘液球饭"
+  · "kaleidoscopecookery:spicy_blood_stew": "麻辣血旺"
+  · "kaleidoscopecookery:spicy_chicken": "辣子鸡"
+  · "kaleidoscopecookery:spicy_rabbit_head": "麻辣兔头"
+  · "kaleidoscopecookery:stargazy_pie": "仰望星空派"
+  · "kaleidoscopecookery:sticky_candy_plate": "麦芽糖"
+  · "kaleidoscopecookery:sticky_rice_cake_plate": "糯米糍"
+  · "kaleidoscopecookery:stuffed_tiger_skin_pepper": "虎皮青椒"
+  · "kaleidoscopecookery:suspicious_stir_fry": "可疑的炒菜"
+  · "kaleidoscopecookery:sweet_and_sour_ender_pearls": "糖醋末影珍珠"
+  · "kaleidoscopecookery:tomato_platter": "番茄拼盘"
+  · "kaleidoscopecookery:tundra_style_sashimi": "苔原风味刺身"
+  · "kaleidoscopecookery:warped_fungus_pot_soup": "诡异菌煲汤"
+  · "kaleidoscopecookery:watermelon_platter": "西瓜拼盘"
+  · "kaleidoscopecookery:yakitori": "烧鸟"
+  · "kaleidoscopecookery:zongzi_plate": "粽子"
+  · # ===== 回收奖励 =====
+  · # 是否发放奖励
+  · # 单次回收奖励金额区间（星点，每次回收随机）
+  · # 是否通过 Vault 发放到经济账户（需安装 Vault 及其经济插件）
+  · # ===== 界面 =====
+  · title: "&0&l森罗收购 &8| &7{date}"
+  · # ===== 消息 =====
+  · reward-vault: "&a你已提交今日料理，获得 &e%amount% &a星点！"
+  · reward-manual: "&a你已提交今日料理！请找管理员领取奖励。"
+  · description: 森罗厨房每日随机收购插件 - 每天为每位玩家随机 5 道菜，集齐后点击 UI 回收
+  · description: 打开森罗收购界面
+  · usage: /senluobuyer [reload]
+  · aliases: [senluo, sely, 收购]
+  · description: 允许使用森罗收购
+  · description: 允许重载配置
+
+## 常量池帮助/描述文本
+  · Lnet/senluo/buyer/SenluoBuyerPlugin;
+  · &c你没有权限。
+  · net/senluo/buyer/SenluoBuyerPlugin
+  · &a森罗收购配置已重载。
+  · 该命令仅玩家可用。
+  · &c你没有权限使用森罗收购。

@@ -1,0 +1,501 @@
+# PlugManX  (PlugManX-3.1.0-Beta.2.jar)
+## 注册指令
+  /plugman  usage='/plugman (help|dump) /plugman list [-v] /plugman check <plugin|all> [-f] /plugman lookup <command> /plugman deps <plugin> /plugman (enable|disable|restart) <plugin|all> /plugman (info|usage|load|reload|unload) <plugin> /plugman reloadconfig /plugman reloadmode [ALL|REQUIRED_ONLY|OFF]' desc='Manage plugins.' alias=['plm'] perm='plugman.help'
+
+## 代码类
+  bukkit.com.rylinaux.plugman.commands.BukkitCommandSender
+  bukkit.com.rylinaux.plugman.commands.CommandCreator
+  bukkit.com.rylinaux.plugman.commands.PlugManCommandHandler
+  bukkit.com.rylinaux.plugman.commands.PlugManTabCompleter
+  bukkit.com.rylinaux.plugman.plugin.BukkitCommand
+  bungee.com.rylinaux.plugman.commands.BungeeCommandSender
+  bungee.com.rylinaux.plugman.commands.PlugManCommandHandler
+  bungee.com.rylinaux.plugman.commands.PlugManTabCompleter
+  bungee.com.rylinaux.plugman.plugin.BungeeCommand
+  core.com.rylinaux.plugman.commands.AbstractCommand
+  core.com.rylinaux.plugman.commands.CommandSender
+  core.com.rylinaux.plugman.commands.executables.CascadingPluginCommand$BulkOperationResult
+  core.com.rylinaux.plugman.commands.executables.CascadingPluginCommand$DependencyPlan
+  core.com.rylinaux.plugman.commands.executables.CascadingPluginCommand$VisitState
+  core.com.rylinaux.plugman.commands.executables.CascadingPluginCommand
+  core.com.rylinaux.plugman.commands.executables.CheckCommand$1
+  core.com.rylinaux.plugman.commands.executables.CheckCommand
+  core.com.rylinaux.plugman.commands.executables.DepsCommand
+  core.com.rylinaux.plugman.commands.executables.DisableCommand
+  core.com.rylinaux.plugman.commands.executables.DumpCommand
+  core.com.rylinaux.plugman.commands.executables.EnableCommand
+  core.com.rylinaux.plugman.commands.executables.HelpCommand
+  core.com.rylinaux.plugman.commands.executables.InfoCommand
+  core.com.rylinaux.plugman.commands.executables.ListCommand$PluginStringFunction
+  core.com.rylinaux.plugman.commands.executables.ListCommand
+  core.com.rylinaux.plugman.commands.executables.LoadCommand
+  core.com.rylinaux.plugman.commands.executables.LookupCommand
+  core.com.rylinaux.plugman.commands.executables.ReloadCommand
+  core.com.rylinaux.plugman.commands.executables.ReloadConfigCommand
+  core.com.rylinaux.plugman.commands.executables.ReloadModeCommand
+  core.com.rylinaux.plugman.commands.executables.RestartCommand
+  core.com.rylinaux.plugman.commands.executables.UnloadCommand
+  core.com.rylinaux.plugman.commands.executables.UsageCommand
+  core.com.rylinaux.plugman.plugins.Command
+  core.com.rylinaux.plugman.plugins.CommandMapWrap
+  paper.com.rylinaux.plugman.commands.OldPaperCommandCreator$1
+  paper.com.rylinaux.plugman.commands.OldPaperCommandCreator
+  paper.com.rylinaux.plugman.commands.PaperCommandCreator$1
+  paper.com.rylinaux.plugman.commands.PaperCommandCreator
+  paper.com.rylinaux.plugman.pluginmanager.PaperPluginManager$PaperCommandContextException
+
+## javap 字符串 token
+  all check confirm deps disable disabled dump enable enabled header help info list load lookup off plmb plugins plugmanbungee plugmanx reload reloadconfig reloadmode required_only restart unload usage visited visiting
+
+## 文本资源里的帮助/用法行
+  · confirm-all: '&cReloading {0} plugins can crash or destabilize the server. Run &e/plugman reload all {1}&c to confirm.'
+  · confirm-all: '&cRestarting {0} plugins can crash or destabilize the server. Run &e/plugman restart all {1}&c to confirm.'
+  · # 自定义消息文件。
+  · # 消息可以包含 http://minecraft.gamepedia.com/Formatting_codes 上的格式代码，并且必须使用 '&' 字符表示。
+  · # 请确保自定义消息使用单引号包裹。
+  · # 新版本可能会更改这些内容，旧版本可能无法正确显示信息。更改会记录在 changelog 中。
+  · header: '&9正在获取插件版本...'
+  · not-found: '&9插件未安装 - 最新可用版本是 "{0}"。'
+  · not-found-spigot: '&c无法获取插件数据 - 该插件是否存在于 Spigot Resource?'
+  · out-of-date: '&c当前版本 (&4{0}&c) 与最新版本 (&2{1}&c) 不一致。'
+  · out-of-date-player: '&c可能已过期 (已安装 -> 最新): {0}'
+  · up-to-date: '&9插件似乎已是最新版本 "{0}"。'
+  · up-to-date-player: '&a似乎已是最新 (已安装): {0}'
+  · file-done: '&9文件导出完成: {0}'
+  · unknown: '&c版本信息未知。'
+  · unknown-player: '&c未知 (已安装): {0}'
+  · not-available: '&c{0} 的版本信息不可用。'
+  · all: '&9所有插件已禁用 (PlugMan 除外)。'
+  · already-disabled: '&c{0} 已经禁用。'
+  · disabled: '&9{0} 已禁用。'
+  · dumped: '&9插件已导出到 {0}。'
+  · error: '&4无法导出到文件。'
+  · all: '&9所有插件已启用。'
+  · already-enabled: '&c{0} 已经启用。'
+  · enabled: '&9{0} 已启用。'
+  · failed: '&c{0} 无法启用。请查看服务器日志中的插件错误。'
+  · ignored: '&cPlugMan 已设置为忽略该插件。'
+  · invalid-plugin: '&c这不是有效的插件。'
+  · no-permission: '&c你没有权限执行此操作。'
+  · specify-plugin: '&c你必须指定一个插件。'
+  · specify-command: '&c你必须指定一个命令。'
+  · paper-plugin: '&c目前不支持 Paper 插件。'
+  · command: '&7- &9命令: &7{0}'
+  · description: '&7- &9描述: &7{0}'
+  · usage: '&7- &9用法: &7{0}'
+  · help: '&7- &a/plugman help &f- &7显示此帮助。'
+  · list: '&7- &a/plugman list [-v] &f- &7列出所有插件 (-v 显示版本)。'
+  · dump: '&7- &a/plugman dump &f- &7将插件名称和版本导出到文件。'
+  · info: '&7- &a/plugman info <plugin> &f- &7获取插件信息。'
+  · deps: '&7- &a/plugman deps <plugin> &f- &7显示插件依赖关系。'
+  · usage: '&7- &a/plugman usage <plugin> &f- &7列出插件注册的命令。'
+  · lookup: '&7- &a/plugman lookup <command> &f- &7查找注册该命令的插件。'
+  · enable: '&7- &a/plugman enable <plugin|all> &f- &7启用插件。'
+  · disable: '&7- &a/plugman disable <plugin|all> &f- &7禁用插件。'
+  · restart: '&7- &a/plugman restart <plugin|all> &f- &7重新启动插件。'
+  · load: '&7- &a/plugman load <plugin> &f- &7加载插件。'
+  · reload: '&7- &a/plugman reload <plugin|all> &f- &7重新加载插件。'
+  · reloadmode: '&7- &a/plugman reloadmode [ALL|REQUIRED_ONLY|OFF] &f- &7查看或更改依赖重载模式。'
+  · unload: '&7- &a/plugman unload <plugin> &f- &7卸载插件。'
+  · check: '&7- &a/plugman check <plugin|all> [-f] &f- &7检查插件是否为最新 (-f 将全部导出到文件)。'
+  · header: '插件信息: {0}'
+  · version: '&7- 版本: &a{0}'
+  · authors: '&7- 作者: &a{0}'
+  · status: '&7- 状态: {0}'
+  · depends: '&7- 依赖: {0}'
+  · softdepends: '&7- 软依赖: &a{0}'
+  · header: '插件依赖关系: {0}'
+  · depends: '&7- 依赖: &a{0}'
+  · softdepends: '&7- 软依赖: &a{0}'
+  · used-by: '&7- 被使用于: &a{0}'
+  · paper: '&9Paper 插件 (&b{0}&9): {1}'
+  · bukkit: '&9Bukkit 插件 (&e{0}&9): {1}'
+  · already-loaded: '&c{0} 已经加载。'
+  · cannot-find: '&c找不到文件，且无法搜索描述。'
+  · invalid-description: '&c该插件有无效的描述。'
+  · invalid-plugin: '&c该文件不是有效的插件。'
+  · enable-failed: '&c{0} 已加载，但在 onEnable 期间失败。请检查上方的堆栈跟踪。'
+  · loaded: '&9{0} 已加载并启用。'
+  · missing-dependencies: '&c无法加载 {0}。缺少必要依赖: {1}'
+  · plugin-dir: '&c找不到插件目录。'
+  · found: '&9/{0} 已注册到 {1}。'
+  · not-found: '&c命令 "/{0}" 未在任何 plugin.yml 中注册。'
+  · all: '&9所有插件已重新加载。'
+  · all-failed: '&c部分插件重新加载失败: {0}'
+  · blocked-dependents: '&c无法重新加载 {0}; 有启用中的插件依赖它: {1}。请先重新加载或停止那些插件，或重新启动服务器。'
+  · confirm-all: '&c重新加载 {0} 个插件可能会导致服务器崩溃或不稳定。运行 &e/plugman reload all {1}&c 以确认。'
+  · reloaded: '&9{0} 已重新加载。'
+  · changed: '&9依赖重载模式已设置为 &a{0}&9。'
+  · current: '&9当前依赖重载模式: &a{0}&9。'
+  · invalid: '&c无效的依赖重载模式: {0}。请使用 ALL、REQUIRED_ONLY 或 OFF。'
+  · save-failed: '&c无法保存依赖重载模式。请检查服务器日志。'
+  · all: '&9所有插件已重新启动。'
+  · all-failed: '&c部分插件重新启动失败: {0}'
+  · blocked-dependents: '&c无法重新启动 {0}; 有启用中的插件依赖它: {1}。请先重新启动或停止那些插件，或重新启动服务器。'
+  · confirm-all: '&c重新启动 {0} 个插件可能会导致服务器崩溃或不稳定。运行 &e/plugman restart all {1}&c 以确认。'
+  · restarted: '&9{0} 已重新启动。'
+  · failed: '&c无法卸载 {0}。'
+  · gentle-failed: '&c插件拒绝卸载。'
+  · unloaded: '&9{0} 已卸载。'
+  · usage: '&9命令: &7{0}'
+  · no-commands: '&c没有注册的命令。'
+  · help: '&7- &a/plugman help &f- &7Zeigt dies an.'
+  · list: '&7- &a/plugman list [-v] &f- &7Listet alle Plugins auf (-v zeigt Versionen).'
+  · dump: '&7- &a/plugman dump &f- &7Listet Plugin-Namen und Versionen in Datei auf.'
+  · info: '&7- &a/plugman info <plugin> &f- &7Informationen zu einem Plugin abrufen.'
+  · deps: '&7- &a/plugman deps <plugin> &f- &7Zeigt Plugin-Abhängigkeiten an.'
+  · usage: '&7- &a/plugman usage <plugin> &f- &7Listet die von einem Plugin registrierten Befehle auf.'
+  · lookup: '&7- &a/plugman lookup <command> &f- &7Ermittelt, zu welchem Plugin ein Befehl registriert ist.'
+  · enable: '&7- &a/plugman enable <plugin|all> &f- &7Aktiviert ein Plugin.'
+  · disable: '&7- &a/plugman disable <plugin|all> &f- &7Deaktiviert ein Plugin.'
+  · restart: '&7- &a/plugman restart <plugin|all> &f- &7Startet ein Plugin neu.'
+  · load: '&7- &a/plugman load <plugin> &f- &7Lädt ein Plugin.'
+  · reload: '&7- &a/plugman reload <plugin|all> &f- &7Lädt ein Plugin neu.'
+  · reloadconfig: '&7- &a/plugman reloadconfig &f- &7Lädt PlugMan-Konfiguration und Nachrichten neu.'
+  · reloadmode: '&7- &a/plugman reloadmode [ALL|REQUIRED_ONLY|OFF] &f- &7Zeigt oder ändert das Dependent-Reload-Verhalten.'
+  · unload: '&7- &a/plugman unload <plugin> &f- &7Entlädt ein Plugin.'
+  · check: '&7- &a/plugman check <plugin|all> [-f] &f- &7Überprüft, ob ein Plugin aktuell ist (-f legt alle in Datei ab).'
+  · confirm-all: '&cDas Neuladen von {0} Plugins kann den Server abstürzen lassen oder instabil machen. Führe &e/plugman reload all {1}&c aus, um zu bestätigen.'
+  · confirm-all: '&cDas Neustarten von {0} Plugins kann den Server abstürzen lassen oder instabil machen. Führe &e/plugman restart all {1}&c aus, um zu bestätigen.'
+  · help: '&7- &a/plugman help &f- &7Muestra esto.'
+  · list: '&7- &a/plugman list [-v] &f- &7Lista todos los plugins (-v muestra versiones).'
+  · dump: '&7- &a/plugman dump &f- &7Volca los nombres y versiones de plugins a un archivo.'
+  · info: '&7- &a/plugman info <plugin> &f- &7Muestra información de un plugin.'
+  · deps: '&7- &a/plugman deps <plugin> &f- &7Muestra relaciones de dependencias del plugin.'
+  · usage: '&7- &a/plugman usage <plugin> &f- &7Lista los comandos registrados de un plugin.'
+  · lookup: '&7- &a/plugman lookup <command> &f- &7Encuentra qué plugin registró un comando.'
+  · enable: '&7- &a/plugman enable <plugin|all> &f- &7Habilita un plugin.'
+  · disable: '&7- &a/plugman disable <plugin|all> &f- &7Deshabilita un plugin.'
+  · restart: '&7- &a/plugman restart <plugin|all> &f- &7Reinicia un plugin.'
+  · load: '&7- &a/plugman load <plugin> &f- &7Carga un plugin.'
+  · reload: '&7- &a/plugman reload <plugin|all> &f- &7Recarga un plugin.'
+  · reloadmode: '&7- &a/plugman reloadmode [ALL|REQUIRED_ONLY|OFF] &f- &7Muestra o cambia el modo de recarga de dependientes.'
+  · unload: '&7- &a/plugman unload <plugin> &f- &7Descarga un plugin.'
+  · check: '&7- &a/plugman check <plugin|all> [-f] &f- &7Revisa si un plugin está actualizado (-f vuelca un archivo para todos).'
+  · confirm-all: '&cRecargar {0} plugins puede bloquear o desestabilizar el servidor. Ejecuta &e/plugman reload all {1}&c para confirmar.'
+  · confirm-all: '&cReiniciar {0} plugins puede bloquear o desestabilizar el servidor. Ejecuta &e/plugman restart all {1}&c para confirmar.'
+  · # メッセージには http://minecraft.gamepedia.com/Formatting_codes のフォーマットコードを使用できます。コードの指定には '&' を使用してください。
+  · # カスタムメッセージは必ずシングルクォートで囲んでください。
+  · # 新しい更新により内容が変更される場合があり、古いバージョンでは情報が正しく表示されないことがあります。変更は changelog に記載されます。
+  · header: '&9プラグインのバージョンを取得中...'
+  · not-found: '&9プラグインはインストールされていません - 最新バージョンは "{0}" です。'
+  · not-found-spigot: '&cプラグインデータを取得できませんでした - Spigot リソースとして存在しますか?'
+  · out-of-date: '&c現在のバージョン (&4{0}&c) は最新バージョン (&2{1}&c) と一致しません。'
+  · out-of-date-player: '&c古い可能性があります (インストール済み -> 最新): {0}'
+  · up-to-date: '&9プラグインはバージョン "{0}" で最新のようです。'
+  · up-to-date-player: '&a最新のようです (インストール済み): {0}'
+  · file-done: '&9ファイルへの出力が完了しました: {0}'
+  · unknown: '&cバージョン情報は不明です。'
+  · unknown-player: '&c不明 (インストール済み): {0}'
+  · not-available: '&c{0} のバージョン情報は利用できません。'
+  · all: '&9すべてのプラグインを無効化しました (PlugMan を除く)。'
+  · already-disabled: '&c{0} はすでに無効です。'
+  · disabled: '&9{0} を無効化しました。'
+  · dumped: '&9プラグイン情報を {0} に出力しました。'
+  · error: '&4ファイルへ出力できませんでした。'
+  · all: '&9すべてのプラグインを有効化しました。'
+  · already-enabled: '&c{0} はすでに有効です。'
+  · enabled: '&9{0} を有効化しました。'
+  · failed: '&c{0} を有効化できませんでした。プラグインエラーはサーバーログを確認してください。'
+  · ignored: '&cPlugMan はそのプラグインを無視するよう設定されています。'
+  · invalid-plugin: '&c有効なプラグインではありません。'
+  · no-permission: '&cこの操作を行う権限がありません。'
+  · specify-plugin: '&cプラグインを指定してください。'
+  · specify-command: '&cコマンドを指定してください。'
+  · paper-plugin: '&c現在 Paper プラグインはサポートされていません。'
+  · description: '&7- &9説明: &7{0}'
+  · usage: '&7- &9使い方: &7{0}'
+  · help: '&7- &a/plugman help &f- &7このヘルプを表示します。'
+  · list: '&7- &a/plugman list [-v] &f- &7すべてのプラグインを一覧表示します (-v でバージョン表示)。'
+  · dump: '&7- &a/plugman dump &f- &7プラグイン名とバージョンをファイルへ出力します。'
+  · info: '&7- &a/plugman info <plugin> &f- &7プラグイン情報を表示します。'
+  · deps: '&7- &a/plugman deps <plugin> &f- &7プラグインの依存関係を表示します。'
+  · usage: '&7- &a/plugman usage <plugin> &f- &7プラグインが登録したコマンドを表示します。'
+  · lookup: '&7- &a/plugman lookup <command> &f- &7コマンドを登録しているプラグインを検索します。'
+  · enable: '&7- &a/plugman enable <plugin|all> &f- &7プラグインを有効化します。'
+  · disable: '&7- &a/plugman disable <plugin|all> &f- &7プラグインを無効化します。'
+  · restart: '&7- &a/plugman restart <plugin|all> &f- &7プラグインを再起動します。'
+  · load: '&7- &a/plugman load <plugin> &f- &7プラグインを読み込みます。'
+  · reload: '&7- &a/plugman reload <plugin|all> &f- &7プラグインをリロードします。'
+  · reloadmode: '&7- &a/plugman reloadmode [ALL|REQUIRED_ONLY|OFF] &f- &7依存プラグインのリロード動作を表示または変更します。'
+  · unload: '&7- &a/plugman unload <plugin> &f- &7プラグインをアンロードします。'
+  · check: '&7- &a/plugman check <plugin|all> [-f] &f- &7プラグインが最新か確認します (-f ですべてをファイルへ出力)。'
+  · header: 'プラグイン情報: {0}'
+  · authors: '&7- 作者: &a{0}'
+  · status: '&7- 状態: {0}'
+  · depends: '&7- 依存: {0}'
+  · softdepends: '&7- 任意依存: &a{0}'
+  · header: 'プラグイン依存関係: {0}'
+  · depends: '&7- 依存: &a{0}'
+  · softdepends: '&7- 任意依存: &a{0}'
+  · used-by: '&7- 使用元: &a{0}'
+  · already-loaded: '&c{0} はすでに読み込まれています。'
+  · cannot-find: '&cファイルが見つからず、説明の検索にも失敗しました。'
+  · invalid-description: '&cそのプラグインには無効な説明があります。'
+  · invalid-plugin: '&cそのファイルは有効なプラグインではありません。'
+  · enable-failed: '&c{0} は読み込まれましたが、onEnable 中に失敗しました。上のスタックトレースを確認してください。'
+  · loaded: '&9{0} を読み込み、有効化しました。'
+  · missing-dependencies: '&c{0} を読み込めませんでした。必要な依存関係が不足しています: {1}'
+  · plugin-dir: '&cplugins フォルダーが見つかりません。'
+  · found: '&9/{0} は {1} に登録されています。'
+  · not-found: '&cコマンド "/{0}" はどの plugin.yml にも登録されていません。'
+  · all-failed: '&c一部のプラグインのリロードに失敗しました: {0}'
+  · blocked-dependents: '&c{0} をリロードできませんでした。依存している有効なプラグインがあります: {1}。先にそれらをリロードまたは停止するか、サーバーを再起動してください。'
+  · confirm-all: '&c{0} 個のプラグインをリロードすると、サーバーがクラッシュまたは不安定になる可能性があります。確認するには &e/plugman reload all {1}&c を実行してください。'
+  · changed: '&9依存リロードモードを &a{0}&9 に設定しました。'
+  · current: '&9現在の依存リロードモード: &a{0}&9。'
+  · invalid: '&c無効な依存リロードモードです: {0}。ALL、REQUIRED_ONLY、OFF のいずれかを使用してください。'
+  · save-failed: '&c依存リロードモードを保存できませんでした。サーバーログを確認してください。'
+  · all: '&9すべてのプラグインを再起動しました。'
+  · all-failed: '&c一部のプラグインの再起動に失敗しました: {0}'
+  · blocked-dependents: '&c{0} を再起動できませんでした。依存している有効なプラグインがあります: {1}。先にそれらを再起動または停止するか、サーバーを再起動してください。'
+  · confirm-all: '&c{0} 個のプラグインを再起動すると、サーバーがクラッシュまたは不安定になる可能性があります。確認するには &e/plugman restart all {1}&c を実行してください。'
+  · restarted: '&9{0} を再起動しました。'
+  · gentle-failed: '&cプラグインがアンロードを拒否しました。'
+  · no-commands: '&c登録されているコマンドはありません。'
+  · help: '&7- &a/plugman help &f- &7Показать эту справку.'
+  · list: '&7- &a/plugman list [-v] &f- &7Показать все плагины (-v показывает версии).'
+  · dump: '&7- &a/plugman dump &f- &7Записать имена и версии плагинов в файл.'
+  · info: '&7- &a/plugman info <plugin> &f- &7Показать информацию о плагине.'
+  · deps: '&7- &a/plugman deps <plugin> &f- &7Показать зависимости плагина.'
+  · usage: '&7- &a/plugman usage <plugin> &f- &7Показать команды, зарегистрированные плагином.'
+  · lookup: '&7- &a/plugman lookup <command> &f- &7Найти плагин, которому принадлежит команда.'
+  · enable: '&7- &a/plugman enable <plugin|all> &f- &7Включить плагин.'
+  · disable: '&7- &a/plugman disable <plugin|all> &f- &7Отключить плагин.'
+  · restart: '&7- &a/plugman restart <plugin|all> &f- &7Перезапустить плагин.'
+  · load: '&7- &a/plugman load <plugin> &f- &7Загрузить плагин.'
+  · reload: '&7- &a/plugman reload <plugin|all> &f- &7Перезагрузить плагин.'
+  · reloadmode: '&7- &a/plugman reloadmode [ALL|REQUIRED_ONLY|OFF] &f- &7Показать или изменить режим перезагрузки зависимых плагинов.'
+  · unload: '&7- &a/plugman unload <plugin> &f- &7Выгрузить плагин.'
+  · check: '&7- &a/plugman check <plugin|all> [-f] &f- &7Проверить актуальность плагина (-f записывает все в файл).'
+  · confirm-all: '&cПерезагрузка {0} плагинов может привести к сбою или нестабильности сервера. Выполните &e/plugman reload all {1}&c для подтверждения.'
+  · confirm-all: '&cПерезапуск {0} плагинов может привести к сбою или нестабильности сервера. Выполните &e/plugman restart all {1}&c для подтверждения.'
+  · # 自訂訊息檔案。
+  · # 訊息可以包含 http://minecraft.gamepedia.com/Formatting_codes 上的格式代碼，並且必須使用 '&' 字元表示。
+  · # 請確認自訂訊息外有單引號。
+  · # 新版本可能會變更這些內容，舊版本可能無法正確顯示資訊。變更會記錄在 changelog 中。
+  · header: '&9正在取得外掛版本...'
+  · not-found: '&9外掛未安裝 - 最新可用版本是 "{0}"。'
+  · not-found-spigot: '&c無法取得外掛資料 - 該外掛是否存在於 Spigot Resource?'
+  · out-of-date: '&c目前版本 (&4{0}&c) 與最新版本 (&2{1}&c) 不一致。'
+  · out-of-date-player: '&c可能已過期 (已安裝 -> 最新): {0}'
+  · up-to-date: '&9外掛似乎已是最新版本 "{0}"。'
+  · up-to-date-player: '&a似乎已是最新 (已安裝): {0}'
+  · file-done: '&9檔案匯出完成: {0}'
+  · unknown: '&c版本資訊未知。'
+  · unknown-player: '&c未知 (已安裝): {0}'
+  · not-available: '&c{0} 的版本資訊不可用。'
+  · all: '&9所有外掛已停用 (PlugMan 除外)。'
+  · already-disabled: '&c{0} 已經停用。'
+  · disabled: '&9{0} 已停用。'
+  · dumped: '&9外掛已匯出到 {0}。'
+  · error: '&4無法匯出到檔案。'
+  · all: '&9所有外掛已啟用。'
+  · already-enabled: '&c{0} 已經啟用。'
+  · enabled: '&9{0} 已啟用。'
+  · failed: '&c{0} 無法啟用。請查看伺服器記錄中的外掛錯誤。'
+  · ignored: '&cPlugMan 已設定為忽略該外掛。'
+  · invalid-plugin: '&c這不是有效的外掛。'
+  · no-permission: '&c你沒有權限執行此操作。'
+  · specify-plugin: '&c你必須指定一個外掛。'
+  · specify-command: '&c你必須指定一個指令。'
+  · paper-plugin: '&c目前不支援 Paper 外掛。'
+  · command: '&7- &9指令: &7{0}'
+  · description: '&7- &9描述: &7{0}'
+  · usage: '&7- &9用法: &7{0}'
+  · help: '&7- &a/plugman help &f- &7顯示此說明。'
+  · list: '&7- &a/plugman list [-v] &f- &7列出所有外掛 (-v 顯示版本)。'
+  · dump: '&7- &a/plugman dump &f- &7將外掛名稱與版本匯出到檔案。'
+  · info: '&7- &a/plugman info <plugin> &f- &7取得外掛資訊。'
+  · deps: '&7- &a/plugman deps <plugin> &f- &7顯示外掛依賴關係。'
+  · usage: '&7- &a/plugman usage <plugin> &f- &7列出外掛註冊的指令。'
+  · lookup: '&7- &a/plugman lookup <command> &f- &7尋找註冊該指令的外掛。'
+  · enable: '&7- &a/plugman enable <plugin|all> &f- &7啟用外掛。'
+  · disable: '&7- &a/plugman disable <plugin|all> &f- &7停用外掛。'
+  · restart: '&7- &a/plugman restart <plugin|all> &f- &7重新啟動外掛。'
+  · load: '&7- &a/plugman load <plugin> &f- &7載入外掛。'
+  · reload: '&7- &a/plugman reload <plugin|all> &f- &7重新載入外掛。'
+  · reloadmode: '&7- &a/plugman reloadmode [ALL|REQUIRED_ONLY|OFF] &f- &7查看或變更依賴重載模式。'
+  · unload: '&7- &a/plugman unload <plugin> &f- &7卸載外掛。'
+  · check: '&7- &a/plugman check <plugin|all> [-f] &f- &7檢查外掛是否為最新 (-f 將全部匯出到檔案)。'
+  · header: '外掛資訊: {0}'
+  · version: '&7- 版本: &a{0}'
+  · authors: '&7- 作者: &a{0}'
+  · status: '&7- 狀態: {0}'
+  · depends: '&7- 依賴: {0}'
+  · softdepends: '&7- 軟依賴: &a{0}'
+  · header: '外掛依賴關係: {0}'
+  · depends: '&7- 依賴: &a{0}'
+  · softdepends: '&7- 軟依賴: &a{0}'
+  · used-by: '&7- 被使用於: &a{0}'
+  · paper: '&9Paper 外掛 (&b{0}&9): {1}'
+  · bukkit: '&9Bukkit 外掛 (&e{0}&9): {1}'
+  · already-loaded: '&c{0} 已經載入。'
+  · cannot-find: '&c找不到檔案，且無法搜尋描述。'
+  · invalid-description: '&c該外掛有無效的描述。'
+  · invalid-plugin: '&c該檔案不是有效的外掛。'
+  · enable-failed: '&c{0} 已載入，但在 onEnable 期間失敗。請檢查上方的堆疊追蹤。'
+  · loaded: '&9{0} 已載入並啟用。'
+  · missing-dependencies: '&c無法載入 {0}。缺少必要依賴: {1}'
+  · plugin-dir: '&c找不到外掛目錄。'
+  · found: '&9/{0} 已註冊到 {1}。'
+  · not-found: '&c指令 "/{0}" 未在任何 plugin.yml 中註冊。'
+  · all: '&9所有外掛已重新載入。'
+  · all-failed: '&c部分外掛重新載入失敗: {0}'
+  · blocked-dependents: '&c無法重新載入 {0}; 有啟用中的外掛依賴它: {1}。請先重新載入或停止那些外掛，或重新啟動伺服器。'
+  · confirm-all: '&c重新載入 {0} 個外掛可能會導致伺服器崩潰或不穩定。執行 &e/plugman reload all {1}&c 以確認。'
+  · reloaded: '&9{0} 已重新載入。'
+  · changed: '&9依賴重載模式已設定為 &a{0}&9。'
+  · current: '&9目前依賴重載模式: &a{0}&9。'
+  · invalid: '&c無效的依賴重載模式: {0}。請使用 ALL、REQUIRED_ONLY 或 OFF。'
+  · save-failed: '&c無法儲存依賴重載模式。請檢查伺服器記錄。'
+  · all: '&9所有外掛已重新啟動。'
+  · all-failed: '&c部分外掛重新啟動失敗: {0}'
+  · blocked-dependents: '&c無法重新啟動 {0}; 有啟用中的外掛依賴它: {1}。請先重新啟動或停止那些外掛，或重新啟動伺服器。'
+  · confirm-all: '&c重新啟動 {0} 個外掛可能會導致伺服器崩潰或不穩定。執行 &e/plugman restart all {1}&c 以確認。'
+  · restarted: '&9{0} 已重新啟動。'
+  · failed: '&c無法卸載 {0}。'
+  · gentle-failed: '&c外掛拒絕卸載。'
+  · unloaded: '&9{0} 已卸載。'
+  · usage: '&9指令: &7{0}'
+  · no-commands: '&c沒有註冊的指令。'
+  · usage: /plugman (help|dump)
+  · /plugman list [-v]
+  · /plugman check <plugin|all> [-f]
+  · /plugman lookup <command>
+  · /plugman deps <plugin>
+  · /plugman (enable|disable|restart) <plugin|all>
+  · /plugman (info|usage|load|reload|unload) <plugin>
+  · /plugman reloadconfig
+  · /plugman reloadmode [ALL|REQUIRED_ONLY|OFF]
+
+## 常量池帮助/描述文本
+  · bukkit/com/rylinaux/plugman/commands/BukkitCommandSender
+  · bukkit/com/rylinaux/plugman/PlugManBukkit
+  · core/com/rylinaux/plugman/file/messaging/MessageFormatter
+  · core/com/rylinaux/plugman/commands/CommandSender
+  · Lbukkit/com/rylinaux/plugman/commands/BukkitCommandSender;
+  · bukkit/com/rylinaux/plugman/commands/CommandCreator
+  · Lbukkit/com/rylinaux/plugman/commands/CommandCreator;
+  · core/com/rylinaux/plugman/commands/executables/ListCommand
+  · core/com/rylinaux/plugman/commands/executables/DumpCommand
+  · core/com/rylinaux/plugman/commands/executables/InfoCommand
+  · core/com/rylinaux/plugman/commands/executables/DepsCommand
+  · core/com/rylinaux/plugman/commands/executables/LookupCommand
+  · core/com/rylinaux/plugman/commands/executables/UsageCommand
+  · core/com/rylinaux/plugman/commands/executables/EnableCommand
+  · core/com/rylinaux/plugman/commands/executables/DisableCommand
+  · core/com/rylinaux/plugman/commands/executables/RestartCommand
+  · core/com/rylinaux/plugman/commands/executables/ReloadModeCommand
+  · core/com/rylinaux/plugman/commands/executables/ReloadConfigCommand
+  · core/com/rylinaux/plugman/commands/executables/LoadCommand
+  · core/com/rylinaux/plugman/commands/executables/ReloadCommand
+  · core/com/rylinaux/plugman/commands/executables/UnloadCommand
+  · core/com/rylinaux/plugman/commands/executables/CheckCommand
+  · core/com/rylinaux/plugman/commands/executables/HelpCommand
+  · core/com/rylinaux/plugman/commands/AbstractCommand
+  · bukkit/com/rylinaux/plugman/commands/PlugManCommandHandler
+  · Lbukkit/com/rylinaux/plugman/commands/PlugManCommandHandler;
+  · Lcore/com/rylinaux/plugman/services/ServiceRegistry;
+  · Lcore/com/rylinaux/plugman/commands/AbstractCommand;
+  · core/com/rylinaux/plugman/services/ServiceRegistry
+  · bukkit/com/rylinaux/plugman/commands/PlugManTabCompleter
+  · core/com/rylinaux/plugman/plugins/PluginManager
+  · core/com/rylinaux/plugman/plugins/CommandMapWrap
+  · Lbukkit/com/rylinaux/plugman/commands/PlugManTabCompleter;
+  · bukkit/com/rylinaux/plugman/plugin/BukkitCommand
+  · core/com/rylinaux/plugman/plugins/Command
+  · Lbukkit/com/rylinaux/plugman/plugin/BukkitCommand;
+  · bungee/com/rylinaux/plugman/commands/BungeeCommandSender
+  · bungee/com/rylinaux/plugman/PlugManBungee
+  · Lbungee/com/rylinaux/plugman/commands/BungeeCommandSender;
+  · bungee/com/rylinaux/plugman/commands/PlugManTabCompleter
+  · bungee/com/rylinaux/plugman/commands/PlugManCommandHandler
+  · Lbungee/com/rylinaux/plugman/commands/PlugManCommandHandler;
+  · Lbungee/com/rylinaux/plugman/commands/PlugManTabCompleter;
+  · core/com/rylinaux/plugman/util/StringUtil
+  · core/com/rylinaux/plugman/libs/snakeyaml/Yaml
+  · Lcore/com/rylinaux/plugman/libs/snakeyaml/Yaml;
+  · bungee/com/rylinaux/plugman/plugin/BungeeCommand
+  · Lbungee/com/rylinaux/plugman/plugin/BungeeCommand;
+  · Lcore/com/rylinaux/plugman/commands/CommandSender;
+  · Lcore/com/rylinaux/plugman/plugins/Plugin;
+  · core/com/rylinaux/plugman/commands/executables/CascadingPluginCommand$BulkOperationResult
+  · Lcore/com/rylinaux/plugman/commands/executables/CascadingPluginCommand$BulkOperationResult;
+  · core/com/rylinaux/plugman/commands/executables/CascadingPluginCommand
+  · core/com/rylinaux/plugman/commands/executables/CascadingPluginCommand$DependencyPlan
+  · Ljava/util/List<Lcore/com/rylinaux/plugman/plugins/Plugin;>;
+  · Lcore/com/rylinaux/plugman/commands/executables/CascadingPluginCommand$DependencyPlan;
+  · core/com/rylinaux/plugman/commands/executables/CascadingPluginCommand$VisitState
+  · Lcore/com/rylinaux/plugman/commands/executables/CascadingPluginCommand$VisitState;
+  · Ljava/lang/Enum<Lcore/com/rylinaux/plugman/commands/executables/CascadingPluginCommand$VisitState;>;
+  · core/com/rylinaux/plugman/config/PlugManConfigurationManager
+  · core/com/rylinaux/plugman/config/model/PlugManConfig
+  · core/com/rylinaux/plugman/plugins/Plugin
+  · core/com/rylinaux/plugman/PluginResult
+  · Lcore/com/rylinaux/plugman/commands/executables/CascadingPluginCommand;
+  · Ljava/util/ArrayList<Lcore/com/rylinaux/plugman/plugins/Plugin;>;
+  · Lcore/com/rylinaux/plugman/PluginResult;
+  · Ljava/util/TreeMap<Ljava/lang/String;Lcore/com/rylinaux/plugman/plugins/Plugin;>;
+  · Ljava/util/TreeMap<Ljava/lang/String;Lcore/com/rylinaux/plugman/commands/executables/CascadingPluginCommand$VisitState;>;
+  · Ljava/util/Map<Ljava/lang/String;Lcore/com/rylinaux/plugman/plugins/Plugin;>;
+  · Ljava/util/Map<Ljava/lang/String;Lcore/com/rylinaux/plugman/commands/executables/CascadingPluginCommand$VisitState;>;
+  · core/com/rylinaux/plugman/pojo/UpdateResult$ResultType
+  · core/com/rylinaux/plugman/commands/executables/CheckCommand$1
+  · Lcore/com/rylinaux/plugman/pojo/UpdateResult$ResultType;
+  · core/com/rylinaux/plugman/pojo/UpdateResult
+  · core/com/rylinaux/plugman/util/FlagUtil
+  · core/com/rylinaux/plugman/util/FlagUtil$ParsedArguments
+  · core/com/rylinaux/plugman/util/ThreadUtil
+  · core/com/rylinaux/plugman/util/updatechecker/UpdateUtil
+  · core/com/rylinaux/plugman/logging/PluginLogger
+  · Lcore/com/rylinaux/plugman/commands/executables/CheckCommand;
+  · Lcore/com/rylinaux/plugman/util/ThreadUtil;
+  · Lcore/com/rylinaux/plugman/util/FlagUtil$ParsedArguments;
+  · Lcore/com/rylinaux/plugman/pojo/UpdateResult;
+  · Lcore/com/rylinaux/plugman/logging/PluginLogger;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lcore/com/rylinaux/plugman/pojo/UpdateResult;>;
+  · Ljava/util/Map<Ljava/lang/String;Lcore/com/rylinaux/plugman/pojo/UpdateResult;>;
+  · Lcore/com/rylinaux/plugman/commands/executables/DepsCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/DisableCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/DumpCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/EnableCommand;
+  · core/com/rylinaux/plugman/file/messaging/MessageFile
+  · core/com/rylinaux/plugman/config/YamlConfigurationProvider
+  · core/com/rylinaux/plugman/config/YamlConfigurationProvider$YamlConfigurationSection
+  · Lcore/com/rylinaux/plugman/commands/executables/HelpCommand;
+  · Lcore/com/rylinaux/plugman/file/messaging/MessageFormatter;
+  · Lcore/com/rylinaux/plugman/config/YamlConfigurationProvider;
+  · Lcore/com/rylinaux/plugman/config/YamlConfigurationProvider$YamlConfigurationSection;
+  · Lcore/com/rylinaux/plugman/commands/executables/InfoCommand;
+  · core/com/rylinaux/plugman/commands/executables/ListCommand$PluginStringFunction
+  · Lcore/com/rylinaux/plugman/commands/executables/ListCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/ListCommand$PluginStringFunction;
+  · Ljava/lang/Object;Ljava/util/function/Function<Lcore/com/rylinaux/plugman/plugins/Plugin;Ljava/lang/String;>;
+  · Lcore/com/rylinaux/plugman/commands/executables/LoadCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/LookupCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/ReloadCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/ReloadConfigCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/ReloadModeCommand;
+  · Lcore/com/rylinaux/plugman/config/PlugManConfigurationManager;
+  · Lcore/com/rylinaux/plugman/config/model/PlugManConfig;
+  · Lcore/com/rylinaux/plugman/commands/executables/RestartCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/UnloadCommand;
+  · Lcore/com/rylinaux/plugman/commands/executables/UsageCommand;
+  · Ljava/util/Map<Ljava/lang/String;Lcore/com/rylinaux/plugman/plugins/Command;>;
+  · Lcore/com/rylinaux/plugman/plugins/CommandMapWrap;
+  · Lcore/com/rylinaux/plugman/plugins/CommandMapWrap<TT;>;
+  · Ljava/util/function/Function<TT;+Lcore/com/rylinaux/plugman/plugins/Command;>;
+  · Lcore/com/rylinaux/plugman/plugins/Command;
+  · Ljava/util/Map<+Ljava/lang/String;+Lcore/com/rylinaux/plugman/plugins/Command;>;
+  · paper/com/rylinaux/plugman/commands/OldPaperCommandCreator$1
+  · Lpaper/com/rylinaux/plugman/commands/OldPaperCommandCreator$1;
+  · Lpaper/com/rylinaux/plugman/commands/OldPaperCommandCreator;
+  · paper/com/rylinaux/plugman/commands/OldPaperCommandCreator
+  · paper/com/rylinaux/plugman/commands/PaperCommandCreator$1
+  · Lpaper/com/rylinaux/plugman/commands/PaperCommandCreator$1;
+  · Lpaper/com/rylinaux/plugman/commands/PaperCommandCreator;
+  · paper/com/rylinaux/plugman/commands/PaperCommandCreator
+  · paper/com/rylinaux/plugman/pluginmanager/PaperPluginManager$PaperCommandContextException
+  · Lpaper/com/rylinaux/plugman/pluginmanager/PaperPluginManager$PaperCommandContextException;
+  · paper/com/rylinaux/plugman/pluginmanager/PaperPluginManager

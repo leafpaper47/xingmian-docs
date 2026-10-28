@@ -1,0 +1,33 @@
+{
+ "name": "Images",
+ "role": "自定义图片",
+ "summary": "把图片文件变成游戏内可放置/可显示的图片方块与地图画：导入图片、创建画框、批量清理附近图片、调整尺寸。",
+ "quick": [
+  {"scene": "导入一张图", "cmd": "/img import <文件名>", "note": "先把 png 放进 plugins/Images/images/"},
+  {"scene": "把图贴到墙上", "cmd": "/img create <文件名>", "note": "对着墙面执行，按视线方向生成"},
+  {"scene": "列出已导入的图", "cmd": "/img list", "note": "确认文件名拼写"},
+  {"scene": "清理附近的图", "cmd": "/img deletenear 5", "note": "半径内所有自定义图片一并删除"}
+ ],
+ "commands": [
+  {"cmd": "image", "what": "自定义图片管理（导入/创建/删除/缩放）", "syntax": "/image <create|delete|deletenear|import|list|resize|size|transfer>",
+   "examples": ["/img import logo.png", "/img create logo.png"], "notes": "别名 img、images、customimage"}
+ ],
+ "subcommands": [
+  {"cmd": "/img create <文件名>", "desc": "在当前位置/朝向前生成图片（地图画或方块）", "example": "/img create logo.png"},
+  {"cmd": "/img delete", "desc": "删除准星指向的图片", "example": "/img delete"},
+  {"cmd": "/img deletenear <半径>", "desc": "删除半径内所有自定义图片", "example": "/img deletenear 5"},
+  {"cmd": "/img list", "desc": "列出 images 目录下已导入的文件", "example": "/img list"},
+  {"cmd": "/img import <文件名>", "desc": "把图片导入为可用资源", "example": "/img import logo.png"},
+  {"cmd": "/img resize <宽> <高>", "desc": "调整图片尺寸（重新生成）", "example": "/img resize 4 2"},
+  {"cmd": "/img size <宽> <高>", "desc": "设置创建时的默认尺寸", "example": "/img size 2 2"},
+  {"cmd": "/img transfer <玩家>", "desc": "把图片数据转交给指定玩家", "example": "/img transfer Steve"}
+ ],
+ "caution": [
+  "deletenear 会把半径内所有自定义图片一起删掉，执行前确认周围没有装饰画。",
+  "图片尺寸过大（单边 > 8 张地图）会明显卡顿并占用地图 id，建议先在外部压缩。",
+  "create 依赖玩家朝向与站位，贴歪了先 delete 再重贴。"
+ ],
+ "permissions": {
+  "images.admin": "使用 /image 全部子指令"
+ }
+}

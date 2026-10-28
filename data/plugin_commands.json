@@ -136,6 +136,28 @@
   }
  },
  {
+  "file": "AntiBoom-1.0.4.jar",
+  "size": 22306,
+  "name": "AntiBoom",
+  "version": "1.0.4",
+  "main": "ict.minesunshineone.antiboom.AntiBoomPlugin",
+  "api": "26.1.2",
+  "desc": "Explosion protection plugin for Paper 26.1.2+, including 26.2, and Folia",
+  "commands": {
+   "antiboom": {
+    "description": "Manage AntiBoom plugin settings.",
+    "usage": "/antiboom reload",
+    "permission": "antiboom.reload"
+   }
+  },
+  "permissions": {
+   "antiboom.reload": {
+    "description": "Allows reloading AntiBoom configuration.",
+    "default": "op"
+   }
+  }
+ },
+ {
   "file": "ArchitectPlugin-1.3.7.jar",
   "size": 88982,
   "name": "ArchitectPlugin",
@@ -713,6 +735,17 @@
   "permissions": {}
  },
  {
+  "file": "CarriePetGuard-1.0.0.jar",
+  "size": 7465,
+  "name": "CarriePetGuard",
+  "version": "1.0.0",
+  "main": "com.yxmc.carriepetguard.CarriePetGuardPlugin",
+  "api": "1.21",
+  "desc": "CarriePet 补丁——抱起的小动物放下时不再嵌进地毯/半砖/台阶里窒息",
+  "commands": {},
+  "permissions": {}
+ },
+ {
   "file": "CommandPanels.jar",
   "size": 252646,
   "name": "CommandPanels",
@@ -992,6 +1025,63 @@
    },
    "craftbench.admin": {
     "description": "允许管理配方",
+    "default": "op"
+   }
+  }
+ },
+ {
+  "file": "CustomDiscs-2.7.0.jar",
+  "size": 1035130,
+  "name": "CustomDiscs",
+  "version": "2.7.0",
+  "main": "space.subkek.customdiscs.CustomDiscs",
+  "api": "1.21.6",
+  "desc": "",
+  "commands": {},
+  "permissions": {
+   "customdiscs.*": {
+    "default": "op",
+    "children": {
+     "customdiscs.help": true,
+     "customdiscs.reload": true,
+     "customdiscs.download": true,
+     "customdiscs.create": true,
+     "customdiscs.distance": true
+    }
+   },
+   "customdiscs.create": {
+    "default": "true",
+    "children": {
+     "customdiscs.create.local": true,
+     "customdiscs.create.remote": true
+    }
+   },
+   "customdiscs.create.local": {
+    "default": "true"
+   },
+   "customdiscs.create.remote": {
+    "default": "true",
+    "children": {
+     "customdiscs.create.remote.youtube": true,
+     "customdiscs.create.remote.soundcloud": true
+    }
+   },
+   "customdiscs.create.remote.soundcloud": {
+    "default": "true"
+   },
+   "customdiscs.create.remote.youtube": {
+    "default": "true"
+   },
+   "customdiscs.distance": {
+    "default": "true"
+   },
+   "customdiscs.download": {
+    "default": "op"
+   },
+   "customdiscs.help": {
+    "default": "true"
+   },
+   "customdiscs.reload": {
     "default": "op"
    }
   }
@@ -6302,7 +6392,7 @@
  },
  {
   "file": "KaoguGuide-CE.jar",
-  "size": 11274,
+  "size": 11015,
   "name": "KaoguGuide",
   "version": "1.0.0",
   "main": "com.xingmian.kaoguguide.KaoguGuidePlugin",
@@ -7648,10 +7738,10 @@
   }
  },
  {
-  "file": "PVPPlugin-1.2.26.jar",
-  "size": 99720,
+  "file": "PVPPlugin-1.2.28.jar",
+  "size": 103603,
   "name": "PVPPlugin",
-  "version": "1.2.26",
+  "version": "1.2.28",
   "main": "cn.yxsjmc.pvp.PVPPlugin",
   "api": 1.21,
   "desc": "星冕服务器 PVP 决斗插件（可视化UI / 团战 / 下注 / 赌钱决斗 / 观战 / 公平排位，含排位死亡复活缓冲、排位强制重生修复、排位背包快照历史落盘与每月自动清理、排位死亡经验还原；公平排位赛季排行榜（赛季中实时分段位、封盘定格快照）+前三名皮肤奖励领取，停机跨月自动补封盘、掉线计负、领取先记账后发放、赛季文件保存节流）",
@@ -9290,6 +9380,37 @@
   }
  },
  {
+  "file": "SenluoCookbook-1.0.0.jar",
+  "size": 41447,
+  "name": "SenluoCookbook",
+  "version": "1.0.0",
+  "main": "com.xingmian.senluocookbook.SenluoCookbookPlugin",
+  "api": "1.21",
+  "desc": "森罗厨房图鉴：炒出或做出 kaleidoscopecookery 菜品即解锁，全菜品图鉴 GUI。",
+  "commands": {
+   "cookbook": {
+    "description": "打开森罗厨房图鉴",
+    "aliases": [
+     "ckbook",
+     "森罗图鉴",
+     "厨房图鉴",
+     "ckb"
+    ],
+    "usage": "/cookbook [reload|debug|sync]"
+   }
+  },
+  "permissions": {
+   "cookbook.use": {
+    "description": "允许使用森罗厨房图鉴",
+    "default": true
+   },
+   "cookbook.admin": {
+    "description": "允许重载图鉴配置",
+    "default": "op"
+   }
+  }
+ },
+ {
   "file": "Shopkeepers-2.27.0.jar",
   "size": 2378944,
   "name": "Shopkeepers",
@@ -9670,13 +9791,13 @@
   }
  },
  {
-  "file": "StarHammerChain-1.1.0.jar",
-  "size": 7724,
+  "file": "StarHammerChain-1.2.1.jar",
+  "size": 8914,
   "name": "StarHammerChain",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "main": "com.xingmian.starhammer.StarHammerChainPlugin",
   "api": "1.21",
-  "desc": "星陨锤（xingmian:star_hammer）受击面定向 3x3 连锁挖掘插件，替换 CraftEngine range_mining_item 行为，修复方向翻转问题。",
+  "desc": "星陨锤受击面定向连锁挖掘插件：xingmian:star_hammer 3x3、xingmian:star_hammer_5x5 5x5，修复方向翻转问题。",
   "commands": {},
   "permissions": {}
  },
@@ -10032,10 +10153,10 @@
   }
  },
  {
-  "file": "TownPlugin-1.4.6-title.jar",
-  "size": 264421,
+  "file": "TownPlugin-1.4.8-itemguard.jar",
+  "size": 265284,
   "name": "TownPlugin",
-  "version": "1.4.6-title",
+  "version": "1.4.8-itemguard",
   "main": "cn.yxsjmc.town.TownPlugin",
   "api": 1.21,
   "desc": "星冕服务器城镇系统（聚落/乡镇/城镇/王都 繁荣度升级、债券、贷款、多物品任务、缴纳面板、丰收节、城镇传送、执政官称号、城镇仓库）",
@@ -10211,7 +10332,7 @@
  },
  {
   "file": "WineSuite-1.2.0.jar",
-  "size": 47324,
+  "size": 46583,
   "name": "WineSuite",
   "version": "1.2.0",
   "main": "net.xingmian.winesuite.WineSuitePlugin",
@@ -10340,10 +10461,10 @@
   }
  },
  {
-  "file": "XingmianElement-0.1.17.jar",
-  "size": 156242,
+  "file": "XingmianElement-0.1.23.jar",
+  "size": 158983,
   "name": "XingmianElement",
-  "version": "0.1.17",
+  "version": "0.1.23",
   "main": "cn.xingmian.element.XingmianElement",
   "api": "1.21",
   "desc": "星陨之地 · 元素之力（等级 / 法杖技能）",
@@ -10370,6 +10491,17 @@
   }
  },
  {
+  "file": "XingmianMenuBridge-1.0.0.jar",
+  "size": 4647,
+  "name": "XingmianMenuBridge",
+  "version": "1.0.0",
+  "main": "com.xingmian.menubridge.MenuBridgePlugin",
+  "api": "1.21",
+  "desc": "星冕成就菜单桥接：给 EvenMoreFish 鱼类图鉴界面注入返回星冕成就按钮。",
+  "commands": {},
+  "permissions": {}
+ },
+ {
   "file": "XingmianQuiz-1.0.0.jar",
   "size": 58323,
   "name": "XingmianQuiz",
@@ -10393,10 +10525,10 @@
   }
  },
  {
-  "file": "XingmianRPG-1.1.49.jar",
-  "size": 331621,
+  "file": "XingmianRPG-1.1.53.jar",
+  "size": 337744,
   "name": "XingmianRPG",
-  "version": "1.1.49",
+  "version": "1.1.53",
   "main": "cn.xingmian.rpg.XingmianRPG",
   "api": "1.21",
   "desc": "星陨之地 RPG 世界功能插件 —— 进入次数管控 / 星之秘钥（一次性进入道具）/ 传送封锁 / 鞘翅限滑翔 / 距离触发刷怪点 / 掉落与摇点 / boss 伤害战报",
@@ -10464,6 +10596,28 @@
   }
  },
  {
+  "file": "XmBookGuard-1.0.0.jar",
+  "size": 3371,
+  "name": "XmBookGuard",
+  "version": "1.0.0",
+  "main": "xm.bookguard.BookGuard",
+  "api": "1.21",
+  "desc": "书与笔连续保存时不再被服务器踢下线，改成自动延后 1 秒保存",
+  "commands": {},
+  "permissions": {}
+ },
+ {
+  "file": "XmRecipeCopy-1.0.2.jar",
+  "size": 4633,
+  "name": "XmRecipeCopy",
+  "version": "1.0.2",
+  "main": "com.xingmian.recipeCopy.XmRecipeCopy",
+  "api": "1.21",
+  "desc": "森罗厨房：写好的菜谱 + 空白菜谱 放进合成格即可复制",
+  "commands": {},
+  "permissions": {}
+ },
+ {
   "file": "YaoqingPlugin-1.0.0.jar",
   "size": 51144,
   "name": "YaoqingPlugin",
@@ -10488,6 +10642,48 @@
    },
    "yaoqing.admin": {
     "description": "邀请系统管理（绑定明细/重置/重算）",
+    "default": "op"
+   }
+  }
+ },
+ {
+  "file": "YccHongBao.1.0.0.jar",
+  "size": 32035,
+  "name": "YccHongBao",
+  "version": "1.0.0",
+  "main": "com.ycc.hongbao.YccHongBaoPlugin",
+  "api": "1.20",
+  "desc": "GUI and chat red packet economy plugin for Bukkit, Spigot, Paper, Purpur, and Folia cores.",
+  "commands": {
+   "ycch": {
+    "description": "YccHongBao 红包主命令",
+    "usage": "/ycch help",
+    "aliases": [
+     "ycchongbao",
+     "ycchb"
+    ]
+   }
+  },
+  "permissions": {
+   "ycch.admin": {
+    "description": "打开管理员红包 GUI、发送红包和重载配置",
+    "default": "op",
+    "children": {
+     "ycch.send": true,
+     "ycch.claim": true,
+     "ycch.reload": true
+    }
+   },
+   "ycch.send": {
+    "description": "发送红包",
+    "default": false
+   },
+   "ycch.claim": {
+    "description": "领取红包",
+    "default": true
+   },
+   "ycch.reload": {
+    "description": "重载红包配置",
     "default": "op"
    }
   }
@@ -10647,13 +10843,34 @@
  },
  {
   "file": "harvester-1.1.jar",
-  "size": 15406,
+  "size": 15456,
   "name": "Harvester",
   "version": "1.1",
   "main": "test.Harvester",
   "api": 1.21,
   "desc": "",
   "commands": {},
+  "permissions": {}
+ },
+ {
+  "file": "images-2.5.12.jar",
+  "size": 378846,
+  "name": "Images",
+  "version": "2.5.12",
+  "main": "com.andavin.images.Images",
+  "api": "1.13",
+  "desc": "A plugin to load and render images on maps.",
+  "commands": {
+   "image": {
+    "description": "Manage custom images.",
+    "usage": "/<command> [create|delete|list|import]",
+    "aliases": [
+     "customimage",
+     "images",
+     "img"
+    ]
+   }
+  },
   "permissions": {}
  },
  {
@@ -10808,6 +11025,22 @@
   "api": 1.13,
   "desc": "",
   "commands": {},
+  "permissions": {}
+ },
+ {
+  "file": "patpat-plugin-1.2.5.jar",
+  "size": 1117042,
+  "name": "PatPatPlugin",
+  "version": "1.2.5+0268419",
+  "main": "net.lopymine.patpat.plugin.PatPatPlugin",
+  "api": "1.16",
+  "desc": "",
+  "commands": {
+   "patpat": {
+    "description": "Command to configure and control the PatPat Plugin",
+    "usage": "/patpat (info | list | ratelimit | reload | pat)"
+   }
+  },
   "permissions": {}
  },
  {

@@ -1,0 +1,619 @@
+# PlayerTask  (PlayerTask-2.12.4.jar)
+## 注册指令
+  /playerTask  usage=None desc='玩家任务插件' alias=['plk'] perm=None
+
+## 代码类
+  com.handy.playertask.command.PlayerTaskCommand
+  com.handy.playertask.command.admin.AddDemandCommand
+  com.handy.playertask.command.admin.AddNpcTaskCommand
+  com.handy.playertask.command.admin.AddRewardCommand
+  com.handy.playertask.command.admin.AddShopCommand
+  com.handy.playertask.command.admin.ChangeItemCommand
+  com.handy.playertask.command.admin.CoinCommand
+  com.handy.playertask.command.admin.ConvertCommand
+  com.handy.playertask.command.admin.CreateCommand
+  com.handy.playertask.command.admin.DelTodayCommand
+  com.handy.playertask.command.admin.EditCommand
+  com.handy.playertask.command.admin.GetIpCommand
+  com.handy.playertask.command.admin.GetTodayCommand
+  com.handy.playertask.command.admin.ImportCommand
+  com.handy.playertask.command.admin.ReloadCommand
+  com.handy.playertask.command.admin.SetDescriptionCommand
+  com.handy.playertask.command.admin.SetEnableCommand
+  com.handy.playertask.command.admin.SetRarityCommand
+  com.handy.playertask.command.admin.ViewCommand
+  com.handy.playertask.command.player.OpenCommand
+  com.handy.playertask.command.player.OpenMeNpcTaskCommand
+  com.handy.playertask.command.player.OpenNpcCommand
+  com.handy.playertask.command.player.ShopCommand
+  com.handy.playertask.lib.HandyCommand
+  com.handy.playertask.lib.HandyCommandFactory
+  com.handy.playertask.lib.HandyCommandWrapper
+  com.handy.playertask.lib.HandySubCommand
+  com.handy.playertask.lib.HandySubCommandParam
+  com.handy.playertask.lib.IHandyCommandEvent
+  com.handy.playertask.listener.PlayerCommandPreprocessEventListener
+  com.handy.playertask.listener.ReelUpgradeCommandListener
+
+## javap 字符串 token
+  all id ilmp jrovjs n nqjdu playertask plk reelreplace reelup reelupgrade storage-method u w yht
+
+## 文本资源里的帮助/用法行
+  · # 语言文件[中文简体:zh_CN]
+  · # 是否开启更新提醒,建议开启(Whether to turn on update alerts, recommended)
+  · # op登录时候是否发送更新提醒(Whether to send update alerts when op logs in)
+  · # 每日任务刷新时间，24小时制 关闭的话请设置为""
+  · # NPC任务刷新时间，24小时制 关闭的话请设置为""
+  · # NPC任务刷新的任务ID列表,格式例子 [1,2]
+  · # 完成每日任务自动发送奖励(Automatic delivery of rewards for completing daily tasks)
+  · # 每日随机任务数量(Number of random tasks per day)
+  · # 是否开启抽取概率日志打印
+  · # 激活码
+  · # 隐藏上架任务商城的物品原lore ture隐藏
+  · # 每日全量备份数据到backUp目录
+  · # 备份时间
+  · # 挖掘任务目标有精准采集是否有效 true有效
+  · # 任务稀有度刷新概率(Mission Rarity Refresh Probability)
+  · # 颜色是推荐设置的任务名称颜色，方便玩家识别任务(The colour is the recommended setting of the mission name colour to make it easier for players to identify the mission)
+  · # 可无限扩展和修改子节点，权限格式: playerTask.rarity.稀有度类型.权限类型
+  · # 概率计算 单概率 / 总概率
+  · # 普通任务（白色） normal task (white) &f
+  · # playerTask.rarity.normal.default (每个玩家都默认有default权限)
+  · # 高级任务（蓝色）advanced task (blue) &9
+  · # 稀有任务（紫色） rare task (purple) &5
+  · # 罕见任务（粉色）rarer task (pink) &d
+  · # 史诗任务（橙色）epic task (orange) &e
+  · # 神话任务 (渐变色) mythical task (gradient) &e&l
+  · # 勿动!!!
+  · # 任务导入配置文件
+  · # 使用命令 /plk import 导入配置中的任务
+  · # 有id时为更新已有任务，无id时为新增任务（导入后会自动回填id）
+  · # 示例任务
+  · #   id: 1  # 有id时更新该任务，无id时新增（导入后自动回填）
+  · #   taskName: "&f林间伐木工"
+  · #   description: "砍伐树木获取木材"
+  · #   taskName: "&9怪物猎人"
+  · #   description: "击杀怪物"
+  · #       description: 获得一颗钻石
+  · # 材质配置,用来自定义任务的材质和模型
+  · # 配置格式:  任务id: 物品材质
+  · # 例如:  1: MAP  就是任务id 1 的任务(任务id使用/plk view list查看), 在/plk open里显示的材质
+  · # 例如:  1_custom-model-data: 16 就是任务id 1 的任务, 在商城和仓库里显示的自定义模型材质
+  · # 根据稀有度设置不同材质
+  · # 普通任务
+  · # 未完成的任务默认材质
+  · # 未完成的任务默认材质id
+  · # 已完成的任务默认材质
+  · # 未完成的任务默认材质id
+  · # 高级任务
+  · # 稀有任务
+  · # 罕见任务
+  · # 史诗任务
+  · # 神话任务 (渐变色)
+  · # 击杀普通怪物名称翻译,大小写不识别,建议统一使用小写
+  · # 格式如下: 自己添加
+  · # zombie: "僵尸"
+  · # piglin: "猪灵"
+  · website: https://ricedoc.handyplus.cn/wiki/PlayerTask/log/
+  · description: 一款有点好用的玩家任务插件
+  · description: 玩家任务插件
+  · description: 玩家任务插件
+  · description: 新增任务目标
+  · description: 新增任务奖励
+  · description: 新增任务币商品
+  · description: 查看任务
+  · description: 查看任务币商城
+  · description: 创建任务
+  · description: 管理任务
+  · description: 立即获取今日任务
+  · description: 删除今日的任务
+  · description: 重新加载配置
+  · description: 新增NPC任务
+  · description: 编辑任务
+  · description: 转换数据源
+  · description: 设置稀有度
+  · description: 将对应id的任务转化成物品
+  · description: 设置任务描述
+  · description: 任务币处理
+  · description: 打开NPC菜单
+  · description: 设置领取npc任务执行的命令
+  · description: 打开自己领取的的NPC任务列表
+  · description: 从配置文件导入任务
+  · # 卷轴任务(Reel tasks)
+  · # 按钮材质(Button material) 注意: 修改后会导致已经生成的卷轴任务无效(Note: Modifying this will invalidate scrolls that have already been generated)
+  · # 自定义模型材质 1.14+生效 0为不生效(Custom model material 1.14+ effective 0 is not effective)
+  · # 任务展示lore ${bindPlayer} 绑定玩家 ${taskTarget}任务目标 ${taskSchedule} 任务进度 ${taskReward}任务奖励 ${reelButton}按钮
+  · - '&c>> &a绑定玩家: &f${bindPlayer}'
+  · - '&c>> &a稀有度: &f${rarity}'
+  · - '&f[ &c任务目标 &f]'
+  · - '&f[ &c任务奖励 &f]'
+  · - '&8[&a✔&8] &d点击提交'
+  · # 任务记分板是否开启
+  · # 任务记分板配置
+  · # 存在任务进度显示的优先级
+  · # 不存在任务进度显示的优先级
+  · # 任务记分板显示内容
+  · # 可用变量 任务稀有度 ${rarity} 任务描述 ${description} 任务目标 ${taskSchedule} 任务奖励 ${taskReward}
+  · - '&f[ &c任务目标 &f]'
+  · - '&f[ &c任务奖励 &f]'
+  · - '&8[&a!&8] &a/sd&7切换显示'
+  · # 无任务时记分板显示内容
+  · - '&a✔ 已完成所有任务'
+  · - '&7当前没有进行中的任务'
+  · # 存储方法 (MySQL,SQLite) Storage methods(MySQL, SQLite)
+  · # 选择mysql后必填(Required after selecting mysql)
+  · # 额外参数-例如mysql8+如果报错可以添加 &allowPublicKeyRetrieval=true
+  · # gui标题
+  · title: "&f[&e请点击选择任务目标&f]"
+  · viewTitle: "&f[&e任务目标列表&f]"
+  · # 点击本菜单所有按钮播放的声音1.12+支持 优先级低
+  · # 音效列表 https://bukkit.windit.net/javadoc/org/bukkit/Sound.html
+  · # 默认的样式
+  · # 名称
+  · name: "&a任务目标 &7ID: &f${id}"
+  · # 点击本按钮播放的声音1.12+支持 优先级高
+  · # 位置
+  · # 上一页
+  · name: "    &8[&a上一页&8]"
+  · - '&8▪ &7点击打开上一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 搜索
+  · name: "    &8[&a根据类型搜索&8]"
+  · - '&8▪ &7当前类型: &a${type}'
+  · - '&8▪ &7左键切换: &a${nextType}'
+  · - '&8▪ &7当前排序: &a${sort}'
+  · - '&7左键切换类型 &f| &7右键切换排序'
+  · # 材质
+  · # 下一步
+  · name: "   &8[&a下一步&8]"
+  · - '&f- &7点击设置下一步'
+  · # 关闭按钮
+  · name: "   &8[&a关闭&8]"
+  · - '&f- &7点击关闭'
+  · # 下一页
+  · name: "    &8[&a下一页&8]"
+  · - '&8▪ &7点击打开下一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # gui标题
+  · title: "&f[&e任务列表&f]"
+  · # 默认的样式
+  · # 名称
+  · # 位置
+  · # 任务展示lore ${taskId} 任务ID ${taskType} 任务类型 ${taskTarget}任务目标  ${taskReward}任务奖励 ${buyButton}按钮 ${description}任务描述
+  · - '&c>> &a类型: &f${taskType}'
+  · - '&c>> &a稀有度: &f${rarity}'
+  · - '&c>> &a领取NPC任务执行命令: &f${enableCommand}'
+  · - '&f[ &c任务描述 &f]'
+  · - '&f[ &c任务目标 &f]'
+  · - '&f[ &c任务奖励 &f]'
+  · - '&8[&a✔&8] &a点击删除'
+  · # 上一页
+  · name: "    &8[&a上一页&8]"
+  · - '&8▪ &7点击打开上一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 下一页
+  · name: "    &8[&a下一页&8]"
+  · - '&8▪ &7点击打开下一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 搜索
+  · name: "    &8[&a根据类型搜索&8]"
+  · - '&8▪ &7当前类型: &a${type}'
+  · - '&8▪ &7点击切换: &a${nextType}'
+  · # 材质
+  · # 关闭按钮
+  · name: "   &8[&a关闭&8]"
+  · - '&f- &7点击关闭'
+  · # 稀有度搜索
+  · name: "    &8[&a根据稀有度搜索&8]"
+  · - '&8▪ &7当前稀有度: &a${type}'
+  · - '&8▪ &7点击切换: &a${nextType}'
+  · # 材质
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # gui标题
+  · title: "&f[&e请点击选择MythicMob怪物列表&f]"
+  · # 默认的样式
+  · # 位置
+  · # 上一页
+  · name: "    &8[&a上一页&8]"
+  · - '&8▪ &7点击打开上一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 完成
+  · name: "   &8[&a完成&8]"
+  · - '&f- &7点击完成'
+  · # 关闭按钮
+  · name: "   &8[&a关闭&8]"
+  · - '&f- &7点击关闭'
+  · # 下一页
+  · name: "    &8[&a下一页&8]"
+  · - '&8▪ &7点击打开下一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # gui标题
+  · title: "&f[&e任务列表&f]"
+  · viewTitle: "&f[&eNPC任务列表管理&f]"
+  · meTitle: "&f[&e我的NPC任务列表&f]"
+  · # 任务的样式
+  · # 名称
+  · # 任务所显示的位置
+  · # 未接任务材质
+  · # 已接材质
+  · # 已完成材质
+  · # 冷却中材质
+  · # 未接任务展示lore ${taskTarget}任务目标  ${taskReward}任务奖励 ${taskNumber}任务次数
+  · - '&f[ &c任务信息 &f]'
+  · - '&c>> &a稀有度: &f> &a${rarity}'
+  · - '&c>> &a可完成次数: &f> &a${taskNumber}'
+  · - '&f[ &c任务描述 &f]'
+  · - '&f[ &c任务目标 &f]'
+  · - '&f[ &c任务奖励 &f]'
+  · # 已接任务展示lore ${taskTarget}任务目标  ${taskReward}任务奖励 ${taskNumber}任务次数
+  · - '&f[ &c任务信息 &f]'
+  · - '&c>> &a稀有度: &f> &a${rarity}'
+  · - '&f[ &c任务描述 &f]'
+  · - '&f[ &c任务目标 &f]'
+  · - '&f[ &c任务奖励 &f]'
+  · # 管理的样式
+  · # 名称
+  · # 位置
+  · - '&8▪ &7 任务Id: &a${taskId}'
+  · - '&8▪ &7 前置任务Id: &a${parentId}'
+  · - '&8▪ &7 前置任务名称: &a${parentName}'
+  · - '&8▪ &7 是否永久任务: &a${isEver}'
+  · - '&8▪ &7 可以完成几次: &a${number}'
+  · - '&8▪ &7 任务冷却: &a${cd}'
+  · - '&8[&a✔&8] &a点击删除'
+  · # 上一页
+  · name: "    &8[&a上一页&8]"
+  · - '&8▪ &7点击打开上一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 下一页
+  · name: "    &8[&a下一页&8]"
+  · - '&8▪ &7点击打开下一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 自定义按钮，你可以在这无限扩展你想要的按钮，格式跟这个例子返回一样就好
+  · # 返回按钮
+  · name: "   &8[&a关闭&8]"
+  · - '&f- &7点击关闭'
+  · # 执行的命令
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # 介绍信息
+  · name: "      &8[&e任务系统介绍&8]"
+  · - '&f- &7小提醒&a在任务NPC页面中!'
+  · - '&f- &7鼠标&a左键&7点击完成任务!'
+  · - '&f- &7鼠标&a左键&7点击提交任务物品!'
+  · # gui标题
+  · title: "&f[&e每日任务列表&f]"
+  · # 默认的样式
+  · # 任务默认显示名称
+  · # 任务所显示的位置
+  · # 未完成任务默认材质
+  · # 已完成材质
+  · # 未完成任务默认自定义材质
+  · # 已完成任务默认自定义材质
+  · # 任务lore
+  · # 任务展示lore ${taskTarget}任务目标 ${taskSchedule} 任务进度 ${taskReward}任务奖励 ${buyButton}按钮 ${description}任务描述
+  · - '&f[ &c任务稀有度 &f]'
+  · - '&f[ &c任务描述 &f]'
+  · - '&f[ &c任务目标 &f]'
+  · - '&f[ &c任务奖励 &f]'
+  · # 商城
+  · name: "    &8[&a任务币商城&8]"
+  · - "&f- &7点击前往任务币商城"
+  · # 材质
+  · # 刷新按钮
+  · name: "    &8[&a刷新任务&8]"
+  · # 上一页
+  · name: "    &8[&a上一页&8]"
+  · - '&8▪ &7点击打开上一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 下一页
+  · name: "    &8[&a下一页&8]"
+  · - '&8▪ &7点击打开下一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 自定义按钮，你可以在这无限扩展你想要的按钮，格式跟这个例子返回一样就好
+  · # 返回按钮
+  · name: "   &8[&a返回&8]"
+  · - '&f- &7点击返回'
+  · # 执行的命令
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # 介绍信息
+  · name: "      &8[&e任务系统介绍&8]"
+  · - '&f- &7任务&a每天&7自动随机刷新!'
+  · - '&f- &7鼠标&a左键&7点击完成任务!'
+  · - '&f- &7鼠标&a左键&7点击提交任务物品!'
+  · # gui标题
+  · title: "&0刷新任务"
+  · # 是否开启完成过任务禁止刷新 true 开启 false 关闭
+  · # 一个玩家可以刷新的次数(可无限扩展和修改子节点，权限格式: playerTask.refreshNumber.权限类型)
+  · # 默认玩家的上限
+  · # vip1的上限 需要权限 playerTask.refreshNumber.vip1
+  · # vip2的上限 需要权限 playerTask.refreshNumber.vip2
+  · # vip3的上限 需要权限 playerTask.refreshNumber.vip3
+  · # 点券
+  · # 是否使用
+  · # 在gui中的坐标
+  · # 在gui中的材质名称
+  · # 是否附魔效果
+  · # 在gui中的名称
+  · name: "   &8[&5ℑ&8] ▪ &8[&d点券刷新&8]"
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 在gui中的lore ${guild_name}
+  · - '&8▪ &7点券刷新任务'
+  · - '&8▪ &7可刷新 &a${number} &7次'
+  · - '&8▪ &7需支付 &a${price} &7点券'
+  · - '&8▪ &7你拥有 &a${money} &7点券'
+  · # 价格
+  · # 金币
+  · name: "   &8[&6ℑ&8] ▪ &8[&e金币刷新&8]"
+  · - '&8▪ &7金币刷新任务'
+  · - '&8▪ &7可刷新 &a${number} &7次'
+  · - '&8▪ &7需支付 &a${price} &7金币'
+  · - '&8▪ &7你拥有 &a${money} &7金币'
+  · # 自定义货币
+  · name: "   &8[&6ℑ&8] ▪ &8[&e自定义货币刷新&8]"
+  · - '&8▪ &7自定义货币刷新任务'
+  · - '&8▪ &7可刷新 &a${number} &7次'
+  · - '&8▪ &7需支付 &a${price} &7${type}'
+  · - '&8▪ &7你拥有 &a${money} &7${type}'
+  · # 返回按钮
+  · name: "   &8[&a返回&8]"
+  · - '&f- &7点击返回'
+  · # 自定义按钮 你可以在这无限扩展你想要的按钮，格式跟这个例子返回一样就好
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # gui标题
+  · title: "&f[&e请点击选择任务奖励&f]"
+  · viewTitle: "&f[&e任务奖励列表&f]"
+  · # 默认的样式
+  · # 名称
+  · name: "&a任务奖励 &7ID: &f${id}"
+  · # 位置
+  · # 上一页
+  · name: "    &8[&a上一页&8]"
+  · - '&8▪ &7点击打开上一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 搜索
+  · name: "    &8[&a根据类型搜索&8]"
+  · - '&8▪ &7当前类型: &a${type}'
+  · - '&8▪ &7左键切换: &a${nextType}'
+  · - '&8▪ &7当前排序: &a${sort}'
+  · - '&7左键切换类型 &f| &7右键切换排序'
+  · # 材质
+  · # 完成
+  · name: "   &8[&a完成&8]"
+  · - '&f- &7点击完成创建'
+  · # 关闭按钮
+  · name: "   &8[&a关闭&8]"
+  · - '&f- &7点击关闭'
+  · # 下一页
+  · name: "    &8[&a下一页&8]"
+  · - '&8▪ &7点击打开下一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # gui标题
+  · title: "&f[&e任务商城&f]"
+  · viewTitle: "&f[&e任务商城管理&f]"
+  · # 默认的样式
+  · # 位置
+
+## 常量池帮助/描述文本
+  · com/handy/playertask/command/PlayerTaskCommand
+  · Lcom/handy/playertask/lib/HandyCommand;
+  · com/handy/playertask/lib/HandyCommandWrapper
+  · Lcom/handy/playertask/command/PlayerTaskCommand;
+  · com/handy/playertask/lib/BaseConstants
+  · com/handy/playertask/lib/HandyHttpUtil
+  · com/handy/playertask/lib/MessageUtil
+  · com/handy/playertask/lib/TranslationUtil
+  · com/handy/playertask/lib/BaseUtil
+  · com/handy/playertask/command/admin/AddDemandCommand
+  · com/handy/playertask/lib/IHandyCommandEvent
+  · com/handy/playertask/lib/HandyTab$Context
+  · com/handy/playertask/lib/HandyTab
+  · com/handy/playertask/PlayerTask
+  · com/handy/playertask/lib/mm/MythicMobUtil
+  · com/handy/playertask/lib/CollUtil
+  · Lcom/handy/playertask/lib/HandyTab$Context;
+  · com/handy/playertask/lib/StrUtil
+  · com/handy/playertask/entity/TaskDemand
+  · Lcom/handy/playertask/entity/TaskDemand;
+  · com/handy/playertask/lib/HandySchedulerUtil
+  · Lcom/handy/playertask/command/admin/AddDemandCommand;
+  · com/handy/playertask/lib/Tx
+  · com/handy/playertask/lib/AssertUtil
+  · com/handy/playertask/constants/ShearTypeEnum
+  · com/handy/playertask/inventory/MythicMobGui
+  · com/handy/playertask/lib/PlayerSchedulerUtil
+  · com/handy/playertask/constants/TaskConstants
+  · com/handy/playertask/constants/DemandTypeEnum
+  · Lcom/handy/playertask/constants/DemandTypeEnum;
+  · com/handy/playertask/lib/ItemStackUtil
+  · com/handy/playertask/lib/LegacyUtil
+  · Lcom/handy/playertask/lib/HandyTab;
+  · com/handy/playertask/service/TaskDemandService
+  · com/handy/playertask/command/admin/AddNpcTaskCommand
+  · Lcom/handy/playertask/command/admin/AddNpcTaskCommand;
+  · com/handy/playertask/service/TaskPlayerService
+  · com/handy/playertask/service/TaskListService
+  · com/handy/playertask/entity/TaskList
+  · com/handy/playertask/constants/TaskTypeEnum
+  · Lcom/handy/playertask/constants/TaskTypeEnum;
+  · com/handy/playertask/entity/TaskNpc
+  · com/handy/playertask/service/TaskNpcService
+  · com/handy/playertask/command/admin/AddRewardCommand
+  · Lcom/handy/playertask/command/admin/AddRewardCommand;
+  · com/handy/playertask/constants/RewardTypeEnum
+  · com/handy/playertask/entity/TaskRewards
+  · Lcom/handy/playertask/constants/RewardTypeEnum;
+  · com/handy/playertask/service/TaskRewardsService
+  · com/handy/playertask/command/admin/AddShopCommand
+  · com/handy/playertask/util/TaskUtil
+  · Lcom/handy/playertask/command/admin/AddShopCommand;
+  · com/handy/playertask/constants/ShopTypeEnum
+  · com/handy/playertask/lib/Db
+  · com/handy/playertask/entity/TaskShop
+  · com/handy/playertask/service/TaskShopService
+  · §e用法：/playerTask changeitem <任务ID> [玩家]
+  · §e请指定需要发放卷轴的玩家。
+  · §c未找到指定玩家。
+  · §c任务ID必须为数字。
+  · §c未找到该任务。
+  · com/handy/playertask/entity/TaskReel
+  · com/handy/playertask/service/TaskReelService
+  · com/handy/playertask/entity/TaskReelPlayerDemand
+  · com/handy/playertask/service/TaskReelPlayerDemandService
+  · §a已发放共享卷轴
+  · §a发放成功。
+  · §c发放失败。
+  · com/handy/playertask/command/admin/ChangeItemCommand
+  · com/handy/playertask/command/admin/CoinCommand
+  · com/handy/playertask/lib/Va
+  · com/handy/playertask/lib/Page
+  · Lcom/handy/playertask/command/admin/CoinCommand;
+  · com/handy/playertask/util/SubmitTaskUtil
+  · com/handy/playertask/service/TaskCoinService
+  · com/handy/playertask/constants/CoinTypeEnum
+  · com/handy/playertask/lib/MapUtil
+  · com/handy/playertask/command/admin/ConvertCommand
+  · Lcom/handy/playertask/command/admin/ConvertCommand;
+  · com/handy/playertask/lib/DbTypeEnum
+  · Lcom/handy/playertask/lib/DbTypeEnum;
+  · ri秕欿輸挿ｕ参嚴ｑ惼弎则伢畼盙嬌僵旭归嶦纒乮ｇ
+  · com/handy/playertask/entity/TaskCoin
+  · com/handy/playertask/lib/DbExecution
+  · com/handy/playertask/entity/TaskNpcPlayer
+  · com/handy/playertask/entity/TaskNpcPlayerDemand
+  · com/handy/playertask/entity/TaskPlayer
+  · com/handy/playertask/entity/TaskPlayerDemand
+  · 嬟僻旾沆o>��k��.'"z记奞剱抿厰凖盃簨埌乊角膭嶢凞
+  · com/handy/playertask/lib/HandyConfigUtil
+  · com/handy/playertask/lib/SqlManagerUtil
+  · com/handy/playertask/command/admin/CreateCommand
+  · com/handy/playertask/lib/LotteryUtil
+  · Lcom/handy/playertask/command/admin/CreateCommand;
+  · com/handy/playertask/constants/RarityEnum
+  · Lcom/handy/playertask/constants/RarityEnum;
+  · com/handy/playertask/inventory/CreateDemandGui
+  · com/handy/playertask/command/admin/DelTodayCommand
+  · Lcom/handy/playertask/command/admin/DelTodayCommand;
+  · com/handy/playertask/lib/config/MetricsConfig
+  · com/handy/playertask/util/TaskJob
+  · com/handy/playertask/command/admin/EditCommand
+  · com/handy/playertask/lib/InventoryViewUtil
+  · Lcom/handy/playertask/command/admin/EditCommand;
+  · Lcom/handy/playertask/entity/TaskList;
+  · com/handy/playertask/command/admin/GetIpCommand
+  · com/handy/playertask/lib/MetricsBase
+  · Lcom/handy/playertask/command/admin/GetIpCommand;
+  · com/handy/playertask/command/admin/GetTodayCommand
+  · Lcom/handy/playertask/command/admin/GetTodayCommand;
+  · com/handy/playertask/command/admin/ImportCommand
+  · Lcom/handy/playertask/command/admin/ImportCommand;
+  · com/handy/playertask/lib/ClassUtil
+  · com/handy/playertask/util/ConfigUtil
+  · com/handy/playertask/lib/NumberUtil
+  · com/handy/playertask/command/admin/ReloadCommand
+  · Lcom/handy/playertask/command/admin/ReloadCommand;
+  · com/handy/playertask/command/admin/SetDescriptionCommand
+  · Lcom/handy/playertask/command/admin/SetDescriptionCommand;
+  · com/handy/playertask/command/admin/SetEnableCommand
+  · Lcom/handy/playertask/command/admin/SetEnableCommand;
+  · com/handy/playertask/lib/EntitySchedulerUtil
+  · com/handy/playertask/command/admin/SetRarityCommand
+  · Lcom/handy/playertask/command/admin/SetRarityCommand;
+  · com/handy/playertask/command/admin/ViewCommand
+  · Lcom/handy/playertask/command/admin/ViewCommand;
+  · com/handy/playertask/inventory/ViewListGui
+  · com/handy/playertask/inventory/ViewDemandGui
+  · com/handy/playertask/inventory/ViewRewardsGui
+  · com/handy/playertask/inventory/ViewNpcGui
+  · com/handy/playertask/inventory/ViewShopGui
+  · com/handy/playertask/command/player/OpenCommand
+  · Lcom/handy/playertask/command/player/OpenCommand;
+  · com/handy/playertask/inventory/OpenGui
+  · com/handy/playertask/command/player/OpenMeNpcTaskCommand
+  · com/handy/playertask/lib/Pair
+  · com/handy/playertask/inventory/OpenMeNpcTaskGui
+  · Lcom/handy/playertask/command/player/OpenMeNpcTaskCommand;
+  · com/handy/playertask/command/player/OpenNpcCommand
+  · com/handy/playertask/inventory/TaskNpcGui
+  · Lcom/handy/playertask/command/player/OpenNpcCommand;
+  · com/handy/playertask/command/player/ShopCommand
+  · Lcom/handy/playertask/command/player/ShopCommand;
+  · com/handy/playertask/inventory/ShopGui
+  · com/handy/playertask/lib/HandyCommand
+  · §4你没有权限执行该命令
+  · com/handy/playertask/lib/HandyCommandFactory
+  · Lcom/handy/playertask/lib/HandyCommandFactory;
+  · Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Lcom/handy/playertask/lib/HandySubCommandParam;>;>;
+  · Ljava/util/Map<Ljava/lang/String;Lcom/handy/playertask/lib/IHandyCommandEvent;>;
+  · Lcom/handy/playertask/lib/IHandyCommandEvent;
+  · com/handy/playertask/lib/LockUtil
+  · com/handy/playertask/lib/InitApi
+  · com/handy/playertask/lib/HandySubCommandParam
+  · com/handy/playertask/lib/NetUtil
+  · com/handy/playertask/lib/SignService
+  · g?杫梞洊剮澁浥础r讶耊粺伂聄赳丱dxkwfplqkw
+  · Lcom/handy/playertask/lib/HandySubCommandParam;
+  · com/handy/playertask/lib/Ya
+  · Lcom/handy/playertask/lib/HandyCommandWrapper;
+  · com/handy/playertask/lib/HandySubCommand
+  · com/handy/playertask/listener/PlayerCommandPreprocessEventListener
+  · Lcom/handy/playertask/lib/HandyListener;
+  · 惽扵蠙五吨件o
+  · com/handy/playertask/event/PlayerTaskScheduleEvent
+  · Lcom/handy/playertask/listener/PlayerCommandPreprocessEventListener;
+  · com/handy/playertask/listener/ReelUpgradeCommandListener
+  · com/handy/playertask/util/ReelUtil
+  · §e请先将【旧绑定卷轴】放入主手，然后执行：/playerTask reelupgrade
+  · §7该卷轴记录已完成/已迁移，无需再次升级。
+  · §a替换成功：旧绑定卷轴已升级为任务级共享卷轴。
+  · §7该卷轴记录已完成/已迁移。
+  · §c该旧绑定卷轴对应的玩家任务记录不存在，无法升级（LURE等级=）。
+  · §a批量替换完成：成功  张
+  · ，跳过  张（无对应任务记录或已迁移）
+  · §c无法定位该旧绑定卷轴对应的玩家任务记录（LURE等级=），请联系管理员。

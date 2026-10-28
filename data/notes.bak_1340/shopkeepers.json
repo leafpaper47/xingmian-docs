@@ -1,0 +1,151 @@
+{
+  "name": "Shopkeepers",
+  "role": "用村民或实体当店主的玩家商店与系统商店系统",
+  "summary": "Shopkeepers 让你用村民、流浪商人、告示牌甚至 Citizens NPC 当店主，摆一个就能开一家店：玩家店主由玩家自己上架买卖，管理员店主可由你设定无限库存与交易权限。它把创建道具、编辑界面、交易历史、转让与出租都收在 /shopkeeper 一个命令树下。服的通货通常还是用物品（如金币物品、绿宝石），所以它常和 Citizens、PlaceholderAPI 一起装，用来管主城商业区。",
+  "whatFor": [
+    "在主城、出生点或玩家市场摆系统商店，让玩家直接右键买卖基础物资",
+    "给玩家开放摆摊权限，让他们自己开玩家店主卖装备、收材料",
+    "管理员清理、转让、查找玩家商店，处理占地或违规店铺",
+    "需要定时或按权限开放的商店（交易权限、可雇佣出租的店主）"
+  ],
+  "flow": [
+    "装好插件先执行 /shopkeeper reload，确认加载成功且语言文件正常",
+    "用 /shopkeeper give player 拿到玩家店主创建道具，右键地面放置店主",
+    "右键店主、或 /shopkeeper edit 店主ID 进入编辑界面，设置交易物、价格与外观",
+    "建系统商店则用 /shopkeeper give admin 拿管理员创建道具，编辑时可设无限库存与交易权限",
+    "日常维护用 /shopkeeper list 查自家店铺、/shopkeeper history 看交易记录、/shopkeeper remove 删店"
+  ],
+  "commands": [
+    {
+      "cmd": "shopkeeper",
+      "what": "店主系统总命令，所有创建、编辑、管理功能都在这里",
+      "syntax": "/shopkeeper help",
+      "params": [
+        {
+          "name": "子命令",
+          "required": false,
+          "note": "如 help、reload、list、edit、give 等；不带参数执行会提示用法"
+        }
+      ],
+      "examples": [
+        "/shopkeeper help",
+        "/shopkeeper reload",
+        "/shopkeeper list"
+      ],
+      "notes": "别名 /shopkeepers。大部分管理类子命令需要 shopkeeper.admin 或对应的 shopkeeper.xxx 权限；编辑店主时在编辑界面里用的是聊天栏输入的关键词，不是斜杠命令。"
+    }
+  ],
+  "subcommands": [
+    {
+      "cmd": "help 页码",
+      "desc": "列出全部店主命令与用法，分页查看",
+      "example": "/shopkeeper help"
+    },
+    {
+      "cmd": "reload",
+      "desc": "重载配置文件与语言文案，已经摆好的店主保留",
+      "example": "/shopkeeper reload"
+    },
+    {
+      "cmd": "list 页码",
+      "desc": "列出自己名下的玩家店主及其编号",
+      "example": "/shopkeeper list"
+    },
+    {
+      "cmd": "list admin 页码",
+      "desc": "列出服务器管理员商店",
+      "example": "/shopkeeper list admin"
+    },
+    {
+      "cmd": "edit 店主ID",
+      "desc": "打开指定店主的编辑界面，改类型、交易、名称、外观",
+      "example": "/shopkeeper edit 12"
+    },
+    {
+      "cmd": "remove 店主ID",
+      "desc": "删除指定的店主",
+      "example": "/shopkeeper remove 12"
+    },
+    {
+      "cmd": "remove all",
+      "desc": "删除自己名下的全部店主",
+      "example": "/shopkeeper remove all"
+    },
+    {
+      "cmd": "removeall 玩家名",
+      "desc": "管理员批量删除某位玩家的所有店主",
+      "example": "/shopkeeper removeall Steve"
+    },
+    {
+      "cmd": "teleport 店主ID",
+      "desc": "传送自己到店主所在位置，方便现场处理",
+      "example": "/shopkeeper teleport 12"
+    },
+    {
+      "cmd": "transfer 店主ID 玩家名",
+      "desc": "把玩家店主的所有权转让给别人",
+      "example": "/shopkeeper transfer 12 Steve"
+    },
+    {
+      "cmd": "give player",
+      "desc": "给自己一个玩家店主创建道具，放置后生成店主",
+      "example": "/shopkeeper give player"
+    },
+    {
+      "cmd": "give admin",
+      "desc": "给自己一个管理员商店创建道具",
+      "example": "/shopkeeper give admin"
+    },
+    {
+      "cmd": "givecurrency",
+      "desc": "给自己一个货币道具，用于在编辑界面指定交易货币物品",
+      "example": "/shopkeeper givecurrency"
+    },
+    {
+      "cmd": "setcurrency",
+      "desc": "把手上拿的物品设为店主的交易货币",
+      "example": "/shopkeeper setcurrency"
+    },
+    {
+      "cmd": "notify on",
+      "desc": "打开自己店主的交易通知，off 为关闭",
+      "example": "/shopkeeper notify on"
+    },
+    {
+      "cmd": "history 页码",
+      "desc": "查看自己店主的交易历史记录",
+      "example": "/shopkeeper history"
+    },
+    {
+      "cmd": "remote 店主ID",
+      "desc": "不走到店门口，远程打开商店交易界面",
+      "example": "/shopkeeper remote 12"
+    },
+    {
+      "cmd": "remoteedit 店主ID",
+      "desc": "远程打开商店的编辑界面",
+      "example": "/shopkeeper remoteedit 12"
+    },
+    {
+      "cmd": "setforhire 价格",
+      "desc": "把店主设为可被玩家雇佣出租，执行前需处于该店主的编辑状态",
+      "example": "/shopkeeper setforhire 500"
+    },
+    {
+      "cmd": "settradeperm 权限节点",
+      "desc": "设置管理员商店交易所需的权限节点",
+      "example": "/shopkeeper settradeperm shopkeeper.trade"
+    }
+  ],
+  "caution": [
+    "店主是用创建道具放置出来的实体或方块，删掉店主一般不能原地复活，重建要重新配置交易，挪位置前先在测试服试一遍",
+    "玩家能开几家店受 maxshops 限制，只有 shopkeeper.maxshops.unlimited 才能不限数量，做活动送店铺要临时给权限",
+    "交易历史会按配置定期清理，查违规刷货币要趁早导出，删店后记录更不好追",
+    "Citizens NPC 店主依赖 Citizens 插件，没装时相关类型不可用；改完语言文件用 /shopkeeper reload 而不是重启验证，具体子命令写法与参数以游戏内 /shopkeeper help 为准"
+  ],
+  "related": [
+    "Citizens",
+    "PlaceholderAPI",
+    "Vault"
+  ]
+}

@@ -1,0 +1,41 @@
+# Ah-Toy-1.0  (Ah-Toy-1.0.jar)
+## 注册指令
+  /toy  usage='/toy <give <钩爪|斗蛐蛐> [玩家]|reload>' desc='获取玩具或重载配置' alias=None perm=None
+
+## 代码类
+  io.github.ahleaf.ahtoy.command.ToyCommand
+
+## javap 字符串 token
+  give reload
+
+## 文本资源里的帮助/用法行
+  · description: 玩具商阿叶 - 独立配置的趣味玩具
+  · description: 获取玩具或重载配置
+  · usage: "/toy <give <钩爪|斗蛐蛐> [玩家]|reload>"
+  · description: 允许使用 /toy give 获取玩具
+  · description: 允许使用 /toy reload 重载玩具配置
+  · name: "斗蛐蛐"
+  · - "依次右键两个生物，让它们互相设为攻击目标。"
+  · # 可选：服务器资源包模型。未设置时使用原版指南针外观。
+  · name: "钩爪"
+  · - "右键发射钩爪，命中方块后牵引自己。"
+  · # 可选：服务器资源包模型。未设置时使用原版钓鱼竿外观。
+  · # 可选：飞行钩子的模型，不设置时显示原版绊线钩。
+
+## 常量池帮助/描述文本
+  · io/github/ahleaf/ahtoy/command/ToyCommand
+  · 你没有权限重载玩具配置。
+  · io/github/ahleaf/ahtoy/toy/Toy
+  · 玩具配置已重载；正在进行的玩具效果已结束。
+  · 玩具配置重载失败。
+  · 配置重载失败；已成功重载的玩具使用新配置，请检查控制台。
+  · 你没有权限使用 /toy give。
+  · 未知玩具。可用玩具：钩爪、斗蛐蛐。
+  · Ljava/util/Map<Ljava/lang/String;Lio/github/ahleaf/ahtoy/toy/Toy;>;
+  · Lio/github/ahleaf/ahtoy/command/ToyCommand;
+  · Lio/github/ahleaf/ahtoy/toy/Toy;
+  · 找不到在线玩家：
+  · 控制台使用时请指定玩家：/ give  <玩家>
+  · 你获得了玩具：。
+  · 已将  发给 。
+  · 用法：/ give <钩爪|斗蛐蛐> [玩家] 或 / reload

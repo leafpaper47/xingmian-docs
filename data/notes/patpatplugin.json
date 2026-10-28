@@ -1,0 +1,40 @@
+{
+ "name": "PatPatPlugin",
+ "role": "拍拍互动",
+ "summary": "玩家之间「拍一拍」的轻互动：记录次数与排行榜，支持限速、权限与列表维护；管理员用它查数据、封禁刷屏者。",
+ "quick": [
+  {"scene": "看谁拍得多", "cmd": "/patpat list", "note": "排行榜，可选页码"},
+  {"scene": "查某个人的拍拍数据", "cmd": "/patpat info Steve", "note": "拍人与被拍次数"},
+  {"scene": "有人刷屏，先关他的限速开关", "cmd": "/patpat ratelimit disable Steve", "note": "禁用后不能再拍"},
+  {"scene": "给玩家单独设冷却", "cmd": "/patpat ratelimit limit Steve 30", "note": "30 秒一次"}
+ ],
+ "commands": [
+  {"cmd": "patpat", "what": "拍拍主指令（数据/限速/权限/列表/重载）", "syntax": "/patpat <info|list|ratelimit|permission|reload|pat> [参数]",
+   "examples": ["/patpat list", "/patpat info Steve"], "notes": "只有这一个入口，其余都是子指令"}
+ ],
+ "subcommands": [
+  {"cmd": "/patpat pat <玩家>", "desc": "管理员代发一次「拍一拍」（测文案/音效）", "example": "/patpat pat Steve"},
+  {"cmd": "/patpat info <玩家>", "desc": "查看玩家的拍人/被拍统计", "example": "/patpat info Steve"},
+  {"cmd": "/patpat list [页码]", "desc": "查看拍拍排行榜", "example": "/patpat list 1"},
+  {"cmd": "/patpat list add <玩家> <数量>", "desc": "手工给榜单加分（调数据用）", "example": "/patpat list add Steve 10"},
+  {"cmd": "/patpat list set <玩家> <数量>", "desc": "直接设定榜单数值", "example": "/patpat list set Steve 100"},
+  {"cmd": "/patpat list remove <玩家>", "desc": "把玩家从榜单移除", "example": "/patpat list remove Steve"},
+  {"cmd": "/patpat list info", "desc": "查看榜单自身信息（条目数等）", "example": "/patpat list info"},
+  {"cmd": "/patpat ratelimit info <玩家>", "desc": "查询玩家当前冷却状态", "example": "/patpat ratelimit info Steve"},
+  {"cmd": "/patpat ratelimit limit <玩家> <秒>", "desc": "设置该玩家的冷却秒数", "example": "/patpat ratelimit limit Steve 30"},
+  {"cmd": "/patpat ratelimit enable|disable <玩家>", "desc": "开启/关闭限速检查", "example": "/patpat ratelimit disable Steve"},
+  {"cmd": "/patpat ratelimit toggle <玩家>", "desc": "切换限速开关", "example": "/patpat ratelimit toggle Steve"},
+  {"cmd": "/patpat permission enable|disable <玩家>", "desc": "临时允许/禁止某玩家使用拍拍", "example": "/patpat permission disable Steve"},
+  {"cmd": "/patpat permission set <玩家> <true|false>", "desc": "显式设置该玩家的拍拍开关", "example": "/patpat permission set Steve false"},
+  {"cmd": "/patpat reload", "desc": "重载配置（冷却、文案、音效）", "example": "/patpat reload"}
+ ],
+ "caution": [
+  "改完 config.yml 必须 /patpat reload，否则冷却与文案不生效。",
+  "ratelimit disable 与 permission disable 效果相近但来源不同（一个走限速、一个走权限判定），排查「他为什么还能拍」时两处都要看。",
+  "list set/add 会直接改写排行榜数据，调之前记下原值，避免玩家实际数据被覆盖。"
+ ],
+ "permissions": {
+  "patpat.use": "普通玩家拍拍他人",
+  "patpat.admin": "info / list / ratelimit / permission / reload 管理子指令"
+ }
+}

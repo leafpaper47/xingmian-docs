@@ -1,0 +1,707 @@
+# ItemEdit  (ItemEdit-3.7.10-zh.jar)
+## 注册指令
+  /itemedit  usage='/itemedit' desc='编辑手持物品' alias=['ie'] perm=None
+  /itemeditinfo  usage='/itemeditinfo' desc='查看 ItemEdit 的信息' alias=None perm=None
+  /itemeditimport  usage='/itemeditimport' desc='从其它插件导入配置' alias=None perm=None
+  /itemeditreload  usage='/itemeditreload' desc='重载配置' alias=None perm=None
+  /itemstorage  usage='/itemstorage' desc='保存与取回自己创建的物品' alias=['is'] perm=None
+  /serveritem  usage='/serveritem' desc='保存与取回物品，并可用控制台命令向玩家出售或购买' alias=['si'] perm=None
+
+## 代码类
+  emanondev.itemedit.command.AbstractCommand$HelpSubCommand
+  emanondev.itemedit.command.AbstractCommand
+  emanondev.itemedit.command.ItemEditCommand
+  emanondev.itemedit.command.ItemEditImportCommand
+  emanondev.itemedit.command.ItemEditInfoCommand
+  emanondev.itemedit.command.ItemStorageCommand
+  emanondev.itemedit.command.ReloadCommand
+  emanondev.itemedit.command.ServerItemCommand
+  emanondev.itemedit.command.SubCmd
+  emanondev.itemedit.command.itemedit.Amount
+  emanondev.itemedit.command.itemedit.Attribute
+  emanondev.itemedit.command.itemedit.AxolotlVariant
+  emanondev.itemedit.command.itemedit.Banner
+  emanondev.itemedit.command.itemedit.BookAuthor
+  emanondev.itemedit.command.itemedit.BookEnchant
+  emanondev.itemedit.command.itemedit.BookType
+  emanondev.itemedit.command.itemedit.ColorOld
+  emanondev.itemedit.command.itemedit.ColorSubcommand
+  emanondev.itemedit.command.itemedit.Compass
+  emanondev.itemedit.command.itemedit.CustomModelData
+  emanondev.itemedit.command.itemedit.Damage
+  emanondev.itemedit.command.itemedit.Enchant
+  emanondev.itemedit.command.itemedit.Equipment
+  emanondev.itemedit.command.itemedit.FireResistent
+  emanondev.itemedit.command.itemedit.Firework
+  emanondev.itemedit.command.itemedit.FireworkPower
+  emanondev.itemedit.command.itemedit.Food$FoodPojo
+  emanondev.itemedit.command.itemedit.Food
+  emanondev.itemedit.command.itemedit.Glider
+  emanondev.itemedit.command.itemedit.Glow
+  emanondev.itemedit.command.itemedit.GoatHornSound
+  emanondev.itemedit.command.itemedit.Hide
+  emanondev.itemedit.command.itemedit.HideAll
+  emanondev.itemedit.command.itemedit.HideToolTip
+  emanondev.itemedit.command.itemedit.ItemModel
+  emanondev.itemedit.command.itemedit.ListAliases
+  emanondev.itemedit.command.itemedit.Lore
+  emanondev.itemedit.command.itemedit.MaxDurability
+  emanondev.itemedit.command.itemedit.MaxStackSize
+  emanondev.itemedit.command.itemedit.PotionEffectEditor
+  emanondev.itemedit.command.itemedit.Rarity
+  emanondev.itemedit.command.itemedit.Rename
+  emanondev.itemedit.command.itemedit.RepairCost
+  emanondev.itemedit.command.itemedit.SkullOwner
+  emanondev.itemedit.command.itemedit.SpawnerEggType
+  emanondev.itemedit.command.itemedit.ToolTipStyle
+  emanondev.itemedit.command.itemedit.Trim
+  emanondev.itemedit.command.itemedit.TropicalFish
+  emanondev.itemedit.command.itemedit.Type
+  emanondev.itemedit.command.itemedit.Unbreakable
+  emanondev.itemedit.command.itemstorage.Delete
+  emanondev.itemedit.command.itemstorage.Get
+  emanondev.itemedit.command.itemstorage.Save
+  emanondev.itemedit.command.itemstorage.Show
+  emanondev.itemedit.command.itemstorage.Update
+  emanondev.itemedit.command.serveritem.Buy
+  emanondev.itemedit.command.serveritem.BuyMax
+  emanondev.itemedit.command.serveritem.Delete
+  emanondev.itemedit.command.serveritem.Drop
+  emanondev.itemedit.command.serveritem.Give
+  emanondev.itemedit.command.serveritem.GiveAll
+  emanondev.itemedit.command.serveritem.Save
+  emanondev.itemedit.command.serveritem.Sell
+  emanondev.itemedit.command.serveritem.SellMax
+  emanondev.itemedit.command.serveritem.SetNick
+  emanondev.itemedit.command.serveritem.Show
+  emanondev.itemedit.command.serveritem.Take
+  emanondev.itemedit.command.serveritem.Update
+
+## javap 字符串 token
+  add addeffect allowedentities already_used_id ambient amount amplifier animation armortrim attribute axolotlvariant banner bodycolor bookauthor bookenchant booktype buy buymax cameraoverlay can_always_eat canalwayseat canshear clear cleareffects color commands_per_page compass consume_seconds consumeparticles convertto copy copybook copyfile custommodeldata damage damageonhurt default delete description dispensable drop duration eat eatticks effect effects enchant equipment equiponinteract equipsound feedback feedback-reset fireresistent firework fireworkpower first_color food footer get getusingconvertsto give giveall glider glow goathornsound has_consume_particles header header-sub help help-header hide hideall hidetooltip hover_info hover_type id infinite info insert instant invalid-namespacedkey invalid-type item itemedit itemeditor itemmodel items itemstorage itemtag itemtag-tip itemtag-tip-hover lack-permission lack-permission-generic last limit-reached listaliases log lore lorecopy maxdurability maxstacksize minecraft model mythicmobs name nbtapi next_hover next_text next_void no-inventory-space no-item-on-hand nope not-enough-items not-enough-money not-enough-space nutrition on_consume_effects params paste pattern patterncolor placeholderapi player-only plugins postfix_line potion potioneffect prefix_line premiumvanish prev_hover prev_text prev_void probability rarity reload remove removeeffect rename repaircost replace reset saturation save second_color sell sellmax serveritem set setnick setusingconvertsto shearsound shopguiplus show show_icon show_particles skullowner slot sound spawnereggtype success supervanish swappable take tooltipstyle transaction-failed tropicalfish type unbreakable unsupported-version update use_remainer vault wrong-animation wrong-attribute wrong-axolotl wrong-boolean wrong-color wrong-effect wrong-enchant wrong-entity wrong-entitygroup wrong-entitytype wrong-equipment wrong-flag wrong-generation wrong-material wrong-operation wrong-pattern wrong-rarity wrong-slot wrong-sound wrong-type x
+
+## 文本资源里的帮助/用法行
+  · # Wiki https://github.com/emanondev/ItemEdit/wiki
+  · # 捐赠 https://www.paypal.me/FlavioLiponi/
+  · # 请勿修改 config-version
+  · # 有插件更新时在控制台提示
+  · # 默认语言
+  · # 想增加语言：复制 language/en.yml，改名后填写你的翻译，
+  · # 插件会在 reload 或重启服务器后自动启用
+  · # 需要服务端版本 1.12+
+  · # 设为 true 时，若客户端语言存在对应语言文件，则使用客户端语言
+  · # 设为 false 则所有玩家统一使用上面的 default 语言
+  · # 版本变化时是否重新生成语言文件？
+  · # 设为 true 时，检测到游戏版本变化会删除并用最新版本覆盖这些文件
+  · # 自 1.20.6+ 起，由于一个不会被修复的 Bug，在 Paper 及其分支（如 Purpur）上
+  · # 无法隐藏物品的默认属性
+  · # 发放的服务器物品，其名称或 Lore 里的占位符是否需要替换？
+  · # 内置占位符：%player_name% %player_uuid%
+  · # 支持 PlaceHolderAPI
+  · # 这会影响 give/take/sell/sellmax/buy/buymax 这些动作
+  · # 如果占位符的值会变化、或持有者变了，可能产生数据不一致
+  · # 这种不一致只会影响带占位符的物品
+  · # 不一致示例：
+  · # 玩家 A 买了一个带 %player_name% 的物品，玩家 B 拿走 A 的物品，B 想卖掉它，但卖不掉，
+  · # 因为 B 的 %player_name% 和 A 的不一样
+  · # 玩家 A 买了一个带 %player_name% 的物品，A 改名成 B 后想卖掉它，但卖不掉，
+  · # 因为 %player_name% 现在是 B，与旧名字 A 不匹配
+  · # /si give 与 /si giveall 时，目标玩家背包放不下的多余物品是否掉落？
+  · # 设为 true：多余物品掉落在玩家面前
+  · # 设为 false：多余物品直接删除
+  · # 选择存储方式。可用：YAML、MongoDB
+  · # 若使用 MongoDB 作为存储方案，请在此填写连接信息。
+  · # 玩家是否按 uuid 识别？
+  · # 设为 false 则按名字识别
+  · # 注意：玩家可能改名，除非你清楚后果，否则请使用 uuid
+  · # 每个玩家最多可保存多少个物品？
+  · # 提示：设为 -1 表示无限
+  · # 是否把操作记录输出到控制台？
+  · # 是否把操作记录写入日志文件？
+  · # 日志保存在 logs 文件夹，文件名日期格式可在此修改
+  · # 提示：若想把整个月存进一个文件而不是每天一个，去掉 ".dd" 即可
+  · # 日志可带日期前缀，格式在此设置
+  · # 记录玩家获得物品的操作？（/serveritem give [...]）
+  · # 记录玩家获得物品的操作？（/serveritem giveall [...]）
+  · # 记录从玩家处移除物品的操作？（/serveritem take [...]）
+  · # 记录玩家购买物品的操作？（/serveritem sell/sellmax [...]）
+  · # 记录玩家卖出物品的操作？（/serveritem buy/buymax [...]）
+  · # 文本被拦截时，在控制台显示一条消息，记录该文本与命中的违禁词/正则
+  · # 文本被拦截时，在日志文件里保存一条消息，记录该文本与命中的违禁词/正则
+  · # 编辑物品时禁止使用的词（除非你有绕过权限）
+  · # 影响 /ie rename、/ie lore 等命令
+  · # 任何包含匹配违禁词子序列的文本都会被拦截
+  · # 编辑物品时禁止匹配的正则（除非你有绕过权限）
+  · # 影响 /ie rename、/ie lore 等命令
+  · # 正则是一段用于定义搜索模式的字符序列
+  · # 任何包含匹配该模式子序列的文本都会被拦截
+  · # 提示：搜索 'java regex tester' 或访问 www.freeformatter.com/java-regex-tester.html 学习并测试正则
+  · # 禁止改名的材料列表（用 /ie rename 时），除非你有绕过权限
+  · # 合法 id 见 https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+  · # 或 1.8-1.12 版本见 https://helpch.at/docs/1.12.2/org/bukkit/Material.html
+  · # CaPs 与此配置无关
+  · # 禁止编辑 Lore 的材料列表（用 /ie lore 时），除非你有绕过权限
+  · # 合法 id 见 https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+  · # 或 1.8-1.12 版本见 https://helpch.at/docs/1.12.2/org/bukkit/Material.html
+  · # CaPs 与此配置无关
+  · # 限制玩家最多能给物品添加多少行 Lore
+  · # 若用户拥有 itemedit.bypass.lore_line_limit 权限则忽略此限制
+  · # 设为 -1 表示不限制
+  · # 物品名称最多多少个字符？
+  · # 格式代码不会被忽略
+  · # 若用户拥有 itemedit.bypass.rename_length_limit 权限则忽略此限制
+  · # 设为 -1 表示不限制
+  · # Lore 单行最多多少个字符？
+  · # 格式代码不会被忽略
+  · # 若用户拥有 itemedit.bypass.lore_length_limit 权限则忽略此限制
+  · # 设为 -1 表示不限制
+  · # 本文件用于 '/ie lore copyfile <path>'
+  · # 有些服务器管理员觉得「用命令」不如「写配置文件」来得快，
+  · # 所以你可以在这里预先写好要粘贴的文本
+  · # 用 '/itemeditreload' 重载配置
+  · # 请注意缩进、不要使用 'TAB' 制表符，否则文件可能损坏并出现异常行为
+  · #（别担心，最坏的结果也就是 '/ie lore copyfile' 失效，重置本文件即可恢复）
+  · # <path> 是必填项，用来指定你想复制哪一份配置
+  · # 可用符号：
+  · # 下面的示例使用 'example_lore' 作为 <path>，即 '/ie lore copyfile example_lore'
+  · - "&f这是一份配置示例"
+  · - "&f可以用 & 字符添加颜色和格式 -> &e 代表黄色"
+  · - "&f1.16+ 还支持 Hex 颜色 -> &#FF0000 代表红色"
+  · description: 编辑手持物品
+  · usage: /itemedit
+  · description: 查看 ItemEdit 的信息
+  · usage: /itemeditinfo
+  · description: 从其它插件导入配置
+  · usage: /itemeditimport
+  · description: 重载配置
+  · usage: /itemeditreload
+  · description: 保存与取回自己创建的物品
+  · usage: /itemstorage
+  · description: 保存与取回物品，并可用控制台命令向玩家出售或购买
+  · usage: /serveritem
+  · description: Gives full access to command /itemeditimport
+  · description: Gives full access to command /itemeditinfo
+  · description: Gives full access to command /itemeditreload
+  · description: Gives full access to command /serveritem
+  · description: Gives full access to command /itemstorage
+  · description: Gives full access to command /itemedit
+  · - '&b&lTipp: &bBlende alle Flags gleichzeitig aus mit &e/itemedit hideall'
+  · - '&b&lTipp: &bBlendet einzelne Komponenten mit &e/itemedit hide <flag> true &baus'
+  · - '&e[Typ/Serveritem ID] &bder zurückzugebende Gegenstand'
+  · params: '[Typ/Serveritem ID]'
+  · - '&b&lTipp: &bVerwende &e/serveritem update <id>&b, um ein vorhandenes Item zu ändern'
+  · - '&b&lTipp: &bRufe gespeicherte Items mit &e/serveritem give <id> &bau'
+  · - '&b&lTipp: &bVerwende &e/serveritem save <id>&b, um ein neues Item zu erstellen'
+  · - '&b&lTipp: &bVerwende &e/serveritem delete <id>&b, um ein Item zu löschen'
+  · - '&b&lTipp: &bUm auf den Standardwert zurückzusetzen, verwende &e/serveritem setnick <id>'
+  · - '&b&lTipp: &bVerwende &e/itemstorage update <id>&b, um ein vorhandenes Objekt zu ändern'
+  · - '&b&lTipp: &bRufe deine gespeicherten Objekte mit &e/itemstorage get <id>&b ab'
+  · - '&bTipp: Verwende &e/itemstorage save <id>&b, um ein neues Objekt zu erstellen'
+  · - '&bTipp: Verwende &e/itemstorage delete <id>&b, um ein Objekt zu löschen'
+  · - '&a/itemeditimport ItemEditor &2- Importiere Objekte aus dem ItemEditor-Plugin'
+  · - '&b&lTip: &bhide all flags at once with &e/itemedit hideall'
+  · - '&b&lTip: &bhide single components with &e/itemedit hide <flag> true'
+  · - '&e[type/serveritem id] &bthe item to return'
+  · params: '[type/serveritem id]'
+  · - '&b&lTip: &buse &e/serveritem update <id>&b, to change an existing item'
+  · - '&b&lTip: &bretrieve saved items with &e/serveritem give <id>'
+  · - '&b&lTip: &buse &e/serveritem save <id>&b, to create a new item'
+  · - '&b&lTip: &buse &e/serveritem delete <id>&b, to delete an item'
+  · - '&b&lTip: &bto reset to default just use &e/serveritem setnick <id>'
+  · - '&b&lTip: &buse &e/itemstorage update <id>&b, to change an existing item'
+  · - '&b&lTip: &bretrieve your saved items with &e/itemstorage get <id>'
+  · - '&bTip: use &e/itemstorage save <id>&b, to create a new item'
+  · - '&bTip: use &e/itemstorage delete <id>&b, to delete an item'
+  · - '&a/itemeditimport ItemEditor &2- import items from ItemEditor plugin'
+  · - '&b&lConsejo: &bocultar todas las banderas a la vez con &e/itemedit hideall'
+  · - '&b&lConsejo: &bocultar componentes individuales con &e/itemedit hide <bandera> verdadero'
+  · - '&b&lConsejo: &busa &e/serveritem update <id>&b, para cambiar un objeto existente'
+  · - '&b&lConsejo: &brecupera objetos guardados con &e/serveritem give <id>'
+  · - '&b&lConsejo: &busa &e/serveritem save <id>&b, para crear un nuevo objeto'
+  · - '&b&lConsejo: &busa &e/serveritem delete <id>&b, para eliminar un objeto'
+  · - '&b&lConsejo: &bpara restablecer a su valor predeterminado, simplemente usa &e/serveritem setnick <id>'
+  · - '&b&lConsejo: usa &e/itemstorage update <id>&b, para cambiar un objeto existente'
+  · - '&b&lConsejo: recupera tus objetos guardados con &e/itemstorage get <id>'
+  · - '&bConsejo: usa &e/itemstorage save <id>&b, para crear un objeto nuevo'
+  · - '&bConsejo: usa &e/itemstorage delete <id>&b, para eliminar un objeto'
+  · - '&a/itemeditimport ItemEditor &2- importar objetos desde el complemento ItemEditor'
+  · - "&b&lAstuce : &bmasquer tous les drapeaux en une fois avec &e/itemedit hideall"
+  · - "&b&lAstuce : &bmasquer des composants individuels avec &e/itemedit hide <flag> true"
+  · - '&e[type/serveritem id] &bl''objet à renvoyer'
+  · params: '[type/serveritem id]'
+  · - '&b&lAstuce : &butilisez &e/serveritem update <id>&b pour modifier un objet existant'
+  · - '&b&lAstuce : &bretirez les objets enregistrés avec &e/serveritem give <id>'
+  · - '&b&lAstuce : &butilisez &e/serveritem save <id>&b pour créer un nouvel objet'
+  · - '&b&lAstuce : &butilisez &e/serveritem delete <id>&b pour supprimer un objet'
+  · - '&b&lAstuce : &bpour réinitialiser le nom par défaut, utilisez &e/serveritem setnick <id>'
+  · - '&b&lAstuce : &butilisez &e/itemstorage update <id>&b, pour modifier un objet existant'
+  · - '&b&lAstuce : &bretournez vos objets enregistrés avec &e/itemstorage get <id>'
+  · - '&bAstuce : utilisez &e/itemstorage save <id>&b, pour créer un nouvel objet'
+  · - '&bAstuce : utilisez &e/itemstorage delete <id>&b, pour supprimer un objet'
+  · - '&a/itemeditimport ItemEditor &2- importer des objets depuis le plugin ItemEditor'
+  · - '&b&lTip: &bnascondi tutte le Flag in un compo solo con &e/itemedit hideall'
+  · - '&b&lTip: &bnascondi una singola flag con &e/itemedit hide <flag> true'
+  · - '&b&lSuggerimento: &busa &e/serveritem update <id>&b, per modificare un oggetto esistente'
+  · - '&b&lSuggerimento: &brecupera gli oggetti salvati con &e/serveritem give <id>'
+  · - '&b&lSuggerimento: &busa &e/serveritem save <id>&b, per creare un nuovo oggetto'
+  · - '&b&lSuggerimento: &busa &e/serveritem delete <id>&b, per eliminare un oggetto'
+  · - '&b&lSuggerimento: &bper ripristinare il nome predefinito utilizza &e/serveritem setnick <id>'
+  · - '&b&lSuggerimento: &busa &e/itemstorage update <id>&b, per modificare un oggetto esistente'
+  · - '&b&lSuggerimento: &brecupera i tuoi oggetti salvati con &e/itemstorage get <id>'
+  · - '&bSuggerimento: usa &e/itemstorage save <id>&b, per creare un nuovo oggetto'
+  · - '&bSuggerimento: usa &e/itemstorage delete <id>&b, per eliminare un oggetto'
+  · - '&a/itemeditimport ItemEditor &2- importa oggetti dal plugin ItemEditor'
+  · - '&b&lPatarimas: &bpaslėpti visas vėliavas vienu metu su &e/itemedit hideall'
+  · - '&b&lPatarimas: &bpaslėpti atskirus komponentus su &e/itemedit hide <flag> true'
+  · - '&e[type/serveritem id] &bthe item to return'
+  · params: '[type/serveritem id]'
+  · - '&b&lTip: &buse &e/serveritem update <id>&b, to change an existing item'
+  · - '&b&lTip: &bretrieve saved items with &e/serveritem give <id>'
+  · - '&b&lTip: &buse &e/serveritem save <id>&b, to create a new item'
+  · - '&b&lTip: &buse &e/serveritem delete <id>&b, to delete an item'
+  · - '&b&lTip: &bto reset to default just use &e/serveritem setnick <id>'
+  · - '&b&lTip: &buse &e/itemstorage update <id>&b, to change an existing item'
+  · - '&b&lTip: &bretrieve your saved items with &e/itemstorage get <id>'
+  · - '&bTip: use &e/itemstorage save <id>&b, to create a new item'
+  · - '&bTip: use &e/itemstorage delete <id>&b, to delete an item'
+  · - '&a/itemeditimport ItemEditor &2- import items from ItemEditor plugin'
+  · - '&b&lWskazówka: &bukryj wszystkie flagi naraz za pomocą &e/itemedit hideall'
+  · - '&b&lWskazówka: &bukryj pojedyncze komponenty za pomocą &e/itemedit hide <flaga> true'
+  · - '&b&lWskazówka: &busuń zarejestrowany przedmiot komendą &e/serveritem update <id>'
+  · - '&b&lWskazówka: &bzobacz zarejestrowane przedmioty komendą &e/serveritem give <id>'
+  · - '&b&lWskazówka: &busuń &e/serveritem save <id>&b, aby stworzyć nowy przedmiot'
+  · - '&b&lWskazówka: &busuń &e/serveritem delete <id>&b, aby usunąć przedmiot'
+  · - '&b&lWskazówka: &bżeby przywrócić domyślną nazwę, użyj &e/serveritem setnick <id>'
+  · - '&b&lPorada: &bUżyj &e/itemstorage update <id>&b, aby zmienić istniejący przedmiot'
+  · - '&b&lPorada: &bOdzyskaj zapisane przedmioty za pomocą &e/itemstorage get <id>'
+  · - '&bPorada: użyj &e/itemstorage save <id>&b, aby stworzyć nowy przedmiot'
+  · - '&bPorada: użyj &e/itemstorage delete <id>&b, aby usunąć przedmiot'
+  · - '&a/itemeditimport ItemEditor &2- zaimportuj przedmioty z pluginu ItemEditor'
+  · - '&b&lDica: &boculte todas as flags de uma só vez com &e/itemedit hideall'
+  · - '&b&lDica: &boculte componentes individuais com &e/itemedit hide <flag> verdadeiro'
+  · - '&b&lDica: &buse &e/serveritem update <id>&b, para alterar um item existente'
+  · - '&b&lDica: &brecupere itens salvos com &e/serveritem give <id>'
+  · - '&b&lDica: &buse &e/serveritem save <id>&b, para criar um novo item'
+  · - '&b&lDica: &buse &e/serveritem delete <id>&b, para excluir um item'
+  · - '&b&lDica: &bpara redefinir o nome padrão, use &e/serveritem setnick <id>'
+  · - '&b&lDica: &buse &e/itemstorage update <id>&b, para alterar um item existente'
+  · - '&b&lDica: &brecupere seus itens salvos com &e/itemstorage get <id>'
+  · - '&bDica: use &e/itemstorage save <id>&b, para criar um novo item'
+  · - '&bDica: use &e/itemstorage delete <id>&b, para excluir um item'
+  · - '&a/itemeditimport ItemEditor &2- importar itens do plugin ItemEditor'
+  · - '&b&lПодсказка: &bскройте все флаги одновременно с помощью &e/itemedit hideall'
+  · - '&b&lПодсказка: &bскройте отдельные компоненты с помощью &e/itemedit hide <флаг> true'
+  · - '&b&lПодсказка: &bиспользуйте &e/serveritem update <id>&b, чтобы изменить существующий предмет'
+  · - '&b&lПодсказка: &bполучить сохраненные предметы с помощью &e/serveritem give <id>'
+  · - '&b&lПодсказка: &bиспользуйте &e/serveritem save <id>&b, чтобы создать новый предмет'
+  · - '&b&lПодсказка: &bиспользуйте &e/serveritem delete <id>&b, чтобы удалить предмет'
+  · - '&b&lПодсказка: &bдля сброса имени на значение по умолчанию, используйте &e/serveritem setnick <id>'
+  · - '&b&lСовет: &bиспользуйте &e/itemstorage update <id>&b, чтобы изменить существующий предмет'
+  · - '&b&lСовет: &bполучите сохраненные предметы с помощью &e/itemstorage get <id>'
+  · - '&bСовет: используйте &e/itemstorage save <id>&b, чтобы создать новый предмет'
+  · - '&bСовет: используйте &e/itemstorage delete <id>&b, чтобы удалить предмет'
+  · - '&a/itemeditimport ItemEditor &2- импортировать предметы из плагина ItemEditor'
+  · - '&b&lİpucu: &b&ee/itemedit hideall &bilgisiyle tüm bayrakları bir kerede gizleyin'
+  · - '&b&lİpucu: &bTek bileşenleri gizlemek için &e/itemedit hide <flag> true &bkullanın'
+  · - '&e[type/serveritem id] &bDönüş yapılacak öğe'
+  · params: '[type/serveritem id]'
+  · - '&b&lİpucu: &bVar olan bir öğeyi değiştirmek için &e/serveritem update <id>&b kullanın'
+  · - '&b&lİpucu: &bKaydedilen öğeleri almak için &e/serveritem give <id>&b kullanın'
+  · - '&b&lİpucu: &bYeni bir öğe oluşturmak için &e/serveritem save <id>&b kullanın'
+  · - '&b&lİpucu: &bBir öğeyi silmek için &e/serveritem delete <id>&b kullanın'
+  · - '&b&lİpucu: &bVarsayılana sıfırlamak için sadece &e/serveritem setnick <id>&b kullanın'
+  · - '&b&lİpucu: &bVar olan bir eşyayı değiştirmek için &e/itemstorage update <id>&b kullanın'
+  · - '&b&lİpucu: &bKaydedilmiş eşyalarınızı almak için &e/itemstorage get <id>&b kullanın'
+  · - '&bİpucu: Yeni bir eşya oluşturmak için &e/itemstorage save <id>&b kullanın'
+  · - '&bİpucu: Bir eşyayı silmek için &e/itemstorage delete <id>&b kullanın'
+  · - '&a/itemeditimport ItemEditor &2- ItemEditor eklentisinden eşyaları içe aktar'
+  · - '&b&lПідказка: &bодночасно приховати всі прапорці можна за допомогою &e/itemedit hideall'
+  · - '&b&lПідказка: &bприховати окремі компоненти можна за допомогою &e/itemedit hide <прапорець> true'
+  · - '&e[тип/serveritem id] &bпредмет для повернення'
+  · params: '[тип/serveritem id]'
+  · - '&b&lПідказка: &bвикористовуйте &e/serveritem update <id>&b, щоб змінити існуючий предмет'
+  · - '&b&lПідказка: &bотримати збережені предмети можна за допомогою &e/serveritem give <id>'
+  · - '&b&lПідказка: &bвикористовуйте &e/serveritem save <id>&b, щоб створити новий предмет'
+  · - '&b&lПідказка: &bвикористовуйте &e/serveritem delete <id>&b, щоб видалити предмет'
+  · - '&b&lПідказка: &bдля скидання назви до значення за замовчуванням, просто використайте &e/serveritem setnick <id>'
+  · - '&b&lПідказка: &bвикористовуйте &e/itemstorage update <id>&b, щоб змінити існуючий предмет'
+  · - '&b&lПідказка: &bви можете отримати ваші збережені предмети за допомогою &e/itemstorage get <id>'
+  · - '&bПідказка: використовуйте &e/itemstorage save <id>&b, щоб створити новий предмет'
+  · - '&bПідказка: використовуйте &e/itemstorage delete <id>&b, щоб видалити предмет'
+  · - '&a/itemeditimport ItemEditor &2- імпорт предметів з плагіна ItemEditor'
+  · - '&b&lGợi ý: &bẩn tất cả các cờ cùng lúc với &e/itemedit hideall'
+  · - '&b&lGợi ý: &bẩn từng thành phần riêng lẻ với &e/itemedit hide <flag> true'
+  · - '&e[type/serveritem id] &bVật phẩm trả về'
+  · params: '[type/serveritem id]'
+  · - '&b&lGợi ý: &bDùng &e/serveritem update <id>&b để thay đổi vật phẩm đã tồn tại'
+  · - '&b&lGợi ý: &bLấy vật phẩm đã lưu với &e/serveritem give <id>'
+  · - '&b&lMẹo: &bsử dụng &e/serveritem save <id>&b để tạo mục mới'
+  · - '&b&lMẹo: &bsử dụng &e/serveritem delete <id>&b để xóa một mục'
+  · - '&b&lMẹo: &bĐể đặt lại mặc định, chỉ cần sử dụng &e/serveritem setnick <id>'
+  · - '&b&lMẹo: &bsử dụng &e/itemstorage update <id>&b để thay đổi mục hiện có'
+  · - '&b&lMẹo: &blấy các mục đã lưu của bạn với &e/itemstorage get <id>'
+  · - '&bMẹo: sử dụng &e/itemstorage save <id>&b để tạo mục mới'
+  · - '&bMẹo: sử dụng &e/itemstorage delete <id>&b để xóa một mục'
+  · - '&a/itemeditimport ItemEditor &2- nhập vật phẩm từ plugin ItemEditor'
+  · player-only: '&4[&cItemEdit&4] &c仅玩家可用的指令'
+  · no-item-on-hand: '&4[&cItemEdit&4] &c你必须手持物品'
+  · lack-permission: '&4[&cItemEdit&4] &c你缺少权限 %permission%'
+  · lack-permission-generic: '&4[&cItemEdit&4] &c你没有权限使用此指令'
+  · blocked-by-censure: '&4[&cItemEdit&4] &c无法使用此文本，其中包含被禁止的词汇'
+  · blocked-by-type-restriction: '&4[&cItemEdit&4] &c你无法修改此物品的名称'
+  · blocked-by-type-restriction-lore: '&4[&cItemEdit&4] &c你无法编辑此物品的描述'
+  · blocked-by-lore-line-limit: '&4[&cItemEdit&4] &c您不能向此物品添加更多描述行'
+  · blocked-by-lore-length-limit: '&4[&cItemEdit&4] &c您不能设置超过 %limit% 个字符的行'
+  · blocked-by-rename-length-limit: '&4[&cItemEdit&4] &c您不能设置超过 %limit% 个字符的名称'
+  · header: "&9&lItemEdit - 帮助"
+  · header-sub: "&9&lItemEdit %sub% - 帮助"
+  · footer: "%prev_clickable% &9&l帮助 [%page%/%max_page%] %next_clickable%"
+  · next_hover: "&6&l跳转到第 %target% 页"
+  · prev_hover: "&6&l跳转到第 %target% 页"
+  · - '&6&l显示帮助'
+  · - '&e[页面] &b帮助页面'
+  · - '&e[子命令] &b子命令的帮助'
+  · params: '[页面/子命令]'
+  · - '&b&l设置物品名称'
+  · - '&b&l提示：&b输入 &e-clear &b可恢复默认名称'
+  · - '&b&l提示：&b输入 &e-copy &b可复制名称'
+  · - '&b&l提示：&b输入 &e-paste &b可粘贴之前复制的值'
+  · params: '<名称>'
+  · - '&b&l编辑描述'
+  · - '&eAdd <文字> &b- 在新行添加文字'
+  · - '&eInsert <行号> <文字> &b- 在指定行号添加文字'
+  · - '&eSet <行号> <文字> &b- 设置或替换指定行号的文字'
+  · - '&eRemove <行号> &b- 删除指定行号的文字'
+  · - '&eReset &b- 删除所有描述行'
+  · - '&eCopy &b- 复制当前物品的描述，以便稍后粘贴'
+  · - '&eCopyBook &b- 从书本的页码复制描述行'
+  · - '&eCopyFile <路径> &b- 从loreCopy.yml文件中复制'
+  · - '&ePaste &b- 粘贴最后一次复制的描述行'
+  · - '&eReplace <被替换> <替换者> &b- 替换描述中所有出现的文字'
+  · params: '<行号> <文字>'
+  · - '&b&l设置或替换指定行号的文字'
+  · params: '<行号>'
+  · - '&b&l删除指定行号的文字'
+  · params: '<行号> <文字>'
+  · - '&b&l在指定行号添加文字'
+  · feedback: '&9[&fItemEdit&9] &a描述已复制'
+  · wrong-type: '&4[&cItemEdit&4] &c物品必须是已经写过的书本或书与羽毛笔'
+  · feedback: '&9[&fItemEdit&9] &a书页已复制，准备粘贴'
+  · no-path: '&4[&cItemEdit&4] &c请选择路径 /例如 lore copyfile &6<路径>'
+  · wrong-path: '&9[&fItemEdit&9] &c无效路径，请重新载入配置并检查大小写'
+  · feedback: '&9[&fItemEdit&9] &a配置已复制，准备粘贴'
+  · feedback: '&9[&fItemEdit&9] &a描述已粘贴'
+  · no-copy: '&4[&cItemEdit&4] &c请先复制一行描述'
+  · params: '<被替换> <替换者>'
+  · - '&b&l替换描述中所有出现的文字'
+  · - '&b如果要替换多个词汇，必须用 &e{ } &b括起来'
+  · - '&b例子: &e/ie lore replace 新 锈'
+  · - '&b''&e新剑&b'' -> ''&e锈剑&b'''
+  · - '&b例子2: &e/ie lore replace {重} {非常轻}'
+  · - '&b''&e重剑&b'' -> ''&e非常轻剑&b'''
+  · wrong-flag: '&4[&cItemEdit&4] &c错误的标记值！ &4[&6悬停此处&4]'
+  · - '&b&l隐藏或显示组件'
+  · - '&e<标记> &b物品标记来进行编辑'
+  · - '&e[true/false] &b设置标记值，默认切换'
+  · - '&b&l提示: &b使用 &e/itemedit hideall &b隐藏所有标记'
+  · params: '<标记> [true/false]'
+  · - '&b&l隐藏所有组件'
+  · - '&b隐藏：附魔、药水效果、旗帜图案、属性...'
+  · - '&b&l提示: &b使用 &e/itemedit hide <标记> true &b隐藏单个组件'
+  · - '&b&l编辑耐久度'
+  · - '&e<耐久度> &b要应用的损伤值'
+  · - '&b&l注意：&e0 &b表示没有损伤，完整的耐久度'
+  · params: '<耐久度>'
+  · - '&b&l设置物品类型'
+  · - '&b&l注意：&b一些类型，如空气，无效'
+  · params: '<类型>'
+  · - '&b&l设置不可破坏状态'
+  · - '&b不可破坏的工具和装备不会失去耐久度'
+  · - '&e[true/false] &b设置不可破坏的值，默认切换'
+  · - '&b&l设置数量'
+  · - '&e<数量> &b要设置的数量（最多127）'
+  · - '&b&l提示：&b负数数量将减去物品当前的数量'
+  · params: '<数量>'
+  · wrong-type: '&4[&cItemEdit&4] &c物品必须是玩家头颅'
+  · - '&b&l设置头颅所有者'
+  · - '&b仅在玩家头颅上有效'
+  · - '&e<名称> &b所有者的名称'
+  · - '&b&l提示：&b放置和破坏头颅以更新皮肤'
+  · params: '<名称>'
+  · wrong-type: '&4[&cItemEdit&4] &c物品必须是可染色类型，如染色皮甲、烟花火箭、药水或尖端箭'
+  · - '&b&l设置颜色'
+  · - '&b仅在染色皮甲和烟花火箭上有效，在1.11+版本的服务器上也可用于任何药水和尖端箭！'
+  · - '&e[红] [绿] [蓝] &b是每种颜色要混合的数量'
+  · - '&b每种颜色都是介于0和255之间的整数值'
+  · - '&b如果您感到困惑，可以在Google上搜索"RGB色彩选择器"'
+  · params: '[红] [绿] [蓝]'
+  · wrong-enchant: '&4[&cItemEdit&4] &c错误的附魔值！ &4[&6悬停此处&4]'
+  · - '&b&l设置附魔'
+  · - '&e<附魔> &b附魔类型'
+  · - '&e[等级] &b附魔等级，默认为&e1'
+  · - '&b&l提示：&b将&e[等级] &b设置为&e0 &b以删除附魔'
+  · params: '<附魔> [等级]'
+  · wrong-type: '&4[&cItemEdit&4] &c物品必须是一本写入的书'
+  · wrong-generation: '&4[&cItemEdit&4] &c错误的书籍类型值！ &4[&6悬停此处&4]'
+  · - '&b&l设置书籍类型'
+  · - '&b仅在写入的书籍上有效'
+  · params: '<书籍类型>'
+  · wrong-type: '&4[&cItemEdit&4] &c物品必须是一本写入的书'
+  · - '&b&l设置作者'
+  · - '&b作者名称可以包含空格，并且可以有颜色'
+  · - '&b仅在写入的书籍上有效'
+  · params: '<名称>'
+  · wrong-type: '&4[&cItemEdit&4] &c物品必须是药水、尖端箭或可疑的汤'
+  · wrong-effect: '&4[&cItemEdit&4] &c错误的效果值！ &4[&6悬停此处&4]'
+  · itemtag-tip: '&9[&fItemEdit&9] &b需要将药水效果添加到普通物品吗？试试>ItemTag<'
+  · - '&6点击我'
+  · - '&b&l编辑药水效果'
+  · - '&b适用于任何药水、尖端箭和可疑的汤！'
+  · - '&eAdd <效果> <持续时间> [等级] &b- 添加效果'
+  · - '&eRemove <效果> &b- 移除所选效果'
+  · - '&eReset &b- 移除所有效果'
+  · params: '<effect> <duration> [level] [粒子] [环境] [图标]'
+  · - '&b&l添加/覆盖所选效果'
+  · - '&e<effect> &b效果类型'
+  · - '&e<duration> &b持续时间（秒'
+  · - '&e[level] &b最高为127，默认为&e1'
+  · - '&e[粒子] &b是否显示粒子？ &etrue&b/&efalse'
+  · - '&e[环境] &b粒子应有环境标志？ &etrue&b/&efalse'
+  · - '&e[图标] &b在右上角显示图标？ &etrue&b/&efalse &b(仅适用于 1.13+)'
+  · - '&b&l移除所选效果'
+  · wrong-type: '&4[&cItemEdit&4] &c物品必须为旗帜'
+  · wrong-color: '&4[&cItemEdit&4] &c颜色值错误！ &4[&6悬停此处&4]'
+  · wrong-pattern: '&4[&cItemEdit&4] &c图案值错误！ &4[&6悬停此处&4]'
+  · - '&b&l编辑旗帜'
+  · - '&b&l替换所选行上的图案'
+  · - '&b&l添加图案'
+  · - '&b&l移除所选行上的图案'
+  · - '&b&l更改所选行上的图案颜色'
+  · wrong-type: '&4[&cItemEdit&4] &c物品必须为烟花'
+  · - '&b&l设置烟花威力'
+  · - '&e<power> &b烟花的威力，值在&e0&b和&e5&b之间'
+  · wrong-type: '&4[&cItemEdit&4] &c物品必须为烟花'
+
+## 常量池帮助/描述文本
+  · emanondev/itemedit/command/AbstractCommand$HelpSubCommand
+  · Lemanondev/itemedit/command/AbstractCommand;
+  · emanondev/itemedit/command/SubCmd
+  · emanondev/itemedit/command/AbstractCommand
+  · emanondev/itemedit/Util
+  · emanondev/itemedit/utility/CompleteUtility
+  · Lemanondev/itemedit/command/AbstractCommand$HelpSubCommand;
+  · Lemanondev/itemedit/command/SubCmd;
+  · Ljava/util/List<Lemanondev/itemedit/command/SubCmd;>;
+  · Lemanondev/itemedit/APlugin;
+  · emanondev/itemedit/APlugin
+  · Lemanondev/itemedit/YMLConfig;
+  · emanondev/itemedit/YMLConfig
+  · &c你缺少权限 %permission%
+  · &c你没有权限使用该命令
+  · &c该命令仅限玩家使用
+  · &c你必须手持物品
+  · emanondev/itemedit/utility/ItemUtils
+  ·  - 帮助
+  · Ljava/util/function/Supplier<Lemanondev/itemedit/command/SubCmd;>;
+  · emanondev/itemedit/ItemEdit
+  · emanondev/itemedit/command/ItemEditCommand
+  · Lemanondev/itemedit/command/ItemEditCommand;
+  · emanondev/itemedit/utility/VersionUtils
+  · emanondev/itemedit/command/itemedit/ListAliases
+  · emanondev/itemedit/command/itemedit/Type
+  · emanondev/itemedit/command/itemedit/BookEnchant
+  · emanondev/itemedit/command/itemedit/Trim
+  · emanondev/itemedit/command/itemedit/GoatHornSound
+  · emanondev/itemedit/command/itemedit/AxolotlVariant
+  · emanondev/itemedit/command/itemedit/Compass
+  · emanondev/itemedit/command/itemedit/ToolTipStyle
+  · emanondev/itemedit/command/itemedit/ItemModel
+  · emanondev/itemedit/command/itemedit/CustomModelData
+  · emanondev/itemedit/command/itemedit/TropicalFish
+  · emanondev/itemedit/command/itemedit/Attribute
+  · emanondev/itemedit/command/itemedit/SpawnerEggType
+  · emanondev/itemedit/command/itemedit/BookType
+  · emanondev/itemedit/command/itemedit/BookAuthor
+  · emanondev/itemedit/command/itemedit/PotionEffectEditor
+  · emanondev/itemedit/command/itemedit/Firework
+  · emanondev/itemedit/command/itemedit/FireworkPower
+  · emanondev/itemedit/command/itemedit/SkullOwner
+  · emanondev/itemedit/command/itemedit/ColorOld
+  · emanondev/itemedit/command/itemedit/ColorSubcommand
+  · emanondev/itemedit/command/itemedit/Banner
+  · emanondev/itemedit/command/itemedit/Damage
+  · emanondev/itemedit/command/itemedit/Amount
+  · emanondev/itemedit/command/itemedit/Rarity
+  · emanondev/itemedit/command/itemedit/Glow
+  · emanondev/itemedit/command/itemedit/Glider
+  · emanondev/itemedit/command/itemedit/FireResistent
+  · emanondev/itemedit/command/itemedit/MaxDurability
+  · emanondev/itemedit/command/itemedit/MaxStackSize
+  · emanondev/itemedit/command/itemedit/Food
+  · emanondev/itemedit/command/itemedit/RepairCost
+  · emanondev/itemedit/command/itemedit/Equipment
+  · emanondev/itemedit/command/itemedit/Unbreakable
+  · emanondev/itemedit/command/itemedit/HideToolTip
+  · emanondev/itemedit/command/itemedit/HideAll
+  · emanondev/itemedit/command/itemedit/Hide
+  · emanondev/itemedit/command/itemedit/Enchant
+  · emanondev/itemedit/command/itemedit/Lore
+  · emanondev/itemedit/command/itemedit/Rename
+  · emanondev/itemedit/command/ItemEditImportCommand
+  · Lemanondev/itemedit/ItemEdit;
+  · emanondev/itemedit/storage/ServerStorage
+  · Lemanondev/itemedit/command/ItemEditImportCommand;
+  · emanondev/itemedit/command/ItemEditInfoCommand
+  · 服务器：
+  · 浏览：
+  ·  存储： 
+  · emanondev/itemedit/storage/StorageType
+  · emanondev/itemedit/compability/Hooks
+  · 点击复制
+
+  · 
+插件： 
+  · （仅已加载）、
+  · 点击复制（含插件列表）
+
+  · 插件： 
+  · Lemanondev/itemedit/command/ItemEditInfoCommand;
+  · emanondev/itemedit/command/ItemStorageCommand
+  · Lemanondev/itemedit/command/ItemStorageCommand;
+  · emanondev/itemedit/command/itemstorage/Save
+  · emanondev/itemedit/command/itemstorage/Update
+  · emanondev/itemedit/command/itemstorage/Delete
+  · emanondev/itemedit/command/itemstorage/Show
+  · emanondev/itemedit/command/itemstorage/Get
+  · emanondev/itemedit/command/ReloadCommand
+  · Lemanondev/itemedit/command/ReloadCommand;
+  · emanondev/itemedit/command/ServerItemCommand
+  · Lemanondev/itemedit/command/ServerItemCommand;
+  · emanondev/itemedit/command/serveritem/Save
+  · emanondev/itemedit/command/serveritem/Update
+  · emanondev/itemedit/command/serveritem/Delete
+  · emanondev/itemedit/command/serveritem/Show
+  · emanondev/itemedit/command/serveritem/SetNick
+  · emanondev/itemedit/command/serveritem/Give
+  · emanondev/itemedit/command/serveritem/GiveAll
+  · emanondev/itemedit/command/serveritem/Drop
+  · emanondev/itemedit/command/serveritem/Take
+  · emanondev/itemedit/command/serveritem/Sell
+  · emanondev/itemedit/command/serveritem/Buy
+  · emanondev/itemedit/command/serveritem/SellMax
+  · emanondev/itemedit/command/serveritem/BuyMax
+  · emanondev/itemedit/aliases/IAliasSet
+  · emanondev/itemedit/utility/InventoryUtils
+  · Lemanondev/itemedit/aliases/IAliasSet;
+  · Lemanondev/itemedit/aliases/IAliasSet<TT;>;
+  · Lemanondev/itemedit/command/itemedit/Amount;
+  · emanondev/itemedit/aliases/Aliases
+  · Lemanondev/itemedit/aliases/AttributeAliases;
+  · emanondev/itemedit/aliases/AttributeAliases
+  · Lemanondev/itemedit/aliases/OperationAliases;
+  · emanondev/itemedit/aliases/OperationAliases
+  · Lemanondev/itemedit/aliases/EquipmentSlotGroupAliases;
+  · emanondev/itemedit/aliases/EquipmentSlotGroupAliases
+  · Lemanondev/itemedit/aliases/AliasSet;
+  · emanondev/itemedit/aliases/AliasSet
+  · Lemanondev/itemedit/command/itemedit/Attribute;
+  · Lemanondev/itemedit/aliases/AxolotlVariantAliases;
+  · emanondev/itemedit/aliases/AxolotlVariantAliases
+  · Lemanondev/itemedit/command/itemedit/AxolotlVariant;
+  · emanondev/itemedit/gui/BannerEditor
+  · Lemanondev/itemedit/command/itemedit/Banner;
+  · emanondev/itemedit/UtilsString
+  · Lemanondev/itemedit/command/itemedit/BookAuthor;
+  · Lemanondev/itemedit/aliases/EnchAliases;
+  · emanondev/itemedit/aliases/EnchAliases
+  · Lemanondev/itemedit/command/itemedit/BookEnchant;
+  · Lemanondev/itemedit/aliases/GenAliases;
+  · emanondev/itemedit/aliases/GenAliases
+  · Lemanondev/itemedit/command/itemedit/BookType;
+  · Lemanondev/itemedit/command/itemedit/ColorOld;
+  · emanondev/itemedit/gui/ColorGui
+  · Lemanondev/itemedit/command/itemedit/ColorSubcommand;
+  · Lemanondev/itemedit/command/itemedit/Compass;
+  · Lemanondev/itemedit/command/itemedit/CustomModelData;
+  · Lemanondev/itemedit/command/itemedit/Damage;
+  · Lemanondev/itemedit/command/itemedit/Enchant;
+  · Lemanondev/itemedit/aliases/SoundAliases;
+  · emanondev/itemedit/aliases/SoundAliases
+  · emanondev/itemedit/utility/TagContainer
+  · Lemanondev/itemedit/command/itemedit/Equipment;
+  · Lemanondev/itemedit/utility/TagContainer;
+  · Lemanondev/itemedit/utility/TagContainer<Lorg/bukkit/entity/EntityType;>;
+  · Lemanondev/itemedit/command/itemedit/FireResistent;
+  · emanondev/itemedit/gui/FireworkEditor
+  · Lemanondev/itemedit/command/itemedit/Firework;
+  · Lemanondev/itemedit/command/itemedit/FireworkPower;
+  · emanondev/itemedit/command/itemedit/Food$FoodPojo
+  · Lemanondev/itemedit/command/itemedit/Food$FoodPojo;
+  · emanondev/itemedit/ParsedItem
+  · emanondev/itemedit/Keys$Component
+  · emanondev/itemedit/UtilLegacy
+  · emanondev/itemedit/Keys$EffectType
+  · Lemanondev/itemedit/command/itemedit/Food;
+  · Lemanondev/itemedit/ParsedItem;
+  · Ljava/util/List<Lemanondev/itemedit/command/itemedit/Food$FoodPojo;>;
+  · emanondev/itemedit/Keys
+  · Lemanondev/itemedit/command/itemedit/Glider;
+  · Lemanondev/itemedit/command/itemedit/Glow;
+  · Lemanondev/itemedit/aliases/GoatHornSoundAliases;
+  · emanondev/itemedit/aliases/GoatHornSoundAliases
+  · Lemanondev/itemedit/command/itemedit/GoatHornSound;
+  · Lemanondev/itemedit/command/itemedit/Hide;
+  · Lemanondev/itemedit/command/itemedit/HideAll;
+  · Lemanondev/itemedit/command/itemedit/HideToolTip;
+  · Lemanondev/itemedit/command/itemedit/ItemModel;
+  · Lemanondev/itemedit/command/itemedit/ListAliases;
+  · Lemanondev/itemedit/command/itemedit/Lore;
+  · Lemanondev/itemedit/command/itemedit/MaxDurability;
+  · Lemanondev/itemedit/command/itemedit/MaxStackSize;
+  · Lemanondev/itemedit/command/itemedit/PotionEffectEditor;
+  · Lemanondev/itemedit/aliases/RarityAliases;
+  · emanondev/itemedit/aliases/RarityAliases
+  · Lemanondev/itemedit/command/itemedit/Rarity;
+  · Lemanondev/itemedit/command/itemedit/Rename;
+  · Lemanondev/itemedit/command/itemedit/RepairCost;
+  · Lemanondev/itemedit/command/itemedit/SkullOwner;
+  · Lemanondev/itemedit/aliases/EggTypeAliases;
+  · emanondev/itemedit/aliases/EggTypeAliases
+  · Lemanondev/itemedit/command/itemedit/SpawnerEggType;
+  · Lemanondev/itemedit/command/itemedit/ToolTipStyle;
+  · Lemanondev/itemedit/aliases/TrimMaterialAliases;
+  · emanondev/itemedit/aliases/TrimMaterialAliases
+  · Lemanondev/itemedit/aliases/TrimPatternAliases;
+  · emanondev/itemedit/aliases/TrimPatternAliases
+  · Lemanondev/itemedit/command/itemedit/Trim;
+  · Lemanondev/itemedit/aliases/TropicalFishPatternAliases;
+  · emanondev/itemedit/aliases/TropicalFishPatternAliases
+  · Lemanondev/itemedit/command/itemedit/TropicalFish;
+  · Lemanondev/itemedit/command/itemedit/Type;
+  · Lemanondev/itemedit/command/itemedit/Unbreakable;
+  · emanondev/itemedit/storage/PlayerStorage
+  · Lemanondev/itemedit/command/itemstorage/Delete;
+  · emanondev/itemedit/utility/InventoryUtils$ExcessMode
+  · Lemanondev/itemedit/utility/InventoryUtils$ExcessMode;
+  · Lemanondev/itemedit/command/itemstorage/Get;
+  · Lemanondev/itemedit/command/itemstorage/Save;
+  · emanondev/itemedit/gui/ShowPlayerItemsGui
+  · Lemanondev/itemedit/command/itemstorage/Show;
+  · Lemanondev/itemedit/command/itemstorage/Update;
+  · emanondev/itemedit/utility/InventoryUtils$LackMode
+  · Lemanondev/itemedit/utility/InventoryUtils$LackMode;
+  · Lemanondev/itemedit/command/serveritem/Buy;
+  · Lemanondev/itemedit/command/serveritem/BuyMax;
+  · Lemanondev/itemedit/command/serveritem/Delete;
+  · emanondev/itemedit/utility/SchedulerUtils
+  · Lemanondev/itemedit/command/serveritem/Drop;
+  · Lemanondev/itemedit/command/serveritem/Give;
+  · Lemanondev/itemedit/command/serveritem/GiveAll;
+  · Lemanondev/itemedit/command/serveritem/Save;
+  · Lemanondev/itemedit/command/serveritem/Sell;
+  · Lemanondev/itemedit/command/serveritem/SellMax;
+  · Lemanondev/itemedit/command/serveritem/SetNick;
+  · emanondev/itemedit/gui/ShowServerItemsGui
+  · Lemanondev/itemedit/command/serveritem/Show;
+  · Lemanondev/itemedit/command/serveritem/Take;
+  · Lemanondev/itemedit/command/serveritem/Update;

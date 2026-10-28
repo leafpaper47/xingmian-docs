@@ -5,109 +5,493 @@ createTime: 2026/10/24
 
 # 领地 · Residence
 
-> 分类 🔒 领地与保护 · 版本 `6.0.2.4` · 指令 5 条 · api-version `1.13`
+> 分类 🔒 领地与保护 · 版本 `6.0.2.4` · 指令 35 条 · api-version `1.13`
 
-::: tip 方块领地保护与经济租赁一体化管理
-Residence 是主流的立方体领地方块保护插件，玩家用木锄选区后即可创建住宅，支持子区域、标志位、成员权限、传送点、租赁与市场交易。管理员通过 resadmin 命令行直接干预他人领地，通过 resreload 与 resload 重载配置和数据。住宅内的建造、容器、传送、PVP 等行为由 flags 精细控制，是服务器防破坏体系的核心。
+::: tip 领地保护
+用选区工具圈地创建受保护住宅，配子区域、权限标志、成员管理与出租出售；管理员用 /resadmin 直接干预他人领地。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 玩家用 /res select 与 /res create 圈地建房并保护方块与容器
-- 按区域设置 PVP、怪物生成、飞行、容器访问等 flags 权限
-- 给其他玩家分配住宅成员权限或划分子区域分工
-- 管理员排查破坏事件、转移住宅所有权、清理违规住宅
-- 出租或出售住宅，做服务器经济系统的房产交易
-- 设置住宅传送点与指南针导航，方便玩家回家
-
-## 上手流程
-
-1. 玩家手持木锄或执行 /res select 分别左键、右键点选领地两个对角点
-2. 执行 /res create 住宅名 付费创建住宅，再用 /res area add 划分子区域或 /res set 调整标志位
-3. 用 /res pset 住宅名 玩家名 权限 true 与 /res padd、/res pdel 增删住宅成员
-4. 玩家用 /res tp 住宅名 回家，管理员用 /resadmin 检查、改名或接管问题领地
-5. 改动配置文件后先 /resload 只重载数据，需要整体生效时再 /resreload
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 圈一块地 | /res select 10 | 进入选区模式后点两个对角方块，再 /res create 名字 |
+| 给访客开权限 | /res pset home use true | 常用标志 build/use/container/pvp/move/tp |
+| 加同住玩家 | /res set home Trusted Steve | 等级 Order&lt;Member&lt;Trusted |
+| 查看自己有哪些地 | /res list | 加玩家名查他人；/res listall 需管理权限 |
+| 管理员清违规领地 | /resadmin removeall Steve | 删该玩家全部住宅，先留证据 |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/rc` | 住宅聊天频道开关、离开、前缀颜色设置与踢人 | `/rc ｜ /rc to ｜ /rc l ｜ /rc setprefix 前缀 ｜ /rc setc…` | — |
-| `/res` | 玩家侧住宅主命令，全部领地操作的入口 | `/res 子指令 参数` | — |
-| `/resadmin` | 管理员侧住宅管理命令，可操作任意玩家领地 | `/resadmin 子指令 参数` | — |
-| `/resload` | 只重新加载住宅数据文件，不重启插件 | `/resload` | — |
-| `/resreload` | 整体重载插件配置与语言文件 | `/resreload` | — |
+| `/rc` | 领地频道聊天（只在当前领地内可见） | `/rc [消息] · /rc setprefix <前缀> · /rc setcolor <颜色> …` | — |
+| `/res` | 领地主指令：创建/管理领地、设置权限、查看列表 | `/res <子指令> [参数...]` | — |
+| `/res select` | 进入/退出选区模式（也可直接用选区工具点方块） | `/res select <半径>` | — |
+| `/res create` | 把当前选区建成住宅 | `/res create <住宅名>` | `residence.create` |
+| `/res remove` | 删除自己的住宅 | `/res remove <住宅名>` | `residence.delete` |
+| `/res area` | 在住宅内划子区域（房间、农场分区） | `/res area <add｜remove｜replace> <子区域名> [父住宅]` | — |
+| `/res subzone` | 把子区域升级成可单独授权/出租的小领地 | `/res subzone <子区域名> [父住宅]` | — |
+| `/res pset` | 给某个玩家或子区域单独设权限标志 | `/res pset <住宅> <玩家｜子区域> <标志> <true｜false｜remove>` | — |
+| `/res gset` | 设置整块住宅的全局标志 | `/res gset <住宅> <标志> <值>` | — |
+| `/res set` | 添加或移除住宅成员 | `/res set <住宅> <Order｜Member｜Trusted｜None> <玩家>` | — |
+| `/res lset` | 按玩家等级批量改标志 | `/res lset <住宅> <等级> <标志> <值>` | — |
+| `/res flags` | 列出某住宅全部标志的当前状态 | `/res flags <住宅> [页码]` | — |
+| `/res info` | 看住宅详情：所有者、大小、成员、租金 | `/res info <住宅>` | — |
+| `/res list` | 列出某玩家名下的住宅 | `/res list [玩家] [页码]` | — |
+| `/res listall` | 列出全服所有住宅 | `/res listall [页码]` | `residence.command.listall` |
+| `/res tp` | 传送到住宅 | `/res tp <住宅>` | — |
+| `/res tpset` | 把你当前位置设为住宅传送点 | `/res tpset [住宅]` | — |
+| `/res kick` | 把某玩家踢出住宅 | `/res kick <住宅> <玩家>` | — |
+| `/res limits` | 查看自己还能建多少块、多大面积 | `/res limits [玩家]` | — |
+| `/res bank` | 住宅租金账户的查询/存入/取出 | `/res bank <deposit｜withdraw｜balance> [金额] [住宅]` | — |
+| `/res market` | 挂市场出售/出租住宅，或撤回/成交查询 | `/res market <sell｜rent｜unsell｜unrent｜buy｜info> [价格…` | — |
+| `/res lease` | 续租或放弃租约 | `/res lease <renew｜release> <住宅>` | — |
+| `/res contract` | 给住宅写出租/出售合同 | `/res contract <住宅> [天数] [价格]` | `residence.command.contract` |
+| `/res message` | 设置进出领地时的提示语 | `/res message <住宅> <enter｜leave｜remove> <文本>` | — |
+| `/res rename` | 重命名住宅 | `/res rename <旧名> <新名>` | — |
+| `/res tool` | 更换选区工具物品 | `/res tool [物品]` | — |
+| `/res unstuck` | 卡在领地边界时把自己弹出去 | `/res unstuck` | — |
+| `/res version` | 查看版本与更新提示 | `/res version` | — |
+| `/resadmin` | 管理员指令：绕过领地限制、改他人领地、强制删除 | `/resadmin <子指令> [参数...]` | — |
+| `/resadmin setowner` | 把住宅所有权转给其他玩家 | `/resadmin setowner <住宅> <玩家>` | `residence.admin` |
+| `/resadmin removeall` | 删除某玩家名下全部住宅 | `/resadmin removeall <玩家>` | `residence.admin` |
+| `/resadmin give` | 把住宅转给指定玩家 | `/resadmin give <住宅> <玩家>` | `residence.admin` |
+| `/resadmin server` | 把住宅设为服务器所有（不绑定玩家） | `/resadmin server <住宅>` | `residence.admin` |
+| `/resload` | 重新读取住宅存档文件 | `/resload` | — |
+| `/resreload` | 重载配置与语言文件 | `/resreload` | — |
 
 ## 指令详解
 
-### `/rc` — 住宅聊天频道开关、离开、前缀颜色设置与踢人
+### `/rc` — 领地频道聊天（只在当前领地内可见）
 
-- **语法**：`/rc ｜ /rc to ｜ /rc l ｜ /rc setprefix 前缀 ｜ /rc setcolor 颜色 ｜ /rc kick 玩家名`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `to` | 可选 | 切换进入或退出当前住宅聊天频道 |
-| `l` | 可选 | 离开当前住宅聊天频道 |
-| `setprefix` | 可选 | 设置自己在住宅聊天中显示的前缀，需 residence.chatprefix 权限 |
-| `setcolor` | 可选 | 设置自己的住宅聊天文字颜色，需 residence.chatcolor 权限 |
-| `kick` | 可选 | 把指定玩家踢出当前住宅聊天频道，仅频道管理者或管理员可用 |
-
+- **语法**：`/rc [消息] · /rc setprefix <前缀> · /rc setcolor <颜色> · /rc kick <玩家>`
 
 - **示例**：
 
 ```
-/rc to
-/rc setprefix 星冕
-/rc setcolor red
-/rc kick Steve
+/rc 有人吗
+/rc setprefix 家园
 ```
 
-- **备注**：只有站在某个住宅范围内才处于该住宅频道，跨领地后频道会随住宅切换，不要把它当全服频道使用。
+- **备注**：不进领地或不在领地频道里发消息时是普通聊天。
 
-### `/res` — 玩家侧住宅主命令，全部领地操作的入口
+### `/res` — 领地主指令：创建/管理领地、设置权限、查看列表
 
-- **语法**：`/res 子指令 参数`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `子指令` | 必填 | select、create、remove、area、subzone、expand、set、pset、tp 等 |
-| `住宅名` | 可选 | 目标住宅名称，省略时默认为脚下所在住宅 |
-
+- **语法**：`/res <子指令> [参数...]`
 
 - **示例**：
 
 ```
-/res ?
-/res select
 /res create home
-/res info
+/res list
+/res pset home build true
+```
+
+- **备注**：输入 `/res` 会显示全部子指令；`/res ?` 打印帮助。
+
+### `/res select` — 进入/退出选区模式（也可直接用选区工具点方块）
+
+- **语法**：`/res select <半径>`
+
+| 参数 | 必填 | 说明 |
+| --- | --- | --- |
+| `半径` | 必填 | 以你为中心的水平半径，10 即 20×20 |
+
+
+- **示例**：
+
+```
+/res select 10
+```
+
+- **备注**：选区过大超出区块上限会失败
+
+### `/res create` — 把当前选区建成住宅
+
+- **语法**：`/res create <住宅名>`
+
+| 参数 | 必填 | 说明 |
+| --- | --- | --- |
+| `住宅名` | 必填 | 自己名下唯一，不能含空格 |
+
+
+- **示例**：
+
+```
+/res create home
+```
+
+- **权限**：`residence.create`
+- **备注**：按区块数量扣钱；与他人领地重叠直接拒绝
+
+### `/res remove` — 删除自己的住宅
+
+- **语法**：`/res remove <住宅名>`
+
+| 参数 | 必填 | 说明 |
+| --- | --- | --- |
+| `住宅名` | 必填 | 可用 /res list 查 |
+
+
+- **示例**：
+
+```
+/res remove home
+```
+
+- **权限**：`residence.delete`
+- **备注**：不可撤销，需 /res confirm 二次确认
+
+### `/res area` — 在住宅内划子区域（房间、农场分区）
+
+- **语法**：`/res area <add｜remove｜replace> <子区域名> [父住宅]`
+
+| 参数 | 必填 | 说明 |
+| --- | --- | --- |
+| `add` | 必填 | add 新建、remove 删除、replace 重定义范围 |
+
+
+- **示例**：
+
+```
+/res area add farm home
+```
+
+- **备注**：子区域继承父住宅标志，可单独 pset 覆盖
+
+### `/res subzone` — 把子区域升级成可单独授权/出租的小领地
+
+- **语法**：`/res subzone <子区域名> [父住宅]`
+
+- **示例**：
+
+```
+/res subzone room1 home
+```
+
+- **备注**：升级后能加成员、能挂市场出售
+
+### `/res pset` — 给某个玩家或子区域单独设权限标志
+
+- **语法**：`/res pset <住宅> <玩家｜子区域> <标志> <true｜false｜remove>`
+
+| 参数 | 必填 | 说明 |
+| --- | --- | --- |
+| `标志` | 必填 | build/use/container/pvp/move/tp/damage/animals 等 |
+
+
+- **示例**：
+
+```
+/res pset home Steve build true
+/res pset home container false
+```
+
+- **备注**：remove 表示删掉这条覆盖设置；分组标志（redstone 等）一次设一组
+
+### `/res gset` — 设置整块住宅的全局标志
+
+- **语法**：`/res gset <住宅> <标志> <值>`
+
+- **示例**：
+
+```
+/res gset home pvp false
+```
+
+- **备注**：影响所有非成员；单人/子区域的 pset 优先级更高
+
+### `/res set` — 添加或移除住宅成员
+
+- **语法**：`/res set <住宅> <Order｜Member｜Trusted｜None> <玩家>`
+
+| 参数 | 必填 | 说明 |
+| --- | --- | --- |
+| `等级` | 必填 | Member 能用容器，Trusted 能建造并授权，None 移除 |
+
+
+- **示例**：
+
+```
+/res set home Member Steve
+/res set home None Steve
+```
+
+
+### `/res lset` — 按玩家等级批量改标志
+
+- **语法**：`/res lset <住宅> <等级> <标志> <值>`
+
+- **示例**：
+
+```
+/res lset home Member use true
+```
+
+
+### `/res flags` — 列出某住宅全部标志的当前状态
+
+- **语法**：`/res flags <住宅> [页码]`
+
+- **示例**：
+
+```
+/res flags home
+```
+
+- **备注**：排查「为什么他能开箱」先跑这个
+
+### `/res info` — 看住宅详情：所有者、大小、成员、租金
+
+- **语法**：`/res info <住宅>`
+
+- **示例**：
+
+```
+/res info home
+```
+
+- **备注**：不带参数看自己脚下的领地
+
+### `/res list` — 列出某玩家名下的住宅
+
+- **语法**：`/res list [玩家] [页码]`
+
+- **示例**：
+
+```
+/res list
+/res list Steve
+```
+
+
+### `/res listall` — 列出全服所有住宅
+
+- **语法**：`/res listall [页码]`
+
+- **示例**：
+
+```
+/res listall 1
+```
+
+- **权限**：`residence.command.listall`
+
+### `/res tp` — 传送到住宅
+
+- **语法**：`/res tp <住宅>`
+
+- **示例**：
+
+```
 /res tp home
 ```
 
-- **备注**：不写子指令或写 ? 会打印自己的可用子指令列表，权限不足的条目不会显示。
+- **备注**：需要该住宅 tp 标志为 true 或是成员
 
-### `/resadmin` — 管理员侧住宅管理命令，可操作任意玩家领地
+### `/res tpset` — 把你当前位置设为住宅传送点
 
-- **语法**：`/resadmin 子指令 参数`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `子指令` | 必填 | 与 /res 同名的子指令集合，此外还有 setowner、removeall、removeworld、server 等管理指令 |
-| `住宅名` | 可选 | 目标住宅全名，涉及他人领地时不可省略 |
-
+- **语法**：`/res tpset [住宅]`
 
 - **示例**：
 
 ```
-/resadmin ?
-/resadmin info home
-/resadmin setowner home Steve
-/resadmin removeall Steve
+/res tpset home
 ```
 
-- **备注**：需要 residence.admin 权限；对他人领地执行 setowner、remove、rename 等操作会留下管理记录，建议操作前先 /resadmin info 确认目标。
 
-### `/resload` — 只重新加载住宅数据文件，不重启插件
+### `/res kick` — 把某玩家踢出住宅
+
+- **语法**：`/res kick <住宅> <玩家>`
+
+- **示例**：
+
+```
+/res kick home Griefer
+```
+
+- **备注**：对方仍在领地内会被持续弹开
+
+### `/res limits` — 查看自己还能建多少块、多大面积
+
+- **语法**：`/res limits [玩家]`
+
+- **示例**：
+
+```
+/res limits
+```
+
+- **备注**：上限由权限组发放（residence.maxarea 等），玩家报错常见来源
+
+### `/res bank` — 住宅租金账户的查询/存入/取出
+
+- **语法**：`/res bank <deposit｜withdraw｜balance> [金额] [住宅]`
+
+- **示例**：
+
+```
+/res bank deposit 500 home
+```
+
+- **备注**：租金从余额扣，不足会走租约到期流程
+
+### `/res market` — 挂市场出售/出租住宅，或撤回/成交查询
+
+- **语法**：`/res market <sell｜rent｜unsell｜unrent｜buy｜info> [价格] [住宅]`
+
+- **示例**：
+
+```
+/res market sell 5000 home
+```
+
+- **备注**：rent 的价格单位是天
+
+### `/res lease` — 续租或放弃租约
+
+- **语法**：`/res lease <renew｜release> <住宅>`
+
+- **示例**：
+
+```
+/res lease renew home
+```
+
+
+### `/res contract` — 给住宅写出租/出售合同
+
+- **语法**：`/res contract <住宅> [天数] [价格]`
+
+- **示例**：
+
+```
+/res contract shop 30 2000
+```
+
+- **权限**：`residence.command.contract`
+
+### `/res message` — 设置进出领地时的提示语
+
+- **语法**：`/res message <住宅> <enter｜leave｜remove> <文本>`
+
+- **示例**：
+
+```
+/res message home enter 欢迎回家
+```
+
+
+### `/res rename` — 重命名住宅
+
+- **语法**：`/res rename <旧名> <新名>`
+
+- **示例**：
+
+```
+/res rename home myhome
+```
+
+
+### `/res tool` — 更换选区工具物品
+
+- **语法**：`/res tool [物品]`
+
+- **示例**：
+
+```
+/res tool blaze_rod
+```
+
+- **备注**：改完要手持该物品点击才生效
+
+### `/res unstuck` — 卡在领地边界时把自己弹出去
+
+- **语法**：`/res unstuck`
+
+- **示例**：
+
+```
+/res unstuck
+```
+
+
+### `/res version` — 查看版本与更新提示
+
+- **语法**：`/res version`
+
+- **示例**：
+
+```
+/res version
+```
+
+
+### `/resadmin` — 管理员指令：绕过领地限制、改他人领地、强制删除
+
+- **语法**：`/resadmin <子指令> [参数...]`
+
+- **示例**：
+
+```
+/resadmin remove 玩家名 领地名
+/resadmin setowner 领地名 新主人
+```
+
+- **备注**：误用会破坏玩家领地数据，操作前先备份 plugins/Residence 目录。
+
+### `/resadmin setowner` — 把住宅所有权转给其他玩家
+
+- **语法**：`/resadmin setowner <住宅> <玩家>`
+
+- **示例**：
+
+```
+/resadmin setowner home Steve
+```
+
+- **权限**：`residence.admin`
+- **备注**：原所有者立即失去权限，常用于玩家退服资产回收
+
+### `/resadmin removeall` — 删除某玩家名下全部住宅
+
+- **语法**：`/resadmin removeall <玩家>`
+
+- **示例**：
+
+```
+/resadmin removeall Griefer
+```
+
+- **权限**：`residence.admin`
+- **备注**：不可撤销，先 /res list 核对名单
+
+### `/resadmin give` — 把住宅转给指定玩家
+
+- **语法**：`/resadmin give <住宅> <玩家>`
+
+- **示例**：
+
+```
+/resadmin give home Steve
+```
+
+- **权限**：`residence.admin`
+
+### `/resadmin server` — 把住宅设为服务器所有（不绑定玩家）
+
+- **语法**：`/resadmin server <住宅>`
+
+- **示例**：
+
+```
+/resadmin server spawn_market
+```
+
+- **权限**：`residence.admin`
+
+### `/resload` — 重新读取住宅存档文件
 
 - **语法**：`/resload`
 
@@ -117,9 +501,9 @@ Residence 是主流的立方体领地方块保护插件，玩家用木锄选区�
 /resload
 ```
 
-- **备注**：用于手工修正 save 文件后让内存数据重新对齐，需要 residence.topadmin 权限；不读取 config.yml 的改动。
+- **备注**：用磁盘内容覆盖内存，误用会丢最近改动
 
-### `/resreload` — 整体重载插件配置与语言文件
+### `/resreload` — 重载配置与语言文件
 
 - **语法**：`/resreload`
 
@@ -129,69 +513,29 @@ Residence 是主流的立方体领地方块保护插件，玩家用木锄选区�
 /resreload
 ```
 
-- **备注**：改动 config.yml 后使用，需要 residence.topadmin 权限；重载期间短暂卡顿属正常，别在高峰时段频繁执行。
+- **备注**：改完 config.yml 必须跑；不重载玩家数据
 
 ## 子指令速查
 
 | 子指令 | 功能 | 示例 |
 | --- | --- | --- |
-| `select` | 进入选区模式，左键、右键各点一个对角方块 | `/res select` |
-| `create` | 按已选区域创建住宅，可带价格扣费 | `/res create home` |
-| `auto` | 以当前权限允许的最大尺寸自动圈地建宅 | `/res auto home 20` |
-| `remove` | 删除自己的住宅，需二次确认 | `/res remove home` |
-| `confirm` | 确认上一步的高危操作，如删除、买地 | `/res confirm` |
-| `area add` | 在住宅内新增一个矩形子区域 | `/res area add home shop` |
-| `area remove` | 删除指定子区域 | `/res area remove home shop` |
-| `subzone` | 创建独立计费的子领地，有自己的所有者 | `/res subzone home sub1` |
-| `expand` | 向视线方向扩展住宅边界，按方块计费 | `/res expand home 10` |
-| `contract` | 向内收缩住宅边界 | `/res contract home 5` |
-| `set` | 设置住宅标志位，如 pvp、build、use、move | `/res set home pvp false` |
-| `gset` | 设置全局默认标志位，对全部住宅生效 | `/res gset pvp false` |
-| `lset` | 设置租赁类标志位，控制租金与租期行为 | `/res lset home rentable true` |
-| `pset` | 设置某个玩家或权限组在住宅内的单项权限 | `/res pset home Steve build true` |
-| `padd` | 把玩家加为住宅成员，给一组默认权限 | `/res padd home Steve` |
-| `pdel` | 移除住宅成员及其全部权限 | `/res pdel home Steve` |
-| `flags` | 查看当前住宅全部标志位状态 | `/res flags home` |
-| `info` | 查看住宅所有者、尺寸、标志位与成员 | `/res info home` |
-| `list` | 列出自己拥有的住宅 | `/res list` |
-| `listall` | 列出自己可见的全部住宅，含他人领地 | `/res listall` |
-| `lists` | 列出住宅及其子区域的层级结构 | `/res lists home` |
-| `current` | 查看当前所在住宅与子区域 | `/res current` |
-| `tp` | 传送到指定住宅，或住宅的某个子区域坐标 | `/res tp home` |
-| `tpset` | 把当前站位设为住宅的传送点 | `/res tpset home` |
-| `tpconfirm` | 确认有价格或跨世界的传送请求 | `/res tpconfirm` |
-| `kick` | 把玩家从自己的住宅中强制移出 | `/res kick home Steve` |
-| `rename` | 重命名自己的住宅 | `/res rename home base` |
-| `setmain` | 把某个子区域设为主区域，主区域不可删除 | `/res setmain home shop` |
-| `limits` | 查看自己的住宅数量与尺寸上限 | `/res limits` |
-| `market` | 把住宅挂到市场出租或出售 | `/res market home 5000` |
-| `lease` | 查看或管理自己租下的住宅 | `/res lease` |
-| `gui` | 用图形界面管理当前住宅的标志位与成员 | `/res gui home` |
-| `tool` | 获取选区工具，默认是木锄 | `/res tool` |
-| `rt` | 随机传送到一处可公开访问的住宅 | `/res rt` |
-| `unstuck` | 卡在领地边界或方块里时脱困 | `/res unstuck` |
-| `bank` | 查看住宅银行余额与收支 | `/res bank home` |
-| `version` | 查看插件版本 | `/res version` |
-| `setowner` | 管理员把住宅所有权转给其他玩家 | `/resadmin setowner home Steve` |
-| `removeall` | 管理员删除某个玩家的全部住宅 | `/resadmin removeall Steve` |
-| `clearflags` | 管理员清空指定住宅的全部标志位 | `/resadmin clearflags home` |
-| `setdefaultflags` | 把全局默认标志位写回指定住宅 | `/resadmin setdefaultflags home` |
+| `/res ?` | 分页帮助，是最全的子指令清单 | `/res ? 2` |
+| `/res signupdate` | 刷新领地牌子上的文字 | `/res signupdate home` |
+| `/rc` | 住宅频道聊天（含 setprefix/setcolor/kick） | `/rc setprefix [家里]` |
 
 ## 注意事项
 
 ::: warning
-- resremove 与 removeall 不可撤销，执行前先用 /resadmin info 或 /res listall 核对住宅名与所有者
-- resreload 会重载全部配置，手工改过的 save 文件若格式有误会丢数据，改前先备份 plugins/Residence
-- 子区域与主住宅的标志位存在继承关系，只改主区域往往不生效，要按子区域逐层确认
-- 与 WorldGuard 等其它区域插件同区域叠加时权限判定容易冲突，排查保护失效时先确认哪一层拒绝
-- resadmin 的越权操作默认受 residence.admin 等权限控制，给管理组授权时按最小原则只放必要节点
+- /res remove、/resadmin removeall、/resadmin setowner 不可撤销，先 /res list 核对。
+- /resload 用磁盘内容覆盖内存，手工改存档后使用，误用丢数据。
+- 玩家「建不了地」多半是 /res limits 到顶或选区超区块上限，先查这两条。
 :::
 
 ## 权限节点
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `residence.admin` | 允许您访问/resadmin | op |
+| `residence.admin` | 完全管理权（含全部 /resadmin 子指令） | op |
 | `residence.admin.move` | 允许覆盖移动标志 | op |
 | `residence.admin.tp` | 允许覆盖tp标志 | op |
 | `residence.bypass.command` | 在驻留中绕过命令标志 | op |
@@ -207,7 +551,7 @@ Residence 是主流的立方体领地方块保护插件，玩家用木锄选区�
 | `residence.command.command` | 允许访问特定命令 | True |
 | `residence.command.compass` | 允许访问特定命令 | True |
 | `residence.command.confirm` | 允许访问特定命令 | True |
-| `residence.command.contract` | 允许访问特定命令 | True |
+| `residence.command.contract` | 允许给住宅写出租/出售合同 | True |
 | `residence.command.create` | 允许访问特定命令 | True |
 | `residence.command.current` | 允许访问特定命令 | True |
 | `residence.command.expand` | 允许访问特定命令 | True |
@@ -221,7 +565,7 @@ Residence 是主流的立方体领地方块保护插件，玩家用木锄选区�
 | `residence.command.limits` | 允许访问特定命令 | True |
 | `residence.command.list` | 允许访问特定命令 | True |
 | `residence.command.list.others` | 允许访问特定命令 | True |
-| `residence.command.listall` | 允许访问特定命令 | True |
+| `residence.command.listall` | 允许列出全服住宅 | True |
 | `residence.command.listallhidden` | 允许访问特定命令 | op |
 | `residence.command.listhidden` | 允许访问特定命令 | op |
 | `residence.command.lists` | 允许访问特定命令 | True |
@@ -238,7 +582,7 @@ Residence 是主流的立方体领地方块保护插件，玩家用木锄选区�
 | `residence.command.pdel` | 允许访问特定命令 | True |
 | `residence.command.pset` | 允许访问特定命令 | True |
 | `residence.command.rc` | 允许访问特定命令 | True |
-| `residence.command.reload` | 允许访问特定命令 | op |
+| `residence.command.reload` | 允许执行 /resreload 与 /resload | op |
 | `residence.command.remove` | 允许访问特定命令 | True |
 | `residence.command.removeall` | 允许访问特定命令 | op |
 | `residence.command.removeworld` | 允许访问特定命令 | op |
@@ -284,7 +628,3 @@ Residence 是主流的立方体领地方块保护插件，玩家用木锄选区�
 | `residence.select.auto.others` | 允许为其他玩家打开自动选择 | op |
 | `residence.topadmin` | 允许您访问/resreload和/resload命令 | op |
 | `residence.versioncheck` | 连接后通知新版本 | op |
-
-## 相关插件
-
-WorldGuard、[LuckPerms](/commands/core/luckperms.md)、[Vault](/commands/core/vault.md)、[PlaceholderAPI](/commands/config/placeholderapi.md)

@@ -1,0 +1,478 @@
+# LeafChat  (leafchat-1.0.5.jar)
+## 注册指令
+  /chatcolor  usage='/chatcolor [颜色ID] | /chatcolor gradient <起色> <止色>' desc='设置或打开聊天颜色选择' alias=None perm='leafchat.chatcolor'
+  /msg  usage='/msg <玩家> <消息>' desc='发送私聊消息' alias=None perm='leafchat.msg'
+  /r  usage='/r <消息>' desc='回复上次私聊对象' alias=None perm='leafchat.msg'
+  /spymsg  usage='/spymsg' desc='切换管理员私聊监听' alias=None perm='leafchat.spy'
+  /mute  usage='/mute <玩家> [时长]' desc='禁言玩家（留空时长=永久）' alias=None perm='leafchat.mute'
+  /unmute  usage='/unmute <玩家>' desc='解除玩家禁言' alias=None perm='leafchat.unmute'
+  /leafchat  usage='/leafchat reload' desc='LeafChat 主命令（重载配置等）' alias=None perm=None
+  /leafchatview  usage='/leafchatview' desc='聊天物品展示后端（由 [inv]/[ec] 链接触发，无需手动使用）' alias=None perm=None
+
+## 代码类
+  me.leafchat.command.ChatColorCommand
+  me.leafchat.command.LeafChatCommand
+  me.leafchat.command.LeafChatViewCommand
+  me.leafchat.command.MsgCommand
+  me.leafchat.command.MuteCommand
+  me.leafchat.command.ReplyCommand
+  me.leafchat.command.SpyMsgCommand
+  me.leafchat.command.UnmuteCommand
+
+## javap 字符串 token
+  custom ender gradient inv item reload
+
+## 文本资源里的帮助/用法行
+  · # LeafChat 配置文件
+  · # 说明：所有修改保存后使用 /leafchat reload 热重载
+  · # 时间格式：时长支持 10s / 5m / 2h / 3d，留空表示永久
+  · # 配置结构版本，用于自动迁移，请勿手动修改
+  · 配置版本: 3
+  · 调试: false
+  · # 一、聊天格式（接管聊天渲染，LeafChat 核心功能）
+  · # 接管整条聊天的显示格式。模板为 MiniMessage 字符串，支持花括号标签：
+  · #   {player}    玩家名（默认白色；样式由 玩家名格式 控制，点击/悬浮由 玩家名点击/玩家名悬浮 控制）
+  · #   {message}   消息内容插入点（已包含玩家颜色/物品展示效果；样式由 消息格式 控制）
+  · #   {world}     发送者所在世界（按 世界名映射 显示中文名，未命中显示原名）
+  · #   {标签名}    自定义标签，由下方 自定义标签 定义（值支持 MiniMessage 标签与 & 颜色码、PlaceholderAPI）
+  · #   其余内容支持 MiniMessage 标签（<gradient:..> <rainbow> 等）与 & 颜色码混写，
+  · #   并支持 PlaceholderAPI 占位符（按发送者解析，如 %player_name% %luckperms_prefix% %leafchat_color%）
+  · #   注意：& 与 §（U+00A7）两种颜色码均可使用——LuckPerms 前缀等 PAPI 返回的 § 码会被自动转换
+  · # 兼容旧写法：<player> 与 <message> 亦可使用。
+  · 聊天格式:
+  · 启用: true
+  · # 默认效果： 玩家名>> 消息
+  · 格式: "{player}&7>>&r {message}"
+  · # {player} 的包裹样式，{name} 为玩家名插入点
+  · 玩家名格式: "<white>{name}</white>"
+  · # {message} 的包裹样式，{content} 为消息插入点
+  · 消息格式: "{content}"
+  · # 玩家名点击行为：启用后点击玩家名触发动作
+  · 玩家名点击:
+  · 启用: true
+  · # 动作类型：SUGGEST=填入输入框 / RUN=直接执行指令 / URL=打开链接 / NONE=无
+  · 动作: "SUGGEST"
+  · # 动作内容，{name}（或 {player}）为玩家名占位符（示例："/msg {name} " 快速私聊）
+  · 内容: "/msg {name} "
+  · # 玩家名悬浮提示：支持 {name} 占位符、& 颜色码与 MiniMessage 标签（<gradient:..> 等）、PlaceholderAPI
+  · 玩家名悬浮:
+  · 启用: true
+  · 文本: "&e点击私聊"
+  · # 世界名→中文映射：{world} 按此显示；未配置的世界显示原名
+  · # 映射值支持 & / § 颜色码与 MiniMessage 标签（如 "<gold>主世界</gold>"、"&6主世界"）
+  · 世界名映射:
+  · world: "主世界"
+  · world_nether: "下界"
+  · world_the_end: "末地"
+  · # 自定义标签：模板中写 {标签名} 即被替换为对应内容（值支持 MiniMessage 标签与 & 颜色码、PlaceholderAPI）
+  · # 注意：值内不支持 {player}/{name} 等内置占位符，如需玩家名请用 %player_name%
+  · # 示例：格式写成 "{prefix}{player} &7>>&r {message}" 会在玩家名前显示服务器前缀
+  · 自定义标签:
+  · prefix: "<dark_gray>[</dark_gray><gold>服务器</gold><dark_gray>]</dark_gray> "
+  · # 二、聊天颜色系统
+  · # 权限规则（「权限」字段留空时按类型自动分配）：
+  · #   单色   → leafchat.color.<id>            （每种单色独立权限，如 leafchat.color.red；默认仅 OP，普通玩家需显式授予）
+  · #   渐变   → leafchat.color.gradient        （一个权限覆盖全部预设渐变 + 指令自定义渐变；默认仅 OP）
+  · #   总权限 → leafchat.color.*               （一键授予上述所有颜色权限）
+  · # 消息内颜色码（&c、<red>、<gradient:..>）→ leafchat.color.use（默认仅 OP，普通玩家需管理员授予）
+  · # 如需为某个颜色单独覆盖，可在「权限」字段显式填写节点。
+  · # 样式开关（粗体/斜体）不设独立权限：能打开本 GUI 的玩家均可使用，可与任意颜色自由组合。
+  · # GUI 槽位由插件按「单色 / 渐变 / 彩虹 / 样式」分区自动排列，不再手动配置。
+  · # 说明：彩虹颜色（RAINBOW 类型）已移除——本插件不再提供彩虹效果
+  · 聊天颜色:
+  · # 是否启用聊天颜色功能
+  · 启用: true
+  · # 新玩家默认颜色ID（留空表示无颜色）；需对应下方颜色列表中的 id
+  · 默认颜色: ""
+  · # 是否在颜色选择 GUI 底部显示「粗体 / 斜体」开关行
+  · # 开关状态按玩家持久化保存；样式包在颜色外层，因此「只开粗体不选颜色」同样生效
+  · 样式开关: true
+  · # 颜色列表（可自由增删，完全自定义；类型 SOLID=单色 / GRADIENT=渐变 / RAINBOW=彩虹）
+  · 颜色列表:
+  · # ---------- 单色（16 种混凝土色，每种单色独立权限 leafchat.color.<id>） ----------
+  · 名称: "白色"
+  · 类型: "SOLID"
+  · 颜色: "#f9fffe"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "WHITE_CONCRETE"
+  · 名称: "&f白色"
+  · - "&7单色样式"
+  · 名称: "橙色"
+  · 类型: "SOLID"
+  · 颜色: "#f9801d"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "ORANGE_CONCRETE"
+  · 名称: "&6橙色"
+  · - "&7单色样式"
+  · 名称: "品红色"
+  · 类型: "SOLID"
+  · 颜色: "#c74ebd"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "MAGENTA_CONCRETE"
+  · 名称: "&d品红色"
+  · - "&7单色样式"
+  · 名称: "浅蓝色"
+  · 类型: "SOLID"
+  · 颜色: "#3ab3da"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "LIGHT_BLUE_CONCRETE"
+  · 名称: "&b浅蓝色"
+  · - "&7单色样式"
+  · 名称: "黄色"
+  · 类型: "SOLID"
+  · 颜色: "#fed83d"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "YELLOW_CONCRETE"
+  · 名称: "&e黄色"
+  · - "&7单色样式"
+  · 名称: "黄绿色"
+  · 类型: "SOLID"
+  · 颜色: "#80c71f"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "LIME_CONCRETE"
+  · 名称: "&a黄绿色"
+  · - "&7单色样式"
+  · 名称: "粉色"
+  · 类型: "SOLID"
+  · 颜色: "#f38baa"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "PINK_CONCRETE"
+  · 名称: "&d粉色"
+  · - "&7单色样式"
+  · 名称: "灰色"
+  · 类型: "SOLID"
+  · 颜色: "#474f52"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "GRAY_CONCRETE"
+  · 名称: "&8灰色"
+  · - "&7单色样式"
+  · 名称: "浅灰色"
+  · 类型: "SOLID"
+  · 颜色: "#9d9d97"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "LIGHT_GRAY_CONCRETE"
+  · 名称: "&7浅灰色"
+  · - "&7单色样式"
+  · 名称: "青色"
+  · 类型: "SOLID"
+  · 颜色: "#169c9c"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "CYAN_CONCRETE"
+  · 名称: "&3青色"
+  · - "&7单色样式"
+  · 名称: "紫色"
+  · 类型: "SOLID"
+  · 颜色: "#8932b8"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "PURPLE_CONCRETE"
+  · 名称: "&5紫色"
+  · - "&7单色样式"
+  · 名称: "蓝色"
+  · 类型: "SOLID"
+  · 颜色: "#3c44aa"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "BLUE_CONCRETE"
+  · 名称: "&9蓝色"
+  · - "&7单色样式"
+  · 名称: "棕色"
+  · 类型: "SOLID"
+  · 颜色: "#835432"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "BROWN_CONCRETE"
+  · 名称: "&6棕色"
+  · - "&7单色样式"
+  · 名称: "绿色"
+  · 类型: "SOLID"
+  · 颜色: "#5e7c16"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "GREEN_CONCRETE"
+  · 名称: "&a绿色"
+  · - "&7单色样式"
+  · 名称: "红色"
+  · 类型: "SOLID"
+  · 颜色: "#b02e26"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "RED_CONCRETE"
+  · 名称: "&c红色"
+  · - "&7单色样式"
+  · 名称: "黑色"
+  · 类型: "SOLID"
+  · 颜色: "#1d1d21"
+  · 渐变起始: ""
+  · 渐变结束: ""
+  · 权限: ""
+  · 材质: "BLACK_CONCRETE"
+  · 名称: "&0黑色"
+  · - "&7单色样式"
+  · # ---------- 渐变（权限统一为 leafchat.color.gradient） ----------
+  · 名称: "日落渐变"
+  · 类型: "GRADIENT"
+  · 颜色: ""
+  · 渐变起始: "#ff7b00"
+  · 渐变结束: "#ffd000"
+  · 权限: ""
+  · 材质: "ORANGE_WOOL"
+  · 名称: "&6日落渐变"
+  · - "&7渐变样式"
+  · 名称: "海洋渐变"
+  · 类型: "GRADIENT"
+  · 颜色: ""
+  · 渐变起始: "#00e5ff"
+  · 渐变结束: "#2979ff"
+  · 权限: ""
+  · 材质: "CYAN_WOOL"
+  · 名称: "&b海洋渐变"
+  · - "&7渐变样式"
+  · 名称: "火焰渐变"
+  · 类型: "GRADIENT"
+  · 颜色: ""
+  · 渐变起始: "#ff0000"
+  · 渐变结束: "#ffd000"
+  · 权限: ""
+  · 材质: "RED_WOOL"
+  · 名称: "&c火焰渐变"
+  · - "&7渐变样式"
+  · 名称: "森林渐变"
+  · 类型: "GRADIENT"
+  · 颜色: ""
+  · 渐变起始: "#00c853"
+  · 渐变结束: "#1a237e"
+  · 权限: ""
+  · 材质: "GREEN_WOOL"
+  · 名称: "&2森林渐变"
+  · - "&7渐变样式"
+  · # 三、物品展示功能
+  · # 说明：物品悬浮直接使用玩家手持 ItemStack 的原生数据（NBT/组件），
+  · # 无需依赖 Oraxen/ItemAdder 等自定义物品插件即可正确展示。
+  · 物品展示:
+  · 启用: true
+  · # 聊天中触发展示的标签（区分大小写，玩家在聊天中输入）
+  · 手持物品标签: "[i]"
+  · 背包标签: "[inv]"
+  · 末影箱标签: "[ec]"
+  · # [i] 在聊天中显示的可点击文本（原生悬浮展示物品；点击打开物品查看 GUI）
+  · 手持悬浮文本: "&e[物品]"
+  · # [inv]/[ec] 在聊天中显示的可点击文本（点击打开GUI）
+  · # 查看授权：发出 [inv]/[ec] 即视为主动展示，任何玩家点击展示链接（60 秒内）都可直接查看；
+  · # 查看由隐藏后端命令触发，无需（也没有）手动查看指令
+  · 背包点击文本: "&a[背包]"
+  · 末影箱点击文本: "&a[末影箱]"
+  · # 背包查看 GUI 为固定标准布局（四行物品栏 + 盔甲栏 + 副手栏），不支持自定义
+  · # 末影箱查看 GUI 为固定三行 27 格，不支持自定义
+  · # 四、私聊系统
+  · 启用: true
+  · # 私聊消息格式，{sender}=发送者名 {receiver}=接收者名 {message}=消息
+  · 格式: "&7[私聊] &b{sender} &7→ &b{receiver}&7: &f{message}"
+  · # 是否允许点击玩家名/私聊消息快速回复（在输入框填入 /msg 玩家名 ）
+  · 点击回复: true
+  · # 是否记录双方上次私聊对象；记录后可用 /r <消息> 快速回复上次对象
+  · 记录上次对象: true
+  · # 监听者（spymsg）看到的格式
+  · 监听格式: "&7[监听] &b{sender} &7→ &b{receiver}&7: &f{message}"
+  · # 五、禁言系统
+  · 启用: true
+  · # 禁言时若不填写原因使用的默认原因
+  · 默认原因: "违反服务器规则"
+  · # 被禁言玩家尝试发言时的提示（{reason}=原因 {remaining}=剩余时间）
+  · 提示格式: "&c你已被禁言，原因：&e{reason}&c（剩余：&e{remaining}&c）"
+  · # 禁言是否同时禁止私聊（true 则私聊也被拦截）
+  · 禁言屏蔽私聊: false
+  · # 六、跨服通信
+  · 启用: false
+  · # 通信方式：BUNGEECORD（原生插件消息通道，无需额外依赖）/ REDIS（需配置下方 Redis）
+  · 方式: "BUNGEECORD"
+  · # 插件消息通道 / Redis 频道名
+  · 频道名: "leafchat:main"
+  · # 本服务器所在分组（只有同分组的服务器互相同步聊天）
+  · 本服务器分组: "default"
+  · # 同步范围：PUBLIC=公共聊天 / ALL=公共聊天+私聊
+  · 同步范围: "PUBLIC"
+  · 主机: "127.0.0.1"
+  · 端口: 6379
+  · 密码: ""
+  · 数据库: 0
+  · # 七、PlaceholderAPI 支持（软依赖）
+  · # PlaceholderAPI 为软依赖：安装并启用后自动生效（%leafchat_xxx% 扩展与模板中的 PAPI 占位符），
+  · # 未安装则跳过，无需手动开关。
+  · # 八、@ 提及系统
+  · # 聊天中 @玩家名 可通知被提及者（收到消息 + 音效）；
+  · # @全体 / @everyone 广播给所有在线玩家（需 leafchat.mention.all 权限，默认仅 OP）。
+  · # 聊天框输入 @ 时自动补全在线玩家名（Tab 键）。
+  · 提及系统:
+  · 启用: true
+  · # 被提及者收到的通知（{player}=提及者名字）
+  · 通知消息: "&e{player} &f在聊天中提到了你"
+  · # @全体 广播给所有人的消息
+  · 全体消息: "&e{player} &f使用了 &e@全体"
+  · # 无权限使用 @全体 时的提示
+  · 无权限提示: "&c你没有使用 @全体 的权限"
+  · # 被提及者播放的音效（Bukkit Sound 枚举名）
+  · 通知音效: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  · # @全体 触发词（整词边界匹配，忽略大小写，可增删）
+  · 全体触发词:
+  · - "@全体"
+  · # 九、欢迎新人奖励
+  · # 老玩家在公共聊天发出欢迎词，即向当前在线的新玩家表示欢迎，通过后发放奖励。
+  · # 新人判定：玩家首次进服后的「新人有效期」内（默认 5 分钟）有效，超时失效。
+  · #   新人下线后仍保留在候选人里（秒进秒退也欢迎得到），直到有效期走完才移除；
+  · #   给新人的提示只在他在线时发送，离线则跳过。
+  · #   全部记录保存在内存（不写数据库），服务器重启后重新开始；同一组合不会重复结算。
+  · # 触发词不区分大小写；中文按子串匹配（「欢迎光临」「欢迎新来的」都算命中），
+  · #   纯英文词按整词边界匹配（避免 "why" 误命中 "hy"）。
+  · # 多个新人同时在线时，结算给「最近加入」的那一位。
+  · 启用: false
+  · # 触发词：消息中包含任意一个即触发。
+  · #   纯英文/数字词按整词边界匹配（避免 "why" 误命中 "hy"）；含中文的词按子串匹配（中文无词边界）。
+  · 触发词:
+  · - "欢迎"
+  · # 新人有效期：玩家首次进服后多久内老玩家发欢迎词才有效（支持 30s / 5m / 1h / 3d）
+  · #   留空或 0 = 不限时（本次在线期间都算新人）；超时后自动失效
+  · 新人有效期: "5m"
+  · # 同一个新人最多被多少人领取奖励（0=不限）
+  · 单个新人上限: 0
+  · # 给欢迎者的提示（留空不发）；{player}=欢迎者名 {target}=被欢迎的新人名
+  · 给欢迎者提示: "欢迎新人奖励已发放"
+  · # 给新人的提示（留空不发）；占位符同上
+  · 给新人提示: ""
+  · # 全服广播（留空则不广播）；占位符同上
+  · 广播: ""
+  · # 结算时以控制台身份执行的命令（按顺序执行，占位符：{player}=欢迎者 {target}=新人）
+  · # 经济奖励直接用对应插件的命令，示例（XConomy）：- "money give {player} 100"
+  · description: 现代化聊天管理插件（聊天颜色 / 物品展示 / 私聊 / 禁言 / 跨服）
+  · description: 设置或打开聊天颜色选择
+  · usage: /chatcolor [颜色ID] | /chatcolor gradient <起色> <止色>
+  · description: 发送私聊消息
+  · usage: /msg <玩家> <消息>
+  · description: 回复上次私聊对象
+  · usage: /r <消息>
+  · description: 切换管理员私聊监听
+  · usage: /spymsg
+  · description: 禁言玩家（留空时长=永久）
+  · usage: /mute <玩家> [时长]
+  · description: 解除玩家禁言
+  · usage: /unmute <玩家>
+  · description: LeafChat 主命令（重载配置等）
+  · usage: /leafchat reload
+  · # 注意：不设命令级权限，由命令内部按子命令检查（reload→leafchat.reload）
+  · description: 聊天物品展示后端（由 [inv]/[ec] 链接触发，无需手动使用）
+  · usage: /leafchatview
+  · # 注意：不设命令级权限——普通玩家点击展示链接（带令牌）即可查看，权限在命令内部校验
+  · description: 允许使用聊天颜色
+  · # 总权限：一键授予所有颜色相关权限（单色 leafchat.color.<id> / 渐变 leafchat.color.gradient / 彩虹 leafchat.color.rainbow）
+  · description: 授予所有聊天颜色权限（单色/渐变/彩虹）
+  · # 渐变权限：授予后可使用全部预设渐变，并通过 /chatcolor gradient 自定义起止颜色
+  · description: 允许使用所有预设渐变并自定义渐变
+  · # 消息内颜色码权限：拥有后 & / § / MiniMessage 标签（如 &c、<red>、<gradient:..>）在聊天/私聊消息中生效；
+  · # 无权限的玩家这些代码按字面显示（默认仅 OP，普通玩家需由管理员授予）
+  · description: 允许在消息中使用颜色码（& / § / MiniMessage 标签）
+  · # @全体 广播权限：拥有后可在聊天中使用 @全体 / @everyone 通知所有在线玩家
+  · # （@玩家名 提及单个玩家无需权限）
+  · description: 允许使用 @全体 广播
+  · # 彩虹权限：独立额外权限
+  · description: 允许使用彩虹色
+  · description: 允许发送私聊
+  · description: 允许监听私聊
+  · description: 允许禁言玩家
+  · description: 允许解除禁言
+  · description: 允许重载配置
+  · description: 管理员直接查看他人背包/末影箱（聊天内 [inv]/[ec] 展示链接无需该权限）
+
+## 常量池帮助/描述文本
+  · me/leafchat/command/ChatColorCommand
+  · Lme/leafchat/LeafChatPlugin;
+  · 该命令只能由玩家执行
+  · me/leafchat/LeafChatPlugin
+  · me/leafchat/config/ConfigManager
+  · &c聊天颜色功能未启用
+  · me/leafchat/util/ComponentUtil
+  · me/leafchat/chatcolor/ChatColorGui
+  · me/leafchat/chatcolor/ChatColorManager
+  · me/leafchat/chatcolor/ColorConfig
+  · &c你没有权限使用渐变颜色（leafchat.color.gradient）
+  · &c用法：/chatcolor gradient <起始色> <结束色>
+  · &7示例：&f/chatcolor gradient #ff5555 #5555ff
+  · &7支持 #RRGGBB 或颜色名（red / blue / gold ...）
+  · Lme/leafchat/command/ChatColorCommand;
+  · Lme/leafchat/chatcolor/ColorConfig;
+  · &c未知颜色：&e
+  · &c你没有权限使用颜色：&e
+  · &a已设置聊天颜色：
+  · &c无效的起始颜色：&e
+  · &c无效的结束颜色：&e
+  · &a已设置自定义渐变：&e &7→ &e
+  · me/leafchat/command/LeafChatCommand
+  · me/leafchat/util/Permissions
+  · &c你没有权限
+  · &aLeafChat 配置已重载
+  · &8LeafChat 命令：
+  · &7/leafchat reload &8- 重载配置
+  · &8聊天物品展示：输入 &f[i]&8 展示手持物品、&f[inv]&8 背包、&f[ec]&8 末影箱
+  · Lme/leafchat/command/LeafChatCommand;
+  · me/leafchat/command/LeafChatViewCommand
+  · &c该命令由聊天展示链接触发，无需手动使用
+  · &c用法：/leafchatview <inv|ender|item> <参数>
+  · me/leafchat/itemdisplay/ItemDisplayManager
+  · &c展示的物品已过期或不存在
+  · &c无效的玩家UUID
+  · &c该玩家不在线
+  · &c无法查看：对方未主动展示物品
+  · Lme/leafchat/command/LeafChatViewCommand;
+  · me/leafchat/command/MsgCommand
+  · &c私聊功能未启用
+  · &c用法：/msg <玩家> <消息>
+  · &c不能给自己发私聊
+  · me/leafchat/pm/PmManager
+  · Lme/leafchat/command/MsgCommand;
+  · &c玩家不在线：&e
+  · me/leafchat/command/MuteCommand
+  · &c禁言功能未启用
+  · &c用法：/mute <玩家> [时长]
+  · me/leafchat/mute/MuteManager
+  · （永久）
+  · Lme/leafchat/command/MuteCommand;
+  · &c无效的时长：&e&c（支持 10s / 5m / 2h / 3d）
+  · &a已禁言 &e
+  · me/leafchat/command/ReplyCommand
+  · &c用法：/r <消息>
+  · &c没有可回复的私聊对象（先使用 /msg 发送一次私聊）
+  · Lme/leafchat/command/ReplyCommand;
+  · me/leafchat/command/SpyMsgCommand
+  · &c你没有权限使用私聊监听
+  · &a已开启私聊监听
+  · &a已关闭私聊监听
+  · Lme/leafchat/command/SpyMsgCommand;
+  · me/leafchat/command/UnmuteCommand
+  · &c用法：/unmute <玩家>
+  · &a你的禁言已被解除
+  · Lme/leafchat/command/UnmuteCommand;
+  · &a已解除禁言：&e

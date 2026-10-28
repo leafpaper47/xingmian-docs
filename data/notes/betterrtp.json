@@ -1,110 +1,42 @@
 {
-  "name": "BetterRTP",
-  "role": "功能全面的随机传送插件，主世界野外探索标配",
-  "summary": "BetterRTP 负责把玩家随机丢到指定世界的安全落点，是开荒服、生存服替代固定出生点的主要手段。它支持按世界、生物群系、指定玩家、指定坐标发起随机传送，并可配置冷却、传送延迟、扣费、饥饿消耗等限制。落点安全性由插件自行搜索合适方块决定，避免把玩家送进岩浆或虚空。权限可细化到世界与权限组，方便做不同档位的传送额度。",
-  "whatFor": [
-    "给新玩家一个随机落点，避免全服挤在出生点",
-    "让玩家用 /rtp 快速去远处开荒挖矿",
-    "把玩家随机传送到下界、末地等指定世界",
-    "限定生物群系传送，做特定玩法或资源区",
-    "用权限组区分普通玩家与捐赠玩家的传送冷却和范围"
-  ],
-  "flow": [
-    "确认 config 里已启用目标世界并设好中心点与半径",
-    "在 LuckPerms 给玩家组 betterrtp.use，需要跨世界则加 betterrtp.world 及对应世界节点",
-    "改完配置执行 /rtp reload 让设置生效，用 /rtp info 核对各世界参数",
-    "首次上线前用 /rtp test 检查粒子、音效、药水提示是否正常",
-    "正式使用后观察日志与玩家反馈，按需调半径、冷却与落点搜索次数"
-  ],
-  "commands": [
-    {
-      "cmd": "betterrtp",
-      "what": "随机传送到安全落点，可加子指令指定世界、玩家、生物群系或坐标",
-      "syntax": "/rtp [子指令] [参数]",
-      "params": [
-        {
-          "name": "子指令",
-          "required": false,
-          "note": "world 世界名 / player 玩家名 / biome 生物群系 / location 坐标 / reload / info / version / help"
-        },
-        {
-          "name": "参数",
-          "required": false,
-          "note": "随子指令变化，如世界名、玩家名、生物群系 id 或 x z 坐标"
-        }
-      ],
-      "examples": [
-        "/rtp",
-        "/rtp world world_nether",
-        "/rtp player Steve",
-        "/rtp biome desert",
-        "/rtp reload"
-      ],
-      "notes": "别名 brtp、rtp、randomtp、wild、wildtp 均可用；不带子指令时在当前世界随机传送。子指令的具体参数顺序以游戏内 /rtp help 为准。"
-    }
-  ],
-  "subcommands": [
-    {
-      "cmd": "world 世界名",
-      "desc": "在指定世界随机传送，需要 betterrtp.world 与该世界的权限节点",
-      "example": "/rtp world world_nether"
-    },
-    {
-      "cmd": "player 玩家名",
-      "desc": "把指定玩家随机传送走，需要 betterrtp.player",
-      "example": "/rtp player Steve"
-    },
-    {
-      "cmd": "biome 生物群系",
-      "desc": "传送到指定生物群系的随机位置，需要 betterrtp.biome",
-      "example": "/rtp biome desert"
-    },
-    {
-      "cmd": "location 坐标",
-      "desc": "以指定位置为中心随机传送，需要 betterrtp.location",
-      "example": "/rtp location 0 0"
-    },
-    {
-      "cmd": "reload",
-      "desc": "重载配置文件，需要 betterrtp.reload",
-      "example": "/rtp reload"
-    },
-    {
-      "cmd": "info",
-      "desc": "查看各世界的随机传送参数与生效情况，需要 betterrtp.info",
-      "example": "/rtp info"
-    },
-    {
-      "cmd": "version",
-      "desc": "查看当前运行版本，需要 betterrtp.version",
-      "example": "/rtp version"
-    },
-    {
-      "cmd": "edit 世界 中心或半径 数值",
-      "desc": "直接改某世界的传送中心或半径，需要 betterrtp.edit",
-      "example": "/rtp edit world 5000"
-    },
-    {
-      "cmd": "test 类型",
-      "desc": "开启调试后测试粒子、药水效果与声音，需要 betterrtp.test",
-      "example": "/rtp test particle"
-    },
-    {
-      "cmd": "help",
-      "desc": "列出全部子指令与用法",
-      "example": "/rtp help"
-    }
-  ],
-  "caution": [
-    "跨世界传送要该世界已在配置里启用并给到对应 betterrtp.world.世界名 权限，否则玩家只会被拒",
-    "半径设太大或玩家频繁使用会明显吃性能，建议配合冷却与传送延迟限制",
-    "betterrtp.bypass.cooldown、delay、economy、hunger 属特权，只给管理员或特定组，否则限流形同虚设",
-    "改完配置务必 /rtp reload 并用 /rtp info 确认生效，语法细节以游戏内 /rtp help 为准"
-  ],
-  "related": [
-    "Vault",
-    "LuckPerms",
-    "PlaceholderAPI",
-    "Essentials"
-  ]
+ "name": "BetterRTP",
+ "role": "随机传送",
+ "summary": "随机传送玩家到安全落点，支持按世界/生物群系指定、组队队列、冷却与经济扣费，是生存服最常用的传送工具。",
+ "quick": [
+  {"scene": "玩家随机传送", "cmd": "/rtp", "note": "默认在当前世界随机找安全点"},
+  {"scene": "传到指定世界", "cmd": "/rtp world resource", "note": "世界名用 Multiverse 里的名字"},
+  {"scene": "传送到某生物群系", "cmd": "/rtp biome desert", "note": "找不到符合条件的点会失败重试"},
+  {"scene": "帮别人传送", "cmd": "/rtp player Steve", "note": "管理员代传，不影响自己位置"}
+ ],
+ "commands": [
+  {"cmd": "rtp", "what": "随机传送；不带参数= 给自己传，带参数= 指定世界/玩家/群系", "syntax": "/rtp [世界] [玩家] [群系]",
+   "examples": ["/rtp", "/rtp resource"], "notes": "别名 /wild、/randomtp"}
+ ],
+ "subcommands": [
+  {"cmd": "/rtp world <世界>", "desc": "在指定世界随机传送", "example": "/rtp world resource"},
+  {"cmd": "/rtp biome <群系>", "desc": "传送到指定生物群系", "example": "/rtp biome desert"},
+  {"cmd": "/rtp player <玩家>", "desc": "把指定玩家随机传送", "example": "/rtp player Steve"},
+  {"cmd": "/rtp location <世界> <x> <z>", "desc": "传送到指定的坐标点（不走随机）", "example": "/rtp location world 100 200"},
+  {"cmd": "/rtp queue", "desc": "查看/管理排队中的传送请求", "example": "/rtp queue"},
+  {"cmd": "/rtp settings", "desc": "查看当前生效的传送参数（范围/冷却/重试）", "example": "/rtp settings"},
+  {"cmd": "/rtp info", "desc": "查看玩家或世界的传送限制", "example": "/rtp info"},
+  {"cmd": "/rtp reload", "desc": "重载配置", "example": "/rtp reload"},
+  {"cmd": "/rtp test", "desc": "跑一次落点测试（不实际传送）", "example": "/rtp test"},
+  {"cmd": "/rtp version", "desc": "查看版本与更新状态", "example": "/rtp version"},
+  {"cmd": "/rtp logger", "desc": "开启/关闭传送日志记录", "example": "/rtp logger"},
+  {"cmd": "/rtp edit", "desc": "交互式修改配置项", "example": "/rtp edit"}
+ ],
+ "caution": [
+  "落点安全判定有重试上限，重试打满会直接失败；把「最大尝试次数」调太低会导致频繁传送失败。",
+  "跨世界传送要求世界名与服务器实际世界键一致（Multiverse 自定义维度名容易写错）。",
+  "冷却与经济扣费分「成功才扣」和「发起就扣」两种配置，改错会让玩家白扣钱。"
+ ],
+ "permissions": {
+  "betterrtp.use": "使用 /rtp 随机传送",
+  "betterrtp.world.<世界>": "允许传送到指定世界",
+  "betterrtp.biome": "允许按生物群系传送",
+  "betterrtp.other": "给其他玩家传送（player / playersudo）",
+  "betterrtp.bypass.cooldown": "跳过传送冷却",
+  "betterrtp.admin": "管理指令（reload / edit / settings）"
+ }
 }

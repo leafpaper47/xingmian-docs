@@ -7,78 +7,70 @@ createTime: 2026/10/24
 
 > 分类 💬 聊天与社交 · 版本 `2.6.0` · 指令 1 条 · api-version `1.20`
 
-::: tip 统一管理全服公告广播与多种显示通道
-BroadcastPlusPlus 把服务器公告统一收进一套预设里，支持聊天栏、大标题、动作栏、BOSS 血条等多条显示通道，也能按玩家或场景定向发送。管理员用 /bc 套用预设或临时写一段文本，先在游戏内预览确认效果再对全服发出。它解决的是公告写法散乱、颜色代码容易出错、发完全服才发现文案有问题这类麻烦，通常和权限插件配合给职员分级授权。
+::: tip 公告广播
+把全服公告收进一套预设，支持聊天栏、大标题、动作栏与 BOSS 血条四种通道，可按场景或指定玩家定向发送，并带预览与校验。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 开服活动、节假日福利、版本更新时向全服统一发通知
-- 需要比聊天栏更醒目的提示（大标题、动作栏、BOSS 血条）时
-- 只提醒某一个玩家，或只对某个场景内的玩家播报时，用 to 或 scene 定向发送
-- 正式活动前先预览效果，避免颜色代码写错或文案过长被截断
-- 改完预设配置文件后自检与热重载
-
-## 上手流程
-
-1. 先确认自己的账号有 broadcastplusplus.send 或 broadcastplusplus.admin 权限，没权限时所有广播指令都会被拒绝
-2. 用 /bc list 看现有预设有哪些，决定是直接套预设还是临时写一段文本
-3. 先用 /bc preview 或 /bc to 指定自己试发一次，确认颜色、换行、BOSS 血条停留时长都符合预期
-4. 确认无误后用 /bc chat 或 /bc scene 对全服正式广播
-5. 如果改过预设文件，先 /bc validate 校验通过再 /bc reload 生效
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 全服发一条聊天公告 | /bc chat 服务器将在 10 分钟后重启，请提前保存 | 临时文本用引号包住，避免空格被拆 |
+| 用预设发大标题 | /bc title reboot | reboot 是配置里的预设名 |
+| 只发给一个玩家 | /bc to Steve chat welcome | 通道 + 预设/文本 |
+| 上线前先看效果 | /bc preview title reboot | 预览只对自己可见 |
+| 改了预设文件 | /bc validate | 先校验再 /bc reload |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/broadcast` | 发送广播、预览效果、管理预设与重载配置<br>别名 `/bc` | `/bc chat｜title｜actionbar｜bossbar 预设名或文本，/bc scene …` | — |
+| `/broadcast` | 发送广播 / 预览 / 管理预设<br>别名 `/bc` | `/broadcast <chat｜title｜actionbar｜bossbar｜scene｜to｜…` | — |
 
 ## 指令详解
 
-### `/broadcast` — 发送广播、预览效果、管理预设与重载配置
+### `/broadcast` — 发送广播 / 预览 / 管理预设
 
-- **语法**：`/bc chat｜title｜actionbar｜bossbar 预设名或文本，/bc scene 预设名 玩家，/bc to 玩家 通道 预设名或文本，/bc preview 通道 预设名或文本，/bc list 类型，/bc validate，/bc reload，/bc studio`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `通道` | 必填 | chat 为聊天栏，title 为大标题，actionbar 为动作栏，bossbar 为头顶 BOSS 血条；另有管理分支 scene、to、preview、list、validate、reload、studio |
-| `预设名或文本` | 必填 | 填配置里已有的预设名，或直接用引号包住一段临时文本 |
-| `玩家` | 可选 | to 分支填接收者玩家名，scene 分支可指定单个玩家；不填时一般面向全服 |
-| `类型` | 可选 | list 分支可选，用来只看某一类通道的预设清单 |
-
+- **语法**：`/broadcast <chat｜title｜actionbar｜bossbar｜scene｜to｜preview｜list｜validate｜reload｜studio> [参数]`
 
 - **示例**：
 
 ```
-/bc chat 服务器将在 10 分钟后重启，请提前保存
-/bc title 活动开始
-/bc preview actionbar 这是一条测试文本
-/bc to Steve chat 请到主城集合
+/bc chat 活动开始，欢迎参加
 /bc list
-/bc validate
-/bc reload
 ```
 
 - **别名**：`/bc`
-- **备注**：指令名是 broadcast，日常用别名 /bc 最省事。权限分三级：broadcastplusplus.send 负责发送与预览，broadcastplusplus.studio 负责打开 Broadcast Studio 界面，broadcastplusplus.admin 是完全控制（发送、Studio、重载）。改完预设先 /bc validate 再 /bc reload，出现报错时先看控制台，不要反复重载。
+- **备注**：指令名 broadcast，别名 bc；三级权限 send / studio / admin
+
+## 子指令速查
+
+| 子指令 | 功能 | 示例 |
+| --- | --- | --- |
+| `/bc chat <预设｜文本>` | 聊天栏广播 | `/bc chat 活动开始，欢迎参加` |
+| `/bc title <预设｜文本>` | 屏幕大标题（title/subtitle） | `/bc title reboot` |
+| `/bc actionbar <预设｜文本>` | 动作栏（准星下方）提示 | `/bc actionbar 活动进行中` |
+| `/bc bossbar <预设｜文本>` | 顶部 BOSS 血条样式公告 | `/bc bossbar boss_warning` |
+| `/bc scene <预设> [玩家]` | 播放一个场景（多通道组合预设），可只对指定玩家 | `/bc scene reboot Steve` |
+| `/bc to <玩家> <通道> <预设｜文本>` | 向指定玩家的指定通道发送 | `/bc to Steve actionbar 你已进入活动区` |
+| `/bc preview <通道> <预设｜文本>` | 只对自己预览效果 | `/bc preview title reboot` |
+| `/bc list [类型]` | 列出已配置的预设 | `/bc list` |
+| `/bc validate` | 校验预设配置是否合法 | `/bc validate` |
+| `/bc reload` | 重载预设与配置 | `/bc reload` |
+| `/bc studio` | 打开图形化预设编辑界面 | `/bc studio` |
 
 ## 注意事项
 
 ::: warning
-- 具体参数与子指令以游戏内 help 为准，本手册按当前版本的用法整理，升级后可能新增通道类型或分支
-- broadcastplusplus.send 就能对全服广播，只给信任的职员，避免误发、刷屏或把内部通知发给玩家
-- 改完预设文件要按顺序走：先 /bc validate 校验，通过后再 /bc reload；校验不过还硬重载容易让预设整体失效
-- title 和 bossbar 对玩家客户端侵入感较强，正式活动前务必先用 /bc preview 或 /bc to 自己看一遍，确认文案长度和停留时间
+- 改完预设先 /bc validate 再 /bc reload，校验不过硬重载会让预设整体失效。
+- broadcastplusplus.send 就能对全服广播，只给信任的职员，避免误发刷屏。
+- 带空格的临时文本要用引号包住，否则会被拆成多个参数导致只发出第一段。
 :::
 
 ## 权限节点
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `broadcastplusplus.admin` | 完全控制—发送、单间公寓、重新加载。 | op |
-| `broadcastplusplus.send` | 发送广播和预览预设。 | op |
-| `broadcastplusplus.studio` | 打开Broadcast Studio GUI。 | op |
-
-## 相关插件
-
-[PlaceholderAPI](/commands/config/placeholderapi.md)、[LuckPerms](/commands/core/luckperms.md)
+| `broadcastplusplus.admin` | 校验、重载与预设管理 | op |
+| `broadcastplusplus.send` | 发送与预览广播 | op |
+| `broadcastplusplus.studio` | 使用 /bc studio 图形化编辑 | op |

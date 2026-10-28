@@ -1,0 +1,325 @@
+# BetterRTP  (BetterRTP-3.6.13.jar)
+## 注册指令
+  /betterrtp  usage=None desc='Randomly teleport to a location' alias=['brtp', 'rtp', 'randomtp', 'wild', 'wildtp'] perm=None
+
+## 代码类
+  me.SuperRonanCraft.BetterRTP.player.commands.Commands
+  me.SuperRonanCraft.BetterRTP.player.commands.RTPCommand
+  me.SuperRonanCraft.BetterRTP.player.commands.RTPCommandHelpable
+  me.SuperRonanCraft.BetterRTP.player.commands.RTPCommandType
+  me.SuperRonanCraft.BetterRTP.player.commands.RTP_SETUP_TYPE
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdBiome
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdDeveloper
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdEdit$1
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdEdit$RTP_CMD_EDIT
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdEdit$RTP_CMD_EDIT_SUB
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdEdit
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdHelp
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdInfo$CmdInfoSub
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdInfo
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdLocation
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdLogger
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdPlayer$1
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdPlayer
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdPlayerSudo
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdQueue
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdReload
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdSettings
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdTeleport
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdTest
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdVersion
+  me.SuperRonanCraft.BetterRTP.player.commands.types.CmdWorld
+  me.SuperRonanCraft.BetterRTP.references.customEvents.RTP_CommandEvent
+  me.SuperRonanCraft.BetterRTP.references.customEvents.RTP_CommandEvent_After
+  me.SuperRonanCraft.BetterRTP.references.helpers.HelperRTP_Command
+
+## javap 字符串 token
+  add admin biome blacklistedblocks bol center_x center_z centerx centerz cooldown custom_world customworld default dev edit help info int key location logger maxrad maxradius maxy minrad minradius miny null override particles permission_group permissiongroup player player_sudo playersudo potion_effects price queue reload remove remove_override settings setup shape shapes str test useworldborder version world world_type
+
+## 文本资源里的帮助/用法行
+  · # BetterRTP 插件由 SuperRonanCraft 制作！（加入公共服务器：ronanplugins.com） #
+  · # 需要帮助？请访问 https://ronanplugins.com/discord！ #
+  · ## 尊重 MinePlots 地块 (https://builtbybit.com/resources/mineplots.21646/)
+  · ## 尊重 WorldGuard 区域 (https://dev.bukkit.org/projects/worldguard)
+  · ## 尊重 GriefPrevention 区域 (https://www.spigotmc.org/resources/griefprevention.1884/)
+  · ## 尊重 Towny 区域 (https://www.spigotmc.org/resources/towny.72694/)
+  · ## 尊重 RedProtect 区域 (https://www.spigotmc.org/resources/redprotect.15841/)
+  · ## 尊重 FactionsUUID 区域 (https://www.spigotmc.org/resources/factionsuuid.1035/)
+  · ## 尊重 Lands 区域 (https://www.spigotmc.org/resources/lands.53313/)
+  · ## 尊重 Residence 区域 (https://www.spigotmc.org/resources/residence.11480/)
+  · ## 尊重 KingdomsX 区域 (https://www.spigotmc.org/resources/kingdomsx.77670/)
+  · ## 尊重 hClaims 区域 (https://www.spigotmc.org/resources/hclaims.90540/)
+  · ## 尊重 GriefDefender 区域 (https://www.spigotmc.org/resources/griefdefender.68900/)
+  · ## 尊重 UltimateClaims 区域 (https://songoda.com/marketplace/product/ultimateclaims-the-ultimate-claiming-plugin.65)
+  · ## 尊重 Pueblos 区域 (https://www.spigotmc.org/resources/pueblos.91255/)（我最喜欢的 :D）
+  · ## 尊重 SaberFactions 区域 (https://www.spigotmc.org/resources/saberfactions.69771/)（3.4.5 版本新增）
+  · ## 尊重 HuskTowns 区域 (https://www.spigotmc.org/resources/husktowns.92672/)（3.4.5 版本新增）
+  · ## 尊重 FactionsBridge 兼容的领地 (https://www.spigotmc.org/resources/factionsbridge.89716/)（3.6.9 版本新增）
+  · ## 尊重 CrashClaim 领地 (https://www.spigotmc.org/resources/crashclaim-claiming-plugin.94037/)（3.6.9 版本新增）
+  · ## 向控制台输出调试信息
+  · ## 在安全位置周围预加载的区块数量
+  · ## BetterRTP 放弃并发送"不安全"消息前的最大尝试次数 #
+  · RtpOnFirstJoin: # 将以控制台身份执行以绕过延迟
+  · Enabled: false # 玩家首次加入服务器时是否执行随机传送
+  · World: 'world' # 首次随机传送的目标世界
+  · SetAsRespawn: false # 将此次随机传送位置保存为玩家的新出生点
+  · Enabled: true # 启用或禁用冷却计时器
+  · LockAfter: 0 # 在 # 次随机传送后将玩家锁定为永久冷却（0 为禁用）
+  · Time: 180 # 单位：秒
+  · PerWorld: false # 是否按各世界单独处理冷却？如果禁用，玩家在原冷却结束前无法在其他世界随机传送
+  · ## 执行命令与实际随机传送之间的间隔时间，单位为秒。设为 "0" 可禁用延迟计时器 #
+  · Enabled: true # 允许 BetterRTP 在玩家执行 `/rtp` 之前自动排队预生成安全随机传送位置
+  · Enabled: true # 将所有随机传送相关日志记录到 log.log 文件
+  · ## "Biomes: []" 表示允许所有生物群系！ #
+  · ## 生物群系为可选项，更多群系见 https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/block/Biome.html #
+  · ## 如果上方 "UseWorldBorder" 设为 true，中心 X 和 Z 将被忽略！ #
+  · ## BetterRTP 不会传送到的方块。更多方块见：https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html #
+  · ## 不允许使用 /rtp 的世界，除非有覆盖设置指向另一个已启用的世界 #
+  · ## 你想要自定义最小/最大半径和生成中心的世界 #
+  · ## [MaxRadius] 和 [MinRadius] 必须为正数！且两者不能相等！
+  · ## 如果 UseWorldBorder 为 true，除 "MinRadius" 外所有设置将被忽略！
+  · ## 生物群系为可选项，但很有用！更多群系见：https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/block/Biome.html
+  · ## 覆盖世界设置，将玩家在某个世界执行命令时传送到另一个世界
+  · #格式 - <当前世界>:<目标世界>
+  · WorldType: # 可用类型：NORMAL（普通）、NETHER（下界）
+  · PermissionGroup: # 玩家需要 "betterrtp.group.<组名>" 权限才能触发这些配置
+  · - vip: # 权限：betterrtp.group.vip
+  · - Build_World: # 名为 "Build_World" 的世界
+  · Priority: 0 # 数值越低优先级越高
+  · Cooldown: 500 # 可选
+  · Priority: 10 # 数值越高优先级越低
+  · - vip2: # 权限：betterrtp.group.vip2
+  · Paid: '&a你花费了&c$%price%&7，被传送到了&7 x=%x% y=%y% z=%z%。共尝试&f%attempts%&7次！'
+  · Bypass: '&a你被传送到了&7 x=%x% y=%y% z=%z%。共尝试&f%attempts%&7次！'
+  · Loading: '&a安全位置已定位！&7加载区块中……'
+  · Teleport: '&a传送中……&f直到我们找到安全的位置之前请等一下！'
+  · Price: '&c没钱还玩什么随机传送？'
+  · NotSafe: '&c由于在%attempts%次尝试内未能找到安全的位置，&7你未被传送！'
+  · Hunger: '&7你太饿了，&c传送之前先吃点东西再说！'
+  · Success: '&a%player%被传送到了&7 x=%x% y=%y% z=%z%。共尝试&f%attempts%&7次！'
+  · NotSafe: '&c由于在%attempts%次尝试内未能找到安全的位置，&7%player%未被传送！'
+  · Biome: '&c看上去&7%biome%&c群系不存在，&7试试使用Tab表查找！'
+  · Reload: '&e配置成功重载！'
+  · Basic: '&c对不起，&7你没有权限使用此命令！&8Permission: %permission%'
+  · World: '&c对不起，&7你并没有被准许在%world%世界传送！&8Permission: %permission%'
+  · DisabledWorld: '&c%world%世界已被禁止使用此命令，&7无法传送！'
+  · Cooldown: '&c对不起，&7你需要在&c%time%&7秒后才能传送！'
+  · Locked: '&c对不起，&7你已经用完了你的随机传送次数了！'
+  · Invalid: '&c无效的参数，使用''/%command% help''查看帮助。'
+  · NotOnline: '&c玩家&7%player%&c不在线！'
+  · Delay: '&a即将在&f%time%&a秒后传送，乖乖站好！'
+  · Moved: '&c你移动了，&7随机传送被取消了！'
+  · NotExist: '&c看上去&7%world%&c世界并不存在！'
+  · Already: '&c啊嘞嘞，&7看上去你已经在随机传送中了，请耐心点！'
+  · Sign: '&7命令标记已被创建！&7命令为''&f/rtp %command%&7'''
+  · Error: '&c错误，&7提供的参数无效！'
+  · Set: '&b成功，&7%type%设置为%value%。'
+  · Remove: '&c已移除，&7你移除了自定义世界%world%。'
+  · Prefix: '&e&m-----&6&l BetterRTP &8| 帮助菜单 &e&m-----'
+  · Main: ' &7- &e/%command% &7- 将你随机传送！'
+  · Biome: ' &7- &e/%command% biome <生物群系1, 生物群系2...> &7- 在这些指定的群系中随机传送。'
+  · Edit: ' &7- &e/%command% edit <默认/世界> [参数...] &7- 修改插件设置。'
+  · Help: ' &7- &e/%command% help &7- 打开帮助菜单。'
+  · Info: ' &7- &e/%command% info [world/particles/shapes/potion_effects] &7- 查看有关插件参数的特定信息。'
+  · Player: ' &7- &e/%command% player <玩家> [世界] [生物群系1，生物群系2...] &7- 指定一个玩家随机传送。'
+  · Reload: ' &7- &e/%command% reload &7- 重载插件。'
+  · Settings: ' &7- &e/%command% settings &7- 打开GUI设置。'
+  · Test: ' &7- &e/%command% test &7- 测试传送后的插件效果。'
+  · Version: ' &7- &e/%command% version &7- 显示目前使用的插件版本。'
+  · World: ' &7- &e/%command% world <世界> [生物群系1, 生物群系2...] &7- 在其他世界随机传送。'
+  · Player: '&c用法&7：/%command% player <玩家> [世界] [生物群系1, 生物群系2]'
+  · World: '&c用法&7：/%command% world <世界> [生物群系1, 生物群系2...]'
+  · Biome: '&c用法&7：/%command% biome <生物群系1, 生物群系2...>'
+  · Base: '&c用法&7：/%command% edit <default/世界> [参数...]'
+  · Default: '&c用法&7：/%command% edit default <max/min/useworldborder/center> <值>'
+  · World: '&c用法&7：/%command% edit world <world> <max/min/useworldborder/center> <值>'
+  · Success: ## Placeholders! %x% %y% 和 %z% 是玩家要被傳送到的對應 x y z 座標! #
+  · Paid: '&a您花費了&c$%price%&7，被傳送到了&7 x=%x% y=%y% z=%z%。一共嘗試&f%attempts%&7次！'
+  · Bypass: '&a您被傳送到了&7 x=%x% y=%y% z=%z%。一共嘗試&f%attempts%&7次！'
+  · Loading: '&a已定位安全位置！&7正在讀取區塊...'
+  · Teleport: '&a傳送中... &f請燒等我們正在幫你尋找安全的地點！'
+  · Price: '&c您的資金不夠了！&7您需要有$%price%&7才能嘗試RTP！'
+  · NotSafe: '&c由於%attempts%次嘗試內未能找到適合的地方傳送，&7您未被傳送！'
+  · Hunger: '&c無法隨機傳送... 你太&7飢餓&c了，先吃點東西吧!'
+  · Success: '&a%player%被傳送到了&7 x=%x% y=%y% z=%z%。一共嘗試&f%attempts%&7次！'
+  · NotSafe: '&c由於%attempts%次嘗試內未能找到適合的地方傳送，&7%player%未被傳送！'
+  · Biome: '&c看上去&7%biome%&c生態域不存在，&7試試使用Tab清單查找吧！'
+  · Reload: '&e配置成功重新加載！'
+  · Basic: '&c抱歉，&7您沒有權限使用此指令！ &8Permission: %permission%'
+  · World: '&c抱歉，&7您不能在%world%世界傳送！ &8Permission: %permission%'
+  · DisabledWorld: '&c%world%世界已被禁止使用此指令，&7您無法傳送！'
+  · Cooldown: '&c抱歉，&7您需要在&c%time%&7秒後才能嘗試傳送！'
+  · Locked: '&c抱歉！&7你已用光了你的隨機傳送！'
+  · Invalid: '&c無效的參數，請使用''/%command% help''查看幫助。'
+  · NotOnline: '&c玩家&7%player%&c不在線！'
+  · Delay: '&a即將在&f%time%&a秒後傳送，請站好！'
+  · Moved: '&c您移動了，&7隨機傳送被取消了！'
+  · NotExist: '&c看上去&7%world%&c世界並不存在！'
+  · Already: '&c哎呦！&7看上去您已經在傳送中了，耐心一點點！'
+  · Sign: '&7指令標記已創建！&7指令為''&f/rtp %command%&7''。'
+  · Error: '&c錯誤！&7無效的輸入！'
+  · Set: '&b成功！&7%type% 已設為 %value%。'
+  · Remove: '&c已刪除！&7你刪除了自訂義世界 %world%。'
+  · Prefix: '&e&m-----&6&l BetterRTP &8| 幫助 &e&m-----'
+  · Main: ' &7- &e/%command% &7- 把您隨機傳送。'
+  · Biome: ' &7- &e/%command% biome <生態域1, 生態域2...> &7- 在這些指定的生態域中隨機傳送。'
+  · Edit: ' &7- &e/%command% edit <default/world> [參數...] &7- 編輯插件設定。'
+  · Help: ' &7- &e/%command% help &7- 打開幫助菜單。'
+  · Info: ' &7- &e/%command% info [world/particles/shapes/potion_effects] &7- 查看插件參數的特定訊息。'
+  · Player: ' &7- &e/%command% player <玩家> [世界] [生態域1，生態域2...] &7- 指定一個玩家隨機傳送。'
+  · Reload: ' &7- &e/%command% reload &7- 重新讀取插件設定。'
+  · Settings: ' &7- &e/%command% settings &7- 開啟設定GUI。'
+  · Test: ' &7- &e/%command% test &7- 測試傳送後效果'
+  · Version: ' &7- &e/%command% version &7- 顯示目前版本。'
+  · World: ' &7- &e/%command% world <世界> [生態域1, 生態域2...] &7- 在其他世界隨機傳送。'
+  · Location: ' &7- &e/%command% location <地點名稱> &7- 依地點名稱來隨機傳送。'
+  · Player: '&c用法&7: /%command% player <玩家> [世界] [生態域1, 生態域2]'
+  · World: '&c用法&7: /%command% world <世界> [生態域1, 生態域2...]'
+  · Biome: '&c用法&7: /%command% biome <生態域1, 生態域2...>'
+  · Location: '&c用法&7: /%command% location <地點名稱>'
+  · Base: '&c用法&7: /%command% edit <default/world> [參數...]'
+  · Default: '&c用法&7: /%command% edit default <max/min/useworldborder/center> <數值>'
+  · World: '&c用法&7: /%command% edit world <world> <max/min/useworldborder/center> <數值>'
+  · PermissionGroup: '&c用法&7: /%command% edit permission_group <group> <world> <max/min/useworldborder/center> <數值>'
+  · Worldtype: '&c用法&7: /%command% edit world_type <世界> <NETHER/NORMAL>'
+  · Override: '&c用法&7: /%command% edit override <世界> <要傳送到的世界>'
+  · BlacklistedBlocks: '&c用法&7: /%command% edit blacklistedblocks <add/remove> <方塊ID>'
+  · # Hebrew, Translated by thefourcraft on GitHub (https://github.com/SuperRonanCraft/BetterRTP/pull/108)
+  · Paid: '&aあなたは&c$%price%&aで&7x=%x% y=%y% z=%z% に&f%attempts%&7回の試行でTPされました！'
+  · Bypass: '&aあなたは&7x=%x% y=%y% z=%z% に&f%attempts%&7回の試行でTPされました！'
+  · Price: '&c資金が不十分のためRTPできませんでした！ &7RTPには最低$%price%&7が必要です！'
+  · NotSafe: '&c%attempts%回の試行で安全な場所が見つかりませんでした！ &7あなたははRTPされませんでした！'
+  · Success: '&a%player%が&7x=%x% y=%y% z=%z% に&f%attempts%&7回の試行でテレポートしました！'
+  · NotSafe: '&c%attempts%回の試行で安全な場所が見つかりませんでした！ &7%player%はRTPされませんでした！'
+  · Reload: '&eコンフィグは正常にリロードされました！'
+  · Basic: '&cごめんなさい！ &7このコマンドを使う権限がありません！ &8Permission: %permission%'
+  · World: '&cごめんなさい！ &7ワールド%world%ではrtpが許可されていません！ &8Permission: %permission%'
+  · DisabledWorld: '&cワールド%world%は無効です！ &7RTPできませんでした！'
+  · Cooldown: '&cごめんなさい！ &7あなたは&c%time%&7秒間RTPできません！'
+  · Invalid: '&c無効な引数。 ''/%command% help''を試してください。'
+  · Delay: '&f%time%&a秒でテレポートします！ 動かないで！'
+  · Moved: '&cあなたは移動しました！ &7RTPはキャンセルされました！'
+  · NotExist: '&cワールド&7%world%&cが存在しないようです。'
+  · Already: '&cおっと！ &7あなたはすでにRTPしているように見えます。'
+  · Help: ' &7- &e/%command% help &7- ヘルプを見る'
+  · Player: ' &7- &e/%command% player <player> [world] &7- 他のプレイヤーをランダムテレポート'
+  · World: ' &7- &e/%command% world <world> &7- 他のワールドにランダムテレポート'
+  · Player: '&c使い方&7: /%command% player <プレイヤー> [ワールド]'
+  · World: '&c使い方&7: /%command% world <ワールド>'
+
+## 常量池帮助/描述文本
+  · me/SuperRonanCraft/BetterRTP/player/commands/Commands
+  · Lme/SuperRonanCraft/BetterRTP/BetterRTP;
+  · me/SuperRonanCraft/BetterRTP/player/commands/RTPCommandType
+  · me/SuperRonanCraft/BetterRTP/player/commands/RTPCommand
+  · me/SuperRonanCraft/BetterRTP/BetterRTP
+  · me/SuperRonanCraft/BetterRTP/references/settings/Settings
+  · me/SuperRonanCraft/BetterRTP/references/PermissionNode
+  · Lme/SuperRonanCraft/BetterRTP/references/PermissionNode;
+  · me/SuperRonanCraft/BetterRTP/references/PermissionCheck
+  · me/SuperRonanCraft/BetterRTP/references/customEvents/RTP_CommandEvent
+  · me/SuperRonanCraft/BetterRTP/references/customEvents/RTP_CommandEvent_After
+  · me/SuperRonanCraft/BetterRTP/references/messages/MessagesCore
+  · Lme/SuperRonanCraft/BetterRTP/references/messages/MessagesCore;
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdTeleport
+  · Ljava/util/List<Lme/SuperRonanCraft/BetterRTP/player/commands/RTPCommand;>;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/Commands;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/RTPCommandType;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/RTPCommand;
+  · Lme/SuperRonanCraft/BetterRTP/references/customEvents/RTP_CommandEvent;
+  · me/SuperRonanCraft/BetterRTP/player/commands/RTPCommandHelpable
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdBiome
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdEdit
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdHelp
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdInfo
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdLocation
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdPlayer
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdPlayerSudo
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdQueue
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdReload
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdTest
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdVersion
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdWorld
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdDeveloper
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdLogger
+  · Ljava/lang/Enum<Lme/SuperRonanCraft/BetterRTP/player/commands/RTPCommandType;>;
+  · me/SuperRonanCraft/BetterRTP/player/commands/RTP_SETUP_TYPE
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/RTP_SETUP_TYPE;
+  · Ljava/lang/Enum<Lme/SuperRonanCraft/BetterRTP/player/commands/RTP_SETUP_TYPE;>;
+  · me/SuperRonanCraft/BetterRTP/references/helpers/HelperRTP_Info
+  · me/SuperRonanCraft/BetterRTP/references/messages/MessagesUsage
+  · Lme/SuperRonanCraft/BetterRTP/references/messages/MessagesUsage;
+  · me/SuperRonanCraft/BetterRTP/references/messages/MessagesHelp
+  · Lme/SuperRonanCraft/BetterRTP/references/messages/MessagesHelp;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdBiome;
+  · me/SuperRonanCraft/BetterRTP/references/rtpinfo/RandomLocation
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdDeveloper;
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdEdit$RTP_CMD_EDIT
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdEdit$1
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdEdit$RTP_CMD_EDIT;
+  · Ljava/lang/Enum<Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdEdit$RTP_CMD_EDIT;>;
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdEdit$RTP_CMD_EDIT_SUB
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdEdit$RTP_CMD_EDIT_SUB;
+  · me/SuperRonanCraft/BetterRTP/player/rtp/RTP_SHAPE
+  · Ljava/lang/Enum<Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdEdit$RTP_CMD_EDIT_SUB;>;
+  · me/SuperRonanCraft/BetterRTP/references/helpers/HelperRTP_EditWorlds
+  · me/SuperRonanCraft/BetterRTP/player/rtp/RTP
+  · me/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/WORLD_TYPE
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdEdit;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lme/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/RTPWorld;>;
+  · Lme/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/WORLD_TYPE;
+  · Lme/SuperRonanCraft/BetterRTP/player/rtp/RTP_SHAPE;
+  · me/SuperRonanCraft/BetterRTP/references/messages/Message_RTP
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdHelp;
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdInfo$CmdInfoSub
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdInfo$CmdInfoSub;
+  · Ljava/lang/Enum<Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdInfo$CmdInfoSub;>;
+  · me/SuperRonanCraft/BetterRTP/player/rtp/effects/RTPEffect_Particles
+  · me/SuperRonanCraft/BetterRTP/references/messages/Message
+  · &6Suggested command&f: &7/betterrtp 
+  · me/SuperRonanCraft/BetterRTP/player/rtp/RTPSetupInformation
+  · me/SuperRonanCraft/BetterRTP/references/helpers/HelperRTP
+  · me/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/WorldPlayer
+  · me/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/WorldPermissionGroup
+  · me/SuperRonanCraft/BetterRTP/references/rtpinfo/QueueHandler
+  · me/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/WorldDefault
+  · me/SuperRonanCraft/BetterRTP/references/web/LogUploader
+  · Lme/SuperRonanCraft/BetterRTP/references/messages/Message_RTP;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdInfo;
+  · Lme/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/WorldDefault;
+  · Lme/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/WorldPlayer;
+  · me/SuperRonanCraft/BetterRTP/player/rtp/RTP_TYPE
+  · Lme/SuperRonanCraft/BetterRTP/player/rtp/RTP_TYPE;
+  · me/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/WorldLocation
+  · me/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/RTPWorld
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdLocation;
+  · Ljava/util/HashMap<Ljava/lang/String;Lme/SuperRonanCraft/BetterRTP/references/rtpinfo/worlds/RTPWorld;>;
+  · me/SuperRonanCraft/BetterRTP/references/RTPLogger
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdLogger;
+  · me/SuperRonanCraft/BetterRTP/player/rtp/RTP_PlayerInfo$RTP_PLAYERINFO_FLAG
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdPlayer$1
+  · Lme/SuperRonanCraft/BetterRTP/player/rtp/RTP_PlayerInfo$RTP_PLAYERINFO_FLAG;
+  · me/SuperRonanCraft/BetterRTP/player/rtp/RTP_PlayerInfo
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdPlayer;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdPlayerSudo;
+  · me/SuperRonanCraft/BetterRTP/versions/AsyncHandler
+  · me/SuperRonanCraft/BetterRTP/references/rtpinfo/QueueData
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdQueue;
+  · Lme/SuperRonanCraft/BetterRTP/references/rtpinfo/QueueData;
+  · Lme/SuperRonanCraft/BetterRTP/player/rtp/RTPSetupInformation;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdReload;
+  · me/SuperRonanCraft/BetterRTP/references/invs/RTP_INV_SETTINGS
+  · Lme/SuperRonanCraft/BetterRTP/references/invs/RTP_INV_SETTINGS;
+  · me/SuperRonanCraft/BetterRTP/references/invs/RTPInventories
+  · me/SuperRonanCraft/BetterRTP/references/invs/enums/RTPInventory_Defaults
+  · me/SuperRonanCraft/BetterRTP/player/commands/types/CmdSettings
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdSettings;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdTeleport;
+  · me/SuperRonanCraft/BetterRTP/player/rtp/RTPTeleport
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdTest;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdVersion;
+  · Lme/SuperRonanCraft/BetterRTP/player/commands/types/CmdWorld;
+  · me/SuperRonanCraft/BetterRTP/references/customEvents/RTPEvent
+  · Lme/SuperRonanCraft/BetterRTP/references/customEvents/RTP_CommandEvent_After;
+  · me/SuperRonanCraft/BetterRTP/references/helpers/HelperRTP_Command
+  · Lme/SuperRonanCraft/BetterRTP/references/helpers/HelperRTP_Command;

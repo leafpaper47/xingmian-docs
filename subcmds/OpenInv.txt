@@ -1,0 +1,122 @@
+# OpenInv  (OpenInv.jar)
+## 注册指令
+  /openinv  usage="/<command> [Player] - Open a player's inventory" desc="Open a player's inventory" alias=['oi', 'inv', 'open'] perm='openinv.inventory.open.self;openinv.inventory.open.other'
+  /clearinv  usage="/<command> [Player] - Clear a player's inventory" desc="Clear a player's inventory" alias=None perm='openinv.clear.self;openinv.clear.other'
+  /openender  usage="/<command> [Player] - Open a player's ender chest" desc="Open a player's ender chest" alias=['oe'] perm='openinv.enderchest.open.self;openinv.enderchest.open.other'
+  /clearender  usage="/<command> [Player] - Clear a player's ender chest" desc="Clear a player's ender chest" alias=None perm='openinv.clear.self;openinv.clear.other'
+  /searchinv  usage='/<command> <Material> [MinAmount] - MinAmount is optional, the minimum amount required' desc='Search and list players having a specific item' alias=['si'] perm='openinv.search.inventory'
+  /searchender  usage='/<command> <Material> [MinAmount] - MinAmount is optional, the minimum amount required' desc='Search and list players having a specific item in their ender chest' alias=['se'] perm='openinv.search.inventory'
+  /silentcontainer  usage='/<command> [check|on|off] - Check, toggle, or set SilentContainer' desc='SilentContainer stops sounds and animations when using containers.' alias=['sc', 'silent', 'silentchest'] perm='openinv.container.silent'
+  /anycontainer  usage='/<command> [check|on|off] - Check, toggle, or set AnyContainer' desc='AnyContainer allows using blocked containers.' alias=['ac', 'anychest'] perm='openinv.container.any'
+  /searchenchant  usage='/<command> <[Enchantment] [MinLevel]> - Enchantment is the enchantment type, MinLevel is the minimum level. One is optional' desc='Search and list players with a specific enchantment.' alias=['searchenchants'] perm='openinv.search.inventory'
+  /searchcontainer  usage='/<command> <Material> [ChunkRadius] - ChunkRadius is optional, the length that will be searched for matching items. Default 5' desc='Search and list containers with a specific material.' alias=['searchchest'] perm='openinv.search.container'
+
+## 代码类
+  com.lishid.openinv.command.ClearInvCommand
+  com.lishid.openinv.command.ContainerSettingCommand
+  com.lishid.openinv.command.OpenInvCommand
+  com.lishid.openinv.command.PlayerLookupCommand$1
+  com.lishid.openinv.command.PlayerLookupCommand$PlayerAccess
+  com.lishid.openinv.command.PlayerLookupCommand
+  com.lishid.openinv.command.SearchContainerCommand
+  com.lishid.openinv.command.SearchEnchantCommand
+  com.lishid.openinv.command.SearchInvCommand
+
+## javap 字符串 token
+  check clearinv ender help inv null off on openinv searchinv
+
+## 文本资源里的帮助/用法行
+  · # Inventory nodes (/openinv)
+  · # Ender chest nodes (/openender)
+  · # Clear nodes (/clearinv and /clearender)
+  · lootNotGenerated: '&cBeute noch nicht erstellt! Bitte schalte &b/silentcontainer&c aus.'
+  · lootNotGenerated: '&cLoot not generated! Please disable &b/silentcontainer&c.'
+  · lootNotGenerated: '&c¡Botín no generado! Desactiva &b/silentcontainer&c.'
+  · lootNotGenerated: '&cPilhagem nao gerada! Por favor desabilite &b/silentcontainer&c.'
+  · consoleUnsupported: 该命令无法在后台执行。
+  · lootNotGenerated: '&c奖励箱尚未生成 ！ 请关闭 &b/silentcontainer&c。'
+  · invalidMaterial: '&c无效的物品 ： "%target%"'
+  · invalidNumber: '&c无效的数字 ： "%target%"'
+  · invalidPlayer: '&c玩家不存在 ！'
+  · permissionOpenSelf: '&c你无法开启自己的物品栏。'
+  · permissionEnderAll: '&c你无法开启其他玩家的末影箱。'
+  · permissionExempt: '&c%target% 的物品栏受到保护。'
+  · permissionCrossWorld: '&c%target% 不在你所在的世界。'
+  · permissionPlayerOnline: '&c你无法开启线上玩家的物品栏。'
+  · permissionPlayerOffline: '&c你无法开启离线玩家的物品栏。'
+  · commandException: '&c发生错误，请查看后台。'
+  · containerBlocked: 你正在开启受阻挡的储物箱。
+  · containerBlockedSilent: 你正在悄悄开启受阻挡的储物箱。
+  · containerSilent: 你正在悄悄开启储物箱。
+  · noMatches: 找不到持有 %target% 的玩家。
+  · matches: '找到持有 %target% 的玩家 ： %detail%'
+  · noMatches: 找不到放有 %target% 的储物箱。
+  · matches: '找到放有 %target% 的储物箱 ： %detail%'
+  · 'on': '开启'
+  · 'off': '关闭'
+  · consoleUnsupported: 該指令無法在控制台執行。
+  · lootNotGenerated: '&c獎勵箱尚未生成 ！ 請關閉 &b/silentcontainer&c。'
+  · invalidMaterial: '&c無效的物品 ： "%target%"'
+  · invalidNumber: '&c無效的數字 ： "%target%"'
+  · invalidPlayer: '&c玩家不存在 ！'
+  · permissionOpenSelf: '&c你無法開啟自己的物品欄。'
+  · permissionEnderAll: '&c你無法開啟其他玩家的終界箱。'
+  · permissionExempt: '&c%target% 的物品欄受到保護。'
+  · permissionCrossWorld: '&c%target% 不在你所在的世界。'
+  · permissionPlayerOnline: '&c你無法開啟線上玩家的物品欄。'
+  · permissionPlayerOffline: '&c你無法開啟離線玩家的物品欄。'
+  · commandException: '&c發生錯誤，請查看控制台。'
+  · containerBlocked: 你正在開啟受阻擋的儲物箱。
+  · containerBlockedSilent: 你正在悄悄開啟受阻擋的儲物箱。
+  · containerSilent: 你正在悄悄開啟儲物箱。
+  · noMatches: 找不到持有 %target% 的玩家。
+  · matches: '找到持有 %target% 的玩家 ： %detail%'
+  · noMatches: 找不到放有 %target% 的儲物箱。
+  · matches: '找到放有 %target% 的儲物箱 ： %detail%'
+  · 'on': '開啟'
+  · 'off': '關閉'
+
+## 常量池帮助/描述文本
+  · com/lishid/openinv/command/PlayerLookupCommand
+  · com/lishid/openinv/command/ClearInvCommand
+  · Lcom/lishid/openinv/util/InventoryManager;
+  · com/lishid/openinv/util/Permissions
+  · Lcom/lishid/openinv/util/Permissions;
+  · Lcom/lishid/openinv/util/lang/LanguageManager;
+  · com/lishid/openinv/util/lang/LanguageManager
+  · Lcom/lishid/openinv/util/PlayerLoader;
+  · com/lishid/openinv/util/PlayerLoader
+  · com/lishid/openinv/command/PlayerLookupCommand$PlayerAccess
+  · com/lishid/openinv/util/InventoryManager
+  · Lcom/lishid/openinv/OpenInv;
+  · com/lishid/openinv/OpenInv
+  · com/lishid/openinv/internal/ISpecialInventory
+  · com/lishid/openinv/util/lang/Replacement
+  · Lcom/lishid/openinv/command/ClearInvCommand;
+  · Lcom/lishid/openinv/util/config/Config;
+  · Lcom/lishid/openinv/internal/ISpecialInventory;
+  · Lcom/lishid/openinv/command/PlayerLookupCommand$PlayerAccess;
+  · com/lishid/openinv/command/ContainerSettingCommand
+  · com/lishid/openinv/util/setting/PlayerToggles
+  · com/lishid/openinv/util/setting/PlayerToggle
+  · com/lishid/openinv/event/OpenEvents
+  · com/lishid/openinv/util/TabCompleter
+  · Lcom/lishid/openinv/command/ContainerSettingCommand;
+  · Lcom/lishid/openinv/util/setting/PlayerToggle;
+  · com/lishid/openinv/command/OpenInvCommand
+  · com/lishid/openinv/util/config/Config
+  · Lcom/lishid/openinv/command/OpenInvCommand;
+  · com/lishid/openinv/command/PlayerLookupCommand$1
+  · com/github/jikoo/openinv/lib/nahu/scheduler-wrapper/runnable/WrappedRunnable
+  · Lcom/lishid/openinv/command/PlayerLookupCommand;
+  · Lcom/lishid/openinv/command/PlayerLookupCommand$1;
+  · com/github/jikoo/openinv/lib/nahu/scheduler-wrapper/WrappedScheduler
+  · com/lishid/openinv/util/AccessEqualMode
+  · Lcom/lishid/openinv/util/AccessEqualMode;
+  · com/lishid/openinv/command/SearchContainerCommand
+  · com/lishid/openinv/util/SearchHelper
+  · Lcom/lishid/openinv/command/SearchContainerCommand;
+  · com/lishid/openinv/command/SearchEnchantCommand
+  · Lcom/lishid/openinv/command/SearchEnchantCommand;
+  · com/lishid/openinv/command/SearchInvCommand
+  · Lcom/lishid/openinv/command/SearchInvCommand;

@@ -1,0 +1,14 @@
+# LuckPerms  (LuckPerms-Bukkit-5.5.53.jar)
+## 注册指令
+  /luckperms  usage=None desc='Manage permissions' alias=['lp', 'perm', 'perms', 'permission', 'permissions'] perm=None
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · website: https://luckperms.net
+
+## 常量池帮助/描述文本

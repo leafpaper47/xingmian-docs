@@ -1,0 +1,454 @@
+# DummyPool  (DummyPool-1.1.1-leaf.jar)
+## 注册指令
+  /dummypool  usage='/<command> <subcommand> ...' desc='DummyPool 台球插件主命令' alias=['dump'] perm=None
+  /dump  usage='/<command> <subcommand> ...' desc='DummyPool 台球插件主命令（别名）' alias=None perm=None
+
+## 代码类
+  com.mrdummy.dummypool.command.BallGetCommand
+  com.mrdummy.dummypool.command.BallLibCommand
+  com.mrdummy.dummypool.command.BallPlaceCommand
+  com.mrdummy.dummypool.command.CommandManager
+  com.mrdummy.dummypool.command.CreateCommand
+  com.mrdummy.dummypool.command.CueCommand
+  com.mrdummy.dummypool.command.RemoveCommand
+
+## javap 字符串 token
+  accept action aifight apply back ball ball_type balltype billing black blue brown cancel charge choice clear close concede concrete concrete_powder confirm create cue cue_name cyan dummypool dump edit enable end game get glass glazed_terracotta gray green help invite join key let lib light_blue light_gray lime list magenta main menu mode name orange own param params perms pink place player purple push red reject reloadconfig reloadmessages remove set size start stop subcommands table_name tablename take terracotta type ui white who wool yellow
+
+## 文本资源里的帮助/用法行
+  · # DummyPool 全局配置（粒子 / 音效 / 球袋判定 / 球的材质 / AI）
+  · # 修改后执行 /dummypool reloadconfig 或重启服务器生效
+  · # After editing, run /dummypool reloadconfig or restart the server
+  · # ============ 语言（一级项） ============
+  · # 可选：en / zh_cn。控制 messages/ 与 lang/ 文件夹下实际读取的语言文件；未知值回退 en。
+  · # ============ 球袋判定进球大小（一级项） ============
+  · # 球心到袋心的水平距离小于该值判定进球（格）；默认 0.25，越小越难进，越大越容易
+  · # ============ 球自动归位距离（一级项） ============
+  · # 玩家背包里有带本插件归属标签的球时，距离对应球台中心超过该值（格）会自动放回球库；0 表示关闭。
+  · # ============ 个人辅助功能服务器开关（一级项） ============
+  · # 关闭后所有玩家的个人菜单按钮都会显示“功能未启用”，且对应效果不会生成。
+  · # ============ 球的材质（一级项） ============
+  · # 控制球库自带球与对战模式生成球的实际物品材质。
+  · # 可用材质种类：concrete（混凝土）/ wool（羊毛）/ concrete_powder（混凝土粉末）
+  · #               glass（染色玻璃）/ terracotta（陶瓦）
+  · # 注意：中八实色组(1-7)与花色组(9-15)建议使用不同材质，便于识别分组
+  · # 材质1：斯诺克所有红球与彩球、中八 1~7 号、开伦所有彩球
+  · # 材质2：中八 9~15 号（花色组）
+  · # 母球：应用于所有球台的母球
+  · # 黑八：应用于中八的黑八
+  · # ============ AI 人机对战（一级项） ============
+  · # 人机对战中 AI 的显示名称（支持颜色代码，如 &b 或 §b）
+  · opponent_name: "&bAI小助教"
+  · # AI 皮肤：填写正版玩家名称使用其皮肤；留空则使用玩家头颅默认皮肤
+  · # AI 思考时间（秒）：每回合用物理引擎搜索击球方案的时间上限，范围 1~10，默认 5。
+  · # 越长越容易找到进球/一库/传递/防守方案（方案更多、力度更准），但出杆前等待也更久；
+  · # 搜索结束后仍会播放 3 秒头颅+矛动画再出杆。
+  · # particle 节：每个场景的粒子预设，共 45 个可选（含 NONE）：
+  · #   sonic_boom      坚守者声波（沿方向一串）      flame_ring      火焰环绕一圈
+  · #   flame_burst     火焰四散爆裂                   small_flame     小火焰飘升
+  · #   totem           不死图腾粒子                   ghost_smoke     幽灵+黑烟（组合）
+  · #   firework_burst  彩色烟花球形爆裂               firework_ring   烟花火花环
+  · #   spark_trail     金色火花拖尾                   crit_spark      暴击火花
+  · #   item_particles  方块+物品碎片                  dzone_red       D 区红色轮廓
+  · #   soul_fire       灵魂火环                       sculk_soul      灵魂粒子飘升
+  · #   sculk_charge    幽匿充电波纹                   sculk_pop       幽匿爆点
+  · #   shriek          幽匿尖啸                       electric_spark  电火花四散
+  · #   scrape          刮痕粒子                       wax_on          打蜡粒子
+  · #   wax_off         去蜡粒子                       enchant_ring    附魔环绕
+  · #   end_rod         末地烛火花飘升                 portal_vortex   传送门漩涡
+  · #   cloud_ring      云环                           snowflake       雪花飘落
+  · #   heart_ring      爱心环绕                       note_ring       音符环绕
+  · #   angry_villager  愤怒村民标记                   happy_villager  开心村民标记
+  · #   drip_lava       岩浆滴落                       drip_water      水滴落
+  · #   drip_honey      蜂蜜滴落                       bubble_ring     气泡环
+  · #   cherry_petals   樱花花瓣飘落                   pale_leaves     苍白树叶飘落
+  · #   spore_blossom   孢子花飘落                     ash             灰烬飘落
+  · #   white_smoke     白烟升腾                       poof            蓬蓬烟雾
+  · #   gust            微风粒子                       dust_colors     彩色粉尘爆裂
+  · #   witch_potion    女巫药水泡泡                   dolphin         海豚粒子
+  · #   fishing         鱼钩粒子                       nautilus        鹦鹉螺粒子
+  · #   sweep_attack    横扫斩击弧                     damage_indicator 伤害指示
+  · #   explosion       爆炸烟雾                       soul            灵魂粒子
+  · #   firework_small  小范围烟花火花（进袋专用，范围约为 firework_burst 的一半）
+  · #   NONE            不生成粒子
+  · # 注：蹲下触发的 sneak_zone 用 flame_ring 时保持"单点环绕"视觉；
+  · #     其它预设每 5 tick 完整执行一次
+  · # sound 节：每个场景的原版音效 ID（小写点分隔，如 entity_player_levelup），
+  · #          不需要音效就填 NONE
+  · # 开球出杆瞬间
+  · # 开球母球运动拖尾（每 tick 一颗火花）
+  · # 大力击球出杆（按住 Shift 的 6/7 档）
+  · # 蓄力开始上升（只有音效）
+  · # 蓄力不足（只有音效）
+  · # 出杆（只有音效）
+  · # 普通进袋（自由模式）
+  · # 进袋彩色烟花（自由模式，与 pocket_normal 叠加；默认小范围版本）
+  · # 对战模式进球
+  · # 犯规（中八/斯诺克）
+  · # 斯诺克得分
+  · # 蹲下触发管理区域时脚下火焰环绕
+  · # 创建球台时的轮廓火焰
+  · # 超分达成烟花
+  · # 斯诺克 D 形开球区轮廓（手持母球对准球台时，仅持球者可见）
+  · # 飞行球落地
+  · # AI 玩家头颅生成时
+  · # 九球黄金开球（合法开球直接打进9号球）
+  · # 碰撞音效：球-球按实际材质播放，球-库使用木板音效；高速阈值（格/秒）和所有音效都可持久化配置。
+  · # DummyPool 消息配置文件
+  · # 服主可自由修改所有聊天提示文本，颜色代码用 § 或 &（& 会自动转 §）
+  · # 变量用 %变量名% 声明（见每段注释）
+  · # 修改后执行 /dummypool reloadmessages 或重启服务器生效
+  · cmd.only_player: "§c只有玩家才能戳戳这个喵！(｀へ´)"
+  · cmd.table_not_found: "§c呜哇…球台消失啦！(｡•́︿•̀｡)"
+  · cmd.no_permission_clear: "§c主人没有收球入库的权限呢～要成为管理员才行哦！(´･ω･`)"
+  · cmd.cleared: "§a★ 所有球球都乖乖回库啦！呼噜呼噜～(ฅ´ω`ฅ)"
+  · cmd.no_tables: "§e现在一张球台都没有喵…空荡荡的好寂寞…(｡•́-•̀｡)"
+  · cmd.table_list: "§a✦ 球台列表闪亮登场 ✦"
+  · # 变量: %table_name% 球台名, %type% 球台类型
+  · cmd.no_permission_ui: "§c只有创建者才能打开管理界面哦～主人不可以偷看别人的啦！(｀へ´)"
+  · cmd.game_already_enabled: "§e对战模式已经亮晶晶地开启啦！(´▽`ʃƪ)"
+  · cmd.messages_reloaded: "§a喵呜～消息配置重新加载成功啦！蹭蹭主人！(ฅ^•ﻌ•^ฅ)"
+  · ball.get.only_player: "§c只有玩家才能拿到球球喵！"
+  · ball.get.op_only: "§c这个指令只有OP大人才可以用哦～(´･ω･`)"
+  · ball.get.invalid_type: "§c呜…球球类型不对啦！格式是：材质-颜色，比如 concrete-white 这样子(｡•́-•̀｡)"
+  · # 变量: %ball_type% 球类型
+  · ball.get.success: "§a◇ 获得球球：§b%ball_type% §a★ 收好啦！"
+  · ball.lib.only_player: "§c只有玩家才能打开球库呢～(´･ω･`)"
+  · # 变量: %table_name% 球台名
+  · ball.lib.not_found: "§c球台 %table_name% 不见啦！是不是被谁偷偷藏起来了？(｡º̩̩́⌓º̩̩̀)"
+  · ball.lib.no_permission: "§c主人没有权限打开这个球库哦…要找球台主人借钥匙呢～"
+  · ball.place.only_player: "§c只有玩家才能放球球啦！"
+  · ball.place.table_not_found: "§c球台不见了！(;´Д`)"
+  · ball.place.mode_required: "§c这个球台必须指定模式（CAROM）才行，ROUND 不支持摆放哦(´･_･`)"
+  · ball.place.no_permission: "§c主人没有在这个球台放球的权限呢…(｡•́︿•̀｡)"
+  · ball.place.confirmed: "§a✓ 确认啦！使用现有球球完成摆球！(ฅ´ω`ฅ)"
+  · ball.place.no_pending: "§c没有待确认的摆球操作喵…"
+  · ball.place.no_mode_needed: "§c这个球台不需要模式参数啦（只有 CAROM 才需要哦）"
+  · # ################## cue 球杆 ##################
+  · cue.get.only_player: "§c只有玩家才能拿球杆喵！"
+  · cue.get.not_found: "§c呜…这把球杆不存在啦！(｡•́︿•̀｡)"
+  · # 变量: %cue_name% 球杆名
+  · cue.get.success: "§a◇ 获得球杆：§b%cue_name% §a★ 好好打球哦！"
+  · interact.aim_table: "§c请瞄准球台的表面再放球球～瞄准瞄准！(｀・ω・´)"
+  · interact.table_not_found: "§c绑定的球台跑掉啦！(´;ω;｀)"
+  · interact.not_on_table: "§c目标球不在球台范围内呢～飘到外面去啦！"
+  · interact.not_in_range: "§c目标离球台太远了啦！够不着～(｡•́︿•̀｡)"
+  · interact.free_ball_need_game: "§c自由球要放到开启对战模式的球台上才可以哦！"
+  · interact.free_ball_only_cue: "§c对战模式中只能放自由球的母球啦！"
+  · interact.snooker_d_zone: "§c斯诺克母球要乖乖待在 D 形开球区内哦！(๑´ㅂ`๑)"
+  · interact.no_place_perm: "§c主人没有在这个球台放球的权限呢…蹭蹭也不行！(｀へ´)"
+  · # 变量: %remaining% 剩余数量
+  · interact.placed_partial: "§a已放好 1 个球啦～还有 %remaining% 个留在背包里喵！(ฅ´ω`ฅ)"
+  · # 变量: %table_name% 球台名
+  · interact.placed: "§a◆ 球球放到球台 §b%table_name% §a上啦！好开心！(´▽`ʃƪ)"
+  · interact.place_failed: "§c呜…放置失败，球台的世界还没加载出来呢(´;ω;｀)"
+  · interact.position_occupied: "§c这个位置已经被其它球占用了，不能放在碰撞范围内哦！"
+  · interact.free_ball_place_q: "§c自由球请按 Q 键放到球台上哦！记住啦～(ฅ´ω`ฅ)"
+  · interact.break_zone: "§c开球阶段母球只能放在开球线后（红色粒子圈出的区域）！"
+  · # 变量: %table_name% 球台名
+  · interact.belongs_other: "§c这颗球是球台 %table_name% 的宝贝，不能乱扔！按 Q 放回去啦！(｀へ´)"
+  · # 变量: %ball_name% 球名
+  · interact.picked: "§a捡起球球啦！§b%ball_name% §a～好乖！(´▽`ʃƪ)"
+  · interact.picked_ground: "§a从地上捡起球球…沾了灰灰，帮它擦擦！(｡•́︿•̀｡)"
+  · # 变量: %ball_name% 球名
+  · interact.picked_thrown: "§a咻！接住飞来的球球！§b%ball_name% §a～好险！(ฅ´ω`ฅ)"
+  · # 变量: %ball_type% 球类型
+  · interact.thrown: "§a投掷了 §b%ball_type% §a！飞出去啦～"
+  · ball.lib_locked: "§c球库被锁住啦！现在打不开的说(｡•́︿•̀｡)"
+  · ball.place_round: "§c圆形球台不能放球哦！球球会滚来滚去的！⚪（转圈圈）"
+  · ball.place_game: "§c对战模式中不能用球库摆球喵～请用 Q 键放吧！"
+  · # 变量: %missing% 缺少的球列表
+  · ball.missing: "§e缺少以下球球啦：§b%missing%"
+  · ball.missing_confirm: " §a[✓ 点我继续]"
+  · ball.missing_cancel: " §c[✗ 取消啦]"
+  · ball.cancelled: "§c摆球取消啦～下次再来玩哦！(´･ω･`)"
+  · ball.other_table_returned: "§c这颗球属于别的球台，已经退回去啦！"
+  · physics.break_title_power: "§c● 大力开球喵！ ●"
+  · physics.break_title: "§6● #开球# ●"
+  · physics.power_hit_title: "§c● 大力击球！ ●"
+  · physics.lib_full_drop: "§e球库装满啦～进球掉落在球台尾部感应区（就是副手持球杆蹲下的地方哦）(´･ω･`)"
+  · cue.cooldown: "§c球杆还在冒烟呢…等一等啦！(´;ω;｀)"
+  · cue.power_low: "§c力气不够啦！再用力一点点！(ฅ´ω`ฅ)"
+  · cue.aim_ball: "§c要对准球球再打哦！(｀へ´)"
+  · # 变量: %value% 原值
+  · ui.invalid_input: "§c输入无效喵…已保留原值：§b%value%"
+  · # 变量: %key% 参数名, %value% 参数值
+  · ui.param_updated: "§a★ 参数更新啦！§b%key% §a= §d%value% §a～好棒！(´▽`ʃƪ)"
+  · ui.perms_saved: "§a权限保存成功啦！蹭蹭～(ฅ´ω`ฅ)"
+  · ui.dialog_failed: "§cDialog 打开失败…主人确认一下客户端支持服务端 UI 喵？(｡•́︿•̀｡)"
+  · libedit.tag_removed: "§e去掉了从球库编辑中拿出的球的标签喵～"
+  · libedit.rejected: "§c这个物品不属于本球台哦，退回去啦！(｀へ´)"
+  · thrown.landed: "§7球落地啦～主人右键可以再次捡起来哦！(ฅ´ω`ฅ)"
+  · # 变量: %table_name% 球台名
+  · thrown.on_table: "§a球落到球台 §b%table_name% §a上啦！好耶！"
+  · game.no_permission_menu: "§c主人没有权限打开对战菜单啦…(｡•́︿•̀｡)"
+  · game.no_permission_toggle: "§c只有球台创建者可以切换对战模式喵！"
+  · game.dialog_failed: "§cDialog 打不开…确认客户端版本支持服务端 UI 哦！(´･ω･`)"
+  · game.no_permission_op: "§c主人没有操作对战模式的权限呢…"
+  · game.disabled: "§c已经给主人把对战模式关闭啦～(｡•́︿•̀｡)"
+  · # 变量: %join_cmd% 加入指令
+  · game.enabled: "§a★ 对战模式开启啦！等待玩家加入～（§b%join_cmd%§a）"
+  · game.not_enabled: "§c对战模式还没开呢！(´･ω･`)"
+  · game.full: "§c人满啦！(｡º̩̩́⌓º̩̩̀)"
+  · game.full2: "§c两人已经满啦！不能再多啦！(｀へ´)"
+  · game.player_offline: "§c那位玩家不在线哦…(´;ω;｀)"
+  · game.already_in: "§c主人已经在队伍里啦！"
+  · game.invite_blocked: "§c对方在 5 分钟内屏蔽了该球台的邀请喵…(｡•́︿•̀｡)"
+  · # 变量: %host_name% 邀请者, %table_name% 球台名, %game_type% 对战类型
+  · game.invite_received: "§6✉ %host_name% 邀请你加入球台 %table_name% 的 %game_type% 对战！"
+  · game.invite_yes: " §a[✓ 好呀好呀]"
+  · game.invite_no: " §c[✗ 不要啦]"
+  · # 变量: %target_name% 被邀请玩家
+  · game.invite_sent: "§a已向 %target_name% 发送邀请啦～等回应～"
+  · game.playing: "§c对局正在进行中…结束后才能加入下一场喵～"
+  · game.need_two: "§c要凑够 2 名成员才能开始哦！(ฅ´ω`ฅ)"
+  · game.in_playing: "§c对局已经进行中啦！"
+  · # 变量: %first_name% 先手玩家
+  · game.started: "§6◆ 对战开始！先手：§b%first_name% §6（开球啦！）"
+  · # 变量: %player_name% 玩家名, %count% 当前人数
+  · game.join_announce: "§a👋 %player_name% 加入对战！（当前 %count%/2）"
+  · game.rejected: "§c拒绝啦…5 分钟内不再接收这个球台的邀请(｡•́︿•̀｡)"
+  · # 变量: %reason% 结束原因
+  · game.end_reason: "§c%reason%（模式保持开启，可以邀请新成员进行下一场哦！）"
+  · # 变量: %reason% 结束原因
+  · game.not_member: "§c主人不是本场对战成员呢…(´･ω･`)"
+  · game.not_your_turn: "§c还没到主人的回合哦！耐心等一等！(ฅ´ω`ฅ)"
+  · game.free_ball_place: "§c自由球！请先把母球放到球台上～"
+  · # 变量: %ball_type% 球类型
+  · game.first_hit: "§7母球首碰 §b%ball_type%"
+  · # 变量: %player_name% 玩家名
+  · game.black_not_first: "§c%player_name% 没先碰黑八就打进啦！判负！(｀へ´)"
+  · # 变量: %player_name% 玩家名
+  · game.black_early: "§c%player_name% 提前打进黑八啦！(;´Д`)"
+  · # 变量: %player_name% 玩家名
+  · game.black_white_together: "§c%player_name% 黑八与白球一起进袋，判负！(｀へ´)"
+  · game.already_in_other: "§c你已经在一场对战里啦，先打完或离开再来吧！(｡•́︿•̀｡)"
+  · game.cannot_leave: "§c对局已开始，无法退出（结束后才能离开）"
+  · game.leave_success: "§a已离开这场对战～"
+  · # 变量: %player_name% 玩家名
+  · game.break_pocket: "§a开球进球！（%player_name% 继续击球，本杆不定色）"
+  · # 变量: %player_name% 玩家名
+  · game.break_black_respot: "§e开球打进黑八！黑八已摆回原位，%player_name% 继续击球（本杆不定色）"
+  · game.break_fail: "§e开球不合格：没有进球且碰库的球少于 4 颗，重新摆球开球！"
+  · # 变量: %player_name% 开球玩家
+  · game.break_retry: "§e轮到 %player_name% 重新开球！"
+  · game.break_ok: "§a开球合格，继续击球！"
+  · game.break_ok_no_pocket: "§a开球合格但没有进球，交换击球权～"
+  · game.nine_actionbar: "§e当前回合：%turn_name%  §a目标：母球先碰 §d%target_number% §a号。最终打进9号球"
+  · game.nine_break_ok_pocket: "§a九球开球合格并有进球，继续击球！"
+  · game.nine_break_ok_switch: "§a九球开球合格但没有进球，交换击球权～"
+  · game.nine_golden: "§6✦ 黄金9！%player_name% 开球直接打进9号球！"
+  · game.nine_push_choice: "§e%player_name% 使用了 Push Out 推杆。请选择："
+  · game.nine_push_take: " §a[取得球权]"
+  · game.nine_push_back: " §c[交还球权]"
+  · game.nine_push_take_announce: "§ePush Out 选择完成：%player_name% 取得球权。"
+  · game.nine_push_back_announce: "§ePush Out 选择完成：%player_name% 继续击球。"
+  · game.nine_push_wait: "§ePush Out 等待对手选择球权中，暂时不能击球～"
+  · # 变量: %player_name% 玩家名, %score% 分数, %condition% 得分条件
+  · game.carom_score: "§e★ %player_name% 得分！（%condition%），当前 %score% 分"
+  · # 变量: %player_name% 玩家名
+  · game.carom_turn: "§e轮到 %player_name% 击球"
+  · # 变量: %player_name% 玩家名
+  · game.carom_break_invalid: "§c%player_name% 开球第一杆必须先碰对手母球，交换击球权！"
+  · # 变量: %player_name% 玩家名, %color% 颜色名, %opp_color% 对方颜色
+  · game.color_set: "§e定色啦！§b%player_name% §e→ §d%color%"
+  · # 变量: %player_name% 玩家名, %color% 颜色名
+  · game.pocket_own: "§a○ 进球！%player_name% 打进了 %color% 球！好棒！"
+  · # 变量: %player_name% 玩家名, %color% 颜色名
+  · game.pocket_opponent: "§e%player_name% 打进了对方的 %color% 球…哎呀…(´･ω･`)"
+  · # 变量: %player_name% 玩家名
+  · game.continue_shot: "§a%player_name% 连杆啦！继续击球！呼噜呼噜～"
+  · # 变量: %reason% 犯规原因, %player_name% 获得自由球的玩家
+  · game.foul: "§c▲ 犯规：%reason%，%player_name% 获得自由球！"
+  · game.inv_full_drop: "§e背包满啦！自由球母球掉在脚下，捡起来按 Q 放球台上～"
+  · game.free_ball_got: "§e自由球！获得母球啦～按 Q 放到球台上再击球哦！(ฅ´ω`ฅ)"
+  · # 变量: %player_name% 当前回合玩家, %color% 击打颜色
+  · game.turn: "§e轮到：§b%player_name% §e（击打 §d%color% §e球）"
+  · # 变量: %player_name% 当前回合玩家
+  · game.turn_no_color: "§e轮到：§b%player_name% §e（颜色待定中～）"
+  · # 变量: %winner% 获胜者
+  · game.win: "§c☆ %winner% 获胜！☆ 本场结束，可以邀请新成员开始下一场啦！"
+  · # 变量: %winner% 获胜者
+  · game.win_title: "§c☆ %winner% 获胜！ ☆"
+  · # 变量: %table_name% 球台名
+  · # 变量: %turn_name% 回合玩家, %my_color% 己方颜色
+  · game.actionbar_turn_own: "§e当前回合：%turn_name%  §a我方击打：%my_color%"
+  · # 变量: %turn_name% 回合玩家
+  · game.actionbar_turn_wait: "§e当前回合：%turn_name%  §7等待对方击球…"
+  · snk.not_enabled: "§c对战模式还没开启喵！"
+  · snk.playing: "§c对局正在进行中…等结束再加入吧！(´･ω･`)"
+  · snk.full: "§c人数满啦！(｡º̩̩́⌓º̩̩̀)"
+  · snk.already_in: "§c已经在队伍里啦！"
+  · # 变量: %player_name% 玩家名, %count% 当前人数
+  · snk.join_announce: "§a👋 %player_name% 加入斯诺克对战！（当前 %count%/2）"
+  · snk.full2: "§c满啦满啦！两人已经够啦！"
+  · snk.player_offline: "§c玩家不在线喵…(´;ω;｀)"
+  · snk.invite_blocked: "§c对方在 5 分钟内屏蔽了该球台的邀请…(｡•́︿•̀｡)"
+  · # 变量: %host_name% 邀请者, %table_name% 球台名
+  · snk.invite_received: "§6✉ %host_name% 邀请你加入球台 %table_name% 的斯诺克对战！"
+  · # 变量: %target_name% 被邀请玩家
+  · snk.invite_sent: "§a已向 %target_name% 发送斯诺克邀请啦～"
+  · snk.rejected: "§c拒绝啦…5 分钟不再接收该球台邀请(｡•́︿•̀｡)"
+  · snk.need_two: "§c需要 2 名成员才能开始哦！(ฅ´ω`ฅ)"
+  · snk.in_playing: "§c对局已经进行中啦！"
+  · # 变量: %first_name% 先手玩家
+  · snk.break_start: "§6◆ 斯诺克对战开始！先手：§b%first_name% §6（母球要放在 D 形开球区内哦！）"
+  · # 变量: %reason% 结束原因
+  · snk.end_reason: "§c%reason%（模式保持开启，可以邀请新成员进行下一场～）"
+  · snk.not_member: "§c主人不是本场对战成员呢…(´･ω･`)"
+  · snk.not_your_turn: "§c还没到主人的回合哦！请等一等喵！(ฅ´ω`ฅ)"
+  · snk.free_ball_place_d: "§c手中球！请先把母球放到 D 形开球区内～"
+  · snk.balls_moving: "§c球球还在滚呢！不能击球啦！(｡•́︿•̀｡)"
+  · # 变量: %ball_type% 球类型
+  · snk.first_hit: "§7母球首碰 §b%ball_type%"
+  · # 变量: %reason% 犯规原因, %penalty% 罚分数, %player_name% 得罚分玩家, %score% 比分
+  · snk.foul: "§c▲ 犯规！%reason%，%player_name% 罚分 %penalty% 分（比分 %score%）"
+  · # 变量: %player_name% 直接击打玩家
+  · snk.over_no_replay: "§e已超分啦～不能复位重解哦！由 %player_name% 继续击打！"
+  · snk.foul_choice: "§e犯规处理："
+  · snk.choice_self_btn: " §a[✓ 继续]"
+  · # 变量: %player_name% 解球玩家
+  · snk.choice_let_btn: " §b[↻ 让 %player_name% 重新解球]"
+  · # 变量: %player_name% 玩家名, %color% 球名, %points% 分值
+  · snk.pocket_color: "§a○ %player_name% 打进 %color% +%points%，继续击球！"
+  · # 变量: %player_name% 玩家名, %count% 红球数, %points% 分值
+  · snk.pocket_red: "§a○ %player_name% 打进红球 ×%count%（+%points%），下一杆要打彩球啦！"
+  · # 变量: %player_name% 玩家名, %colors% 球名列表, %points% 分值
+  · snk.pocket_colors: "§a○ %player_name% 打进 %colors% +%points%，已经把彩球给主人复位啦！"
+  · snk.clearance_start: "§6★ 红球全部进袋！开始清彩：黄2→绿3→咖啡4→蓝5→粉6→黑7 ★"
+  · # 变量: %player_name% 玩家名, %color% 彩球名, %points% 分数
+  · snk.free_ball_color: "§e自由球打进 %color%（当作 %points% 分彩球），彩球复位！"
+  · # 变量: %player_name% 玩家名, %color% 彩球名
+  · snk.free_ball_red_like: "§e自由球打进 %color%（当作红球，+1 分），彩球复位！"
+  · # 变量: %player_name% 玩家名
+  · snk.continue_shot: "§e%player_name% 连杆啦！继续击球！呼噜呼噜～"
+  · snk.no_pending_choice: "§c当前没有待处理的犯规选择喵…"
+  · snk.not_your_choice: "§c当前不需要主人选择哦～"
+  · snk.striker_over: "§c犯规方已超分，不能复位重解啦！(｀へ´)"
+  · # 变量: %player_name% 选择玩家
+  · snk.chose_self: "§a%player_name% 选择自己继续击球！"
+  · snk.free_ball: "§d◇ 自由球！ ◇"
+  · # 变量: %player_name% 解球玩家
+  · snk.chose_let: "§b%player_name% 选择让对方继续解球喵～"
+  · # 变量: %player_name% 持球玩家
+  · snk.white_pocketed: "§e白球落袋啦！%player_name% 获得手中球（要放 D 形区哦）"
+  · snk.free_ball_snookered: "§d自由球！目标球被挡住了，本次击球任意球都算活球哦！"
+  · # 变量: %player_name% 回合玩家, %target% 目标球
+  · snk.turn: "§e轮到：§b%player_name% §e（目标：§d%target%§e）"
+  · snk.restored: "§e场上球已经回退到上一杆之前啦～"
+  · # 变量: %player_name% 回合玩家, %target% 目标球
+  · snk.next_turn: "§e轮换！当前 §b%player_name% §e击球（目标：§d%target%§e）"
+  · # 变量: %winner_name% 超分方玩家, %score% 比分
+  · snk.over_title: "§6☆ %winner_name% 完成超分！ ☆"
+  · # 变量: %score% 比分
+  · snk.over_subtitle: "§b比分 %score%"
+  · snk.concede_prompt: "§c💀 主人已经被超分了！要加油哦"
+  · snk.concede_btn: " §c[✘ 认输]"
+  · snk.no_game: "§c当前没有进行中的对局喵…"
+  · snk.not_loser: "§c只有被超分的一方可以认输喵！(｀へ´)"
+  · # 变量: %score% 比分
+  · snk.tie_black: "§6 平分 %score%！争黑！白球放 D 形区，黑球放回原点位，打进黑球就赢了喵~"
+  · # 变量: %winner% 获胜者
+  · snk.win: "§c☆ %winner% 获胜！☆ 本场结束，可以邀请新成员开始下一场喵！"
+  · # 变量: %winner% 获胜者
+  · snk.win_title: "§c☆ %winner% 获胜！ ☆"
+  · # 变量: %table_name% 球台名
+  · snk.inv_full_drop: "§e主人背包满啦！母球掉到jiojio底下～捡起来按 Q 放到 D 形区哦！"
+  · snk.got_cue_ball: "§e获得母球啦！按 Q 放到 D 形开球区内～(ฅ´ω`ฅ)"
+  · # 变量: %detail% 得分详情, %points% 分值
+  · # 变量: %reason% 犯规原因, %penalty% 罚分数
+  · snk.foul_subtitle: "§c%reason% 罚分%penalty%"
+  · # 变量: %turn_name% 回合玩家, %target% 目标球, %my_score% 己方分, %opp_score% 对方分
+  · snk.actionbar_turn: "§e当前轮到%turn_name%  击打 %target%  §a比分 %my_score%:%opp_score%"
+  · # ################## ai 人机对战 ##################
+  · # 变量: %name% AI名称, %difficulty% 难度系数
+  · ai.start: "§d★ 人机对战开始！对手：%name% （难度 %difficulty%）★ 第一杆由你开球！"
+  · # 变量: %name% AI名称, %info% 提示信息
+  · description: DummyPool 台球插件（LeafPaper 分支：补齐权限门控、跨台串扰与实体泄漏修复）
+  · website: https://cnb.cool/leafpaper47/DummyPool
+  · description: DummyPool 台球插件主命令
+  · description: DummyPool 台球插件主命令（别名）
+  · description: 使用 DummyPool 的基础功能（打开界面、参与对局、查看球台列表）
+  · description: 创建球台
+  · description: 删除球台
+  · description: 领取球物品（/dummypool ball get）——默认仅 OP，防止普通玩家刷球
+  · description: 执行管理命令（reloadconfig / reloadmessages）
+  · # DummyPool 语言文本文件（非聊天提示；聊天提示请改 messages/zh_cn.yml）
+  · # 颜色代码支持 § 或 &（& 会自动转 §），变量使用 %name% 占位符。
+  · plugin.enabled: "DummyPool 已启用。"
+  · plugin.disabled: "DummyPool 已停用。"
+  · plugin.description: "DummyPool 台球插件主命令"
+  · plugin.description_alias: "DummyPool 台球插件主命令（别名）"
+  · plugin.permission_use: "允许使用 DummyPool"
+  · log.write_config_failed: "写入 config.yml 失败：%error%"
+  · log.save_config_failed: "保存 config.yml 失败：%error%"
+  · log.write_lang_failed: "写入 lang/%language%.yml 失败：%error%"
+  · log.save_lang_failed: "保存 lang/%language%.yml 失败：%error%"
+  · log.write_messages_failed: "写入 messages/%language%.yml 失败：%error%"
+  · log.save_messages_failed: "保存 messages/%language%.yml 失败：%error%"
+  · log.create_messages_folder_failed: "创建 messages 文件夹失败：%path%"
+  · log.migrate_legacy_messages_failed: "迁移旧版 message.yml 失败：%error%"
+  · log.unknown_particle_preset: "config.yml 中存在未知粒子预设：%preset%（场景：%scene%）"
+  · log.invalid_sound_id: "config.yml 中存在无效音效 ID：%sound_id%"
+  · log.save_cue_max_speed_failed: "保存球杆 max_speed 配置失败：%error%"
+  · log.save_cue_default_failed: "保存默认球杆配置失败：%error%"
+  · log.invalid_cue_material: "无效的球杆材质：%material%"
+  · log.save_table_failed: "保存球台 %table_name% 失败：%error%"
+  · log.load_table_failed: "加载球台文件 %file_name% 失败：%error%"
+  · log.ai_animation_failed: "AI 击球动画异常：%error%"
+  · log.invalid_target_visual_failed: "创建不可击打目标提示失败：%error%"
+  · log.game_dialog_failed: "对战 Dialog 打开失败：%error%"
+  · log.table_dialog_failed: "球台 Dialog 打开失败：%error%"
+  · log.personal_dialog_failed: "个人菜单 Dialog 打开失败：%error%"
+  · game.manual_end_reason: "对局已手动结束"
+  · game.type.default: "对战"
+  · game.type.cn8: "中八"
+  · game.type.snooker: "斯诺克"
+  · game.type.carom: "开伦"
+  · game.type.round: "圆形球台"
+  · game.state.no_members: "&7暂无成员"
+  · game.state.waiting: "&7等待开始"
+  · game.state.playing: "&a对局进行中"
+  · game.score_line: "&f%player_name% &e比分 %score%"
+  · game.dialog.title.cn8: "&8中八对战 - %table_name%"
+  · game.dialog.title.nine_ball: "&89-BALL 对战 - %table_name%"
+  · game.dialog.title.snooker: "&8斯诺克对战 - %table_name%"
+  · game.dialog.title.carom: "&8开伦对战 - %table_name%"
+  · game.dialog.toggle_on: "&a对战模式：开启"
+  · game.dialog.toggle_off: "&c对战模式：关闭"
+
+## 常量池帮助/描述文本
+  · com/mrdummy/dummypool/command/BallGetCommand
+  · Lcom/mrdummy/dummypool/DummyPoolPlugin;
+  · com/mrdummy/dummypool/DummyPoolPlugin
+  · com/mrdummy/dummypool/config/MessageManager
+  · com/mrdummy/dummypool/manager/BallManager
+  · Lcom/mrdummy/dummypool/command/BallGetCommand;
+  · com/mrdummy/dummypool/command/BallLibCommand
+  · com/mrdummy/dummypool/manager/TableManager
+  · com/mrdummy/dummypool/manager/TableSettingsManager
+  · Lcom/mrdummy/dummypool/command/BallLibCommand;
+  · Lcom/mrdummy/dummypool/data/TableData;
+  · com/mrdummy/dummypool/data/TableData
+  · com/mrdummy/dummypool/command/BallPlaceCommand
+  · com/mrdummy/dummypool/data/TableType
+  · Lcom/mrdummy/dummypool/data/TableType;
+  · com/mrdummy/dummypool/config/TableConfigManager
+  · Lcom/mrdummy/dummypool/command/BallPlaceCommand;
+  · com/mrdummy/dummypool/command/CommandManager
+  · com/mrdummy/dummypool/manager/TableDialogManager
+  · com/mrdummy/dummypool/manager/GameManager
+  · com/mrdummy/dummypool/manager/BillingManager
+  · com/mrdummy/dummypool/config/LangManager
+  · com/mrdummy/dummypool/manager/PersonalSettingsManager
+  · com/mrdummy/dummypool/config/ParticleConfigManager
+  · com/mrdummy/dummypool/command/RemoveCommand
+  · com/mrdummy/dummypool/command/CreateCommand
+  · Lcom/mrdummy/dummypool/command/CommandManager;
+  · Ljava/util/Collection<Lcom/mrdummy/dummypool/data/TableData;>;
+  · Lcom/mrdummy/dummypool/command/CreateCommand;
+  · com/mrdummy/dummypool/config/CueConfigManager
+  · com/mrdummy/dummypool/command/CueCommand
+  · Lcom/mrdummy/dummypool/command/CueCommand;
+  · Lcom/mrdummy/dummypool/config/CueConfigManager;
+  · Lcom/mrdummy/dummypool/command/RemoveCommand;

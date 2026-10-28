@@ -1,0 +1,799 @@
+# Residence  (Residence6.0.2.4.jar)
+## 注册指令
+  /res  usage=None desc='Manage Residences' alias=None perm=None
+  /residence  usage=None desc='Manage Residences' alias=None perm=None
+  /resadmin  usage='§c/res ? or /resadmin ? for more info' desc='Residence admin functions.' alias=None perm=None
+  /resreload  usage='§c/resreload' desc='Reload the entire residence plugin.' alias=None perm=None
+  /resload  usage='§c/resload' desc='Load the save file again after you have made modifications.' alias=None perm=None
+  /rc  usage='§c/rc §eto toggle, §c/rc l §eto leave, §c/rc setprefix §eto set prefix, §c/rc setcolor §eto set color or §c/rc kick §eto kick player' desc='§cChat in current residence channel.' alias=None perm=None
+
+## 代码类
+  com.bekvon.bukkit.residence.CommandFiller
+  com.bekvon.bukkit.residence.ResidenceCommandListener
+  com.bekvon.bukkit.residence.commands.area
+  com.bekvon.bukkit.residence.commands.attack
+  com.bekvon.bukkit.residence.commands.auto$direction
+  com.bekvon.bukkit.residence.commands.auto$failReason
+  com.bekvon.bukkit.residence.commands.auto
+  com.bekvon.bukkit.residence.commands.bank$Action
+  com.bekvon.bukkit.residence.commands.bank
+  com.bekvon.bukkit.residence.commands.check
+  com.bekvon.bukkit.residence.commands.clearflags
+  com.bekvon.bukkit.residence.commands.command
+  com.bekvon.bukkit.residence.commands.compass
+  com.bekvon.bukkit.residence.commands.confirm
+  com.bekvon.bukkit.residence.commands.contract
+  com.bekvon.bukkit.residence.commands.create
+  com.bekvon.bukkit.residence.commands.current
+  com.bekvon.bukkit.residence.commands.defend
+  com.bekvon.bukkit.residence.commands.expand
+  com.bekvon.bukkit.residence.commands.flags
+  com.bekvon.bukkit.residence.commands.give
+  com.bekvon.bukkit.residence.commands.gset
+  com.bekvon.bukkit.residence.commands.info$1
+  com.bekvon.bukkit.residence.commands.info
+  com.bekvon.bukkit.residence.commands.kick
+  com.bekvon.bukkit.residence.commands.lease
+  com.bekvon.bukkit.residence.commands.leaveraid
+  com.bekvon.bukkit.residence.commands.limits
+  com.bekvon.bukkit.residence.commands.list
+  com.bekvon.bukkit.residence.commands.listall
+  com.bekvon.bukkit.residence.commands.listallhidden
+  com.bekvon.bukkit.residence.commands.listhidden
+  com.bekvon.bukkit.residence.commands.lists$Action
+  com.bekvon.bukkit.residence.commands.lists
+  com.bekvon.bukkit.residence.commands.lset
+  com.bekvon.bukkit.residence.commands.market
+  com.bekvon.bukkit.residence.commands.material
+  com.bekvon.bukkit.residence.commands.message
+  com.bekvon.bukkit.residence.commands.mirror
+  com.bekvon.bukkit.residence.commands.padd
+  com.bekvon.bukkit.residence.commands.pdel
+  com.bekvon.bukkit.residence.commands.placeholders
+  com.bekvon.bukkit.residence.commands.pset$Action
+  com.bekvon.bukkit.residence.commands.pset
+  com.bekvon.bukkit.residence.commands.raid$States
+  com.bekvon.bukkit.residence.commands.raid
+  com.bekvon.bukkit.residence.commands.raidstatus
+  com.bekvon.bukkit.residence.commands.rc
+  com.bekvon.bukkit.residence.commands.reload
+  com.bekvon.bukkit.residence.commands.remove
+  com.bekvon.bukkit.residence.commands.removeall
+  com.bekvon.bukkit.residence.commands.removeworld
+  com.bekvon.bukkit.residence.commands.rename
+  com.bekvon.bukkit.residence.commands.renamearea
+  com.bekvon.bukkit.residence.commands.resadmin
+  com.bekvon.bukkit.residence.commands.reset
+  com.bekvon.bukkit.residence.commands.restore$1
+  com.bekvon.bukkit.residence.commands.restore
+  com.bekvon.bukkit.residence.commands.rt
+  com.bekvon.bukkit.residence.commands.save
+  com.bekvon.bukkit.residence.commands.select
+  com.bekvon.bukkit.residence.commands.server
+  com.bekvon.bukkit.residence.commands.set
+  com.bekvon.bukkit.residence.commands.setall
+  com.bekvon.bukkit.residence.commands.setallfor
+  com.bekvon.bukkit.residence.commands.setallowner
+  com.bekvon.bukkit.residence.commands.setmain
+  com.bekvon.bukkit.residence.commands.setowner
+  com.bekvon.bukkit.residence.commands.shop
+  com.bekvon.bukkit.residence.commands.show
+  com.bekvon.bukkit.residence.commands.signconvert
+  com.bekvon.bukkit.residence.commands.signupdate
+  com.bekvon.bukkit.residence.commands.sublist
+  com.bekvon.bukkit.residence.commands.subzone
+  com.bekvon.bukkit.residence.commands.tool
+  com.bekvon.bukkit.residence.commands.tp
+  com.bekvon.bukkit.residence.commands.tpconfirm
+  com.bekvon.bukkit.residence.commands.tpset
+  com.bekvon.bukkit.residence.commands.unstuck
+  com.bekvon.bukkit.residence.commands.version
+
+## javap 字符串 token
+  add all allow apply area auto autopay balance bedrock blacklist block bottom buy chunk clear cmilib collision config confirm contract coords cost create createboard delete deleteboard deposit description east enter expand expires f false flags give groups gset ignorelist immunity infinite info kick l lang leave like likes list listall money none north off on paper parse payrent pset purpur rc release remove removeall renew rent rentable replace res resadmin residence resload resreload sell set setcolor setdesc setprefix shift shop sign size sky south start stop subcommands subzone sz t take top true trusted unrent unsell vert view vote votes west withdraw worldedit x y z
+
+## 文本资源里的帮助/用法行
+  · # These are grouped flags, so when using /res pset nickname redstone true, player will get all flags in list, same when setting to false or removing them.
+  · # You can look up the material name by item ID in game by typing /res material <id>
+  · # Allow or Disallow the use of /res unstuck, to get yourself out of a residence if stuck in one somehow
+  · # Allow or Disallow the use of /res kick, to kick player from residence.
+  · # Allow or Disallow the use of the /res select command, if disabled they can only use the selection tool.
+  · # The number of days to add to the lease following a '/res lease renew' command.
+  · website: https://www.spigotmc.org/resources/residence.11480/
+  · usage: §c/res ? or /resadmin ? for more info
+  · usage: §c/resreload
+  · usage: §c/resload
+  · description: Gives you access to /resadmin
+  · description: Gives you access to /resreload and /resload commands
+  · description: Allows to use /res rt command
+  · # 请复制此文件另行修改，本文件会在 Residence 检测到新版本时自动更新，
+  · # 你的修改内容将会被覆盖。复制完成后，请前往 Residence 的 config.yml，
+  · # 将 Language 配置项改为你复制文件的名称即可。
+  · Player: '&c无效的玩家名。'
+  · PlayerOffline: '&c玩家不在线。'
+  · World: '&c无效的世界。'
+  · Residence: '&c无效的领地。'
+  · Subzone: '&c无效的子领地。'
+  · Direction: '&c无效的方向。'
+  · Amount: '&c无效的数量。'
+  · Cost: '&c无效的价格。'
+  · Days: '&c无效的天数。'
+  · Material: '&c无效的材料。'
+  · Boolean: '&c无效值, 必须为 &6true(t) &c或 &6false(f)&c。'
+  · Area: '&c无效的区域。'
+  · Group: '&c无效的权限组。'
+  · Location: '&c无效的位置。'
+  · MessageType: '&c消息类型必须为 enter(进入), leave(离开) 或 remove(清除消息)。'
+  · Flag: '&c无效的权限。'
+  · Fail: '&c无效的权限。该权限只能在 %1 使用。'
+  · Player: 玩家
+  · Residence: 领地
+  · FlagState: '&c无效的权限状态, 必须为 &6true(t)&c, &6false(f)&c, 或 &6remove(r)&c。'
+  · List: '&e未知名单类型, 必须为 &6blacklist(黑名单) &e或 &6ignorelist(忽略名单)。'
+  · Page: '&e无效的页面。'
+  · Help: '&c无效的帮助页面。'
+  · NameCharacters: '&c名称中包含无效字符。'
+  · PortalDestination: '&c传送门目的地位于限制区域中。已取消传送门创建。&7请寻找新位置。'
+  · FromConsole: '&c只能在控制台执行此命令!'
+  · Ingame: '&c只能在游戏中执行此命令!'
+  · NameLegth: '&c名称过长，最多允许 %1 个字符'
+  · Exists: '&c此区域名已存在。'
+  · Create: '&e你创建了领地区域, ID为 &6%1&c。'
+  · DiffWorld: '&c区域与领地在不同的世界。'
+  · Collision: '&c区域与领地 &6%1 &c冲突。'
+  · TooClose: '&c与另一个领地距离太靠近。需要至少 &e%1 &c格间距。'
+  · SubzoneCollision: '&c区域与子领地 &6%1 &c冲突。'
+  · NonExist: '&c该区域不存在。'
+  · InvalidName: '&c无效的区域名。'
+  · ToSmallX: '&c选区 &6X &c方向长度 (&6%1&c) 过小。&e该值必须为 &6%2 &e或更大。'
+  · ToSmallY: '&c选区高度 (&6%1&c) 过小。&e该值必须为 &6%2 &e或更大。'
+  · ToSmallZ: '&c选区 &6Z &c方向长度 (&6%1&c) 过小。&e该值必须为 &6%2 &e或更大。'
+  · ToBigX: '&c选区 &6X &c方向长度 (&6%1&c) 过大。&e该值必须为 &6%2 &e或更小。'
+  · ToBigY: '&c选区高度 (&6%1&c) 过大。&e该值必须为 &6%2 &e或更小。'
+  · ToBigZ: '&c选区 &6Z &c方向长度 (&6%1&c) 过大。&e该值必须为 &6%2 &e或更小。'
+  · Rename: '&e已将区域 &6%1 &e重命名为 &6%2&e。'
+  · Remove: '&e已将区域 &6%1 &e删除。'
+  · Name: '&e名称: &2%1'
+  · ListAll: '&a{&eID:&c%1 &e点1:&c(%2,%3,%4) &e点2:&c(%5,%6,%7) &e(大小:&c%8&e)&a}'
+  · RemoveLast: '&c不能删除领地的最后一个区域。'
+  · NotWithinParent: '&c此区域不在父区域内。'
+  · Update: '&e已更新区域。'
+  · MaxPhysical: '&e已达到领地所允许的最大空间。'
+  · SizeLimit: '&e区域大小超出了允许的尺寸上限。'
+  · HighLimit: '&c你不能保护到这么高, 高度上限为 &6%1&c。'
+  · LowLimit: '&c你不能保护到这么深, 深度下限为 &6%1&c。'
+  · WeirdShape: '&3领地形状超出规则。&6%1 &3边比 &6%3 &3边大 &6%2 &3倍。'
+  · Points: '&e执行此命令前需要先选中两个选取点!'
+  · Overlap: '&c选取点与区域 &6%1 &c重叠!'
+  · WorldGuardOverlap: '&c选取点与 WorldGuard 区域 &6%1 &c重叠!'
+  · KingdomsOverlap: '&c选取点与 &6%1 &c王国的土地重叠!'
+  · Success: '&e选取点成功!'
+  · Fail: '&c无效的选择命令。'
+  · Bedrock: '&e已将选区扩展到最大深度。'
+  · Sky: '&e已将选区扩展到最大高度。'
+  · Area: '&e已选择领地 &6%2 &e的 &6%1 &e区域。'
+  · Tool: '&e- 选区工具: &6%1'
+  · PrimaryPoint: '&e已选择 &6第一个 &e选取点 %1'
+  · SecondaryPoint: '&e已选择 &6第二个 &e选取点 %1'
+  · Primary: '&e第一个选取点: &6%1'
+  · Secondary: '&e第二个选取点: &6%1'
+  · TooHigh: '&c警告: 选区超过了世界顶部, 超出的部分已被缩限。'
+  · TooLow: '&c警告: 选区超过了世界底部, 超出的部分已被缩限。'
+  · TotalSize: '&e选区总大小: &6%1'
+  · AutoEnabled: '&6已开启 &e自动选择模式。输入 &6/res select auto &e关闭。'
+  · AutoDisabled: '&6已关闭 &e自动选择模式。输入 &6/res select auto &e再次打开。'
+  · Disabled: '&c你没有权限使用选择命令。'
+  · Updated: '&6%1 &e已更新告示牌!'
+  · TopLine: '[领地市场]'
+  · ForRentTopLine: '&0出租'
+  · ForRentBottomLine: '&9可用'
+  · ForSaleTopLine: '&0出售'
+  · LookAt: '&c请面向告示牌。'
+  · TooMany: '&c这个领地有太多告示牌'
+  · NotEnabled: '&c袭击功能未开启!'
+  · NotIn: '&c你不在袭击中!'
+  · CantLeave: '&c你不能离开 (%1) 对你自己的领地的袭击!'
+  · CantKick: '&c不能踢出 (%1) 领地的所有者!'
+  · Kicked: '&e将 &7%1 &e从对 &7%2 &e的袭击中踢出!'
+  · StartsIn: '&7袭击将在以下时间后开始: [autoTimeLeft] &2%1D &4%2A'
+  · EndsIn: '&c袭击将在以下时间后结束: [autoTimeLeft] &2%1D &4%2A'
+  · Ended: '&7对 &4%1 &7的袭击已结束!'
+  · cantDo: '&c在袭击过程中不能做这件事!'
+  · left: '&7你离开了对 &4%1 &7的袭击'
+  · noFlagChange: '&c在袭击过程中不能更改权限'
+  · noRemoval: '&c在袭击过程中不能删除领地'
+  · immune: '&e免受接下来的 %1 场袭击'
+  · notImmune: '&e不再免受袭击'
+  · notInRaid: '&e玩家不在袭击中'
+  · Joined: '&7你加入了对 &2%1 &7的袭击!'
+  · Started: '&7袭击开始!'
+  · cooldown: '&c对这个领地发起下一场袭击还太早了! 请等待 %1'
+  · immune: '&c这个领地当前免受袭击! 请等待 %1'
+  · playerImmune: '&c领地的所有者当前免受袭击! 请等待 %1'
+  · isOffline: '&c领地的所有者不在线, 不能发动袭击!'
+  · noSubzones: '&c不能对子领地发动袭击!'
+  · noSelf: '&c不能对自己的领地发动袭击!'
+  · alreadyInAnother: '&c不能加入这场袭击, 你已经加入另外一场袭击了 (%1)'
+  · Joined: '&7你加入了 &2%1 &7的防守方!'
+  · Sent: '&7已发送防守请求, 请等待同意'
+  · Join: '&7加入 &6%1 &7的防守方'
+  · Invitation: '&7接受 &6%1 &7的防守请求'
+  · JoinedDef: '&2%1&7 加入了防守方!'
+  · IsOffline: '&c领地的所有者不在线, 不能加入防守方!'
+  · noSelf: '&c你已经在防守这个领地了'
+  · notRaided: '&c这个领地没有被袭击'
+  · alreadyInAnother: '&c不能加入领地防守, 你已经加入另外一场防守了 (%1)'
+  · immune: '&e免受接下来的 %1 场袭击'
+  · starts: '&7袭击将在 %1 后开始'
+  · attackers: '&7袭击方: &4%1'
+  · defenders: '&7防守方: &4%1'
+  · ends: '&7袭击将在 %1 后结束'
+  · canraid: '&2可以被袭击'
+  · raidin: '&e下一场袭击可能在 %1 后开始'
+  · stopped: '&e对 &6%1 &e的袭击已停止'
+  · years: '&e%1 &6年 '
+  · oneYear: '&e%1 &6年 '
+  · day: '&e%1 &6天 '
+  · oneDay: '&e%1 &6天 '
+  · hour: '&e%1 &6小时 '
+  · oneHour: '&e%1 &6小时 '
+  · min: '&e%1 &6分钟 '
+  · sec: '&e%1 &6秒 '
+  · click: '&7点击'
+  · clickToConfirm: '&7点击确认'
+  · others: '&e和其他 &2%1 &e个'
+  · Set: '&e已将领地 &6%2 &e的 &6%1 &e权限设置为 &6%3 &e。'
+  · SetFailed: '&c你没有权限设置 &6%1 &c权限'
+  · CheckTrue: '&e已将玩家 &6%2 &e在领地 &6%3 &e的 &6%1 &e权限设置为 &6%4&e。'
+  · CheckFalse: '&e玩家 &6%2 &e没有被设置 &6%1 &e权限。'
+  · Cleared: '&e已清除权限。'
+  · RemovedAll: '&e已清除玩家 &6%1 &e在领地 &6%2 &e的所有权限。'
+  · RemovedGroup: '&e已清除用户组 &6%1 &e在领地 &6%2 &e的所有权限。'
+  · Default: '&e已将权限重置为默认值。'
+  · Deny: '&c你没有 &6%1 &c权限。'
+  · SetDeny: '&c领地的所有者没有权限设置 &6%1 &c权限。'
+  · ChangeDeny: '&c你不能更改 &6%1 &c权限, 因为领地内有 &6%2 &c名玩家。'
+  · ChangedForOne: '&e已为领地 &6%2 &e更改了 &6%1 &e个权限。'
+  · ChangedFor: '&e已为选中的 &6%2 &e个领地更改了 &6%1 &e个权限。'
+  · reset: '&e为领地 &6%1 &e重置权限'
+  · resetAll: '&e为 &6%1 &e个领地重置权限'
+  · GSet: '&e已为 &6%2 &e设置权限标识（&6%1&e）'
+  · Removed: '&e已为 &6%2 &e移除权限标识（&6%1&e）'
+  · PSet: '&e已将领地 &6%2 &e的权限标识（&6%1&e）对 &6%4 &e设置为 &6%3 &e状态'
+  · PRemoved: '&e已从领地 &6%2 &e中移除玩家 &6%3 &e的权限标识（&6%1&e）'
+  · resetOwnerFlags: '&e已重置领地 &6%1 &e的所有者权限'
+  · resetAllOwnerFlags: '&e已重置所有 &6%1 &e领地的所有者权限'
+  · NoAccess: '&c你没有权限使用银行。'
+  · Name: ' &e银行: &6%1'
+  · NoMoney: '&c银行存款不足。'
+  · Deposit: '&e你向领地银行存款 &6%1 &e。'
+  · Withdraw: '&e你从领地银行取出 &6%1 &e。'
+  · rentedWithdraw: '&c不能从租用的领地取钱。'
+  · full: '&e领地银行已满!'
+  · Rename: '&e已将子领地 &6%1 &e重命名为 &6%2&e。'
+  · Remove: '&e已将子领地 &6%1 &e删除。'
+  · Create: '&e你创建了子领地 &6%1。'
+  · CreateFail: '&c无法创建子领地 &6%1。'
+  · Exists: '&c子领地 &6%1 &c已存在。'
+  · Collide: '&c该子领地与子领地 &6%1 &c冲突。'
+  · MaxAmount: '&c已达到此领地允许的最大子领地数量。'
+  · MaxDepth: '&c已达到此领地允许的最大子领地嵌套深度。'
+  · SelectInside: '&e两个选取点都必须在此领地内。'
+  · CantCreate: '&c你没有权限创建子领地。'
+  · CantDelete: '&c你没有权限删除子领地。'
+  · CantDeleteNotOwnerOfParent: '&c你不是父领地的所有者, 不能删除此子领地。'
+  · CantContract: '&c你没有权限缩小子领地。'
+  · CantExpand: '&c你没有权限扩展子领地。'
+  · DeleteConfirm: '&e输入 &6/res confirm &e来确认删除子领地 &6%1&e。'
+  · OwnerChange: '&e已将子领地 &6%1 &e的所有者更改为 &6%2&e。'
+  · DontOwn: '&e这里空空如也'
+  · Hidden: ' &e(&6隐藏&e)'
+  · Bought: '&e你购买了领地 &6%1&e。'
+  · Buy: '&6%1 &e购买了你的领地 &6%2 &e。'
+  · BuyTooBig: '&c你不能购买尺寸这么大的领地。'
+  · NotForSale: '&c该领地当前不在出售。'
+  · ForSale: '&e领地 &6%1 &e正在以 &6%2 &e的价格出售。'
+  · StopSelling: '&c该领地已不再在售。'
+  · TooMany: '&c你拥有的领地数量达到了上限。'
+  · MaxRent: '&c你租用的领地数量达到了上限。'
+  · AlreadyRent: '&c该领地已经被租用。'
+  · NotForRent: '&c该领地没有在出租。'
+  · NotForRentOrSell: '&c该领地当前不在出售或出租。'
+  · NotRented: '&c该领地尚未被租用。'
+  · Unrent: '&e领地 &6%1 &e已取消租用。'
+  · RemoveRentable: '&e领地 &6%1 &e不再出租。'
+  · ForRentSuccess: '&e领地 &6%1 &e正在以每 &6%3 &e天 &6%2 &e的价格出租。'
+  · RentSuccess: '&e你租用了 &6%1 &e领地 &6%2 &e天。'
+  · EndingRent: '&e出租给 &6%1 &e的领地 &6%2 &e已到期。'
+  · AlreadyRented: '&e领地 &6%1 &e已出租给 &6%2&e。'
+  · CantAutoPay: '&e领地不能自动续租, 已设置为 &6false&e。'
+  · AlreadyExists: '&c已存在名称为 &6%1 &c的领地。'
+  · Create: '&e你创建了领地 &6%1&e!'
+  · Rename: '&e已将领地 &6%1 &e重命名为 &6%2&e。'
+  · Remove: '&e已将领地 &6%1 &e删除。'
+  · CantRemove: '&c领地 &6%1 &c无法删除, 因为子领地 &6%2 &c正在出租给玩家 &6%3&c。'
+  · MoveDeny: '&c你没有领地 &6%1 &c的移动权限。'
+  · TeleportNoFlag: '&c你没有该领地的传送权限。'
+  · FlagDeny: '&c你没有领地 &6%2 &c的 &6%1 &c权限。'
+  · GiveLimits: '&c无法给予领地, 因为超出了目标玩家的限制。'
+  · GiveConfirm: '&7点击确认将领地 &6%1 &7从 &6%2 &7给予 &6%3&7。'
+  · Give: '&e你将领地 &6%1 &e给予了 &6%2&e。'
+  · Recieve: '&e你收到了 &6%2 &e给予你的领地 &6%1 &e。'
+  · List: ' &a%1%2 &e- &6世界&e: &6%3'
+  · Near: '&e附近的领地: &7%1'
+  · TeleportNear: '&e已传送到领地附近。'
+  · SetTeleportLocation: '&e已设置传送位置。'
+  · PermissionsApply: '&e已设置领地权限。'
+  · NotOwner: '&c你不是该领地的所有者。'
+  · RemovePlayersResidences: '&e已删除所有属于 &6%1 &e的领地。'
+  · NotIn: '&c你不在领地内。'
+  · PlayerNotIn: '&c玩家不在领地内。'
+  · Kicked: '&e你被踢出领地。'
+  · CantKick: '&e无法踢出这个玩家。'
+  · In: '&e你正站在领地 &6%1 &e中。'
+  · OwnerChange: '&e已将领地 &6%1 &e的所有者更改为 &6%2&e。'
+  · NonAdmin: '&c你没有领地的管理员权限。'
+  · Line: '&e领地: &6%1'
+  · RentedBy: '&e租用者: &6%1'
+  · MessageChange: '&e已设置提示消息文本。'
+  · CantDeleteResidence: '&c你没有权限删除该领地。'
+  · CantExpandResidence: '&c你没有权限扩展该领地。'
+  · CantContractResidence: '&c你没有权限缩小该领地。'
+  · NoResHere: '&c那个位置没有领地存在。'
+  · OwnerNoPermission: '&c领地的所有者没有权限执行这个操作。'
+  · ParentNoPermission: '&c你没有权限设置父区域。'
+  · ChatDisabled: '&e领地内聊天已禁用。'
+  · DeleteConfirm: '&e输入 &6/res confirm &e来确认删除领地 &6%1&e。'
+  · ChangedMain: '&e已将主领地改为 &6%1&e。'
+  · LwcRemoved: '&e已删除 &6%1 &e的LWC保护, 耗时 &6%2ms。'
+  · CanBeRented: '&e领地 &6%1 &e正在以每 &6%3 &e天 &6%2 &e的价格出租。&6/res market rent'
+  · CanBeBought: '&e领地 &6%1 &e正在以 &6%2 &e的价格出售。&6/res market buy'
+  · IsForRent: '&6(出租)'
+  · IsForSale: '&6(出售)'
+  · IsRented: '&6(已出租)'
+  · BaseFlagDeny: '&c你没有 &6%1 &c权限'
+  · Received: '&e你从玩家 &6%2 &e处获得了领地 &6%1'
+  · TeleportBlockedWorlds: '&c无法传送到受限世界内的领地'
+  · NotOwned: '&c玩家 &6%1 &c未拥有任何领地'
+  · OwnerChangeAll: '&e已将 &6%1 &e个领地从 &6%2 &e转让给 &6%3'
+  · OwnerChangeAllSkipped: '&c因存在突袭事件，跳过 &6%1 &c个领地'
+  · Balance: '&e余额：&6%1'
+  · Disabled: '&c领地出租已禁用。'
+  · DisableRenew: '&e领地 &6%1 &e将不会在租约到期时自动续租。'
+  · EnableRenew: '&e领地 &6%1 &e将会在租约到期时自动续租。'
+  · NotByYou: '&c领地没有出租给你。'
+  · isForRent: '&2这个领地可以租用。'
+  · MaxRentDays: '&c你不能一次租用超过 &6%1 &c天。'
+  · OneTime: '&c这个领地不能续租。'
+  · Extended: '&e领地 &6%2 &e续租了 &6%1 &e天。'
+  · Expire: '&e租约到期时间: &6%1'
+  · AutoPayTurnedOn: '&e自动续租已 &2开启'
+  · AutoPayTurnedOff: '&e自动续租已 &c关闭'
+  · ModifyDeny: '&c不能修改租用的领地。'
+  · Days: '&e租用天数: &6%1'
+  · Rented: ' &6(已租用)'
+  · EvictConfirm: '&e输入 &6/res market confirm &e来确认租用领地 &6%1&e。'
+  · UnrentConfirm: '&e输入 &6/res market confirm &e来确认退租领地 &6%1&e。'
+  · ReleaseConfirm: '&e输入 &6/res market confirm &e来确认从市场撤下领地 &6%1&e。'
+  · addedAllow: '&e已增加一个允许的命令给领地 &6%1 &e。'
+  · removedAllow: '&e已删除一个允许的命令于领地 &6%1 &e。'
+  · addedBlock: '&e已增加一个禁用的命令给领地 &6%1 &e。'
+  · removedBlock: '&e已删除一个禁用的命令于领地 &6%1 &e。'
+  · Blocked: '&e禁用的命令: &6%1'
+  · Allowed: '&e允许的命令: &6%1'
+  · Land: '&e可租用领地: &6'
+  · AllowRenewing: '&e可续租: &6%1'
+  · StayInMarket: '&e可租用: &6%1'
+  · AllowAutoPay: '&e可自动续租: &6%1'
+  · DisableRenew: '&6%1 &e将不会在到期时自动更新租用状态。'
+  · EnableRenew: '&6%1 &e将会在到期时自动更新租用状态。'
+  · LandForSale: '&e在出售领地:'
+  · NotEnoughMoney: '&c你没有足够的金钱。'
+  · MoneyCharged: '&e已从你的 &6%2 &e账户中支出 &6%1 &e。'
+  · MoneyAdded: '&e你的 &6%2 &e账户增加了 &6%1 &e。'
+  · MoneyCredit: '&e你的 &6%2 &e账户收入了 &6%1 &e。'
+  · RentReleaseInvalid: '&e领地 &6%1 &e没有被租用或在出租。'
+  · RentSellFail: '&c不能出售正在出租的领地。'
+  · SubzoneRentSellFail: '&c无法出售领地, 因为其子领地正在出租。'
+  · ParentRentSellFail: '&c无法出售领地, 因为其父领地正在出租。'
+  · SubzoneSellFail: '&c无法出售子领地。'
+  · SellRentFail: '&c无法出租领地, 因为该领地正在出售。'
+  · ParentSellRentFail: '&c无法出租领地, 因为其父领地正在出售。'
+  · OwnerBuyFail: '&c不能购买自己的领地!'
+  · OwnerRentFail: '&c不能租用自己的领地!'
+  · AlreadySellFail: '&e领地已在出售中!'
+  · LeaseRenew: '&e租约有效期限到 &6%1&e。'
+  · LeaseRenewMax: '&e允许的最大续租时长'
+  · LeaseNotExpire: '&e租约不存在或未到期。'
+  · LeaseRenewalCost: '&6%1 &e的续租价格为 &6%2&e。'
+  · LeaseInfinite: '&e已将出租时长设置为无限。'
+  · MarketDisabled: '&c领地经济已禁用!'
+  · SellAmount: '&e出售数量: &2%1'
+  · LeaseExpire: '&e租约到期时间: &2%1'
+  · NotEnoughMoneyAmount: '&c你的金币不足. (&6%1&c)'
+  · North: '&e向北方 (-Z) 扩展 &6%1 &e格'
+  · West: '&e向西方 (-X) 扩展 &6%1 &e格'
+  · South: '&e向南方 (+Z) 扩展 &6%1 &e格'
+  · East: '&e向东方 (+X) 扩展 &6%1 &e格'
+  · Up: '&e向上方扩展 &6%1 &e格'
+  · Down: '&e向下方扩展 &6%1 &e格'
+  · North: '&e从北方 (-Z) 缩小 &6%1 &e格'
+  · West: '&e从西方 (-X) 缩小 &6%1 &e格'
+  · South: '&e从南方 (+Z) 缩小 &6%1 &e格'
+  · East: '&e从东方 (+X) 缩小 &6%1 &e格'
+  · Up: '&e从上方缩小 &6%1 &e格'
+  · Down: '&e从下方缩小 &6%1 &e格'
+  · North: '&e向北方平移 &6%1 &e格'
+  · West: '&e向西方平移 &6%1 &e格'
+  · South: '&e向南方平移 &6%1 &e格'
+  · East: '&e向东方平移 &6%1 &e格'
+  · Up: '&e向上方平移 &6%1 &e格'
+  · Down: '&e向下方平移 &6%1 &e格'
+  · PGroup: '&7- &e权限组:&3 %1'
+  · RGroup: '&7- &e领地组:&3 %1'
+  · Admin: '&7- &e领地管理员:&3 %1'
+  · CanCreate: '&7- &e允许创建领地:&3 %1'
+  · MaxRes: '&7- &e最大领地数量:&3 %1'
+  · MaxEW: '&7- &e东西 (X) 方向最大:&3 %1'
+  · MaxNS: '&7- &e南北 (Z) 方向最大:&3 %1'
+  · MaxUD: '&7- &e上下方向最大:&3 %1'
+  · MinMax: '&7- &e最小/最大高度:&3 %1 到 %2'
+  · MaxSubzones: '&7- &e最大子领地数量:&3 %1'
+  · MaxSubDepth: '&7- &e最大子领地深度:&3 %1'
+  · MaxRents: '&7- &e最大租用数量:&3 %1'
+  · MaxRentDays: ' &e最大租用天数:&3 %1'
+  · EnterLeave: '&7- &e可设置加入/离开提示消息:&3 %1'
+  · NumberOwn: '&7- &e拥有的领地数量:&3 %1'
+  · Cost: '&7- &e领地每方块价格:&3 %1'
+  · Sell: '&7- &e领地出售每方块价格:&3 %1'
+  · Flag: '&7- &e允许的领地权限:&3 %1'
+  · MaxDays: '&7- &e最大租约时间:&3 %1'
+  · LeaseTime: '&7- &e续租时间:&3 %1'
+  · RenewCost: '&7- &e领地续租每方块价格:&3 %1'
+  · Title: '&8%1 权限'
+  · Title: '&8%2 在 %1 的权限'
+  · - '&2左键单击启用'
+  · - '&c右键单击禁用'
+  · - '&eShift+左键单击清除'
+  · ChatChannelChange: '&e领地聊天频道已更改为 &6%1&e!'
+  · ChatChannelLeave: '&e离开领地聊天。'
+  · ChatListeningMessage: '&2[监听 %6]%1 %2%3: %4%5'
+  · JoinFirst: '&4请先加入领地聊天频道。'
+  · InvalidChannel: '&4无效的频道。'
+  · InvalidColor: '&4颜色代码错误。'
+  · NotInChannel: '&4玩家不在频道中。'
+  · Kicked: '&6%1 &e被踢出 &6%2 &e频道。'
+  · InvalidPrefixLength: '&4前缀过长。最大长度: %1。'
+  · ChangedColor: '&e领地聊天频道颜色已更改为 %1。'
+  · ChangedPrefix: '&e领地聊天频道前缀已更改为 %1。'
+  · ListTopLine: '&6%1 &e商店列表 - 第 &6%2 &e页, 共 &6%3 %4'
+  · ListLiked: '&e赞: &0%1'
+  · VotesTopLine: '&6%1 &e%2 评分列表 &6- &e第 &6%3 &e页, 共 &6%4 %5'
+  · NoDesc: '&6没有描述'
+  · &6描述:
+  · DescChange: '&6已更改描述为: %1。'
+  · ChantChange: '&4shop 权限设置为 true 时无法更改。'
+  · NewBoard: '&6已添加商店宣传板。'
+  · BoardExist: '&c商店宣传板已经存在。'
+  · DeleteBoard: '&6右键单击要移除的宣传板。'
+  · DeletedBoard: '&6已移除商店宣传板。'
+  · IncorrectBoard: '&c宣传板不正确, 请重新输入命令并点击正确的宣传板。'
+  · InvalidSelection: '&c使用选区工具, 先左键单击左上角的告示牌, 再右键单击右下角的告示牌。'
+  · ToBigSelection: '&c你选择的范围太大了, 最大允许 16 格。'
+  · ToDeapSelection: '&c你选择的范围太深了, 最大允许 16x1x16。'
+  · VoteChanged: '&6领地 &e%3 &6的评分由 &e%1 &6更改为 &e%2&6。'
+  · Voted: '&6你给领地 &e%2 &6评了 &e%1 &6分。'
+  · Liked: '&6你点赞了领地 &e%1 &6。'
+  · AlreadyLiked: '&6你已经点赞了领地 &e%1 &6。'
+  · NoVotes: '&c该领地还没有评分。'
+  · CantVote: '&c该领地不是商店。'
+  · VotedRange: '&6只能给出 &e%1 &6分到 &e%2 &6分。'
+  · Likes4: '&9赞: &8%2'
+  · TpLimit: '&e传送太频繁, 请等待 &6%1 &e秒后重试。'
+  · TeleportSuccess: '&e传送到 X:&6%1&e, Y:&6%2&e, Z:&6%3 &e位置。'
+  · IncorrectLocation: '&6无法找到正确的传送位置, 请等待 &e%1 &6秒后重试。'
+  · Disabled: '&c该世界的随机传送已禁用。'
+
+## 常量池帮助/描述文本
+  · com/bekvon/bukkit/residence/CommandFiller
+  · com/bekvon/bukkit/residence/permissions/PermissionManager$ResPerm
+  · com/bekvon/bukkit/residence/permissions/PermissionManager
+  · Ljava/util/Map<Ljava/lang/String;Lcom/bekvon/bukkit/residence/containers/CommandStatus;>;
+  · com/bekvon/bukkit/residence/containers/CommandStatus
+  · com/bekvon/bukkit/residence/Residence
+  · com/bekvon/bukkit/residence/utils/Sorting
+  · Lcom/bekvon/bukkit/residence/permissions/PermissionManager$ResPerm;
+  · com/bekvon/bukkit/residence/containers/CommandAnnotation
+  · com/bekvon/bukkit/residence/LocaleManager
+  · com/bekvon/bukkit/residence/ResidenceCommandListener
+  · Lcom/bekvon/bukkit/residence/Residence;
+  · com/bekvon/bukkit/residence/event/ResidenceCommandEvent
+  · com/bekvon/bukkit/residence/containers/lm
+  · Lcom/bekvon/bukkit/residence/containers/lm;
+  · com/bekvon/bukkit/residence/containers/cmd
+  · com/bekvon/bukkit/residence/ConfigManager
+  · com/bekvon/bukkit/residence/containers/ResAdmin
+  · com/bekvon/bukkit/residence/text/help/HelpEntry
+  · com/bekvon/bukkit/residence/commands/area
+  · Lcom/bekvon/bukkit/residence/containers/CommandAnnotation;
+  · com/bekvon/bukkit/residence/protection/ResidenceManager
+  · com/bekvon/bukkit/residence/protection/ClaimedResidence
+  · com/bekvon/bukkit/residence/selection/SelectionManager
+  · &eUsage: &6/res area list [residence] <page>
+  · &eUsage: &6/res area listall [residence] <page>
+  · &eUsage: &6/res area add [residence] [areaID]
+  · &eUsage: &6/res area remove [residence] [areaID]
+  · &eUsage: &6/res area replace [residence] [areaID]
+  · com/bekvon/bukkit/residence/commands/attack
+  · &eUsage: &6/res attack [resName]
+  · com/bekvon/bukkit/residence/protection/PlayerManager
+  · com/bekvon/bukkit/residence/containers/ResidencePlayer
+  · com/bekvon/bukkit/residence/raid/ResidenceRaid
+  · com/bekvon/bukkit/residence/commands/auto$direction
+  · Ljava/lang/Enum<Lcom/bekvon/bukkit/residence/commands/auto$direction;>;
+  · com/bekvon/bukkit/residence/commands/auto
+  · Lcom/bekvon/bukkit/residence/commands/auto$direction;
+  · com/bekvon/bukkit/residence/commands/auto$failReason
+  · Ljava/lang/Enum<Lcom/bekvon/bukkit/residence/commands/auto$failReason;>;
+  · Lcom/bekvon/bukkit/residence/commands/auto$failReason;
+  · com/bekvon/bukkit/residence/selection/SelectionManager$Selection
+  · com/bekvon/bukkit/residence/protection/CuboidArea
+  · com/bekvon/bukkit/residence/containers/Visualizer
+  · com/bekvon/bukkit/residence/permissions/PermissionGroup
+  · com/bekvon/bukkit/residence/economy/EconomyInterface
+  · com/bekvon/bukkit/residence/containers/WorldBorderData
+  · &eUsage: &6/res auto (residence name) (radius)
+  · com/bekvon/bukkit/residence/commands/bank$Action
+  · Ljava/lang/Enum<Lcom/bekvon/bukkit/residence/commands/bank$Action;>;
+  · com/bekvon/bukkit/residence/commands/bank
+  · Lcom/bekvon/bukkit/residence/commands/bank$Action;
+  · com/bekvon/bukkit/residence/economy/ResidenceBank
+  · &eUsage: &6/res bank [deposit/withdraw/balance] <residence> <amount>
+  · com/bekvon/bukkit/residence/commands/check
+  · com/bekvon/bukkit/residence/containers/Flags
+  · com/bekvon/bukkit/residence/protection/ResidencePermissions
+  · &eUsage: &6/res check [residence] [flag] (playername)
+  · com/bekvon/bukkit/residence/commands/clearflags
+  · &eUsage: &6/res clearflags <residence>
+  · com/bekvon/bukkit/residence/commands/command
+  · &eUsage: &6/res command <residence> <allow/block/list> <command>
+  · com/bekvon/bukkit/residence/commands/compass
+  · &eUsage: &6/res compass <residence>
+  · com/bekvon/bukkit/residence/commands/confirm
+  · &eUsage: &6/res confirm
+  · com/bekvon/bukkit/residence/commands/contract
+  · &eUsage: &6/res contract (residence) [amount]
+  · com/bekvon/bukkit/residence/commands/create
+  · com/bekvon/bukkit/residence/containers/ResidencePlayerData
+  · &eUsage: &6/res create [residence_name]
+  · com/bekvon/bukkit/residence/commands/current
+  · &eUsage: &6/res current
+  · com/bekvon/bukkit/residence/commands/defend
+  · Ljava/util/HashMap<Ljava/util/UUID;Lcom/bekvon/bukkit/residence/protection/ClaimedResidence;>;
+  · com/bekvon/bukkit/residence/text/Language
+  · &eUsage: &6/res defend [resName] (playerName)
+  · com/bekvon/bukkit/residence/commands/expand
+  · &eUsage: &6/res expand (residence) [amount]
+  · com/bekvon/bukkit/residence/commands/flags
+  · com/bekvon/bukkit/residence/containers/Flags$FlagMode
+  · &eUsage: &6/res 
+  · Lcom/bekvon/bukkit/residence/containers/Flags$FlagMode;
+  · com/bekvon/bukkit/residence/commands/give
+  · &eUsage: &6/res give <residence name> [player] <-s>
+  · com/bekvon/bukkit/residence/commands/gset
+  · com/bekvon/bukkit/residence/protection/FlagPermissions$FlagState
+  · com/bekvon/bukkit/residence/protection/FlagPermissions
+  · Lcom/bekvon/bukkit/residence/protection/FlagPermissions$FlagState;
+  · &eUsage: &6/res gset <residence> [group] [flag] [true/false/remove]
+  · To see a list of flags, use /res flags ?
+  · com/bekvon/bukkit/residence/commands/info$1
+  · com/bekvon/bukkit/residence/commands/info
+  · Lcom/bekvon/bukkit/residence/commands/info;
+  · Lcom/bekvon/bukkit/residence/protection/ClaimedResidence;
+  · com/bekvon/bukkit/residence/protection/FlagPermissions$FlagCombo
+  · Lcom/bekvon/bukkit/residence/containers/Flags;
+  · Lcom/bekvon/bukkit/residence/protection/FlagPermissions$FlagCombo;
+  · &eUsage: &6/res info <residence>
+  · com/bekvon/bukkit/residence/commands/kick
+  · &eUsage: &6/res kick <player>
+  · com/bekvon/bukkit/residence/commands/lease
+  · com/bekvon/bukkit/residence/protection/LeaseManager
+  · &eUsage: &6/res lease [renew/cost] [residence]
+  · &eUsage: &6/resadmin lease set [residence] [#days/infinite]
+  · &eUsage: &6/resadmin lease renew <residence>
+  · &eUsage: &6/resadmin lease list <residence> <page>
+  · &eUsage: &6/resadmin lease expires <residence>
+  · &eUsage: &6/resadmin lease cost <residence>
+  · com/bekvon/bukkit/residence/commands/leaveraid
+  · &eUsage: &6/res leaveraid
+  · com/bekvon/bukkit/residence/commands/limits
+  · &eUsage: &6/res limits (playerName)
+  · com/bekvon/bukkit/residence/commands/list
+  · &eUsage: &6/res list <player> <page> <worldName>
+  · To list everyones residences, use /res listall.
+  · com/bekvon/bukkit/residence/commands/listall
+  · &eUsage: &6/res listall <page> <worldName> <-a/-f>
+  · com/bekvon/bukkit/residence/commands/listallhidden
+  · &eUsage: &6/res listhidden <page>
+  · com/bekvon/bukkit/residence/commands/listhidden
+  · &eUsage: &6/res listhidden <player> <page>
+  · com/bekvon/bukkit/residence/commands/lists$Action
+  · Ljava/lang/Enum<Lcom/bekvon/bukkit/residence/commands/lists$Action;>;
+  · com/bekvon/bukkit/residence/commands/lists
+  · Lcom/bekvon/bukkit/residence/commands/lists$Action;
+  · com/bekvon/bukkit/residence/protection/PermissionListManager
+  · &eUsage: &6/res lists add <listname>
+  · &eUsage: &6/res lists remove <listname>
+  · &eUsage: &6/res lists apply <listname> <residence>
+  · &eUsage: &6/res lists set <listname> <flag> <value>
+  · &eUsage: &6/res lists pset <listname> <player> <flag> <value>
+  · &eUsage: &6/res lists gset <listname> <group> <flag> <value>
+  · &eUsage: &6/res lists view <listname>
+  · com/bekvon/bukkit/residence/commands/lset
+  · com/bekvon/bukkit/residence/itemlist/ResidenceItemList
+  · &eUsage: &6/res lset <residence> [blacklist/ignorelist] [material]
+  · &eUsage: &6/res lset <residence> Info
+  · com/bekvon/bukkit/residence/commands/market
+  · com/bekvon/bukkit/residence/economy/rent/RentManager
+  · com/bekvon/bukkit/residence/utils/Utils
+  · com/bekvon/bukkit/residence/signsStuff/Signs
+  · com/bekvon/bukkit/residence/signsStuff/SignUtil
+  · com/bekvon/bukkit/residence/signsStuff/SignInfo
+  · com/bekvon/bukkit/residence/economy/TransactionManager
+  · com/bekvon/bukkit/residence/economy/rent/RentedLand
+  · &eUsage: &6/res market ? for more Info
+  · &eUsage: &6/res market Info [residence]
+  · &eUsage: &6/res market list [rent/sell]
+  · &eUsage: &6/res market list rent
+  · &eUsage: &6/res market list sell
+  · &eUsage: &6/res market sell [residence] [amount]
+  · Another player can buy the residence with /res market buy
+  · &eUsage: &6/res market sign [residence]
+  · &eUsage: &6/res market buy [residence]
+  · &eUsage: &6/res market unsell [residence]
+  · &eUsage: &6/res market rent [residence] <AutoPay>
+  · &eUsage: &6/res market rentable [residence] [cost] [days] <AllowRenewing> <StayInMarket> <AllowAutoPay>
+  · &eUsage: &6/res market autopay [residence] [true/false]
+  · &eUsage: &6/res market payrent [residence]
+  · &eUsage: &6/res market confirm
+  · &eUsage: &6/res market unrent [residence]
+  · com/bekvon/bukkit/residence/commands/material
+  · &eUsage: &6/res material [material]
+  · com/bekvon/bukkit/residence/commands/message
+  · &eUsage: &6/res message <residence> [enter/leave] [message]
+  · &eUsage: &6/res message <residence> remove [enter/leave]
+  · com/bekvon/bukkit/residence/commands/mirror
+  · &eUsage: &6/res mirror [Source Residence] [Target Residence]
+  · com/bekvon/bukkit/residence/commands/padd
+  · &eUsage: &6/res padd <residence> [player]
+  · com/bekvon/bukkit/residence/commands/pdel
+  · &eUsage: &6/res pdel <residence> [player]
+  · com/bekvon/bukkit/residence/commands/placeholders
+  · com/bekvon/bukkit/residence/Placeholders/Placeholder$CMIPlaceHolders
+  · com/bekvon/bukkit/residence/Placeholders/Placeholder
+  · &eUsage: &6/res placeholders (parse) (placeholder) (playerName)
+  · com/bekvon/bukkit/residence/commands/pset$Action
+  · Ljava/lang/Enum<Lcom/bekvon/bukkit/residence/commands/pset$Action;>;
+  · com/bekvon/bukkit/residence/commands/pset
+  · Lcom/bekvon/bukkit/residence/commands/pset$Action;
+  · &eUsage: &6/res pset <residence> [player] [flag] [true/false/remove]
+  · &eUsage: &6/res pset <residence> [player] removeall
+  · com/bekvon/bukkit/residence/gui/FlagUtil
+  · com/bekvon/bukkit/residence/commands/raid$States
+  · Ljava/lang/Enum<Lcom/bekvon/bukkit/residence/commands/raid$States;>;
+  · com/bekvon/bukkit/residence/commands/raid
+  · Lcom/bekvon/bukkit/residence/commands/raid$States;
+  · com/bekvon/bukkit/residence/utils/TimeModifier
+  · &eUsage: &6/res raid start [resname] (playerName)
+  · &6/res raid stop [resname]
+  · &6/res raid kick [playerName]
+  · &6/res raid immunity [add/take/set/clear] [resname/currentres] [time]
+  · com/bekvon/bukkit/residence/commands/raidstatus
+  · com/bekvon/bukkit/residence/raid/RaidAttacker
+  · com/bekvon/bukkit/residence/raid/RaidDefender
+  · &eUsage: &6/res raidstatus (resName/playerName)
+  · com/bekvon/bukkit/residence/commands/rc
+  · com/bekvon/bukkit/residence/chat/ChatManager
+  · com/bekvon/bukkit/residence/chat/ChatChannel
+  · &eUsage: &6/res rc (residence)
+  · &eUsage: &6/res rc leave
+  · &eUsage: &6/res rc setcolor [colorCode]
+  · &eUsage: &6/res rc setprefix [newName]
+  · &eUsage: &6/res rc kick [player]
+  · com/bekvon/bukkit/residence/commands/reload
+  · com/bekvon/bukkit/residence/webmap/WebMapManager
+  · com/bekvon/bukkit/residence/protection/WorldFlagManager
+  · com/bekvon/bukkit/residence/itemlist/WorldItemManager
+  · &eUsage: &6/res reload [config/lang/groups/flags]
+  · com/bekvon/bukkit/residence/commands/remove
+  · &eUsage: &6/res remove [residence_name]
+  · com/bekvon/bukkit/residence/commands/removeall
+  · &eUsage: &6/res removeall [owner]
+  · Requires /resadmin if you use it on anyone besides yourself.
+  · com/bekvon/bukkit/residence/commands/removeworld
+  · &eUsage: &6/res removeworld [worldName] (playerExceptions)
+  · com/bekvon/bukkit/residence/commands/rename
+  · &eUsage: &6/res rename [OldName] [NewName]
+  · com/bekvon/bukkit/residence/commands/renamearea
+  · &eUsage: &6/res removeworld [residence] [oldAreaName] [newAreaName]
+  · com/bekvon/bukkit/residence/commands/resadmin
+  · &eUsage: &6/res resadmin [on/off]
+  · com/bekvon/bukkit/residence/commands/reset
+  · &eUsage: &6/res reset <residence/all> (-ownerflag)
+  · com/bekvon/bukkit/residence/commands/restore$1
+  · com/bekvon/bukkit/residence/commands/restore
+  · Lcom/bekvon/bukkit/residence/commands/restore;
+  · com/bekvon/bukkit/residence/selection/WESchematicManager
+  · &eUsage: &6/res restore [residence_name] [index]
+  · com/bekvon/bukkit/residence/commands/rt
+  · com/bekvon/bukkit/residence/containers/RandomTeleport
+  · com/bekvon/bukkit/residence/utils/RandomTp
+  · &eUsage: &6/res rt (worldname) (playerName)
+  · com/bekvon/bukkit/residence/commands/save
+  · &eUsage: &6/res save [residence_name]
+  · com/bekvon/bukkit/residence/commands/select
+  · com/bekvon/bukkit/residence/selection/AutoSelection
+  · &eUsage: &6/res select coords
+  · &eUsage: &6/res select size
+  · &eUsage: &6/res select auto [playername]
+  · &eUsage: &6/res select cost
+  · &eUsage: &6/res select vert
+  · &eUsage: &6/res select sky
+  · &eUsage: &6/res select bedrock
+  · &eUsage: &6/res select expand <amount>
+  · &eUsage: &6/res select shift <amount>
+  · &eUsage: &6/res select chunk
+  · &eUsage: &6/res select residence <residence>
+  · &eUsage: &6/res select worldedit
+  · com/bekvon/bukkit/residence/commands/server
+  · &eUsage: &6/resadmin server [residence]
+  · com/bekvon/bukkit/residence/commands/set
+  · &eUsage: &6/res set <residence> [flag] [true/false/remove]
+  · These flags apply to any players who do not have the flag applied specifically to them. (see /res pset ?)
+  · com/bekvon/bukkit/residence/commands/setall
+  · &eUsage: &6/res setall [flag] [true/false/remove]
+  · com/bekvon/bukkit/residence/commands/setallfor
+  · &eUsage: &6/res setallfor [playerName] [flag] [true/false/remove]
+  · com/bekvon/bukkit/residence/commands/setallowner
+  · &eUsage: &6/resadmin setallowner [oldowner] [newowner] (-keepflags)
+  · com/bekvon/bukkit/residence/commands/setmain
+  · &eUsage: &6/res setmain (residence)
+  · com/bekvon/bukkit/residence/commands/setowner
+  · &eUsage: &6/resadmin setowner [residence] [player] (-keepflags)
+  · com/bekvon/bukkit/residence/commands/shop
+  · com/bekvon/bukkit/residence/shopStuff/ShopVote
+  · com/bekvon/bukkit/residence/shopStuff/ShopSignUtil
+  · com/bekvon/bukkit/residence/shopStuff/Vote
+  · com/bekvon/bukkit/residence/shopStuff/ShopListener
+  · com/bekvon/bukkit/residence/shopStuff/Board
+  · &eUsage: &6/res shop list
+  · &eUsage: &6/res shop vote <residence> [amount]
+  · &eUsage: &6/res shop like <residence>
+  · &eUsage: &6/res shop votes <residence> <page>
+  · &eUsage: &6/res shop likes <residence> <page>
+  · &eUsage: &6/res shop setdesc [text]
+  · &eUsage: &6/res shop createboard [place]
+  · &eUsage: &6/res shop deleteboard
+  · com/bekvon/bukkit/residence/commands/show
+  · &eUsage: &6/res show <residence>
+  · com/bekvon/bukkit/residence/commands/signconvert
+  · &eUsage: &6/res signconvert
+  · com/bekvon/bukkit/residence/commands/signupdate
+  · &eUsage: &6/res signupdate
+  · com/bekvon/bukkit/residence/commands/sublist
+  · &eUsage: &6/res sublist <residence> <page>
+  · com/bekvon/bukkit/residence/commands/subzone
+  · &eUsage: &6/res subzone <residence> [subzone name]
+  · com/bekvon/bukkit/residence/commands/tool
+  · &eUsage: &6/res tool
+  · com/bekvon/bukkit/residence/commands/tp
+  · &eUsage: &6/res tp [residence]
+  · com/bekvon/bukkit/residence/commands/tpconfirm
+  · com/bekvon/bukkit/residence/utils/SafeLocationCache
+  · &eUsage: &6/res tpconfirm
+  · com/bekvon/bukkit/residence/commands/tpset
+  · &eUsage: &6/res tpset
+  · com/bekvon/bukkit/residence/commands/unstuck
+  · &eUsage: &6/res unstuck
+  · com/bekvon/bukkit/residence/commands/version
+  · &eUsage: &6/res version

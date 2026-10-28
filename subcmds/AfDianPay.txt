@@ -1,0 +1,126 @@
+# AfDianPay  (AfDianPay.jar)
+## 注册指令
+  /afDianPay  usage=None desc='爱发电支付' alias=['afdian'] perm=None
+
+## 代码类
+  cn.handyplus.afdian.pay.command.AfDianPayCommand
+  cn.handyplus.afdian.pay.command.admin.ConvertCommand
+  cn.handyplus.afdian.pay.command.admin.DoneCommand
+  cn.handyplus.afdian.pay.command.admin.LookCommand
+  cn.handyplus.afdian.pay.command.admin.ReloadCommand
+  cn.handyplus.afdian.pay.command.admin.RewardCommand
+  cn.handyplus.afdian.pay.command.player.SendCommand
+  cn.handyplus.lib.annotation.HandyCommand
+  cn.handyplus.lib.annotation.HandySubCommand
+  cn.handyplus.lib.command.HandyCommandFactory
+  cn.handyplus.lib.command.HandyCommandWrapper
+  cn.handyplus.lib.command.HandySubCommandParam
+  cn.handyplus.lib.command.IHandyCommandEvent
+  cn.handyplus.lib.expand.slf4j.helpers.BasicMDCAdapter$1
+  cn.handyplus.lib.expand.slf4j.helpers.BasicMDCAdapter
+  cn.handyplus.lib.expand.slf4j.impl.StaticMDCBinder
+  org.slf4j.helpers.BasicMDCAdapter$1
+  org.slf4j.helpers.BasicMDCAdapter
+  org.sqlite.ExtendedCommand$BackupCommand
+  org.sqlite.ExtendedCommand$RestoreCommand
+  org.sqlite.ExtendedCommand$SQLExtension
+  org.sqlite.ExtendedCommand
+
+## javap 字符串 token
+  backup convert done helps look main noorder nopermission noplayerfailuremsg noshopname onemsg opdone opreward paramfailuremsg permission playerhelps reload reloadmsg restore reward send storage-method threemsg twomsg
+
+## 文本资源里的帮助/用法行
+  · # 语言文件 [可选 中文简体:zh_CN]
+  · # 是否开启更新提醒,建议开启
+  · # op登录时候是否发送更新提醒
+  · # 爱发电开发者信息,不正确的话插件不加载
+  · # 拉取订单间隔,单位秒，不建议小于180
+  · # 是否只发奖励
+  · # 多子服连接同一个mysql的时候
+  · # 一个主服设置为false表示拉订单并发奖励(这个主服例如登陆服，玩家都必须进去过)
+  · # 其他子服都设置为true表示只发奖励不拉订单，避免重复拉取
+  · # 拉取订单提醒消息
+  · website: https://ricedoc.handyplus.cn/wiki/AfDianPay/log
+  · description: 爱发电支付
+  · description: 爱发电支付
+  · description: 爱发电支付
+  · description: 转化数据库
+  · description: 重载插件
+  · description: 根据订单号发送奖励
+  · description: 发送赞助链接
+  · description: 查看订单信息
+  · description: 完成订单
+  · # 星冕服务器 - 爱发电赞助自动到账(1元=10星钻)
+  · # 商品名必须与爱发电上架档位的名称完全一致
+  · 赞助6元:
+  · - '[message] &7感谢 &e${player} &7赞助了服务器，到账 60 星钻！'
+  · 赞助18元:
+  · - '[message] &7感谢 &e${player} &7赞助了服务器，到账 180 星钻！'
+  · 赞助30元:
+  · - '[message] &7感谢 &e${player} &7赞助了服务器，到账 300 星钻！'
+  · 赞助78元:
+  · - '[message] &7感谢 &e${player} &7赞助了服务器，到账 780 星钻！'
+  · 赞助168元:
+  · - '[message] &7感谢 &e${player} &7赞助了服务器，到账 1680 星钻！'
+  · 赞助328元:
+  · - '[message] &7感谢 &e${player} &7赞助了服务器，到账 3280 星钻！'
+  · 赞助648元:
+  · - '[message] &7感谢 &e${player} &7赞助了服务器，到账 6480 星钻！'
+  · # 存储方法(MySQL,SQLite)请复制括号内的类型,不要自己写
+  · # 选择mysql后必填
+  · # 没权限时候提醒
+  · noPermission: "&4你没有权限执行该命令"
+  · # 重载插件提醒
+  · reloadMsg: "&a插件重载完成"
+  · # placeholderAPI提醒
+  · placeholderAPISucceedMsg: "&a成功加载placeholderApi,启用自定义变量功能!"
+  · placeholderAPIFailureMsg: "&4未找到placeholderApi,未启用自定义变量功能!"
+  · # PlayerPoints提醒
+  · playerPointsSucceedMsg: "&a成功加载PlayerPoints,启用点券相关功能!"
+  · playerPointsFailureMsg: "&4未找到PlayerPoints,未启用点券相关功能!"
+  · # /afdian help指令管理员出现的提醒
+  · - " &3AfDian&8&l▪ &7米饭出品～"
+  · - " &7命令: &f/afdian &8[...]"
+  · - " &7参数:"
+  · - "   &8&l- &f reload   &7重载配置文件"
+  · - "   &8&l- &f convert [MySQL|SQLite]  &7转换数据"
+  · - "   &8&l- &f look [订单号]  &7查看订单详情"
+  · - "   &8&l- &f reward [订单号]  &7手动根据订单号发奖励"
+  · - "   &8&l- &f done [订单号]  &7强制修改订单为完成"
+  · - "   &8&l- &f send [商品名]  &7在聊天框内发送爱发电链接"
+  · paramFailureMsg: "&c参数错误."
+  · noPlayerFailureMsg: "&c该命令只能玩家执行."
+  · noToken: "&8[&c✘&8] &7config.yml中爱发电配置错误,插件未工作"
+  · noPlayer: "&8[&c✘&8] &7服务器内没有名称为 ${player} 的玩家"
+  · onlinePlayer: "&8[&c✘&8] &7玩家 &a${player} 不在线不发奖励"
+  · notPlayerName: "&8[&c✘&8] &7订单没有留言玩家名称"
+  · notShopName: "&8[&c✘&8] &7订单没有设置商品名称"
+  · noShopName: "&8[&c✘&8] &7没有这个商品 &a${shop} &7的购买链接"
+  · noOrder: "&8[&c✘&8] &7还没有 &a${order} &7这个订单"
+  · notOrder: "&8[&c✘&8] &7订单不存在"
+  · notReward: "&8[&c✘&8] &7订单 &a${order} &7已经给予过奖励了"
+  · configNotShopName: "&8[&c✘&8] &7OP没有配置 &a${shop} &7这个商品名称"
+  · opReward: "&8[&a✔&8] &7处理订单 &a${order} &7完成,请&a后台日志&7查看处理结果"
+  · opDone: "&8[&a✔&8] &7设置订单 &a${order} &7状态为已完成"
+  · exist: "&a赞助过"
+  · notExist: "&a没赞助过"
+  · copy: "&r   &8[&a点击复制&8]"
+  · twoMsg: "&7| &a商品名称: &d${shop} &a售价: &d${price} &a点击&d&n此处查看&a购买 &7|\n"
+  · # 用于输入指令时候tab自动提醒帮助(只建议翻译,不建议更改)
+  · orderNumber: "请输入订单号"
+
+## 常量池帮助/描述文本
+  · cn/handyplus/afdian/pay/command/AfDianPayCommand
+  · &4禁止转换！原因，您当前使用的存储方式已经为：
+  · 存储方法(MySQL,SQLite)请复制括号内的类型,不要自己写
+  · &4转换数据完成，请务必重启服务器，不然有可能会出现未知bug
+  · &7| &a商品名称: &7
+  · &7| &a购买数量: &7
+  · &7| &a玩家名称: &7
+  · &7| &a订单号: &7
+  · &7| &a是否处理: &7
+  · &a已处理
+  · &7未处理
+  · &7| &a创建时间: &7
+  · &7| &a错误消息: &7
+  · §4你没有权限执行该命令

@@ -1,0 +1,14 @@
+# Vault  (VaultUnlocked-2.20.2.jar)
+## 注册指令
+  /vault-info  usage='/<command> - Displays VaultUnlocked information\n' desc='Displays information about VaultUnlocked' alias=None perm='vault.admin.info'
+  /vault-convert  usage='/<command> [economy1] [economy2]\n' desc='Converts all data in economy1 and dumps it into economy2' alias=None perm='vault.admin.convert'
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+
+## 常量池帮助/描述文本

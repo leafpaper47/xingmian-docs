@@ -1,41 +1,28 @@
 {
-  "name": "WorldGuardGUI",
-  "role": "WorldGuard 区域的图形化管理界面",
-  "summary": "把 WorldGuard 那套要背指令的区域管理搬进箱子界面：列出玩家自己名下的区域，点几下就能查看信息、调整归属和常用开关，不用记 /rg 的复杂参数。它本身不是保护插件，保护逻辑仍由 WorldGuard 负责，它只是给 WorldGuard 套了一层好用的图形外壳。适合不想让普通玩家学指令、又想让他们自助管理自家领地（比如商店圈地、村庄地皮）的服主。",
-  "whatFor": [
-    "玩家想改自己区域的名称、查看边界大小，但完全不会用 /rg 指令，让他直接 /wggui 点界面",
-    "新玩家圈完地不知道区域里到底开了什么保护（PVP、火焰蔓延、动物伤害），用界面逐项看清楚",
-    "服主帮人排查区域归属混乱的问题，用管理员权限打开界面一次性浏览并调整",
-    "教学或演示时不想在聊天框里连敲十几条 /rg 指令暴露给全服看"
-  ],
-  "flow": [
-    "先确认服务端已装好 WorldGuard 本体并至少创建过一个区域（用 /rg claim 圈地），否则界面里是空的",
-    "给需要的玩家加上 wggui.use 权限，自己作为服主保留 wggui.admin 用来管所有区域",
-    "玩家输入 /wggui 打开界面，在里面选中自己的区域后逐项点开操作",
-    "改完关掉界面即可，改动会实时写回 WorldGuard；建议事后用 /rg info 区域名 复核一次结果"
-  ],
-  "commands": [
-    {
-      "cmd": "wggui",
-      "what": "打开 WorldGuard 区域管理图形界面",
-      "syntax": "/wggui",
-      "params": [],
-      "examples": [
-        "/wggui"
-      ],
-      "notes": "具体能改哪些项目取决于界面里实际摆出的按钮，别按网上别的 WorldGuardGUI 版本的截图对照。有 wggui.use 只能看到并管自己名下的区域，wggui.admin 才能看到全服所有区域。"
-    }
-  ],
-  "subcommands": [],
-  "caution": [
-    "这是 WorldGuard 的界面外壳，不是替代品：区域保护规则、优先级、父子区域这些概念完全沿用 WorldGuard，遇到保护为什么不生效仍要去查 WorldGuard 本身",
-    "权限给错会出问题：只给 wggui.use 的玩家按理只能动自己的区域，但不同版本对“自己的区域”判定可能不同，建议先给一两个人试，别一上来就全组放开 wggui.admin",
-    "界面里的操作会直接改动线上区域数据，动手前先备份 WorldGuard 的 regions.yml，尤其是批量给人开管理员权限之前",
-    "具体参数与子指令以游戏内 help 为准；本插件的入口只有 /wggui 一个命令，所有功能都在界面里点"
-  ],
-  "related": [
-    "WorldGuard",
-    "WorldEdit",
-    "LuckPerms"
-  ]
+ "name": "WorldGuardGUI",
+ "role": "WorldGuard 区",
+ "summary": "把 WorldGuard 那套要背指令的区域管理搬进箱子界面：列出玩家自己名下的区域，点几下就能查看信息、调整归属和常用开关，不用记 /rg 的复杂参数。",
+ "quick": [
+  {
+   "scene": "打开区域管理界面",
+   "cmd": "/wggui",
+   "note": ""
+  }
+ ],
+ "commands": [
+  {
+   "cmd": "wggui",
+   "what": "打开 WorldGuard 区域管理图形界面",
+   "syntax": "/wggui",
+   "examples": [
+    "/wggui"
+   ],
+   "notes": "具体能改哪些项目取决于界面里实际摆出的按钮，别按网上别的 WorldGuardGUI 版本的截图对照。有 wggui.use 只能看到并管自己名下的区域，wgg…"
+  }
+ ],
+ "caution": [
+  "这是 WorldGuard 的界面外壳，不是替代品：区域保护规则、优先级、父子区域这些概念完全沿用 WorldGuard，遇到保护为什么不生效仍要去查 WorldGuard 本身",
+  "权限给错会出问题：只给 wggui.use 的玩家按理只能动自己的区域，但不同版本对“自己的区域”判定可能不同，建议先给一两个人试，别一上来就全组放开 wggui.admin",
+  "界面里的操作会直接改动线上区域数据，动手前先备份 WorldGuard 的 regions.yml，尤其是批量给人开管理员权限之前"
+ ]
 }

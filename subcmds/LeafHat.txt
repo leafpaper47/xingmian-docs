@@ -1,0 +1,46 @@
+# LeafHat  (LeafHat-1.0.3.jar)
+## 注册指令
+  /hat  usage='/hat [remove]' desc='戴上或脱下帽子' alias=['wearhat'] perm=None
+  /unhat  usage='/unhat' desc='脱下头上的物品' alias=None perm=None
+
+## 代码类
+  me.leafhat.HatCommand
+  me.leafhat.PluginCommands
+
+## javap 字符串 token
+  craftengine customid hat instance off reload rem remove unhat wear
+
+## 文本资源里的帮助/用法行
+  · # LeafHat 配置
+  · # 所有消息支持 MiniMessage 格式（<red>、<green>、<white>、<bold> 等标签）
+  · # 禁止戴在头上的原版物品（材质枚举名，如 BEDROCK、COMMAND_BLOCK）
+  · # 默认为空 = 所有物品都可以戴；需要限制时取消下方注释并添加
+  · # 禁止戴在头上的 CraftEngine 自定义物品（完整 id，如 kaleidoscopecookery:xxx）
+  · # 仅在服务器安装了 CraftEngine 时生效
+  · # 脱下时优先放回手上（手上为空时才生效）；false 则总是放入背包
+  · # {item} 会被替换为物品显示名（纯文本，已自动转义）
+  · no-permission: "<red>你没有权限使用帽子指令。</red>"
+  · empty-hand: "<red>请先手持要戴在头上的物品，再使用 <white>/hat</white>。</red>"
+  · placed: "<green>已戴上 <white>{item}</white>。</green>"
+  · swapped: "<green>已戴上 <white>{item}</white>，原来的 <white>{old}</white> 还给了你。</green>"
+  · empty-head: "<red>你头上没有戴东西。</red>"
+  · removed-hand: "<green>已脱下 <white>{item}</white> 拿回手上。</green>"
+  · removed-bag: "<green>已脱下 <white>{item}</white> 放入背包。</green>"
+  · removed-ground: "<yellow>背包已满，<white>{item}</white> 掉落在了脚下。</yellow>"
+  · blacklisted: "<red>这个物品被设置为禁止戴在头上。</red>"
+  · reloaded: "<green>LeafHat 配置已重载。</green>"
+  · description: 功能完善的帽子穿戴插件，替代 Essentials 的 hat 功能
+  · description: 戴上或脱下帽子
+  · usage: /hat [remove]
+  · description: 脱下头上的物品
+  · usage: /unhat
+  · description: 允许使用 /hat 与 /unhat
+  · description: 允许使用 /hat reload 重载配置
+
+## 常量池帮助/描述文本
+  · me/leafhat/HatCommand
+  · 该指令只能由玩家执行。
+  · me/leafhat/HatConfig
+  · Lme/leafhat/HatConfig$Messages;
+  · me/leafhat/HatConfig$Messages
+  · 指令  未在 plugin.yml 注册，已跳过绑定。

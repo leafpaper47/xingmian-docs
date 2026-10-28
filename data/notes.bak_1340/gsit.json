@@ -1,0 +1,141 @@
+{
+  "name": "GSit",
+  "role": "让玩家坐下、躺下、爬行与旋转的姿势插件",
+  "summary": "GSit 给玩家提供坐下、躺下、仰躺、趴地、爬行、原地旋转等一系列姿势动作，常用于大厅、酒馆、影院等服务区的氛围装饰。玩家除了用指令外，还可以直接右键点击台阶、楼梯、半砖等方块自动就坐，右键其他玩家则可坐到对方身上。所有姿势都能被配置文件按世界、区域、权限逐项开关，管理员可以用重载指令在线改完立即生效。",
+  "whatFor": [
+    "给主城、酒馆、影院等休息区做坐姿、躺姿的氛围演出",
+    "允许玩家两两互动：一人右键另一人，坐到对方身上",
+    "做活动或拍照场景时让玩家躺成一排、趴地摆造型",
+    "用爬行姿势做小游戏、潜行逃脱类玩法",
+    "用旋转姿势在展示台、舞台中心做展示动作"
+  ],
+  "flow": [
+    "确认插件已加载，并在配置文件里打开需要启用的姿势与允许使用的世界、区域",
+    "按需给玩家组下发对应权限节点，例如 GSit.Sit、GSit.Lay、GSit.Spin",
+    "玩家在游戏内输入 /gsit、/glay 等指令，或直接右键台阶类方块、右键其他玩家触发姿势",
+    "改完配置后执行 /gsitreload 让设置立即生效，不必重启服务器",
+    "用 GSit.Kick.Sit 与 GSit.Kick.Pose 处理被卡在座位上或姿势异常的玩家"
+  ],
+  "commands": [
+    {
+      "cmd": "gbellyflop",
+      "what": "让玩家趴下做出腹部先着地的扑街姿势",
+      "syntax": "/gbellyflop",
+      "params": [],
+      "examples": [
+        "/gbellyflop"
+      ],
+      "notes": "别名为 /bellyflop，需要权限 GSit.BellyFlop（默认对所有玩家开放）。属于姿势类动作，同样受配置里的世界与区域开关限制。"
+    },
+    {
+      "cmd": "gcrawl",
+      "what": "进入或退出爬行姿态",
+      "syntax": "/gcrawl [toggle]",
+      "params": [
+        {
+          "name": "toggle",
+          "required": false,
+          "note": "可选参数，用于切换爬行能力的开关状态，省略时直接进入或退出爬行"
+        }
+      ],
+      "examples": [
+        "/gcrawl",
+        "/gcrawl toggle"
+      ],
+      "notes": "别名为 /crawl，基础权限 GSit.Crawl；切换开关需要 GSit.CrawlToggle，潜行触发爬行需要 GSit.CrawlSneak。爬行会改变碰撞箱高度，狭窄处进出要小心。"
+    },
+    {
+      "cmd": "glay",
+      "what": "让玩家平平躺下",
+      "syntax": "/glay",
+      "params": [],
+      "examples": [
+        "/glay"
+      ],
+      "notes": "别名为 /lay，需要权限 GSit.Lay。再执行一次或移动、跳跃即可起身。"
+    },
+    {
+      "cmd": "glayback",
+      "what": "让玩家以躺靠姿势仰躺",
+      "syntax": "/glayback",
+      "params": [],
+      "examples": [
+        "/glayback"
+      ],
+      "notes": "别名为 /layback，需要权限 GSit.LayBack，是 glay 之外的另一种躺姿，适合沙发、躺椅一类场景。"
+    },
+    {
+      "cmd": "gsit",
+      "what": "让玩家就地坐下，或切换坐姿相关开关",
+      "syntax": "/gsit [toggle|playertoggle]",
+      "params": [
+        {
+          "name": "toggle",
+          "required": false,
+          "note": "切换本人是否允许被右键坐上以及坐姿相关功能，需要权限 GSit.SitToggle"
+        },
+        {
+          "name": "playertoggle",
+          "required": false,
+          "note": "切换本人是否允许其他玩家右键坐到自己身上，需要权限 GSit.PlayerSitToggle"
+        }
+      ],
+      "examples": [
+        "/gsit",
+        "/gsit toggle",
+        "/gsit playertoggle"
+      ],
+      "notes": "别名为 /sit，基础权限 GSit.Sit。右键台阶、楼梯、半砖等方块自动就坐受 GSit.SitClick 控制，右键其他玩家坐到对方身上受 GSit.PlayerSit 控制。"
+    },
+    {
+      "cmd": "gsitreload",
+      "what": "重新加载 GSit 的配置文件",
+      "syntax": "/gsitreload",
+      "params": [],
+      "examples": [
+        "/gsitreload"
+      ],
+      "notes": "别名为 /gsitrl，需要权限 GSit.Reload，默认仅管理员可用。改完姿势开关、世界或区域限制后用它在线生效。"
+    },
+    {
+      "cmd": "gspin",
+      "what": "让玩家原地旋转展示",
+      "syntax": "/gspin",
+      "params": [],
+      "examples": [
+        "/gspin"
+      ],
+      "notes": "别名为 /spin，需要权限 GSit.Spin。旋转速度与是否允许在服务器里使用都由配置决定。"
+    }
+  ],
+  "subcommands": [
+    {
+      "cmd": "gsit toggle",
+      "desc": "切换自己是否允许被右键坐上（坐姿功能开关）",
+      "example": "/gsit toggle"
+    },
+    {
+      "cmd": "gsit playertoggle",
+      "desc": "切换自己是否允许其他玩家右键坐到自己身上",
+      "example": "/gsit playertoggle"
+    },
+    {
+      "cmd": "gcrawl toggle",
+      "desc": "切换爬行功能开关，关闭后即使有权限也无法进入爬行姿态",
+      "example": "/gcrawl toggle"
+    }
+  ],
+  "caution": [
+    "玩家坐在座位上时会被固定住，若地形被改动或区域重置，可能卡在半空，管理员可用 GSit.Kick.Sit 权限把玩家从座位上踢下来",
+    "GSit.ByPass.World 与 GSit.ByPass.Region 会让玩家无视世界、区域的禁用限制使用姿势，只应给管理层",
+    "爬行会改变碰撞箱高度，在低矮通道或基岩附近反复切换有卡进方块的风险，出问题用 GSit.Kick.Pose 处理",
+    "玩家坐姿、躺姿状态有时会被其他插件的传送、重生、旁观切换影响而残留，重启或重新触发姿势通常可恢复"
+  ],
+  "related": [
+    "OpenInv",
+    "Residence",
+    "WorldGuard",
+    "LuckPerms",
+    "PlaceholderAPI"
+  ]
+}

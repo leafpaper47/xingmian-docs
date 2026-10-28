@@ -1,0 +1,69 @@
+# Mirrora  (Mirrora.jar)
+## 注册指令
+  /mirror  usage=None desc='Manage mirror regions.' alias=None perm='mirrora.admin'
+
+## 代码类
+  com.puddingkc.Mirrora.command.MirrorCommand$1
+  com.puddingkc.Mirrora.command.MirrorCommand
+
+## javap 字符串 token
+  alias blaze_rod command create label list oncommand ontabcomplete reload remove sender wand
+
+## 文本资源里的帮助/用法行
+  · # 语言
+  · # 创建镜子时未指定深度时使用的默认值（格）
+  · # 深度允许设置的最大值（格）
+  · # 反射刷新间隔（tick），数值越小越流畅，但开销越大
+  · # 是否启用方块反射（镜面前方块范围与镜子范围/深度一致）
+  · # 方块反射刷新间隔（tick），建议远大于 mirror.tick-interval，因为方块变化频率低
+  · # 单个镜子允许反射的最大方块数量，超过该数量的镜子将跳过方块反射
+  · # 方块探测范围在镜子宽度/高度方向各自向外膨胀的格数（不影响深度）
+  · # 选区工具使用的物品材质
+  · usage: "Usage: <#cee2f0>/mirror [wand|create|remove|list|reload]"
+  · usage: "Usage: <#cee2f0>/mirror create <id> [depth]"
+  · no-selection: "Please select two points with the wand first (<#cee2f0>/mirror wand</#cee2f0>)"
+  · usage: "Usage: <#cee2f0>/mirror remove <id>"
+  · usage: "正确命令: <#cee2f0>/mirror [wand|create|remove|list|reload]"
+  · player-only: "该命令只能由玩家执行"
+  · success: "已获得镜子选区工具，<#cee2f0>左键</#cee2f0>选择点 1，<#cee2f0>右键</#cee2f0>选择点 2"
+  · usage: "正确命令: <#cee2f0>/mirror create <id> [深度]"
+  · duplicate: "已存在同名镜子: <#cee2f0><arg>"
+  · invalid-depth: "深度必须是一个正数"
+  · depth-range: "深度必须在 <#cee2f0>0</#cee2f0> 到 <#cee2f0><arg></#cee2f0> 之间"
+  · no-selection: "请先用工具选取两个点 (<#cee2f0>/mirror wand</#cee2f0>)"
+  · face-mismatch: "两个选点的朝向不一致，请重新选取"
+  · different-world: "创建失败，两个选点必须在同一个世界"
+  · success: "镜子 <#cee2f0><arg></#cee2f0> 创建成功"
+  · usage: "正确命令: <#cee2f0>/mirror remove <id>"
+  · success: "镜子 <#cee2f0><arg></#cee2f0> 已移除"
+  · not-found: "找不到镜子: <#cee2f0><arg>"
+  · empty: "当前没有任何镜子"
+  · header: "共有 <#cee2f0><arg></#cee2f0> 面镜子:"
+  · entry: " - <#cee2f0><arg1></#cee2f0> @ <arg2> (<arg3>，深度 <arg4>)"
+  · success: "配置与语言文件已重新加载"
+  · invalid-face: "请点击垂直的墙面 (不能是地面或天花板)"
+  · point1: "已选取第一个点: <#cee2f0><arg1></#cee2f0>，朝向: <#cee2f0><arg2></#cee2f0>"
+  · point2: "已选取第二个点: <#cee2f0><arg1></#cee2f0>，朝向: <#cee2f0><arg2></#cee2f0>"
+  · face-mismatch: "两个选点的朝向不一致，请确保两点都在同一面墙上"
+  · name: "镜子选区工具"
+  · lore1: " 左键: 选取第一个点"
+  · lore2: " 右键: 选取第二个点"
+  · lore3: " 两点必须点在同一朝向的墙面上"
+
+## 常量池帮助/描述文本
+  · com/puddingkc/Mirrora/command/MirrorCommand$1
+  · com/puddingkc/Mirrora/command/MirrorCommand
+  · Lcom/puddingkc/Mirrora/manager/MirrorManager;
+  · Lcom/puddingkc/Mirrora/manager/SelectionManager;
+  · Lcom/puddingkc/Mirrora/util/WandItemFactory;
+  · com/puddingkc/Mirrora/util/Lang
+  · com/puddingkc/Mirrora/util/Messages
+  · com/puddingkc/Mirrora/manager/MirrorManager
+  · com/puddingkc/Mirrora/util/WandItemFactory
+  · com/puddingkc/Mirrora/manager/SelectionManager
+  · com/puddingkc/Mirrora/model/MirrorSelection
+  · com/puddingkc/Mirrora/model/MirrorRegion
+  · Lcom/puddingkc/Mirrora/command/MirrorCommand;
+  · Lcom/puddingkc/Mirrora/model/MirrorSelection;
+  · Lcom/puddingkc/Mirrora/model/MirrorRegion;
+  · Ljava/util/List<Lcom/puddingkc/Mirrora/model/MirrorRegion;>;

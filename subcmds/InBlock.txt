@@ -1,0 +1,57 @@
+# InBlock  (InBlock-1.0.0.jar)
+## 注册指令
+  /inb  usage='/inb open               打开仓库界面\n/inb give <玩家> <方块ID> <数量>   给予自定义方块物品\n/inb reload             重载配置\n' desc='InBlock 主命令' alias=None perm=None
+
+## 代码类
+  me.in7.inblock.command.InbCommand
+
+## javap 字符串 token
+  give open reload
+
+## 文本资源里的帮助/用法行
+  · #  InBlock 配置文件
+  · # 在 blocks 下定义自定义命令方块，每个方块一个唯一 ID（如 example_block）。
+  · #  material      : 方块使用的原版材质（必须是可放置的方块，大写）。
+  · #  display.name  : 物品显示名（支持 & 颜色代码，&6=金色，&a=绿色 等）。
+  · #  display.lore  : 物品描述行（支持 & 颜色代码）。
+  · #  hologram      : 是否在放置后方块上方显示全息字（显示 display.name）。注意：写在方块根级，不在 display 下。
+  · #  commands      : 玩家右键时按顺序执行的命令。
+  · #                    - 默认以【控制台】身份执行。
+  · #                    - 前缀 [player]  改为以【玩家】身份执行。
+  · #                    - 前缀 [console] 显式以控制台执行。
+  · #                  %player% 会被替换成右键玩家的名字。
+  · #  permissions   : 玩家需【同时拥有】列表中所有权限才能使用；留空 = 无限制。
+  · #                  建议权限节点只用英文/数字，避免中文与权限插件存储不一致导致判定失败。
+  · name: "&6分解台"
+  · - "&7右键放置使用"
+  · description: 自定义命令方块插件 —— 像工作台一样右键执行自定义指令
+  · description: InBlock 主命令
+  · /inb open               打开仓库界面
+  · /inb give <玩家> <方块ID> <数量>   给予自定义方块物品
+  · /inb reload             重载配置
+  · description: 允许打开仓库界面
+  · description: 允许给予自定义方块物品
+  · description: 允许重载配置
+
+## 常量池帮助/描述文本
+  · me/in7/inblock/command/InbCommand
+  · Lme/in7/inblock/InBlock;
+  · 该命令只能由玩家执行。
+  · me/in7/inblock/InBlock
+  · 用法：/inb give <玩家> <方块ID> <数量>
+  · me/in7/inblock/config/ConfigManager
+  · 数量必须是整数。
+  · 数量必须大于 0。
+  · 生成物品失败，请检查该方块的 material 配置。
+  · InBlock 命令：
+  ·   /inb open
+  ·   /inb give <玩家> <方块ID> <数量>
+  ·   /inb reload
+  · 你没有权限执行该操作。
+  · Lme/in7/inblock/command/InbCommand;
+  · Lme/in7/inblock/config/BlockDefinition;
+  · me/in7/inblock/config/BlockDefinition
+  · 玩家  不在线。
+  · 不存在方块 ID：
+  · 已给予   个 []。
+  · InBlock 配置已重载，共  个自定义方块。

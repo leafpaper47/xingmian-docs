@@ -1,0 +1,66 @@
+# voicechat  (voicechat-bukkit-2.6.21.jar)
+## 注册指令
+  /voicechat  usage='Invalid command syntax' desc='Manage voice chat' alias=None perm=None
+
+## 代码类
+  de.maxhenkel.voicechat.command.VoiceChatCommands$1
+  de.maxhenkel.voicechat.command.VoiceChatCommands
+  de.maxhenkel.voicechat.commodore.PaperCommodore$CommodoreCommand
+  de.maxhenkel.voicechat.commodore.ReflectionCommodore$CommandDataSendListener
+  de.maxhenkel.voicechat.integration.commodore.CommodoreCommands
+
+## javap 字符串 token
+  group_id group_name help invite join leave password target test voicechat
+
+## 文本资源里的帮助/用法行
+  · website: https://modrepo.de/minecraft/voicechat/overview
+
+## 常量池帮助/描述文本
+  · de/maxhenkel/voicechat/command/VoiceChatCommands$1
+  · Lde/maxhenkel/voicechat/command/VoiceChatCommands;
+  · de/maxhenkel/voicechat/net/NetManager
+  · de/maxhenkel/voicechat/voice/server/PingManager$PingListener
+  · Lde/maxhenkel/voicechat/command/VoiceChatCommands$1;
+  · de/maxhenkel/voicechat/command/VoiceChatCommands
+  · de/maxhenkel/voicechat/voice/server/PingManager
+  · de/maxhenkel/voicechat/permission/PermissionManager
+  · de/maxhenkel/voicechat/Voicechat
+  · Lde/maxhenkel/voicechat/voice/server/ServerVoiceEvents;
+  · de/maxhenkel/voicechat/voice/server/ServerVoiceEvents
+  · de/maxhenkel/voicechat/voice/server/Server
+  · de/maxhenkel/voicechat/voice/server/ClientConnection
+  · Lde/maxhenkel/voicechat/logging/VoicechatLogger;
+  · de/maxhenkel/voicechat/logging/VoicechatLogger
+  · Lde/maxhenkel/voicechat/voice/server/ClientConnection;
+  · Lde/maxhenkel/voicechat/compatibility/Compatibility;
+  · de/maxhenkel/voicechat/compatibility/Compatibility
+  · de/maxhenkel/voicechat/voice/server/PlayerStateManager
+  · de/maxhenkel/voicechat/voice/common/PlayerState
+  · de/maxhenkel/voicechat/voice/server/ServerGroupManager
+  · de/maxhenkel/voicechat/voice/server/Group
+  · Lde/maxhenkel/voicechat/voice/common/PlayerState;
+  · Lde/maxhenkel/voicechat/voice/server/Group;
+  · Lde/maxhenkel/voicechat/voice/server/Server;
+  · Ljava/util/List<Lde/maxhenkel/voicechat/voice/server/Group;>;
+  · Lde/maxhenkel/voicechat/config/ServerConfig;
+  · de/maxhenkel/voicechat/config/ServerConfig
+  · Lde/maxhenkel/voicechat/configbuilder/entry/ConfigEntry;
+  · de/maxhenkel/voicechat/configbuilder/entry/ConfigEntry
+  · Lde/maxhenkel/voicechat/config/Translations;
+  · de/maxhenkel/voicechat/config/Translations
+  · de/maxhenkel/voicechat/commodore/PaperCommodore$CommodoreCommand
+  · de/maxhenkel/voicechat/commodore/PaperCommodore
+  · de/maxhenkel/voicechat/commodore/PaperCommodore$1
+  · Lde/maxhenkel/voicechat/commodore/PaperCommodore$CommodoreCommand;
+  · de/maxhenkel/voicechat/commodore/AbstractCommodore
+  · Lde/maxhenkel/voicechat/commodore/PaperCommodore$1;
+  · de/maxhenkel/voicechat/commodore/ReflectionCommodore$CommandDataSendListener
+  · de/maxhenkel/voicechat/commodore/ReflectionCommodore
+  · Lde/maxhenkel/voicechat/commodore/ReflectionCommodore$CommandDataSendListener;
+  · de/maxhenkel/voicechat/integration/commodore/CommodoreCommands
+  · Lde/maxhenkel/voicechat/integration/commodore/CommodoreCommands;
+  · de/maxhenkel/voicechat/integration/commodore/MissingArgumentTypeException
+  · de/maxhenkel/voicechat/integration/commodore/GroupNameSuggestionProvider
+  · Lde/maxhenkel/voicechat/integration/commodore/GroupNameSuggestionProvider;
+  · de/maxhenkel/voicechat/commodore/Commodore
+  · Lde/maxhenkel/voicechat/commodore/Commodore;

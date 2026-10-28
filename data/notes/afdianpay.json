@@ -1,44 +1,31 @@
 {
-  "name": "AfDianPay",
-  "role": "把爱发电赞助自动换成游戏内奖励",
-  "summary": "AfDianPay 负责打通爱发电（afdian）赞助和服务器之间的链路：玩家点开赞助链接付款后，插件按订单把奖励发到游戏里。它主要和服务器经济、点券或礼包类插件配合，也是服主核对赞助记录、补发漏发奖励时的入口。适合用爱发电给服务器众筹、卖赞助位或卖点券的生存服与公益服。",
-  "whatFor": [
-    "玩家在爱发电赞助后一直没收到奖励，需要按订单号手动补发",
-    "想给全服或某个玩家发爱发电赞助链接，引导大家去支持服务器",
-    "核对自己的赞助订单有没有被插件正确读到、正确发奖",
-    "处理订单状态，把某笔赞助标记为已完成，避免重复发奖",
-    "从旧版本或旧数据表迁移过来，需要转换一次数据库结构"
-  ],
-  "flow": [
-    "先确认插件已正常加载，并在配置里填好爱发电的用户 ID 和 API 令牌，保证能拉到订单",
-    "进入游戏用管理员账号试一次完整流程：发链接、赞助一笔小额、看订单是否出现、奖励是否到账",
-    "日常用订单查看指令核对到账情况，遇到漏发再用按订单号发奖的指令补上",
-    "改完配置后用重载指令生效，改完数据结构才需要用数据库转换（务必先备份）"
-  ],
-  "commands": [
-    {
-      "cmd": "afDianPay",
-      "what": "爱发电支付主指令，管理赞助链接、订单与奖励发放",
-      "syntax": "/afDianPay",
-      "params": [],
-      "examples": [
-        "/afDianPay",
-        "/afdian"
-      ],
-      "notes": "官方说明只写了插件名，没有给出子指令清单；实际功能按权限节点看分成发链接、查订单、按订单号发奖、完成订单、重载配置、转换数据库几块，具体写法以游戏内输入该指令后的提示为准"
-    }
-  ],
-  "subcommands": [],
-  "caution": [
-    "具体参数与子指令以游戏内 help 为准，别照抄别服的写法",
-    "按订单号发奖前一定先查订单，避免同一笔赞助重复发奖励",
-    "转换数据库会改动数据表结构，执行前必须先备份数据库或插件数据文件",
-    "爱发电侧的令牌不对或网络不通时，插件拉不到订单，奖励不会自动到账，先查控制台报错再手动补发",
-    "发赞助链接的权限默认对所有玩家开放，若不想让普通玩家乱发，需要在权限插件里收回该节点"
-  ],
-  "related": [
-    "Vault",
-    "PlaceholderAPI",
-    "PlayerPoints"
-  ]
+ "name": "AfDianPay",
+ "role": "爱发电对接",
+ "summary": "把爱发电（afdian）的赞助订单同步进服：玩家发电后自动或手动发放奖励，支持订单核对、补发与配置重载。",
+ "quick": [
+  {"scene": "看玩家有没有未发奖励", "cmd": "/afdianpay look Steve", "note": "按玩家查订单与发放状态"},
+  {"scene": "补发奖励", "cmd": "/afdianpay reward Steve", "note": "玩家说没收到时先查再补"},
+  {"scene": "手动拉取订单", "cmd": "/afdianpay send", "note": "不走自动轮询时手动同步一次"},
+  {"scene": "改完配置生效", "cmd": "/afdianpay reload", "note": "改了 token/套餐映射必须重载"}
+ ],
+ "commands": [
+  {"cmd": "afdianpay", "what": "爱发电订单与奖励管理", "syntax": "/afdianpay <send|look|done|reward|convert|reload>",
+   "examples": ["/afdianpay look Steve"], "notes": "命令名 afDianPay（大小写不敏感）"}
+ ],
+ "subcommands": [
+  {"cmd": "/afdianpay send", "desc": "手动同步一次订单（拉取最新赞助）", "example": "/afdianpay send"},
+  {"cmd": "/afdianpay look <玩家>", "desc": "查看玩家的赞助订单与奖励发放状态", "example": "/afdianpay look Steve"},
+  {"cmd": "/afdianpay done <订单号>", "desc": "把订单标记为已处理（不再自动发）", "example": "/afdianpay done 202510280001"},
+  {"cmd": "/afdianpay reward <玩家>", "desc": "对玩家手动发放/补发奖励", "example": "/afdianpay reward Steve"},
+  {"cmd": "/afdianpay convert", "desc": "转换历史订单数据格式（升级后跑一次）", "example": "/afdianpay convert"},
+  {"cmd": "/afdianpay reload", "desc": "重载配置（token、套餐与奖励映射）", "example": "/afdianpay reload"}
+ ],
+ "caution": [
+  "重复执行 reward 会重复发奖，补发前先用 look 确认状态并记下订单号。",
+  "token 与 user_id 属敏感信息，别把 config.yml 贴到群里或文档里。",
+  "convert 是数据升级操作，跑之前备份 plugins/AfDianPay/。"
+ ],
+ "permissions": {
+  "afdianpay.admin": "使用 /afdianpay 全部子指令"
+ }
 }

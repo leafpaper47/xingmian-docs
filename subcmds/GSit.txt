@@ -1,0 +1,174 @@
+# GSit  (GSit-3.5.1.jar)
+## 注册指令
+  /gsit  usage='/<command> [toggle|playertoggle]' desc='Sit command' alias=['sit'] perm=None
+  /glay  usage='/<command>' desc='Lay command' alias=['lay'] perm='GSit.Lay'
+  /glayback  usage='/<command>' desc='Lay back command' alias=['layback'] perm='GSit.LayBack'
+  /gbellyflop  usage='/<command>' desc='Bellyflop command' alias=['bellyflop'] perm='GSit.Bellyflop'
+  /gspin  usage='/<command>' desc='Spin command' alias=['spin'] perm='GSit.Spin'
+  /gcrawl  usage='/<command> [toggle]' desc='Crawl command' alias=['crawl'] perm=None
+  /gsitreload  usage='/<command>' desc='Plugin reload command' alias=['gsitrl'] perm='GSit.Reload'
+
+## 代码类
+  dev.geco.gsit.cmd.GBellyflopCommand
+  dev.geco.gsit.cmd.GCrawlCommand
+  dev.geco.gsit.cmd.GLayBackCommand
+  dev.geco.gsit.cmd.GLayCommand
+  dev.geco.gsit.cmd.GSitCommand
+  dev.geco.gsit.cmd.GSitReloadCommand
+  dev.geco.gsit.cmd.GSpinCommand
+  dev.geco.gsit.cmd.tab.EmptyTabComplete
+  dev.geco.gsit.cmd.tab.GCrawlTabComplete
+  dev.geco.gsit.cmd.tab.GSitTabComplete
+
+## javap 字符串 token
+  bellyflop crawl crawltoggle lay layback off on playersittoggle playertoggle pose reload sit sittoggle spin toggle
+
+## 文本资源里的帮助/用法行
+  · website: https://hangar.papermc.io/gecolay/GSit
+  · plugin-enabled: "[P]&a プラグインは正常に有効になりました。"
+  · plugin-link: "[P]&6 %Link%&a と正常に連携されました！"
+  · plugin-update: "[P]&a 新しいバージョンが使用可能になりました:&6 %NewVersion%&a！ 現在使われているバージョン:&6 %Version%&a！ ここから最新版をダウンロード:&6 %Path%"
+  · plugin-version: "[P]&c このプラグインは、このサーバーバージョンでは使えません！ (&b%Version%&c)"
+  · plugin-disabled: "[P]&a プラグインは正常に無効になりました。"
+  · command-permission-error: "[P]&c このコマンドを実行する権限を持っていません！"
+  · command-sender-error: "[P]&c その人はそのコマンドを実行することができません！"
+  · command-version-error: "[P]&c 古いサーバーバージョンです！ (&b%Version%&c) この機能を使うためにサーバーを更新してください！"
+  · command-gsit-toggle-on: "[P]&a クリックインタラクションによるシットを有効にしました。"
+  · command-gsit-toggle-off: "[P]&a クリックインタラクションによるシットを無効にしました。"
+  · command-gsit-playertoggle-on: "[P]&a クリックインタラクションによるプレイヤーシットを有効にしました。"
+  · command-gsit-playertoggle-off: "[P]&a クリックインタラクションによるプレイヤーシットを無効にしました。"
+  · action-sit-now-error: "[P]&c 今座ることはできません！"
+  · action-sit-world-error: "[P]&c このワールドで座ることはできません！"
+  · action-sit-location-error: "[P]&c そこで座ることはできません！"
+  · action-sit-safe-error: "[P]&c ここに座るのは安全ではありません！"
+  · action-sit-region-error: "[P]&c この領域で座ることはできません！"
+  · action-sit-kick-error: "[P]&c そこには既に誰かが座っています！"
+  · action-sit-info: "&6 <lang:key.sneak>&a キーで立ち上がる。"
+  · action-playersit-info: "&6 <lang:key.sneak>&a キーで立ち上がる。"
+  · action-pose-now-error: "[P]&c 今ポーズをとることはできません！"
+  · action-pose-safe-error: "[P]&c ここでポーズをとることは安全ではありません！"
+  · action-pose-region-error: "[P]&c この領域でポーズをとることはできません！"
+  · action-pose-kick-error: "[P]&c そこでは既に誰かがポーズをとっています！"
+  · action-crawl-now-error: "[P]&c 今クロールをすることはできません！"
+  · action-crawl-region-error: "[P]&c この領域でクロールをすることはできません！"
+  · action-crawl-info: "&6 <lang:key.sneak>&a キーで立ち上がる。"
+  · action-blocked-error: "[P]&c 現在、このコマンドを実行することは許可されていません！"
+  · plugin-enabled: "[P]&a 插件已成功启用"
+  · plugin-link: "[P]&a 成功链接到&6 %Link%&a !"
+  · plugin-update: "[P]&a 新版本可用:&6 %NewVersion%&a! 当前使用版本:&6 %Version%&a! 下载最新版本:&6 %Path%"
+  · plugin-data: "[P]&c 无法与存储数据库建立连接. 请检查服务器控制台!"
+  · plugin-version: "[P]&c 插件与当前服务器版本不兼容! (&b%Version%&c)"
+  · plugin-reload: "[P]&a 插件已成功重载."
+  · plugin-disabled: "[P]&a 插件已成功禁用"
+  · command-permission-error: "[P]&c 你不能执行此命令!"
+  · command-sender-error: "[P]&c 当前发送人不能执行此命令!"
+  · command-version-error: "[P]&c 服务器版本过旧! (&b%Version%&c) 更新服务器以使用此功能!"
+  · command-gsit-toggle-on: "[P]&a 你可以通过右键坐下了"
+  · command-gsit-toggle-off: "[P]&a 你不能通过右键坐下了"
+  · command-gsit-playertoggle-on: "[P]&a 你可以通过右键坐在其他玩家身上了"
+  · command-gsit-playertoggle-off: "[P]&a 你不能通过右键坐在其他玩家身上了"
+  · command-gcrawl-toggle-on: "[P]&a 你可以通过双击潜行键进行爬行了."
+  · command-gcrawl-toggle-off: "[P]&a 你不能通过双击潜行键进行爬行了."
+  · action-sit-now-error: "[P]&c 你现在不能坐下!"
+  · action-sit-world-error: "[P]&c 你不能在这个世界坐下!"
+  · action-sit-location-error: "[P]&c 你不能在这坐下!"
+  · action-sit-safe-error: "[P]&c 你不能在不安全的地方坐下!"
+  · action-sit-region-error: "[P]&c 你不能在这个区域坐下!"
+  · action-sit-kick-error: "[P]&c 已经有人在这坐下了!"
+  · action-sit-error: "[P]&c 由于出现错误您无法坐在这里!"
+  · action-sit-info: "&a使用&6 <lang:key.sneak>&a 键起来"
+  · action-playersit-info: "&a使用&6 <lang:key.sneak>&a 键起来"
+  · action-pose-now-error: "[P]&c 你现在不能躺下!"
+  · action-pose-world-error: "[P]&c 你不能在这个世界躺下!"
+  · action-pose-location-error: "[P]&c 你不能在这躺下!"
+  · action-pose-safe-error: "[P]&c 你不能在不安全的地方躺下!"
+  · action-pose-region-error: "[P]&c 你不能在这个区域躺下!"
+  · action-pose-kick-error: "[P]&c 已经有人在这躺下了!"
+  · action-pose-error: "[P]&c 由于出现错误您无法在此处摆姿势!"
+  · action-pose-info: "&a使用&6 <lang:key.sneak>&a 键起来"
+  · action-crawl-now-error: "[P]&c 你现在不能爬行!"
+  · action-crawl-world-error: "[P]&c 你不能在这个世界爬行!"
+  · action-crawl-region-error: "[P]&c 你不能在这个区域爬行!"
+  · action-crawl-info: "&a使用&6 <lang:key.sneak>&a 键起来"
+  · action-blocked-error: "[P]&c 你现在不能执行此指令!"
+  · plugin-enabled: "[P]&a 插件已成功啟用。"
+  · plugin-link: "[P]&a 成功連結到&6 %Link%&a！"
+  · plugin-update: "[P]&a 新版本可用：&6 %NewVersion%&a！ 目前使用版本：&6 %Version%&a！ 下載最新版本：&6 %Path%"
+  · plugin-data: "[P]&c 無法建立到資料儲存的連線。請檢查伺服器控制台！"
+  · plugin-version: "[P]&c 插件與目前伺服器版本不相容！(&b%Version%&c)"
+  · plugin-reload: "[P]&a 插件已成功重新載入。"
+  · plugin-disabled: "[P]&a 插件已成功停用。"
+  · command-permission-error: "[P]&c 你沒有權限執行此指令！"
+  · command-sender-error: "[P]&c 你不能執行此指令！"
+  · command-version-error: "[P]&c 伺服器版本太舊！(&b%Version%&c) 升級伺服器以使用此功能！"
+  · command-gsit-toggle-on: "[P]&a 你可以使用右鍵坐下了。"
+  · command-gsit-toggle-off: "[P]&a 你不能使用右鍵坐下了。"
+  · command-gsit-playertoggle-on: "[P]&a 你可以使用右鍵坐在其他玩家身上了。"
+  · command-gsit-playertoggle-off: "[P]&a 你不能使用右鍵坐在其他玩家身上了。"
+  · command-gcrawl-toggle-on: "[P]&a 你可以按兩下潛行來爬行了。"
+  · command-gcrawl-toggle-off: "[P]&a 你不能可以按兩下潛行來爬行了。"
+  · action-sit-now-error: "[P]&c 你現在不能坐下！"
+  · action-sit-world-error: "[P]&c 你不能在這個世界坐下！"
+  · action-sit-location-error: "[P]&c 你不能在這坐下！"
+  · action-sit-safe-error: "[P]&c 你不能在不安全的地方坐下！"
+  · action-sit-region-error: "[P]&c 你不能在這個區域坐下！"
+  · action-sit-kick-error: "[P]&c 已經有人在這裡坐下了！"
+  · action-sit-error: "[P]&c 由於錯誤，你無法在這裡坐下！"
+  · action-sit-info: "&a使用&6 <lang:key.sneak>&a 鍵起來"
+  · action-playersit-info: "&a使用&6 <lang:key.sneak>&a 鍵起來"
+  · action-pose-now-error: "[P]&c 你現在不能躺下！"
+  · action-pose-world-error: "[P]&c 你不能在這個世界躺下！"
+  · action-pose-location-error: "[P]&c 你不能在這躺下！"
+  · action-pose-safe-error: "[P]&c 你不能在不安全的地方躺下！"
+  · action-pose-region-error: "[P]&c 你不能在這個區域躺下！"
+  · action-pose-kick-error: "[P]&c 已經有人在這裡躺下了！"
+  · action-pose-error: "[P]&c 由於錯誤，你無法在這裡躺下！"
+  · action-pose-info: "&a使用&6 <lang:key.sneak>&a 鍵起來"
+  · action-crawl-now-error: "[P]&c 你現在不能爬行！"
+  · action-crawl-world-error: "[P]&c 你不能在這個世界爬行！"
+  · action-crawl-region-error: "[P]&c 你不能在這個區域爬行！"
+  · action-crawl-info: "&a使用&6 <lang:key.sneak>&a 鍵起來"
+  · action-blocked-error: "[P]&c 你現在不能使用此指令！"
+
+## 常量池帮助/描述文本
+  · dev/geco/gsit/cmd/GBellyflopCommand
+  · Ldev/geco/gsit/GSitMain;
+  · dev/geco/gsit/GSitMain
+  · dev/geco/gsit/service/MessageService
+  · dev/geco/gsit/service/PermissionService
+  · dev/geco/gsit/service/PoseService
+  · dev/geco/gsit/service/VersionService
+  · dev/geco/gsit/model/Pose
+  · dev/geco/gsit/model/PoseType
+  · Ldev/geco/gsit/model/PoseType;
+  · dev/geco/gsit/model/StopReason
+  · Ldev/geco/gsit/model/StopReason;
+  · dev/geco/gsit/util/EnvironmentUtil
+  · dev/geco/gsit/service/SitService
+  · dev/geco/gsit/service/ConfigService
+  · Ldev/geco/gsit/cmd/GBellyflopCommand;
+  · Ldev/geco/gsit/model/Pose;
+  · dev/geco/gsit/cmd/GCrawlCommand
+  · dev/geco/gsit/service/CrawlService
+  · dev/geco/gsit/service/ToggleService
+  · Ldev/geco/gsit/cmd/GCrawlCommand;
+  · Ldev/geco/gsit/model/Crawl;
+  · dev/geco/gsit/model/Crawl
+  · dev/geco/gsit/cmd/GLayBackCommand
+  · Ldev/geco/gsit/cmd/GLayBackCommand;
+  · dev/geco/gsit/cmd/GLayCommand
+  · Ldev/geco/gsit/cmd/GLayCommand;
+  · dev/geco/gsit/cmd/GSitCommand
+  · Ldev/geco/gsit/cmd/GSitCommand;
+  · Ldev/geco/gsit/model/Seat;
+  · dev/geco/gsit/model/Seat
+  · dev/geco/gsit/cmd/GSitReloadCommand
+  · Ldev/geco/gsit/cmd/GSitReloadCommand;
+  · dev/geco/gsit/cmd/GSpinCommand
+  · Ldev/geco/gsit/cmd/GSpinCommand;
+  · dev/geco/gsit/cmd/tab/EmptyTabComplete
+  · Ldev/geco/gsit/cmd/tab/EmptyTabComplete;
+  · dev/geco/gsit/cmd/tab/GCrawlTabComplete
+  · Ldev/geco/gsit/cmd/tab/GCrawlTabComplete;
+  · dev/geco/gsit/cmd/tab/GSitTabComplete
+  · Ldev/geco/gsit/cmd/tab/GSitTabComplete;

@@ -1,0 +1,119 @@
+# PVPPlugin  (PVPPlugin-1.2.28.jar)
+## 注册指令
+  /pvp  usage='/pvp [bet|spectate|accept|deny|team|seta|setb|reload|help|rank(join|spectate|cancel|top|stats|season|claim)]' desc='PVP 决斗主命令' alias=['duel'] perm=None
+
+## 代码类
+  cn.yxsjmc.pvp.CommandHandler
+
+## javap 字符串 token
+  accept bet cancel claim deny help join rank season seta setb spectate start stats team top
+
+## 文本资源里的帮助/用法行
+  · # ============ PVPPlugin 配置文件 ============
+  · # 修改后可使用 /pvp reload 重载（管理员）
+  · # 邀请超时（秒），超时未回应自动拒绝
+  · # 准备期（秒）：接受后传送+下注窗口
+  · # 战斗时长（秒），默认 180 = 3 分钟
+  · # 掉线重连等待（秒），默认 180 = 3 分钟；超时判负
+  · # 观众下注固定金额
+  · # 竞技场世界名（默认 pvp_arena；填 "" 或 "*" 则允许任意世界就地战斗，但强烈建议专用竞技场世界）
+  · # 竞技场区域半径（方块），决斗中玩家离开此范围会被拉回
+  · # 是否必须设置竞技场 A/B 点才允许开始决斗（false=未设点时就地战斗）
+  · # 竞技场 A 点坐标（使用 /pvp seta 站在目标位置保存；也可手动填写 world/x/y/z/yaw/pitch）
+  · # 竞技场 B 点坐标（使用 /pvp setb 保存）
+  · # 是否启用团战模式（/pvp team create <A人数>:<B人数>）
+  · # ============ 公平排位模式 ============
+  · # 是否启用公平排位（/pvp rank）
+  · # 排位世界名（请与服务器实际排位世界一致，如 pvpgame）
+  · # 排位入场费（星点），发起与加入各扣一次，无论胜败均不退还
+  · # 发起后等待对手加入的秒数，超时自动取消并退还发起者入场费
+  · # 双方到齐后开战倒计时（秒）
+  · # 每局段位分变动（胜 +score-step / 负 -score-step，下限 0）
+  · # 排位中死亡后的复活缓冲（秒）：死亡玩家将复活在排位世界（pvpgame）出生点，
+  · # 倒计时结束后自动传送回死亡前原位置；设为 0 则复活后立即回原位置
+  · # ============ 公平排位 · 赛季排行与奖励 ============
+  · # 每个自然月为一个赛季（每月1号 ~ 月末23:59:59），跨月自动封盘开启新赛季；
+  · # 月末按 ①胜场多 ②结算时当前段位高(score) ③胜率高 ④击杀多 ⑤死亡少 排序取前三名，
+  · # 前三名各获得 1 份皮肤卷轴奖励，通过界面 /pvp rank claim 自行领取（每赛季每人限领1次，
+  · # 先清点背包空格、无空格禁止发放；跨月后旧赛季未领奖励作废）。
+  · # 是否启用赛季排行与奖励功能（/pvp rank season / claim）
+  · # 赛季奖励皮肤 ID（发给 /yiyunceskin give <此ID> <玩家名>）
+  · # 决斗期间 / 竞技场世界内拦截的命令（前缀匹配，不要带 /）
+  · # ============ 公告文案模板（支持 & 颜色代码） ============
+  · # {A} = A队名单  {B} = B队名单  {seconds} = 秒数
+  · announce-duel: "&e&l[PVP] &a{A} &e对战 &c{B}"
+  · announce-ready: "&6&l准备！倒计时 {seconds} 秒，观众可下注！"
+  · announce-start: "&a&l开始！"
+  · announce-win: "&a&l胜利！"
+  · announce-lose: "&c&l失败"
+  · announce-draw: "&e&l平局"
+  · description: 星冕服务器 PVP 决斗插件（可视化UI / 团战 / 下注 / 赌钱决斗 / 观战 / 公平排位，含排位死亡复活缓冲、排位强制重生修复、排位背包快照历史落盘与每月自动清理、排位死亡经验还原；公平排位赛季排行榜（赛季中实时分段位、封盘定格快照）+前三名皮肤奖励领取，停机跨月自动补封盘、掉线计负、领取先记账后发放、赛季文件保存节流）
+  · description: PVP 决斗主命令
+  · usage: /pvp [bet|spectate|accept|deny|team|seta|setb|reload|help|rank(join|spectate|cancel|top|stats|season|claim)]
+  · description: 允许使用 PVP 决斗功能
+  · description: 允许创建团战房间
+  · description: 管理权限（设置竞技场坐标、重载配置）
+  · description: 跳过竞技场传送 / 飞行限制（OP 默认拥有）
+
+## 常量池帮助/描述文本
+  · cn/yxsjmc/pvp/CommandHandler
+  · Lcn/yxsjmc/pvp/PVPPlugin;
+  · cn/yxsjmc/pvp/PVPPlugin
+  · 仅玩家可用此命令。
+  · &c你没有权限使用 PVP 功能。
+  · cn/yxsjmc/pvp/ConfigManager
+  · cn/yxsjmc/pvp/GuiManager
+  · cn/yxsjmc/pvp/DuelManager
+  · &c公平排位模式未启用（config.yml rank.enabled: true）。
+  · cn/yxsjmc/pvp/RankedManager
+  · Lcn/yxsjmc/pvp/RankedManager$RankRoom;
+  · cn/yxsjmc/pvp/RankedManager$RankRoom
+  · Lcn/yxsjmc/pvp/RankedManager$RankState;
+  · cn/yxsjmc/pvp/RankedManager$RankState
+  · &c排位已开始，无法取消。想退出请离开排位世界认输。
+  · &c你不是排位发起者，或当前没有排位房。
+  · cn/yxsjmc/pvp/SeasonManager
+  · &7本赛季暂无排位数据，快去发起排位吧！
+  · &6#1 &f先锋
+  · &e#2 &f丞将
+  · &7#3 &f安连
+  · &7该赛季暂无排位数据。
+  · &6#1 冠军
+  · &e#2 亚军
+  · &7#3 季军
+  · &e使用 /pvp rank claim 领取上赛季奖励。
+  · &7赛季奖励：每月最后一天 23:59 封盘定格前三名，次月可领取。
+  · &e使用 /pvp rank claim 打开领取界面。
+  · &e&l===== 公平排位 · 前十胜场榜 =====
+  · &7暂无排位数据，快去发起一场排位吧！
+  · cn/yxsjmc/pvp/RankedManager$PlayerRank
+  · cn/yxsjmc/pvp/RankedManager$RankInfo
+  · &7你还没有排位记录。
+  · &e&l===== 你的排位战绩 =====
+  · cn/yxsjmc/pvp/EconomyManager
+  · &c团战模式未启用（config.yml team-duel-enabled: true）。
+  · &c需要 pvp.admin 权限。
+  · &c坐标格式错误。
+  · &e===== PVP 决斗帮助 =====
+  · &6/pvp &7打开决斗界面（个人/团战都在界面里选）
+  · &6/pvp bet &7观众下注
+  · &6/pvp spectate &7观战/退出观战（旁观模式进竞技场，结束自动送回并切回生存）
+  · &6/pvp accept &7接受邀请
+  · &6/pvp deny &7拒绝邀请
+  · &6/pvp team &7团战房间管理（创建请从 /pvp 界面选择人数）
+  · &6/pvp rank &7公平排位界面（建房免费，加入后双方各付 100 星点，超时判平）
+  · &6/pvp rank join &7加入当前排位房
+  · &6/pvp rank spectate &7进入/退出排位观战（旁观模式，结束自动送回）
+  · &6/pvp rank top &7前十胜场榜
+  · &6/pvp rank stats &7我的排位战绩
+  · &6/pvp seta &7[管理员] 设置竞技场 A 点
+  · &6/pvp setb &7[管理员] 设置竞技场 B 点
+  · &e&l===== 赛季榜 ·  · 进行中 =====
+  · &d&l=====  赛季 · 已封盘 =====
+  · &d前三名可领取皮肤卷轴 &b
+  · &7你已领取  赛季奖励。
+  · &6# &f &7| &b &7| 击杀 &e &7| 胜 &a &7/ 负 &c
+  · &f段位：&b &7(当前分 )
+  · &f击杀：&e &7| 胜 &a &7| 负 &c
+  · &a已将竞技场  点设为 ,, ()。
+  · &a已将竞技场  点设为当前位置 ( ,,)。

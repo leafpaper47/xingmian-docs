@@ -1,0 +1,381 @@
+# LibsDisguises  (LibsDisguises.jar)
+## 注册指令
+  /libsdisguises  usage=None desc='Main command for libsdisguises.' alias=['libsdisg', 'ld'] perm=None
+  /disguise  usage=None desc='Disguise yourself as an entity.' alias=['d', 'dis', 'disg'] perm='libsdisguises.seecmd.disguise'
+  /disguiseentity  usage=None desc='Disguise an entity as another entity.' alias=['dentity', 'disentity', 'disgentity'] perm='libsdisguises.seecmd.disguiseentity'
+  /disguisehelp  usage=None desc='Help command for LibsDisguises.' alias=['dhelp', 'dishelp', 'disghelp'] perm='libsdisguises.seecmd.disguisehelp'
+  /disguiseplayer  usage=None desc='Disguise another player as an entity.' alias=['dplayer', 'displayer', 'disgplayer', 'disguiseuuid', 'disguuid', 'duuid'] perm='libsdisguises.seecmd.disguiseplayer'
+  /disguiseradius  usage=None desc='Disguise all entities within a radius as an entity.' alias=['disradius', 'dradius', 'disgradius'] perm='libsdisguises.seecmd.disguiseradius'
+  /disguiseselector  usage=None desc='Disguise entities via entity selector.' alias=['dselector', 'disselector', 'disgselector'] perm='libsdisguises.seecmd.disguiseselector'
+  /undisguise  usage=None desc='Undisguise yourself.' alias=['und', 'undis', 'undisg'] perm='libsdisguises.seecmd.undisguise'
+  /undisguiseentity  usage=None desc='Undisguise an entity.' alias=['undisentity', 'undentity', 'undisgentity'] perm='libsdisguises.seecmd.undisguiseentity'
+  /undisguiseplayer  usage=None desc='Undisguise a player.' alias=['undisplayer', 'undplayer', 'undisgplayer', 'undisguiseuuid', 'unduuid', 'undisguuid'] perm='libsdisguises.seecmd.undisguiseplayer'
+  /undisguiseradius  usage=None desc='Undisguise all entities within a radius.' alias=['undisradius', 'undradius', 'undisgradius'] perm='libsdisguises.seecmd.undisguiseradius'
+  /undisguiseselector  usage=None desc='Undisguise all entities in an entity selector.' alias=['undisselector', 'undselector', 'undisgselector'] perm='libsdisguises.seecmd.undisguiseselector'
+  /disguiseclone  usage=None desc='Copy a disguise (or entity) and use it later.' alias=['disguisec', 'disc', 'disclone', 'dclone', 'clonedisguise', 'clonedis', 'cdisguise', 'cdis', 'clonedisg', 'disgclone'] perm='libsdisguises.seecmd.disguiseclone'
+  /disguiseviewself  usage=None desc='Toggle seeing your own disguise on or off.' alias=['dviewself', 'dvs', 'disguisevs', 'disvs', 'vsd', 'viewselfdisguise', 'viewselfd', 'selfdisguise', 'selfdisg', 'selfd', 'toggleselfdisguise', 'seeselfdisguise'] perm='libsdisguises.seecmd.disguiseviewself'
+  /disguiseviewbar  usage=None desc='Toggle seeing your own disguise on or off.' alias=['dviewbar', 'dvb', 'disguisevb', 'disvb', 'viewdisguisebar', 'viewbardisguise', 'bardisguise', 'bardisg', 'bard', 'notifybar', 'viewnotifybar', 'disguisenotifybar', 'disgnotifybar', 'dnotifybar'] perm='libsdisguises.seecmd.disguiseviewbar'
+  /disguisemodify  usage=None desc='Modify your own disguise' alias=['dmodify', 'dmod', 'disgmodify', 'modifydisguise', 'moddisguise', 'mdisguise'] perm='libsdisguises.seecmd.disguisemodify'
+  /disguisemodifyplayer  usage=None desc='Modify the disguise of a player' alias=['dmodifyplayer', 'dmodplayer', 'disgmodifyplayer', 'dismodplayer', 'disgmodplayer', 'modifydisguiseplayer', 'moddisguiseplayer', 'mdisguiseplayer', 'mdisgplayer', 'dmodifyuuid', 'dmoduuid', 'disgmodifyuuid', 'dismoduuid', 'disgmoduuid', 'modifydisguiseuuid', 'moddisguiseuuid', 'mdisguiseuuid', 'mdisguuid'] perm='libsdisguises.seecmd.disguisemodifyplayer'
+  /disguisemodifyradius  usage=None desc='Modify disguises in a radius' alias=['dmodifyradius', 'dmodradius', 'disgmodradius', 'dismodradius', 'modifydisguiseradius', 'modifydisgradius', 'moddisguiseradius', 'mdisguiseradius', 'moddisgradius'] perm='libsdisguises.seecmd.disguisemodifyradius'
+  /disguisemodifyselector  usage=None desc='Modify entity disguises via entity selector' alias=['dmodifyselector', 'dmodselector', 'disgmodselector', 'dismodselector', 'modifydisguiseselector', 'modifydisgselector', 'moddisguiseselector', 'mdisguiseselector', 'moddisgselector'] perm='libsdisguises.seecmd.disguisemodifyselector'
+  /disguisemodifyentity  usage=None desc='Modify a disguise by right clicking them' alias=['dmodifyentity', 'dmodentity', 'disgmodentity', 'dismodentity', 'modifydisguiseentity', 'modifydisgentity', 'modifydentity', 'moddisguiseentity', 'moddisgentity', 'mdisguiseentity', 'mdisgentity'] perm='libsdisguises.seecmd.disguisemodifyentity'
+  /disguiseanimation  usage=None desc='Play a supported animation on your own disguise' alias=None perm='libsdisguises.disguiseanimation'
+  /disguiseplayeranimation  usage=None desc="Play a supported animation on a player/uuid's disguise" alias=['disguiseuuidanimation'] perm='libsdisguises.disguiseplayeranimation'
+  /disguiseradiusanimation  usage=None desc='Play a supported animation on all supported disguises in a radius' alias=None perm='libsdisguises.disguiseradiusanimation'
+  /disguiseselectoranimation  usage=None desc='Play a supported animation on all supported disguises via entity selector.' alias=None perm='libsdisguises.disguiseselectoranimation'
+  /disguiseentityanimation  usage=None desc="Play a supported animation on a right clicked entity's disguise" alias=None perm='libsdisguises.disguiseentityanimation'
+  /copydisguise  usage=None desc='Output a disguise to a usable string' alias=['disguisecopy', 'disgcopy', 'dcopy', 'copydisg', 'copyd', 'parsedisguise', 'disguiseparse'] perm='libsdisguises.seecmd.copydisguise'
+  /grabskin  usage=None desc='Grab a skin from file, url or player name/uuid' alias=['uploadskin', 'skin', 'saveskin', 'cacheskin', 'downloadskin', 'skincache'] perm='libsdisguises.seecmd.grabskin'
+  /savedisguise  usage=None desc='Save a custom disguise to disguises.yml' alias=['customdisguise', 'savedisg', 'customdisg', 'createdisguise', 'createdisg'] perm='libsdisguises.seecmd.savedisguise'
+  /grabhead  usage=None desc='Grab the head item of a skin, url or player' alias=['grabskull', 'playerhead', 'savehead', 'gethead'] perm='libsdisguises.seecmd.grabhead'
+
+## 代码类
+  me.libraryaddict.disguise.commands.DisguiseBaseCommand
+  me.libraryaddict.disguise.commands.LibsDisguisesCommand
+  me.libraryaddict.disguise.commands.animate.BaseDisguiseAnimate
+  me.libraryaddict.disguise.commands.animate.DisguiseAnimationCommand
+  me.libraryaddict.disguise.commands.animate.DisguiseEntityAnimationCommand
+  me.libraryaddict.disguise.commands.animate.DisguisePlayerAnimationCommand
+  me.libraryaddict.disguise.commands.animate.DisguiseRadiusAnimationCommand
+  me.libraryaddict.disguise.commands.animate.DisguiseSelectorAnimationCommand
+  me.libraryaddict.disguise.commands.disguise.DisguiseCommand
+  me.libraryaddict.disguise.commands.disguise.DisguiseEntityCommand
+  me.libraryaddict.disguise.commands.disguise.DisguisePlayerCommand
+  me.libraryaddict.disguise.commands.disguise.DisguiseRadiusCommand
+  me.libraryaddict.disguise.commands.disguise.DisguiseSelectorCommand
+  me.libraryaddict.disguise.commands.interactions.CopyDisguiseInteraction
+  me.libraryaddict.disguise.commands.interactions.DisguiseAnimateInteraction
+  me.libraryaddict.disguise.commands.interactions.DisguiseCloneInteraction
+  me.libraryaddict.disguise.commands.interactions.DisguiseEntityInteraction
+  me.libraryaddict.disguise.commands.interactions.DisguiseModifyInteraction
+  me.libraryaddict.disguise.commands.interactions.UndisguiseEntityInteraction
+  me.libraryaddict.disguise.commands.libsdisguises.LDChangelog
+  me.libraryaddict.disguise.commands.libsdisguises.LDCommand
+  me.libraryaddict.disguise.commands.libsdisguises.LDConfig
+  me.libraryaddict.disguise.commands.libsdisguises.LDCount
+  me.libraryaddict.disguise.commands.libsdisguises.LDDebugDisguiseLoop$1
+  me.libraryaddict.disguise.commands.libsdisguises.LDDebugDisguiseLoop
+  me.libraryaddict.disguise.commands.libsdisguises.LDDebugging
+  me.libraryaddict.disguise.commands.libsdisguises.LDDebugMineSkin
+  me.libraryaddict.disguise.commands.libsdisguises.LDDebugPlayer$DebugInteraction
+  me.libraryaddict.disguise.commands.libsdisguises.LDDebugPlayer
+  me.libraryaddict.disguise.commands.libsdisguises.LDHelp
+  me.libraryaddict.disguise.commands.libsdisguises.LDJson
+  me.libraryaddict.disguise.commands.libsdisguises.LDMetaInfo
+  me.libraryaddict.disguise.commands.libsdisguises.LDMissingDescription
+  me.libraryaddict.disguise.commands.libsdisguises.LDMods
+  me.libraryaddict.disguise.commands.libsdisguises.LDPermTest
+  me.libraryaddict.disguise.commands.libsdisguises.LDReload
+  me.libraryaddict.disguise.commands.libsdisguises.LDScoreboard
+  me.libraryaddict.disguise.commands.libsdisguises.LDUpdate
+  me.libraryaddict.disguise.commands.libsdisguises.LDUpdatePacketEvents
+  me.libraryaddict.disguise.commands.libsdisguises.LDUploadLogs$GuestPaste
+  me.libraryaddict.disguise.commands.libsdisguises.LDUploadLogs$MCLogs
+  me.libraryaddict.disguise.commands.libsdisguises.LDUploadLogs
+  me.libraryaddict.disguise.commands.modify.DisguiseModifyCommand
+  me.libraryaddict.disguise.commands.modify.DisguiseModifyEntityCommand
+  me.libraryaddict.disguise.commands.modify.DisguiseModifyPlayerCommand
+  me.libraryaddict.disguise.commands.modify.DisguiseModifyRadiusCommand
+  me.libraryaddict.disguise.commands.modify.DisguiseModifySelectorCommand
+  me.libraryaddict.disguise.commands.undisguise.UndisguiseCommand
+  me.libraryaddict.disguise.commands.undisguise.UndisguiseEntityCommand
+  me.libraryaddict.disguise.commands.undisguise.UndisguisePlayerCommand
+  me.libraryaddict.disguise.commands.undisguise.UndisguiseRadiusCommand
+  me.libraryaddict.disguise.commands.undisguise.UndisguiseSelectorCommand
+  me.libraryaddict.disguise.commands.utils.CopyDisguiseCommand
+  me.libraryaddict.disguise.commands.utils.DisguiseCloneCommand
+  me.libraryaddict.disguise.commands.utils.DisguiseHelpCommand
+  me.libraryaddict.disguise.commands.utils.DisguiseViewBarCommand
+  me.libraryaddict.disguise.commands.utils.DisguiseViewSelfCommand
+  me.libraryaddict.disguise.commands.utils.GrabHeadCommand$1
+  me.libraryaddict.disguise.commands.utils.GrabHeadCommand
+  me.libraryaddict.disguise.commands.utils.GrabSkinCommand$1
+  me.libraryaddict.disguise.commands.utils.GrabSkinCommand
+  me.libraryaddict.disguise.commands.utils.SaveDisguiseCommand$1
+  me.libraryaddict.disguise.commands.utils.SaveDisguiseCommand
+  me.libraryaddict.disguise.commands.utils.headresolvers.HeadResolver
+  me.libraryaddict.disguise.commands.utils.headresolvers.LegacyHeadResolver
+  me.libraryaddict.disguise.commands.utils.headresolvers.PaperHeadResolver
+  me.libraryaddict.disguise.commands.utils.headresolvers.SpigotHeadResolver
+  me.libraryaddict.disguise.disguisetypes.watchers.MinecartCommandWatcher
+  me.libraryaddict.disguise.utilities.config.DisguiseCommandConfig$DisguiseCommand
+  me.libraryaddict.disguise.utilities.config.DisguiseCommandConfig
+
+## javap 字符串 token
+  agree aliases as b board changelog commands config configuration console content count debug debugging description dev disabled disguise disguiseentity disguiseentitymodify disguiseloop disguisemodify disguisemodifyentity disguisemodifyplayer disguisemodifyradius disguisemodifyselector disguiseplayer disguiseradius disguiseselector disguisetype dropped_item enabled entitytype falling_block forge_mods gson help item json libsdisguises log logs mannequin metadata metadatainfo metaindex metainfo mineskin missing missingdescriptions modifycommands mods name packetevents parse pe permission permissions permissiontest permtest player post profile pushing release releases reload s scoreboard setart setblock setitem setiteminmainhand setitemstack setselfdisguisevisible setskin skin skull_item snapshots teams tostring update updatepacketevents updatepe uploadconfig uploadconfigs uploadlog uploadlogs use user-agent utf-8
+
+## 文本资源里的帮助/用法行
+  · [{"a":-1,"b":-1,"c":false,"d":"void","e":false,"f":"FlagWatcher","g":"setItemInMainHand","h":"setItemInMainHand","i":"org.bukkit.inventory.ItemStack","j":"(Lorg/bukkit/inventory/ItemStack;)V","l":fals
+  · description: Allows the command user to use /grabhead
+  · description: Controls if the player can view a self disguise, defaults to true. Only checked when disguise starts and toggling self disguises command. If the player has access to /disguisemodify they 
+  · description: See the /disguiseviewself command in tab-completion
+  · description: See the /disguiseviewbar command in tab-completion
+  · description: See the /disguise command in tab-completion
+  · description: See the /disguiseentity command in tab-completion
+  · description: See the /disguisehelp command in tab-completion
+  · description: See the /disguiseplayer command in tab-completion
+  · description: See the /disguiseradius command in tab-completion
+  · description: See the /disguiseselector command in tab-completion
+  · description: See the /undisguise command in tab-completion
+  · description: See the /undisguiseentity command in tab-completion
+  · description: See the /undisguiseplayer command in tab-completion
+  · description: See the /undisguiseradius command in tab-completion
+  · description: See the /undisguiseselector command in tab-completion
+  · description: See the /disguiseclone command in tab-completion
+  · description: See the /disguisemodify command in tab-completion
+  · description: See the /disguisemodifyplayer command in tab-completion
+  · description: See the /disguisemodifyradius command in tab-completion
+  · description: See the /disguisemodifyselector command in tab-completion
+  · description: See the /disguisemodifyentity command in tab-completion
+  · description: See the /copydisguise command in tab-completion
+  · description: See the /grabskin command in tab-completion
+  · description: See the /savedisguise command in tab-completion
+  · description: See the /grabhead command in tab-completion
+  · description: See the /disguiseanimation command in tab-completion
+  · description: See the /disguiseplayeranimation command in tab-completion
+  · description: See the /disguiseradiusanimation command in tab-completion
+  · description: See the /disguiseselectoranimation command in tab-completion
+  · description: See the /disguiseentityanimation command in tab-completion
+  · # The best way to use this is with /savedisguise or /saveskin
+  · # Then use /disguise player MyCustomSkin - To test it
+  · # You can also use /savedisguise MyCustomDisguise player KingKiller setskin <SkinName> - With the same 3 types of skin
+  · # It is strongly recommended you use /savedisguise instead of editing this file!
+  · # You can use /grabskin <Target> <Optional Name> - To get the skin data from a file, another player or website.
+  · # /savedisguise ingame will save a custom disguise in this config, including skin data.
+  · # You can also provide a file or url for 'setSkin'! Just as you would for /grabskin.
+  · # The setSkin argument will be automatically done for all /savedisguise usages, this way the skin never changes.
+  · # /copydisguise <Optional Target Name/UUID> will give you the disguise in a usable string
+  · # These are best used in armor slots, or in settings that accept items. Can also be used alongside /copydisguise
+  · # to get the string format of an item. By /disguise zombie setiteminmainhand %held-item% - Then /copydisguise.
+  · # The following disguises will work if you remove the '#' at the beginning of the line, this creates a disguise which you can use by /disguise libraryaddict
+  · # You can also get this information through /libsdisguises config
+
+## 常量池帮助/描述文本
+  · me/libraryaddict/disguise/commands/DisguiseBaseCommand
+  · me/libraryaddict/disguise/utilities/translations/LibsMsg
+  · Lme/libraryaddict/disguise/utilities/translations/LibsMsg;
+  · me/libraryaddict/disguise/utilities/DisguiseUtilities
+  · me/libraryaddict/disguise/utilities/updates/PacketEventsUpdater
+  · me/libraryaddict/disguise/utilities/LibsPremium
+  · me/libraryaddict/disguise/utilities/parser/DisguiseParser
+  · me/libraryaddict/disguise/utilities/parser/DisguisePerm
+  · me/libraryaddict/disguise/utilities/params/ParamInfoManager
+  · me/libraryaddict/disguise/utilities/parser/WatcherMethod
+  · me/libraryaddict/disguise/utilities/parser/DisguisePermissions
+  · me/libraryaddict/disguise/disguisetypes/DisguiseType
+  · Lme/libraryaddict/disguise/disguisetypes/DisguiseType;
+  · me/libraryaddict/disguise/disguisetypes/watchers/MinecartWatcher
+  · me/libraryaddict/disguise/utilities/params/ParamInfo
+  · me/libraryaddict/disguise/disguisetypes/Disguise
+  · me/libraryaddict/disguise/DisguiseConfig
+  · me/libraryaddict/disguise/commands/disguise/DisguiseCommand
+  · me/libraryaddict/disguise/commands/disguise/DisguiseEntityCommand
+  · me/libraryaddict/disguise/commands/disguise/DisguisePlayerCommand
+  · me/libraryaddict/disguise/commands/disguise/DisguiseRadiusCommand
+  · me/libraryaddict/disguise/commands/modify/DisguiseModifyCommand
+  · me/libraryaddict/disguise/commands/disguise/DisguiseSelectorCommand
+  · me/libraryaddict/disguise/commands/modify/DisguiseModifyEntityCommand
+  · me/libraryaddict/disguise/commands/modify/DisguiseModifyPlayerCommand
+  · me/libraryaddict/disguise/commands/modify/DisguiseModifyRadiusCommand
+  · me/libraryaddict/disguise/commands/modify/DisguiseModifySelectorCommand
+  · Ljava/util/Map<Ljava/lang/Class<+Lme/libraryaddict/disguise/commands/DisguiseBaseCommand;>;Ljava/lang/String;>;
+  · Lme/libraryaddict/disguise/commands/DisguiseBaseCommand;
+  · Lme/libraryaddict/disguise/utilities/parser/DisguisePermissions;
+  · Lme/libraryaddict/disguise/utilities/parser/DisguisePerm;
+  · Lme/libraryaddict/disguise/utilities/parser/WatcherMethod;
+  · Lme/libraryaddict/disguise/utilities/params/ParamInfo;
+  · Lme/libraryaddict/disguise/disguisetypes/Disguise;
+  · Ljava/util/HashMap<Ljava/lang/Class<+Lme/libraryaddict/disguise/commands/DisguiseBaseCommand;>;Ljava/lang/String;>;
+  · me/libraryaddict/disguise/commands/LibsDisguisesCommand
+  · me/libraryaddict/disguise/commands/libsdisguises/LDHelp
+  · me/libraryaddict/disguise/commands/libsdisguises/LDReload
+  · me/libraryaddict/disguise/commands/libsdisguises/LDUpdate
+  · me/libraryaddict/disguise/commands/libsdisguises/LDChangelog
+  · me/libraryaddict/disguise/commands/libsdisguises/LDCount
+  · me/libraryaddict/disguise/commands/libsdisguises/LDConfig
+  · me/libraryaddict/disguise/commands/libsdisguises/LDPermTest
+  · me/libraryaddict/disguise/commands/libsdisguises/LDScoreboard
+  · me/libraryaddict/disguise/commands/libsdisguises/LDJson
+  · me/libraryaddict/disguise/commands/libsdisguises/LDMods
+  · me/libraryaddict/disguise/commands/libsdisguises/LDMetaInfo
+  · me/libraryaddict/disguise/commands/libsdisguises/LDDebugPlayer
+  · me/libraryaddict/disguise/commands/libsdisguises/LDUploadLogs
+  · me/libraryaddict/disguise/commands/libsdisguises/LDUpdatePacketEvents
+  · me/libraryaddict/disguise/commands/libsdisguises/LDDebugMineSkin
+  · me/libraryaddict/disguise/commands/libsdisguises/LDDebugDisguiseLoop
+  · me/libraryaddict/disguise/commands/libsdisguises/LDMissingDescription
+  · me/libraryaddict/disguise/commands/libsdisguises/LDDebugging
+  · me/libraryaddict/disguise/LibsDisguises
+  · me/libraryaddict/disguise/commands/libsdisguises/LDCommand
+  · Ljava/util/ArrayList<Lme/libraryaddict/disguise/commands/libsdisguises/LDCommand;>;
+  · Lme/libraryaddict/disguise/commands/LibsDisguisesCommand;
+  · Lme/libraryaddict/disguise/LibsDisguises;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDCommand;
+  · me/libraryaddict/disguise/DisguiseAPI
+  · me/libraryaddict/disguise/commands/animate/BaseDisguiseAnimate
+  · me/libraryaddict/disguise/utilities/animations/DisguiseAnimation
+  · me/libraryaddict/disguise/utilities/translations/TranslateType
+  · Lme/libraryaddict/disguise/utilities/translations/TranslateType;
+  · Lme/libraryaddict/disguise/commands/animate/BaseDisguiseAnimate;
+  · Ljava/lang/Class<+Lme/libraryaddict/disguise/disguisetypes/FlagWatcher;>;
+  · Ljava/util/List<Lme/libraryaddict/disguise/utilities/animations/DisguiseAnimation;>;
+  · Lme/libraryaddict/disguise/utilities/animations/DisguiseAnimation;
+  · me/libraryaddict/disguise/commands/animate/DisguiseAnimationCommand
+  · Lme/libraryaddict/disguise/commands/animate/DisguiseAnimationCommand;
+  · me/libraryaddict/disguise/commands/interactions/DisguiseAnimateInteraction
+  · me/libraryaddict/disguise/utilities/listeners/DisguiseListener
+  · me/libraryaddict/disguise/commands/animate/DisguiseEntityAnimationCommand
+  · Lme/libraryaddict/disguise/commands/animate/DisguiseEntityAnimationCommand;
+  · me/libraryaddict/disguise/commands/animate/DisguisePlayerAnimationCommand
+  · Lme/libraryaddict/disguise/commands/animate/DisguisePlayerAnimationCommand;
+  · me/libraryaddict/disguise/commands/animate/DisguiseRadiusAnimationCommand
+  · Lme/libraryaddict/disguise/commands/animate/DisguiseRadiusAnimationCommand;
+  · me/libraryaddict/disguise/utilities/reflection/NmsVersion
+  · Lme/libraryaddict/disguise/utilities/reflection/NmsVersion;
+  · me/libraryaddict/disguise/commands/animate/DisguiseSelectorAnimationCommand
+  · Lme/libraryaddict/disguise/commands/animate/DisguiseSelectorAnimationCommand;
+  · me/libraryaddict/disguise/utilities/parser/DisguiseParseException
+  · me/libraryaddict/disguise/disguisetypes/watchers/LivingWatcher
+  · me/libraryaddict/disguise/disguisetypes/FlagWatcher
+  · Lme/libraryaddict/disguise/commands/disguise/DisguiseCommand;
+  · Lme/libraryaddict/disguise/utilities/parser/DisguiseParseException;
+  · me/libraryaddict/disguise/commands/interactions/DisguiseEntityInteraction
+  · Lme/libraryaddict/disguise/commands/disguise/DisguiseEntityCommand;
+  · Lme/libraryaddict/disguise/commands/disguise/DisguisePlayerCommand;
+  · me/libraryaddict/disguise/utilities/foliascheduler/ServerImplementation
+  · me/libraryaddict/disguise/utilities/foliascheduler/EntitySchedulerImplementation
+  · me/libraryaddict/disguise/utilities/reflection/ReflectionManager
+  · Lme/libraryaddict/disguise/commands/disguise/DisguiseRadiusCommand;
+  · Lme/libraryaddict/disguise/commands/disguise/DisguiseSelectorCommand;
+  · me/libraryaddict/disguise/commands/interactions/CopyDisguiseInteraction
+  · me/libraryaddict/disguise/commands/utils/CopyDisguiseCommand
+  · me/libraryaddict/disguise/disguisetypes/PlayerDisguise
+  · Lme/libraryaddict/disguise/commands/utils/CopyDisguiseCommand;
+  · me/libraryaddict/disguise/utilities/LibsEntityInteract
+  · Lme/libraryaddict/disguise/commands/interactions/CopyDisguiseInteraction;
+  · Lme/libraryaddict/disguise/commands/interactions/DisguiseAnimateInteraction;
+  · me/libraryaddict/disguise/commands/interactions/DisguiseCloneInteraction
+  · Lme/libraryaddict/disguise/commands/interactions/DisguiseCloneInteraction;
+  · Lme/libraryaddict/disguise/commands/interactions/DisguiseEntityInteraction;
+  · me/libraryaddict/disguise/commands/interactions/DisguiseModifyInteraction
+  · Lme/libraryaddict/disguise/commands/interactions/DisguiseModifyInteraction;
+  · me/libraryaddict/disguise/commands/interactions/UndisguiseEntityInteraction
+  · Lme/libraryaddict/disguise/commands/interactions/UndisguiseEntityInteraction;
+  · me/libraryaddict/disguise/utilities/updates/UpdateChecker
+  · me/libraryaddict/disguise/utilities/updates/DisguiseUpdate
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDChangelog;
+  · Lme/libraryaddict/disguise/utilities/updates/UpdateChecker;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDConfig;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDCount;
+  · Ljava/util/Set<Lme/libraryaddict/disguise/disguisetypes/TargetedDisguise;>;
+  · Ljava/util/ArrayList<Lme/libraryaddict/disguise/disguisetypes/DisguiseType;>;
+  · Ljava/util/HashMap<Lme/libraryaddict/disguise/disguisetypes/DisguiseType;Ljava/lang/Integer;>;
+  · me/libraryaddict/disguise/commands/libsdisguises/LDDebugDisguiseLoop$1
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDDebugDisguiseLoop;
+  · me/libraryaddict/disguise/utilities/foliascheduler/TaskImplementation
+  · Lme/libraryaddict/disguise/utilities/foliascheduler/TaskImplementation;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDDebugging;
+  · me/libraryaddict/disguise/utilities/mineskin/MineSkinAPI
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDDebugMineSkin;
+  · Lme/libraryaddict/disguise/utilities/mineskin/MineSkinAPI;
+  · me/libraryaddict/disguise/utilities/scoreboard/DisguiseScoreboardTeam
+  · me/libraryaddict/disguise/disguisetypes/DisguiseInternals
+  · me/libraryaddict/disguise/DisguiseConfig$PlayerNameType
+  · me/libraryaddict/disguise/disguisetypes/watchers/PlayerWatcher
+  · me/libraryaddict/disguise/commands/libsdisguises/LDDebugPlayer$DebugInteraction
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDDebugPlayer$DebugInteraction;
+  · Lme/libraryaddict/disguise/disguisetypes/PlayerDisguise;
+  · Lme/libraryaddict/disguise/utilities/scoreboard/DisguiseScoreboardTeam;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDDebugPlayer;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDHelp;
+  · me/libraryaddict/disguise/utilities/reflection/ItemStackSerializer
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDJson;
+  · me/libraryaddict/disguise/disguisetypes/MetaIndex
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDMetaInfo;
+  · Lme/libraryaddict/disguise/disguisetypes/MetaIndex;
+  · Ljava/util/ArrayList<Lme/libraryaddict/disguise/disguisetypes/MetaIndex;>;
+  · me/libraryaddict/disguise/utilities/watchers/DisguiseMethods
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDMissingDescription;
+  · Ljava/util/List<Lme/libraryaddict/disguise/utilities/parser/WatcherMethod;>;
+  · me/libraryaddict/disguise/utilities/modded/ModdedManager
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDMods;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDPermTest;
+  · me/libraryaddict/disguise/utilities/sounds/SoundManager
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDReload;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDScoreboard;
+  · me/libraryaddict/disguise/DisguiseConfig$UpdatesBranch
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDUpdate;
+  · Lme/libraryaddict/disguise/DisguiseConfig$UpdatesBranch;
+  · me/libraryaddict/disguise/utilities/foliascheduler/AsyncSchedulerImplementation
+  · me/libraryaddict/disguise/utilities/foliascheduler/GlobalSchedulerImplementation
+  · Lme/libraryaddict/disguise/utilities/plugin/LibsDisgInfo;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDUpdatePacketEvents;
+  · Lme/libraryaddict/disguise/utilities/updates/PacketEventsUpdater;
+  · me/libraryaddict/disguise/commands/libsdisguises/LDUploadLogs$GuestPaste
+  · me/libraryaddict/disguise/commands/libsdisguises/LDUploadLogs$MCLogs
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDUploadLogs$GuestPaste;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDUploadLogs$MCLogs;
+  · Lme/libraryaddict/disguise/commands/libsdisguises/LDUploadLogs;
+  · configs/disguises.yml
+  · me/libraryaddict/disguise/utilities/config/ConfigLoader
+  · Lme/libraryaddict/disguise/commands/modify/DisguiseModifyCommand;
+  · Lme/libraryaddict/disguise/commands/modify/DisguiseModifyEntityCommand;
+  · Lme/libraryaddict/disguise/commands/modify/DisguiseModifyPlayerCommand;
+  · Lme/libraryaddict/disguise/commands/modify/DisguiseModifyRadiusCommand;
+  · Lme/libraryaddict/disguise/commands/modify/DisguiseModifySelectorCommand;
+  · me/libraryaddict/disguise/commands/undisguise/UndisguiseCommand
+  · Lme/libraryaddict/disguise/commands/undisguise/UndisguiseCommand;
+  · me/libraryaddict/disguise/commands/undisguise/UndisguiseEntityCommand
+  · Lme/libraryaddict/disguise/commands/undisguise/UndisguiseEntityCommand;
+  · me/libraryaddict/disguise/commands/undisguise/UndisguisePlayerCommand
+  · Lme/libraryaddict/disguise/commands/undisguise/UndisguisePlayerCommand;
+  · me/libraryaddict/disguise/commands/undisguise/UndisguiseRadiusCommand
+  · Lme/libraryaddict/disguise/commands/undisguise/UndisguiseRadiusCommand;
+  · me/libraryaddict/disguise/commands/undisguise/UndisguiseSelectorCommand
+  · Lme/libraryaddict/disguise/commands/undisguise/UndisguiseSelectorCommand;
+  · me/libraryaddict/disguise/commands/utils/DisguiseCloneCommand
+  · Lme/libraryaddict/disguise/commands/utils/DisguiseCloneCommand;
+  · me/libraryaddict/disguise/commands/utils/DisguiseHelpCommand
+  · Lme/libraryaddict/disguise/commands/utils/DisguiseHelpCommand;
+  · me/libraryaddict/disguise/commands/utils/DisguiseViewBarCommand
+  · Lme/libraryaddict/disguise/commands/utils/DisguiseViewBarCommand;
+  · me/libraryaddict/disguise/commands/utils/DisguiseViewSelfCommand
+  · me/libraryaddict/disguise/disguisetypes/TargetedDisguise
+  · Lme/libraryaddict/disguise/commands/utils/DisguiseViewSelfCommand;
+  · Lme/libraryaddict/disguise/disguisetypes/TargetedDisguise;
+  · me/libraryaddict/disguise/commands/utils/GrabHeadCommand$1
+  · me/libraryaddict/disguise/utilities/SkinUtils$SkinCallback
+  · me/libraryaddict/disguise/commands/utils/GrabHeadCommand
+  · me/libraryaddict/disguise/utilities/SkinUtils
+  · Lme/libraryaddict/disguise/utilities/foliascheduler/TaskImplementation<Ljava/lang/Void;>;
+  · Lme/libraryaddict/disguise/commands/utils/GrabHeadCommand;
+  · Lme/libraryaddict/disguise/commands/utils/GrabHeadCommand$1;
+  · me/libraryaddict/disguise/commands/utils/headresolvers/HeadResolver
+  · Lme/libraryaddict/disguise/commands/utils/headresolvers/HeadResolver;
+  · Ljava/util/function/Supplier<Lme/libraryaddict/disguise/commands/utils/headresolvers/HeadResolver;>;
+  · Lme/libraryaddict/disguise/utilities/SkinUtils$SkinCallback;
+  · me/libraryaddict/disguise/commands/utils/headresolvers/PaperHeadResolver
+  · me/libraryaddict/disguise/commands/utils/headresolvers/SpigotHeadResolver
+  · me/libraryaddict/disguise/commands/utils/headresolvers/LegacyHeadResolver
+  · me/libraryaddict/disguise/commands/utils/GrabSkinCommand$1
+  · me/libraryaddict/disguise/commands/utils/GrabSkinCommand
+  · Lme/libraryaddict/disguise/commands/utils/GrabSkinCommand;
+  · Lme/libraryaddict/disguise/commands/utils/GrabSkinCommand$1;
+  · me/libraryaddict/disguise/utilities/mineskin/models/structures/SkinVariant
+  · Lme/libraryaddict/disguise/utilities/mineskin/models/structures/SkinVariant;
+  · me/libraryaddict/disguise/commands/utils/SaveDisguiseCommand$1
+  · me/libraryaddict/disguise/commands/utils/SaveDisguiseCommand
+  · Lme/libraryaddict/disguise/commands/utils/SaveDisguiseCommand;
+  · Lme/libraryaddict/disguise/commands/utils/SaveDisguiseCommand$1;
+  · Lme/libraryaddict/disguise/commands/utils/headresolvers/LegacyHeadResolver;
+  · Lme/libraryaddict/disguise/commands/utils/headresolvers/PaperHeadResolver;
+  · Lme/libraryaddict/disguise/commands/utils/headresolvers/SpigotHeadResolver;
+  · me/libraryaddict/disguise/disguisetypes/watchers/MinecartCommandWatcher
+  · Lme/libraryaddict/disguise/disguisetypes/watchers/MinecartCommandWatcher;
+  · me/libraryaddict/disguise/utilities/config/DisguiseCommandConfig$DisguiseCommand
+  · Lme/libraryaddict/disguise/utilities/config/DisguiseCommandConfig$DisguiseCommand;
+  · me/libraryaddict/disguise/utilities/config/DisguiseCommandConfig
+  · Ljava/util/HashMap<Ljava/lang/String;Lme/libraryaddict/disguise/utilities/config/DisguiseCommandConfig$DisguiseCommand;>;
+  · Lme/libraryaddict/disguise/utilities/config/DisguiseCommandConfig;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lme/libraryaddict/disguise/utilities/config/DisguiseCommandConfig$DisguiseCommand;>;

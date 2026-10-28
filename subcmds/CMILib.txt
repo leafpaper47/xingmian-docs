@@ -1,0 +1,149 @@
+# CMILib  (CMILib1.5.9.9.jar)
+## 注册指令
+  /cmil  usage=None desc='basic command' alias=None perm=None
+
+## 代码类
+  net.Zrips.CMILib.Chat.ShadowCommand
+  net.Zrips.CMILib.Chat.ShadowCommandInfo
+  net.Zrips.CMILib.Chat.ShadowCommandType
+  net.Zrips.CMILib.commands.CAnnotation
+  net.Zrips.CMILib.commands.Cmd
+  net.Zrips.CMILib.commands.CMICommand
+  net.Zrips.CMILib.commands.CommandsHandler$1
+  net.Zrips.CMILib.commands.CommandsHandler
+  net.Zrips.CMILib.commands.Void
+  net.Zrips.CMILib.commands.list.clearcache
+  net.Zrips.CMILib.commands.list.compatibility
+  net.Zrips.CMILib.commands.list.reload
+  net.Zrips.CMILib.Container.CMICommands
+  net.Zrips.CMILib.Container.CMICommandSender$commandSenderType
+  net.Zrips.CMILib.Container.CMICommandSender
+  net.Zrips.CMILib.Container.CommandType
+  net.Zrips.CMILib.GUI.GUIButtonCommand
+  net.Zrips.CMILib.RawMessages.RawMessageCommand
+  net.Zrips.CMILib.Shadow.ShadowCommand
+  net.Zrips.CMILib.Shadow.ShadowCommandInfo
+  net.Zrips.CMILib.Shadow.ShadowCommandListener$1
+  net.Zrips.CMILib.Shadow.ShadowCommandListener
+  net.Zrips.CMILib.Shadow.ShadowCommandType
+
+## javap 字符串 token
+  acmd booltest bossbar bytetest cmil commandblock compatibility console failedconfig failedlocale feedback first gui help i inttest invalid issued longtest notfinished player rank rcon rmc second shadowcmd shorttest silent stringtest subtitle test title warmup
+
+## 文本资源里的帮助/用法行
+  · website: https://www.spigotmc.org/resources/cmilib.87610/
+
+## 常量池帮助/描述文本
+  · net/Zrips/CMILib/Chat/ShadowCommand
+  · net/Zrips/CMILib/Chat/ShadowCommandInfo
+  · Ljava/util/HashMap<Ljava/lang/String;Lnet/Zrips/CMILib/Chat/ShadowCommandInfo;>;
+  · Lnet/Zrips/CMILib/Chat/ShadowCommand;
+  · Lnet/Zrips/CMILib/Chat/ShadowCommandType;
+  · Lnet/Zrips/CMILib/Chat/ShadowCommandInfo;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lnet/Zrips/CMILib/Chat/ShadowCommandInfo;>;
+  · net/Zrips/CMILib/Chat/ShadowCommandType
+  · Ljava/lang/Enum<Lnet/Zrips/CMILib/Chat/ShadowCommandType;>;
+  · net/Zrips/CMILib/commands/CAnnotation
+  · Lnet/Zrips/CMILib/commands/Void;
+  · net/Zrips/CMILib/commands/Cmd
+  · net/Zrips/CMILib/commands/CMICommand
+  · Lnet/Zrips/CMILib/commands/Cmd;
+  · Lnet/Zrips/CMILib/commands/CAnnotation;
+  · net/Zrips/CMILib/CMILib
+  · net/Zrips/CMILib/Locale/Language
+  · net/Zrips/CMILib/Container/CommandType
+  · Lnet/Zrips/CMILib/Container/CommandType;
+  · net/Zrips/CMILib/Messages/CMIMessages
+  · net/Zrips/CMILib/Version/Version
+  · net/Zrips/CMILib/Version/Schedulers/CMIScheduler
+  · Lnet/Zrips/CMILib/commands/CMICommand;
+  · net/Zrips/CMILib/commands/CommandsHandler$1
+  · Lnet/Zrips/CMILib/commands/CommandsHandler$1;
+  · net/Zrips/CMILib/commands/CommandsHandler
+  · Lnet/Zrips/CMILib/CMILib;
+  · net/Zrips/CMILib/Container/CMICommandSender
+  · net/Zrips/CMILib/RawMessages/RawMessageManager
+  · net/Zrips/CMILib/Container/CMIArray
+  · net/Zrips/CMILib/Permissions/CMILPerm
+  · Lnet/Zrips/CMILib/Permissions/CMILPerm;
+  · net/Zrips/CMILib/CMILibConfig
+  · net/Zrips/CMILib/RawMessages/RawMessage
+  · net/Zrips/CMILib/Locale/LC
+  · Lnet/Zrips/CMILib/Locale/LC;
+  · net/Zrips/CMILib/Locale/Snd
+  · net/Zrips/CMILib/commands/Void
+  · net/Zrips/CMILib/Chat/ChatEditorManager
+  · net/Zrips/CMILib/Colors/CMIChatColor
+  · Lnet/Zrips/CMILib/Colors/CMIChatColor;
+  · net/Zrips/CMILib/Container/PageInfo
+  · Ljava/util/Map<Ljava/lang/String;Lnet/Zrips/CMILib/commands/CMICommand;>;
+  · Lnet/Zrips/CMILib/commands/CommandsHandler;
+  · Lnet/Zrips/CMILib/RawMessages/RawMessage;
+  · Lnet/Zrips/CMILib/Locale/Snd;
+  · Lnet/Zrips/CMILib/Container/CMICommandSender;
+  · Ljava/lang/Class<+Lnet/Zrips/CMILib/commands/Cmd;>;
+  · Lnet/Zrips/CMILib/Container/PageInfo;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lnet/Zrips/CMILib/commands/CMICommand;>;
+  · Lnet/Zrips/CMILib/FileHandler/ConfigReader;
+  · net/Zrips/CMILib/Items/ItemManager
+  · net/Zrips/CMILib/Entities/CMIEntityType
+  · net/Zrips/CMILib/Images/CMIImage
+  · net/Zrips/CMILib/Skins/SkinManager
+  · net/Zrips/CMILib/commands/list/clearcache
+  · Lnet/Zrips/CMILib/commands/list/clearcache;
+  · net/Zrips/CMILib/Reflections
+  · net/Zrips/CMILib/Container/CMIServerProperties
+  · Lnet/Zrips/CMILib/Container/CMIServerProperties;
+  · net/Zrips/CMILib/Items/CMIMaterial
+  · Lnet/Zrips/CMILib/Items/CMIMaterial;
+  · net/Zrips/CMILib/NBT/CMINBT
+  · Lnet/Zrips/CMILib/Version/Version;
+  · net/Zrips/CMILib/TitleMessages/CMITitleMessage
+  · net/Zrips/CMILib/ActionBar/CMIActionBar
+  · net/Zrips/CMILib/Scoreboards/CMIScoreboard
+  · net/Zrips/CMILib/Advancements/CMIAdvancement
+  · net/Zrips/CMILib/Effects/CMIEffect
+  · net/Zrips/CMILib/Effects/CMIEffectManager$CMIParticle
+  · Lnet/Zrips/CMILib/Effects/CMIEffectManager$CMIParticle;
+  · net/Zrips/CMILib/BossBar/BossBarManager
+  · net/Zrips/CMILib/BossBar/BossBarInfo
+  · net/Zrips/CMILib/Advancements/AdvancementBackground
+  · Lnet/Zrips/CMILib/Advancements/AdvancementBackground;
+  · net/Zrips/CMILib/Advancements/AdvancementFrameType
+  · Lnet/Zrips/CMILib/Advancements/AdvancementFrameType;
+  · net/Zrips/CMILib/Container/CMINumber
+  · net/Zrips/CMILib/Items/CMIItemStack
+  · net/Zrips/CMILib/commands/list/compatibility
+  · Lnet/Zrips/CMILib/commands/list/compatibility;
+  · Lnet/Zrips/CMILib/NBT/CMINBT;
+  · Lnet/Zrips/CMILib/Advancements/CMIAdvancement;
+  · Lnet/Zrips/CMILib/Reflections;
+  · Lnet/Zrips/CMILib/BossBar/BossBarInfo;
+  · net/Zrips/CMILib/Effects/CMIEffectManager
+  · net/Zrips/CMILib/FileHandler/ConfigReader
+  · net/Zrips/CMILib/commands/list/reload
+  · Lnet/Zrips/CMILib/commands/list/reload;
+  · net/Zrips/CMILib/Container/CMICommands
+  · Lnet/Zrips/CMILib/Container/CMICommands;
+  · net/Zrips/CMILib/Container/CMICommandSender$commandSenderType
+  · Lnet/Zrips/CMILib/Container/CMICommandSender$commandSenderType;
+  · Ljava/lang/Enum<Lnet/Zrips/CMILib/Container/CMICommandSender$commandSenderType;>;
+  · Ljava/lang/Enum<Lnet/Zrips/CMILib/Container/CommandType;>;
+  · net/Zrips/CMILib/GUI/GUIButtonCommand
+  · Lnet/Zrips/CMILib/GUI/GUIButtonCommand;
+  · net/Zrips/CMILib/RawMessages/RawMessageCommand
+  · Lnet/Zrips/CMILib/RawMessages/RawMessageCommand;
+  · net/Zrips/CMILib/Shadow/ShadowCommand
+  · net/Zrips/CMILib/Shadow/ShadowCommandInfo
+  · Ljava/util/HashMap<Ljava/util/UUID;Lnet/Zrips/CMILib/Shadow/ShadowCommand;>;
+  · Ljava/util/HashMap<Ljava/lang/String;Lnet/Zrips/CMILib/Shadow/ShadowCommandInfo;>;
+  · Lnet/Zrips/CMILib/Shadow/ShadowCommandType;
+  · Lnet/Zrips/CMILib/Shadow/ShadowCommand;
+  · net/Zrips/CMILib/Shadow/ShadowCommandType
+  · Lnet/Zrips/CMILib/Shadow/ShadowCommandInfo;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lnet/Zrips/CMILib/Shadow/ShadowCommandInfo;>;
+  · net/Zrips/CMILib/Shadow/ShadowCommandListener$1
+  · net/Zrips/CMILib/Shadow/ShadowCommandListener
+  · net/Zrips/CMILib/Placeholders/Placeholder
+  · Lnet/Zrips/CMILib/Shadow/ShadowCommandListener;
+  · Ljava/lang/Enum<Lnet/Zrips/CMILib/Shadow/ShadowCommandType;>;

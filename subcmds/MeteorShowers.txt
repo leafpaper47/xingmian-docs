@@ -1,0 +1,18 @@
+# MeteorShowers  (MeteorShowers-v7-fix.jar)
+## 注册指令
+  /meteorshowers  usage='/meteorshowers <toggle|reload|summon> [player]' desc='Manage meteor showers (toggle, reload, summon)' alias=['ms', 'meteor'] perm='meteorshowers.admin'
+
+## 代码类
+  ai.polafy.meteorshowers.commands.MeteorshowersCommand
+
+## javap 字符串 token
+  enabled no-permission no-players player-not-found reload reloaded summon summoned toggle toggled-off toggled-on
+
+## 文本资源里的帮助/用法行
+  · usage: /meteorshowers <toggle|reload|summon> [player]
+
+## 常量池帮助/描述文本
+  · ai/polafy/meteorshowers/commands/MeteorshowersCommand
+  · Lai/polafy/meteorshowers/MeteorShowers;
+  · ai/polafy/meteorshowers/MeteorShowers
+  · ai/polafy/meteorshowers/managers/MeteorManager

@@ -1,0 +1,99 @@
+# EliteMobs  (EliteMobs.jar)
+## 注册指令
+  /elitemobs  usage='/elitemobs <on|off|toggle|status|reload|spawn>' desc='EliteMobs 管理命令（含 spawn 刷怪）' alias=['elite', 'em'] perm='elitemobs.admin'
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · # ==================== EliteMobs 配置 ====================
+  · # 总开关：false 时精英机制完全停用（可用 /elitemobs on|off 切换，持久化）
+  · # 世界限制：仅这些世界会生成精英怪
+  · # 精英化总概率（0~1）
+  · # 距离分段精英概率（可选）：按生成点距世界原点(0,0)的水平距离 sqrt(x^2+z^2) 取值
+  · # 分段内：min_distance <= 距离 <= max_distance（max_distance 为 -1 表示无上限）
+  · # enabled 为 false 或未配置该段时，回退到全局 spawn_chance（旧行为）
+  · chance: 0.0        # 距原点 500 格内：不生成精英怪（纯原版）
+  · chance: 0.20       # 500~1000 格：20% 概率精英化
+  · chance: 0.50       # 1000 格外：50% 概率精英化（同原全局概率）
+  · # 各等级权重（相对权重，总和自动归一化）
+  · # 允许参与精英判定的生成原因（默认自然生成 + 僵尸增援）
+  · # ==================== 刷怪塔排除规则 ====================
+  · # 满足任一条件则该位置不生成精英怪（普通怪不受影响）
+  · # 上方 N 格内有方块（不可穿过）则不生成；0=关闭
+  · # 方块亮度为 0 则不生成
+  · # 生成高度超过此值则不生成（y > 该值）；-1=关闭
+  · # 高频生成密度识别（方案B）：同一格子在窗口时间内生成数达到阈值，判为刷怪塔跳过精英化。
+  · # 专门兜住露天/半开放/低亮度下的刷怪塔（如海上无顶平台），不误伤野外自然怪。
+  · # cell_size：坐标网格边长（格），默认 16 即按一个区块（16x16x16）统计
+  · window_seconds: 120    # 统计窗口（秒）
+  · threshold: 10          # 窗口内生成数达到该值判为刷怪塔
+  · max_entries: 20        # 单格记录条数上限（防内存膨胀）
+  · # 精英怪最大血量上限（含增援叠加）
+  · # ==================== 等级属性 ====================
+  · # 血量倍率 / 攻击倍率 / 移速倍率 / 经验倍率
+  · # 晶核掉落：core_id 为 CE 物品，core_chance 为概率（0~1）
+  · # 二等僵尸拆方块：每 5 秒拆一个
+  · # 拆方块 AI（改动2）：
+  · #   规则一：玩家高于怪物（Y 差 > above_threshold 且水平距离 <= max_range）时挖玩家脚下方块
+  · #   规则二：怪物周围 6 方向中 >= trap_faces 面为实体方块视为被困，拆自身周围 trap_radius 格脱困
+  · #   都不满足则保持随机拆（radius 半径内）；所有目标均校验 chunk 加载 / Y 钳制 / 容器黑名单
+  · interval_ticks: 100       # 20 tick = 1 秒，100 = 5 秒
+  · above_threshold: 4        # 规则一：玩家高于怪物的 Y 差阈值（格）
+  · max_range: 8              # 规则一：与玩家水平距离上限（格）
+  · trap_faces: 3             # 规则二：被困判定所需实体方块面数（6 方向中，>= 该值判为被困）
+  · trap_radius: 1            # 规则二：被困时脱困挖掘半径（格）
+  · scale_multiplier: 1.5        # 体型放大倍率（原值1.5倍），攻击距离随缩放联动
+  · # 三等怪：击退免疫 + 持续粒子特效
+  · # 三等僵尸拆方块：每 2 秒拆一个（比二等快）
+  · # 拆方块 AI（改动2）：
+  · #   规则一：玩家高于怪物（Y 差 > above_threshold 且水平距离 <= max_range）时挖玩家脚下方块
+  · #   规则二：怪物周围 6 方向中 >= trap_faces 面为实体方块视为被困，拆自身周围 trap_radius 格脱困
+  · #   都不满足则保持随机拆（radius 半径内）；所有目标均校验 chunk 加载 / Y 钳制 / 容器黑名单
+  · interval_ticks: 40        # 40 = 2 秒
+  · above_threshold: 4        # 规则一：玩家高于怪物的 Y 差阈值（格）
+  · max_range: 8              # 规则一：与玩家水平距离上限（格）
+  · trap_faces: 3             # 规则二：被困判定所需实体方块面数（6 方向中，>= 该值判为被困）
+  · trap_radius: 1            # 规则二：被困时脱困挖掘半径（格）
+  · # 召唤一等怪机制
+  · interval_ticks: 200        # 每多少 tick 尝试召唤一次
+  · chance: 0.5                # 每次尝试召唤概率
+  · max_nearby: 5              # 该三等怪周围 16 格内精英怪数量上限
+  · radius: 10                  # 召唤出生半径
+  · summon_level: 2            # 召唤的精英等级（默认一等）
+  · # ==================== 通用额外掉落 ====================
+  · # 所有精英怪死亡时按概率额外掉落（与等级晶核独立）
+  · # 字段说明：
+  · #   id: CE 物品 ID（default:xxx）；"XP" 表示直接给经验
+  · #   chance: 掉落概率（0~1）
+  · #   amount: 数量
+  · #   require_zombie: 仅僵尸类精英掉落
+  · #   require_level: 至少达到该等级才掉落（可选）
+  · # ==================== 末影龙 Boss 战（远古.末影黑龙） ====================
+  · # 原版龙息 -> 真实伤害（无视护甲/附魔，DamageType=MAGIC 属真伤，归属实体为龙）
+  · # 喷火 -> 真实伤害（粒子 FLAME/SOUL_FIRE_FLAME + 锥形范围判定）
+  · # 燃烧 -> 保持原版规则（护甲/火焰附魔正常结算），仅作为喷火附带效果
+  · # 伤害换算说明（1 心 = 2 点伤害）：
+  · #   龙息：龙息云每 breathe_reapplication_ticks(默认10tick=0.5s) 结算一次，
+  · #         每次伤害 = 每秒心数*2*reapplication_ticks/20
+  · #         默认 1.0*2*10/20 = 1 点/次，每秒 2 次 => 每秒 2 点 = 1 心
+  · #   喷火：每 fire_interval_ticks(默认40tick=2s) 触发一次，
+  · #         每次伤害 = 每秒心数*2*interval_ticks/20
+  · #         默认 1.5*2*40/20 = 6 点/次，每 2 秒一次 => 每秒 3 点 = 1.5 心
+  · breathe_damage_per_sec_hearts: 1.0     # 龙息真实伤害：每秒 X 心（1心=2点）
+  · breathe_range: 12                      # 龙息范围半径（格）
+  · breathe_reapplication_ticks: 10        # 龙息云每次结算间隔（tick），原版龙息默认 10（0.5秒）
+  · fire_damage_per_sec_hearts: 1.5        # 喷火真实伤害：每秒 X 心（1心=2点）
+  · fire_range: 12                         # 喷火范围半径（格）
+  · fire_interval_ticks: 40                # 喷火触发间隔（tick，40=2秒）
+  · fire_burn_seconds: 3                   # 喷火附带燃烧秒数（燃烧伤害走原版规则，非真伤）
+  · fire_particles: true                   # 喷火粒子（FLAME/SOUL_FIRE_FLAME）开关
+  · description: 星冕服务器精英怪插件（替代 strong_mobs.sk）
+  · description: EliteMobs 管理命令（含 spawn 刷怪）
+  · usage: /elitemobs <on|off|toggle|status|reload|spawn>
+  · description: 管理 EliteMobs（开关/重载/刷怪）
+
+## 常量池帮助/描述文本

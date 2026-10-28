@@ -1,0 +1,1566 @@
+[
+ {
+  "c": "io.lumine.mythic.bukkit.commands.BaseCommand",
+  "strs": [
+   "&e/mm &fmobs &7? &7&oMob-related commands\r",
+   "&e/mm &fitems &7? &7&oItems-related commands\r",
+   "&e/mm &fskills &7? &7&oSkill-related commands\r",
+   "&e/mm &fspawners &7? &7&oSpawner-related commands\r",
+   "&e/mm &futility &7? &7&oSome helpful utility commands\r",
+   "&e/mm &amenu &7? &7&oOpen the main menu\r",
+   "&e/mm &areload &7? &7&oReloads all configuration files and mobs\r",
+   "&e/mm &adebug &6[level] &7? &7&oEnables console debugging output\r",
+   "&e/mm &aversion &7? &7&oPlugin version information\r",
+   "&e/mm &fmobs &7? &7&oMob-related commands\r",
+   "&e/mm &fitems &7? &7&oItems-related commands\r",
+   "&e/mm &fskills &7? &7&oSkill-related commands\r",
+   "&e/mm &fspawners &7? &7&oSpawner-related commands\r",
+   "&e/mm &futility &7? &7&oSome helpful utility commands\r",
+   "&e/mm &areload &7? &7&oReloads all configuration files and mobs\r",
+   "&e/mm &adebug &6[level] &7? &7&oEnables console debugging output\r",
+   "&e/mm &aversion &7? &7&oPlugin version information\r",
+   "mythicmobs.command.base\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.CameraCommand",
+  "strs": [
+   "hold\r",
+   "h\r",
+   "easing\r",
+   "e\r",
+   "relative\r",
+   "r\r",
+   "rel\r",
+   "index\r",
+   "i\r",
+   "add\r",
+   "remove\r",
+   "Added keyframe to \\'\r",
+   "\\'\r",
+   "(appended)\r",
+   ". Now\r",
+   " points\r",
+   ", hold=\r",
+   ", easing=\r",
+   ", relative\r",
+   "(last point)\r",
+   "add\r",
+   "remove\r",
+   "easing\r",
+   "e\r",
+   "relative\r",
+   "r\r",
+   "rel\r",
+   "hold\r",
+   "h\r",
+   "index\r",
+   "i\r",
+   "true\r",
+   "false\r",
+   "add\r",
+   "add\r",
+   "hold=\r",
+   "easing=\r",
+   "relative=true\r",
+   "mythicmobs.command.camera\r",
+   "camera\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.CommandHelper",
+  "strs": [
+   "<yellow><strikethrough>-------------<gold>========</strikethrough> <bold><gradient:#20DAE9:#2815EC>Mythic</gradient></bold> <strikethrough><gold>========<yellow>-------------</strikethrough>\r",
+   "<yellow><strikethrough>-----------------</strikethrough> <gradient:#20DAE9:#2815EC>www.mythiccraft.io</gradient> <yellow><strikethrough>-----------------</strikethrough>\r",
+   "<bold><gray>[<gradient:#20DAE9:#2815EC>Mythic</gradient><gray>]</bold>\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.InfoCommand",
+  "strs": [
+   "mythicmobs.command.info\r",
+   "info\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.ReloadCommand",
+  "strs": [
+   "Plugin is already reloading...\r",
+   "-\r",
+   "-a\r",
+   "-p\r",
+   "command.reload.started\r",
+   "Reloading plugin...\r",
+   "command.reload.started\r",
+   "Reloading plugin...\r",
+   "command.reload.started\r",
+   "Reloading plugin...\r",
+   "An error occurred while reloading!\r",
+   "mythicmobs.command.reload\r",
+   "reload\r",
+   "r\r",
+   "re\r",
+   "An error occurred while reloading!\r",
+   "An error occurred while reloading active mobs!\r",
+   "An error occurred while reloading player data!\r",
+   "An error occurred while reloading!\r",
+   "An error occurred while reloading!\r",
+   "command.reload.completed\r",
+   "Mythic has finished reloading!\r",
+   "command.reload.completed\r",
+   "Mythic has finished reloading!\r",
+   "command.reload.completed\r",
+   "Mythic has finished reloading!\r",
+   "command.reload.completed\r",
+   "Mythic has finished reloading!\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.SaveCommand",
+  "strs": [
+   "mythicmobs.command.save\r",
+   "save\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.SignalCommand",
+  "strs": [
+   "mythicmobs.signal\r",
+   "mythicmobs.command.signal\r",
+   "signal\r",
+   "si\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.VersionCommand",
+  "strs": [
+   "SNAPSHOT\r",
+   "&aYes\r",
+   "&aNo\r",
+   "&aYes\r",
+   "&cNo\r",
+   "&cNo\r",
+   "&aYes\r",
+   "mythicmobs.command.version\r",
+   "version\r",
+   "ver\r",
+   "v\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.debug.DebugCommand",
+  "strs": [
+   "  &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional\r",
+   "&e/mm d &3[level] &7? &7&oSets debug reporting. Can be between 0 and 4 (0=off,4=too much info).\r",
+   "&e/mm d &fmode &6[true/false] &7? &7&oSets debug mode on or off. See plugin manual for details).\r",
+   "&e/mm d &ftimings &7? &7&oShow basic timing information (timings must be on first).\r",
+   "&e/mm d &ftimings &3[on/off] &7? &7&oTurns timings on/off.\r",
+   "&e/mm d &ftimings skills &7? &7&oShows skill-specific timings in the console.\r",
+   "&e/mm d &ftimings spawners &7? &7&oShows spawner-specific timings in the console.\r",
+   "Debug Level must be an integer (1-5).\r",
+   "mythicmobs.command.debug\r",
+   "debug\r",
+   "d\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.debug.TimingsCommand",
+  "strs": [
+   "ON\r",
+   "OFF\r",
+   "RESET\r",
+   "SPAWNERS\r",
+   "Spawner Timings\r",
+   "-- All Spawners:\r",
+   "** %32s %8d ms - %4d pS %4d pC %4d pOverall)\r",
+   "SKILLS\r",
+   " AbstractSkill Timings\r",
+   "-- All Timer Skills:\r",
+   "** %64s %8d ms - %4d pS %4d pC %4d pOverall)\r",
+   "mythicmobs.command.debug.timings\r",
+   "timings\r",
+   "t\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.debug.ToggleClockCommand",
+  "strs": [
+   "Clocks Disabled\r",
+   "Clocks Enabled\r",
+   "mythicmobs.command.debug\r",
+   "toggleclock\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.debug.ToggleNewCommand",
+  "strs": [
+   "Debugger Disabled\r",
+   "Debugger Enabled\r",
+   "mythicmobs.command.debug\r",
+   "new\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.dialogs.DialogsCommand",
+  "strs": [
+   "mythicmobs.command.dialogs\r",
+   "dialogs\r",
+   "dialog\r",
+   "dl\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.dialogs.ListDialogsCommand",
+  "strs": [
+   "No dialog definitions loaded.\r",
+   "mythicmobs.command.dialogs.list\r",
+   "list\r",
+   "l\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.dialogs.ShowDialogCommand",
+  "strs": [
+   "Usage: /mm dialogs show <dialog> [player]\r",
+   "Dialogs require Mythic Premium.\r",
+   "Specify a player: /mm dialogs show <dialog> <player>\r",
+   "Failed to build showDialog mechanic.\r",
+   "mythicmobs.command.dialogs.show\r",
+   "show\r",
+   "s\r",
+   "open\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.eggs.EggsCommand",
+  "strs": [
+   "  &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional\r",
+   "/mm egg get &6[mob] &3<amount> &7? &7&oGives you mob eggs\r",
+   "/mm egg give &6[player] &6[mob] &3<amount> &7? &7&oGives player some mob eggs\r",
+   "mythicmobs.command.eggs\r",
+   "egg\r",
+   "eggs\r",
+   "e\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.eggs.GetCommand",
+  "strs": [
+   "Command Syntax: /mm egg get <mob_name> [amount]\r",
+   "Could not get egg: inventory is full.\r",
+   "mythicmobs.command.eggs.get\r",
+   "get\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.eggs.GiveCommand",
+  "strs": [
+   "-\r",
+   "s\r",
+   "Command Syntax: /mm egg give <name> <mob_name> [amount]\r",
+   "Amount provided is not a number\r",
+   "That player is not online\r",
+   "-\r",
+   "mythicmobs.command.eggs.give\r",
+   "give\r",
+   "g\r",
+   "gi\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.BrowseCommand",
+  "strs": [
+   "This feature requires MythicMobs Premium\r",
+   "mythicmobs.command.items.browse\r",
+   "browse\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.EnchantCommand",
+  "strs": [
+   "Syntax: /mm item enchant <name> [level]\r",
+   "Level must be an integer.\r",
+   "You must be holding a valid item!\r",
+   "You must enter a valid enchantment name!\r",
+   "Applied enchantment to held item!\r",
+   "Applied enchantment to held item!\r",
+   "mythicmobs.command.items.enchant\r",
+   "enchant\r",
+   "ench\r",
+   "e\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.ExportCommand",
+  "strs": [
+   "mythicmobs.command.items.export\r",
+   "export\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.GetCommand",
+  "strs": [
+   "Command Syntax: /mm item get <name>\r",
+   "Could not get item: item is improperly configured and returned null.\r",
+   "command.item.get.success\r",
+   "Item <aqua>{0} <green>was put in your inventory!\r",
+   "command.item.get.error.not-found\r",
+   "No Mythic Item loaded with the name {0}.\r",
+   "mythicmobs.command.items.get\r",
+   "get\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.GiveCommand",
+  "strs": [
+   "-\r",
+   "s\r",
+   "d\r",
+   "t\r",
+   "Command Syntax: /mm item give <name> <item>\r",
+   "That player is not online\r",
+   "mythicmobs.command.items.give\r",
+   "give\r",
+   "g\r",
+   "gi\r",
+   "Configuration.General.SendGiveItemFeedback\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.ImportCommand",
+  "strs": [
+   "You must specify a name for this item.\r",
+   "You must be holding an item to import.\r",
+   "items\r",
+   "Items\r",
+   "items\r",
+   ".yml\r",
+   "Failed to create new file for Item Import.\r",
+   "Failed to create new file for Item Import.\r",
+   "Material\r",
+   "Model\r",
+   "CustomModelData\r",
+   "CustomModelData\r",
+   "CustomModelData\r",
+   "Display\r",
+   "Lore\r",
+   "Damage\r",
+   "Enchantments\r",
+   "NBT\r",
+   "mythicmobs.command.items.import\r",
+   "import\r",
+   "<byte-array>\r",
+   "<int-array>\r",
+   "<compound>\r",
+   "<list>\r",
+   "#%02x%02x%02x\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.InfoCommand",
+  "strs": [
+   "mythicmobs.command.items.info\r",
+   "info\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.ItemsCommand",
+  "strs": [
+   "  &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional\r",
+   "&e/mm i &fbrowse &7? &7&oOpen Item Browser\r",
+   "&e/mm i &flist &3<filter> &7? &7&oList all loaded items\r",
+   "&e/mm i &finfo &6[name] &7? &7&oShow info about an item\r",
+   "&e/mm i &fget &6[name] &7? &7&oGive yourself an item\r",
+   "&e/mm i &fgive &3<-s> &6[player] &6[name] &3<amount> &7? &7&oGive a player an item\r",
+   "&e/mm i &fenchant &6[name] &6<level> &7? &7&oEnchant your held item\r",
+   "&e/mm i &fimport &6[name] &3<fileName> &7? &7&oImport your held item\r",
+   "mythicmobs.command.items\r",
+   "items\r",
+   "i\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.ListCommand",
+  "strs": [
+   "mythicmobs.command.items.list\r",
+   "list\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.edit.EditEnchantsCommand",
+  "strs": [
+   "This feature requires Mythic Premium\r",
+   "Invalid Item Name\r",
+   "Type in the Enchantment you\\'d like to add.\r",
+   "Format: [enchantment_type] [amount]\r",
+   "Type cancel to abort editing.\r",
+   "Invalid Enchantment\r",
+   "mythicmobs.command.items.edit\r",
+   "enchants\r",
+   "Enchantments\r",
+   "<gray><bold>--------------------</bold>\r",
+   "cancel\r",
+   "Invalid enchantment supplied\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.edit.EditEnchantsCommand$EditAction",
+  "strs": [
+   "CLEAR\r",
+   "ADD\r",
+   "REMOVE\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.edit.EditLoreCommand",
+  "strs": [
+   "This feature requires Mythic Premium\r",
+   "Invalid Item Name\r",
+   "Type in the Lore line you\\'d like to add.\r",
+   "Type cancel to abort editing.\r",
+   "Invalid Line Number\r",
+   "mythicmobs.command.items.edit\r",
+   "lore\r",
+   "Lore\r",
+   "<gray><bold>--------------------</bold>\r",
+   "cancel\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.edit.EditLoreCommand$EditAction",
+  "strs": [
+   "CLEAR\r",
+   "ADD_LINE\r",
+   "REMOVE_LINE\r",
+   "MOVE_LINE_UP\r",
+   "MOVE_LINE_DOWN\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.edit.EditStatsCommand",
+  "strs": [
+   "This feature requires Mythic Premium\r",
+   "Invalid Item Name\r",
+   "Type in the stat you\\'d like to add.\r",
+   "Type cancel to abort editing.\r",
+   "Invalid index\r",
+   "mythicmobs.command.items.edit\r",
+   "stats\r",
+   "Lore\r",
+   "<gray><bold>--------------------</bold>\r",
+   "cancel\r",
+   "list\r",
+   "Format: [amount] [stat_name] <ADDITIVE/MULTIPLICATIVE/COMPOUND>\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.edit.EditStatsCommand$EditAction",
+  "strs": [
+   "CLEAR\r",
+   "ADD\r",
+   "REMOVE\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.items.edit.ItemEditCommand",
+  "strs": [
+   "This feature requires Mythic Premium\r",
+   "Invalid Item Name\r",
+   "mythicmobs.command.items.edit\r",
+   "edit\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.menus.ItemBrowserMenuCommand",
+  "strs": [
+   "This feature requires Mythic Premium\r",
+   "mythicmobs.command.items.browse\r",
+   "items\r",
+   "i\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.menus.MenuCommand",
+  "strs": [
+   "This feature requires MythicMobs Premium\r",
+   "mythicmobs.command.menu\r",
+   "menu\r",
+   "menus\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.menus.MobBrowserMenuCommand",
+  "strs": [
+   "This feature requires Mythic Premium\r",
+   "mythicmobs.command.mobs.browse\r",
+   "mobs\r",
+   "m\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.menus.OpenCommand",
+  "strs": [
+   "Custom Menus require Mythic Premium or MythicRPG\r",
+   "Custom menu not found.\r",
+   "custom\r",
+   "open\r",
+   "o\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.BrowseCommand",
+  "strs": [
+   "This feature requires Mythic Premium\r",
+   "mythicmobs.command.mobs.browse\r",
+   "browse\r",
+   "b\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.CleanCommand",
+  "strs": [
+   "mythicmobs.command.mobs.clean\r",
+   "clean\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.EditCommand",
+  "strs": [
+   "This feature requires Mythic Premium\r",
+   "mythicmobs.command.mobs.browse\r",
+   "edit\r",
+   "e\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.InfoCommand",
+  "strs": [
+   "Usage /mm m[obs] i[nfo] <internal-name>\r",
+   "mythicmobs.command.mobs.info\r",
+   "info\r",
+   "i\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.KillAllCommand",
+  "strs": [
+   "-\r",
+   "p\r",
+   "LITERALLY\r",
+   "mythicmobs.command.mobs.killall\r",
+   "killall\r",
+   "ka\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.KillCommand",
+  "strs": [
+   "-\r",
+   "p\r",
+   "e\r",
+   "v\r",
+   "f\r",
+   "Must supply mob type to kill (or use <yellow>killall<red>)\r",
+   "-\r",
+   "mythicmobs.command.mobs.kill\r",
+   "kill\r",
+   "k\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.ListActiveCommand",
+  "strs": [
+   "*\r",
+   "[0-9]*\r",
+   "&7- &eEntity is null\r",
+   "&7- &eType is null\r",
+   "&7[&aTP&7]\r",
+   "&7[&dTPHere&7]\r",
+   "&7[&cD&7]\r",
+   "&7[&cK&7]\r",
+   "&7[&bInfo&7]\r",
+   "mythicmobs.command.mobs.listactive\r",
+   "listactive\r",
+   "la\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.ListCommand",
+  "strs": [
+   "mythicmobs.command.mobs.list\r",
+   "list\r",
+   "l\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.MobsCommand",
+  "strs": [
+   "  &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional\r",
+   "&e/mm m &fbrowse &3<filter> &7? &7&oOpen mob browser (premium-only)\r",
+   "&e/mm m &flist &3<filter> &7? &7&oList all loaded Mythic Mobs\r",
+   "&e/mm m &finfo &6[type] &7? &7&oShow info about a mob type\r",
+   "&e/mm m &fkill &6[type] &7? &7&oKill all mobs of type [type]\r",
+   "&e/mm m &fkillall &3<radius> &7? &7&oRemove all active mobs\r",
+   "&e/mm m &fspawn &3<-t> &6[type] &3<amount> &3<w,x,y,z> &7? &7&oSpawn mobs\r",
+   "&e/mm m &fstats &7? &7&oShows stats about active mobs\r",
+   "mythicmobs.command.mobs\r",
+   "mobs\r",
+   "mob\r",
+   "m\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.SpawnCommand",
+  "strs": [
+   "You must specify a mob to spawn.\r",
+   "-\r",
+   "s\r",
+   "t\r",
+   "p\r",
+   "n\r",
+   "@\r",
+   "Invalid location targeter specified for spawning a mob.\r",
+   "Invalid location targeter specified for spawning a mob.\r",
+   ",\r",
+   "Invalid location specified for spawning a mob: location must be in format world,x,y,z,yaw,pitch\r",
+   "Invalid location specified for spawning a mob: world does not exist.\r",
+   ":\r",
+   ":\r",
+   "Invalid mob level supplied: must be a number.\r",
+   "Failed to spawn mob. See console for more details. If no error then you are in a mob spawning denied region.\r",
+   "-\r",
+   "mythicmobs.command.mobs.spawn\r",
+   "spawn\r",
+   "s\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.StatsCommand",
+  "strs": [
+   "<red>\r",
+   "<gold>Statistics<gray>:\r",
+   "mythicmobs.command.mobs.stats\r",
+   "stats\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.mobs.StatsCommand$MobStats",
+  "strs": []
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.AddPinCommand",
+  "strs": [
+   "-\r",
+   "s\r",
+   "mythicmobs.command.pins\r",
+   "createpin\r",
+   "addpin\r",
+   "cp\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.AddRegionCommand",
+  "strs": [
+   ",\r",
+   "No region selected. Use WorldEdit wand to select.\r",
+   "mythicmobs.command.pins\r",
+   "createregion\r",
+   "addregion\r",
+   "cr\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.ListPinsCommand",
+  "strs": [
+   "<gold><bold>List of Pins:\r",
+   "mythicmobs.command.pins.list\r",
+   "list\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.ListRegionsCommand",
+  "strs": [
+   "<gold><bold>Regions At This Location:\r",
+   "<gray>\r",
+   "mythicmobs.command.pins.list\r",
+   "listregions\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.MovePinCommand",
+  "strs": [
+   "Pin not found.\r",
+   "MultiPin does not support moving.\r",
+   "mythicmobs.command.pins\r",
+   "move\r",
+   "m\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.PinsCommand",
+  "strs": [
+   "mythicmobs.command.pins\r",
+   "pins\r",
+   "pin\r",
+   "p\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.RedefineRegionCommand",
+  "strs": [
+   "Region not found\r",
+   "No region selected. Use WorldEdit wand to select.\r",
+   "Region redefined\r",
+   "mythicmobs.command.pins\r",
+   "redefineregion\r",
+   "rdr\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.RemovePinCommand",
+  "strs": [
+   "-\r",
+   "s\r",
+   "Pin removed\r",
+   "Pin could not be removed\r",
+   "mythicmobs.command.pins\r",
+   "removepin\r",
+   "rp\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.RemoveRegionCommand",
+  "strs": [
+   "Region removed\r",
+   "Region could not be removed\r",
+   "mythicmobs.command.pins\r",
+   "removeregion\r",
+   "rr\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.SwapPinCommand",
+  "strs": [
+   "Pin 1 not found.\r",
+   "Pin 2 not found.\r",
+   "MultiPin does not support moving.\r",
+   "MultiPin does not support moving.\r",
+   "mythicmobs.command.pins\r",
+   "swap\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.TeleportCommand",
+  "strs": [
+   "Pin not found.\r",
+   "block.respawn_anchor.deplete\r",
+   "mythicmobs.command.pins\r",
+   "warp\r",
+   "teleport\r",
+   "tp\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.ToggleViewingPinsCommand",
+  "strs": [
+   "Pins now visible\r",
+   "Pins no longer visible\r",
+   "mythicmobs.command.pins\r",
+   "toggleviewing\r",
+   "tv\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.pins.WandCommand",
+  "strs": [
+   "Command Syntax: /mm pins wand <pack> <pin>\r",
+   "mythicmobs.command.pins\r",
+   "wand\r",
+   "w\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.skills.InfoCommand",
+  "strs": [
+   "Usage /mm s[kills] i[nfo] <internal-name>\r",
+   "mythicmobs.command.skills.info\r",
+   "info\r",
+   "i\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.skills.SkillsCommand",
+  "strs": [
+   "  &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional\r",
+   "&e/mm s &finfo &6[name] &7? &7&oShow info about a skill\r",
+   "mythicmobs.command.skills\r",
+   "skills\r",
+   "skill\r",
+   "sk\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.ActivateCommand",
+  "strs": [
+   "g:\r",
+   "*\r",
+   "*\r",
+   "?\r",
+   "?\r",
+   ".?\r",
+   "*\r",
+   ".*?\r",
+   "mythicmobs.command.spawners.activate\r",
+   "activate\r",
+   "a\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.AddConditionCommand",
+  "strs": [
+   "Invalid Syntax: <aqua>/mm spawners addcondition [spawner] [condition]\r",
+   "g:\r",
+   "The condition you entered was invalid!\r",
+   "*\r",
+   "The condition you entered was invalid!\r",
+   "*\r",
+   "?\r",
+   "?\r",
+   ".?\r",
+   "*\r",
+   ".*?\r",
+   "The condition you entered was invalid!\r",
+   "You must enter a valid Mythic Spawner ID. That one was not found!\r",
+   "The condition you entered was invalid!\r",
+   "mythicmobs.command.spawners.addcondition\r",
+   "addcondition\r",
+   "ac\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.AddConditionSpawnCommand",
+  "strs": [
+   "Invalid Syntax: <aqua>/mm spawners addspawncondition [spawner] [condition]\r",
+   "g:\r",
+   "The condition you entered was invalid!\r",
+   "*\r",
+   "The condition you entered was invalid!\r",
+   "*\r",
+   "?\r",
+   "?\r",
+   ".?\r",
+   "*\r",
+   ".*?\r",
+   "The condition you entered was invalid!\r",
+   "You must enter a valid Mythic Spawner ID. That one was not found!\r",
+   "The condition you entered was invalid!\r",
+   "mythicmobs.command.spawners.addcondition\r",
+   "addspawncondition\r",
+   "asc\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.CopyCommand",
+  "strs": [
+   "You must enter the name of a spawner to copy.\r",
+   "You must enter a valid Mythic Spawner to copy!\r",
+   "You must enter a name for the new spawner.\r",
+   "The name you entered for a new spawner is already in use!\r",
+   "You must target a valid block to place the spawner!\r",
+   "New spawner was cloned successfully!\r",
+   "mythicmobs.command.spawners.copy\r",
+   "copy\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.CreateCommand",
+  "strs": [
+   "-\r",
+   "p\r",
+   "You must enter a name for the spawner.\r",
+   "Spawner name must resolve to a unique hashcode.\r",
+   ":\r",
+   ":\r",
+   "Invalid mob level supplied: must be an integer or range (1, 2to5, etc).\r",
+   "You must enter a Mythic Mob for the spawner to spawn.\r",
+   "You must enter a valid Mythic Mob. That one was not found!\r",
+   ",\r",
+   "Invalid location specified for spawner: location must be in format world,x,y,z\r",
+   "Invalid location specified for spawner: location must be in format world,x,y,z\r",
+   "You must target a valid block to place the spawner!\r",
+   "Spawner creation failed: spawner name is probably already taken!\r",
+   "mythicmobs.command.spawners.create\r",
+   "create\r",
+   "cr\r",
+   "c\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.CutCommand",
+  "strs": [
+   "You must enter a pattern of spawners to cut.\r",
+   "Your entry returned no spawners to cut.\r",
+   "mythicmobs.command.spawners.cut\r",
+   "cut\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.FindCommand",
+  "strs": [
+   "(\\\\d+\\\\.\\\\d+)\r",
+   "(\\\\d+)\r",
+   "mythicmobs.command.spawners.find\r",
+   "find\r",
+   "listnear\r",
+   "ln\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.InfoCommand",
+  "strs": [
+   "<gold>Activation Conditions<gray>:\r",
+   "<gold>Spawn Conditions<gray>:\r",
+   "<gold>Mobs Associated with Spawner</gold><white>:\r",
+   "&7[&aTP&7]\r",
+   "&7[&bInfo&7]\r",
+   "&7[&cD&7]\r",
+   "&7[&dTPHERE&7]\r",
+   "mythicmobs.command.spawners.info\r",
+   "info\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.MoveCommand",
+  "strs": [
+   "-\r",
+   "p\r",
+   "You must enter the name of a spawner to move.\r",
+   "You must enter a valid Mythic Spawner to move!\r",
+   "You must target a valid block to move the spawner!\r",
+   "mythicmobs.command.spawners.move\r",
+   "move\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.PasteCommand",
+  "strs": [
+   "Spawners pasted from the clipboard!\r",
+   "There are no spawners to paste in the clipboard (or an error occured!)\r",
+   "mythicmobs.command.spawners.paste\r",
+   "paste\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.RemoveCommand",
+  "strs": [
+   "You must enter the name of a mob spawner to remove!\r",
+   "g:\r",
+   "*\r",
+   "?\r",
+   "?\r",
+   ".?\r",
+   "*\r",
+   ".*?\r",
+   "The spawner entered does not exist!\r",
+   "Spawner was removed successfully!\r",
+   "mythicmobs.command.spawners.remove\r",
+   "remove\r",
+   "re\r",
+   "delete\r",
+   "r\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.RemoveConditionCommand",
+  "strs": [
+   "Invalid Syntax: <aqua>/mm spawners removecondition [spawner] [condition]\r",
+   "g:\r",
+   "The condition you entered was invalid!\r",
+   "*\r",
+   "The condition you entered was invalid!\r",
+   "*\r",
+   "?\r",
+   "?\r",
+   ".?\r",
+   "*\r",
+   ".*?\r",
+   "The condition you entered was invalid!\r",
+   "You must enter a valid Mythic Spawner ID. That one was not found!\r",
+   "The condition you entered was invalid!\r",
+   "mythicmobs.command.spawners.removecondition\r",
+   "removecondition\r",
+   "rc\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.RemoveConditionSpawnCommand",
+  "strs": [
+   "Invalid Syntax: <aqua>/mm spawners removespawncondition [spawner] [condition]\r",
+   "g:\r",
+   "The condition you entered was invalid!\r",
+   "*\r",
+   "The condition you entered was invalid!\r",
+   "*\r",
+   "?\r",
+   "?\r",
+   ".?\r",
+   "*\r",
+   ".*?\r",
+   "The condition you entered was invalid!\r",
+   "You must enter a valid Mythic Spawner ID. That one was not found!\r",
+   "The condition you entered was invalid!\r",
+   "mythicmobs.command.spawners.removecondition\r",
+   "removespawncondition\r",
+   "rsc\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.ResetTimersCommand",
+  "strs": [
+   "g:\r",
+   "*\r",
+   "*\r",
+   "?\r",
+   "?\r",
+   ".?\r",
+   "*\r",
+   ".*?\r",
+   "mythicmobs.command.spawners.resettimers\r",
+   "resettimers\r",
+   "rt\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.SetCommand",
+  "strs": [
+   "&6--====|||| &c&lMythicMobs &6||||====--\r",
+   "g:\r",
+   "*\r",
+   "*\r",
+   "?\r",
+   "?\r",
+   ".?\r",
+   "*\r",
+   ".*?\r",
+   "mythicmobs.command.spawners.set\r",
+   "set\r",
+   "s\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.SpawnersCommand",
+  "strs": [
+   "2\r",
+   "  &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional\r",
+   "&e/mm s &fcreate &6[name] &6[mob] &3<w,x,y,z> &7? &7&oCreate a mob spawner.\r",
+   "&e/mm s &fdelete &6[name] &7? &7&oRemove a mob spawner.\r",
+   "&e/mm s &finfo &6[name] &7? &7&oShow info about a spawner.\r",
+   "&e/mm s &ffind &3<radius> &7? &7&oList nearby spawners\r",
+   "&e/mm s &factivate &6[name] &7? &7&o Force-ticks a spawner.\r",
+   "&e/mm s &fset &6[name] &6[attribute] &6[value] &7? &7&oModify spawner attributes.\r",
+   "&e/mm s &faddcondition &6[name] &6[condition] &6[value] &7? &7&oAdds a condition to a spawner.\r",
+   "&e/mm s &fremovecondition &6[name] &6[condition] &7? &7&oRemoves a condition from a spawner.\r",
+   "&6&L ** Page 1 of 2\r",
+   "  &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional\r",
+   "&e/mm s &fmove &6[name] &7? &7&oMoves the spawner to the location you are looking at.\r",
+   "&e/mm s &fcopy &6[name] &6[copyName] &7? &7&oTurns the block you\\'re looking at into a copy of a mob spawner.\r",
+   "&e/mm s &fcut &6[name] &7? &7&oCuts the given spawners and saves them to the clipboard.\r",
+   "&e/mm s &fpaste &6[name] &7? &7&oPastes spawners in your clipboard based on your relative location.\r",
+   "&e/mm s &fundo &7? &7&oUndo the last clipboard-related change you\\'ve done (clipboard must still have spawners in it for this to work)\r",
+   "&6&L ** Page 2 of 2\r",
+   "mythicmobs.command.spawners\r",
+   "spawners\r",
+   "s\r",
+   "sp\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.spawners.UndoCommand",
+  "strs": [
+   "Last spawner clipboard changes undone!\r",
+   "There are no spawners in the clipboard to undo an action on!\r",
+   "mythicmobs.command.spawners.undo\r",
+   "undo\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.test.AddThreatCommand",
+  "strs": [
+   "Amount must be a number.\r",
+   "Failed to add threat to target mob.\r",
+   "mythicmobs.command.test.addthreat\r",
+   "addthreat\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.test.CastCommand",
+  "strs": [
+   "-\r",
+   "-s\r",
+   "-\r",
+   "-s\r",
+   "mythicmobs.command.test.cast\r",
+   "cast\r",
+   "c\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.test.MechanicCommand",
+  "strs": [
+   "-\r",
+   "s\r",
+   "d\r",
+   "Invalid line supplied\r",
+   "mythicmobs.command.test.mechanic\r",
+   "mechanic\r",
+   "m\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.test.ReduceThreatCommand",
+  "strs": [
+   "Amount must be a number.\r",
+   "Failed to reduuce threat on target mob.\r",
+   "mythicmobs.command.test.reducethreat\r",
+   "reducethreat\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.test.SpawnersCommand",
+  "strs": [
+   "1\r",
+   "2\r",
+   "3\r",
+   "4\r",
+   "mythicmobs.command.test.taunt\r",
+   "spawners\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.test.TauntCommand",
+  "strs": [
+   "Taunted target mob.\r",
+   "Failed to taunt target mob.\r",
+   "mythicmobs.command.test.taunt\r",
+   "taunt\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.test.TestAPICommand",
+  "strs": [
+   "mythicmobs.command.test\r",
+   "api\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.test.TestAPINameplateCommand",
+  "strs": [
+   "You must target a valid entity!\r",
+   "You must target a valid MythicMob!\r",
+   "Input Required\r",
+   "-\r",
+   "t\r",
+   "mythicmobs.command.test\r",
+   "setname\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.test.TestCommand",
+  "strs": [
+   "mythicmobs.command.test\r",
+   "test\r",
+   "t\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.ActiveInfoCommand",
+  "strs": [
+   "You must target a valid entity!\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "mythicmobs.command.utilities.gettargetinfo\r",
+   "activeinfo\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.ActiveRemoveCommand",
+  "strs": [
+   "You must target a valid entity!\r",
+   "Removed entity\r",
+   "mythicmobs.command.utilities.activeremove\r",
+   "activeremove\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.AddEntityNBTCommand",
+  "strs": [
+   "You must target a valid entity!\r",
+   "test\r",
+   "yes\r",
+   "mythicmobs\r",
+   "gaygrounds\r",
+   "fuck\r",
+   "test\r",
+   "Health\r",
+   "NoAI\r",
+   "Added NBT\r",
+   "mythicmobs.command.utilities.addentitynbt\r",
+   "addentitynbt\r",
+   "addenbt\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.BroadcastCommand",
+  "strs": [
+   "Input Required\r",
+   "-\r",
+   "t\r",
+   "mythicmobs.command.utilities.broadcast\r",
+   "broadcast\r",
+   "b\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetBlockCoordinatesCommand",
+  "strs": [
+   "util-last-checked-coordinate\r",
+   "<gray>[<yellow>\r",
+   "<click:copy_to_clipboard:\r",
+   ">Block</click>\r",
+   "<gray>]\r",
+   "<gray>[<yellow>\r",
+   "<click:copy_to_clipboard:\r",
+   ">Center</click>\r",
+   "<gray>]\r",
+   "<gray>[<yellow>\r",
+   "<click:copy_to_clipboard:\r",
+   ">Exact</click>\r",
+   "<gray>]\r",
+   "<gray> <gold>Coordinates<gray> >>\r",
+   "<aqua>\r",
+   ",\r",
+   ",\r",
+   "util-last-checked-coordinate\r",
+   "You must target a valid block!\r",
+   "<gray>[<yellow>\r",
+   "<click:copy_to_clipboard:\r",
+   ">Block</click>\r",
+   "<gray>]\r",
+   "<gray>[<yellow>\r",
+   "<click:copy_to_clipboard:\r",
+   ">Center</click>\r",
+   "<gray>]\r",
+   "<gray>[<yellow>\r",
+   "<click:copy_to_clipboard:\r",
+   ">Exact</click>\r",
+   "<gray>]\r",
+   "<gray> <gold>Target <gray>>> <aqua>\r",
+   ",\r",
+   ",\r",
+   "<gray>[<yellow>\r",
+   "<click:copy_to_clipboard:\r",
+   ">Block</click>\r",
+   "<gray>]\r",
+   "<gray>[<yellow>\r",
+   "<click:copy_to_clipboard:\r",
+   ">Center</click>\r",
+   "<gray>]\r",
+   "<gray>[<yellow>\r",
+   "<click:copy_to_clipboard:\r",
+   ">Offset</click>\r",
+   "<gray>]\r",
+   "<gray> <gold>Previous<gray> >>\r",
+   "<aqua>\r",
+   ",\r",
+   ",\r",
+   "mythicmobs.command.utilities.getblockcoordinates\r",
+   "getcoordinates\r",
+   "gc\r",
+   "getblockcoordinates\r",
+   "getblockcoords\r",
+   "gbc\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetBlockInfoCommand",
+  "strs": [
+   "You must target a valid block!\r",
+   "mythicmobs.command.utilities.getblockcoordinates\r",
+   "getblockinfo\r",
+   "gbi\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetDyeCombinationCommand",
+  "strs": [
+   "mythicmobs.command.utilities.getdyecombination\r",
+   "getdyecombination\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetItemInfoCommand",
+  "strs": [
+   "You must be holding a valid item!\r",
+   "&6&lInformation About Held Item&f:\r",
+   "<gray><bold>>> <gold><bold>Component Data\r",
+   "<gray>\r",
+   "<gray><bold>>> <gold><bold>NBT Data\r",
+   "<gray>\r",
+   "mythicmobs.command.utilities.getiteminfo\r",
+   "getiteminfo\r",
+   "gii\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetLightLevelCommand",
+  "strs": [
+   "<gold>Light Level at Location:\r",
+   "mythicmobs.command.utilities.getlightlevel\r",
+   "getlightlevel\r",
+   "gll\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetOptimalDyesCommand",
+  "strs": [
+   "Dyes needed:\r",
+   "mythicmobs.command.utilities.getoptimaldyes\r",
+   "getoptimaldyes\r",
+   "god\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetPathStringCommand",
+  "strs": [
+   "mythicmobs.command.utilities.getpathstring\r",
+   "getpathstring\r",
+   "getpath\r",
+   "gps\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetPathStringCommand$PathStringGetter",
+  "strs": [
+   "Place blocks to record coordinates for a goto or patrol goal. Type anything when you\\'re finished to end!\r",
+   "PathString sent to console.\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetSpawnLevelCommand",
+  "strs": []
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetSpawnStateCommand",
+  "strs": [
+   "<red>\r",
+   "<gold>SpawnState Information<gray>:\r",
+   "<red>\r",
+   "<gold>Configuration<gray>: <white>\r",
+   "<red>\r",
+   "<gold>Bukkit Tracked Entities<gray>:\r",
+   "<red>\r",
+   "<gold>NMS Tracked Entities<gray>:\r",
+   "mythicmobs.command.test.spawncheck\r",
+   "getspawnstate\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetSpawnStateCommand$MobStats",
+  "strs": []
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetStatsCommand",
+  "strs": [
+   "Target not found\r",
+   "· Additive Modifiers\r",
+   "· Additive Multiplier Modifiers\r",
+   "· Compound Multiplier Modifiers\r",
+   "· Setter Modifiers\r",
+   "mythicmobs.command.utilities.getstats\r",
+   "getstats\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetStructuresCommand",
+  "strs": [
+   "Structures at your location:\r",
+   "mythicmobs.command.utilities.getstructures\r",
+   "getstructures\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetTargetInfoCommand",
+  "strs": [
+   "You must target a valid entity!\r",
+   "<gold><bold>Information about Targeted Mob:</bold> <gray>\r",
+   "<gray>- <gold>Is MythicMob: <white>TRUE\r",
+   "<gray>- <gold>Is MythicMob: <white>FALSE\r",
+   "<gray>- <gold>in Void List: <white>TRUE\r",
+   "<gray>- <gold>in Void List: <white>FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "<red><strikethrough><bold>----</bold><strikethrough></red> <white>Stats\r",
+   "[Not Set]\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "TRUE\r",
+   "FALSE\r",
+   "mythicmobs.command.utilities.gettargetinfo\r",
+   "gettargetinfo\r",
+   "gti\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.GetTargetNBTCommand",
+  "strs": [
+   "You must target a valid entity!\r",
+   "mythicmobs.command.utilities.getentitynbt\r",
+   "gettargetnbt\r",
+   "getnbt\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.ListAllEntitiesCommand",
+  "strs": [
+   "&7[&aTP&7]\r",
+   "&7[&bInfo&7]\r",
+   "&7[&cD&7]\r",
+   "&7[&dTPHERE&7]\r",
+   "mythicmobs.command.mobs.listactive\r",
+   "listallentities\r",
+   "listall\r",
+   "la\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.ListValidStructuresCommand",
+  "strs": [
+   "Structures Loaded:\r",
+   "mythicmobs.command.utilities.listvalidstructures\r",
+   "listvalidstructures\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.OpenColorPickerCommand",
+  "strs": [
+   "mythicmobs.command.utilities.getoptimaldyes\r",
+   "opencolorpicker\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.PluginDumpCommand",
+  "strs": [
+   "mythicmobs.command.utilities.plugindump\r",
+   "plugindump\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.SetBaseStatCommand",
+  "strs": [
+   "Target not found\r",
+   "Set base stat\r",
+   "mythicmobs.command.utilities.getstats\r",
+   "setbasestat\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.TestEntityNBTCommand",
+  "strs": [
+   "\\n{id:\\\"minecraft:skeleton\\\",BukkitValues:{\\\"mythicmobs:type\\\":\\\"TestingDummy\\\"}}\\n\\n\\n\r",
+   "\\n{id:\\\"minecraft:skeleton\\\",BukkitValues:{\\\"mythicmobs:type\\\":\\\"TestingDummy\\\"}}\\n\\n\\n\r",
+   "mythicmobs.command.utilities.addentitynbt\r",
+   "testspawn\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.ToggleTimerCommand",
+  "strs": [
+   "Toggled timer on\r",
+   "Toggled timer off\r",
+   "mythicmobs.command.utilities.toggletimer\r",
+   "toggletimer\r",
+   "tt\r"
+  ]
+ },
+ {
+  "c": "io.lumine.mythic.bukkit.commands.utility.UtilitiesCommand",
+  "strs": [
+   "generatedocs\r",
+   "file.separator\r",
+   "file.separator\r",
+   "file.separator\r",
+   "io.lumine.mythic.core.skills.mechanics\r",
+   "Dummy\r",
+   "file.separator\r",
+   "<WRAP infobox right>\r",
+   "<WRAP infoboxtable>\r",
+   ",\r",
+   "</WRAP>\r",
+   "</WRAP>\r",
+   "===== Attributes =====\r",
+   "^Attribute ^Aliases ^Description ^Default ^\r",
+   "|  |  |  |\r",
+   ",\r",
+   "\\\\\\\\\r",
+   "===== Examples =====\r",
+   "<code>\r",
+   "Skills:\r",
+   "</code>\r",
+   "file.separator\r",
+   "file.separator\r",
+   "io.lumine.mythic.core.skills.conditions.all\r",
+   "Entity\r",
+   "file.separator\r",
+   "<WRAP infobox right>\r",
+   "<WRAP infoboxtable>\r",
+   ",\r",
+   "</WRAP>\r",
+   "</WRAP>\r",
+   "===== Attributes =====\r",
+   "^Attribute ^Aliases ^Description ^\r",
+   "|  |  |  |\r",
+   ",\r",
+   "\\\\\\\\\r",
+   "===== Examples =====\r",
+   "<code>\r",
+   "Conditions:\r",
+   "</code>\r",
+   "mythicmobs.command.utilities\r",
+   "utilities\r",
+   "utility\r",
+   "u\r"
+  ]
+ }
+]

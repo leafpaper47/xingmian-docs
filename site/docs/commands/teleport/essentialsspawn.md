@@ -7,59 +7,54 @@ createTime: 2026/10/24
 
 > 分类 🌀 传送与出生点 · 版本 `2.22.1-dev+12-776f709` · 指令 2 条 · api-version `1.13`
 
-::: tip 管理服务器出生点的传送与设置
-EssentialsSpawn 是 Essentials 官方拆出的配套插件，专门管一件事：设置出生点、把玩家传回出生点。它必须装在已装 Essentials 的服上，出生点数据存在 Essentials 的配置文件里。日常配合 Essentials 的传送、家园、登录出生等功能一起用。
+::: tip 出生点传送
+Essentials 的出生点模块：按组存出生点，玩家用 /spawn 回城，可配登录自动传送。必须和 Essentials 一起装，单人装它不生效。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 新玩家第一次进服或重生后要落在主城指定位置
-- 玩家在主城跑远了、卡在野外想一键回主城出生点
-- 为不同身份组（如 vip、builder）分别设置不同的出生点
-- 管理员把某位玩家直接拉回出生点，用于处理卡图或违规流放
-
-## 上手流程
-
-1. 确认服里已经装了 Essentials，再放 EssentialsSpawn 的 jar 并重启
-2. 自己站到想当出生点的位置，执行 /setspawn 写入出生点
-3. 用 /spawn 自己测一次，确认落地位置和朝向没问题
-4. 按需在 EssentialsSpawn 的 config 里打开多组出生点或加入时传送到出生点
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 站好位置设默认出生点 | /setspawn default | 参数是组名，default 就是所有人默认走这个点 |
+| 回出生点 | /spawn | 上一次的位置会被 /back 记住 |
+| 给 VIP 单独出生点 | /setspawn vip | 组名要和玩家所在组一致，否则仍走 default |
+| 登录自动传送 | /ess reload | 先把 config.yml 的 spawn-on-join 改 true 再重载 |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/setspawn` | 把当前站的位置设为出生点<br>别名 `/esetspawn` | `/setspawn 组名（组名可省略）` | — |
-| `/spawn` | 把你自己或指定玩家传送回出生点<br>别名 `/espawn` | `/spawn（可选：玩家名 或 组名）` | — |
+| `/setspawn` | 把你当前站的位置和朝向设为某个组的出生点<br>别名 `/esetspawn` | `/setspawn <组名>` | — |
+| `/spawn` | 传送到出生点<br>别名 `/espawn` | `/spawn [玩家]` | — |
 
 ## 指令详解
 
-### `/setspawn` — 把当前站的位置设为出生点
+### `/setspawn` — 把你当前站的位置和朝向设为某个组的出生点
 
-- **语法**：`/setspawn 组名（组名可省略）`
+- **语法**：`/setspawn <组名>`
 
 | 参数 | 必填 | 说明 |
 | --- | --- | --- |
-| `组名` | 可选 | 多组出生点开启后用于指定给哪个组设置，省略则设全局出生点 |
+| `组名` | 必填 | default 为默认组，其它写自定义组名，如 vip |
 
 
 - **示例**：
 
 ```
-/setspawn
+/setspawn default
 /setspawn vip
 ```
 
 - **别名**：`/esetspawn`
-- **备注**：设置的是你当前坐标和视线方向，所以要先站好再敲。别名 esetspawn。只有配置里开启了多组出生点，组名参数才有意义。
+- **备注**：组名与 Essentials 配置里的组不一致时，玩家 /spawn 仍走 default；改完立即生效，不用重启
 
-### `/spawn` — 把你自己或指定玩家传送回出生点
+### `/spawn` — 传送到出生点
 
-- **语法**：`/spawn（可选：玩家名 或 组名）`
+- **语法**：`/spawn [玩家]`
 
 | 参数 | 必填 | 说明 |
 | --- | --- | --- |
-| `玩家名` | 可选 | 把别人传回出生点，需要 essentials.spawn.others 权限 |
+| `玩家` | 可选 | 把别人送回出生点，需要 others 权限 |
 
 
 - **示例**：
@@ -67,30 +62,30 @@ EssentialsSpawn 是 Essentials 官方拆出的配套插件，专门管一件事�
 ```
 /spawn
 /spawn Steve
-/spawn vip
 ```
 
 - **别名**：`/espawn`
-- **备注**：别名 espawn。传送别人需要额外权限。多组出生点开启时也可以把组名当参数，把玩家送到该组的出生点。
+- **备注**：传送到该玩家所属组的出生点，该组没设过就退回 default
+
+## 子指令速查
+
+| 子指令 | 功能 | 示例 |
+| --- | --- | --- |
+| `/spawn <玩家>` | 把指定玩家送回他的出生点（需 essentials.spawn.others） | `/spawn Steve` |
 
 ## 注意事项
 
 ::: warning
-- 本插件依赖 Essentials，单独装它不会生效，必须先有 Essentials 且版本匹配
-- 多组出生点、加入时传送到出生点都在配置里开关，默认可能没开，别以为敲了组名就自动分好
-- essentials.spawn-on-join.exempt 只对普通玩家开放出生点传送，管理员组通常要加这条豁免，否则每次进服都被拉走
-- 出生点会被水、岩浆或后建建筑影响，改完地形记得重新 /setspawn 并实测一次落脚点
+- 出生点按组存：玩家换组后 /spawn 会去新组的点，排查「回城地点变了」先看他的 LuckPerms 主组。
+- config.yml 的 spawn-on-join 打开后登录会强制传送，不想被拉走的玩家给 essentials.spawn-on-join.exempt。
+- 出生点在未加载区块时会传送失败，公共出生点建议常驻加载。
 :::
 
 ## 权限节点
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `essentials.setspawn` | 允许访问/setspawn命令 | — |
-| `essentials.spawn` | 允许访问/spawn命令 | — |
-| `essentials.spawn-on-join.exempt` | 当spawn-on-join为true时，在加入时绕过spawn传送 | — |
-| `essentials.spawn.others` | 允许其他玩家访问/spawn命令 | — |
-
-## 相关插件
-
-[Essentials](/commands/essentials/essentials.md)、[LuckPerms](/commands/core/luckperms.md)、[Vault](/commands/core/vault.md)
+| `essentials.setspawn` | 允许使用 /setspawn | — |
+| `essentials.spawn` | 允许使用 /spawn | — |
+| `essentials.spawn-on-join.exempt` | 开启登录传送到出生点后被豁免 | — |
+| `essentials.spawn.others` | 允许把其他玩家传送到出生点 | — |

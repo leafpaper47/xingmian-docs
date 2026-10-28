@@ -1,0 +1,68 @@
+# EditableStands  (EditableStands-1.0.0.jar)
+## 注册指令
+  /editablestands  usage='§c正确用法: /editablestands [info/reload]' desc='EditableStands 主命令（info / reload）' alias=['es'] perm='op'
+
+## 代码类
+  cn.lp47.commands.EditableStandsCommand
+
+## javap 字符串 token
+  info reload selftest
+
+## 文本资源里的帮助/用法行
+  · # EditableStands: v1.0.0 (Paper 26.2 / 1.21+ 重写版)
+  · # 重写与优化: 纯 Java，行为与原版一致
+  · # true > 启用 | false > 禁用
+  · # 编辑盔甲架时是否掉落物品
+  · # 编辑盔甲架时是否播放音效
+  · # 编辑盔甲架时是否消耗玩家物品
+  · # 编辑盔甲架时是否损耗工具耐久
+  · # 以下为新增功能（均需蹲下 + 右键盔甲架）
+  · # 手持荧光墨囊：消耗 1 个，让已有名字的盔甲架名字变为常显
+  · # 手持隐身药水（不分时长，喷溅/滞留/普通均可）：消耗 1 瓶，让盔甲架隐形
+  · # 手持奶桶：喝掉牛奶（留下空桶），让盔甲架恢复显示
+  · # 手持羽毛：消耗 1 根，让盔甲架失去重力（悬浮）
+  · # 手持铁锭：消耗 1 个，让盔甲架恢复重力
+  · # 数量限制
+  · # 每名玩家最多只能有 1 个隐身盔甲架、1 个无重力盔甲架。
+  · # 达到上限时再用隐身药水 / 羽毛会被拦下，并提示「你已经有一个 XX 盔甲架了」。
+  · # 盔甲架被删除、或用奶桶 / 铁锭恢复后，名额自动释放。
+  · # true > 启用限制 | false > 不限制（想改几个改几个）
+  · # 持有权限 editablestands.limit.invisible / editablestands.limit.nogravity 的玩家，
+  · # 上限放宽到这个数量（给 VIP / 管理员）。普通玩家仍然是 1 个。
+  · # 想完全放开就设一个大数，或直接给玩家那两个权限节点。
+  · description: 允许用剪刀移除盔甲架的手臂
+  · description: 允许用木棍给盔甲架添加手臂
+  · description: 允许用镐移除盔甲架的底盘
+  · description: 允许用平滑石台阶给盔甲架添加底盘
+  · description: 允许用斧把盔甲架变为小型
+  · description: 允许用木棍把盔甲架变回大型
+  · description: 允许用荧光墨囊让盔甲架的名字变为常显
+  · description: 允许用隐身药水让盔甲架隐形
+  · description: 允许用奶桶让盔甲架恢复显示
+  · description: 允许用羽毛让盔甲架失去重力
+  · description: 允许用铁锭让盔甲架恢复重力
+  · description: 放宽隐身盔甲架的数量上限（普通玩家限 1 个，详见 config 的 limitUnlimited）
+  · description: 放宽无重力盔甲架的数量上限（普通玩家限 1 个，详见 config 的 limitUnlimited）
+  · description: EditableStands 主命令（info / reload）
+  · usage: "§c正确用法: /editablestands [info/reload]"
+
+## 常量池帮助/描述文本
+  · cn/lp47/EditableStands
+  · cn/lp47/commands/EditableStandsCommand
+  · 
+  空药水瓶: 
+  · 
+  自造隐身药水(默认时长): 
+  · 
+  自造隐身药水(长时长): 
+  · 
+  自造药水失败: 
+  · 
+  你的主手物品: 
+  · 
+  权限 potion.hide=
+  ·  潜行=
+  · 
+  （控制台执行，无玩家主手物品；进游戏用 /es selftest 会一并检查你的主手）
+  · 插件尚未就绪
+  · 重载失败，请检查 config.yml 语法（详见控制台）

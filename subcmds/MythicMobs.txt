@@ -1,0 +1,313 @@
+# MythicMobs  (MythicMobsPremium-5.13.0--SHOT-zh.jar)
+## 注册指令
+  /mythicmobs  usage=None desc='MythicMobs base command' alias=['mm'] perm=None
+  /mythicmobsmenu  usage=None desc='MythicMobs menu command' alias=['mmmenu', 'mmm'] perm=None
+  /spawnmob  usage=None desc='Spawn a mob' alias=['spawnmythicmob', 'mspawn', 'msummon'] perm=None
+  /pins  usage=None desc='Easier command for pins' alias=['pin'] perm=None
+  /addpin  usage=None desc='quickly adds a pin' alias=None perm=None
+
+## 代码类
+  com.mojang.brigadier.Command
+  com.mojang.brigadier.CommandDispatcher$1
+  com.mojang.brigadier.CommandDispatcher
+  com.mojang.brigadier.context.CommandContext
+  com.mojang.brigadier.context.CommandContextBuilder
+  com.mojang.brigadier.context.ParsedCommandNode
+  com.mojang.brigadier.exceptions.CommandExceptionType
+  com.mojang.brigadier.exceptions.CommandSyntaxException
+  com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType$Function
+  com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType
+  com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType$Function
+  com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType
+  com.mojang.brigadier.exceptions.Dynamic4CommandExceptionType$Function
+  com.mojang.brigadier.exceptions.Dynamic4CommandExceptionType
+  com.mojang.brigadier.exceptions.DynamicCommandExceptionType
+  com.mojang.brigadier.exceptions.DynamicNCommandExceptionType$Function
+  com.mojang.brigadier.exceptions.DynamicNCommandExceptionType
+  com.mojang.brigadier.exceptions.SimpleCommandExceptionType
+  com.mojang.brigadier.tree.ArgumentCommandNode
+  com.mojang.brigadier.tree.CommandNode
+  com.mojang.brigadier.tree.LiteralCommandNode
+  com.mojang.brigadier.tree.RootCommandNode
+  io.lumine.mythic.api.drops.ICommandDrop
+  io.lumine.mythic.bukkit.commands.BaseCommand
+  io.lumine.mythic.bukkit.commands.CameraCommand
+  io.lumine.mythic.bukkit.commands.CommandHelper
+  io.lumine.mythic.bukkit.commands.InfoCommand
+  io.lumine.mythic.bukkit.commands.ReloadCommand
+  io.lumine.mythic.bukkit.commands.SaveCommand
+  io.lumine.mythic.bukkit.commands.SignalCommand
+  io.lumine.mythic.bukkit.commands.VersionCommand
+  io.lumine.mythic.bukkit.commands.debug.DebugCommand
+  io.lumine.mythic.bukkit.commands.debug.TimingsCommand
+  io.lumine.mythic.bukkit.commands.debug.ToggleClockCommand
+  io.lumine.mythic.bukkit.commands.debug.ToggleNewCommand
+  io.lumine.mythic.bukkit.commands.dialogs.DialogsCommand
+  io.lumine.mythic.bukkit.commands.dialogs.ListDialogsCommand
+  io.lumine.mythic.bukkit.commands.dialogs.ShowDialogCommand
+  io.lumine.mythic.bukkit.commands.eggs.EggsCommand
+  io.lumine.mythic.bukkit.commands.eggs.GetCommand
+  io.lumine.mythic.bukkit.commands.eggs.GiveCommand
+  io.lumine.mythic.bukkit.commands.items.BrowseCommand
+  io.lumine.mythic.bukkit.commands.items.EnchantCommand
+  io.lumine.mythic.bukkit.commands.items.ExportCommand
+  io.lumine.mythic.bukkit.commands.items.GetCommand
+  io.lumine.mythic.bukkit.commands.items.GiveCommand
+  io.lumine.mythic.bukkit.commands.items.ImportCommand
+  io.lumine.mythic.bukkit.commands.items.InfoCommand
+  io.lumine.mythic.bukkit.commands.items.ItemsCommand
+  io.lumine.mythic.bukkit.commands.items.ListCommand
+  io.lumine.mythic.bukkit.commands.items.edit.EditEnchantsCommand$EditAction
+  io.lumine.mythic.bukkit.commands.items.edit.EditEnchantsCommand
+  io.lumine.mythic.bukkit.commands.items.edit.EditLoreCommand$EditAction
+  io.lumine.mythic.bukkit.commands.items.edit.EditLoreCommand
+  io.lumine.mythic.bukkit.commands.items.edit.EditStatsCommand$EditAction
+  io.lumine.mythic.bukkit.commands.items.edit.EditStatsCommand
+  io.lumine.mythic.bukkit.commands.items.edit.ItemEditCommand
+  io.lumine.mythic.bukkit.commands.menus.ItemBrowserMenuCommand
+  io.lumine.mythic.bukkit.commands.menus.MenuCommand
+  io.lumine.mythic.bukkit.commands.menus.MobBrowserMenuCommand
+  io.lumine.mythic.bukkit.commands.menus.OpenCommand
+  io.lumine.mythic.bukkit.commands.mobs.BrowseCommand
+  io.lumine.mythic.bukkit.commands.mobs.CleanCommand
+  io.lumine.mythic.bukkit.commands.mobs.EditCommand
+  io.lumine.mythic.bukkit.commands.mobs.InfoCommand
+  io.lumine.mythic.bukkit.commands.mobs.KillAllCommand
+  io.lumine.mythic.bukkit.commands.mobs.KillCommand
+  io.lumine.mythic.bukkit.commands.mobs.ListActiveCommand
+  io.lumine.mythic.bukkit.commands.mobs.ListCommand
+  io.lumine.mythic.bukkit.commands.mobs.MobsCommand
+  io.lumine.mythic.bukkit.commands.mobs.SpawnCommand
+  io.lumine.mythic.bukkit.commands.mobs.StatsCommand$MobStats
+  io.lumine.mythic.bukkit.commands.mobs.StatsCommand
+  io.lumine.mythic.bukkit.commands.pins.AddPinCommand
+  io.lumine.mythic.bukkit.commands.pins.AddRegionCommand
+  io.lumine.mythic.bukkit.commands.pins.ListPinsCommand
+  io.lumine.mythic.bukkit.commands.pins.ListRegionsCommand
+  io.lumine.mythic.bukkit.commands.pins.MovePinCommand
+  io.lumine.mythic.bukkit.commands.pins.PinsCommand
+  io.lumine.mythic.bukkit.commands.pins.RedefineRegionCommand
+
+## javap 字符串 token
+  a ac activate activeinfo activeremove add add_line addcondition addenbt addentitynbt addpin addregion addspawncondition addthreat api asc b broadcast browse c camera cancel cast clean clear commandmap copy cp cr create createpin createregion custom custommodeldata cut d damage debug delete dialog dialogs display dl dummy e easing edit egg eggs ench enchant enchantments enchants entity export f false find fuck g gaygrounds gbc gbi gc generatedocs get getblockcoordinates getblockcoords getblockinfo getcoordinates getdyecombination getiteminfo getlightlevel getnbt getoptimaldyes getpath getpathstring getspawnstate getstats getstructures gettargetinfo gettargetnbt gi gii give gll god gps gti h health hold i import index info items k ka kill killall knowncommands l la list listactive listall listallentities listnear listregions listvalidstructures literally ln lore m material mechanic menu menus mob mobs model move move_line_down move_line_up mythicmobs n nbt new noai o off on open opencolorpicker p paste pin pins plugindump points r rc rdr re redefineregion reducethreat rel relative reload remove remove_line removecondition removepin removeregion removespawncondition reset resettimers rp rr rsc rt s save set setbasestat setname show si signal sk skill skills snapshot sp spawn spawners stats swap t taunt teleport test testspawn timings toggleclock toggletimer toggleviewing tp true tt tv u undo utilities utility v ver version w wand warp yes
+
+## 文本资源里的帮助/用法行
+  · # Manual - https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/home
+  · # https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/Items/Items
+  · # https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/Mobs/Mobs
+  · # https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/Skills/Skills
+  · # Random Spawning -> https://git.lumine.io/mythiccraft/MythicMobs/-/wikis/Random-Spawns
+  · # Spawners -> https://git.lumine.io/mythiccraft/MythicMobs/-/wikis/Spawners
+  · # Manual - https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/home
+  · "command.item.get.success": "物品 <aqua>{0} <green>已放入你的背包！",
+  · "command.reload.completed": "Mythic 重新加载完成！",
+  · "command.reload.started": "正在重载插件..."
+  · "command.item.get.success": "物品 <aqua>{0} <green>已放入你的背包！",
+  · "command.reload.completed": "Mythic 重新加载完成！",
+  · "command.reload.started": "正在重载插件..."
+  · Display: "&l颜色选择器"
+  · Display: '&f提高饱和度'
+  · Display: '&f降低饱和度'
+  · Display: '&f返回'
+  · Display: '&f确认'
+  · Display: "<bold>Mythic 配置菜单"
+  · Display: '<gold><bold>生物浏览'
+  · - '<gray>浏览与编辑生物'
+  · - '<red>注意：本编辑器不能替代配置文件，'
+  · - '<red>仅供操作便捷使用，'
+  · - '<red>且并非所有选项都可用。'
+  · - '&e» &a点击打开'
+  · Display: "&l物品浏览"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&a创建物品'
+  · Display: '&9搜索 / 筛选物品'
+  · Display: '&9重置筛选'
+  · Display: '&9切换视图'
+  · - '&7点击切换视图'
+  · Display: '&9编辑全局物品选项'
+  · Display: "&l物品组件"
+  · Display: '&f返回'
+  · Display: '&c移除组件'
+  · Display: "&l物品编辑器"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&c删除物品'
+  · Display: '&9搜索 / 筛选选项'
+  · Display: '&9重置筛选'
+  · Display: "<bold>Mythic 主菜单"
+  · Display: '<gold><bold>生物浏览'
+  · - '<gray>浏览与编辑生物'
+  · - '<red>注意：本编辑器不能替代配置文件，'
+  · - '<red>仅供操作便捷使用，'
+  · - '<red>且并非所有选项都可用。'
+  · - '&e» &a点击打开'
+  · Display: '<gold><bold>物品浏览'
+  · - '<gray>浏览与编辑物品'
+  · - '<red>注意：本编辑器不能替代配置文件，'
+  · - '<red>仅供操作便捷使用，'
+  · - '<red>且并非所有选项都可用。'
+  · - '&e» &a点击打开'
+  · Display: '&9掉落表浏览'
+  · - '&c敬请期待？'
+  · - '&e» &a点击打开'
+  · Display: '&9随机刷怪浏览'
+  · - '&c敬请期待？'
+  · - '&e» &a点击打开'
+  · Display: '&9刷怪点浏览'
+  · - '&c敬请期待？'
+  · - '&e» &a点击打开'
+  · Display: "&l生物浏览"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&a创建生物'
+  · Display: '&9搜索 / 筛选生物'
+  · Display: '&9重置筛选'
+  · Display: '&9切换视图'
+  · - '&7点击切换视图'
+  · Display: '&9编辑全局生物选项'
+  · Display: "&l生物编辑器"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&c删除生物'
+  · Display: '&9搜索 / 筛选选项'
+  · Display: '&9重置筛选'
+  · Display: "<bold>刷怪点浏览"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&a创建生物'
+  · Display: '&9搜索 / 筛选生物'
+  · Display: '&9重置筛选'
+  · Display: '&9切换视图'
+  · - '&7点击切换视图'
+  · Display: '&9编辑全局生物选项'
+  · Display: "<bold>刷怪点编辑器"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&c删除生物'
+  · Display: '&9搜索 / 筛选选项'
+  · Display: '&9重置筛选'
+  · 公司.cn
+  · 网络.cn
+  · 網絡.cn
+  · 公司.hk
+  · 教育.hk
+  · 敎育.hk
+  · 政府.hk
+  · 個人.hk
+  · 个人.hk
+  · 箇人.hk
+  · 網络.hk
+  · 网络.hk
+  · 组織.hk
+  · 網絡.hk
+  · 网絡.hk
+  · 组织.hk
+  · 組織.hk
+  · 組织.hk
+  · 栃木.jp
+  · 愛知.jp
+  · 愛媛.jp
+  · 兵庫.jp
+  · 熊本.jp
+  · 茨城.jp
+  · 北海道.jp
+  · 千葉.jp
+  · 和歌山.jp
+  · 長崎.jp
+  · 長野.jp
+  · 新潟.jp
+  · 青森.jp
+  · 静岡.jp
+  · 東京.jp
+  · 石川.jp
+  · 埼玉.jp
+  · 三重.jp
+  · 京都.jp
+  · 佐賀.jp
+  · 大分.jp
+  · 大阪.jp
+  · 奈良.jp
+  · 宮城.jp
+  · 宮崎.jp
+  · 富山.jp
+  · 山口.jp
+  · 山形.jp
+  · 山梨.jp
+  · 岩手.jp
+  · 岐阜.jp
+  · 岡山.jp
+  · 島根.jp
+  · 広島.jp
+  · 徳島.jp
+  · 沖縄.jp
+  · 滋賀.jp
+  · 神奈川.jp
+  · 福井.jp
+  · 福岡.jp
+  · 福島.jp
+  · 秋田.jp
+  · 群馬.jp
+  · 香川.jp
+  · 高知.jp
+  · 鳥取.jp
+  · 鹿児島.jp
+  · 網路.tw
+  · 組織.tw
+  · 商業.tw
+  · 大众汽车
+  · 香格里拉
+  · // xn--efvy88h : 2014-08-22 Xinhua News Agency Guangdong Branch 新华通讯社广东分社
+  · 電訊盈科
+  · 组织机构
+  · 嘉里大酒店
+
+## 常量池帮助/描述文本
+  · Lio/lumine/mythic/bukkit/commands/pins/PinsCommand;
+  · io/lumine/mythic/bukkit/commands/pins/PinsCommand
+  · io/lumine/mythic/bukkit/commands/pins/AddPinCommand
+  · Lio/lumine/mythic/bukkit/commands/pins/AddPinCommand;
+  · io/lumine/mythic/core/skills/pins/PinExecutor
+  · io/lumine/mythic/bukkit/commands/pins/AddRegionCommand
+  · Lio/lumine/mythic/bukkit/commands/pins/AddRegionCommand;
+  · io/lumine/mythic/bukkit/commands/pins/ListPinsCommand
+  · Lio/lumine/mythic/bukkit/commands/pins/ListPinsCommand;
+  · io/lumine/mythic/core/skills/pins/Pin
+  · io/lumine/mythic/core/skills/pins/SinglePin
+  · io/lumine/mythic/core/skills/pins/MultiPin
+  · Lio/lumine/mythic/core/skills/pins/SinglePin;
+  · Lio/lumine/mythic/core/skills/pins/MultiPin;
+  · Lio/lumine/mythic/core/skills/pins/Pin;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lio/lumine/mythic/core/skills/pins/Pin;>;
+  · Ljava/util/Map$Entry<Lio/lumine/mythic/core/skills/pins/Pin;Ljava/lang/Double;>;
+  · Ljava/util/Map<Lio/lumine/mythic/core/skills/pins/Pin;Ljava/lang/Double;>;
+  · Ljava/util/List<Ljava/util/Map$Entry<Lio/lumine/mythic/core/skills/pins/Pin;Ljava/lang/Double;>;>;
+  · io/lumine/mythic/bukkit/commands/pins/ListRegionsCommand
+  · Lio/lumine/mythic/bukkit/commands/pins/ListRegionsCommand;
+  · io/lumine/mythic/core/skills/pins/PinRegion
+  · Lio/lumine/mythic/core/skills/pins/PinRegion;
+  · Ljava/util/List<Lio/lumine/mythic/core/skills/pins/PinRegion;>;
+  · io/lumine/mythic/bukkit/commands/pins/MovePinCommand
+  · Lio/lumine/mythic/bukkit/commands/pins/MovePinCommand;
+  · Ljava/util/Optional<Lio/lumine/mythic/core/skills/pins/Pin;>;
+  · io/lumine/mythic/bukkit/commands/pins/RemovePinCommand
+  · io/lumine/mythic/bukkit/commands/pins/RemoveRegionCommand
+  · io/lumine/mythic/bukkit/commands/pins/RedefineRegionCommand
+  · io/lumine/mythic/bukkit/commands/pins/SwapPinCommand
+  · io/lumine/mythic/bukkit/commands/pins/ToggleViewingPinsCommand
+  · io/lumine/mythic/bukkit/commands/pins/WandCommand
+  · io/lumine/mythic/bukkit/commands/pins/TeleportCommand
+  · Lio/lumine/mythic/bukkit/commands/pins/RedefineRegionCommand;
+  · Ljava/util/Optional<Lio/lumine/mythic/core/skills/pins/PinRegion;>;
+  · Lio/lumine/mythic/bukkit/commands/pins/RemovePinCommand;
+  · Lio/lumine/mythic/bukkit/commands/pins/RemoveRegionCommand;
+  · Lio/lumine/mythic/bukkit/commands/pins/SwapPinCommand;
+  · Lio/lumine/mythic/bukkit/commands/pins/TeleportCommand;
+  · Lio/lumine/mythic/bukkit/commands/pins/ToggleViewingPinsCommand;
+  · Lio/lumine/mythic/bukkit/commands/pins/WandCommand;

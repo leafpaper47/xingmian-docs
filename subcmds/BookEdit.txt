@@ -1,0 +1,34 @@
+# BookEdit  (BookEdit-2.0-zh_CN.jar)
+## 注册指令
+  /book  usage='§c用法: /book <anonymous|tattered|help>' desc='BookEdit 主命令' alias=['bookedit'] perm=None
+
+## 代码类
+  cn.lp47.bookedit.BookCommand
+
+## javap 字符串 token
+  anonymous help tattered
+
+## 文本资源里的帮助/用法行
+  · description: 让玩家在书里用标签写颜色和效果，支持把作者改为匿名、把书设为破旧。
+  · description: BookEdit 主命令
+  · usage: "§c用法: /book <anonymous|tattered|help>"
+  · description: 允许修改自己写的书（作者改匿名、设为破旧）
+
+## 常量池帮助/描述文本
+  · cn/lp47/bookedit/BookCommand
+  · Lorg/bukkit/inventory/meta/BookMeta$Generation;
+  · 参数无效。用 /book help 查看用法
+  · 该命令只能由玩家执行
+  · 你没有权限使用该命令
+  · 请先签署这本书，再使用该命令
+  · 请把已签名的书拿在主手上
+  · 读取书的元数据失败
+  · 只能修改你自己写的书
+  · 作者已改为「匿名」
+  · 这本书已设为破旧
+  · 未知参数。用 /book help 查看用法
+  · 在书中写下标签即可显示颜色和效果，例如：
+  ·  <b> 加粗    <i> 斜体    <u> 下划线    <rn> 随机乱字
+  · 取消效果请用 <r>（放标签后面表示「从这之后恢复默认」）
+  · 注意：要同时用颜色和效果（如红色加粗），必须把效果标签写在颜色标签后面，例如 <cr><b>文字
+  · 命令：/book anonymous（作者改匿名）  /book tattered（设为破旧）

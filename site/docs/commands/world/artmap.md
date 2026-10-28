@@ -7,23 +7,15 @@ createTime: 2026/10/24
 
 > 分类 🗺️ 世界与地图 · 版本 `3.9.26` · 指令 1 条 · api-version `1.13`
 
-::: tip 把画架变成像素画板，作画、存作、发放作品
-ArtMap 给服务器加了一套可交互的像素绘画玩法：玩家放下画架，用调色盘在画布上一格一格上色，画完保存成自己的作品。作品可以预览、导出成物品发给别人当装饰画，也能当收藏与展示内容。管理侧主要靠 art 指令完成发放、清理和重载配置。
+::: tip 把画架变成像素画板
+ArtMap 给服务器加了一套可交互的像素绘画玩法：玩家放下画架，用调色盘在画布上一格一格上色，画完保存成自己的作品。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 想让玩家在服里画像素画、做地图画
-- 举办绘画活动并发放画架与画布道具
-- 把玩家作品做成物品奖励或装饰挂件
-- 在领地或地皮里和朋友合作画画
-
-## 上手流程
-
-1. 给玩家 artmap.artkit 或管理员发放画架，玩家放下画架开始作画
-2. 画完用 art save 保存成带标题的作品
-3. 用 art preview 检查效果，用 art give 把作品或画架发给目标玩家
-4. 画错了用 art clear 清空当前画架，不需要的作品用 art delete 删除
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 保存画架作品 | /art save 星冕日落 | 之后可预览或发放 |
 
 ## 指令一览
 
@@ -51,12 +43,10 @@ ArtMap 给服务器加了一套可交互的像素绘画玩法：玩家放下画�
 ```
 /art save 星冕日落
 /art preview 星冕日落
-/art give Steve easel 1
-/art give Steve artwork:星冕日落 1
 ```
 
 - **别名**：`/a`、`/r`、`/t`、`/m`、`/a`、`/p`
-- **备注**：管理类子指令（give、reload 等）需要 artmap.admin；绘画与保存需要 artmap.artist；在别人领地内还需 artmap.region.member。
+- **备注**：管理类子指令（give、reload 等）需要 artmap.admin；绘画与保存需要 artmap.artist；在别人领地内还需 artmap.regio…
 
 ## 子指令速查
 
@@ -78,7 +68,6 @@ ArtMap 给服务器加了一套可交互的像素绘画玩法：玩家放下画�
 - art give 的 artwork 写法是 artwork:作品名，冒号别漏，作品名要和保存时完全一致
 - 绘画、放置和敲掉画架受领地插件限制，普通玩家需要 artmap.artist，非自己领地还需 artmap.region.member
 - art reload 只重配置不重载作品数据，删掉的画作一般找不回来，动手前提醒玩家备份重要作品
-- artmap.prevent.afk 可让玩家画画时不被 AFK 踢出，装 Essentials 或 CMI 的服建议开启
 :::
 
 ## 权限节点
@@ -91,7 +80,3 @@ ArtMap 给服务器加了一套可交互的像素绘画玩法：玩家放下画�
 | `artmap.menu` | 允许玩家打开ArtMap菜单 | True |
 | `artmap.prevent.afk` | 在画架上，玩家不会因为是AFK而被踢出。支持Eseentials和CMI。 | — |
 | `artmap.region.member` | 允许玩家在他们是成员但不拥有的地区放置/打破画架。 | op |
-
-## 相关插件
-
-[PlaceholderAPI](/commands/config/placeholderapi.md)、[Essentials](/commands/essentials/essentials.md)、[WorldGuardGUI](/commands/protect/worldguardgui.md)

@@ -1,41 +1,54 @@
 {
-  "name": "PlayerTask",
-  "role": "每日任务、任务目标与任务币商城系统",
-  "summary": "PlayerTask 给服务器加一套任务玩法：管理员建好任务，玩家按任务目标去完成，交任务拿奖励和任务币，再用任务币到商城兑换。任务目标、奖励、商品和 NPC 任务都由管理员在后台配置，玩家只需要开界面查看和领取。它属于养成/日常向的粘性插件，常和权限组、经济、NPC 插件一起用，用来给在线时长和重复劳动找点目标。",
-  "whatFor": [
-    "想给玩家一套每日/周期任务，让上线有事可做，避免只会刷怪挂机",
-    "需要一条任务币经济线：完成任务得币，币在任务商城换物品或奖励",
-    "想让 NPC 发布任务，玩家找 NPC 领任务、交任务，做成一条任务线",
-    "服里已有任务类插件不好用，想换一套支持自定义目标与稀有度分级的方案"
-  ],
-  "flow": [
-    "把插件放进 plugins 目录启动，先用 playerTask.reload 权限确认配置能正常加载",
-    "用管理员账号打开插件主界面或执行 /playerTask，按提示进入任务管理相关的菜单",
-    "在管理侧先建任务本体，再给它加任务目标与奖励，必要时设置稀有度和任务描述",
-    "配置任务币商城商品，确定完成一次任务大致给多少币、商品定多少钱",
-    "给玩家侧账号配好查看任务和查看商城的权限，自己用小号实测一遍领任务到交任务的完整流程"
-  ],
-  "commands": [
-    {
-      "cmd": "playerTask",
-      "what": "PlayerTask 主指令，玩家查看任务、管理员进入任务管理",
-      "syntax": "/playerTask",
-      "params": [],
-      "examples": [
-        "/playerTask"
-      ],
-      "notes": "别名 plk，可简写为 /plk。这个指令不带参数时通常直接打开界面，具体子指令、参数和菜单路径以游戏内 help 与插件配置文件为准；玩家侧需要 playerTask.open，管理员侧各项操作分别对应 create、view、edit、addDemand、addReward、addShop 等权限节点。"
-    }
-  ],
-  "subcommands": [],
-  "caution": [
-    "具体参数与子指令以游戏内 help 为准，本手册只记录了主指令，不要凭猜测敲子指令",
-    "权限节点分得很细：查看类默认对玩家开放，创建/编辑/加目标/加奖励/加商品/发任务币等默认仅 OP，给普通管理组授权时按需逐条给，别直接给 playerTask.*",
-    "改完任务配置后记得用 playerTask.reload 对应的操作重新加载，部分任务数据改动可能需要玩家重新获取今日任务才生效",
-    "涉及任务币发放、删除今日任务、转换数据源这类操作影响面较大，先在测试服验证再上正式服"
-  ],
-  "related": [
-    "PlaceholderAPI",
-    "Vault"
-  ]
+ "name": "PlayerTask",
+ "role": "任务系统",
+ "summary": "每日任务 + NPC 任务的整套玩法：按挖掘/击杀/合成等目标派任务，完成后领奖励并用任务币在商城换东西，稀有权重按权限分档。",
+ "quick": [
+  {"scene": "玩家看今天任务", "cmd": "/plk open", "note": "默认玩家入口，别名 /playerTask"},
+  {"scene": "开任务币商城", "cmd": "/plk shop", "note": "奖励货币在这里花"},
+  {"scene": "手动刷新今日任务", "cmd": "/plk getToday", "note": "管理用；配合 /plk delToday 先删再刷"},
+  {"scene": "改完配置生效", "cmd": "/plk reload", "note": "改目标/奖励/稀有度都要重载"}
+ ],
+ "commands": [
+  {"cmd": "playerTask", "what": "玩家任务主指令：任务界面、商城与管理子指令", "syntax": "/plk <子指令>",
+   "examples": ["/plk open"], "notes": "别名 /plk；管理类子指令名与权限后缀一一对应（见下表与权限页）"}
+ ],
+ "subcommands": [
+  {"cmd": "/plk open", "desc": "打开玩家任务界面（玩家入口，默认有权限）", "example": "/plk open"},
+  {"cmd": "/plk shop", "desc": "打开任务币商城（默认有权限）", "example": "/plk shop"},
+  {"cmd": "/plk openMeNpcTask", "desc": "查看自己已领取的 NPC 任务", "example": "/plk openMeNpcTask"},
+  {"cmd": "/plk create", "desc": "创建任务", "example": "/plk create"},
+  {"cmd": "/plk view", "desc": "任务管理总表：查看/编辑/删除已有任务", "example": "/plk view"},
+  {"cmd": "/plk addDemand", "desc": "给任务新增目标（挖多少、杀几只、合成几次）", "example": "/plk addDemand"},
+  {"cmd": "/plk addReward", "desc": "给任务新增奖励（物品/命令/任务币）", "example": "/plk addReward"},
+  {"cmd": "/plk addShop", "desc": "新增任务币商城商品", "example": "/plk addShop"},
+  {"cmd": "/plk addNpcTask", "desc": "新增 NPC 任务", "example": "/plk addNpcTask"},
+  {"cmd": "/plk edit", "desc": "编辑任务的名称、描述、稀有度等字段", "example": "/plk edit"},
+  {"cmd": "/plk setRarity", "desc": "设置任务稀有度（普通/高级/稀有/罕见/史诗/神话）", "example": "/plk setRarity"},
+  {"cmd": "/plk setDescription", "desc": "设置任务描述文本", "example": "/plk setDescription"},
+  {"cmd": "/plk changeItem", "desc": "把某个任务 ID 转成可发放的物品", "example": "/plk changeItem"},
+  {"cmd": "/plk coin", "desc": "任务币处理：给玩家加减任务币", "example": "/plk coin"},
+  {"cmd": "/plk getToday", "desc": "立即生成今日任务", "example": "/plk getToday"},
+  {"cmd": "/plk delToday", "desc": "删除今日已生成的任务", "example": "/plk delToday"},
+  {"cmd": "/plk openNpc", "desc": "打开 NPC 任务菜单", "example": "/plk openNpc"},
+  {"cmd": "/plk setEnableCommand", "desc": "设置领取 NPC 任务时执行的命令", "example": "/plk setEnableCommand"},
+  {"cmd": "/plk import", "desc": "从配置文件批量导入任务", "example": "/plk import"},
+  {"cmd": "/plk convert", "desc": "转换数据源（换存档方式时用，先备份）", "example": "/plk convert"},
+  {"cmd": "/plk reload", "desc": "重载配置与任务数据", "example": "/plk reload"}
+ ],
+ "caution": [
+  "convert 会搬迁数据源，操作前先整目录备份 plugins/PlayerTask/。",
+  "稀有度是按权限 playerTask.rarity.<稀有度>.<类型> 分档的，玩家抽不到史诗通常是没给权限。",
+  "getToday / delToday 直接影响当天任务，误删后玩家当天进度会一起没。"
+ ],
+ "permissions": {
+  "playerTask.open": "查看任务（默认开启）",
+  "playerTask.shop": "查看任务币商城（默认开启）",
+  "playerTask.create": "创建任务",
+  "playerTask.view": "管理任务",
+  "playerTask.getToday": "立即生成今日任务",
+  "playerTask.delToday": "删除今日任务",
+  "playerTask.reload": "重载配置",
+  "playerTask.coin": "处理任务币",
+  "playerTask.convert": "转换数据源"
+ }
 }

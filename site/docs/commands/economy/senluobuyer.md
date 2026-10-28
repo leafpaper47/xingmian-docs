@@ -7,22 +7,15 @@ createTime: 2026/10/24
 
 > 分类 🪙 经济与商店 · 版本 `1.0.0` · 指令 1 条 · api-version `1.21`
 
-::: tip 森罗厨房每日随机收购回收面板
-给每位玩家每天随机指派 5 道森罗厨房菜品，玩家做好后通过界面点交回收换钱。它解决的是「厨房做出来的菜没处卖」的问题，通常与森罗厨房（KaleidoscopeCookery）和经济类插件配合，构成做菜、收购、拿钱的小循环。
+::: tip 森罗厨房每日随机收购回收
+给每位玩家每天随机指派 5 道森罗厨房菜品，玩家做好后通过界面点交回收换钱。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 想给厨房玩家一个稳定的每日收益来源时
-- 举办「今日菜单」式的日常任务，鼓励玩家换着菜谱做菜时
-- 需要在不额外开商店的情况下让菜品有回收出口时
-
-## 上手流程
-
-1. 确认背包里的菜是当天收购列表里的那 5 道，缺哪道先回厨房做
-2. 输入 /senluobuyer（或别名 /senluo、/sely、/收购）打开收购界面
-3. 按界面提示把对应菜品交上去，界面回收后结算收益
-4. 改过配置文件后用 /senluobuyer reload 重载（需要管理权限）
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 打开收购界面 | /senluobuyer | 玩家自助卖物品 |
 
 ## 指令一览
 
@@ -46,11 +39,10 @@ createTime: 2026/10/24
 ```
 /senluobuyer
 /senluo
-/senluobuyer reload
 ```
 
 - **别名**：`/senluo`、`/sely`、`/收购`
-- **备注**：别名 senluo、sely、收购 等价；普通玩家只需 senluobuyer.use（默认开启），重载需要 senluobuyer.admin（默认仅 OP）。
+- **备注**：别名 senluo、sely、收购 等价；普通玩家只需 senluobuyer.use（默认开启），重载需要 senluobuyer.admin（默认仅 OP）…
 
 ## 注意事项
 
@@ -58,7 +50,6 @@ createTime: 2026/10/24
 - 具体参数与子指令以游戏内 help 为准，本文按官方 usage 与权限节点推断，不同版本可能有差异
 - 收购名单是每位玩家每天随机 5 道菜，玩家之间看到的清单可能不一样，别按别人的清单备菜
 - reload 只能重载配置，已下发的当日清单不一定会立刻刷新，改完最好等次日或重启生效
-- 结算依赖界面操作，背包满、物品不在背包里都可能导致交不上，动手前先清格子
 :::
 
 ## 权限节点
@@ -67,7 +58,3 @@ createTime: 2026/10/24
 | --- | --- | --- |
 | `senluobuyer.admin` | 允许重载配置 | op |
 | `senluobuyer.use` | 允许使用森罗收购 | True |
-
-## 相关插件
-
-[KaleidoscopeCookeryPlugin](/commands/config/kaleidoscopecookeryplugin.md)、[Vault](/commands/core/vault.md)

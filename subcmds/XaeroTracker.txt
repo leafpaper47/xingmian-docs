@@ -1,0 +1,66 @@
+# XaeroTracker  (XaeroTracker-1.4.0-xm.jar)
+## 注册指令
+  /xaerotracker  usage='/xt <tracked|town|seeall>' desc='XaeroTracker 主命令' alias=['xt'] perm='xaerotracker.use'
+
+## 代码类
+  info.infinf.xaeroTracker.Commands.Executor
+
+## javap 字符串 token
+  help seeall town tracked
+
+## 文本资源里的帮助/用法行
+  · # XaeroTracker（星冕定制）
+  · # 可见性规则：
+  · #   同镇成员默认互相可见；不同镇 / 无镇玩家默认互相看不见。
+  · #   想看到地图上所有玩家，需要 xaerotracker.seeall 权限（OP 也不默认拥有）。
+  · # 是否接入 TownPlugin 做「同镇可见」判定
+  · # 关闭时自动在独立世界之间隔离（true = 只同步同世界玩家）
+  · # 位置同步冷却（毫秒），越小越实时、开销越大
+  · # 是否向下发 level-id（多资源包环境需要）
+  · author: MioMiko / 星冕定制
+  · description: XaeroTracker 主命令
+  · permission-message: 你没有权限使用该命令
+  · description: 使用 /xt 命令
+  · description: 开关自己是否被追踪
+  · description: 开关是否看得见同镇成员
+  · description: 看得见地图上的所有玩家。默认连 OP 也不拥有
+  · description: 管理其他玩家的追踪设置
+  · description: 追踪指定玩家（动态权限，实际为 xaerotracker.tracker.<玩家名>）
+  · description: XaeroTracker 全部权限
+  · xaerotracker.command.permission=你没有足够的权限来执行此命令。
+  · xaerotracker.command.player_only=该指令只能由玩家执行。
+  · xaerotracker.command.excess_args=传入参数过多。
+  · xaerotracker.command.unknown=未知子指令：{0}。输入 /xt help 查看用法。
+  · xaerotracker.tracked.on=你现在会显示在地图上。
+  · xaerotracker.tracked.off=你已从地图上隐藏。
+  · xaerotracker.tracked.other_on={0} 现在会显示在地图上。
+  · xaerotracker.tracked.other_off={0} 已从地图上隐藏。
+  · xaerotracker.town.on=已开启同镇可见，现在能看到同镇成员。
+  · xaerotracker.town.off=已关闭同镇可见，现在看不到其他小镇成员。
+  · xaerotracker.town.other_on={0} 已开启同镇可见。
+  · xaerotracker.town.other_off={0} 已关闭同镇可见。
+  · xaerotracker.seeall.on=已开启全图视野，现在能看到所有玩家。
+  · xaerotracker.seeall.off=已关闭全图视野。
+  · xaerotracker.seeall.other_on={0} 已开启全图视野。
+  · xaerotracker.seeall.other_off={0} 已关闭全图视野。
+  · xaerotracker.seeall.no_permission=你没有「看到所有玩家」的权限，无法开启全图视野。
+
+## 常量池帮助/描述文本
+  · info/infinf/xaeroTracker/Commands/Executor
+  · Linfo/infinf/xaeroTracker/XaeroTracker;
+  · info/infinf/xaeroTracker/XaeroTracker
+  · info/infinf/xaeroTracker/PlayerData
+  · Linfo/infinf/xaeroTracker/FilePlayerList;
+  · info/infinf/xaeroTracker/FilePlayerList
+  · §6§lXaeroTracker §r§7可见性
+  · §e/xt tracked §7- 开关自己是否被追踪
+  · §e/xt town §7- 开关是否看得见同镇成员
+  · §e/xt seeall §7- 开关是否看得见所有玩家（需权限）
+  · §e/xt tracked|town|seeall <玩家> §7- 管理他人
+  · Linfo/infinf/xaeroTracker/TownBridge;
+  · info/infinf/xaeroTracker/TownBridge
+  · 无（看不到任何人）
+  · 联动已启用
+  · 联动未启用
+  · §7当前小镇：§f §8| 同镇可见：§f §8| 全图视野：§f
+  · §7控制台没有小镇归属；同镇可见：

@@ -1,0 +1,542 @@
+# ArtMap  (ArtMap-JDK21-3.9.26.jar)
+## 注册指令
+  /art  usage='<command> save <title> : Save your artwork\n<command> clear : Reset the artwork on an easel \n<command> delete <title> : Remove your artwork\n<command> preview <title> : Preview an artwork\n<command> help : Display help\n<command> reload : Reloads the config\n<command> give <player> <easel|canvas|artwork:<title>> <amount> : Give a player ArtMap item(s)\n' desc=None alias='artmap' perm=None
+
+## 代码类
+  me.Fupery.ArtMap.Command.AsyncCommand
+  me.Fupery.ArtMap.Command.CommandClear
+  me.Fupery.ArtMap.Command.CommandConvert
+  me.Fupery.ArtMap.Command.CommandDelete
+  me.Fupery.ArtMap.Command.CommandExport$1
+  me.Fupery.ArtMap.Command.CommandExport$ArtworkExport
+  me.Fupery.ArtMap.Command.CommandExport
+  me.Fupery.ArtMap.Command.CommandHandler$1$1
+  me.Fupery.ArtMap.Command.CommandHandler$1
+  me.Fupery.ArtMap.Command.CommandHandler$2
+  me.Fupery.ArtMap.Command.CommandHandler$3
+  me.Fupery.ArtMap.Command.CommandHandler
+  me.Fupery.ArtMap.Command.CommandImport$1
+  me.Fupery.ArtMap.Command.CommandImport
+  me.Fupery.ArtMap.Command.CommandPreview
+  me.Fupery.ArtMap.Command.CommandSave
+  me.Fupery.ArtMap.Command.CommandTest
+  me.Fupery.ArtMap.Command.Page
+  me.Fupery.ArtMap.Command.Repair
+  me.Fupery.ArtMap.Command.ReturnMessage
+  me.Fupery.ArtMap.Command.Search
+  me.Fupery.ArtMap.Listeners.PlayerCommandPreListener
+
+## javap 字符串 token
+  canvas clear convert corrupted delete easel export give help import importdelay page paintbrush palette preview repair repaired save search test
+
+## 文本资源里的帮助/用法行
+  · #Use "/artmap reload" or restart your server to reload your configurations
+  · #Set language to "custom" and reload to generate a customizable lang.yml in your /plugins/ArtMap folder
+  · #If you want to set custom recipes, set this to 'true' then use "/artmap reload" to generate a recipe file.
+  · #If true: Disables the use of the painbrush to save forcing users to use /art save
+  · #                                     ArtMap 语言文件（内核汉化版）                              #
+  · # 将下面的字符串替换为中文翻译
+  · # 任何看到 '%s' 的地方 - 这是一个特殊字符，会被替换为一个词。
+  · # 例如：如果一位艺术家保存了一幅名为 "Art" 的画作，那么 "Successfully saved '%s'"
+  · # 就会变成 "Successfully saved Art"。
+  · # 所以任何 '%s' 都不要改动！只需翻译它周围的词。
+  · # 任何看到 "/art" 的地方，同样保持不变（这是帮助命令）
+  · # 任何看到 § 后面跟数字或字母（如 §a 或 §2）的地方，这是颜色代码
+  · #---------------------------------------[玩家消息]---------------------------------------#
+  · HELP: "§6使用 §e/art help §6查看命令列表。"
+  · SAVE_USAGE: "§6使用 §e/art save <作品名> §6保存你的画作。"
+  · SAVE_SUCCESS: "§6成功保存画作 '%s'！"
+  · SAVE_FAILURE: "§c保存 '%s' 失败！画作名称必须唯一！"
+  · EASEL_HELP: "§3§l右键开始绘画，潜行右键破坏画架。"
+  · REPAIR_USAGE: "§6使用 §e/art repair <-scan|-repair> [ID|名称|-all] §6尝试修复空白画作。"
+  · PAINTING: "§b§l使用染料点击画布进行绘画。"
+  · DELETED: "§6成功删除画作 '%s'。"
+  · DELETE_USAGE: "§6使用 §e/art delete <作品名> §6删除你的画作。"
+  · PREVIEWING: "§6正在预览画作 '%s'。"
+  · NO_CONSOLE: "§c此命令只能由玩家使用。"
+  · PLAYER_NOT_FOUND: "§c找不到玩家 '%s'。"
+  · INVALID_POS: "§4§l你不能在这里放置画架！"
+  · NO_PERM: "§c你没有权限执行此操作。"
+  · NO_PERM_ACTION: "§4§l你没有权限执行此操作。"
+  · ELSE_USING: "§4§l其他人正在使用这个画布！"
+  · PAINTBRUSH_GROUND: "§c你不应该把画笔扔在地上！"
+  · NOT_RIDING_EASEL: "§c你必须坐在画架上才能执行此操作。"
+  · NEED_CANVAS: "§4§l把画布放在画架上开始绘画。§3§l/art §4§l了解更多。"
+  · NOT_YOUR_EASEL: "§c你不能破坏 %s 的画作！"
+  · BREAK_CANVAS: "使用 /art break 破坏画架并清除画作。"
+  · MAP_NOT_FOUND: "§c找不到画作 '%s'。"
+  · NO_ARTWORKS: "§c当前没有任何已保存的画作！"
+  · NO_EDIT_PERM: "§4§l你不能编辑其他玩家的画作"
+  · NO_CRAFT_PERM: "§c你不能复制其他玩家的画作"
+  · BAD_TITLE: "§c无效的标题。标题长度必须在 3 到 16 个字符之间，且只能包含字母和数字。"
+  · MISSING_TITLE: "§c你必须指定一个标题。"
+  · TITLE_USED: "§c抱歉，这个标题已被使用。"
+  · EMPTY_HAND_PREVIEW: "§c预览时你需要空手。"
+  · INVALID_DATA_TABLES: "§c数据表无效，插件无法初始化。"
+  · CANNOT_BUILD_DATABASE: "§c构建 MapArt 数据库时出错 - 插件将被禁用。"
+  · MAP_ID_MISSING: "§c地图 ID 缺失，正在分配新 ID！"
+  · RESTORED_SUCCESSFULY: "§6成功恢复画作 %s（地图 ID %s）！" #第一个 %s 是画作名称，第二个是它的 ID。
+  · SAVE_ARTWORK: "§4§l请先保存你的画作！"
+  · SAVE_ARTWORK_2: "§4§l或者如果你确定要销毁画作，可以坐在画架上使用 '/art break'。"
+  · GENERIC_ERROR: "§c抱歉，发生了一个错误，请联系服务器管理员。"
+  · ERROR_ON_EASEL: "§c画架上有一张损坏的地图。请破坏画架以恢复绘画。"
+  · PAINTBRUSH_FORCED: "§4§l请使用画笔保存！"
+  · PAINTBRUSH_DISABLED: "§4§l使用画笔保存已被禁用，请使用 /art save！"
+  · #---------------------------------------[搜索]------------------------------------------#
+  · SEARCH_USAGE: "§6使用 §e/art search [--mine|--player <玩家名>] <标题> §6搜索画作。"
+  · SEARCH_PREVIEW_BUTTON: "预览"
+  · SEARCH_PREVIEW_HOVER: "点击预览画作。"
+  · SEARCH_GIVE_BUTTON: "给予"
+  · SEARCH_GIVE_HOVER: "点击获取画作副本。"
+  · SEARCH_ARTIST_HOVER: "点击搜索艺术家。"
+  · SEARCH_ARTISTS: "找到的艺术家"
+  · SEARCH_ARTWORKS: "找到的画作"
+  · SEARCH_TITLE: "画作搜索"
+  · SEARCH_PAGE: "第"
+  · SEARCH_PAGE_SEPERATOR: " 页，共 " #前后的空格很重要
+  · SEARCH_BY: " 的作品 " #前后的空格很重要
+  · #---------------------------------------[帮助菜单]---------------------------------------#
+  · #菜单标题
+  · MENU_HEADER: "[画作]"  #可以更改，但必须存在且唯一，否则菜单会出错。
+  · MENU_RECIPE: "选择合成配方"
+  · MENU_ARTIST: "点击一个艺术家"
+  · MENU_ARTWORKS: "%s 的画作" # '%s' 将被替换为玩家名称
+  · MENU_ARTWORK: "画作 %s"
+  · RECIPE_HEADER: "§a[%s]§r 的合成配方"
+  · MENU_DYES: "绘画染料"
+  · MENU_HELP: "选择帮助主题"
+  · MENU_TOOLS: "悬停查看用法" #悬停工具查看如何使用
+  · MENU_DELETE: "确认删除"
+  · BUTTON_CLICK: "点击查看"
+  · BUTTON_DELETE_NAME: "删除"
+  · BUTTON_DELETE_TEXT: "点击此按钮将删除世界中该画作的所有副本！"
+  · BUTTON_RENAME_NAME: "重命名"
+  · BUTTON_RENAME_TEXT: "点击重命名"
+  · BUTTON_ACCEPT_NAME: "确认"
+  · BUTTON_ACCEPT_TEXT: "点击确认"
+  · TITLE_QUESTION: "标题？"
+  · RENAMED: "已重命名"
+  · BUTTON_CLOSE: "关闭" #关闭菜单
+  · BUTTON_BACK: "返回" #返回上一页
+  · RECIPE_BUTTON: "左键点击查看配方"
+  · ADMIN_RECIPE: "右键点击获取物品"
+  · RECIPE_PLAYER_MAP_COPY: "右键点击获取你的画作副本，将消耗背包中的一张空白地图。"
+  · RECIPE_PLAYER_MAP_COPY_MISSING: "§4§l你的背包中没有空白地图！"
+  · RECIPE_HELP: "§a/art §2查看帮助"
+  · RECIPE_EASEL_NAME: "画架"
+  · RECIPE_CANVAS_NAME: "画布"
+  · RECIPE_PAINT_BRUSH_NAME: "§e•§6§l保存§e•"
+  · RECIPE_ARTWORK_ARTIST: "作者 %s" # '%s' 被替换为创作此画作的艺术家名称
+  · ITEM_NAME_PAINTBUCKET: "§e•§6§l填充§e•"
+  · ITEM_NAME_COMPASS: "§e•§6§l旋转§e•"
+  · ITEM_NAME_FEATHER: "§e•§6§l提亮§e•"
+  · ITEM_NAME_COAL: "§e•§6§l压暗§e•"
+  · ITEM_NAKE_FEATHER: "羽毛"
+  · ITEM_NAME_SPONGE: "§e•§6§l取色§e•"
+  · ITEM_SPONGE_MESSAGE: "已拾取染料颜色"
+  · ARTKIT_NEXT: "下一页"
+  · ARTKIT_PREV: "上一页"
+  · #---------------------------------------[菜单按钮]---------------------------------------#
+  · - "§6§l⊱§e§l新手入门§6§l⊰"
+  · - "§3❉§b§o欢迎使用 ArtMap！§3❉"
+  · - "§a1§2. §7合成一个§6画架，"
+  · - "    §6画布§7 和 §6画笔§7。"
+  · - "§a2§2. §7放置画架，然后将画布放在上面。"
+  · - "§a3§2. §7使用§2染料§7和"
+  · - "   §3工具§7在画布上绘画。"
+  · - "§a4§2. §7画完后，"
+  · - "   §7使用§6画笔§7保存画作。"
+  · - "   §7或者使用§6/art save§7保存。"
+  · - "§a§o查看本菜单的其他标签页，了解更多"
+  · - "§a§o关于合成配方、工具和染料颜色的信息。"
+  · - "§6§l⊱§e§l合成配方§6§l⊰"
+  · - "§7查看所有绘画所需物品"
+  · - "§7的合成配方。"
+  · - "§a✸§2§o点击查看§a✸"
+  · - "§6§l⊱§e§l工具§6§l⊰"
+  · - "§7查看所有帮助你"
+  · - "§7绘画的工具。"
+  · - "§a✸§2§o点击查看§a✸"
+  · - "§6§l⊱§e§l染料§6§l⊰"
+  · - "§7查看所有可以"
+  · - "§7用于绘画的染料颜色。"
+  · - "§a✸§2§o点击查看§a✸"
+  · - "§6§l⊱§e§l画作§6§l⊰"
+  · - "§3✺§b§o查看玩家画作§3✺"
+  · - "§7查看你自己的画作，或按艺术家"
+  · - "§7浏览其他玩家的作品。"
+  · - "§a✸§2§o点击查看§a✸"
+  · - "§6§l⊱§e§l返回§6§l⊰"
+  · - "§4﴾§c关闭菜单§4﴿"
+  · - "§6§l⊱§e§l染料颜色§6§l⊰"
+  · - "§7用这些染料点击画布"
+  · - "§7即可绘画。"
+  · - "§a• §7§o左键点击绘制像素点"
+  · - "§a• §7§o右键点击绘制线条"
+  · - "§b§o悬停物品查看更多信息。"
+  · - "§6§l⊱§e§l配方帮助§6§l⊰"
+  · - "§7用§6空白地图§7与任意画作合成"
+  · - "§7即可制作副本。只有画作"
+  · - "§7的原创作者才能"
+  · - "§7制作副本。"
+  · - "§b§o悬停物品查看信息。"
+  · - "§6§l⊱§b工具帮助§6§l⊰"
+  · - "§7你可以将这些物品与"
+  · - "§a染料§7搭配使用来辅助绘画。"
+  · - "§b§o悬停物品查看信息。"
+  · - "§6§l⊱§b染料§6§l⊰"
+  · - " §7左键点击绘制像素点"
+  · - " §7右键点击绘制线条"
+  · - "§a✸§2§o点击查看§a✸"
+  · - "§b§o颜料桶"
+  · - "§7左键点击用副手中的"
+  · - "§7染料填充画布的"
+  · - "§7一片区域。"
+  · - "§7右键点击撤销上一次填充。"
+  · - "§b§o煤炭"
+  · - "§7左键点击压暗像素点。"
+  · - "§7右键点击压暗线条。"
+  · - "§b§o羽毛"
+  · - "§7左键点击提亮像素点。"
+  · - "§7右键点击提亮线条。"
+  · - "§b§o指南针"
+  · - "§7左键点击水平翻转。"
+  · - "§7右键点击垂直翻转。"
+  · - "§b§o海绵"
+  · - "§7左键点击吸取颜色。"
+  · - "§7右键点击用该颜色绘画。"
+  · - "§b§o坐在我身上！"
+  · - "§7用于编辑画作"
+  · - "§7右键点击放置"
+  · - "§7/art break 破坏"
+  · - "§c破坏画架会删除"
+  · - "§c上面的画作。"
+  · - "§c请先保存！"
+  · - "§b§o在我身上作画！"
+  · - "§7在§a画架§7上使用"
+  · - "§7开始绘画。"
+  · - "§b§o画笔"
+  · - "§7坐在§a画架§7前并使用"
+  · - "§a画布§7来保存画作。"
+  · - "§3---------------------------------§b[ArtMap] §6控制台命令：§3---------------------------------"
+  · - "§6使用 §e/art §b §6打开帮助菜单。"
+  · - "§6使用 §e/art save <标题> §b §6保存画作。"
+  · - "§6使用 §e/art search [--mine|--player <玩家名>] <标题> §6搜索画作。"
+  · #-------------------------------------------[染料名称]-------------------------------------------#
+  · DYE_BLACK: "黑色"
+  · DYE_RED: "红色"
+  · DYE_GREEN: "绿色"
+  · DYE_BROWN: "棕色"
+  · DYE_BLUE: "蓝色"
+  · DYE_PURPLE: "紫色"
+  · DYE_CYAN: "青色"
+  · DYE_SILVER: "银色"
+  · DYE_GRAY: "灰色"
+  · DYE_PINK: "粉色"
+  · DYE_LIME: "黄绿色"
+  · DYE_YELLOW: "黄色"
+  · DYE_LIGHT_BLUE: "淡蓝色"
+  · DYE_MAGENTA: "品红色"
+  · DYE_ORANGE: "橙色"
+  · DYE_WHITE: "白色"
+  · DYE_CREAM: "奶油色"
+  · DYE_COFFEE: "咖啡色"
+  · DYE_GRAPHITE: "石墨色"
+  · DYE_GUNPOWDER: "火药色"
+  · DYE_MAROON: "栗色"
+  · DYE_AQUA: "水蓝色"
+  · DYE_GRASS: "草绿色"
+  · DYE_GOLD: "金色"
+  · DYE_VOID: "透明"
+  · DYE_COAL: "阴影"
+  · DYE_FEATHER: "色调"
+  · DYE_ICE: "冰蓝色"
+  · DYE_LEAVES: "叶绿色"
+  · DYE_SNOW: "雪白色"
+  · DYE_LIGHT_GRAY: "淡灰色"
+  · DYE_STONE: "恶魂灰"
+  · DYE_BRICK: "砖红色"
+  · DYE_LAPIS: "深蓝色"
+  · DYE_EMERALD: "翡翠绿"
+  · DYE_LIGHT_WOOD: "焦糖棕"
+  · DYE_WATER: "水蓝"
+  · DYE_DARK_WOOD: "木棕色"
+  · DYE_WHITE_TERRACOTTA: "蛋壳白"
+  · DYE_ORANGE_TERRACOTTA: "焦橙色"
+  · DYE_MAGENTA_TERRACOTTA: "甜菜红"
+  · DYE_LIGHT_BLUE_TERRACOTTA: "薰衣草紫"
+  · DYE_YELLOW_TERRACOTTA: "萤石黄"
+  · DYE_LIME_TERRACOTTA: "史莱姆绿"
+  · DYE_PINK_TERRACOTTA: "棕砖红"
+  · DYE_GRAY_TERRACOTTA: "黑巧克力棕"
+  · DYE_LIGHT_GRAY_TERRACOTTA: "蘑菇棕"
+  · DYE_CYAN_TERRACOTTA: "铁灰色"
+  · DYE_PURPLE_TERRACOTTA: "紫颂果紫"
+  · DYE_BLUE_TERRACOTTA: "梅子紫"
+  · DYE_BROWN_TERRACOTTA: "灰化土棕"
+  · DYE_GREEN_TERRACOTTA: "霉绿色"
+  · DYE_RED_TERRACOTTA: "苹果红"
+  · DYE_BLACK_TERRACOTTA: "近黑棕"
+  · DYE_CRIMSON_NYLIUM: "绯红菌岩"
+  · DYE_CRIMSON_STEM: "绯红菌柄"
+  · DYE_CRIMSON_HYPHAE: "绯红菌索"
+  · DYE_WARPNED_NYLIUM: "诡异菌岩"
+  · DYE_WARPED_STEM: "诡异菌柄"
+  · DYE_WARPED_HYPHAE: "诡异菌索"
+  · DYE_WARPED_WART_BLOCK: "诡异疣块"
+  · DYE_DEEPSLATE: "深板岩圆石"
+  · DYE_RAW_IRON: "粗铁"
+  · DYE_GLOW_LICHEN: "发光地衣"
+  · #-------------------------------------[画作标题过滤器]-------------------------------------#
+  · #以下列表中的词会从画作标题中过滤：
+  · #你可以通过在 config.yml 中设置 "swearFilter: false" 来禁用标题过滤
+  · #过滤词使用正则表达式 - 你可以在 [http://regexr.com] 构建和测试正则
+  · #你也可以向列表中添加普通单词，但请注意，非正则的单词很容易被玩家绕过
+  · RECIPE_PLAYER_MAP_COPY: "右键点击获取物品，将消耗一张空白地图！"
+  · RECIPE_PLAYER_MAP_COPY_MISSING: "你的背包中没有空白地图来制作副本！"
+  · # Any time you see "/artmap", leave that unchanged as well (this is the help command)
+  · HELP: "§6Gebruik /artmap help voor een lijst van commandos."
+  · SAVE_USAGE: "§6Gebruik §e/artmap save <title> §6om je schilderij op te slaan."
+  · NEED_CANVAS: "§4§lJe moet een canvas op de schildersezel plaatsen om te beginnen. Typ §3§l/artmap §4§lvoor meer info."
+  · RECIPE_HELP: "§a/artmap §2voor hulp"
+  · - "   §a4§2. §7Zodra je klaar bent, gebruik §e/artmap save§7."
+  · - "§6•§f/artmap save <titel>    §6➯ §7sla je schilderij op"
+  · - "§6•§f/artmap delete <titel>  §6➯ §7verwijder je schilderij"
+  · - "§6•§f/artmap preview <titel> §6➯ §7schilderijvoorbeeld"
+  · - "§3/artmap delete <title> §b: §eVerwijder een schilderij"
+  · - "§3/artmap restore <title> §b: §eHersteld een corrupt schilderij"
+  · # Any time you see "/artmap", leave that unchanged as well (this is the help command)
+  · HELP: "§6Gib /artmap ein, um eine Befehlsliste anzuzeigen."
+  · SAVE_USAGE: "§6Gib §e/artmap save <title> §6 ein, um dein Kunstwerk zu speichern."
+  · NEED_CANVAS: "§4§lDu musst zuerst eine Leinwand auf dem Ständer platzieren um malen zu können. Gib §3§l/artmap §4§lein um Details zu erfahren."
+  · RECIPE_HELP: "§a/artmap §2um eine Hilfe anzuzeigen"
+  · - "   §a4§2. §7Wenn du fertig bist, gib ein: §e/artmap save§7."
+  · - "§6•§f/artmap save <title>    §6➯ §7Speichere dein Kunstwerk"
+  · - "§6•§f/artmap delete <title>  §6➯ §7Lösche dein Kunstwerk"
+  · - "§6•§f/artmap preview <title> §6➯ §7Vorschau eines Kunstwerkes"
+  · #    - "§3/artmap delete <title> §b: §eLösche ein Kunstwerk"
+  · #    - "§3/artmap backup §b: §eErstellt von allen Kunstwerken ein Backup im Ordner: /plugins/ArtMap/backup/"
+  · #    - "§3/artmap restore <backupname> <worldname> [-o] §b: §eStellt alle Kunstwerke aus dem Backup-Ordner wieder her*"
+  · # Any time you see "/artmap", leave that unchanged as well (this is the help command)
+  · HELP: "§6/artmap per la lista dei comandi."
+  · SAVE_USAGE: "§6Use §e/artmap save <title> §6per salvare."
+  · NEED_CANVAS: "§4§lPiazza una tela sul cavalletto. §3§l/artmap §4§lper maggiori informazioni."
+  · RECIPE_HELP: "§a/artmap §2per l'aiuto"
+  · - "   §a4§2. §7Quando hai finito, usa §e/artmap save§7."
+  · - "§6•§f/artmap save <title>    §6➯   §7salva il tuo disegno"
+  · - "§6•§f/artmap delete <title>  §6➯ §7cancella il tuo disegno"
+  · - "§6•§f/artmap preview <title> §6➯  §7anteprima del tuo disegno"
+  · - "§3/artmap delete <title> §b: §eCancella un disegno"
+  · - "§3/artmap restore <title> §b: §eRipristina un'opera corrotta"
+  · # Any time you see "/artmap", leave that unchanged as well (this is the help command)
+  · COMMAND_SAVE: "保存"
+  · COMMAND_DELETE: "删除"
+  · COMMAND_PREVIEW: "预览"
+  · COMMAND_RESTORE: "恢复"
+  · COMMAND_BACKUP: "备份"
+  · HELP: "§a/artmap §6查看帮助"
+  · SAVE_USAGE: "§6使用命令 §e/artmap save <画作名称> §6来保存你创作的绘画."
+  · SAVE_SUCCESS: "§6成功保存画作 %s"
+  · EASEL_HELP: "§3§l右击画布开始创作, §b§l按住 Shift 并右击移除画架."
+  · PAINTING: "§b§l使用颜料或颜料桶在画布上创作"
+  · DELETED: "§6成功删除画作 '%s'."
+  · PREVIEWING: "§6正在预览画作 '%s'."
+  · BACKUP_SUCCESS: "§6备份创建成功，存储路径为 %s"
+  · RESTORE_SUCCESS: "§6从备份中成功恢复了 %s 个画作，备份路径为 %s"
+  · RESTORE_ALREADY_FOUND: "跳过了 %s 个画作, 使用命令 -o 强制覆盖这些画作."
+  · RECIPE_HEADER: "%s 的合成表"
+  · NO_CONSOLE: "§c这个命令只能由玩家使用."
+  · PLAYER_NOT_FOUND: "§c无法找到玩家 '%s'."
+  · INVALID_POS: "§4§l你不能在这里放置画架!"
+  · NO_PERM: "§c你没有权限使用这个命令."
+  · NO_PERM_ACTION: "§4§l你没有权限使用这个命令."
+  · ELSE_USING: "§4§l其他人正在使用这块画布!"
+  · NOT_RIDING_EASEL: "§c你必须坐在画架前面才能保存(右击画布即可)."
+  · NEED_CANVAS: "§4§l请先在画板上放置画布以进行创作. 使用命令 §3§l/artmap §4§l获取更多帮助."
+  · NOT_YOUR_EASEL: "§c你不能破坏 %s 的画作!"
+  · BREAK_CANVAS: "按住Shift + 右击取下画布."
+  · MAP_NOT_FOUND: "§c无法找到画作 '%s'."
+  · NO_ARTWORKS: "§c当前没有保存的画作!"
+  · NO_EDIT_PERM: "§4§l你不能编辑别人的画作"
+  · NO_CRAFT_PERM: "§c你不能复制别人的画作"
+  · BAD_TITLE: "§c无效的画作名称. 名称必须是英文或数字，且长度在 3 - 16 个字符之间."
+  · TITLE_USED: "§c抱歉，这个名称已经有人使用啦."
+  · EMPTY_HAND_PREVIEW: "§c必须空手才能预览画作."
+  · MAPDATA_ERROR: "§c画作 '%s' 读取错误，位置 %s: %s"
+  · BACKUP_ERROR: "§c无法创建备份文件夹!"
+  · NO_WORLD: "§c无法找到名称为 '%s' 的世界"
+  · RESTORE_ERROR: "§c无法找到备份文件夹 '%s' !"
+  · INVALID_DATA_TABLES: "§c无效的数据表，插件无法初始化."
+  · CANNOT_BUILD_DATABASE: "§c创建数据库 '%s' 失败，插件将自动禁用."
+  · MENU_RECIPE: "选择一个配方"
+  · MENU_ARTIST: "点击一个画家"
+  · MENU_ARTWORKS: "玩家的画作"
+  · MENU_DYES: "用于绘画的染料"
+  · MENU_HELP: "选择一个帮助主题"
+  · MENU_TOOLS: "移到物品上方查看详细用法" #Hover over a tool to view how it is used
+  · BUTTON_CLICK: "点击查看"
+  · BUTTON_CLOSE: "关闭" #close the menu
+  · BUTTON_BACK: "返回" #go back to previous page
+  · RECIPE_BUTTON: "左击查看合成表"
+  · ADMIN_RECIPE: "右击获得该物品"
+  · RECIPE_HELP: "§a/artmap §2查看帮助"
+  · RECIPE_EASEL_NAME: "画架"
+  · RECIPE_CANVAS_NAME: "画布"
+  · RECIPE_PAINTBUCKET_NAME: "颜料桶"
+  · MAP_ID_MISSING: "§c没有地图 ID，分配新的 ID !"
+  · RESTORED_SUCCESSFULY: "§6成功保存画作 %s , 地图 ID 为 %s!"
+  · - "                 §6§l⊱§e§l入门指南§6§l⊰"
+  · - "            §3❉§b§o如何创造一幅你自己的画!§3❉"
+  · - "   §a1§2. §7合成绘画所需的 §6画板 §7和 §6画布"
+  · - "   §a2§2. §7放置你的画板，然后将画布放上去"
+  · - "   §a3§2. §7使用 绘画颜料 和 工具 在画布上创作"
+  · - "   §a4§2. §7创作完成后，使用 /artmap save 保存你的大作"
+  · - "§7§o继续查看菜单中的其他页面，获取有关"
+  · - "§7§o合成表、绘画工具和绘画颜料的信息."
+  · - "    §8░░░░§e❃§l相关命令 §r§e⤸§8░░░░░░░░░░░░░"
+  · - "§6•§f/artmap save <画作标题>    §6➯   §7保存你的画作"
+  · - "§6•§f/artmap delete <画作标题>  §6➯ §7删除你的画作"
+  · - "§6•§f/artmap preview <画作标题> §6➯  §7预览一个画作"
+  · - "             §6§l⊱§e§l合成表§6§l⊰"
+  · - "§7查看进行绘画所需物品的合成表"
+  · - "§7画架、画布和颜料桶！"
+  · - "          §a✸§2§o点击查看详情§a✸"
+  · - "            §6§l⊱§e§l艺术工具§6§l⊰"
+  · - "§7查看所有可以帮助你绘画的工具"
+  · - "§7及其使用说明."
+  · - "       §a✸§2§o点击查看详情§a✸"
+  · - "           §6§l⊱§e§l颜料§6§l⊰"
+  · - "§7查看所有可用的颜料物品"
+  · - "§7及其对应的颜色."
+  · - "      §a✸§2§o点击查看详情§a✸"
+  · - "             §6§l⊱§e§l画作§6§l⊰"
+  · - "      §3✺§b§o预览画作§3✺"
+  · - "§7查看你自己或别的玩家创造的画作"
+  · - "§7每一个人都是艺术家."
+  · - "          §a✸§2§o点击查看详情§a✸"
+  · - "    §6§l⊱§e§l返回§6§l⊰"
+  · - "§4﴾§c关闭菜单§4﴿"
+  · - "              §6§l⊱§e§l颜料颜色§6§l⊰"
+  · - "§7用任意颜料点击画布"
+  · - "§7开始绘画."
+  · - "   §a• §7§o左击画像素"
+  · - "   §a• §7§o按住并右击画线"
+  · - "§7任意颜料 + 空的铁桶"
+  · - "§7可以合成这种颜色的颜料桶§7."
+  · - "           §b§o鼠标移到染料上以查看颜色"
+  · - "              §6§l⊱§e§l合成表帮助§6§l⊰"
+  · - "§7如果想要复制一份画作，只需要将原画作"
+  · - "§7和一份空地图放入合成台，即可完成复制"
+  · - "§7注意：必须是画作的创作者才可以复制画作"
+  · - "        §b§o鼠标移到工具上以查看详细信息"
+  · - "              §6§l⊱§e§l艺术工具帮助§6§l⊰"
+
+## 常量池帮助/描述文本
+  · me/Fupery/ArtMap/Command/AsyncCommand
+  · me/Fupery/ArtMap/ArtMap
+  · me/Fupery/ArtMap/Utils/Scheduler
+  · Lme/Fupery/ArtMap/Utils/Scheduler$TaskScheduler;
+  · me/Fupery/ArtMap/Utils/Scheduler$TaskScheduler
+  · me/Fupery/ArtMap/Command/ReturnMessage
+  · me/Fupery/ArtMap/api/Config/Lang
+  · Lme/Fupery/ArtMap/api/Config/Lang;
+  · Lme/Fupery/ArtMap/Command/AsyncCommand;
+  · Lme/Fupery/ArtMap/Command/ReturnMessage;
+  · me/Fupery/ArtMap/Painting/ArtistHandler
+  · me/Fupery/ArtMap/Painting/ArtSession
+  · me/Fupery/ArtMap/Command/CommandClear
+  · Lme/Fupery/ArtMap/Command/CommandClear;
+  · Lme/Fupery/ArtMap/Painting/ArtSession;
+  · Lme/Fupery/ArtMap/Easel/Easel;
+  · me/Fupery/ArtMap/Easel/Easel
+  · me/Fupery/ArtMap/IO/Legacy/FlatDatabaseConverter
+  · me/Fupery/ArtMap/IO/Legacy/V2DatabaseConverter
+  · me/Fupery/ArtMap/IO/Legacy/DatabaseConverter
+  · Artmap: Run '/artmap import -all <filename>' replace <filename> with the filename of the export printed above. 
+  · me/Fupery/ArtMap/Command/CommandConvert
+  · Lme/Fupery/ArtMap/Command/CommandConvert;
+  · Lme/Fupery/ArtMap/IO/Legacy/DatabaseConverter;
+  · me/Fupery/ArtMap/api/Config/Configuration
+  · me/Fupery/ArtMap/IO/Database/IDatabase
+  · me/Fupery/ArtMap/IO/MapArt
+  · me/Fupery/ArtMap/Command/CommandDelete
+  · Lme/Fupery/ArtMap/Command/CommandDelete;
+  · Ljava/util/Optional<Lme/Fupery/ArtMap/IO/MapArt;>;
+  · me/Fupery/ArtMap/Command/CommandExport$1
+  · Lme/Fupery/ArtMap/Command/CommandExport;
+  · Lme/Fupery/ArtMap/Command/CommandExport$1;
+  · Lcom/google/gson/reflect/TypeToken<Ljava/util/List<Lme/Fupery/ArtMap/Command/CommandExport$ArtworkExport;>;>;
+  · me/Fupery/ArtMap/Command/CommandExport
+  · me/Fupery/ArtMap/Command/CommandExport$ArtworkExport
+  · me/Fupery/ArtMap/IO/CompressedMap
+  · me/Fupery/ArtMap/IO/Database/Map
+  · me/Fupery/ArtMap/api/Exception/DuplicateArtworkException
+  · Lme/Fupery/ArtMap/Command/CommandExport$ArtworkExport;
+  · Lme/Fupery/ArtMap/IO/MapArt;
+  · Lme/Fupery/ArtMap/IO/CompressedMap;
+  · Lme/Fupery/ArtMap/IO/Database/Map;
+  · Lme/Fupery/ArtMap/api/Exception/DuplicateArtworkException;
+  · Ljava/util/List<Lme/Fupery/ArtMap/IO/MapArt;>;
+  · Ljava/util/List<Lme/Fupery/ArtMap/Command/CommandExport$ArtworkExport;>;
+  · me/Fupery/ArtMap/Command/CommandHandler$1$1
+  · Lme/Fupery/ArtMap/Command/CommandHandler$1;
+  · Lme/Fupery/ArtMap/Command/CommandHandler$1$1;
+  · me/Fupery/ArtMap/Command/CommandHandler$1
+  · me/Fupery/ArtMap/Command/CommandHandler
+  · Lme/Fupery/ArtMap/Command/CommandHandler;
+  · me/Fupery/ArtMap/Command/CommandHandler$2
+  · me/Fupery/ArtMap/Recipe/ArtMaterial
+  · Lme/Fupery/ArtMap/Recipe/ArtMaterial;
+  · me/Fupery/ArtMap/Recipe/ArtItem$InProgressArtworkItem
+  · me/Fupery/ArtMap/Utils/ItemUtils
+  · Lme/Fupery/ArtMap/Command/CommandHandler$2;
+  · me/Fupery/ArtMap/Recipe/ArtItem
+  · me/Fupery/ArtMap/Command/CommandHandler$3
+  · me/Fupery/ArtMap/api/Config/Lang$Array
+  · Lme/Fupery/ArtMap/api/Config/Lang$Array;
+  · me/Fupery/ArtMap/Event/PlayerOpenMenuEvent
+  · me/Fupery/ArtMap/Menu/Handler/MenuHandler
+  · Lme/Fupery/ArtMap/Menu/Handler/MenuHandler$MenuList;
+  · me/Fupery/ArtMap/Menu/Handler/MenuHandler$MenuList
+  · Lme/Fupery/ArtMap/Menu/Event/MenuFactory;
+  · me/Fupery/ArtMap/Menu/Event/MenuFactory
+  · Lme/Fupery/ArtMap/Command/CommandHandler$3;
+  · Lme/Fupery/ArtMap/Event/PlayerOpenMenuEvent;
+  · Lme/Fupery/ArtMap/Menu/Handler/MenuHandler;
+  · me/Fupery/ArtMap/Command/CommandSave
+  · me/Fupery/ArtMap/Command/CommandPreview
+  · me/Fupery/ArtMap/Command/CommandImport
+  · me/Fupery/ArtMap/Command/CommandTest
+  · me/Fupery/ArtMap/Command/Repair
+  · me/Fupery/ArtMap/Command/Search
+  · me/Fupery/ArtMap/Command/Page
+  · Ljava/util/HashMap<Ljava/lang/String;Lme/Fupery/ArtMap/Command/AsyncCommand;>;
+  · me/Fupery/ArtMap/Command/CommandImport$1
+  · Lme/Fupery/ArtMap/Command/CommandImport;
+  · Lme/Fupery/ArtMap/Command/CommandImport$1;
+  · me/Fupery/ArtMap/Preview/PreviewManager
+  · me/Fupery/ArtMap/Preview/ArtPreview
+  · Lme/Fupery/ArtMap/Command/CommandPreview;
+  · me/Fupery/ArtMap/IO/TitleFilter
+  · me/Fupery/ArtMap/api/Config/Lang$Filter
+  · Lme/Fupery/ArtMap/api/Config/Lang$Filter;
+  · Lme/Fupery/ArtMap/IO/TitleFilter;
+  · me/Fupery/ArtMap/Easel/Canvas
+  · me/Fupery/ArtMap/Easel/EaselEffect
+  · Lme/Fupery/ArtMap/Easel/EaselEffect;
+  · me/Fupery/ArtMap/api/Exception/PermissionException
+  · me/Fupery/ArtMap/api/Exception/ArtMapException
+  · Lme/Fupery/ArtMap/Command/CommandSave;
+  · Lme/Fupery/ArtMap/Easel/Canvas;
+  · Lme/Fupery/ArtMap/api/Exception/ArtMapException;
+  · Lme/Fupery/ArtMap/Command/CommandTest;
+  · me/Fupery/ArtMap/Menu/API/TextPagination
+  · Ljava/util/Map<Ljava/util/UUID;Lme/Fupery/ArtMap/Menu/API/TextPagination;>;
+  · Lme/Fupery/ArtMap/Command/Page;
+  · Lme/Fupery/ArtMap/Menu/API/TextPagination;
+  · Lme/Fupery/ArtMap/Command/Repair;
+  · me/Fupery/ArtMap/Heads/HeadsCache
+  · Lme/Fupery/ArtMap/Command/Search;
+  · me/Fupery/ArtMap/Listeners/PlayerCommandPreListener
+  · me/Fupery/ArtMap/Listeners/RegisteredListener
+  · Lme/Fupery/ArtMap/Listeners/PlayerCommandPreListener;

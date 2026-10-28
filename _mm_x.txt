@@ -1,0 +1,78 @@
+﻿== ExportCommand methods ==
+Compiled from "ExportCommand.java"
+
+public class io.lumine.mythic.bukkit.commands.items.ExportCommand extends io.lumine.mythic.bukkit.utils.commands.Command<io.lumine.mythic.bukkit.MythicBukkit> {
+
+  public io.lumine.mythic.bukkit.commands.items.ExportCommand(io.lumine.mythic.bukkit.utils.commands.Command<io.lumine.mythic.bukkit.MythicBukkit>);
+
+  public boolean onCommand(org.bukkit.command.CommandSender, java.lang.String[]);
+
+  public java.util.List<java.lang.String> onTabComplete(org.bukkit.command.CommandSender, java.lang.String[]);
+
+  public java.lang.String getPermissionNode();
+
+  public boolean isConsoleFriendly();
+
+  public java.lang.String getName();
+
+}
+
+
+== SetCommand strings ==
+io/lumine/mythic/bukkit/utils/commands/Command."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+ | &6--====|||| &c&lMythicMobs &6||||====--
+ | io/lumine/mythic/bukkit/utils/chat/ColorString.get:(Ljava/lang/String;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String;)V
+ | java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+ | java/lang/String.valueOf:(Ljava/lang/Ob
+
+== KillCommand flag logic ==
+27: ldc           #28                 // String -
+38: ldc           #36                 // String p
+52: ldc           #42                 // String e
+66: ldc           #44                 // String v
+80: ldc           #46                 // String f
+111: ldc           #54                 // String Must supply mob type to kill (or use <yellow>killall<red>)
+142: invokestatic  #72                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+13: ldc           #28                 // String -
+0: ldc_w         #293                // String mythicmobs.command.mobs.kill
+0: ldc_w         #297                // String kill
+6: ldc_w         #301                // String k

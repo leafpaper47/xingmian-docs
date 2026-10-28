@@ -1,0 +1,64 @@
+# EcoEnchants  (EcoEnchants v2026.34.jar)
+## 注册指令
+  /ecoenchants  usage=None desc='Base Command' alias=None perm='ecoenchants.command.ecoenchants'
+  /enchantinfo  usage=None desc='Show info about an enchant' alias=None perm='ecoenchants.command.enchantinfo'
+  /enchant  usage=None desc='Enchants an item' alias=None perm='ecoenchants.command.enchant'
+
+## 代码类
+  com.willfp.ecoenchants.commands.CommandEcoEnchants
+  com.willfp.ecoenchants.commands.CommandEnchant
+  com.willfp.ecoenchants.commands.CommandEnchantInfo
+  com.willfp.ecoenchants.commands.CommandGiveRandomBook
+  com.willfp.ecoenchants.commands.CommandGUI
+  com.willfp.ecoenchants.commands.CommandReload
+  com.willfp.ecoenchants.commands.CommandToggleDescriptions
+
+## javap 字符串 token
+  added-enchant args descriptions-disabled descriptions_enabled disabled-descriptions ecoenchants enabled-descriptions enchant enchantinfo gave-random-book giverandombook gui invalid-command invalid-enchantment invalid-levels invalid-player missing-enchant no-enchantments-found not-found player rawargs reload reloaded removed-enchant requires-player sender toggledescriptions
+
+## 文本资源里的帮助/用法行
+  · # Options for the /enchantinfo GUI
+  · # If enabled, /enchant opens a group selection menu first, grouping enchantments
+  · # by the group-by setting. If disabled, /enchant opens the flat enchantment list (current behavior).
+  · description: Allows the use of /ecoenchants.
+  · description: Allows the use of /ecoenchants toggledescriptions.
+  · description: Allows the use of /enchantinfo.
+  · description: Allows the use of /ecoenchants gui.
+  · description: Allows the use of /enchant.
+  · hide-from-enchantgui: false # If true, hides this enchantment from the /enchants GUI
+
+## 常量池帮助/描述文本
+  · com/willfp/ecoenchants/commands/CommandEcoEnchants
+  · Lcom/willfp/ecoenchants/commands/CommandEcoEnchants;
+  · com/willfp/ecoenchants/EcoEnchantsPluginKt
+  · com/willfp/ecoenchants/commands/CommandReload
+  · Lcom/willfp/ecoenchants/commands/CommandReload;
+  · com/willfp/ecoenchants/commands/CommandToggleDescriptions
+  · Lcom/willfp/ecoenchants/commands/CommandToggleDescriptions;
+  · com/willfp/ecoenchants/commands/CommandGiveRandomBook
+  · Lcom/willfp/ecoenchants/commands/CommandGiveRandomBook;
+  · com/willfp/ecoenchants/commands/CommandGUI
+  · Lcom/willfp/ecoenchants/commands/CommandGUI;
+  · com/willfp/ecoenchants/commands/CommandEnchant
+  · Lcom/willfp/ecoenchants/commands/CommandEnchant;
+  · com/willfp/ecoenchants/enchant/UtilKt
+  · com/willfp/ecoenchants/display/EnchantmentFormattingKt
+  · Lorg/bukkit/enchantments/Enchantment;
+  · com/willfp/ecoenchants/commands/CommandEnchantInfo
+  · Lcom/willfp/ecoenchants/commands/CommandEnchantInfo;
+  · com/willfp/ecoenchants/enchant/EcoEnchants
+  · Lcom/willfp/ecoenchants/enchant/EcoEnchants;
+  · com/willfp/ecoenchants/enchant/EcoEnchant
+  · com/willfp/ecoenchants/enchant/EnchantGUI
+  · Lcom/willfp/ecoenchants/enchant/EnchantGUI;
+  · Lcom/willfp/ecoenchants/enchant/EcoEnchant;
+  · com/willfp/ecoenchants/enchant/EcoEnchantLike
+  · com/willfp/ecoenchants/type/EnchantmentTypes
+  · Lcom/willfp/ecoenchants/type/EnchantmentTypes;
+  · com/willfp/ecoenchants/type/EnchantmentType
+  · com/willfp/ecoenchants/rarity/EnchantmentRarities
+  · Lcom/willfp/ecoenchants/rarity/EnchantmentRarities;
+  · com/willfp/ecoenchants/rarity/EnchantmentRarity
+  · com/willfp/eco/core/items/builder/EnchantedBookBuilder
+  · Lcom/willfp/ecoenchants/rarity/EnchantmentRarity;
+  · Lcom/willfp/ecoenchants/type/EnchantmentType;

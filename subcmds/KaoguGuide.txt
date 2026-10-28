@@ -1,0 +1,17 @@
+# KaoguGuide  (KaoguGuide-CE.jar)
+## 注册指令
+  /kaoguguide  usage='/<command>' desc='打开考古图鉴' alias=['kaogutujian', 'tg'] perm=None
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · description: 星冕考古图鉴 - 展示玩家已修复过的古物
+  · description: 打开考古图鉴
+  · description: 允许使用考古图鉴
+  · description: 允许重载图鉴数据
+
+## 常量池帮助/描述文本

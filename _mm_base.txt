@@ -1,0 +1,201 @@
+﻿python.exe : <string>:4: SyntaxWarning: "\M" is an invalid escape sequence. Such sequences will not work in the future.
+ Did you mean "\\M"? A raw string is also an option.
+所在位置 行:1 字符: 233
++ ... pace\wcdoc; & "C:\Users\VOS-User\AppData\Local\Python\pythoncore-3.14 ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (<string>:4: Syn...also an option.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Compiled from "BaseCommand.java"
+
+public class io.lumine.mythic.bukkit.commands.BaseCommand extends io.lumine.mythic.bukkit.utils.commands.Command<io.lumine.mythic.bukkit.MythicBukkit> {
+
+  private io.lumine.mythic.bukkit.commands.items.ItemsCommand itemsCommand;
+
+
+
+  private io.lumine.mythic.bukkit.commands.mobs.MobsCommand mobsCommand;
+
+
+
+  private io.lumine.mythic.bukkit.commands.pins.PinsCommand pinsCommand;
+
+
+
+  private io.lumine.mythic.bukkit.commands.skills.SkillsCommand skillsCommand;
+
+
+
+  private io.lumine.mythic.bukkit.commands.spawners.SpawnersCommand spawnersCommand;
+
+
+
+  private io.lumine.mythic.bukkit.commands.test.TestCommand testCommand;
+
+
+
+  private io.lumine.mythic.bukkit.commands.utility.UtilitiesCommand utilitiesCommand;
+
+
+
+  public io.lumine.mythic.bukkit.commands.BaseCommand(io.lumine.mythic.bukkit.MythicBukkit);
+
+    Code:
+
+         0: aload_0
+
+         1: aload_1
+
+         2: invokespecial #25                 // Method io/lumine/mythic/bukkit/utils/commands/Command."<init>":(Lorg/bukkit/plugin/Plugin;)V
+
+         5: aload_0
+
+         6: new           #27                 // class io/lumine/mythic/bukkit/commands/items/ItemsCommand
+
+         9: dup
+
+        10: aload_0
+
+        11: invokespecial #30                 // Method io/lumine/mythic/bukkit/commands/items/ItemsCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+        14: putfield      #32                 // Field itemsCommand:Lio/lumine/mythic/bukkit/commands/items/ItemsCommand;
+
+        17: aload_0
+
+        18: new           #34                 // class io/lumine/mythic/bukkit/commands/mobs/MobsCommand
+
+        21: dup
+
+        22: aload_0
+
+        23: invokespecial #35                 // Method io/lumine/mythic/bukkit/commands/mobs/MobsCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+        26: putfield      #37                 // Field mobsCommand:Lio/lumine/mythic/bukkit/commands/mobs/MobsCommand;
+
+        29: aload_0
+
+        30: new           #39                 // class io/lumine/mythic/bukkit/commands/skills/SkillsCommand
+
+        33: dup
+
+        34: aload_0
+
+        35: invokespecial #40                 // Method io/lumine/mythic/bukkit/commands/skills/SkillsCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+        38: putfield      #42                 // Field skillsCommand:Lio/lumine/mythic/bukkit/commands/skills/SkillsCommand;
+
+        41: aload_0
+
+        42: new           #44                 // class io/lumine/mythic/bukkit/commands/spawners/SpawnersCommand
+
+        45: dup
+
+        46: aload_0
+
+        47: invokespecial #45                 // Method io/lumine/mythic/bukkit/commands/spawners/SpawnersCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+        50: putfield      #47                 // Field spawnersCommand:Lio/lumine/mythic/bukkit/commands/spawners/SpawnersCommand;
+
+        53: aload_0
+
+        54: new           #49                 // class io/lumine/mythic/bukkit/commands/pins/PinsCommand
+
+        57: dup
+
+        58: aload_0
+
+        59: invokespecial #50                 // Method io/lumine/mythic/bukkit/commands/pins/PinsCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+        62: putfield      #52                 // Field pinsCommand:Lio/lumine/mythic/bukkit/commands/pins/PinsCommand;
+
+        65: aload_0
+
+        66: new           #54                 // class io/lumine/mythic/bukkit/commands/test/TestCommand
+
+        69: dup
+
+        70: aload_0
+
+        71: invokespecial #55                 // Method io/lumine/mythic/bukkit/commands/test/TestCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+        74: putfield      #57                 // Field testCommand:Lio/lumine/mythic/bukkit/commands/test/TestCommand;
+
+        77: aload_0
+
+        78: new           #59                 // class io/lumine/mythic/bukkit/commands/utility/UtilitiesCommand
+
+        81: dup
+
+        82: aload_0
+
+        83: invokespecial #60                 // Method io/lumine/mythic/bukkit/commands/utility/UtilitiesCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+        86: putfield      #62                 // Field utilitiesCommand:Lio/lumine/mythic/bukkit/commands/utility/UtilitiesCommand;
+
+        89: aload_0
+
+        90: bipush        17
+
+        92: anewarray     #5                  // class io/lumine/mythic/bukkit/utils/commands/Command
+
+        95: dup
+
+        96: iconst_0
+
+        97: new           #64                 // class io/lumine/mythic/bukkit/commands/InfoCommand
+
+       100: dup
+
+       101: aload_0
+
+       102: invokespecial #65                 // Method io/lumine/mythic/bukkit/commands/InfoCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+       105: aastore
+
+       106: dup
+
+       107: iconst_1
+
+       108: new           #67                 // class io/lumine/mythic/bukkit/commands/ReloadCommand
+
+       111: dup
+
+       112: aload_0
+
+       113: invokespecial #68                 // Method io/lumine/mythic/bukkit/commands/ReloadCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+       116: aastore
+
+       117: dup
+
+       118: iconst_2
+
+       119: new           #70                 // class io/lumine/mythic/bukkit/commands/SaveCommand
+
+       122: dup
+
+       123: aload_0
+
+       124: invokespecial #71                 // Method io/lumine/mythic/bukkit/commands/SaveCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+       127: aastore
+
+       128: dup
+
+       129: iconst_3
+
+       130: new           #73                 // class io/lumine/mythic/bukkit/commands/debug/DebugCommand
+
+       133: dup
+
+       134: aload_0
+
+       135: invokespecial #74                 // Method io/lumine/mythic/bukkit/commands/debug/DebugCommand."<init>":(Lio/lumine/mythic/bukkit/utils/commands/Command;)V
+
+       138: aastore
+
+       139: dup
+
+       140: iconst_4
+
+       141: new           #76                 //

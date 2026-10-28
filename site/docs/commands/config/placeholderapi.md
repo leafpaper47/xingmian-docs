@@ -7,81 +7,58 @@ createTime: 2026/10/24
 
 > 分类 🧩 脚本与菜单 · 版本 `2.12.3` · 指令 1 条 · api-version `1.13`
 
-::: tip 全服统一的变量占位符引擎，供各插件取值
-它本身不提供玩法，而是给全服插件提供统一的占位符解析：别的插件配置里写 %player_name% 这类变量，由 PAPI 向对应扩展要值再填回文本。计分板、聊天格式、菜单、TAB、称号这类展示型插件几乎都靠它把玩家数据拼进文字里。没有它，多数现代插件的变量会原样显示成一串百分号。
+::: tip 变量占位符
+全服变量中转站：把等级/经济/在线人数等数据变成 %xxx% 占位符，供计分板、聊天、菜单等插件引用，并可从云端下载扩展包。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 装了计分板、聊天格式、菜单或 TAB 之类的插件，但里面的变量原样显示成 %xxx% 时
-- 想知道某个占位符此刻到底解析出什么值，排查变量为空或不生效
-- 需要下载或更新扩展（比如 player、server、statistic）来支持想要的变量
-- 新加了扩展或改了配置后，要重载 PAPI 让它生效
-
-## 上手流程
-
-1. 把 PlaceholderAPI 放进 plugins 目录重启服务器，确认控制台无报错
-2. 游戏内输入 /papi list 查看已注册扩展，缺哪个就用 /papi ecloud download 扩展名 下载
-3. 下载完执行 /papi reload，再用 /papi parse me 占位符 实测解析结果
-4. 把验证通过的占位符填进其它插件的配置文件里
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 看装了哪些扩展 | /papi list | 显示已加载的扩展与作者 |
+| 测变量能不能出值 | /papi parse me %player_level% | 最常用的排错手段 |
+| 下载扩展包 | /papi ecloud download Player | 下载后必须 /papi reload |
+| 改完配置生效 | /papi reload | 重载所有扩展与配置 |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/placeholderapi` | PAPI 主命令，用于管理扩展、下载云端扩展与调试占位符<br>别名 `/papi` | `/papi 子命令 参数` | — |
+| `/placeholderapi` | PlaceholderAPI命令<br>别名 `/papi` | — | — |
 
 ## 指令详解
 
-### `/placeholderapi` — PAPI 主命令，用于管理扩展、下载云端扩展与调试占位符
-
-- **语法**：`/papi 子命令 参数`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `子命令` | 必填 | 如 help、list、info、parse、ecloud、reload、version |
-
-
-- **示例**：
-
-```
-/papi list
-/papi parse me %player_name%
-```
+### `/placeholderapi` — PlaceholderAPI命令
 
 - **别名**：`/papi`
-- **备注**：别名 /papi，日常几乎都用 /papi；每个子命令对应一个独立权限节点，给管理组授权时按需给
 
 ## 子指令速查
 
 | 子指令 | 功能 | 示例 |
 | --- | --- | --- |
-| `help [页码]` | 列出 PAPI 全部子命令及对应权限 | `/papi help` |
-| `info 扩展名` | 查看某个扩展的作者、版本与它提供的占位符 | `/papi info Player` |
-| `list` | 列出服务器上已注册（当前可用）的扩展 | `/papi list` |
-| `parse 玩家名 文本` | 以指定玩家为上下文解析一段占位符文本 | `/papi parse Steve %player_name%` |
-| `parse me 文本` | 以自己为上下文解析，最常用的调试方式 | `/papi parse me %player_health%` |
-| `parse --null 文本` | 不带玩家上下文解析，适合服务器类占位符 | `/papi parse --null %server_online%` |
-| `reload` | 重载 PAPI 配置与已下载的扩展，下载后必做 | `/papi reload` |
-| `version` | 查看当前 PAPI 版本号 | `/papi version` |
-| `register 扩展名` | 手动注册本地扩展，多数情况会自动注册，非必要不用 | `/papi register Player` |
-| `unregister 扩展名` | 取消注册某个扩展，让它暂时不起作用 | `/papi unregister Player` |
-| `ecloud status` | 查看 eCloud 云扩展仓库的连接状态 | `/papi ecloud status` |
-| `ecloud list all 页码` | 列出云端可用扩展，可指定页码翻页 | `/papi ecloud list all 1` |
-| `ecloud info 扩展名` | 查看云端某个扩展的说明、作者与版本 | `/papi ecloud info player` |
-| `ecloud download 扩展名` | 从云端下载扩展，下载完需 /papi reload | `/papi ecloud download Player` |
-| `ecloud update 扩展名` | 更新已下载的云端扩展，写 all 表示全部更新 | `/papi ecloud update all` |
-| `ecloud refresh` | 刷新本地 eCloud 扩展缓存，看不到新扩展时用 | `/papi ecloud refresh` |
-| `ecloud clear` | 清空本地 eCloud 缓存文件 | `/papi ecloud clear` |
-| `ecloud placeholders 扩展名` | 查看某个扩展提供的全部占位符清单 | `/papi ecloud placeholders player` |
+| `/papi list` | 列出已安装的扩展（含版本与作者） | `/papi list` |
+| `/papi info <扩展>` | 查看某扩展的详细信息与占用情况 | `/papi info Player` |
+| `/papi parse <玩家> <文本>` | 用指定玩家上下文解析占位符，直接看到替换结果 | `/papi parse Steve %player_level%` |
+| `/papi parse me <文本>` | 以自己为上下文解析（玩家最常用） | `/papi parse me %server_online%` |
+| `/papi reload` | 重载配置并重新注册全部扩展 | `/papi reload` |
+| `/papi version` | 查看 PAPI 版本与更新状态 | `/papi version` |
+| `/papi dump` | 导出诊断信息（反馈问题用） | `/papi dump` |
+| `/papi ecloud download <扩展>` | 从云端下载扩展 jar | `/papi ecloud download Player` |
+| `/papi ecloud update <扩展｜all>` | 更新云端扩展 | `/papi ecloud update all` |
+| `/papi ecloud refresh` | 刷新云端扩展列表缓存 | `/papi ecloud refresh` |
+| `/papi ecloud status` | 查看云端可用性与本地缓存状态 | `/papi ecloud status` |
+| `/papi ecloud list <all｜installed｜作者>` | 列出云端扩展 | `/papi ecloud list installed` |
+| `/papi ecloud placeholders <扩展>` | 查看某扩展提供的全部占位符 | `/papi ecloud placeholders Player` |
+| `/papi ecloud clear` | 清空本地云端缓存 | `/papi ecloud clear` |
+| `/papi register <jar 名>` | 手动注册一个本地扩展 jar | `/papi register MyExpansion.jar` |
+| `/papi unregister <扩展>` | 卸载某个扩展 | `/papi unregister Player` |
 
 ## 注意事项
 
 ::: warning
-- 没有玩家上下文时（控制台、异步任务）占位符会取到空值，要显式指定玩家或改用 --null 形式
-- 刚下载的扩展必须 /papi reload 才生效，但扩展很多时 reload 会有短暂卡顿，尽量在低峰做
-- 占位符前缀和大小写要照扩展文档写全，写错不会报错，只会原样输出一串百分号
-- 扩展装太多会拖慢每次解析，计分板这种高频刷新的地方少用重计算的扩展
+- 占位符解析失败时先 `/papi parse me %xxx%` 单测，再怀疑引用方插件——90% 的「计分板不显示」是变量名写错或扩展没加载。
+- ecloud download 之后必须 /papi reload 才生效，很多人以为下载完就完事了。
+- PAPI 本身不产出数据，`%xxx%` 全靠扩展；没装对应扩展的占位符会原样显示。
 :::
 
 ## 权限节点
@@ -89,7 +66,7 @@ createTime: 2026/10/24
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
 | `placeholderapi.*` | 能够使用所有PAPI命令 | — |
-| `placeholderapi.admin` | 能够使用所有PAPI命令 | — |
+| `placeholderapi.admin` | 使用 /papi 管理类子指令 | — |
 | `placeholderapi.ecloud` | 允许您访问PAPI eCloud | op |
 | `placeholderapi.ecloud.*` | 能够使用所有PAPI ecloud命令 | — |
 | `placeholderapi.ecloud.clear` | 允许您清除本地eCloud扩展缓存 | op |
@@ -109,7 +86,3 @@ createTime: 2026/10/24
 | `placeholderapi.unregister` | 允许您取消注册扩展 | op |
 | `placeholderapi.updatenotify` | 当有PAPI更新时通知您 | op |
 | `placeholderapi.version` | 允许您查看已安装的PAPI版本 | op |
-
-## 相关插件
-
-[TAB](/commands/chat/tab.md)、[DeluxeMenus](/commands/config/deluxemenus.md)、[LuckPerms](/commands/core/luckperms.md)、[Vault](/commands/core/vault.md)、[Skript](/commands/config/skript.md)

@@ -1,57 +1,50 @@
 {
-  "name": "LeafHat",
-  "role": "把手上物品戴到头上，替代 Essentials 帽子功能",
-  "summary": "LeafHat 是一个专门做头顶穿戴的小插件，用来替代 Essentials 自带的 hat 功能，行为更干净也更好控权。玩家手上拿着想戴的东西执行指令即可顶到头上，再执行一次或加参数即可脱下。是否可用由权限节点控制，适合把「戴帽子」这件事单独交给某一批玩家或某个权限组。",
-  "whatFor": [
-    "让玩家把头盔、南瓜、方块、工具等任意手持物品戴在头上当装饰",
-    "想用独立权限精细控制谁能戴帽子，而不是笼统给 Essentials 全部权限",
-    "需要一条明确的脱帽指令来快速恢复头部装备"
-  ],
-  "flow": [
-    "把 LeafHat 放进 plugins 目录并重启服务端，确认插件正常启用",
-    "给需要的玩家或权限组授予 leafhat.use 权限节点",
-    "玩家手持想要戴上的物品执行 /hat，物品即被移到头部栏位",
-    "要摘下时执行 /unhat，或执行 /hat remove",
-    "改过配置后用 /hat reload 重载，无需重启"
-  ],
-  "commands": [
+ "name": "LeafHat",
+ "role": "把手上物品戴到头上",
+ "summary": "LeafHat 是一个专门做头顶穿戴的小插件，用来替代 Essentials 自带的 hat 功能，行为更干净也更好控权。",
+ "quick": [
+  {
+   "scene": "把手上的东西戴头上",
+   "cmd": "/hat",
+   "note": "再执行一次脱下"
+  },
+  {
+   "scene": "只脱帽子",
+   "cmd": "/unhat",
+   "note": "手上还有别的也能脱"
+  }
+ ],
+ "commands": [
+  {
+   "cmd": "hat",
+   "what": "把手上物品戴到头上，或按参数脱下帽子",
+   "syntax": "/hat [remove]",
+   "params": [
     {
-      "cmd": "hat",
-      "what": "把手上物品戴到头上，或按参数脱下帽子",
-      "syntax": "/hat [remove]",
-      "params": [
-        {
-          "name": "remove",
-          "required": false,
-          "note": "可选参数，填 remove 表示脱下当前头上的物品"
-        }
-      ],
-      "examples": [
-        "/hat",
-        "/hat remove"
-      ],
-      "notes": "别名 /wearhat 等价；需要 leafhat.use 权限。手上为空时正常不会戴出东西，先确保主手有物品。"
-    },
-    {
-      "cmd": "unhat",
-      "what": "单独脱下头顶物品的快捷指令",
-      "syntax": "/unhat",
-      "params": [],
-      "examples": [
-        "/unhat"
-      ],
-      "notes": "无参数，等价于 /hat remove；需要 leafhat.use 权限。头部为空时执行一般只会提示没有帽子。"
+     "name": "remove",
+     "required": false,
+     "note": "可选参数，填 remove 表示脱下当前头上的物品"
     }
-  ],
-  "subcommands": [],
-  "caution": [
-    "具体参数与子指令以游戏内 /hat 或插件 help 的实际输出为准，本手册只覆盖已知用法",
-    "leafhat.use 默认仅 OP 拥有，普通玩家需要显式授权才能戴帽子，别忘了给权限组加节点",
-    "头顶物品占用头盔栏位，脱下/戴上前注意别把原有头盔弄丢，重要装备建议先收进背包",
-    "leafhat.reload 只允许 OP 或显式授权者使用，改配置前先备份文件"
-  ],
-  "related": [
-    "Essentials",
-    "LuckPerms"
-  ]
+   ],
+   "examples": [
+    "/hat",
+    "/hat remove"
+   ],
+   "notes": "别名 /wearhat 等价；需要 leafhat.use 权限。手上为空时正常不会戴出东西，先确保主手有物品。"
+  },
+  {
+   "cmd": "unhat",
+   "what": "单独脱下头顶物品的快捷指令",
+   "syntax": "/unhat",
+   "examples": [
+    "/unhat"
+   ],
+   "notes": "无参数，等价于 /hat remove；需要 leafhat.use 权限。头部为空时执行一般只会提示没有帽子。"
+  }
+ ],
+ "caution": [
+  "具体参数与子指令以游戏内 /hat 或插件 help 的实际输出为准，本手册只覆盖已知用法",
+  "leafhat.use 默认仅 OP 拥有，普通玩家需要显式授权才能戴帽子，别忘了给权限组加节点",
+  "头顶物品占用头盔栏位，脱下/戴上前注意别把原有头盔弄丢，重要装备建议先收进背包"
+ ]
 }

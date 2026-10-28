@@ -1,0 +1,61 @@
+# MagicPointsLog  (MagicPointsLog-1.0.0.jar)
+## 注册指令
+  /mpl  usage='/mpl' desc='MagicPointsLog 点券流水主命令' alias=['magicpointslog'] perm=None
+
+## 代码类
+  com.magicpointslog.command.MplCommand
+
+## javap 字符串 token
+  all check clear reload top
+
+## 文本资源里的帮助/用法行
+  · #  MagicPointsLog 点券流水记录 - 配置文件
+  · #  【说明】
+  · #   - 修改本文件后请执行 /mpl reload 或重启服务器使配置生效。
+  · #   - 所有颜色代码使用 & + 颜色字符（如 &f 白色、&7 灰色、&8 深灰）。
+  · #  功能开关
+  · # 文本日志里是否记录玩家 UUID
+  · # 点券变动时是否同时输出到服务器控制台
+  · # 轮转后的旧日志是否压缩为 .gz
+  · # 日志切分方式
+  · #   true  : 按日期切分（每天一个文件）
+  · #   false : 按大小切分（单文件 10MB）
+  · # /mpl top 榜单显示的人数
+  · #  提示语
+  · no-permission: "&f&l MagicPointsLog &8-  &f你没有权限使用该命令"
+  · format-error: "&f&l MagicPointsLog &8-  &f指令格式错误"
+  · not-found: "&f&l MagicPointsLog &8-  &f没有这个玩家的记录"
+  · clear: "&f&l MagicPointsLog &8-  &f该玩家记录已清除"
+  · reload: "&f&l MagicPointsLog &8-  &f配置已重载"
+  · description: PlayerPoints 点券流水记录与统计查询
+  · description: MagicPointsLog 点券流水主命令
+  · usage: /mpl
+  · description: 查看玩家点券收支与流水
+  · description: 查看点券收支榜单
+  · description: 清除玩家点券记录
+  · description: 查看全服点券收支汇总
+  · description: 重载插件配置
+
+## 常量池帮助/描述文本
+  · com/magicpointslog/command/MplCommand
+  · &7 命令: &f/mpl &8[…]
+  · &7 参数:
+  · &7   &8-  &fcheck <玩家>     &7查看玩家收支与最近流水
+  · &7   &8-  &ftop     &7查看收支榜单
+  · &7   &8-  &fclear <玩家>     &7清除玩家记录
+  · &7   &8-  &fall     &7查看全服收支汇总
+  · &7   &8-  &freload     &7重载插件配置
+  · &f&l MagicPointsLog &8-  &f/mpl check <玩家>
+  · &7 用户名: &f
+  · &7 累积消耗: &f
+  · &7 累积获取: &f
+  · &7 最近流水(最多10条):
+  · &7   &8-  &f无
+  · &7 消耗榜:
+  · &7   &8-  &f第 
+  ·  名: 
+  · &7 获取榜:
+  · &f&l MagicPointsLog &8-  &f/mpl clear <玩家>
+  · &7 服务器总消耗: &f
+  · &7 服务器总获取: &f
+  · Lcom/magicpointslog/command/MplCommand;

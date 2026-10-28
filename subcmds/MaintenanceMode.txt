@@ -1,0 +1,19 @@
+# MaintenanceMode  (MaintenanceMode.jar)
+## 注册指令
+  /maintenance  usage='/maintenance <on|off|status>' desc='维护模式管理指令' alias=None perm='maintenance.use'
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · # 维护模式插件配置
+  · # 该开关由 /maintenance on|off 指令自动修改，重启服务器后仍然生效
+  · description: 维护模式管理指令
+  · usage: /maintenance <on|off|status>
+  · description: 允许使用维护模式指令
+  · description: 免除维护模式限制（不被踢、可进服）
+
+## 常量池帮助/描述文本

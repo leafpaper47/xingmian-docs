@@ -1,36 +1,43 @@
 {
-  "name": "allmusic",
-  "role": "全服音乐播放与广播的点歌类插件",
-  "summary": "AllMusic 把音乐播放做成了一个统一入口：管理员用一条指令就能给全服玩家起音乐，用来做开服氛围、活动暖场或公告配乐。插件本身说明很简略，只暴露了 /music 这个主指令，具体曲目与播放方式要靠游戏内 help 去看。它属于小众/自研类插件，常和服务器自己的资源包或音频分发方式配合使用。",
-  "whatFor": [
-    "开服、活动开场等需要给全服玩家统一放一段背景音乐的时候",
-    "节日活动、新人接待想临时营造气氛，但不想逐个玩家私发声音",
-    "刚接手服务器，想先摸清这个插件能用哪些曲目和玩法，用 /music help 看清单"
-  ],
-  "flow": [
-    "先在服务端确认插件已正常加载（/plugins 列表里能看到 AllMusic，控制台无报错）",
-    "进游戏用管理员身份执行 /music help，看清当前版本实际支持的子指令和曲目参数",
-    "按 help 给出的格式试播一次，用另一个普通玩家客户端确认是否真的能听到",
-    "把验证通过的曲目和写法记进活动流程，之后需要时直接广播"
-  ],
-  "commands": [
-    {
-      "cmd": "music",
-      "what": "全服音乐主指令，查看帮助并进入播放功能",
-      "syntax": "/music help",
-      "params": [],
-      "examples": [
-        "/music help"
-      ],
-      "notes": "聊天栏里显示的 [AllMusic]/music help 就是插件自带的用法提示；除 help 之外还有哪些子指令、曲目怎么传，以游戏内实际输出为准，不要照抄别服的写法。"
-    }
-  ],
-  "subcommands": [],
-  "caution": [
-    "具体参数与子指令以游戏内 help 为准，本手册不臆测未文档化的用法",
-    "全服音乐能否被听到取决于客户端是否拿到音频（资源包或音频分发），指令执行成功不等于玩家听得见，务必先在测试客户端验证",
-    "高峰期避免长时间循环播放，容易占用带宽并让低配客户端卡顿",
-    "授权时注意谁能用 /music，别让普通玩家拿到广播音乐的权限"
-  ],
-  "related": []
+ "name": "allmusic",
+ "role": "点歌/音乐",
+ "summary": "全服音乐播放：玩家点歌投票、按歌单播放、支持 HUD 歌词显示与禁歌名单；管理员通过 /music 管理歌单、封禁与重载。",
+ "quick": [
+  {"scene": "玩家点歌", "cmd": "/music select 千本桜", "note": "按关键词搜索后确认选择"},
+  {"scene": "看当前歌曲列表", "cmd": "/music list", "note": "列出已加载曲库"},
+  {"scene": "跳过当前歌", "cmd": "/music next", "note": "需要投票或管理员权限"},
+  {"scene": "禁掉某首歌", "cmd": "/music ban <歌曲id>", "note": "被禁的歌不再进入随机池"}
+ ],
+ "commands": [
+  {"cmd": "music", "what": "音乐系统主指令（点歌/投票/歌单/管理）", "syntax": "/music <list|search|select|next|vote|hud|join|push|cancel|stop|ban|unban|addlist|clearlist|delete|reload|test>",
+   "examples": ["/music search 千本桜", "/music list"], "notes": "命令名 music；普通玩家可用点歌类子指令，管理类需权限"}
+ ],
+ "subcommands": [
+  {"cmd": "/music list", "desc": "列出曲库中的歌曲（分页）", "example": "/music list"},
+  {"cmd": "/music search <关键词>", "desc": "按歌名/作者搜索曲库", "example": "/music search 千本桜"},
+  {"cmd": "/music select <编号|歌名>", "desc": "选定要播放的歌曲", "example": "/music select 12"},
+  {"cmd": "/music next", "desc": "切换到下一首（投票或权限）", "example": "/music next"},
+  {"cmd": "/music vote", "desc": "为跳歌/切歌投票", "example": "/music vote"},
+  {"cmd": "/music hud [on|off]", "desc": "开关歌词 HUD 显示", "example": "/music hud on"},
+  {"cmd": "/music join", "desc": "加入当前音乐房间/跟随播放", "example": "/music join"},
+  {"cmd": "/music cancel", "desc": "取消自己的点歌/投票", "example": "/music cancel"},
+  {"cmd": "/music stop", "desc": "停止当前播放（管理）", "example": "/music stop"},
+  {"cmd": "/music push <玩家> <歌曲>", "desc": "直接给指定玩家推一首歌（管理）", "example": "/music push Steve 千本桜"},
+  {"cmd": "/music ban [玩家|歌曲]", "desc": "禁歌或禁某玩家点歌", "example": "/music ban 12"},
+  {"cmd": "/music unban [玩家|歌曲]", "desc": "解除禁歌/禁点", "example": "/music unban 12"},
+  {"cmd": "/music addlist <歌曲>", "desc": "把歌曲加入指定歌单/收藏列表", "example": "/music addlist 千本桜"},
+  {"cmd": "/music clearlist", "desc": "清空当前歌单", "example": "/music clearlist"},
+  {"cmd": "/music delete <歌曲>", "desc": "从曲库删除歌曲", "example": "/music delete 12"},
+  {"cmd": "/music reload", "desc": "重载曲库与配置（新加的歌才出现）", "example": "/music reload"},
+  {"cmd": "/music test <歌曲>", "desc": "试听/测试播放（排查卡顿时用）", "example": "/music test 12"}
+ ],
+ "caution": [
+  "歌名或编号写错不会报错，只会静默不播放，先 /music list 拿到准确编号。",
+  "HUD 歌词与计分板/TAB 可能重叠，玩家反馈「字叠在一起」时先关 hud 排查。",
+  "新放入的音乐文件必须 /music reload 才会出现在曲库，reload 期间正在播放的歌会中断。"
+ ],
+ "permissions": {
+  "music.use": "使用点歌、列表、搜索等基础子指令",
+  "music.admin": "管理类子指令（ban/unban/delete/reload/push/stop）"
+ }
 }

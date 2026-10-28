@@ -1,0 +1,23 @@
+# EssentialsSpawn  (EssentialsXSpawn-2.22.1-dev+12-776f709.jar)
+## 注册指令
+  /setspawn  usage='/<command> <group>' desc='Sets the spawn point to your current position.' alias=['esetspawn'] perm=None
+  /spawn  usage='/<command> [player]' desc='Teleports to the spawn point.' alias=['espawn'] perm=None
+
+## 代码类
+  com.earth2me.essentials.spawn.Commandsetspawn
+  com.earth2me.essentials.spawn.Commandspawn
+
+## javap 字符串 token
+  default setspawn spawn spawnset teleportatob teleporting
+
+## 文本资源里的帮助/用法行
+  · description: Allows access to the /spawn command
+  · description: Allows access to the /spawn command for other players
+  · description: Allows access to the /setspawn command
+
+## 常量池帮助/描述文本
+  · com/earth2me/essentials/spawn/Commandsetspawn
+  · com/earth2me/essentials/spawn/SpawnStorage
+  · Lcom/earth2me/essentials/spawn/Commandsetspawn;
+  · com/earth2me/essentials/spawn/Commandspawn
+  · Lcom/earth2me/essentials/spawn/Commandspawn;

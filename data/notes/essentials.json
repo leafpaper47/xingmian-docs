@@ -1,212 +1,1462 @@
 {
-  "name": "Essentials",
-  "role": "服务器基础指令总控，管理、传送、经济全靠它",
-  "summary": "Essentials 是 Minecraft 服务端最常见的基础指令插件，把传送、家与地标、经济、封禁禁言、物品与背包管理、运行状态查询这些日常操作打包成一套指令。它自己就能管钱（用 eco 给钱），也可以通过 Vault 把余额共享给商店、点券、任务类插件。管理员绝大部分后台操作都从它开始，配合 LuckPerms 管权限、EssentialsSpawn 管多世界出生点最顺手。",
-  "whatFor": [
-    "新玩家进服要用地标、家、新手礼包这类基础福利指令",
-    "日常管人：封禁、限时封禁、禁言、踢人、查坐标、看背包",
-    "搭主城：设地标、设出生点附近的家、配随机传送的中心和半径",
-    "配经济：给钱扣钱、给物品定回收价、做财富排行榜",
-    "自己排查问题：看 TPS、内存、在线名单、某人最后一次上线时间"
-  ],
-  "flow": [
-    "先在控制台执行 /essentials 确认插件加载正常、版本正确",
-    "用 LuckPerms 把 essentials.* 或按需的 essentials.xxx 发给管理组，普通玩家只给传送、家、私信这类",
-    "用 /setwarp 把主城、副本、商店等重要地点标出来，玩家用 /warp 名单里的地标传送",
-    "用 /eco、/setworth、/createkit 配好启动资金、回收价和新手礼包",
-    "最后按需调 config.yml 里的冷却、传送等待秒数、以及是否开启 tpa 需要对方同意"
-  ],
-  "commands": [
-    {"cmd": "afk", "what": "把自己或指定玩家标记为暂离，可附自定义留言", "syntax": "/afk [玩家名或留言]", "examples": ["/afk 去吃饭了"]},
-    {"cmd": "antioch", "what": "OP 恶搞指令，在原地炸出一发大范围 TNT", "syntax": "/antioch [留言]", "examples": ["/antioch"]},
-    {"cmd": "anvil", "what": "原地打开铁砧界面，修装备、改名字不用回家", "syntax": "/anvil", "examples": ["/anvil"]},
-    {"cmd": "back", "what": "回到上一次传送或死亡之前的位置", "syntax": "/back [玩家名]", "examples": ["/back"]},
-    {"cmd": "backup", "what": "按配置立刻触发一次服务器备份", "syntax": "/backup", "examples": ["/backup"]},
-    {"cmd": "balance", "what": "查看自己或他人的金币余额", "syntax": "/balance [玩家名]", "examples": ["/balance Steve"]},
-    {"cmd": "balancetop", "what": "查看服务器财富排行榜", "syntax": "/balancetop [页码]", "examples": ["/balancetop 1"]},
-    {"cmd": "ban", "what": "封禁玩家，可以附上原因", "syntax": "/ban 玩家名 [原因]", "examples": ["/ban Steve 使用作弊客户端"]},
-    {"cmd": "banip", "what": "封禁某个 IP 地址", "syntax": "/banip IP地址 [原因]", "examples": ["/banip 203.0.113.7 恶意刷屏"]},
-    {"cmd": "beezooka", "what": "娱乐指令，向准心方向射出一只爆炸蜜蜂", "syntax": "/beezooka", "examples": ["/beezooka"]},
-    {"cmd": "bigtree", "what": "在准心处生成一棵大树，可指定树种", "syntax": "/bigtree 树种", "examples": ["/bigtree redwood"]},
-    {"cmd": "book", "what": "重新打开手里的成书继续编辑", "syntax": "/book [title 或 author 参数：新名字]", "examples": ["/book"]},
-    {"cmd": "bottom", "what": "传送到当前位置最低的一层可站立方块", "syntax": "/bottom", "examples": ["/bottom"]},
-    {"cmd": "break", "what": "直接破坏准心对着的那个方块", "syntax": "/break", "examples": ["/break"]},
-    {"cmd": "broadcast", "what": "向全服玩家发一条公告", "syntax": "/broadcast 消息内容", "examples": ["/broadcast 服务器十分钟后重启，请先下线保存"]},
-    {"cmd": "broadcastworld", "what": "只向指定世界发公告", "syntax": "/broadcastworld 世界名 消息内容", "examples": ["/broadcastworld world 主城今晚八点活动"]},
-    {"cmd": "burn", "what": "点燃指定玩家若干秒", "syntax": "/burn 玩家名 秒数", "examples": ["/burn Steve 5"]},
-    {"cmd": "cartographytable", "what": "原地打开制图台", "syntax": "/cartographytable", "examples": ["/cartographytable"]},
-    {"cmd": "clearinventory", "what": "清空自己或他人背包，可按物品筛选", "syntax": "/clearinventory [玩家名或星号] [物品或星号] [数量]", "examples": ["/clearinventory Steve"]},
-    {"cmd": "clearinventoryconfirmtoggle", "what": "开关清背包前的二次确认提示", "syntax": "/clearinventoryconfirmtoggle", "examples": ["/clearinventoryconfirmtoggle"]},
-    {"cmd": "compass", "what": "报告自己当前的朝向和方位", "syntax": "/compass", "examples": ["/compass"]},
-    {"cmd": "condense", "what": "把背包里的散装物品压成块，如铁锭转铁块", "syntax": "/condense [物品名]", "examples": ["/condense iron_ingot"]},
-    {"cmd": "createkit", "what": "把自己当前背包内容存成一个礼包", "syntax": "/createkit 礼包名 冷却秒数", "examples": ["/createkit newbie 86400"]},
-    {"cmd": "customtext", "what": "配合 bukkit.yml 的自定义指令，输出一段纯文本", "syntax": "/自定义文本指令名", "examples": ["/自定义文本指令名"]},
-    {"cmd": "delhome", "what": "删除自己的某个家", "syntax": "/delhome [玩家名:]家名", "examples": ["/delhome home2"]},
-    {"cmd": "deljail", "what": "删除指定监狱点", "syntax": "/deljail 监狱名", "examples": ["/deljail jail1"]},
-    {"cmd": "delkit", "what": "删除指定礼包", "syntax": "/delkit 礼包名", "examples": ["/delkit newbie"]},
-    {"cmd": "delwarp", "what": "删除指定地标", "syntax": "/delwarp 地标名", "examples": ["/delwarp shop"]},
-    {"cmd": "depth", "what": "报告当前高度相对海平面的深度", "syntax": "/depth", "examples": ["/depth"]},
-    {"cmd": "disposal", "what": "打开随身垃圾桶，随手丢东西", "syntax": "/disposal", "examples": ["/disposal"]},
-    {"cmd": "eco", "what": "管理经济：给钱、扣钱、设置、清零", "syntax": "/eco 增减方式 玩家名 金额", "examples": ["/eco give Steve 1000"]},
-    {"cmd": "editsign", "what": "直接改写地上告示牌的文字", "syntax": "/editsign set或clear或copy或paste [行号] [文字]", "examples": ["/editsign set 1 欢迎来到星冕服务器"]},
-    {"cmd": "enchant", "what": "给手上的物品附魔并指定等级", "syntax": "/enchant 附魔名 [等级]", "examples": ["/enchant sharpness 5"]},
-    {"cmd": "enderchest", "what": "打开自己或他人的末影箱", "syntax": "/enderchest [玩家名]", "examples": ["/enderchest Steve"]},
-    {"cmd": "essentials", "what": "查看 Essentials 的版本与加载状态", "syntax": "/essentials", "examples": ["/essentials"]},
-    {"cmd": "exp", "what": "给经验、设经验、清零或查看经验", "syntax": "/exp 操作 玩家名 [数值]", "examples": ["/exp give Steve 30"]},
-    {"cmd": "ext", "what": "熄灭自己或他人身上的火", "syntax": "/ext [玩家名]", "examples": ["/ext Steve"]},
-    {"cmd": "feed", "what": "回满自己或他人的饥饿值", "syntax": "/feed [玩家名]", "examples": ["/feed Steve"]},
-    {"cmd": "fireball", "what": "朝准心发射火球等各种投掷物", "syntax": "/fireball [投掷物类型] [速度]", "examples": ["/fireball small 2"]},
-    {"cmd": "firework", "what": "编辑手上烟花的参数并燃放", "syntax": "/firework 参数或power或clear或fire [数值]", "examples": ["/firework fire 1"]},
-    {"cmd": "fly", "what": "开关自己或他人的飞行", "syntax": "/fly [玩家名] [on或off]", "examples": ["/fly on"]},
-    {"cmd": "gamemode", "what": "切换自己或他人的游戏模式", "syntax": "/gamemode 模式 [玩家名]", "examples": ["/gamemode creative Steve"]},
-    {"cmd": "gc", "what": "查看内存、在线数、TPS 等运行状态", "syntax": "/gc", "examples": ["/gc"]},
-    {"cmd": "getpos", "what": "查看自己或他人的坐标", "syntax": "/getpos [玩家名]", "examples": ["/getpos Steve"]},
-    {"cmd": "give", "what": "给玩家发放物品并指定数量", "syntax": "/give 玩家名 物品名 [数量]", "examples": ["/give Steve diamond 8"]},
-    {"cmd": "god", "what": "开关无敌模式", "syntax": "/god [玩家名] [on或off]", "examples": ["/god Steve on"]},
-    {"cmd": "grindstone", "what": "原地打开砂轮，附魔随意装卸", "syntax": "/grindstone", "examples": ["/grindstone"]},
-    {"cmd": "hat", "what": "把手上的方块或物品戴到头上", "syntax": "/hat [remove]", "examples": ["/hat"]},
-    {"cmd": "heal", "what": "回满自己或他人的血量", "syntax": "/heal [玩家名]", "examples": ["/heal Steve"]},
-    {"cmd": "help", "what": "列出可用指令，支持关键词搜索", "syntax": "/help [关键词] [页码]", "examples": ["/help warp"]},
-    {"cmd": "helpop", "what": "向在线管理员发一条求助消息", "syntax": "/helpop 消息内容", "examples": ["/helpop 我在主城卡住了"]},
-    {"cmd": "home", "what": "回家，可以指定家名", "syntax": "/home [玩家名:]家名", "examples": ["/home"]},
-    {"cmd": "ice", "what": "把玩家冻住，限制其移动", "syntax": "/ice [玩家名]", "examples": ["/ice Steve"]},
-    {"cmd": "ignore", "what": "屏蔽某个玩家的发言", "syntax": "/ignore 玩家名", "examples": ["/ignore Steve"]},
-    {"cmd": "info", "what": "查看服主预先写好的服务器介绍", "syntax": "/info [章节] [页码]", "examples": ["/info"]},
-    {"cmd": "invsee", "what": "查看他人背包的内容", "syntax": "/invsee 玩家名", "examples": ["/invsee Steve"]},
-    {"cmd": "item", "what": "直接给自己刷一个物品", "syntax": "/item 物品名 [数量]", "examples": ["/item diamond 64"]},
-    {"cmd": "itemdb", "what": "查物品的 ID、耐久等信息", "syntax": "/itemdb 物品", "examples": ["/itemdb diamond_sword"]},
-    {"cmd": "itemlore", "what": "给手上物品加、改、清说明文字", "syntax": "/itemlore add或set或clear [文字或行号] [文字]", "examples": ["/itemlore add 星冕专属装备"]},
-    {"cmd": "itemname", "what": "给手上的物品改名", "syntax": "/itemname [新名字]", "examples": ["/itemname 星冕之剑"]},
-    {"cmd": "jailedplayers", "what": "列出当前所有在押玩家", "syntax": "/jailedplayers", "examples": ["/jailedplayers"]},
-    {"cmd": "jails", "what": "列出所有已设置的监狱", "syntax": "/jails", "examples": ["/jails"]},
-    {"cmd": "jump", "what": "瞬移到准心指向的那个方块上", "syntax": "/jump", "examples": ["/jump"]},
-    {"cmd": "kick", "what": "把玩家踢下线，可附原因", "syntax": "/kick 玩家名 [原因]", "examples": ["/kick Steve 请勿刷屏"]},
-    {"cmd": "kickall", "what": "把除自己以外的玩家全部踢下线", "syntax": "/kickall [原因]", "examples": ["/kickall 服务器即将重启"]},
-    {"cmd": "kill", "what": "直接击杀指定玩家", "syntax": "/kill 玩家名", "examples": ["/kill Steve"]},
-    {"cmd": "kit", "what": "领取礼包，或查看自己能领哪些礼包", "syntax": "/kit [礼包名] [玩家名]", "examples": ["/kit newbie"]},
-    {"cmd": "kitreset", "what": "重置某个礼包的领取冷却", "syntax": "/kitreset 礼包名 [玩家名]", "examples": ["/kitreset newbie Steve"]},
-    {"cmd": "kittycannon", "what": "娱乐指令，向准心方向扔一只爆炸小猫", "syntax": "/kittycannon", "examples": ["/kittycannon"]},
-    {"cmd": "lightning", "what": "在准心或指定玩家身上劈下闪电", "syntax": "/lightning [玩家名] [强度]", "examples": ["/lightning Steve"]},
-    {"cmd": "list", "what": "查看当前在线玩家名单", "syntax": "/list [分组]", "examples": ["/list"]},
-    {"cmd": "loom", "what": "原地打开织布机", "syntax": "/loom", "examples": ["/loom"]},
-    {"cmd": "mail", "what": "收发站内离线邮件", "syntax": "/mail read或clear或send [收件人] [内容]", "examples": ["/mail send Steve 晚上八点集合"]},
-    {"cmd": "me", "what": "以第三人称描述自己做的一个动作", "syntax": "/me 动作描述", "examples": ["/me 整理了一下背包"]},
-    {"cmd": "more", "what": "把手上的物品补满一整组", "syntax": "/more [数量]", "examples": ["/more"]},
-    {"cmd": "motd", "what": "查看服务器每日公告", "syntax": "/motd [章节] [页码]", "examples": ["/motd"]},
-    {"cmd": "msg", "what": "给某个玩家发一条私信", "syntax": "/msg 玩家名 消息内容", "examples": ["/msg Steve 到主城找我"]},
-    {"cmd": "msgtoggle", "what": "开关是否接收别人的私信", "syntax": "/msgtoggle [玩家名] [on或off]", "examples": ["/msgtoggle on"]},
-    {"cmd": "mute", "what": "禁言或解禁玩家，可限时", "syntax": "/mute 玩家名 [时长] [原因]", "examples": ["/mute Steve 1h 刷屏"]},
-    {"cmd": "near", "what": "列出自己或某人身边一定范围内的玩家", "syntax": "/near [玩家名] [半径]", "examples": ["/near Steve 100"]},
-    {"cmd": "nick", "what": "改自己或他人的昵称", "syntax": "/nick [玩家名] 昵称或off", "examples": ["/nick Steve 小史"]},
-    {"cmd": "nuke", "what": "娱乐指令，让目标玩家原地爆炸", "syntax": "/nuke [玩家名]", "examples": ["/nuke Steve"]},
-    {"cmd": "pay", "what": "把余额里的钱转给其他玩家", "syntax": "/pay 玩家名 金额", "examples": ["/pay Steve 100"]},
-    {"cmd": "payconfirmtoggle", "what": "开关转账前的大额确认提示", "syntax": "/payconfirmtoggle", "examples": ["/payconfirmtoggle"]},
-    {"cmd": "paytoggle", "what": "开关是否接受别人转账", "syntax": "/paytoggle [玩家名]", "examples": ["/paytoggle"]},
-    {"cmd": "ping", "what": "测一下当前自己到服务器的延迟", "syntax": "/ping", "examples": ["/ping"]},
-    {"cmd": "playtime", "what": "查看自己或他人的累计游戏时长", "syntax": "/playtime [玩家名]", "examples": ["/playtime Steve"]},
-    {"cmd": "potion", "what": "给手上的药水写入自定义药水效果", "syntax": "/potion clear或apply或效果参数", "examples": ["/potion clear"]},
-    {"cmd": "powertool", "what": "把手上的物品绑定一条指令，左键即执行", "syntax": "/powertool [前缀] 指令", "examples": ["/powertool /spawn"]},
-    {"cmd": "powertoollist", "what": "列出当前已绑定的动力工具", "syntax": "/powertoollist", "examples": ["/powertoollist"]},
-    {"cmd": "powertooltoggle", "what": "一键启用或禁用所有动力工具", "syntax": "/powertooltoggle", "examples": ["/powertooltoggle"]},
-    {"cmd": "ptime", "what": "只改某个玩家的客户端时间，不影响全服", "syntax": "/ptime 时间 [玩家名或星号]", "examples": ["/ptime night"]},
-    {"cmd": "pweather", "what": "只改某个玩家的客户端天气", "syntax": "/pweather 天气 [玩家名或星号]", "examples": ["/pweather sun"]},
-    {"cmd": "r", "what": "快速回复上一条收到的私信", "syntax": "/r 消息内容", "examples": ["/r 马上到"]},
-    {"cmd": "realname", "what": "用昵称反查玩家的真实 ID", "syntax": "/realname 昵称", "examples": ["/realname 小史"]},
-    {"cmd": "recipe", "what": "查看某个物品的合成配方", "syntax": "/recipe 物品名 [数量]", "examples": ["/recipe diamond_pickaxe"]},
-    {"cmd": "remove", "what": "批量清理世界里的实体，如掉落物、动物", "syntax": "/remove 类型 [半径或世界]", "examples": ["/remove drops 100"]},
-    {"cmd": "renamehome", "what": "给已有的家改个名字", "syntax": "/renamehome 旧家名 新家名", "examples": ["/renamehome home2 农场"]},
-    {"cmd": "repair", "what": "修满手上或全部装备的耐久", "syntax": "/repair [hand或all]", "examples": ["/repair hand"]},
-    {"cmd": "rest", "what": "重置自己或他人的睡眠计时，防幻翼刷出", "syntax": "/rest [玩家名]", "examples": ["/rest Steve"]},
-    {"cmd": "rtoggle", "what": "设置 /r 回复的是最后发信人还是最后收信人", "syntax": "/rtoggle [玩家名] [on或off]", "examples": ["/rtoggle"]},
-    {"cmd": "rules", "what": "查看服务器规则", "syntax": "/rules [章节] [页码]", "examples": ["/rules"]},
-    {"cmd": "seen", "what": "查看玩家最后一次下线的时间", "syntax": "/seen 玩家名", "examples": ["/seen Steve"]},
-    {"cmd": "sell", "what": "把手上的物品卖给系统换钱", "syntax": "/sell 物品名或hand或inventory [数量]", "examples": ["/sell hand"]},
-    {"cmd": "sethome", "what": "把当前位置设为家，可自定义家名", "syntax": "/sethome [玩家名:]家名", "examples": ["/sethome home1"]},
-    {"cmd": "setjail", "what": "以当前位置创建一间监狱", "syntax": "/setjail 监狱名", "examples": ["/setjail jail1"]},
-    {"cmd": "settpr", "what": "设置随机传送的中心点和远近范围", "syntax": "/settpr center或minrange或maxrange [数值]", "examples": ["/settpr minrange 200"]},
-    {"cmd": "setwarp", "what": "以当前位置创建一个地标", "syntax": "/setwarp 地标名", "examples": ["/setwarp shop"]},
-    {"cmd": "setworth", "what": "设置某个物品的回收价格", "syntax": "/setworth 物品名 价格", "examples": ["/setworth diamond 100"]},
-    {"cmd": "showkit", "what": "预览某个礼包里都有什么", "syntax": "/showkit 礼包名", "examples": ["/showkit newbie"]},
-    {"cmd": "skull", "what": "设置手上头颅属于哪个玩家", "syntax": "/skull [头颅主人] [玩家名]", "examples": ["/skull Steve"]},
-    {"cmd": "smithingtable", "what": "原地打开锻造台", "syntax": "/smithingtable", "examples": ["/smithingtable"]},
-    {"cmd": "socialspy", "what": "开关偷看他人私信和邮件的模式", "syntax": "/socialspy [玩家名] [on或off]", "examples": ["/socialspy on"]},
-    {"cmd": "spawner", "what": "改刷怪笼生成什么生物，可设间隔", "syntax": "/spawner 生物名 [间隔秒数]", "examples": ["/spawner zombie 20"]},
-    {"cmd": "spawnmob", "what": "生成指定生物，可带数量与骑乘关系", "syntax": "/spawnmob 生物名 [数量] [玩家名]", "examples": ["/spawnmob zombie 5"]},
-    {"cmd": "speed", "what": "改自己或他人的行走、飞行速度", "syntax": "/speed [类型] 速度值 [玩家名]", "examples": ["/speed walk 2"]},
-    {"cmd": "stonecutter", "what": "原地打开切石机", "syntax": "/stonecutter", "examples": ["/stonecutter"]},
-    {"cmd": "sudo", "what": "让某个玩家替你执行一条指令", "syntax": "/sudo 玩家名 指令", "examples": ["/sudo Steve spawn"]},
-    {"cmd": "suicide", "what": "让自己立刻死亡", "syntax": "/suicide", "examples": ["/suicide"]},
-    {"cmd": "tempban", "what": "限时封禁玩家", "syntax": "/tempban 玩家名 时长 [原因]", "examples": ["/tempban Steve 3d 恶意破坏"]},
-    {"cmd": "tempbanip", "what": "限时封禁某个 IP 地址", "syntax": "/tempbanip IP地址 时长 [原因]", "examples": ["/tempbanip 203.0.113.7 1d 刷屏"]},
-    {"cmd": "thunder", "what": "开关雷雨天，可指定持续时长", "syntax": "/thunder true或false [时长]", "examples": ["/thunder true 300"]},
-    {"cmd": "time", "what": "查看或修改世界时间", "syntax": "/time [set或add] 时间 [世界名或all]", "examples": ["/time set day"]},
-    {"cmd": "togglejail", "what": "把玩家关进监狱，或把在押玩家放出来", "syntax": "/togglejail 玩家名 监狱名 [时长]", "examples": ["/togglejail Steve jail1 1d"]},
-    {"cmd": "top", "what": "传送到当前位置最高的方块上方", "syntax": "/top", "examples": ["/top"]},
-    {"cmd": "tp", "what": "把自己或某人传送到目标玩家", "syntax": "/tp 目标玩家 [被传送者]", "examples": ["/tp Steve"]},
-    {"cmd": "tpa", "what": "申请传送到某个玩家身边", "syntax": "/tpa 玩家名", "examples": ["/tpa Steve"]},
-    {"cmd": "tpaall", "what": "让所有在线玩家申请传送到某人身边", "syntax": "/tpaall 玩家名", "examples": ["/tpaall Steve"]},
-    {"cmd": "tpacancel", "what": "撤回自己发出的所有传送申请", "syntax": "/tpacancel [玩家名]", "examples": ["/tpacancel"]},
-    {"cmd": "tpaccept", "what": "同意别人的传送申请", "syntax": "/tpaccept [玩家名或星号]", "examples": ["/tpaccept Steve"]},
-    {"cmd": "tpahere", "what": "申请把某个玩家拉到自己身边", "syntax": "/tpahere 玩家名", "examples": ["/tpahere Steve"]},
-    {"cmd": "tpall", "what": "把所有在线玩家传送到某个玩家那里", "syntax": "/tpall [玩家名]", "examples": ["/tpall Steve"]},
-    {"cmd": "tpauto", "what": "开关自动同意收到的传送申请", "syntax": "/tpauto [玩家名]", "examples": ["/tpauto"]},
-    {"cmd": "tpdeny", "what": "拒绝别人的传送申请", "syntax": "/tpdeny [玩家名或星号]", "examples": ["/tpdeny Steve"]},
-    {"cmd": "tphere", "what": "直接把某个玩家拉到自己身边", "syntax": "/tphere 玩家名", "examples": ["/tphere Steve"]},
-    {"cmd": "tpo", "what": "无视对方关闭传送的限制，强行传送过去", "syntax": "/tpo 目标玩家 [被传送者]", "examples": ["/tpo Steve"]},
-    {"cmd": "tpoffline", "what": "传送到离线玩家最后下线的位置", "syntax": "/tpoffline 玩家名", "examples": ["/tpoffline Steve"]},
-    {"cmd": "tpohere", "what": "无视限制，强行把玩家拉到自己身边", "syntax": "/tpohere 玩家名", "examples": ["/tpohere Steve"]},
-    {"cmd": "tppos", "what": "按指定坐标传送自己", "syntax": "/tppos X坐标 Y坐标 Z坐标 [朝向] [俯仰] [世界名]", "examples": ["/tppos 100 70 -200"]},
-    {"cmd": "tpr", "what": "随机传送到世界某处", "syntax": "/tpr", "examples": ["/tpr"]},
-    {"cmd": "tptoggle", "what": "开关自己是否允许被别人传送", "syntax": "/tptoggle [玩家名] [on或off]", "examples": ["/tptoggle off"]},
-    {"cmd": "tree", "what": "在准心处生成一棵树，可指定树种", "syntax": "/tree 树种", "examples": ["/tree oak"]},
-    {"cmd": "unban", "what": "解除对某个玩家的封禁", "syntax": "/unban 玩家名", "examples": ["/unban Steve"]},
-    {"cmd": "unbanip", "what": "解除对某个 IP 地址的封禁", "syntax": "/unbanip IP地址", "examples": ["/unbanip 203.0.113.7"]},
-    {"cmd": "unlimited", "what": "让指定物品可以无限放置", "syntax": "/unlimited list或item或clear [玩家名]", "examples": ["/unlimited item stone"]},
-    {"cmd": "vanish", "what": "隐身，从其他玩家视野里消失", "syntax": "/vanish [玩家名] [on或off]", "examples": ["/vanish on"]},
-    {"cmd": "warp", "what": "列出所有地标，或传送到某个地标", "syntax": "/warp [页码或地标名] [玩家名]", "examples": ["/warp shop"]},
-    {"cmd": "warpinfo", "what": "查看某个地标所在的坐标和世界", "syntax": "/warpinfo 地标名", "examples": ["/warpinfo shop"]},
-    {"cmd": "weather", "what": "把世界天气切成晴天或雷雨", "syntax": "/weather storm或sun [持续时长]", "examples": ["/weather sun"]},
-    {"cmd": "whois", "what": "查看某个玩家的基础资料", "syntax": "/whois 昵称或玩家名", "examples": ["/whois Steve"]},
-    {"cmd": "workbench", "what": "原地打开工作台", "syntax": "/workbench", "examples": ["/workbench"]},
-    {"cmd": "world", "what": "切换或传送到另一个世界", "syntax": "/world [世界名]", "examples": ["/world world"]},
-    {"cmd": "worth", "what": "估算手上或背包物品的卖价", "syntax": "/worth 物品名或hand或inventory [数量]", "examples": ["/worth hand"]}
-  ],
-  "subcommands": [
-    {"cmd": "eco give 玩家名 金额", "desc": "给玩家加钱", "example": "/eco give Steve 1000"},
-    {"cmd": "eco take 玩家名 金额", "desc": "扣掉玩家一部分钱", "example": "/eco take Steve 500"},
-    {"cmd": "eco set 玩家名 金额", "desc": "把余额直接设成指定数", "example": "/eco set Steve 1000"},
-    {"cmd": "eco reset 玩家名", "desc": "把余额清零", "example": "/eco reset Steve"},
-    {"cmd": "exp give 玩家名 数量", "desc": "给玩家经验点", "example": "/exp give Steve 30"},
-    {"cmd": "exp set 玩家名 数量", "desc": "把玩家经验设成指定等级", "example": "/exp set Steve 30"},
-    {"cmd": "exp show 玩家名", "desc": "查看玩家当前经验", "example": "/exp show Steve"},
-    {"cmd": "exp reset 玩家名", "desc": "把玩家经验清零", "example": "/exp reset Steve"},
-    {"cmd": "itemlore add 文字", "desc": "给手上物品加一行说明", "example": "/itemlore add 星冕专属装备"},
-    {"cmd": "itemlore set 行号 文字", "desc": "改写指定行的说明", "example": "/itemlore set 1 攻击力加十"},
-    {"cmd": "itemlore clear", "desc": "清空物品的全部说明", "example": "/itemlore clear"},
-    {"cmd": "editsign set 行号 文字", "desc": "改写告示牌某一行的内容", "example": "/editsign set 1 欢迎来到星冕服务器"},
-    {"cmd": "editsign clear 行号", "desc": "清空告示牌某一行", "example": "/editsign clear 2"},
-    {"cmd": "editsign copy", "desc": "复制当前告示牌的文字", "example": "/editsign copy"},
-    {"cmd": "editsign paste", "desc": "把复制到的文字贴到另一块告示牌", "example": "/editsign paste"},
-    {"cmd": "time set day", "desc": "把时间调到白天", "example": "/time set day"},
-    {"cmd": "time add 数值", "desc": "在当前时间上追加 tick", "example": "/time add 1000"},
-    {"cmd": "unlimited list", "desc": "看当前无限放置列表", "example": "/unlimited list"},
-    {"cmd": "unlimited item 物品名", "desc": "把某物品加入无限放置", "example": "/unlimited item stone"},
-    {"cmd": "unlimited clear", "desc": "清空无限放置列表", "example": "/unlimited clear"},
-    {"cmd": "remove all", "desc": "清掉附近所有可清理实体", "example": "/remove all 100"},
-    {"cmd": "remove drops", "desc": "只清掉落物，留着生物和建筑", "example": "/remove drops 200"},
-    {"cmd": "mail read", "desc": "读自己的站内邮件", "example": "/mail read"},
-    {"cmd": "mail send 玩家名 内容", "desc": "给某个玩家发离线邮件", "example": "/mail send Steve 晚上八点集合"},
-    {"cmd": "mail clear", "desc": "清空自己的邮件", "example": "/mail clear"},
-    {"cmd": "ptime day", "desc": "只把自己看到的天空改成白天", "example": "/ptime day"},
-    {"cmd": "pweather sun", "desc": "只把自己看到的天气改成晴天", "example": "/pweather sun"},
-    {"cmd": "powertool 指令", "desc": "把手上的物品绑定成执行该指令的按键工具", "example": "/powertool /spawn"},
-    {"cmd": "potion clear", "desc": "清掉手上药水的自定义效果", "example": "/potion clear"}
-  ],
-  "caution": [
-    "给钱、清背包、发物品这些操作没有撤销按钮，尤其是 clearinventory 和 kickall，执行前先核对对象。",
-    "封禁、禁言、雷雨的时长要写成 1d2h30m 这种格式，写成中文或纯数字容易当场报语法错误。",
-    "绝大多数指令靠 essentials.xxx 权限节点放行，玩家提示无权限先去 LuckPerms 查组权限，不要反复改配置。",
-    "tpa、warp、home 这类指令名容易和其他传送插件撞车，装两个前先确认哪个插件接管，否则指令会互相覆盖。"
-  ],
-  "related": ["EssentialsSpawn", "Vault", "LuckPerms", "PlaceholderAPI"]
+ "name": "Essentials",
+ "role": "基础指令总控",
+ "summary": "星冕服务器的基础指令插件：传送、家与地标、经济（自带 eco 给钱）、封禁禁言、物品与背包、状态查询都由它承接，权限用 LuckPerms 按 essentials.xxx 分发。",
+ "whatFor": [
+  "新手福利：地标、家、礼包、随机传送",
+  "日常管人：封禁、禁言、监狱",
+  "配经济：给钱扣钱、定回收价"
+ ],
+ "quick": [
+  {
+   "scene": "传送到玩家身边",
+   "cmd": "/tp 玩家名",
+   "note": "自己过去"
+  },
+  {
+   "scene": "拉人过来",
+   "cmd": "/tphere 玩家名",
+   "note": "反向传送"
+  },
+  {
+   "scene": "回家与设家",
+   "cmd": "/sethome 家名 → /home 家名",
+   "note": "可替人设"
+  },
+  {
+   "scene": "去地标",
+   "cmd": "/warp 主城",
+   "note": "先 /setwarp 主城"
+  },
+  {
+   "scene": "给钱扣钱",
+   "cmd": "/eco give 玩家名 1000",
+   "note": "走 Vault 共享"
+  },
+  {
+   "scene": "给物品",
+   "cmd": "/give 玩家名 diamond 64",
+   "note": "给自己用 /item"
+  },
+  {
+   "scene": "切游戏模式",
+   "cmd": "/gamemode creative 玩家名",
+   "note": "简写 /gmc"
+  },
+  {
+   "scene": "禁言与踢人",
+   "cmd": "/mute 玩家名 1h 刷屏",
+   "note": "封人用 /ban"
+  }
+ ],
+ "commands": [
+  {
+   "cmd": "afk",
+   "what": "标记自己为暂离并自动回复",
+   "syntax": "/afk [玩家名或留言]",
+   "examples": [
+    "/afk"
+   ]
+  },
+  {
+   "cmd": "antioch",
+   "what": "在脚下引爆一片 TNT",
+   "syntax": "/antioch [留言]",
+   "examples": [
+    "/antioch",
+    "/antioch 你好"
+   ]
+  },
+  {
+   "cmd": "anvil",
+   "what": "原地打开铁砧界面改装备",
+   "examples": [
+    "/anvil"
+   ]
+  },
+  {
+   "cmd": "back",
+   "what": "回到上次传送或死亡前的位置",
+   "syntax": "/back [玩家名]",
+   "examples": [
+    "/back"
+   ]
+  },
+  {
+   "cmd": "backup",
+   "what": "立即触发一次服务端备份",
+   "examples": [
+    "/backup"
+   ]
+  },
+  {
+   "cmd": "balance",
+   "what": "查看自己或他人的金币余额",
+   "syntax": "/balance [玩家名]",
+   "examples": [
+    "/balance"
+   ]
+  },
+  {
+   "cmd": "balancetop",
+   "what": "查看服务器财富排行榜",
+   "syntax": "/balancetop [页码]",
+   "examples": [
+    "/balancetop"
+   ]
+  },
+  {
+   "cmd": "ban",
+   "what": "封禁玩家并立即踢下线",
+   "syntax": "/ban <玩家名> [原因]",
+   "examples": [
+    "/ban 小明 使用外挂"
+   ]
+  },
+  {
+   "cmd": "banip",
+   "what": "按 IP 地址封禁",
+   "syntax": "/banip <IP> [原因]",
+   "examples": [
+    "/banip 192.168.1.100"
+   ]
+  },
+  {
+   "cmd": "beezooka",
+   "what": "向准星射出一只爆炸蜜蜂",
+   "examples": [
+    "/beezooka"
+   ]
+  },
+  {
+   "cmd": "book",
+   "what": "改写手里成书的标题或作者",
+   "syntax": "/book [title|author 值]",
+   "examples": [
+    "/book"
+   ]
+  },
+  {
+   "cmd": "bottom",
+   "what": "传送到当前位置最底可站立层",
+   "examples": [
+    "/bottom"
+   ]
+  },
+  {
+   "cmd": "break",
+   "what": "直接破坏准星所指的方块",
+   "examples": [
+    "/break"
+   ]
+  },
+  {
+   "cmd": "broadcast",
+   "what": "向全服广播一条公告",
+   "syntax": "/broadcast <内容>",
+   "examples": [
+    "/broadcast 你好"
+   ]
+  },
+  {
+   "cmd": "broadcastworld",
+   "what": "只向指定世界广播公告",
+   "syntax": "/broadcastworld <世界> <内容>",
+   "examples": [
+    "/broadcastworld world 你好"
+   ]
+  },
+  {
+   "cmd": "bigtree",
+   "what": "在准星处生成一棵大树",
+   "syntax": "/bigtree <树种>",
+   "examples": [
+    "/bigtree oak"
+   ]
+  },
+  {
+   "cmd": "burn",
+   "what": "点燃指定玩家若干秒",
+   "syntax": "/burn <玩家名> <秒>",
+   "examples": [
+    "/burn Steve 30"
+   ]
+  },
+  {
+   "cmd": "cartographytable",
+   "what": "原地打开制图台",
+   "examples": [
+    "/cartographytable"
+   ]
+  },
+  {
+   "cmd": "clearinventory",
+   "what": "清空背包，可指定物品与数量",
+   "syntax": "/clearinventory [玩家名] [物品]",
+   "params": [
+    {
+     "name": "玩家名"
+    },
+    {
+     "name": "物品",
+     "note": "* = 全部"
+    }
+   ],
+   "examples": [
+    "/clearinventory 小明"
+   ]
+  },
+  {
+   "cmd": "clearinventoryconfirmtoggle",
+   "what": "切换清空背包的二次确认",
+   "examples": [
+    "/clearinventoryconfirmtoggle"
+   ]
+  },
+  {
+   "cmd": "condense",
+   "what": "把背包散装材料压成块",
+   "syntax": "/condense [物品名]",
+   "examples": [
+    "/condense",
+    "/condense diamond"
+   ]
+  },
+  {
+   "cmd": "compass",
+   "what": "显示当前朝向",
+   "examples": [
+    "/compass"
+   ]
+  },
+  {
+   "cmd": "createkit",
+   "what": "用自己背包创建礼包",
+   "syntax": "/createkit <礼包名> <冷却>",
+   "examples": [
+    "/createkit starter <冷却>"
+   ]
+  },
+  {
+   "cmd": "customtext",
+   "what": "输出 bukkit.yml 定义的自定义文本",
+   "syntax": "bukkit.yml 自定义别名",
+   "examples": [
+    "/bukkit.yml 自定义别名"
+   ]
+  },
+  {
+   "cmd": "delhome",
+   "what": "删除一个家",
+   "syntax": "/delhome [玩家名:]<家名>",
+   "examples": [
+    "/delhome 矿场"
+   ]
+  },
+  {
+   "cmd": "deljail",
+   "what": "删除一座监狱",
+   "syntax": "/deljail <监狱名>",
+   "examples": [
+    "/deljail jail"
+   ]
+  },
+  {
+   "cmd": "delkit",
+   "what": "删除一个礼包",
+   "syntax": "/delkit <礼包名>",
+   "examples": [
+    "/delkit starter"
+   ]
+  },
+  {
+   "cmd": "delwarp",
+   "what": "删除一个地标",
+   "syntax": "/delwarp <地标名>",
+   "examples": [
+    "/delwarp spawn"
+   ]
+  },
+  {
+   "cmd": "depth",
+   "what": "显示当前所在高度",
+   "examples": [
+    "/depth"
+   ]
+  },
+  {
+   "cmd": "disposal",
+   "what": "打开垃圾桶界面丢东西",
+   "examples": [
+    "/disposal"
+   ]
+  },
+  {
+   "cmd": "eco",
+   "what": "给钱、扣钱、设余额或清零",
+   "syntax": "/eco <give|take|set|reset> <玩家名> <数额>",
+   "params": [
+    {
+     "name": "子命令",
+     "required": true,
+     "note": "give/take/set/reset"
+    },
+    {
+     "name": "玩家名",
+     "required": true
+    },
+    {
+     "name": "数额",
+     "required": true
+    }
+   ],
+   "examples": [
+    "/eco give 小明 1000",
+    "/eco take 小明 500"
+   ]
+  },
+  {
+   "cmd": "enchant",
+   "what": "给手持物品附魔",
+   "syntax": "/enchant <附魔名> [等级]",
+   "examples": [
+    "/enchant sharpness 5"
+   ]
+  },
+  {
+   "cmd": "enderchest",
+   "what": "打开自己或他人的末影箱",
+   "syntax": "/enderchest [玩家名]",
+   "examples": [
+    "/enderchest 小明"
+   ]
+  },
+  {
+   "cmd": "essentials",
+   "what": "查看插件版本与加载状态",
+   "examples": [
+    "/essentials"
+   ],
+   "notes": "/ess reload 只重载 Essentials 自身配置，不动其它插件"
+  },
+  {
+   "cmd": "exp",
+   "what": "查询、设置、给予经验",
+   "syntax": "/exp <show|give|set> [玩家名] [数量]",
+   "params": [
+    {
+     "name": "子命令",
+     "note": "show/give/set"
+    },
+    {
+     "name": "玩家名"
+    },
+    {
+     "name": "数量"
+    }
+   ],
+   "examples": [
+    "/exp give 小明 30"
+   ]
+  },
+  {
+   "cmd": "ext",
+   "what": "扑灭玩家身上的火",
+   "syntax": "/ext [玩家名]",
+   "examples": [
+    "/ext",
+    "/ext Steve"
+   ]
+  },
+  {
+   "cmd": "feed",
+   "what": "回满饱食度",
+   "syntax": "/feed [玩家名]",
+   "examples": [
+    "/feed 小明"
+   ]
+  },
+  {
+   "cmd": "fly",
+   "what": "开关飞行",
+   "syntax": "/fly [玩家名] [on|off]",
+   "examples": [
+    "/fly"
+   ]
+  },
+  {
+   "cmd": "fireball",
+   "what": "发射指定类型的火球",
+   "syntax": "/fireball [类型] [速度]",
+   "examples": [
+    "/fireball",
+    "/fireball 1"
+   ]
+  },
+  {
+   "cmd": "firework",
+   "what": "生成、发射或清除烟花",
+   "syntax": "/firework <power|clear|fire> [数量]",
+   "examples": [
+    "/firework <power|clear|fire>"
+   ]
+  },
+  {
+   "cmd": "gamemode",
+   "what": "切换游戏模式",
+   "syntax": "/gamemode <模式> [玩家名]",
+   "params": [
+    {
+     "name": "模式",
+     "required": true,
+     "note": "survival/gmc 等"
+    },
+    {
+     "name": "玩家名"
+    }
+   ],
+   "examples": [
+    "/gamemode creative"
+   ]
+  },
+  {
+   "cmd": "gc",
+   "what": "查看内存、TPS 与实体数",
+   "examples": [
+    "/gc"
+   ],
+   "notes": "别名 /tps、/lag、/mem 也能看 TPS 与内存"
+  },
+  {
+   "cmd": "getpos",
+   "what": "显示坐标与朝向",
+   "syntax": "/getpos [玩家名]",
+   "examples": [
+    "/getpos",
+    "/getpos Steve"
+   ]
+  },
+  {
+   "cmd": "give",
+   "what": "给指定玩家物品",
+   "syntax": "/give <玩家名> <物品> [数量]",
+   "params": [
+    {
+     "name": "玩家名",
+     "required": true
+    },
+    {
+     "name": "物品",
+     "required": true,
+     "note": "ID 或英文名"
+    },
+    {
+     "name": "数量"
+    }
+   ],
+   "examples": [
+    "/give 小明 diamond 64"
+   ]
+  },
+  {
+   "cmd": "god",
+   "what": "开关无敌",
+   "syntax": "/god [玩家名] [on|off]",
+   "examples": [
+    "/god"
+   ]
+  },
+  {
+   "cmd": "grindstone",
+   "what": "原地打开砂轮",
+   "examples": [
+    "/grindstone"
+   ]
+  },
+  {
+   "cmd": "hat",
+   "what": "把手持物品戴到头上",
+   "syntax": "/hat [remove]",
+   "examples": [
+    "/hat"
+   ]
+  },
+  {
+   "cmd": "heal",
+   "what": "回满血量",
+   "syntax": "/heal [玩家名]",
+   "examples": [
+    "/heal 小明"
+   ]
+  },
+  {
+   "cmd": "help",
+   "what": "检索可用于你的指令帮助",
+   "syntax": "/help [关键词] [页码]",
+   "examples": [
+    "/help 传送"
+   ]
+  },
+  {
+   "cmd": "helpop",
+   "what": "向在线管理员求助",
+   "syntax": "/helpop <内容>",
+   "examples": [
+    "/helpop 你好"
+   ]
+  },
+  {
+   "cmd": "home",
+   "what": "传送到自己的家",
+   "syntax": "/home [玩家名:][家名]",
+   "examples": [
+    "/home",
+    "/home 矿场"
+   ]
+  },
+  {
+   "cmd": "ice",
+   "what": "冻结或解冻玩家的移动",
+   "syntax": "/ice [玩家名]",
+   "examples": [
+    "/ice",
+    "/ice Steve"
+   ]
+  },
+  {
+   "cmd": "ignore",
+   "what": "屏蔽某玩家的消息",
+   "syntax": "/ignore <玩家名>",
+   "examples": [
+    "/ignore 小明"
+   ]
+  },
+  {
+   "cmd": "info",
+   "what": "分章查看服务器信息",
+   "syntax": "/info [章节] [页码]",
+   "examples": [
+    "/info"
+   ]
+  },
+  {
+   "cmd": "invsee",
+   "what": "查看在线玩家的背包",
+   "syntax": "/invsee <玩家名>",
+   "examples": [
+    "/invsee 小明"
+   ]
+  },
+  {
+   "cmd": "item",
+   "what": "给自己发物品",
+   "syntax": "/item <物品> [数量]",
+   "examples": [
+    "/item apple 16"
+   ]
+  },
+  {
+   "cmd": "itemdb",
+   "what": "查询物品 ID 与耐久",
+   "syntax": "/itemdb <物品>",
+   "examples": [
+    "/itemdb diamond"
+   ]
+  },
+  {
+   "cmd": "itemlore",
+   "what": "改写手持物品的说明文字",
+   "syntax": "/itemlore <add|set|clear> [文本]",
+   "examples": [
+    "/itemlore <add|set|clear>"
+   ]
+  },
+  {
+   "cmd": "itemname",
+   "what": "改写手持物品的显示名",
+   "syntax": "/itemname [新名字]",
+   "examples": [
+    "/itemname"
+   ]
+  },
+  {
+   "cmd": "jailedplayers",
+   "what": "列出所有在押玩家",
+   "examples": [
+    "/jailedplayers"
+   ]
+  },
+  {
+   "cmd": "jails",
+   "what": "列出所有监狱",
+   "examples": [
+    "/jails"
+   ]
+  },
+  {
+   "cmd": "jump",
+   "what": "传送到准星落点",
+   "examples": [
+    "/jump"
+   ]
+  },
+  {
+   "cmd": "kick",
+   "what": "踢出指定玩家",
+   "syntax": "/kick <玩家名> [原因]",
+   "examples": [
+    "/kick 小明 刷屏"
+   ]
+  },
+  {
+   "cmd": "kickall",
+   "what": "踢出除自己外的所有人",
+   "syntax": "/kickall [原因]",
+   "examples": [
+    "/kickall",
+    "/kickall 违规"
+   ]
+  },
+  {
+   "cmd": "kill",
+   "what": "杀死指定玩家",
+   "syntax": "/kill <玩家名>",
+   "examples": [
+    "/kill Steve"
+   ]
+  },
+  {
+   "cmd": "kit",
+   "what": "领取礼包",
+   "syntax": "/kit [礼包名] [玩家名]",
+   "params": [
+    {
+     "name": "礼包名"
+    },
+    {
+     "name": "玩家名",
+     "note": "留空=自己"
+    }
+   ],
+   "examples": [
+    "/kit 新手",
+    "/kit 新手 小明"
+   ]
+  },
+  {
+   "cmd": "kitreset",
+   "what": "重置礼包冷却",
+   "syntax": "/kitreset <礼包名> [玩家名]",
+   "examples": [
+    "/kitreset starter",
+    "/kitreset starter Steve"
+   ]
+  },
+  {
+   "cmd": "kittycannon",
+   "what": "发射一只爆炸猫",
+   "examples": [
+    "/kittycannon"
+   ]
+  },
+  {
+   "cmd": "lightning",
+   "what": "在目标处打一道雷",
+   "syntax": "/lightning [玩家名] [强度]",
+   "examples": [
+    "/lightning 小明"
+   ]
+  },
+  {
+   "cmd": "list",
+   "what": "列出在线玩家或某权限组",
+   "syntax": "/list [群组]",
+   "examples": [
+    "/list"
+   ]
+  },
+  {
+   "cmd": "loom",
+   "what": "原地打开织布机",
+   "examples": [
+    "/loom"
+   ]
+  },
+  {
+   "cmd": "mail",
+   "what": "读写离线留言",
+   "syntax": "/mail [send|read|clear] [对象] [内容]",
+   "params": [
+    {
+     "name": "子命令",
+     "note": "send/read/sendall"
+    },
+    {
+     "name": "对象"
+    },
+    {
+     "name": "内容"
+    }
+   ],
+   "examples": [
+    "/mail send 小明 回来领钱"
+   ]
+  },
+  {
+   "cmd": "me",
+   "what": "以第三人称发一条动作",
+   "syntax": "/me <内容>",
+   "examples": [
+    "/me 你好"
+   ]
+  },
+  {
+   "cmd": "more",
+   "what": "把手持物品补到满堆",
+   "syntax": "/more [数量]",
+   "examples": [
+    "/more"
+   ]
+  },
+  {
+   "cmd": "motd",
+   "what": "查看每日公告分章",
+   "syntax": "/motd [章节] [页码]",
+   "examples": [
+    "/motd"
+   ]
+  },
+  {
+   "cmd": "msg",
+   "what": "私聊指定玩家",
+   "syntax": "/msg <玩家名> <内容>",
+   "examples": [
+    "/msg 小明 来主城一趟"
+   ]
+  },
+  {
+   "cmd": "msgtoggle",
+   "what": "开关接收私聊",
+   "syntax": "/msgtoggle [玩家名] [on|off]",
+   "examples": [
+    "/msgtoggle",
+    "/msgtoggle Steve"
+   ]
+  },
+  {
+   "cmd": "mute",
+   "what": "禁言或解除禁言",
+   "syntax": "/mute <玩家名> [时长] [原因]",
+   "params": [
+    {
+     "name": "玩家名",
+     "required": true
+    },
+    {
+     "name": "时长",
+     "note": "如 1h"
+    },
+    {
+     "name": "原因"
+    }
+   ],
+   "examples": [
+    "/mute 小明 1h 刷屏",
+    "/mute 小明"
+   ]
+  },
+  {
+   "cmd": "near",
+   "what": "列出附近的玩家",
+   "syntax": "/near [玩家名] [半径]",
+   "examples": [
+    "/near 小明 100"
+   ]
+  },
+  {
+   "cmd": "nick",
+   "what": "设置或清除昵称",
+   "syntax": "/nick [玩家名] <昵称|off>",
+   "examples": [
+    "/nick <昵称|off>",
+    "/nick Steve <昵称|off>"
+   ]
+  },
+  {
+   "cmd": "nuke",
+   "what": "引爆大范围炸弹",
+   "syntax": "/nuke [玩家名]",
+   "examples": [
+    "/nuke",
+    "/nuke Steve"
+   ]
+  },
+  {
+   "cmd": "tpoffline",
+   "what": "传送到离线玩家的下线点",
+   "syntax": "/tpoffline <玩家名>",
+   "examples": [
+    "/tpoffline 小明"
+   ]
+  },
+  {
+   "cmd": "pay",
+   "what": "转账给其他玩家",
+   "syntax": "/pay <玩家名> <数额>",
+   "params": [
+    {
+     "name": "玩家名",
+     "required": true,
+     "note": "收钱的人"
+    },
+    {
+     "name": "数额",
+     "required": true,
+     "note": "正整数"
+    }
+   ],
+   "examples": [
+    "/pay 小明 500"
+   ]
+  },
+  {
+   "cmd": "paytoggle",
+   "what": "开关接收转账",
+   "syntax": "/paytoggle [玩家名] [on|off]",
+   "examples": [
+    "/paytoggle",
+    "/paytoggle Steve"
+   ]
+  },
+  {
+   "cmd": "payconfirmtoggle",
+   "what": "切换转账时的二次确认",
+   "examples": [
+    "/payconfirmtoggle"
+   ]
+  },
+  {
+   "cmd": "ping",
+   "what": "显示自己的当前延迟",
+   "examples": [
+    "/ping"
+   ]
+  },
+  {
+   "cmd": "playtime",
+   "what": "查看累计在线时长",
+   "syntax": "/playtime [玩家名]",
+   "examples": [
+    "/playtime",
+    "/playtime Steve"
+   ]
+  },
+  {
+   "cmd": "potion",
+   "what": "清除或施加药水效果",
+   "syntax": "/potion <clear|apply|effect:名>",
+   "examples": [
+    "/potion 64"
+   ]
+  },
+  {
+   "cmd": "powertool",
+   "what": "给手持物品绑定一条指令",
+   "syntax": "/powertool <指令>",
+   "examples": [
+    "/powertool <指令>"
+   ]
+  },
+  {
+   "cmd": "powertoollist",
+   "what": "列出已绑定的物品指令",
+   "examples": [
+    "/powertoollist"
+   ]
+  },
+  {
+   "cmd": "powertooltoggle",
+   "what": "开关物品指令绑定",
+   "examples": [
+    "/powertooltoggle"
+   ]
+  },
+  {
+   "cmd": "ptime",
+   "what": "单独设置玩家的客户端时间",
+   "syntax": "/ptime [day|night|reset] [玩家名]",
+   "examples": [
+    "/ptime",
+    "/ptime 64"
+   ]
+  },
+  {
+   "cmd": "pweather",
+   "what": "单独设置玩家的客户端天气",
+   "syntax": "/pweather [sun|storm|reset] [玩家名]",
+   "examples": [
+    "/pweather"
+   ]
+  },
+  {
+   "cmd": "r",
+   "what": "回复上一条私聊",
+   "syntax": "/r <内容>",
+   "examples": [
+    "/r 在路上，马上到"
+   ]
+  },
+  {
+   "cmd": "rtoggle",
+   "what": "开关快速回复",
+   "syntax": "/rtoggle [玩家名] [on|off]",
+   "examples": [
+    "/rtoggle",
+    "/rtoggle Steve"
+   ]
+  },
+  {
+   "cmd": "realname",
+   "what": "由昵称反查真实玩家名",
+   "syntax": "/realname <昵称>",
+   "examples": [
+    "/realname <昵称>"
+   ]
+  },
+  {
+   "cmd": "recipe",
+   "what": "查询物品的合成配方",
+   "syntax": "/recipe <物品> [页码]",
+   "examples": [
+    "/recipe <物品>",
+    "/recipe <物品> 1"
+   ]
+  },
+  {
+   "cmd": "remove",
+   "what": "按类型批量清除实体",
+   "syntax": "/remove <类型> [半径]",
+   "examples": [
+    "/remove 1",
+    "/remove 1 10"
+   ]
+  },
+  {
+   "cmd": "renamehome",
+   "what": "重命名一个家",
+   "syntax": "/renamehome <[玩家名:]家名> <新名>",
+   "examples": [
+    "/renamehome home <新名>"
+   ]
+  },
+  {
+   "cmd": "repair",
+   "what": "修满手持或全部装备耐久",
+   "syntax": "/repair [hand|all]",
+   "examples": [
+    "/repair hand"
+   ]
+  },
+  {
+   "cmd": "rest",
+   "what": "让玩家躺下进入休息状态",
+   "syntax": "/rest [玩家名]",
+   "examples": [
+    "/rest",
+    "/rest Steve"
+   ]
+  },
+  {
+   "cmd": "rules",
+   "what": "分章查看服务器规则",
+   "syntax": "/rules [章节] [页码]",
+   "examples": [
+    "/rules"
+   ]
+  },
+  {
+   "cmd": "seen",
+   "what": "查玩家最后在线时间",
+   "syntax": "/seen <玩家名>",
+   "examples": [
+    "/seen 小明"
+   ]
+  },
+  {
+   "cmd": "sell",
+   "what": "按回收价出售物品",
+   "syntax": "/sell <物品|hand|inventory|blocks> [数量]",
+   "examples": [
+    "/sell diamond",
+    "/sell diamond 10"
+   ]
+  },
+  {
+   "cmd": "sethome",
+   "what": "把当前位置设为家",
+   "syntax": "/sethome [[玩家名:]家名]",
+   "examples": [
+    "/sethome",
+    "/sethome 矿场"
+   ]
+  },
+  {
+   "cmd": "setjail",
+   "what": "把当前位置创建为监狱",
+   "syntax": "/setjail <监狱名>",
+   "examples": [
+    "/setjail jail"
+   ]
+  },
+  {
+   "cmd": "settpr",
+   "what": "设置随机传送中心与范围",
+   "syntax": "/settpr <center|minrange|maxrange> [值]",
+   "examples": [
+    "/settpr 100"
+   ]
+  },
+  {
+   "cmd": "setwarp",
+   "what": "把当前位置设为地标",
+   "syntax": "/setwarp <地标名>",
+   "examples": [
+    "/setwarp 主城"
+   ]
+  },
+  {
+   "cmd": "setworth",
+   "what": "设定物品的回收单价",
+   "syntax": "/setworth [物品名] <单价>",
+   "examples": [
+    "/setworth <单价>"
+   ]
+  },
+  {
+   "cmd": "showkit",
+   "what": "预览礼包内容",
+   "syntax": "/showkit <礼包名>",
+   "examples": [
+    "/showkit starter"
+   ]
+  },
+  {
+   "cmd": "editsign",
+   "what": "改写准星告示牌的文字",
+   "syntax": "/editsign <set|clear|copy|paste> [文本]",
+   "examples": [
+    "/editsign 64"
+   ]
+  },
+  {
+   "cmd": "skull",
+   "what": "获取指定玩家的头颅",
+   "syntax": "/skull [owner] [玩家名]",
+   "examples": [
+    "/skull"
+   ]
+  },
+  {
+   "cmd": "smithingtable",
+   "what": "原地打开锻造台",
+   "examples": [
+    "/smithingtable"
+   ]
+  },
+  {
+   "cmd": "socialspy",
+   "what": "旁观全服私聊",
+   "syntax": "/socialspy [玩家名] [on|off]",
+   "examples": [
+    "/socialspy"
+   ]
+  },
+  {
+   "cmd": "spawner",
+   "what": "把准星刷怪笼改成指定生物",
+   "syntax": "/spawner <生物> [延迟]",
+   "examples": [
+    "/spawner <生物>"
+   ]
+  },
+  {
+   "cmd": "spawnmob",
+   "what": "生成生物，可带坐骑",
+   "syntax": "/spawnmob <生物> [数量]",
+   "examples": [
+    "/spawnmob <生物>"
+   ]
+  },
+  {
+   "cmd": "speed",
+   "what": "设置行走或飞行速度",
+   "syntax": "/speed [walk|fly] <速度> [玩家名]",
+   "examples": [
+    "/speed 2"
+   ]
+  },
+  {
+   "cmd": "stonecutter",
+   "what": "原地打开切石机",
+   "examples": [
+    "/stonecutter"
+   ]
+  },
+  {
+   "cmd": "sudo",
+   "what": "以他人身份执行一条指令",
+   "syntax": "/sudo <玩家名> <指令>",
+   "examples": [
+    "/sudo Steve <指令>"
+   ]
+  },
+  {
+   "cmd": "suicide",
+   "what": "让自己自杀",
+   "examples": [
+    "/suicide"
+   ]
+  },
+  {
+   "cmd": "tempban",
+   "what": "限时封禁玩家",
+   "syntax": "/tempban <玩家名> <时长> [原因]",
+   "params": [
+    {
+     "name": "玩家名",
+     "required": true
+    },
+    {
+     "name": "时长",
+     "required": true,
+     "note": "如 7d"
+    },
+    {
+     "name": "原因"
+    }
+   ],
+   "examples": [
+    "/tempban 小明 7d 使用外挂"
+   ]
+  },
+  {
+   "cmd": "tempbanip",
+   "what": "限时封禁一个 IP",
+   "syntax": "/tempbanip <IP> <时长> [原因]",
+   "examples": [
+    "/tempbanip 192.168.1.100 7d"
+   ]
+  },
+  {
+   "cmd": "thunder",
+   "what": "开关雷雨并设定时长",
+   "syntax": "/thunder <true|false> [时长]",
+   "examples": [
+    "/thunder <true|false>",
+    "/thunder <true|false> 7d"
+   ]
+  },
+  {
+   "cmd": "time",
+   "what": "设置或推进世界时间",
+   "syntax": "/time <set|add> <时间> [世界|all]",
+   "params": [
+    {
+     "name": "子命令",
+     "note": "set/add"
+    },
+    {
+     "name": "时间",
+     "required": true,
+     "note": "day/12000"
+    },
+    {
+     "name": "世界",
+     "note": "all=全部"
+    }
+   ],
+   "examples": [
+    "/time set day",
+    "/time set night world"
+   ]
+  },
+  {
+   "cmd": "togglejail",
+   "what": "把玩家押入或放出监狱",
+   "syntax": "/togglejail <玩家名> <监狱名> [时长]",
+   "params": [
+    {
+     "name": "玩家名",
+     "required": true
+    },
+    {
+     "name": "监狱名",
+     "required": true
+    },
+    {
+     "name": "时长",
+     "note": "留空=永久"
+    }
+   ],
+   "examples": [
+    "/togglejail 小明 监狱 1d"
+   ]
+  },
+  {
+   "cmd": "top",
+   "what": "传送到当前位置最高可站立点",
+   "examples": [
+    "/top"
+   ]
+  },
+  {
+   "cmd": "tp",
+   "what": "传送到玩家身边或把人传过去",
+   "syntax": "/tp <玩家名> [目标玩家]",
+   "params": [
+    {
+     "name": "玩家名",
+     "required": true,
+     "note": "要去的人"
+    },
+    {
+     "name": "目标玩家",
+     "note": "留空=自己过去"
+    }
+   ],
+   "examples": [
+    "/tp 小明",
+    "/tp 小明 小红"
+   ]
+  },
+  {
+   "cmd": "tpa",
+   "what": "请求传送到对方身边",
+   "syntax": "/tpa <玩家名>",
+   "examples": [
+    "/tpa 小明"
+   ]
+  },
+  {
+   "cmd": "tpaall",
+   "what": "让全服玩家向你发传送请求",
+   "syntax": "/tpaall <玩家名>",
+   "examples": [
+    "/tpaall Steve"
+   ]
+  },
+  {
+   "cmd": "tpaccept",
+   "what": "同意传送请求",
+   "syntax": "/tpaccept [玩家名|*]",
+   "examples": [
+    "/tpaccept"
+   ]
+  },
+  {
+   "cmd": "tpahere",
+   "what": "请求对方传送到你身边",
+   "syntax": "/tpahere <玩家名>",
+   "examples": [
+    "/tpahere Steve"
+   ]
+  },
+  {
+   "cmd": "tpall",
+   "what": "把所有在线玩家传送到你身边",
+   "syntax": "/tpall [玩家名]",
+   "examples": [
+    "/tpall"
+   ]
+  },
+  {
+   "cmd": "tpauto",
+   "what": "开关自动同意传送请求",
+   "syntax": "/tpauto [玩家名]",
+   "examples": [
+    "/tpauto",
+    "/tpauto Steve"
+   ]
+  },
+  {
+   "cmd": "tpacancel",
+   "what": "撤回自己发出的传送请求",
+   "syntax": "/tpacancel [玩家名]",
+   "examples": [
+    "/tpacancel",
+    "/tpacancel Steve"
+   ]
+  },
+  {
+   "cmd": "tpdeny",
+   "what": "拒绝传送请求",
+   "syntax": "/tpdeny [玩家名|*]",
+   "examples": [
+    "/tpdeny",
+    "/tpdeny Steve"
+   ]
+  },
+  {
+   "cmd": "tphere",
+   "what": "把指定玩家传送到你身边",
+   "syntax": "/tphere <玩家名>",
+   "examples": [
+    "/tphere 小明"
+   ]
+  },
+  {
+   "cmd": "tpo",
+   "what": "绕过权限把玩家传过去",
+   "syntax": "/tpo <玩家名> [目标玩家]",
+   "examples": [
+    "/tpo Steve",
+    "/tpo Steve Steve"
+   ]
+  },
+  {
+   "cmd": "tpohere",
+   "what": "强制把玩家拉到你身边",
+   "syntax": "/tpohere <玩家名>",
+   "examples": [
+    "/tpohere Steve"
+   ]
+  },
+  {
+   "cmd": "tppos",
+   "what": "传送到精确坐标",
+   "syntax": "/tppos <x> <y> <z> [世界]",
+   "examples": [
+    "/tppos 100 64 -200"
+   ]
+  },
+  {
+   "cmd": "tpr",
+   "what": "随机传送",
+   "examples": [
+    "/tpr"
+   ]
+  },
+  {
+   "cmd": "tptoggle",
+   "what": "开关接收传送请求",
+   "syntax": "/tptoggle [玩家名] [on|off]",
+   "examples": [
+    "/tptoggle",
+    "/tptoggle Steve"
+   ]
+  },
+  {
+   "cmd": "tree",
+   "what": "在准星处种一棵指定树",
+   "syntax": "/tree <树种>",
+   "examples": [
+    "/tree oak"
+   ]
+  },
+  {
+   "cmd": "unban",
+   "what": "解除玩家封禁",
+   "syntax": "/unban <玩家名>",
+   "examples": [
+    "/unban 小明"
+   ]
+  },
+  {
+   "cmd": "unbanip",
+   "what": "解除 IP 封禁",
+   "syntax": "/unbanip <IP>",
+   "examples": [
+    "/unbanip 192.168.1.100"
+   ]
+  },
+  {
+   "cmd": "unlimited",
+   "what": "设置无限物品或不掉耐久",
+   "syntax": "/unlimited <list|item|clear>",
+   "examples": [
+    "/unlimited diamond"
+   ]
+  },
+  {
+   "cmd": "vanish",
+   "what": "隐身，对普通玩家不可见",
+   "syntax": "/vanish [玩家名] [on|off]",
+   "examples": [
+    "/vanish"
+   ]
+  },
+  {
+   "cmd": "warp",
+   "what": "传送到指定地标",
+   "syntax": "/warp <地标名> [玩家名]",
+   "params": [
+    {
+     "name": "地标名",
+     "required": true
+    },
+    {
+     "name": "玩家名",
+     "note": "留空=自己"
+    }
+   ],
+   "examples": [
+    "/warp 主城",
+    "/warp 主城 小明"
+   ]
+  },
+  {
+   "cmd": "warpinfo",
+   "what": "查看地标的坐标与创建者",
+   "syntax": "/warpinfo <地标名>",
+   "examples": [
+    "/warpinfo spawn"
+   ]
+  },
+  {
+   "cmd": "weather",
+   "what": "设置世界天气",
+   "syntax": "/weather <sun|storm> [时长]",
+   "examples": [
+    "/weather sun"
+   ]
+  },
+  {
+   "cmd": "whois",
+   "what": "用昵称查玩家信息",
+   "syntax": "/whois <昵称>",
+   "examples": [
+    "/whois <昵称>"
+   ]
+  },
+  {
+   "cmd": "workbench",
+   "what": "原地打开工作台",
+   "examples": [
+    "/workbench"
+   ]
+  },
+  {
+   "cmd": "world",
+   "what": "传送到指定世界或查看列表",
+   "syntax": "/world [世界名]",
+   "examples": [
+    "/world",
+    "/world world"
+   ]
+  },
+  {
+   "cmd": "worth",
+   "what": "查询物品的回收价",
+   "syntax": "/worth <物品|hand|inventory> [-数量]",
+   "examples": [
+    "/worth diamond",
+    "/worth diamond 10"
+   ]
+  }
+ ],
+ "caution": [
+  "/ess reload 只重载 Essentials 自己的配置，不动别的插件；Bukkit 的 /reload 重载全部插件，容易内存泄漏和重复注册任务，线上优先 /ess reload，动到别的插件就老实重启。",
+  "Essentials 自带经济要装了 Vault 才会被商店、点券、任务类插件读到。服务器已有别的经济插件时只留一个来源，否则余额对不上、排行榜会乱。",
+  "/give 和 /eco 的数额写错（多打一个 0）不能撤销。批量发放先拿小号试一条，大动作前先 /backup。"
+ ]
 }

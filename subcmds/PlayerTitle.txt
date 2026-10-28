@@ -1,0 +1,445 @@
+# PlayerTitle  (PlayerTitle-5.0.6.jar)
+## 注册指令
+  /playerTitle  usage=None desc='玩家称号' alias=['plt'] perm=None
+
+## 代码类
+  cn.handyplus.title.command.PlayerTitleCommand
+  cn.handyplus.title.command.admin.BuffCommand
+  cn.handyplus.title.command.admin.CardCommand
+  cn.handyplus.title.command.admin.ClearCommand
+  cn.handyplus.title.command.admin.CoinCommand
+  cn.handyplus.title.command.admin.ConvertCommand
+  cn.handyplus.title.command.admin.GetIpCommand
+  cn.handyplus.title.command.admin.ParticleCommand
+  cn.handyplus.title.command.admin.PlayerCommand
+  cn.handyplus.title.command.admin.ReloadCommand
+  cn.handyplus.title.command.admin.RewardCommand
+  cn.handyplus.title.command.admin.TitleCommand
+  cn.handyplus.title.command.admin.ViewCommand
+  cn.handyplus.title.command.player.OpenCommand
+  cn.handyplus.title.command.player.ShopCommand
+  cn.handyplus.title.constants.CommandChildTypeEnum
+  cn.handyplus.title.lib.HandyCommand
+  cn.handyplus.title.lib.HandyCommandFactory
+  cn.handyplus.title.lib.HandyCommandWrapper
+  cn.handyplus.title.lib.HandySubCommand
+  cn.handyplus.title.lib.HandySubCommandParam
+  cn.handyplus.title.lib.IHandyCommandEvent
+  cn.handyplus.title.listener.CustomTitleCommandListener
+
+## javap 字符串 token
+  add afbb bfhx bo buff buff_add_buff buff_delete_buff buff_edit_buff card card_create card_random clear clear_buff clear_particle clear_player clear_reward clear_title coin coin_give coin_look coin_set coin_take create ct del desc edit export fec g5m4 give id import jnvj jto kbju kyxg list look mnrs nfdg nh_m not open oug particle particle_add_particle particle_delete_particle player player_add_title player_delete_title player_list_title player_set_title player_stop_title position qhbdf random require reward set shop stop storage-method take title title_add title_delete title_description title_export title_import title_list title_position title_require u view view_open view_reward view_shop yhfl yyyy-mm-dd ztvd
+
+## 文本资源里的帮助/用法行
+  · # 语言文件
+  · # 默认称号
+  · default: "&7萌新"
+  · # 称号存储时前后缀(创建称号时会直接保存到称号里)
+  · # 显示时前后缀(只在显示时拼接,不会真的保存到称号中)
+  · # 聊天显示称号
+  · # 聊天显示称号格式(就是那个称号与名字之间的空格)
+  · # tab列表和玩家头顶称号前缀 需PlayerScoreboard
+  · # tab列表和玩家头顶称号后缀 需PlayerScoreboard
+  · # 切换称号的冷却时间,单位秒 -设置0为关闭该功能
+  · # 是否开启称号buff功能，可选true/false。true情况下，称号buff会正常加载，false情况下，称号buff全部无效(可用于一些大厅服或者特殊rpg服)
+  · # 是否开启自动使用, 可选true/false。true情况下，玩家获取到新称号会放到仓库并自动使用,false情况下，玩家获取到新称号只会放到仓库不会自动使用
+  · # 玩家自定义称号长度限制
+  · # 禁用buff的世界(不设置默认不启用)
+  · # 完全版本签名验证
+  · # 是否开启更新提醒,建议开启
+  · # op 登录时候是否发送更新提醒
+  · # 每日全量备份数据到 backUp 目录
+  · # 备份时间
+  · # 是否已导入,导入过的会变为true，无法重复导入
+  · # 称号名称
+  · titleName: "&e小富豪"
+  · # 多购买要求，支持 not(免费) vault(金币) playerPoints(点券) coin(称号币) itemStack(物品) permission(权限) activity(活动) 和自定义多货币
+  · # 称号出售天数 0为永久
+  · # 是否在商城隐藏- true隐藏
+  · # 称号描述
+  · - "&e这是一个示例称号"
+  · - "&f使用指令/plt title import即可导入"
+  · # 称号buff类型 attribute_plus,sx_attribute,AttributeSystem,MythicLib,potion_effect
+  · # 称号具体buff
+  · # wear 是佩戴 collect 是收集
+  · - '物理伤害: 1'
+  · # 称号buff描述 用于MythicLib类型添加描述 必须跟buff节点条数一致
+  · - '&e物理伤害: 1'
+  · titleName: "&e大富豪"
+  · buyData: "周年庆活动"
+  · - "&e这是第二个个示例称号"
+  · - "&f使用指令/plt title import即可导入"
+  · # 材质配置用来自定义称号的材质和模型
+  · # 配置格式:  称号id: 物品材质  注: 称号ID使用指令 /plt view shop 中查看
+  · # 例如:  1: MAP  就是称号id为 1 的称号, 在商城和仓库里显示的材质
+  · # 例如:  1_custom-model-data: 16 就是称号id 1 的称号, 在商城,仓库,称号卡里显示的自定义模型材质1.14+生效
+  · # 例如:  1_tooltipStyle-model-data: "minecraft:tooltip 就是称号id 1 的称号, 在商城,仓库,称号卡里显示的按钮提示样式 1.21.2+生效
+  · # 如果没有配置,默认所有称号为 命名牌NAME_TAG ,玩家使用中的为书BOOK
+  · # 随机称号卡自定义模型默认值
+  · # 称号卡材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 按钮提示样式 1.21.2+生效
+  · # 称号卡自定义模型默认值
+  · # 称号卡材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 按钮提示样式 1.21.2+生效
+  · # 称号获取提醒、命令执行与音效配置
+  · # 变量 ${player} 玩家名 ${title} 称号名 ${titleId} 称号ID
+  · # 称号id使用 /plt view shop 或者 /plt listTitle 查看
+  · # message.type 支持 ActionBar (1.9+) / title (1.9+) / Message(全版本)
+  · # command 为可选列表节点,称号获取成功后给该玩家执行后台命令
+  · # sound 为可选音效节点,留空则不播放,只对获得称号的在线玩家生效
+  · # 格式示例 称号id: 设置 message、command 和 sound,一直复制即可
+  · content: "恭喜${player} 获得了称号: ${title}"
+  · - "say 玩家 ${player} 获得了称号 ${title}"
+  · #    content: "恭喜${player} 获得了活动称号: ${title}"
+  · #    content: "恭喜${player} 获得了普通称号: ${title}"
+  · website: https://ricedoc.handyplus.cn/wiki/PlayerTitle/log/
+  · description: 一个有点好用的称号插件
+  · description: 玩家称号
+  · description: 玩家称号
+  · description: 称号数量奖励
+  · description: 称号buff相关
+  · description: 忽略世界禁用属性限制
+  · description: 称号卡相关
+  · description: 称号币相关
+  · description: 转化数据库
+  · description: 获取服务信息
+  · description: 称号粒子相关
+  · description: 玩家称号相关
+  · description: 重载插件
+  · description: 称号相关
+  · description: 查看管理
+  · description: 称号仓库
+  · description: 称号商城
+  · description: 清理数据
+  · description: 自定义称号
+  · # 存储方法(MySQL,SQLite)请复制括号内的类型,不要自己写
+  · # 选择mysql后必填
+  · # 额外参数-例如mysql8+如果报错可以添加 &allowPublicKeyRetrieval=true
+  · # gui标题
+  · title: "&f[&e称号商城管理&f]"
+  · # 点击本菜单所有按钮播放的声音1.12+支持 优先级低
+  · # 音效列表 https://bukkit.windit.net/javadoc/org/bukkit/Sound.html
+  · # 删除
+  · name: "     &8[&e点击删除&8]"
+  · # 点击本按钮播放的声音1.12+支持 优先级高
+  · # 音效列表 https://bukkit.windit.net/javadoc/org/bukkit/Sound.html
+  · - " &8[&a✔&8] &a点击删除"
+  · # 显示状态
+  · name: "   &8[&a显示状态&8]"
+  · #是否附魔效果
+  · - '&8▪ &7当前状态 &8[${status}&8]'
+  · - ' &8[&a✔&8] &a点击切换'
+  · # 拥有玩家子菜单内容
+  · - '&f[ &c玩家名称 &f]'
+  · - '&f[ &c到期时间 &f]'
+  · - ' &8[&a✔&8] &a点击删除'
+  · # 变更名称
+  · name: "   &8[&a变更名称&8]"
+  · - '&8▪ &7当前名称: &8${titleName}'
+  · - ' &8[&a✔&8] &a点击更改'
+  · # 条件管理
+  · name: "   &8[&a条件管理&8]"
+  · - '&f[ &c称号条件 &f]'
+  · # 变更天数
+  · name: "      &8[&a变更天数&8]"
+  · - '&8▪ &7当前天数 &8[&a${day}&8]'
+  · - ' &8[&a✔&8] &a点击更改'
+  · # 拥有玩家
+  · name: "   &8[&a拥有玩家&8]"
+  · - '&8▪ &7购买数量 &8[${number}&8]'
+  · - ' &8[&a✔&8] &a点击查看'
+  · # 称号粒子
+  · name: "     &8[&a称号粒子&8]"
+  · - '&f[ &c称号粒子 &f]'
+  · # 称号buff
+  · name: "     &8[&a称号BUFF&8]"
+  · - '&f[ &c称号BUFF &f]'
+  · # 描述
+  · name: "     &8[&a称号描述&8]"
+  · - '&f[ &c称号描述 &f]'
+  · # 使用位置
+  · name: "      &8[&a使用位置&8]"
+  · - '&8▪ &7当前位置 &8[&a${position}&8]'
+  · - '&8▪ &7控制称号可设置为前/中/后缀'
+  · - ' &8[&a✔&8] &a点击切换'
+  · # 返回按钮
+  · name: "   &8[&a返回&8]"
+  · - '&f- &7点击返回'
+  · # 分隔板
+  · name: "       &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # gui标题
+  · title: "&f[&e称号仓库&f]"
+  · viewTitle: "&f[&e${player}称号仓库管理&f]"
+  · # 默认称号的样式
+  · # 称号默认显示名称
+  · # 称号所显示的位置
+  · # 称号未使用的默认材质
+  · # 称号使用中的默认材质
+  · # 称号未使用自定义材质
+  · # 称号使用中自定义材质
+  · # 称号默认工具提示样式 1.21.2+生效
+  · # 称号lore-多层级，某部分有会显示，没有不会显示出来，留空表示不显示这个层级
+  · - '&f[ &c称号说明 &f]'
+  · - '&8▪ &a显示称号: &f${titleName}'
+  · - '&8▪ &a到期时间: &f${expirationTime}'
+  · - '&f[ &c称号描述 &f]'
+  · - '&f[ &c称号BUFF &f]'
+  · - '&f[ &c称号粒子 &f]'
+  · - '&f[ &c称号状态 &f]'
+  · - '&f[ &c称号说明 &f]'
+  · - '&8▪ &a称号编号: &f> ${id}'
+  · - '&8▪ &a显示称号: &f> ${titleName}'
+  · - '&8▪ &a到期时间: &f${expirationTime}'
+  · - '&f[ &c称号描述 &f]'
+  · - '&f[ &c称号BUFF &f]'
+  · - '&f[ &c称号粒子 &f]'
+  · - '&8[&a✔&8] &a点击删除'
+  · inUse: "&a使用中"
+  · notUse: "&4未使用"
+  · useButton: "&8[&a✔&8] &a点击使用"
+  · noUseButton: "&8[&a✔&8] &a点击禁用"
+  · useSelectButton: "&8[&a✔&8] &a点击操作"
+  · # 称号数量
+  · name: "    &8[&a称号奖励&8]"
+  · - '&8▪ &7点击前往称号奖励'
+  · # 材质
+  · # 商城
+  · name: "    &8[&a称号商城&8]"
+  · - "&f- &7点击前往称号商城"
+  · # 材质
+  · # 上一页
+  · name: "    &8[&a上一页&8]"
+  · - '&8▪ &7点击打开上一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 下一页
+  · name: "    &8[&a下一页&8]"
+  · - '&8▪ &7点击打开下一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 自定义按钮，你可以在这无限扩展你想要的按钮，格式跟这个例子返回一样就好
+  · # 返回按钮
+  · name: "   &8[&a返回&8]"
+  · - '&f- &7点击返回'
+  · # 执行的命令
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # 介绍信息
+  · name: "      &8[&e称号介绍&8]"
+  · - '&8▪ &7这里是你的称号仓库'
+  · - '&8▪ &7你可以自由切换'
+  · - '&8▪ &7你喜欢的称号'
+  · # gui标题
+  · title: "&f[&e称号奖励&f]"
+  · viewTitle: "&f[&e称号奖励管理&f]"
+  · # 奖励设置
+  · # 所显示的位置
+  · - '&f[ &c称号奖励说明 &f]'
+  · - '&8▪ &a需求数量: &f${number}'
+  · - '&f[ &c称号奖励 &f]'
+  · - '&f[ &c拥有数量 &f]'
+  · - '&f[ &c称号奖励说明 &f]'
+  · - '&8▪ &a奖励编号: &f${id}'
+  · - '&8▪ &a需求数量: &f${number}'
+  · - '&f[ &c称号奖励 &f]'
+  · - '&8[&a✔&8] &a点击删除'
+  · useButton: "&8[&a✔&8] &a已领取"
+  · useNotButton: "&8[&a✔&8] &a点击领取"
+  · unableButton: "&8[&c✘&8] &7数量不足"
+  · # 上一页
+  · name: "    &8[&a上一页&8]"
+  · - '&8▪ &7点击打开上一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 商城
+  · name: "    &8[&a称号商城&8]"
+  · - "&f- &7点击前往称号商城"
+  · # 材质
+  · # 仓库
+  · name: "    &8[&a称号仓库&8]"
+  · - "&f- &7点击前往称号仓库"
+  · # 材质
+  · # 返回按钮
+  · name: "   &8[&a返回&8]"
+  · - '&f- &7点击返回'
+  · # 下一页
+  · name: "    &8[&a下一页&8]"
+  · - '&8▪ &7点击打开下一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 自定义按钮，你可以在这无限扩展你想要的按钮，格式跟这个例子返回一样就好
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # 介绍信息
+  · name: "      &8[&e称号奖励&8]"
+  · - '&8▪ &7收集数量 获取奖励'
+  · - '&8▪ &7收集的多 奖励越多'
+  · # gui标题
+  · title: "&f[&e称号功能选择&f]"
+  · # 是否开启该功能,如果开启 在称号仓库中右键点击后会进入二级选择页面,可以分别设置展示,属性,粒子三种称号,三个变量
+  · # 如果关闭 在称号仓库中右键无法进入该gui页面,效果跟直接左键一样,只能使用一个称号同时包含全部信息
+  · # 展示称号(前缀称号) 对应变量 %playerTitle_use%
+  · # 是否使用
+  · # 在gui中的坐标
+  · # 在gui中的材质名称
+  · # 在gui中的名称
+  · name: "   &8[&5ℑ&8] ▪ &8[&d展示称号&8]"
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 在gui中的lore
+  · - '&8▪ &7当前状态 &8[${useStatus}&8]'
+  · - '&8▪ &7点击设置为&a展示&7称号'
+  · - '&8▪ &7你只能设置一个&a展示&7称号'
+  · - ' &8[&a✔&8] &a点击切换'
+  · # 属性称号(中缀)  对应变量 %playerTitle_use_buff%
+  · name: "   &8[&6ℑ&8] ▪ &8[&e属性称号&8]"
+  · - '&8▪ &7当前状态 &8[${useStatus}&8]'
+  · - '&8▪ &7点击设置为&a属性&7称号'
+  · - '&8▪ &7你只能设置一个&a属性&7称号'
+  · - ' &8[&a✔&8] &a点击切换'
+  · # 粒子称号(后缀)  对应变量 %playerTitle_use_particle%
+  · name: "   &8[&6ℑ&8] ▪ &8[&e粒子称号&8]"
+  · - '&8▪ &7当前状态 &8[${useStatus}&8]'
+  · - '&8▪ &7点击设置为&a粒子&7称号'
+  · - '&8▪ &7你只能设置一个&a粒子&7称号'
+  · - ' &8[&a✔&8] &a点击切换'
+  · # ${useStatus}对应的变量
+  · yesStatus: "&a设置中"
+  · noStatus: "&c未设置"
+  · # 返回按钮
+  · name: "   &8[&a返回&8]"
+  · - '&f- &7点击返回'
+  · # 自定义按钮 你可以在这无限扩展你想要的按钮，格式跟这个例子返回一样就好
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # gui标题
+  · title: "&f[&e称号商城&f]"
+  · # 默认称号的样式
+  · # 称号默认显示名称
+  · # 称号所显示的位置
+  · # 称号默认材质
+  · # 是否附魔
+  · # 称号默认自定义材质
+  · # 称号默认工具提示样式 1.21.2+生效
+  · # 音效
+  · # 称号lore-多层级，某部分有会显示，没有不会显示出来，留空表示不显示这个层级
+  · - '&f[ &c称号说明 &f]'
+  · - '&8▪ &a显示称号: &f${titleName}'
+  · - '&8▪ &a购买天数: &f${day}'
+  · - '&f[ &c称号描述 &f]'
+  · - '&f[ &c称号BUFF &f]'
+  · - '&f[ &c称号粒子 &f]'
+  · - '&f[ &c称号价格 &f]'
+  · buyButton: "&8[&a✔&8] &a点击购买"
+  · buyNoButton: "&8[&c✘&8] &7无法购买"
+  · # 搜索
+  · name: "    &8[&a根据类型搜索&8]"
+  · - '&8▪ &7当前类型: &a${type}'
+  · - '&8▪ &7点击切换: &a${nextType}'
+  · # 材质
+  · # 仓库
+  · name: "    &8[&a称号仓库&8]"
+  · - "&f- &7点击前往称号仓库"
+  · # 材质
+  · # 自定义称号
+  · name: "    &8[&a自定义称号&8]"
+  · - "&f- &7点击前往自定义称号"
+  · # 材质
+  · # 上一页
+  · name: "    &8[&a上一页&8]"
+  · - '&8▪ &7点击打开上一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 下一页
+  · name: "    &8[&a下一页&8]"
+  · - '&8▪ &7点击打开下一页'
+  · - '&8▪ &7当前页码 &a${pageNum}'
+  · - '&8▪ &7总页码数 &a${count}'
+  · # 材质
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 自定义按钮 你可以在这无限扩展你想要的按钮，格式跟这个例子返回一样就好
+  · # 返回按钮
+  · name: "   &8[&a返回&8]"
+  · - '&f- &7点击返回'
+  · # 执行的命令
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # 介绍信息
+  · name: "      &8[&e称号介绍&8]"
+  · - '&8▪ &7获得称号 展示自我'
+  · - '&8▪ &7收集数量 获取奖励'
+  · - '&8▪ &7购买成功 会放仓库'
+  · - '&8▪ &7前往仓库 点击使用'
+  · # gui标题
+  · title: "&0自定义称号"
+  · # 价格配置，节点名仅用于区分按钮，type 才是真实扣费货币
+  · # 点券
+  · # 扣费货币类型，支持 point、coin、vault 和 ply_ 开头的 PlayerCurrency 货币
+  · # 是否使用
+  · # 在gui中的坐标
+  · # 在gui中的材质名称
+  · # 是否附魔效果
+  · # 在gui中的名称
+  · name: "   &8[&5ℑ&8] ▪ &8[&d点券购买&8]"
+  · # 自定义模型材质 1.14+生效 0为不生效
+  · # 在gui中的lore
+  · - '&8▪ &7购买 ${title_name} &7所需费用'
+  · - '&8▪ &7使用时限 &a${duration}'
+  · - '&8▪ &7需支付 &a${price} &7${currency}'
+  · - '&8▪ &7你拥有 &a${money} &7${currency}'
+  · # 价格
+  · # 默认拥有天数 0为永久
+  · # 称号币
+  · name: "   &8[&6ℑ&8] ▪ &8[&e称号币购买&8]"
+  · - '&8▪ &7购买 ${title_name} &7所需费用'
+  · - '&8▪ &7使用时限 &a${duration}'
+  · - '&8▪ &7需支付 &a${price} &7${currency}'
+  · - '&8▪ &7你拥有 &a${money} &7${currency}'
+  · # 默认拥有天数 0为永久
+  · # 金币
+  · name: "   &8[&6ℑ&8] ▪ &8[&e金币购买&8]"
+  · - '&8▪ &7购买 ${title_name} &7所需费用'
+  · - '&8▪ &7使用时限 &a${duration}'
+  · - '&8▪ &7需支付 &a${price} &7${currency}'
+  · - '&8▪ &7你拥有 &a${money} &7${currency}'
+  · # 默认拥有天数 0为永久
+  · # ${button}对应的变量
+  · yesButton: " &8[&a✔&8] &a点击购买"
+  · noButton: " &8[&c✘&8] &7余额不足"
+  · # 返回按钮
+  · name: "   &8[&a返回&8]"
+  · - '&f- &7点击取消定制'
+  · # 自定义按钮 你可以在这无限扩展你想要的按钮，格式跟这个例子返回一样就好
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # 创建提醒语言文件
+  · notMoneyFailureMsg: "&8[&c✘&8] &7余额不足"
+  · customMsg: "&8[&a✔&8] &7请在聊天框输入&a称号名称，&7输入 &aT &7退出操作"
+  · cancelMsh: "&8[&a✔&8] &a操作已取消"
+  · nameBlackListFailureMsg: "&8[&c✘&8] &4称号名包含非法字符 &a${name}"
+
+## 常量池帮助/描述文本
+  · cn/handyplus/title/command/PlayerTitleCommand
+  · Lcn/handyplus/title/command/PlayerTitleCommand;
+  · cn/handyplus/title/api/PlayerTitleApi
+  · i@^,❠i@XiO泮東戱剈讪禈厸
+  · T禰欂轝挂Ｐ叿囑ｬ悙弳剼伟甙盤孩僈斈彯巃纯下ｺ
+  · 嬶傷旗泊FRL?SBL?Sk6讙夒剘拳厙冚盪籤埥3乣覞膄差凷
+  · H+輂捽攞捱寢戏｢诨勏忚醣吰杣劾嘆３乣焩杧台肓伅冔环杄矺j	
+  · 晁吹嶜寣儋3宒兺辩皛佴叇乔kj
+  · §4你没有权限执行该命令
+  · 4q朸棐浙删濒洫砓<该聄糩佌耗贽乢AC*+%$(#""%$

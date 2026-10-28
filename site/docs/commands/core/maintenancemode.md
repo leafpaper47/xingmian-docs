@@ -8,22 +8,14 @@ createTime: 2026/10/24
 > 分类 🛡️ 基础与权限 · 版本 `1.0.0` · 指令 1 条 · api-version `1.21`
 
 ::: tip 开服维护期间的封服开关
-给服务器加了一个「维护模式」总闸。开启后普通玩家被挡在门外或被踢下线，只有带 maintenance.bypass 权限的人能正常进服。适合大版本更新、刷数据、洗地回档这类不能让玩家在线的操作窗口。
+给服务器加了一个「维护模式」总闸。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 大版本更新或插件重载前，先把玩家挡在外面
-- 回档、刷物品、清区块等高风险操作期间封服
-- 临时停服但不想关进程（保持在线人数显示与状态页可访问）
-- 只放行管理员或内测人员进服检查
-
-## 上手流程
-
-1. 先给自己的管理组加上 maintenance.use 与 maintenance.bypass 两个权限节点
-2. 用 /maintenance on 打开维护模式，此时无 bypass 权限的玩家会被拒绝或踢出
-3. 进服做更新、回档、修配置等操作，期间可用 /maintenance status 确认当前状态
-4. 确认无误后用 /maintenance off 关闭维护模式，玩家恢复进入
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 开维护模式 | /maintenance on | 先广播再开，避免踢人 |
 
 ## 指令一览
 
@@ -47,7 +39,6 @@ createTime: 2026/10/24
 ```
 /maintenance on
 /maintenance status
-/maintenance off
 ```
 
 - **权限**：`maintenance.use`
@@ -59,7 +50,6 @@ createTime: 2026/10/24
 - 开启维护前务必确认自己的账号有 maintenance.bypass 权限，否则可能连自己都进不去，只能改配置文件或控制台处理
 - 维护模式通常只拦进服，不保证在线玩家被立即踢出；需要清场时配合 /kick 手动踢人
 - 重启或重载插件后维护状态是否保留取决于配置，重载后先用 /maintenance status 复核一次
-- 具体参数与可用值以游戏内 /maintenance help 的实际输出为准
 :::
 
 ## 权限节点
@@ -68,7 +58,3 @@ createTime: 2026/10/24
 | --- | --- | --- |
 | `maintenance.bypass` | 免除维护模式限制（不被踢、可进服） | op |
 | `maintenance.use` | 允许使用维护模式指令 | op |
-
-## 相关插件
-
-[LuckPerms](/commands/core/luckperms.md)、[PlugManX](/commands/core/plugmanx.md)

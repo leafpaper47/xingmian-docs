@@ -1,61 +1,51 @@
 {
-  "name": "Ah-Toy-1.0",
-  "role": "趣味小玩具发放与配置管理插件",
-  "summary": "Ah-Toy 是「玩具商阿叶」主题的娱乐向小插件，独立配置文件，向玩家发放钩爪、斗蛐蛐这类与战斗平衡无关的趣味玩具。管理员用 /toy give 给指定玩家发玩具，用 /toy reload 在改完配置后热重载，无需重启服务器。功能面很窄，适合当活动、休闲玩法的小点缀。",
-  "whatFor": [
-    "活动或开服福利时给玩家发钩爪、斗蛐蛐等趣味玩具",
-    "测试新调好的玩具参数后热重载配置",
-    "给指定单个玩家单独补发玩具，而不是全服广播发放"
-  ],
-  "flow": [
-    "把插件 jar 放进 plugins 目录并启动服务器，让它生成自己的配置文件",
-    "给管理组或指定玩家授予 ahtoy.command.give（发放）与 ahtoy.command.reload（重载）权限",
-    "用 /toy give 钩爪 玩家名 这类命令发放玩具，自行进游戏试玩确认手感",
-    "改过配置文件后用 /toy reload 生效，不必重启服务器"
-  ],
-  "commands": [
+ "name": "Ah-Toy-1.0",
+ "role": "趣味小玩具发放与配置管理",
+ "summary": "Ah-Toy 是「玩具商阿叶」主题的娱乐向小插件，独立配置文件，向玩家发放钩爪、斗蛐蛐这类与战斗平衡无关的趣味玩具。",
+ "quick": [
+  {
+   "scene": "发玩具给玩家",
+   "cmd": "/toy give 钩爪 Steve",
+   "note": "钩爪/斗蛐蛐等玩具 id"
+  }
+ ],
+ "commands": [
+  {
+   "cmd": "toy",
+   "what": "发放钩爪或斗蛐蛐玩具，或重载玩具配置",
+   "syntax": "/toy give （钩爪|斗蛐蛐） [玩家]   或   /toy reload",
+   "params": [
     {
-      "cmd": "toy",
-      "what": "发放钩爪或斗蛐蛐玩具，或重载玩具配置",
-      "syntax": "/toy give （钩爪|斗蛐蛐） [玩家]   或   /toy reload",
-      "params": [
-        {
-          "name": "give",
-          "required": false,
-          "note": "子指令：给玩家发放玩具"
-        },
-        {
-          "name": "钩爪 / 斗蛐蛐",
-          "required": true,
-          "note": "玩具类型，二选一，需与配置文件里登记的玩具名一致"
-        },
-        {
-          "name": "玩家",
-          "required": false,
-          "note": "目标玩家名，省略时一般默认给自己"
-        },
-        {
-          "name": "reload",
-          "required": false,
-          "note": "子指令：重载本插件配置文件"
-        }
-      ],
-      "examples": [
-        "/toy give 钩爪 Steve",
-        "/toy give 斗蛐蛐",
-        "/toy reload"
-      ],
-      "notes": "give 需要 ahtoy.command.give，reload 需要 ahtoy.command.reload，默认都只给 OP；玩具名写错会提示无效，具体可用玩具以游戏内 help 与配置为准。"
+     "name": "give",
+     "required": false,
+     "note": "子指令：给玩家发放玩具"
+    },
+    {
+     "name": "钩爪 / 斗蛐蛐",
+     "required": true,
+     "note": "玩具类型，二选一，需与配置文件里登记的玩具名一致"
+    },
+    {
+     "name": "玩家",
+     "required": false,
+     "note": "目标玩家名，省略时一般默认给自己"
+    },
+    {
+     "name": "reload",
+     "required": false,
+     "note": "子指令：重载本插件配置文件"
     }
-  ],
-  "subcommands": [],
-  "caution": [
-    "本插件为自研/小众插件，具体参数与可用玩具名以游戏内 help 和插件配置为准，不要照搬其它服务器的写法",
-    "give 与 reload 是两个独立权限节点，只给管理组发 give 时不要顺手把 reload 也开给普通玩家",
-    "reload 只能重载本插件配置，改动了其它插件或服务端设置仍需正常重启",
-    "发放前确认玩具名与配置中的登记名完全一致，否则会提示找不到该玩具"
-  ],
-  "related": [
-    "LuckPerms"
-  ]
+   ],
+   "examples": [
+    "/toy give 钩爪 Steve",
+    "/toy give 斗蛐蛐"
+   ],
+   "notes": "give 需要 ahtoy.command.give，reload 需要 ahtoy.command.reload，默认都只给 OP；玩具名写错会提示无效，具体…"
+  }
+ ],
+ "caution": [
+  "本插件为自研/小众插件，具体参数与可用玩具名以游戏内 help 和插件配置为准，不要照搬其它服务器的写法",
+  "give 与 reload 是两个独立权限节点，只给管理组发 give 时不要顺手把 reload 也开给普通玩家",
+  "reload 只能重载本插件配置，改动了其它插件或服务端设置仍需正常重启"
+ ]
 }

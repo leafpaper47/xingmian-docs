@@ -176,7 +176,12 @@ export const sidebar: ThemeSidebarMulti = {
       link: '/commands/other/',
       collapsed: false,
       items: [
+        { text: '其他-AntiBoom', link: '/commands/other/antiboom.md' },
         { text: '建筑师工具-ArchitectPlugin', link: '/commands/other/architectplugin.md' },
+        { text: '其他-Images', link: '/commands/other/images.md' },
+        { text: '其他-PatPatPlugin', link: '/commands/other/patpatplugin.md' },
+        { text: '其他-SenluoCookbook', link: '/commands/other/senluocookbook.md' },
+        { text: '其他-YccHongBao', link: '/commands/other/ycchongbao.md' },
       ],
     },
   ],

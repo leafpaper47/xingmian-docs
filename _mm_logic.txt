@@ -1,0 +1,84 @@
+﻿============ ReloadCommand
+8: ldc           #42                 // String Plugin is already reloading...
+25: arraylength
+32: ldc           #50                 // String -
+34: invokevirtual #56                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+43: ldc           #58                 // String -a
+45: invokevirtual #56                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+57: ldc           #60                 // String -p
+59: invokevirtual #56                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+70: arraylength
+107: ldc           #97                 // String command.reload.started
+109: ldc           #99                 // String Reloading plugin...
+177: ldc           #97                 // String command.reload.started
+179: ldc           #99                 // String Reloading plugin...
+198: ldc           #97                 // String command.reload.started
+200: ldc           #99                 // String Reloading plugin...
+289: ldc           #175                // String An error occurred while reloading!
+0: ldc_w         #258                // String mythicmobs.command.reload
+0: ldc_w         #262                // String reload
+6: ldc_w         #266                // String r
+12: ldc_w         #268                // String re
+88: ldc           #175                // String An error occurred while reloading!
+124: ldc_w         #341                // String An error occurred while reloading active mobs!
+206: ldc_w         #358                // String An error occurred while reloading player data!
+316: ldc           #175                // String An error occurred while reloading!
+383: ldc           #175                // String An error occurred while reloading!
+491: ldc_w         #401                // String command.reload.completed
+494: ldc_w         #403                // String Mythic has finished reloading!
+560: ldc_w         #401                // String command.reload.completed
+563: ldc_w         #403                // String Mythic has finished reloading!
+583: ldc_w         #401                // String command.reload.completed
+586: ldc_w         #403                // String Mythic has finished reloading!
+599: ldc_w         #401                // String command.reload.completed
+602: ldc_w         #403                // String Mythic has finished reloading!
+
+============ mobs.KillAllCommand
+51: ldc           #57                 // String -
+53: invokevirtual #61                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+61: ldc           #63                 // String p
+98: arraylength
+117: arraylength
+125: ldc           #85                 // String LITERALLY
+127: invokevirtual #89                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+232: invokeinterface #153,  2          // InterfaceMethod io/lumine/mythic/api/adapters/AbstractWorld.equals:(Ljava/lang/Object;)Z
+0: ldc           #243                // String mythicmobs.command.mobs.killall
+0: ldc           #247                // String killall
+6: ldc           #251                // String ka
+
+============ mobs.SpawnCommand
+18: arraylength
+23: ldc           #34                 // String You must specify a mob to spawn.
+35: arraylength
+43: ldc           #48                 // String -
+45: invokevirtual #54                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+54: ldc           #56                 // String s
+68: ldc           #62                 // String t
+82: ldc           #64                 // String p
+96: ldc           #66                 // String n
+110: arraylength
+210: arraylength
+222: arraylength
+244: arraylength
+256: ldc           #137                // String @
+258: invokevirtual #54                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+412: ldc           #204                // String Invalid location targeter specified for spawning a mob.
+425: ldc           #204                // String Invalid location targeter specified for spawning a mob.
+435: ldc           #206                // String ,
+486: arraylength
+502: arraylength
+550: ldc           #227                // String Invalid location specified for spawning a mob: location must be in format world,x,y,z,yaw,pitch
+639: ldc           #229                // String Invalid location specified for spawning a mob: world does not exist.
+655: ldc           #234                // String :
+666: ldc           #234                // String :
+699: ldc           #246                // String Invalid mob level supplied: must be a number.
+891: ldc_w         #349                // String Failed to spawn mob. See console for more details. If no error then you are in a mob spawning denied 
+5: arraylength
+13: ldc           #48                 // String -
+15: invokevirtual #54                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+24: arraylength
+33: arraylength
+0: ldc_w         #529                // String mythicmobs.command.mobs.spawn
+0: ldc_w         #532                // String spawn
+6: ldc           #56                 // String s
+

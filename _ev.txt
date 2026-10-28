@@ -1,0 +1,153 @@
+afk | /afk [player/message...] | eafk, away, eaway
+antioch | /antioch [message] | eantioch, grenade, egrenade, tnt, etnt
+anvil | /anvil | eanvil
+back | /back [player] | eback, return, ereturn
+backup | /backup | ebackup
+balance | /balance [player] | bal, ebal, ebalance, money, emoney
+balancetop | /balancetop [page] | ebalancetop, baltop, ebaltop
+ban | /ban <player> [reason] | eban
+banip | /banip <address> [reason] | ebanip
+beezooka | /beezooka | ebeezooka, beecannon, ebeecannon
+book | /book [title|author [name]] | ebook
+bottom | /bottom | ebottom
+break | /break | ebreak
+broadcast | /broadcast <msg> | bc, ebc, bcast, ebcast, ebroadcast, shout, eshout
+broadcastworld | /broadcastworld <world> <msg> | bcw, ebcw, bcastw, ebcastw, ebroadcastworld, shoutworld, eshoutworld
+bigtree | /bigtree <tree|redwood|jungle|darkoak> | ebigtree, largetree, elargetree
+burn | /burn <player> <seconds> | eburn
+cartographytable | /cartographytable | ecartographytable, carttable, ecarttable
+clearinventory | /clearinventory [player|*] [item[:<data>]|*|**] [amount] | ci, eci, clean, eclean, clear, eclear, clearinvent, eclearinvent, eclearinventory
+clearinventoryconfirmtoggle | /clearinventoryconfirmtoggle | eclearinventoryconfirmtoggle, clearinventoryconfirmoff, eclearinventoryconfirmoff, clearconfirmoff, eclearconfirmoff, clearconfirmon, eclearconfirmon, clearconfirm, eclearconfirm
+condense | /condense [itemname] | econdense, compact, ecompact, blocks, eblocks, toblocks, etoblocks
+compass | /compass | ecompass, direction, edirection
+createkit | /createkit <kitname> <delay> | kitcreate, createk, kc, ck
+customtext | /<alias> - Define in bukkit.yml | 
+delhome | /delhome [player:]<name> | edelhome, remhome, eremhome, rmhome, ermhome
+deljail | /deljail <jailname> | edeljail, remjail, eremjail, rmjail, ermjail
+delkit | /delkit <kit> | edelkit, remkit, eremkit, rmkit, ermkit, deletekit, edeletekit
+delwarp | /delwarp <warp> | edelwarp, remwarp, eremwarp, rmwarp, ermwarp
+depth | /depth | edepth, height, eheight
+disposal | /disposal | edisposal, trash, etrash
+eco | /eco <give|take|set|reset> <player> <amount> | eeco, economy, eeconomy
+enchant | /enchant <enchantmentname> [level] | eenchant, enchantment, eenchantment
+enderchest | /enderchest [player] | echest, eechest, eenderchest, endersee, eendersee, ec, eec
+essentials | /essentials | eessentials, ess, eess, essversion
+exp | /exp [reset|show|set|give] [playername [amount]] | eexp, xp
+ext | /ext [player] | eext, extinguish, eextinguish
+feed | /feed [player] | eat, eeat, efeed
+fly | /fly [player] [on|off] | efly
+fireball | /fireball [fireball|small|large|arrow|skull|egg|snowball|expbottle|dragon|splashpotion|lingeringpotion|trident] [speed] | efireball, fireentity, efireentity, fireskull, efireskull
+firework | /firework <<meta param>|power [amount]|clear|fire [amount]> | efirework
+gamemode | /gamemode <survival|creative|adventure|spectator> [player] | adventure, eadventure, adventuremode, eadventuremode, creative, ecreative, eecreative, creativemode, ecreativemode, egamemode, gm, egm, gma, egma, gmc, egmc, gms, egms, gmt, egmt, survival, esurvival, survivalmode, esurvivalmode, gmsp, sp, egmsp, spec, spectator
+gc | /gc | lag, elag, egc, mem, emem, memory, ememory, uptime, euptime, tps, etps, entities, eentities
+getpos | /getpos [player] | coords, egetpos, position, eposition, whereami, ewhereami, getlocation, egetlocation, getloc, egetloc
+give | /give <player> <item|numeric> [amount [itemmeta...]] | egive
+god | /god [player] [on|off] | egod, godmode, egodmode, tgm, etgm
+grindstone | /grindstone | egrindstone
+hat | /hat [remove] | ehat, head, ehead
+heal | /heal [player] | eheal
+help | /help [search term] [page] | ehelp
+helpop | /helpop <message> | ac, eac, amsg, eamsg, ehelpop
+home | /home [player:][name] | ehome, homes, ehomes
+ice | /ice [player] | eice, efreeze
+ignore | /ignore <player> | eignore, unignore, eunignore, delignore, edelignore, remignore, eremignore, rmignore, ermignore
+info | /info [chapter] [page] | about, eabout, ifo, eifo, einfo, inform, einform, news, enews
+invsee | /invsee <player> | einvsee
+item | /item <item|numeric> [amount [itemmeta...]] | i, eitem, ei
+itemdb | /itemdb <item> | dura, edura, durability, edurability, eitemdb, itemno, eitemno
+itemlore | /itemlore <add/set/clear> [text/line] [text] | lore, elore, ilore, eilore, eitemlore
+itemname | /itemname [name] | iname, einame, eitemname, itemrename, irename, eitemrename, eirename
+jailedplayers | /jailedplayers | ejailedplayers, ejailed, ejp
+jails | /jails | ejails
+jump | /jump | j, ej, ejump, jumpto, ejumpto
+kick | /kick <player> [reason] | ekick
+kickall | /kickall [reason] | ekickall
+kill | /kill <player> | ekill
+kit | /kit [kit] [player] | ekit, kits, ekits
+kitreset | /kitreset <kit> [player] | ekitreset, kitr, ekitr, resetkit, eresetkit
+kittycannon | /kittycannon | ekittycannon
+lightning | /lightning [player] [power] | elightning, shock, eshock, smite, esmite, strike, estrike, thor, ethor
+list | /list [group] | elist, online, eonline, playerlist, eplayerlist, plist, eplist, who, ewho
+loom | /loom | eloom
+mail | /mail [read|clear|clear [number]|clear <player> [number]|send [to] [message]|sendtemp [to] [expire time] [message]|sendall [message]] | email, eemail, memo, ememo
+me | /me <description> | action, eaction, describe, edescribe, eme
+more | /more [amount] | emore
+motd | /motd [chapter] [page] | emotd
+msg | /msg <to> <message> | w, m, t, pm, emsg, epm, tell, etell, whisper, ewhisper
+msgtoggle | /msgtoggle [player] [on|off] | emsgtoggle
+mute | /mute <player> [datediff] [reason] | emute, silence, esilence, unmute, eunmute
+near | /near [playername] [radius] | enear, nearby, enearby
+nick | /nick [player] <nickname|off> | enick, nickname, enickname
+nuke | /nuke [player] | enuke
+tpoffline | /tpoffline <player> | otp, offlinetp, tpoff, tpoffline, etpoffline
+pay | /pay <player> <amount> | epay
+paytoggle | /paytoggle [player] | epaytoggle, payoff, epayoff, payon, epayon
+payconfirmtoggle | /payconfirmtoggle | epayconfirmtoggle, payconfirmoff, epayconfirmoff, payconfirmon, epayconfirmon, payconfirm, epayconfirm
+ping | /ping | echo, eecho, eping, pong, epong
+playtime | /playtime [player] | eplaytime
+potion | /potion <clear|apply|effect:<effect> power:<power> duration:<duration>> | epotion, elixer, eelixer
+powertool | /powertool [l:|a:|r:|c:|d:][command] [arguments] - {player} can be replaced by name of a clicked player. | epowertool, pt, ept
+powertoollist | /powertoollist | epowertoollist, ptlist, eptlist
+powertooltoggle | /powertooltoggle | epowertooltoggle, ptt, eptt, pttoggle, epttoggle
+ptime | /ptime [list|reset|day|night|dawn|17:30|4pm|4000ticks] [player|*] | playertime, eplayertime, eptime
+pweather | /pweather [list|reset|storm|sun|clear] [player|*] | playerweather, eplayerweather, epweather
+r | /r <message> | er, reply, ereply
+rtoggle | /rtoggle [player] [on|off] | ertoggle, replytoggle, ereplytoggle
+realname | /realname <nickname> | erealname
+recipe | /recipe <item> [number] | formula, eformula, method, emethod, erecipe, recipes, erecipes
+remove | /remove <all|tamed|named|drops|arrows|boats|minecarts|xp|paintings|itemframes|endercrystals|monsters|animals|ambient|mobs|[mobType]> [radius|world] | eremove, butcher, ebutcher, killall, ekillall, mobkill, emobkill
+renamehome | /renamehome <[player:]name> <new name> | erenamehome
+repair | /repair [hand|all] | fix, efix, erepair
+rest | /rest [player] | erest
+rules | /rules [chapter] [page] | erules
+seen | /seen <playername> | eseen, ealts, alts
+sell | /sell <<itemname>|<id>|hand|inventory|blocks> [amount] | esell
+sethome | /sethome [[player:]name] | esethome, createhome, ecreatehome
+setjail | /setjail <jailname> | esetjail, createjail, ecreatejail
+settpr | /settpr [center|minrange|maxrange] [value] | esettpr, settprandom, esettprandom
+setwarp | /setwarp <warp> | createwarp, ecreatewarp, esetwarp
+setworth | /setworth [itemname|id] <price> | esetworth
+showkit | /showkit <kitname> | kitpreview, preview, kitshow
+editsign | /editsign <set/clear/copy/paste> [line number] [text] | sign, esign, eeditsign
+skull | /skull [owner] [player] | eskull, playerskull, eplayerskull, head, ehead
+smithingtable | /smithingtable | esmithingtable, smithtable, esmithtable
+socialspy | /socialspy [player] [on|off] | esocialspy
+spawner | /spawner <mob> [delay] | changems, echangems, espawner, mobspawner, emobspawner
+spawnmob | /spawnmob <mob>[:data][,<mount>[:data]] [amount] [player] | mob, emob, spawnentity, espawnentity, espawnmob
+speed | /speed [type] <speed> [player] | flyspeed, eflyspeed, fspeed, efspeed, espeed, walkspeed, ewalkspeed, wspeed, ewspeed
+stonecutter | /stonecutter | estonecutter
+sudo | /sudo <player> <command [args]> | esudo
+suicide | /suicide | esuicide
+tempban | /tempban <playername> <datediff> [reason] | etempban
+tempbanip | /tempbanip <playername> <datediff> [reason] | etempbanip
+thunder | /thunder <true/false> [duration] | ethunder
+time | /time [set|add] [day|night|dawn|17:30|4pm|4000ticks] [worldname|all] | day, eday, night, enight, etime
+togglejail | /togglejail <player> <jailname> [datediff] | jail, ejail, tjail, etjail, etogglejail, unjail, eunjail
+top | /top | etop
+tp | /tp <player> [otherplayer] | tele, etele, teleport, eteleport, etp, tp2p, etp2p
+tpa | /tpa <player> | call, ecall, etpa, tpask, etpask
+tpaall | /tpaall <player> | etpaall
+tpaccept | /tpaccept [player|*] | etpaccept, tpyes, etpyes
+tpahere | /tpahere <player> | etpahere
+tpall | /tpall [player] | etpall
+tpauto | /tpauto [player] | etpauto
+tpacancel | /tpacancel [player] | etpacancel
+tpdeny | /tpdeny [player|*] | etpdeny, tpno, etpno
+tphere | /tphere <player> | s, etphere
+tpo | /tpo <player> [otherplayer] | etpo
+tpohere | /tpohere <player> | etpohere
+tppos | /tppos <x> <y> <z> [yaw] [pitch] [world] | etppos
+tpr | /tpr | etpr, tprandom, etprandom
+tptoggle | /tptoggle [player] [on|off] | etptoggle
+tree | /tree <tree|birch|redwood|redmushroom|brownmushroom|jungle|junglebush|swamp> | etree
+unban | /unban <player> | pardon, eunban, epardon
+unbanip | /unbanip <address> | eunbanip, pardonip, epardonip
+unlimited | /unlimited <list|item|clear> [player] | eunlimited, ul, unl, eul, eunl
+vanish | /vanish [player] [on|off] | v, ev, evanish
+warp | /warp <pagenumber|warp> [player] | ewarp, warps, ewarps
+warpinfo | /warpinfo <warp> | ewarpinfo
+weather | /weather <storm/sun> [duration] | rain, erain, sky, esky, storm, estorm, sun, esun, eweather
+whois | /whois <nickname> | ewhois
+workbench | /workbench | craft, ecraft, wb, ewb, wbench, ewbench, eworkbench
+world | /world [world] | eworld
+worth | /worth <<itemname>|<id>|hand|inventory|blocks> [-][amount] | eprice, price, eworth

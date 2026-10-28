@@ -1,0 +1,59 @@
+# YaoqingPlugin  (YaoqingPlugin-1.0.0.jar)
+## 注册指令
+  /yaoqing  usage='/yaoqing' desc='打开「星友同行」主界面' alias=['yq', '邀请'] perm=None
+
+## 代码类
+  cn.yxsjmc.yaoqing.YaoqingCommand
+
+## javap 字符串 token
+  admin recalc reset
+
+## 文本资源里的帮助/用法行
+  · # 星冕服务器「老玩家拉新玩家」插件配置
+  · # 首次启动会自动生成于 plugins/YaoqingPlugin/config.yml
+  · # 修改后需执行 /yaoqing admin recalc 或重启服务器生效
+  · # 新玩家扶持窗口天数（首次进服起 7 天内可填写邀请码）
+  · # 新玩家需在线满多少分钟才可填写邀请码（60 = 1 小时，按 PLAY_ONE_MINUTE 统计）
+  · # 邀请码长度（大写字母+数字，自动排除易混淆的 0/O/1/I）
+  · # 奖励配置（数值均可改，改完 reload/重启生效）
+  · # 三项奖励通道说明：
+  · #   commands: 控制台命令列表，{player} 会被替换为玩家名
+  · #             星点(eco)    : "eco give {player} <数量>"   （EssentialsX，星点）
+  · #             星钻/点券     : "points give {player} <数量>" （PlayerPoints，点券）
+  · #             上述命令均支持离线发放（按玩家名直接入账）
+  · #   money:    星点数量（数字），等价于 "eco give {player} <数量>"，留 0 不发
+  · #   items:    物品列表（仅玩家在线时随命令发放）：
+  · #             - 原版物品   : "minecraft:diamond:10" 或简写 "diamond:10"
+  · #             - CE 自定义物: "xingmian:牛角包:1"（需 CraftEngine）
+  · # 邀请人每成功邀请 1 人（绑定生效）计入「邀请人累计奖励池」的奖励
+  · # 2000 星点（eco）：不再自动到账，而是累计到邀请人页的「领取奖励」按钮，
+  · # 不领一直保留、可跨多次邀请叠加，点击领取时一次性发放（/eco give）。
+  · # 新玩家统一奖励（绑定成功即可在「被邀请人」页领取，未领取永久保留）
+  · # 1000 星点 + 钻石x10 + 星钻(点券)50，领取后标记已领取
+  · # 邀请者里程碑额外奖励（达标后星点/星钻金额自动并入「邀请人累计奖励池」，
+  · # 不再单独领取，与每邀 1 人奖励一起在「领取奖励」按钮一次性发放）
+  · #   3人  = 300点券(星钻) + 3000星点
+  · #   7人  = 1000点券 + 5000星点
+  · #   14人 = 1800点券 + 8000星点
+  · # 满 14 人后仍可继续邀请，仅不再解锁新档位
+  · description: 星冕服务器「星友同行」老玩家拉新插件：邀请码绑定、里程碑奖励、全GUI交互
+  · description: 打开「星友同行」主界面
+  · usage: /yaoqing
+  · - 邀请
+  · description: 允许使用邀请功能
+  · description: 邀请系统管理（绑定明细/重置/重算）
+
+## 常量池帮助/描述文本
+  · cn/yxsjmc/yaoqing/YaoqingCommand
+  · Lcn/yxsjmc/yaoqing/YaoqingPlugin;
+  · &7此指令需在游戏内使用
+  · cn/yxsjmc/yaoqing/Lang
+  · cn/yxsjmc/yaoqing/YaoqingPlugin
+  · cn/yxsjmc/yaoqing/Gui
+  · &c你没有管理权限
+  · &7请在游戏内查看界面
+  · cn/yxsjmc/yaoqing/Store
+  · &7用法: /yaoqing admin [recalc|reset <玩家>]
+  · &a已重算  位邀请者的里程碑状态
+  · &c找不到玩家: 
+  · &a已重置玩家  的邀请相关数据

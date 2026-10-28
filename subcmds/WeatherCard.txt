@@ -1,0 +1,33 @@
+# WeatherCard  (WeatherCardPlugin-1.0.10.jar)
+## 注册指令
+  /weathercard  usage='/weathercard give <玩家> <类型> <数量>' desc='天气卡管理指令' alias=['wcard'] perm=None
+
+## 代码类
+  cn.yxsjmc.weathercard.WeatherCardCommand
+
+## javap 字符串 token
+  give
+
+## 文本资源里的帮助/用法行
+  · description: 星冕MC 天气卡插件 - 4种扑克牌卡(黑桃·夜/红桃·昼/梅花·雨/方片·晴)，四张卡均可在 家园世界 / 星陨之地 使用；使用一次消耗1张，生效一次后10分钟恢复自然天气
+  · description: 天气卡管理指令
+  · usage: /weathercard give <玩家> <类型> <数量>
+  · description: 允许使用天气卡
+  · description: 允许发放天气卡
+
+## 常量池帮助/描述文本
+  · cn/yxsjmc/weathercard/WeatherCardCommand
+  · Lcn/yxsjmc/weathercard/WeatherCardPlugin;
+  · cn/yxsjmc/weathercard/WeatherCardPlugin
+  · cn/yxsjmc/weathercard/WeatherCardType
+  · 用法: /weathercard give <玩家> <类型> <数量>
+  · 类型: night(黑桃·夜) / day(红桃·昼) / rain(梅花·雨) / sunny(方片·晴)
+  · 可用世界: 家园世界 / 星陨之地（四张卡均可用）
+  · 未知子命令: 
+  · 你没有权限执行此指令 (weathercard.give)
+  · 玩家  不在线或不存在
+  · 未知天气卡类型:  (可选: night / day / rain / sunny)
+  · 数量必须是整数
+  · 数量必须在 1 ~ 64 之间
+  · 已发放  张  给 
+  · 你获得了  张 

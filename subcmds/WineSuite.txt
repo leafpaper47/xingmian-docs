@@ -1,0 +1,119 @@
+# WineSuite  (WineSuite-1.2.0.jar)
+## 注册指令
+  /winebook  usage='/winebook [reload]' desc='打开酿酒图鉴' alias=['酒鉴', '酿酒图鉴', '图鉴', 'wbk'] perm=None
+  /winebuyer  usage='/winebuyer [list|reload|reset]' desc='打开酒水收购界面' alias=['wb', '收酒', '酒收'] perm=None
+
+## 代码类
+  net.xingmian.winesuite.book.BookCommand
+  net.xingmian.winesuite.buyer.BuyerCommand
+
+## javap 字符串 token
+  list reload reset
+
+## 文本资源里的帮助/用法行
+  · # WineSuite 配置文件
+  · # 图鉴 + 收购 合并插件。绝大多数内容自动跟随主酿造插件
+  · # TheBrewingProject 的 recipes.yml，这里仅保留需要手工微调的项。
+  · # 改完配置后执行 /winebook reload 或 /winebuyer reload 即可生效。
+  · # ---- 自动跟随主插件 ----
+  · refresh-interval: 30          # 每 N 秒检测一次 TBP recipes.yml 是否变动，变动即自动同步图鉴与收购
+  · exclude-recipes: []           # 额外需要排除的非酒配方（默认已排除 hangover_detox 解酒剂）
+  · # ---- 收购界面 ----
+  · # 收购主界面标题
+  · title: "&8酒水收购"
+  · # 图鉴界面
+  · main-title: "&8✦ 酿酒图鉴"
+  · unlocked: "&a✔ 已酿出"
+  · first-time: "&7首次酿出: &e{date}"
+  · brew-count: "&7共酿出: &f{count} 次"
+  · hint: "&7点击查看"
+  · # ---- 图鉴分类（自动按 TBP 配方特征归类，此处仅配置展示样式） ----
+  · # 分类键与自动判定规则：
+  · #   rare   -> 含 item-model（稀有贴图酒）
+  · #   material -> 用 craftengine 食材酿造
+  · #   vanilla  -> 原版材料酿造
+  · # 这三种键名不可改，可自行改 title/icon/color/description。
+  · title: "稀有贴图酒"
+  · description: "十五种稀世佳酿，自带专属贴图"
+  · title: "材料酒"
+  · description: "以稀有材料酿造的独特佳酿"
+  · title: "原版酒"
+  · description: "以原版材料酿造的经典美酒"
+  · # ---- 显示名覆盖（可选） ----
+  · # 一般情况下自动取 recipes.yml 里的中间档品质名；仅当出现歧义时，
+  · # 可用本段强制指定某个配方 ID 的显示名。示例：
+  · jidiwangguanfutejia: "纯正伏特加"
+  · kuaihuanghun: "尼格罗尼"
+  · feiyingdusongniang: "粉色杜松子酒"
+  · lingmaoqingyuniang: "喵娘青酿"
+  · guiyinhongjiu: "怪异格雷"
+  · xingheleizhujiu: "星之泪"
+  · shenyuanyouying: "暗幽"
+  · feirilongshelan: "番茄龙舌兰"
+  · jinchengbailandi: "白兰橙汁"
+  · wuyinzhimi: "秘"
+  · feixiajiaren: "红粉佳人"
+  · bihailinghouniang: "蓝岛猴儿酒"
+  · weilanredainiang: "蓝色夏威夷"
+  · feihongzhixue: "血腥玛丽"
+  · wangguanmaiyapi: "麦克舒弗啤酒"
+  · jinsuijingniang: "麦香啤酒"
+  · senlinganlu: "甜浆果酒"
+  · huangjinminong: "蜂蜜酒"
+  · xiangmupingguojianiang: "苹果酒"
+  · qingtianguaniang: "西瓜酒"
+  · jingenjianiang: "胡萝卜酒"
+  · feigenchunniang: "甜菜酒"
+  · yinshufutejia: "马铃薯烈酒"
+  · qiurijinniang: "南瓜酒"
+  · jialebilangmu: "甘蔗朗姆"
+  · huangmojinye: "仙人掌龙舌兰"
+  · modiyeniang: "紫颂果酒"
+  · shenlinkeke: "可可酒"
+  · shenhaichengniang: "海带清酒"
+  · rongxinliejiu: "岩浆膏烈酒"
+  · feihongfanqieniang: "番茄酒"
+  · feicuishengcainiang: "生菜清酿"
+  · chiyanjiaoniang: "红椒烈酒"
+  · cuijiaoqingniang: "青椒酒"
+  · xuetueqingjiu: "稻穗清酒"
+  · huangyeminong: "野稻烧酒"
+  · diebianminong: "毛毛虫蜜酿"
+  · miguaqiongjiang: "哈密瓜酒"
+  · rongxinguoniang: "岩浆果酒"
+  · yuhuozhiye: "烈焰甘蔗酒"
+  · xianlingganlu: "仙灵花酒"
+  · xingyehuaniang: "末影珍珠花种酿"
+  · xiajinliniang: "锦鲤酒"
+  · xuanmozhangyuniang: "章鱼酒"
+  · zhenzhumulinong: "牡蛎酒"
+  · # ---- 收购定价（按档位） ----
+  · # 档位自动判定：传奇(传说鱼食材) > 稀有(贴图酒) > 普通
+  · # 每日收购酒品数量（从全部酒中随机 N 种）
+  · # 货币名称
+  · currency-name: 星点
+  · # ---- 提示消息 ----
+  · no-permission: "&c你没有权限。"
+  · reloaded: "&a配置已重载，并已自动同步酒水目录。"
+  · already: "&e今日已经出售过了，明天再来吧。"
+  · success: "&a✔ 出售成功！{sold} 各 1 瓶，获得 &e{amount} &a{currency}。"
+  · no-economy: "&c未接入经济系统，奖励未发放。"
+  · description: 星冕酒水套装：酿酒图鉴 + 酒水收购 合并插件，自动跟随主酿造插件 TBP 的配方变动。
+  · description: 打开酿酒图鉴
+  · aliases: [酒鉴, 酿酒图鉴, 图鉴, wbk]
+  · usage: /winebook [reload]
+  · description: 打开酒水收购界面
+  · aliases: [wb, 收酒, 酒收]
+  · usage: /winebuyer [list|reload|reset]
+  · description: 允许使用酿酒图鉴
+  · description: 允许管理图鉴
+  · description: 允许使用酒水收购
+  · description: 允许重载/重置收购配置
+
+## 常量池帮助/描述文本
+  · 该命令只能由玩家执行。
+  · &c你没有权限。
+  · &a酒水收购配置已重载，并已自动同步酒水目录。
+  · 该命令仅玩家可用。
+  · &a已重置你今日的收购状态。
+  · &c你没有权限使用酒水收购。

@@ -1,0 +1,414 @@
+# ALCERecipeViewer  (ALCERecipeViewer-1.0.8-subcategory.jar)
+## 注册指令
+  /alcerecipes  usage='/<command> [search|usage|reload] [物品ID]' desc='打开AL合成表查看器，按分类浏览合成配方' alias=['alcer', 'alcebook', 'alcerecipe'] perm='alcerecipeviewer.use'
+
+## 代码类
+  com.linong.recipelookup.command.ViewRecipeCommand
+
+## javap 字符串 token
+  admin clear create manage new reload
+
+## 文本资源里的帮助/用法行
+  · # AL-RecipeViewer 主配置文件
+  · # 界面布局见 menu.yml，显示文本见 lang/zh_cn.yml（或对应语言文件）
+  · # 插件语言（zh_cn / en_us）
+  · # 功能开关
+  · # 调试模式：点击配方物品时在聊天栏显示名称解析信息
+  · # 多配方轮播间隔（秒）：同一物品有多个合成配方时，详情页每隔此秒数自动切换
+  · # AL-RecipeViewer 语言文件
+  · # 插件运行时实际读取的文本集中在这里
+  · # 菜单按钮文字请在 menu.yml 中修改
+  · # 聊天消息前缀
+  · plugin-prefix: "&8[&6ALCE合成表&8]&r"
+  · # 配方类型显示名称（用于配方列表物品的 lore）
+  · crafting: "工作台"
+  · shaped: "有序合成"
+  · shapeless: "无序合成"
+  · smelting: "熔炉烧炼"
+  · blasting: "高炉烧炼"
+  · smoking: "烟熏炉"
+  · campfire_cooking: "营火烹饪"
+  · stonecutting: "切石机"
+  · smithing: "锻造台"
+  · smithing_transform: "锻造台"
+  · smithing_trim: "锻造纹饰"
+  · brewing: "酿造台"
+  · # CE 物品的自定义中文名（用于排序和搜索，不覆盖客户端 item_name 显示）
+  · # 配方列表底部栏的固定文字
+  · result: "&7产出: &f{count}个"
+  · type: "&7类型: &f{type}"
+  · click: "&e▶ 点击查看合成表"
+  · # 分类默认显示名称
+  · # 用于配方列表标题，若 lang.yml 未配置则回退到 CEBridge 内置名称
+  · crafting: "工作台配方"
+  · smelting: "熔炉烧炼"
+  · blasting: "高炉烧炼"
+  · smoking: "烟熏炉"
+  · campfire_cooking: "营火烹饪"
+  · stonecutting: "切石机"
+  · smithing: "锻造台"
+  · brewing: "酿造台"
+  · # 搜索结果追加到标题的后缀
+  · # 新增配方消息
+  · no-items: "&c请至少放入原料和结果物品！未保存。"
+  · no-ingredient: "&c请放入烧炼原料！"
+  · no-ce-dir: "&c未找到 CraftEngine 配置目录！"
+  · saved: "&a配方已保存至: {path}"
+  · reload-hint-1: "&e请在控制台输入: &fce reload all"
+  · reload-hint-2: "&e然后输入: &f/alcerecipes clear && /alcerecipes reload"
+  · admin-only: "&c只有管理员可以创建配方！"
+  · cleared: "&a配方缓存已清空，请使用 /alcerecipes reload 重新加载。"
+  · help-clear: "&e  /alcerecipes clear &7- 清空配方缓存（配合 reload 重新加载）"
+  · # 聊天消息
+  · search-prompt: "{prefix} &e请在聊天栏输入搜索词（输入 &ccancel &e取消）"
+  · search-cancelled: "{prefix} &7搜索已取消。"
+  · search-result: "{prefix} &a找到 &f{count} &a个匹配配方。"
+  · # 命令消息
+  · player-only: "&c此命令只能由玩家执行。"
+  · no-recipes: "&c暂无配方数据，请等待加载或使用 /alcerecipes reload"
+  · no-permission: "&c你没有权限重载配方。"
+  · reloaded: "&a配方数据已重新加载！共 {count} 个配方。"
+  · usage-title: "&e用法:"
+  · usage-open: "&e  /alcerecipes &7- 打开合成表分类浏览"
+  · usage-reload: "&e  /alcerecipes reload &7- 重新加载配方数据"
+  · # 配方详情 GUI 标题（原版工作方块）
+  · crafting: "&8工作台配方"
+  · smithing: "&8锻造台配方"
+  · furnace: "&8熔炉烧炼"
+  · blasting: "&8高炉烧炼"
+  · smoking: "&8烟熏炉"
+  · stonecutting: "&8切石机配方"
+  · brewing: "&8酿造台配方"
+  · # AL-RecipeViewer 菜单配置文件 (Shape 布局)
+  · # 文字使用 {@key} 引用 lang 文件中的 menu 节点
+  · # 按钮配置项:
+  · #   material: 原版 Material 枚举值（如 CRAFTING_TABLE）或 CE 自定义物品 ID（如 namespace:item_id）
+  · #   name: 按钮显示名称，支持 {@key} 语言引用
+  · #   lore: 按钮说明文字列表
+  · #   action: 点击行为
+  · #     OPEN_CATEGORY  - 打开某个分类的配方列表（需配置 category）
+  · #     PREV_PAGE      - 翻到上一页
+  · #     NEXT_PAGE      - 翻到下一页
+  · #     PREV_RECIPE    - 切换到上一个配方（多配方轮播）
+  · #     NEXT_RECIPE    - 切换到下一个配方（多配方轮播）
+  · #     BACK           - 返回上一级菜单
+  · #     BACK_TO_MAIN   - 返回主菜单
+  · #     CLOSE          - 关闭菜单
+  · #     SEARCH         - 搜索配方
+  · #     RUN_COMMAND    - 执行自定义命令（需配置 command）
+  · #   category: 分类 ID（action=OPEN_CATEGORY 时需要）
+  · #   command: 自定义命令（action=RUN_COMMAND 时生效，不带 /）
+  · #   as_player: true=以玩家身份执行，false=控制台（{player}=玩家名）
+  · #   sound: 点击音效，支持原版声音（如 block.note_block.pling）或 CE 自定义声音（如 namespace:sound_id）
+  · #          不填默认使用 block.note_block.pling
+  · # ===== 主菜单 =====
+  · # ---- 8 个分类入口 ----
+  · # 工作台配方
+  · # 熔炉配方
+  · # 高炉配方
+  · # 烟熏炉配方
+  · # 营火配方
+  · # 切石机配方
+  · # 锻造台配方
+  · # 酿造台配方
+  · # ---- 背景填充 ----
+  · # ---- 自定义命令按钮示例（取消注释并将 Z 加入 shape 即可启用）----
+  · #    - "&7打开Wiki页面"
+  · # ===== 配方列表（分类浏览）=====
+  · # 动态物品区 — 显示当前页的配方图标
+  · # 上一页
+  · # 搜索按钮（左键搜索 / 右键切换模式 / Shift+左键清空）
+  · # 返回主菜单
+  · # 下一页
+  · # 关闭菜单
+  · # 背景填充
+  · # ===== 配方二级分类（类似 CE 的分类）=====
+  · # 打开某一级分类后，若该工作方块存在 CE 二级分类，则先展示本页选择子分类。
+  · # 第一项固定为「全部配方」，其后为各 CE 二级分类。
+  · title: "&8{category} - 分类 ({page}/{total})"
+  · # 动态分类区 — 全部配方 / 各 CE 二级分类
+  · # 上一页
+  · # 关闭菜单
+  · # 返回主菜单
+  · # 下一页
+  · # 背景填充
+  · # ===== 配方详情 — 工作台 =====
+  · # 原料 — 3×3 配方格
+  · # 结果物品
+  · # 上一个配方（同物品其他合成方式）
+  · # 下一个配方
+  · # 返回配方列表
+  · # 背景填充
+  · # ===== 配方详情 — 熔炉/高炉/烟熏炉 =====
+  · # 烧炼原料
+  · # 烧炼结果
+  · # 烧炼信息（燃料时间 + 经验）
+  · # 上一个配方
+  · # 下一个配方
+  · # 返回配方列表
+  · # 背景填充
+  · # ===== 配方详情 — 锻造台 =====
+  · # 原料（模板 + 底材 + 锻造材料）
+  · # 锻造结果
+  · # 上一个配方
+  · # 下一个配方
+  · # 返回配方列表
+  · # 背景填充
+  · # ===== 配方详情 — 切石机 =====
+  · # 原料
+  · # 切石结果
+  · # 上一个配方
+  · # 下一个配方
+  · # 返回配方列表
+  · # 背景填充
+  · # ===== 配方详情 — 酿造台 =====
+  · # 酿造原料（容器 + 材料）
+  · # 酿造结果
+  · # 酿造燃料提示
+  · # 上一个配方
+  · # 下一个配方
+  · # 返回配方列表
+  · description: AL合成表查看器 - 按分类浏览合成配方，支持搜索与用途查看
+  · description: 打开AL合成表查看器，按分类浏览合成配方
+  · usage: /<command> [search|usage|reload] [物品ID]
+  · permission-message: "&c你没有权限使用此命令。"
+  · description: 允许使用 /alcerecipes 查看合成配方
+  · description: 允许使用管理命令（重载数据）
+  · # AL-RecipeViewer 新增配方菜单配置
+  · # 文字使用 {@key} 引用 lang 文件中的 menu 节点
+  · # 按钮配置项同 menu.yml，额外支持:
+  · #   sound: 点击音效（原版 Sound 或 CE 自定义声音 ID，默认 block.note_block.pling）
+  · # ===== 配方创建器 — 类型选择 =====
+  · # 有序合成（工作台 3×3）
+  · # 无序合成
+  · # 熔炉 / 高炉
+  · # 锻造台
+  · # 切石机
+  · # 酿造台
+  · # 营火
+  · # 烟熏炉
+  · # 返回
+  · # 背景填充
+  · # ===== 配方创建器 — 有序合成 =====
+  · # 原料区 — 3×3 配方格（从背包拖入物品）
+  · # 结果物品 — 从背包拖入
+  · # 保存配方
+  · # 背景填充
+  · # ===== 配方创建器 — 无序合成 =====
+  · # 原料区 — 3×3 配方格（从背包拖入物品）
+  · # 结果物品 — 从背包拖入
+  · # 保存配方
+  · # 背景填充
+  · # ===== 配方创建器 — 熔炉 / 高炉 =====
+  · # 烧炼原料 — 从背包拖入
+  · # 烧炼结果 — 从背包拖入
+  · # 切换模式：左键=高炉 / 右键=熔炉 / Shift+左键=两者
+  · # 烧炼时间 — 左键 +1 / 右键 -1（ticks，20 ticks = 1 秒）
+  · # 经验值 — 左键 +0.1 / 右键 -0.1 / Shift+左键 手动输入
+  · # 保存配方
+  · # 背景填充
+  · # ===== 配方创建器 — 烟熏炉 =====
+  · # 烧炼原料
+  · # 烧炼结果
+  · # 烟熏时间 — 左键 +1 / 右键 -1
+  · # 经验值 — 左键 +0.1 / 右键 -0.1 / Shift+左键 手动输入
+  · # 保存配方
+  · # 背景填充
+  · # ===== 配方创建器 — 营火 =====
+  · # 营火原料
+  · # 营火结果
+  · # 营火时间 — 左键 +1 / 右键 -1（默认 30 秒）
+  · # 保存配方
+  · # 背景填充
+  · # ===== 配方创建器 — 切石机 =====
+  · # 原料
+  · # 切石结果
+  · # 保存配方
+  · # 背景填充
+  · # ===== 配方创建器 — 锻造台 =====
+  · # 原料（模板 + 底材 + 锻造材料）
+  · # 锻造结果
+  · # 保存配方
+  · # 背景填充
+  · # ===== 配方创建器 — 酿造台 =====
+  · # 酿造原料（容器 + 材料）
+  · # 酿造结果
+  · # 保存配方
+  · # 背景填充
+  · reload-hint-2: "&eThen run: &f/alcerecipes clear && /alcerecipes reload"
+  · cleared: "&aRecipe cache cleared. Use /alcerecipes reload to reload."
+  · help-clear: "&e  /alcerecipes clear &7- Clear recipe cache"
+  · no-recipes: "&cNo recipe data yet. Please wait or use /alcerecipes reload"
+  · usage-open: "&e  /alcerecipes &7- Open recipe browser"
+  · usage-reload: "&e  /alcerecipes reload &7- Reload recipe data"
+  · # AL-RecipeViewer 语言文件
+  · # 插件运行时实际读取的文本集中在这里
+  · # 菜单按钮文字请在 menu.yml 中修改
+  · # 聊天消息前缀
+  · plugin-prefix: "&8[&6ALCE合成表&8]&r"
+  · # 配方类型显示名称（用于配方列表物品的 lore）
+  · crafting: "工作台"
+  · shaped: "有序合成"
+  · shapeless: "无序合成"
+  · smelting: "熔炉烧炼"
+  · blasting: "高炉烧炼"
+  · smoking: "烟熏炉"
+  · campfire_cooking: "营火烹饪"
+  · stonecutting: "切石机"
+  · smithing: "锻造台"
+  · smithing_transform: "锻造台"
+  · smithing_trim: "锻造纹饰"
+  · brewing: "酿造台"
+  · # CE 物品的自定义中文名（用于排序和搜索，不覆盖客户端 item_name 显示）
+  · # 配方列表底部栏的固定文字
+  · result: "&7产出: &f{count}个"
+  · type: "&7类型: &f{type}"
+  · click: "&e▶ 点击查看合成表"
+  · multi-recipes: "&d◆ 共{count}种合成方式"
+  · cycle-indicator: "&7配方 {current}/{total} &8| &7{interval}秒后切换"
+  · # 分类默认显示名称
+  · # 用于配方列表标题，若 lang.yml 未配置则回退到 CEBridge 内置名称
+  · crafting: "工作台配方"
+  · smelting: "熔炉烧炼"
+  · blasting: "高炉烧炼"
+  · smoking: "烟熏炉"
+  · campfire_cooking: "营火烹饪"
+  · stonecutting: "切石机"
+  · smithing: "锻造台"
+  · brewing: "酿造台"
+  · # 搜索结果追加到标题的后缀
+  · # 新增配方消息
+  · no-items: "&c请至少放入原料和结果物品！未保存。"
+  · no-ingredient: "&c请放入烧炼原料！"
+  · no-ce-dir: "&c未找到 CraftEngine 配置目录！"
+  · saved: "&a配方已保存至: {path}"
+  · reload-hint-1: "&e请在控制台输入: &fce reload all"
+  · reload-hint-2: "&e然后输入: &f/alcerecipes clear && /alcerecipes reload"
+  · admin-only: "&c只有管理员可以创建配方！"
+  · cleared: "&a配方缓存已清空，请使用 /alcerecipes reload 重新加载。"
+  · help-clear: "&e  /alcerecipes clear &7- 清空配方缓存（配合 reload 重新加载）"
+  · # 聊天消息
+  · search-prompt: "{prefix} &e请在聊天栏输入搜索词（输入 &ccancel &e取消）"
+  · search-cancelled: "{prefix} &7搜索已取消。"
+  · search-result: "{prefix} &a找到 &f{count} &a个匹配配方。"
+  · # 命令消息
+  · player-only: "&c此命令只能由玩家执行。"
+  · no-recipes: "&c暂无配方数据，请等待加载或使用 /alcerecipes reload"
+  · no-permission: "&c你没有权限重载配方。"
+  · reloaded: "&a配方数据已重新加载！共 {count} 个配方。"
+  · usage-title: "&e用法:"
+  · usage-open: "&e  /alcerecipes &7- 打开合成表分类浏览"
+  · usage-reload: "&e  /alcerecipes reload &7- 重新加载配方数据"
+  · # 配方详情 GUI 标题（原版工作方块）
+  · crafting: "&8工作台配方"
+  · smithing: "&8锻造台配方"
+  · furnace: "&8熔炉烧炼"
+  · blasting: "&8高炉烧炼"
+  · smoking: "&8烟熏炉"
+  · stonecutting: "&8切石机配方"
+  · brewing: "&8酿造台配方"
+  · # 菜单文字（menu.yml 通过 {@key} 引用）
+  · category_crafting: "&6&l工作台配方"
+  · category_crafting_desc: "&7有序合成 / 无序合成"
+  · category_smelting: "&6&l熔炉烧炼"
+  · category_smelting_desc: "&7使用熔炉烧炼物品"
+  · category_blasting: "&6&l高炉烧炼"
+  · category_blasting_desc: "&7使用高炉快速烧炼"
+  · category_smoking: "&6&l烟熏炉"
+  · category_smoking_desc: "&7使用烟熏炉烹饪食物"
+  · category_campfire: "&6&l营火烹饪"
+  · category_campfire_desc: "&7使用营火烹饪食物"
+  · category_stonecutting: "&6&l切石机"
+  · category_stonecutting_desc: "&7使用切石机加工石料"
+  · category_smithing: "&6&l锻造台"
+  · category_smithing_desc: "&7锻造变换 / 锻造纹饰"
+  · category_brewing: "&6&l酿造台"
+  · category_brewing_desc: "&7使用酿造台制作药水"
+  · recipe_count: "&7共有 &f{count} &7个配方"
+  · click_browse: "&e▶ 点击浏览"
+  · prev_page: "&a&l◀ 上一页"
+  · next_page: "&a&l下一页 ▶"
+  · search: "&e&l🔍 搜索"
+  · search_clear: "&cShift+点击清空"
+  · back_to_main: "&c&l↩ 返回分类"
+  · back: "&c&l↩ 返回列表"
+  · prev_recipe: "&a&l◀ 上一个配方"
+  · next_recipe: "&a&l下一个配方 ▶"
+  · close: "&c&l✘ 关闭"
+  · main_title: "&8ALCE合成表 - 分类浏览"
+  · # 详情标题
+  · detail_crafting_title: "&8工作台配方"
+  · detail_furnace_title: "&8熔炉配方"
+  · detail_smithing_title: "&8锻造台配方"
+  · detail_stonecutter_title: "&8切石机配方"
+  · detail_brewing_title: "&8酿造台配方"
+  · # 列表
+  · search_current: "&7当前搜索: &f{query}"
+  · search_left: "&7▶ 左键：输入名称搜索"
+  · search_right: "&7▶ 右键：切换搜索模式"
+  · search_shift: "&7▶ Shift+左键：清空搜索"
+  · search_mode_result: "&7搜索模式: &e成品名称"
+  · search_mode_ingredient: "&7搜索模式: &e材料名称"
+  · # 熔炉/酿造详情
+  · furnace_flame: "&c&l火焰"
+  · furnace_fuel_time: "&7燃烧时间: {fuel_time}"
+  · furnace_fuel_exp: "&7获得经验: {fuel_exp}"
+  · brewing_blaze: "&6&l烈焰粉"
+  · brewing_fuel_desc: "&7燃烧时间: 配方决定"
+  · # 新增配方
+  · creator_type_title: "&8选择配方类型"
+  · creator_shaped: "&6&l有序合成"
+  · creator_shaped_desc: "&73x3工作台 - 固定摆放"
+  · creator_shapeless: "&e&l无序合成"
+  · creator_shapeless_desc: "&73x3工作台 - 任意摆放"
+  · creator_furnace: "&c&l熔炉/高炉烧炼"
+  · creator_furnace_desc: "&7熔炉/高炉配方"
+  · creator_smithing: "&b&l锻造台"
+  · creator_smithing_desc: "&7锻造变换配方"
+  · creator_stonecutter: "&7&l切石机"
+  · creator_stonecutter_desc: "&7切石机配方"
+  · creator_brewing: "&5&l酿造台"
+  · creator_brewing_desc: "&7酿造配方"
+  · creator_campfire: "&6&l营火烹饪"
+  · creator_campfire_desc: "&7营火配方"
+  · creator_smoking: "&8&l烟熏炉"
+  · creator_smoking_desc: "&7烟熏炉配方"
+  · creator_shaped_title: "&8新增有序合成配方"
+  · creator_shapeless_title: "&8新增无序合成配方"
+  · creator_furnace_title: "&8新增烧炼配方"
+  · creator_smoking_title: "&8新增烟熏炉配方"
+  · creator_campfire_title: "&8新增营火配方"
+  · creator_stonecutter_title: "&8新增切石机配方"
+  · creator_smithing_title: "&8新增锻造配方 - 模板 装备 材料 结果"
+  · creator_brewing_title: "&8新增酿造配方"
+  · creator_save: "&a保存并返回"
+  · creator_back: "&c返回"
+  · furnace_mode: "&e&l烧炼模式: &f{mode}"
+  · furnace_mode_left: "&7左键: 仅高炉"
+  · furnace_mode_right: "&7右键: 仅熔炉"
+  · furnace_mode_shift: "&7Shift+左键: 熔炉+高炉"
+  · furnace_time: "&e&l烧炼时间: &f{time}秒"
+  · furnace_time_lore: "&7左键+1秒 右键-1秒"
+  · furnace_time_mode: "&7当前模式：&f{mode}"
+  · furnace_time_hint: "&7仅&6熔炉+高炉&7模式高炉时间自动=熔炉÷2"
+  · furnace_exp: "&a&l获得经验: &f{exp}"
+  · furnace_exp_lore: "&7左键+0.1  &7右键-0.1"
+  · furnace_exp_shift: "&7Shift+左键 输入数值"
+  · smoking_time: "&8&l烟熏时间: &f{time}秒"
+  · smoking_time_lore: "&7左键+1秒 右键-1秒"
+  · campfire_time: "&6&l营火时间: &f{time}秒"
+  · campfire_time_lore: "&7左键+1秒 右键-1秒"
+  · campfire_time_default: "&7营火默认30秒"
+  · page_indicator: "&7第 {page} 页"
+  · back_to_main_desc: "&7点击返回分类浏览"
+  · creator_exp: "&a&l经验: &f{exp}"
+  · # 管理员菜单
+  · admin_main_title: "&8管理员 - 配方管理"
+  · admin_list_title: "&8管理员 - {category} ({page}/{total})"
+  · # 管理员消息
+  · toggle_hidden: "&c已隐藏配方"
+  · toggle_shown: "&a已显示配方"
+
+## 常量池帮助/描述文本
+  · §e  /alcerecipes create §7- 打开新增配方菜单（管理员）
+  · §e  /alcerecipes admin §7- 打开配方管理菜单（管理员）

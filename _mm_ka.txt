@@ -1,0 +1,233 @@
+﻿public boolean onCommand(org.bukkit.command.CommandSender, java.lang.String[]);
+
+    Code:
+
+         0: iconst_0
+
+         1: istore_3
+
+         2: iconst_0
+
+         3: istore        4
+
+         5: new           #24                 // class java/util/ArrayList
+
+         8: dup
+
+         9: aload_2
+
+        10: invokestatic  #30                 // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+
+        13: invokespecial #33                 // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+
+        16: astore        5
+
+        18: aload         5
+
+        20: invokeinterface #39,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+
+        25: astore        6
+
+        27: aload         6
+
+        29: invokeinterface #49,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+
+        34: ifeq          82
+
+        37: aload         6
+
+        39: invokeinterface #53,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+
+        44: checkcast     #55                 // class java/lang/String
+
+        47: astore        7
+
+        49: aload         7
+
+        51: ldc           #57                 // String -
+
+        53: invokevirtual #61                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+
+        56: ifeq          79
+
+        59: aload         7
+
+        61: ldc           #63                 // String p
+
+        63: invokevirtual #67                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+
+        66: ifeq          79
+
+        69: iconst_1
+
+        70: istore        4
+
+        72: aload         6
+
+        74: invokeinterface #71,  1           // InterfaceMethod java/util/Iterator.remove:()V
+
+        79: goto          27
+
+        82: aload         5
+
+        84: iconst_0
+
+        85: anewarray     #55                 // class java/lang/String
+
+        88: invokeinterface #75,  2           // InterfaceMethod java/util/List.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;
+
+        93: checkcast     #43                 // class "[Ljava/lang/String;"
+
+        96: astore_2
+
+        97: aload_2
+
+        98: arraylength
+
+        99: ifle          116
+
+       102: aload_1
+
+       103: instanceof    #77                 // class org/bukkit/entity/Player
+
+       106: ifeq          116
+
+       109: aload_2
+
+       110: iconst_0
+
+       111: aaload
+
+       112: invokestatic  #83                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+
+       115: istore_3
+
+       116: aload_2
+
+       117: arraylength
+
+       118: iconst_1
+
+       119: if_icmple     136
+
+       122: aload_2
+
+       123: iconst_1
+
+       124: aaload
+
+       125: ldc           #85                 // String LITERALLY
+
+       127: invokevirtual #89                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+
+       130: ifeq          136
+
+       133: iconst_1
+
+       134: istore        4
+
+       136: iconst_0
+
+       137: istore        7
+
+       139: iload_3
+
+       140: ifle          316
+
+       143: aload_1
+
+       144: checkcast     #77                 // class org/bukkit/entity/Player
+
+       147: invokestatic  #95                 // Method io/lumine/mythic/bukkit/BukkitAdapter.adapt:(Lorg/bukkit/entity/Player;)Lio/lumine/mythic/api/adapters/AbstractPlayer;
+
+       150: astore        8
+
+       152: invokestatic  #101                // Method io/lumine/mythic/bukkit/MythicBukkit.inst:()Lio/lumine/mythic/bukkit/MythicBukkit;
+
+       155: invokevirtual #105                // Method io/lumine/mythic/bukkit/MythicBukkit.getMobManager:()Lio/lumine/mythic/core/mobs/MobExecutor;
+
+       158: invokevirtual #111                // Method io/lumine/mythic/core/mobs/MobExecutor.getActiveMobs:()Ljava/util/Collection;
+
+       161: invokeinterface #114,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+
+       166: astore        9
+
+       168: aload         9
+
+       170: invokeinterface #49,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+
+       175: ifeq          313
+
+       178: aload         9
+
+       180: invokeinterface #53,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+
+       185: checkcast     #118                // class io/lumine/mythic/core/mobs/ActiveMob
+
+       188: astore        10
+
+       190: aload         10
+
+       192: invokevirtual #122                // Method io/lumine/mythic/core/mobs/ActiveMob.getType:()Lio/lumine/mythic/api/mobs/MythicMob;
+
+       195: invokeinterface #128,  1          // InterfaceMethod io/lumine/mythic/api/mobs/MythicMob.getDespawnMode:()Lio/lumine/mythic/core/mobs/DespawnMode;
+
+       200: invokevirtual #134                // Method io/lumine/mythic/core/mobs/DespawnMode.getObeysKillCommand:()Ljava/lang/Boolean;
+
+       203: invokevirtual #139                // Method java/lang/Boolean.booleanValue:()Z
+
+       206: ifne          217
+
+       209: iload         4
+
+       211: ifne          217
+
+       214: goto          168
+
+       217: aload         10
+
+       219: invokevirtual #143                // Method io/lumine/mythic/core/mobs/ActiveMob.getLocation:()Lio/lumine/mythic/api/adapters/AbstractLocation;
+
+       222: invokevirtual #149                // Method io/lumine/mythic/api/adapters/AbstractLocation.getWorld:()Lio/lumine/mythic/api/adapters/AbstractWorld;
+
+       225: aload         8
+
+       227: invokeinterface #150,  1          // InterfaceMethod io/lumine/mythic/api/adapters/AbstractPlayer.getWorld:()Lio/lumine/mythic/api/adapters/AbstractWorld;
+
+       232: invokeinterface #153,  2          // InterfaceMethod io/lumine/mythic/api/adapters/AbstractWorld.equals:(Ljava/lang/Object;)Z
+
+       237: ifeq          310
+
+       240: aload         10
+
+       242: invokevirtual #143                // Method io/lumine/mythic/core/mobs/ActiveMob.getLocation:()Lio/lumine/mythic/api/adapters/AbstractLocation;
+
+       245: aload         8
+
+       247: invokeinterface #154,  1          // InterfaceMethod io/lumine/mythic/api/adapters/AbstractPlayer.getLocation:()Lio/lumine/mythic/api/adapters/AbstractLocation;
+
+       252: invokevirtual #158                // Method io/lumine/mythic/api/adapters/AbstractLocation.distanceSquared:(Lio/lumine/mythic/api/adapters/AbstractLocation;)D
+
+       255: iload_3
+
+       256: i2d
+
+       257: ldc2_w        #159                // double 2.0d
+
+       260: invokestatic  #166                // Method java/lang/Math.pow:(DD)D
+
+       263: dcmpg
+
+       264: ifgt          310
+
+       267: aload         10
+
+       269: invokevirtual #170                // Method io/lumine/mythic/core/mobs/ActiveMob.getEntity:()Lio/lumine/mythic/api/adapters/AbstractEntity;
+
+       272: invokeinterface #175,  1          // InterfaceMethod io/lumine/mythic/api/adapters/AbstractEntity.isLoaded:()Z
+
+       277: ifeq          310
+
+       280: aload         10
+
+       282: invokevirtual #178                // Method io/lumine/mythic/cor

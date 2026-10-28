@@ -7,107 +7,68 @@ createTime: 2026/10/24
 
 > 分类 ⚔️ 战斗与 RPG · 版本 `2026.34` · 指令 3 条 · api-version `1.21.8`
 
-::: tip 自定义附魔系统，给物品加全新附魔
-EcoEnchants 给服务器加一整套自定义附魔，超过原版附魔表能覆盖的效果，附魔以附魔书形式流通，可以在铁砧里合成叠加。它负责让装备和玩法有长期养成目标，通常和 EcoItems、EcoArmor 这类同作者插件以及经济、RPG 属性系统一起用。
+::: tip 自定义附魔
+给物品加原版没有的附魔（挖掘/战斗/工具类），附魔按权限与稀有度分发，可做附魔书、附魔台规则与描述开关。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 想给玩家一套原版没有的附魔效果，比如爆炸挖矿、吸血、跳跃提升
-- 需要发附魔书做活动奖励、开箱掉落或商店商品
-- 玩家反馈铁砧里看不到附魔说明文字，要开关描述显示
-- 排查某个附魔到底叫什么、效果范围多大，用指令快速查
-- 管理员手动给玩家或手上物品点附魔做测试
-
-## 上手流程
-
-1. 先看权限：默认只有 op 能用 /enchant，普通玩家只开了 /ecoenchants 图形界面和 /enchantinfo
-2. 用 /ecoenchants gui 打开附魔列表界面，确认插件已正常加载附魔数据
-3. 用 /enchantinfo 查一个附魔的实际名称与效果，再决定怎么发给玩家
-4. 发书用 /ecoenchants givebook 或 /ecoenchants giverandombook，玩家右键书即可附魔
-5. 改完配置用 /ecoenchants reload 生效，不需要重启服务器
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 看有哪些自定义附魔 | /ee gui | 图形化浏览附魔清单 |
+| 给自己打附魔 | /ee enchant &lt;附魔&gt; 3 | 第三个参数可指定玩家 |
+| 发附魔书 | /ee givebook random | 活动奖励常用 |
+| 改完配置生效 | /ee reload | 附魔表改完必须重载 |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/ecoenchants` | 主命令，打开界面、重载配置、发附魔书 | `/ecoenchants` | `ecoenchants.command.ecoenchants` |
-| `/enchant` | 给玩家手上的物品附上指定自定义附魔 | `/enchant 附魔名 [等级]` | `ecoenchants.command.enchant` |
-| `/enchantinfo` | 查看某个附魔的名称、等级与效果说明 | `/enchantinfo 附魔名` | `ecoenchants.command.enchantinfo` |
+| `/ecoenchants` | 自定义附魔主指令 | `/ee <gui｜enchant｜givebook｜reload｜toggle>` | `ecoenchants.command.ecoenchants` |
+| `/enchant` | 附魔物品 | — | `ecoenchants.command.enchant` |
+| `/enchantinfo` | 显示关于附魔的信息 | — | `ecoenchants.command.enchantinfo` |
 
 ## 指令详解
 
-### `/ecoenchants` — 主命令，打开界面、重载配置、发附魔书
+### `/ecoenchants` — 自定义附魔主指令
 
-- **语法**：`/ecoenchants`
+- **语法**：`/ee <gui｜enchant｜givebook｜reload｜toggle>`
 
 - **示例**：
 
 ```
-/ecoenchants
-/ecoenchants gui
-/ecoenchants reload
+/ee gui
 ```
 
 - **权限**：`ecoenchants.command.ecoenchants`
-- **备注**：不带参数一般显示帮助与子指令列表。玩家权限 ecoenchants.command.ecoenchants 默认开启，但 gui 子指令另需 ecoenchants.command.gui，reload 另需 ecoenchants.command.reload（默认 op）。
+- **备注**：命令名 ecoenchants，常用别名 /ee
 
-### `/enchant` — 给玩家手上的物品附上指定自定义附魔
-
-- **语法**：`/enchant 附魔名 [等级]`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `附魔名` | 必填 | 自定义附魔的 id 或名称，可先用 /enchantinfo 确认 |
-| `等级` | 可选 | 整数等级，省略时按默认一级处理 |
-
-
-- **示例**：
-
-```
-/enchant explosive_mining
-/enchant explosive_mining 3
-```
+### `/enchant` — 附魔物品
 
 - **权限**：`ecoenchants.command.enchant`
-- **备注**：先把要附魔的物品拿在主手再执行。该命令权限 ecoenchants.command.enchant 默认仅 op，普通玩家无法使用。
 
-### `/enchantinfo` — 查看某个附魔的名称、等级与效果说明
-
-- **语法**：`/enchantinfo 附魔名`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `附魔名` | 必填 | 要查询的自定义附魔，支持按名称检索 |
-
-
-- **示例**：
-
-```
-/enchantinfo explosive_mining
-```
+### `/enchantinfo` — 显示关于附魔的信息
 
 - **权限**：`ecoenchants.command.enchantinfo`
-- **备注**：权限 ecoenchants.command.enchantinfo 默认对玩家开放，适合让玩家自己查附魔来源和效果。
 
 ## 子指令速查
 
 | 子指令 | 功能 | 示例 |
 | --- | --- | --- |
-| `ecoenchants gui` | 打开附魔列表图形界面，可浏览全部自定义附魔 | `/ecoenchants gui` |
-| `ecoenchants list` | 在聊天栏列出所有已加载的自定义附魔 | `/ecoenchants list` |
-| `ecoenchants reload` | 重新加载配置与附魔数据，改完配置文件后用 | `/ecoenchants reload` |
-| `ecoenchants givebook 玩家名 附魔名 等级` | 给指定玩家一本指定的附魔书 | `/ecoenchants givebook Steve explosive_mining 2` |
-| `ecoenchants giverandombook 玩家名` | 给玩家一本随机附魔书，做奖励最常用 | `/ecoenchants giverandombook Steve` |
-| `ecoenchants toggledescriptions` | 开关自己看到的附魔说明文字 | `/ecoenchants toggledescriptions` |
+| `/ee gui` | 打开展示所有附魔的图形界面 | `/ee gui` |
+| `/ee enchant <附魔> [等级] [玩家]` | 给手持物品打上指定附魔 | `/ee enchant telepathy 3` |
+| `/ee enchant <附魔> <等级> <玩家>` | 给指定玩家的手持物品打附魔 | `/ee enchant telepathy 3 Steve` |
+| `/ee givebook random` | 随机发放一本附魔书 | `/ee givebook random` |
+| `/ee givebook <附魔> [等级]` | 发放指定附魔的附魔书 | `/ee givebook telepathy 2` |
+| `/ee toggle` | 开关附魔描述显示（物品 lore 里的说明） | `/ee toggle` |
+| `/ee reload` | 重载全部附魔配置 | `/ee reload` |
 
 ## 注意事项
 
 ::: warning
-- 自定义附魔和原版附魔共用铁砧、附魔台入口，冲突或等级上限异常时先看 EcoEnchants 的配置与附魔定义，不要先怀疑原版机制
-- 给玩家开 /enchant 权限前想清楚：这条命令可以绕过经济与获取难度直接上附魔，一般只留给管理员
-- 改配置后一定要 /ecoenchants reload 并实际拿书试一次，部分附魔效果要重载后才注册进事件
-- 附魔描述在铁砧里显示不全是客户端与权限问题，先让玩家执行 toggledescriptions 或检查 anvil.color 类权限
+- 附魔生效与「玩家有没有该附魔的权限」绑定，玩家拿到书也用不了多半是权限没给。
+- 改了附魔属性/等级上限后，已存在的物品不会自动更新，需要重新打附魔。
+- toggle 只影响描述显示，不影响附魔实际效果，别拿它当开关用。
 :::
 
 ## 权限节点
@@ -125,7 +86,8 @@ EcoEnchants 给服务器加一整套自定义附魔，超过原版附魔表能�
 | `ecoenchants.command.gui` | 允许使用/ecoenchants gui。 | True |
 | `ecoenchants.command.reload` | 允许重新加载配置 | op |
 | `ecoenchants.command.toggledescriptions` | 允许使用/ecoenchants切换描述。 | True |
-
-## 相关插件
-
-EcoItems、EcoArmor、[Vault](/commands/core/vault.md)、[PlaceholderAPI](/commands/config/placeholderapi.md)
+| `ecoenchants.enchant` | 使用 /ee enchant 打附魔 | — |
+| `ecoenchants.enchant.<附魔>` | 允许玩家使用/获得某个具体附魔 | — |
+| `ecoenchants.givebook` | 发放附魔书 | — |
+| `ecoenchants.gui` | 打开附魔界面 | — |
+| `ecoenchants.reload` | 重载配置 | — |

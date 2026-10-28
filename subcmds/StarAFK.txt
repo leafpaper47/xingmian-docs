@@ -1,0 +1,63 @@
+# StarAFK  (StarAFK-0.2.0.jar)
+## 注册指令
+  /afk  usage='/afk [reload]' desc='切换挂机状态；/afk reload 重载配置' alias=['starafk', 'guaji'] perm=None
+
+## 代码类
+  cn.xingmian.starafk.command.AfkCommand
+
+## javap 字符串 token
+  reload
+
+## 文本资源里的帮助/用法行
+  · #  StarAFK —— 星冕服挂机插件配置
+  · #  改完用 /afk reload 热重载（控制台可直接执行）
+  · # 多久无操作后自动进入挂机（秒）。0 = 关闭自动挂机
+  · # 扫描周期（tick，20 tick = 1 秒）
+  · # 传送到位后的宽限（tick），宽限内移动不会唤醒自己
+  · # 纯转头（不位移）是否算“有操作”
+  · # 哪些操作会解除挂机
+  · # 以下情况是否仍算“活跃”（默认 false = 照样挂机）
+  · # ★ 在这些世界里挂机时不受任何伤害（列表为空 = 不启用该功能）
+  · # 世界名，填 Bukkit 世界名（如 world / resource / resource_nether / resource_the_end）
+  · # 是否连玩家造成的伤害（PvP）也一并免疫；false = PvP 仍会掉血并唤醒挂机
+  · # ★ 挂机时不被推动：不被其它实体挤开、不被击退/爆炸/风弹等位移带走
+  · # 世界名列表；留空 = 所有世界生效
+  · # {player} 会被替换为玩家名；支持 & 颜色码
+  · broadcast-enter: "&e{player} &7打了个哈欠，睡着了... &f💤"
+  · broadcast-leave: "&e{player} &7醒来了"
+  · self-enter: "&7你已进入挂机状态，移动或操作即可解除"
+  · self-leave: "&7已解除挂机状态"
+  · reload: "&a[StarAFK] 配置已重载"
+  · no-permission: "&c你没有权限这么做"
+  · player-only: "&c该指令只能由玩家执行"
+  · # placeholder = 本插件只提供 %starafk_suffix% 占位符，由 TAB 插件拼接（推荐，你已在用 TAB）
+  · # playerlist  = 本插件直接改玩家列表名（需确认没有别的插件在管 Tab）
+  · # craftengine = 用 CraftEngine 的 emoji/glyph，运行时解析成字符（推荐）
+  · # text        = 用纯文本，零依赖
+  · # craftengine 模式：CraftEngine 里定义的 emoji id
+  · # 需要在 CraftEngine 的 xingmian 资源包里加一个名为 afk_sleep 的 emoji（见随附说明）
+  · # 解析失败或 text 模式时使用的兜底文本
+  · # 挂机时把视距降到几区块
+  · # 经典「Zzz」：头上不断飘出 Z / z 字母，上升并淡出（推荐，默认开）
+  · # 每隔多少 tick 冒一个 Z（20 tick = 1 秒）；越大出得越稀
+  · # 单个 Z 的存活时间（tick），越长飘得越慢
+  · # 起始高度（相对脚部，格）
+  · # 生命期内上升的高度（格）
+  · # 水平随机偏移半径（格）
+  · # 字号缩放
+  · # 颜色：颜色名（AQUA / WHITE / YELLOW ...）或 #RRGGBB
+  · # 随机取一个显示，可写 ["Z", "z", "Zzz"]
+  · description: 星冕服挂机插件 —— 自动/手动 AFK、Tab 图标、头顶飘 Zzz、视距降低
+  · description: 切换挂机状态；/afk reload 重载配置
+  · usage: /afk [reload]
+  · description: 允许使用 /afk
+  · description: 参与自动挂机判定
+  · description: 永不被自动挂机（不进 AFK 状态）。默认不授予任何人，需要豁免时用 LuckPerms 单独给
+  · description: 其进出 AFK 不广播。默认不授予任何人，需要静默时用 LuckPerms 单独给
+  · description: 允许 /afk reload
+
+## 常量池帮助/描述文本
+  · cn/xingmian/starafk/command/AfkCommand
+  · Lcn/xingmian/starafk/afk/AfkManager;
+  · cn/xingmian/starafk/afk/AfkManager
+  · Lcn/xingmian/starafk/command/AfkCommand;

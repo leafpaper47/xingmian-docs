@@ -1,0 +1,35 @@
+# LobbyGames  (LobbyGames-2.6.1.jar)
+## 注册指令
+  /lobbygames  usage=None desc='LobbyGames plugin main command' alias=['lg', 'minigames'] perm=None
+  /lgjoin  usage=None desc='Directly join a Lobby Game' alias=['clicker', 'minesweeper', 'snake', 'soccer', 'football', 'spleef', 'sudoku', 'soduko', 2048, 'tictactoe', 'tic', 'ttt', 'pool', 'minesw', 'connect4'] perm=None
+  /lgjoinplayer  usage=None desc='Console command to send a player into a game' alias=['lgforcejoin'] perm=None
+
+## 代码类
+  me.c7dev.lobbygames.commands.ConsoleJoinCommand
+  me.c7dev.lobbygames.commands.JoinCommand
+  me.c7dev.lobbygames.commands.LobbyGamesCommand$1
+  me.c7dev.lobbygames.commands.LobbyGamesCommand
+
+## javap 字符串 token
+  alias-commands-enabled back board clear clearboard clearleaderboard clearplayer clearscoreboard clearstands confirm create delete error-already-in-game error-must-be-in-game exit finalize finish help join kick lb leaderboard leave lg-join-command-enabled lgjoin lgjoinplayer list lobbygames no-permission quit reload reset restart s save scoreboard set tac teleport tp
+
+## 文本资源里的帮助/用法行
+  · #    You can also check the wiki page for technical information: https://github.com/Unfaxed/lobbygames_wiki/wiki/Getting-Started
+  · lg-join-command-enabled: true #without /lg join, players can only join via the console running /lgjoinplayer or via clickable signs
+  · description: Access to /lgjoinplayer
+
+## 常量池帮助/描述文本
+  · me/c7dev/lobbygames/commands/ConsoleJoinCommand
+  · Lme/c7dev/lobbygames/LobbyGames;
+  · me/c7dev/lobbygames/LobbyGames
+  · me/c7dev/lobbygames/GameMetadata
+  · me/c7dev/lobbygames/commands/JoinCommand
+  · me/c7dev/lobbygames/commands/LobbyGamesCommand$1
+  · me/c7dev/lobbygames/commands/LobbyGamesCommand
+  · Lme/c7dev/lobbygames/commands/LobbyGamesCommand;
+  · Ljava/util/HashMap<Ljava/util/UUID;Lme/c7dev/lobbygames/arena/Arena;>;
+  · me/c7dev/lobbygames/arena/Arena
+  · me/c7dev/lobbygames/Game
+  · me/c7dev/lobbygames/arena/creator/GameCreateInstance
+  · me/c7dev/lobbygames/stats/leaderboard/Leaderboard
+  · me/c7dev/lobbygames/stats/leaderboard/LeaderboardEntry

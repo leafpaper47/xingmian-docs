@@ -1,275 +1,47 @@
 {
-  "name": "OpenInv",
-  "role": "宝箱式远程查看与编辑玩家背包、末影箱",
-  "summary": "OpenInv 把玩家背包或末影箱渲染成一个普通箱子界面，管理员可直接拖拽物品、实时与对方互动。它还提供清空背包、按物品或附魔搜索全服玩家等功能，是排查丢失物品、定位违规道具的核心工具。所有操作都受权限节点控制，可区分为只读、可编辑与他人的背包三种档次。使用前请确认已给对应分组配置权限，避免误开导致误删。",
-  "whatFor": [
-    "远程检查某玩家是否携带违禁或作弊物品",
-    "帮玩家找回误丢的物品、整理或清空背包",
-    "按物品名或附魔等级搜索全服谁持有该道具",
-    "清空或查看玩家末影箱内容以处理藏匿违规物",
-    "关闭开箱音效与动画，做无痕巡查"
-  ],
-  "flow": [
-    "先确认自己拥有 openinv.inventory.open.other 或对应子权限",
-    "执行 /openinv 玩家名 打开对方背包，界面按箱子上半部分是背包、下方是快捷栏与护甲",
-    "在界面中直接取出、放入或替换物品，改动即时生效",
-    "处理完毕后关闭界面，必要时用 /clearinv 玩家名 彻底清空"
-  ],
-  "commands": [
-    {
-      "cmd": "anycontainer",
-      "what": "开关对任意容器的访问，绕过被阻止的容器限制",
-      "syntax": "/anycontainer [check|on|off]",
-      "params": [
-        {
-          "name": "mode",
-          "required": false,
-          "note": "check 查看当前状态，on 开启，off 关闭，不填默认切换"
-        }
-      ],
-      "examples": [
-        "/anycontainer",
-        "/anycontainer check",
-        "/anycontainer on"
-      ],
-      "notes": "别名 ac、anychest；权限 openinv.container.any。开启后可以打开通常被插件阻止的容器。"
-    },
-    {
-      "cmd": "clearender",
-      "what": "清空指定玩家的末影箱",
-      "syntax": "/clearender [玩家名]",
-      "params": [
-        {
-          "name": "玩家名",
-          "required": false,
-          "note": "目标玩家，省略时作用于自己"
-        }
-      ],
-      "examples": [
-        "/clearender Steve",
-        "/clearender"
-      ],
-      "notes": "权限 openinv.clear.self 与 openinv.clear.other；清空不可撤销，建议先 /openender 确认内容。"
-    },
-    {
-      "cmd": "clearinv",
-      "what": "清空指定玩家的背包物品",
-      "syntax": "/clearinv [玩家名]",
-      "params": [
-        {
-          "name": "玩家名",
-          "required": false,
-          "note": "目标玩家，省略时作用于自己"
-        }
-      ],
-      "examples": [
-        "/clearinv Steve",
-        "/clearinv"
-      ],
-      "notes": "权限 openinv.clear.self 与 openinv.clear.other；只清背包，不含末影箱，需另行 /clearender。"
-    },
-    {
-      "cmd": "openender",
-      "what": "以箱子界面打开玩家末影箱",
-      "syntax": "/openender [玩家名]",
-      "params": [
-        {
-          "name": "玩家名",
-          "required": false,
-          "note": "目标玩家，省略时打开自己的末影箱"
-        }
-      ],
-      "examples": [
-        "/openender Steve",
-        "/openender"
-      ],
-      "notes": "别名 oe；权限 openinv.enderchest.open.self 与 openinv.enderchest.open.other。"
-    },
-    {
-      "cmd": "openinv",
-      "what": "以箱子界面打开玩家背包并实时编辑",
-      "syntax": "/openinv [玩家名]",
-      "params": [
-        {
-          "name": "玩家名",
-          "required": false,
-          "note": "目标玩家，省略时打开自己的背包"
-        }
-      ],
-      "examples": [
-        "/openinv Steve",
-        "/openinv"
-      ],
-      "notes": "别名 oi、inv、open；权限 openinv.inventory.open.self 与 openinv.inventory.open.other。对方在线时改动会实时同步。"
-    },
-    {
-      "cmd": "searchcontainer",
-      "what": "按材料搜索附近区块内存放该物品的容器",
-      "syntax": "/searchcontainer 材料 [区块半径]",
-      "params": [
-        {
-          "name": "材料",
-          "required": true,
-          "note": "要查找的 Bukkit 材料名，如 DIAMOND"
-        },
-        {
-          "name": "区块半径",
-          "required": false,
-          "note": "搜索的区块半径，默认 5"
-        }
-      ],
-      "examples": [
-        "/searchcontainer DIAMOND",
-        "/searchcontainer DIAMOND 10"
-      ],
-      "notes": "别名 searchchest；权限 openinv.search.container。半径越大越耗性能，主城慎用大值。"
-    },
-    {
-      "cmd": "searchenchant",
-      "what": "按附魔类型与最低等级搜索持有该附魔的玩家",
-      "syntax": "/searchenchant [附魔] [最低等级]",
-      "params": [
-        {
-          "name": "附魔",
-          "required": false,
-          "note": "附魔名，如 SHARPNESS，可与等级二选一"
-        },
-        {
-          "name": "最低等级",
-          "required": false,
-          "note": "最低附魔等级，整数"
-        }
-      ],
-      "examples": [
-        "/searchenchant SHARPNESS",
-        "/searchenchant SHARPNESS 5"
-      ],
-      "notes": "别名 searchenchants；权限 openinv.search.inventory。两个参数至少填一个，常用来排查非法附魔装备。"
-    },
-    {
-      "cmd": "searchender",
-      "what": "搜索末影箱中含指定物品的玩家",
-      "syntax": "/searchender 材料 [最小数量]",
-      "params": [
-        {
-          "name": "材料",
-          "required": true,
-          "note": "要查找的材料名"
-        },
-        {
-          "name": "最小数量",
-          "required": false,
-          "note": "该物品的最小堆叠数量"
-        }
-      ],
-      "examples": [
-        "/searchender DIAMOND",
-        "/searchender DIAMOND 64"
-      ],
-      "notes": "别名 se；权限 openinv.search.inventory。"
-    },
-    {
-      "cmd": "searchinv",
-      "what": "搜索背包中含指定物品的玩家",
-      "syntax": "/searchinv 材料 [最小数量]",
-      "params": [
-        {
-          "name": "材料",
-          "required": true,
-          "note": "要查找的材料名"
-        },
-        {
-          "name": "最小数量",
-          "required": false,
-          "note": "该物品的最小堆叠数量"
-        }
-      ],
-      "examples": [
-        "/searchinv NETHERITE_SWORD",
-        "/searchinv DIAMOND 32"
-      ],
-      "notes": "别名 si；权限 openinv.search.inventory。结果按玩家列出持有数量。"
-    },
-    {
-      "cmd": "silentcontainer",
-      "what": "开关使用容器时的声音与开合动画",
-      "syntax": "/silentcontainer [check|on|off]",
-      "params": [
-        {
-          "name": "mode",
-          "required": false,
-          "note": "check 查看当前状态，on 静音，off 恢复，不填默认切换"
-        }
-      ],
-      "examples": [
-        "/silentcontainer check",
-        "/silentcontainer on"
-      ],
-      "notes": "别名 sc、silent、silentchest；权限 openinv.container.silent。静音巡查时对方不易察觉。"
-    }
-  ],
-  "subcommands": [
-    {
-      "cmd": "anycontainer check",
-      "desc": "查看任意容器访问当前是开还是关",
-      "example": "/anycontainer check"
-    },
-    {
-      "cmd": "anycontainer on",
-      "desc": "开启任意容器访问",
-      "example": "/anycontainer on"
-    },
-    {
-      "cmd": "anycontainer off",
-      "desc": "关闭任意容器访问",
-      "example": "/anycontainer off"
-    },
-    {
-      "cmd": "anycontainer（无参数）",
-      "desc": "在当前状态之间切换",
-      "example": "/anycontainer"
-    },
-    {
-      "cmd": "silentcontainer check",
-      "desc": "查看静音模式当前状态",
-      "example": "/silentcontainer check"
-    },
-    {
-      "cmd": "silentcontainer on",
-      "desc": "开启静音，容器无声音无动画",
-      "example": "/silentcontainer on"
-    },
-    {
-      "cmd": "silentcontainer off",
-      "desc": "关闭静音，恢复默认效果",
-      "example": "/silentcontainer off"
-    },
-    {
-      "cmd": "silentcontainer（无参数）",
-      "desc": "在当前状态之间切换",
-      "example": "/silentcontainer"
-    },
-    {
-      "cmd": "oi self",
-      "desc": "不带玩家名时只看自己的背包，等价于查看自身",
-      "example": "/oi"
-    },
-    {
-      "cmd": "清空类命令组合",
-      "desc": "先用 openender 核实内容，再用 clearender 清空末影箱",
-      "example": "/openender Steve"
-    }
-  ],
-  "caution": [
-    "clearinv 与 clearender 不可撤销，且不区分在线离线，执行前务必用 openinv 或 openender 先核对目标玩家名，避免同名或拼错导致清空无辜玩家",
-    "searchcontainer 按区块半径扫描容器，半径过大在主城区域会造成明显卡顿，建议不超过 10 并避开高峰",
-    "openinv.inventory.open.other 属于高敏感权限，只授予信任的管理组，可另外配合只读权限节点限制为只能查看不能拿取",
-    "对方在线时背包改动会实时同步并可能被其立即看到，巡查隐弊物品时建议先开启 silentcontainer 并关掉任何广播提示"
-  ],
-  "related": [
-    "InvSee++",
-    "EssentialsX",
-    "LuckPerms",
-    "PlaceholderAPI"
-  ]
+ "name": "OpenInv",
+ "role": "远程开箱",
+ "summary": "管理员远程打开玩家背包与末影箱并搜索物品，还能按材料、附魔、半径查容器，查盗号查赃物必备。",
+ "quick": [
+  {"scene": "看某人背包", "cmd": "/openinv Steve", "note": "不填玩家= 看自己"},
+  {"scene": "查谁身上有钻石", "cmd": "/searchinv diamond 64", "note": "第二个参数是最少数量"},
+  {"scene": "查附近箱子", "cmd": "/searchcontainer diamond_block 5", "note": "半径按区块算，默认 5"},
+  {"scene": "查谁有抢夺附魔", "cmd": "/searchenchant looting 3", "note": "附魔名用原版 id"}
+ ],
+ "commands": [
+  {"cmd": "openinv", "what": "打开玩家背包（可编辑）", "syntax": "/openinv [玩家]",
+   "examples": ["/openinv Steve"], "notes": "改动会直接落到对方背包，操作前先截图留证"},
+  {"cmd": "clearinv", "what": "清空玩家背包", "syntax": "/clearinv [玩家]",
+   "examples": ["/clearinv Steve"], "notes": "不可撤销，先用 /openinv 确认内容"},
+  {"cmd": "openender", "what": "打开玩家末影箱", "syntax": "/openender [玩家]", "examples": ["/openender Steve"]},
+  {"cmd": "clearender", "what": "清空玩家末影箱", "syntax": "/clearender [玩家]", "examples": ["/clearender Steve"]},
+  {"cmd": "searchinv", "what": "搜索哪些在线玩家背包里有某材料", "syntax": "/searchinv <材料> [最少数量]",
+   "params": [{"name": "材料", "required": true, "note": "原版 id，如 diamond、netherite_ingot"}],
+   "examples": ["/searchinv diamond 64"]},
+  {"cmd": "searchender", "what": "搜索哪些玩家末影箱里有某材料", "syntax": "/searchender <材料> [最少数量]",
+   "examples": ["/searchender shulker_box"]},
+  {"cmd": "searchenchant", "what": "按附魔与等级搜索在线玩家", "syntax": "/searchenchant <附魔> [等级]",
+   "examples": ["/searchenchant mending"], "notes": "附魔名不带命名空间，等级不填则任意等级"},
+  {"cmd": "searchcontainer", "what": "搜索周围区块内装着某材料的容器", "syntax": "/searchcontainer <材料> [区块半径]",
+   "params": [{"name": "区块半径", "required": false, "note": "默认 5，过大容易卡服"}],
+   "examples": ["/searchcontainer diamond_block 5"], "notes": "只扫已加载区块"},
+  {"cmd": "silentcontainer", "what": "静默容器：开关箱子无音效无开盖动画", "syntax": "/silentcontainer [check|on|off]",
+   "examples": ["/silentcontainer on"], "notes": "查号时用，避免在线玩家听到箱子声"},
+  {"cmd": "anycontainer", "what": "允许打开被方块挡住的容器", "syntax": "/anycontainer [check|on|off]",
+   "examples": ["/anycontainer on"], "notes": "配 /silentcontainer on 一起用最隐蔽"}
+ ],
+ "caution": [
+  "/clearinv 与 /clearender 不可撤销，先 /openinv 或 /searchinv 取证。",
+  "远程开箱是真改数据，动过的物品会真的落到玩家身上，别当只读查看用。",
+  "搜索只覆盖在线玩家与已加载区块，离线玩家查不到。"
+ ],
+ "permissions": {
+  "openinv.inventory.open.other": "打开他人背包",
+  "openinv.enderchest.open.other": "打开他人末影箱",
+  "openinv.clear.other": "清空他人背包/末影箱",
+  "openinv.search.inventory": "使用 /searchinv /searchender /searchenchant",
+  "openinv.search.container": "使用 /searchcontainer",
+  "openinv.container.silent": "使用静默容器",
+  "openinv.container.any": "使用 /anycontainer"
+ }
 }

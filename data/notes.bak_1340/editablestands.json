@@ -1,0 +1,58 @@
+{
+  "name": "EditableStands",
+  "role": "拿物品右键盔甲架，直接改形态的轻量工具",
+  "summary": "它把盔甲架的编辑动作从指令换成了手持物品右键：加手臂、去底盘、改大小、名字常显、隐身、关重力都能一键切换。默认权限节点几乎都是对所有玩家开放的，所以配权限插件才能精确控制谁能改。适合展示区、摆摊、建筑装饰里那些需要临时调整形态的盔甲架。",
+  "whatFor": [
+    "摆盔甲架做展示或装饰，想临时加手臂、换大小、加底盘时",
+    "想让盔甲架上的名字一直可见，或让盔甲架隐身当纯浮空展示时",
+    "想做悬浮/悬空展示，需要把盔甲架的重力关掉时",
+    "想把盔甲架编辑能力收回到只有管理员能用的范围时"
+  ],
+  "flow": [
+    "把插件 jar 放进 plugins 目录，重启服务端让它生成 config",
+    "执行 /editablestands info 确认插件已正常启用，再按需改 config 里的数量上限等选项",
+    "手持对应物品右键盔甲架试一次（木棍、剪刀、斧、平滑石台阶、镐、荧光墨囊、隐身药水、奶桶、羽毛、铁锭）",
+    "用权限插件把 editablestands.arms.add 这类节点按需开放给玩家组，改完执行 /editablestands reload"
+  ],
+  "commands": [
+    {
+      "cmd": "editablestands",
+      "what": "插件主命令，查看插件信息或重载配置文件",
+      "syntax": "/editablestands [info/reload]",
+      "params": [
+        {
+          "name": "info 或 reload",
+          "required": false,
+          "note": "填 info 查看插件状态与版本信息；填 reload 重载 config 配置；不填则提示用法"
+        }
+      ],
+      "examples": [
+        "/editablestands info",
+        "/editablestands reload"
+      ],
+      "notes": "别名 es，需要 op 权限。日常真正的「编辑」是拿物品右键盔甲架，不经过这条指令。"
+    }
+  ],
+  "subcommands": [
+    {
+      "cmd": "info",
+      "desc": "查看插件信息，确认插件已正常载入",
+      "example": "/editablestands info"
+    },
+    {
+      "cmd": "reload",
+      "desc": "重载插件配置，改完 config 后用",
+      "example": "/editablestands reload"
+    }
+  ],
+  "caution": [
+    "具体参数与子指令以游戏内 help 为准；本页只覆盖输入资料里明确出现的 info 和 reload。",
+    "所有编辑动作都靠手持物品右键盔甲架完成，不是靠指令；物品拿错不会生效，先对照权限节点说明里写的物品。",
+    "隐身和无重力盔甲架对普通玩家默认限 1 个，要放宽得给 editablestands.limit.invisible 或 editablestands.limit.nogravity（默认 op），或改 config 的 limitUnlimited。",
+    "改完 config 要执行 /editablestands reload，改权限节点后玩家可能需要重新进服才同步。"
+  ],
+  "related": [
+    "LuckPerms",
+    "WorldGuard"
+  ]
+}

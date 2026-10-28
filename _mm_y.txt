@@ -1,0 +1,115 @@
+﻿EXPORT onCommand:
+onCommand(org.bukkit.command.CommandSender, java.lang.String[]);
+
+    Code:
+
+         0: iconst_1
+
+         1: ireturn
+
+
+
+  public java.util.List<java.lang.String> onTabComplete(org.bukkit.command.CommandSender, java.lang.String[]);
+
+    Code:
+
+         0: aconst_null
+
+         1: areturn
+
+
+
+  public java.lang.String getPermissionNode();
+
+    Code:
+
+         0: ldc           #28                 // String mythicmobs.command.items.export
+
+         2: areturn
+
+
+
+  public boolean isConsoleFriendly();
+
+    Code:
+
+         0: iconst_1
+
+         1: ireturn
+
+
+
+  public java.lang.String getName();
+
+    Code:
+
+         0: ldc           #33                 // String export
+
+         2: areturn
+
+}
+
+
+======== KILL
+1: istore_3
+3: istore        4
+6: istore        5
+9: istore        6
+12: istore        7
+27: ldc           #28                 // String -
+29: invokevirtual #34                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+32: ifeq          105
+38: ldc           #36                 // String p
+40: invokevirtual #40                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+43: ifeq          49
+47: istore        5
+52: ldc           #42                 // String e
+54: invokevirtual #40                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+57: ifeq          63
+61: istore        4
+66: ldc           #44                 // String v
+68: invokevirtual #40                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+71: ifeq          77
+75: istore        6
+80: ldc           #46                 // String f
+82: invokevirtual #40                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+85: ifeq          91
+89: istore        7
+95: invokestatic  #52                 // Method java/util/Arrays.copyOfRange:([Ljava/lang/Object;II)[Ljava/lang/Object;
+98: checkcast     #26                 // class "[Ljava/lang/String;"
+102: goto          24
+107: ifne          118
+111: ldc           #54                 // String Must supply mob type to kill (or use <yellow>killall<red>)
+113: invokestatic  #60                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/c
+121: invokevirtual #64                 // Method java/lang/String.trim:()Ljava/lang/String;
+133: instanceof    #66                 // class org/bukkit/entity/Player
+136: ifeq          146
+142: invokestatic  #72                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+145: istore_3
+147: istore        9
+150: invokevirtual #76                 // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+153: checkcast     #78                 // class io/lumine/mythic/bukkit/MythicBukkit
+156: invokevirtual #82                 // Method io/lumine/mythic/bukkit/MythicBukkit.getMobManager:()Lio/lumine/mythic/
+159: invokevirtual #88                 // Method io/lumine/mythic/core/mobs/MobExecutor.getActiveMobs:()Ljava/util/Colle
+162: invokeinterface #94,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+171: invokeinterface #100,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+176: ifeq          353
+181: invokeinterface #104,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+186: checkcast     #106                // class io/lumine/mythic/core/mobs/ActiveMob
+196: iload         7
+198: ifeq          225
+203: invokevirtual #109                // Method io/lumine/mythic/core/mobs/ActiveMob.getFaction:()Ljava/lang/String;
+211: invokevirtual #109                // Method io/lumine/mythic/core/mobs/ActiveMob.getFaction:()Ljava/lang/String;
+216: invokevirtual #112                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+219: ifne          225
+222: goto          169
+225: iload         4
+227: ifne          251
+232: invokevirtual #116                // Method io/lumine/mythic/core/mobs/ActiveMob.getType:()Lio/lumine/mythic/api/mo
+235: invokeinterface #121,  1          // InterfaceMethod io/lumine/mythic/api/mobs/MythicMob.getInternalName:()Ljava/la
+242: invokevirtual #40                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+245: ifne          251
+248: goto          169
+251: iload         4
+253: ifeq          277
+258: invokevirtual #116                // Method io/lumine/mythic/core/mobs/ActiveMob.getType:()Lio/lumine/mythic/api/mo

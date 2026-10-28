@@ -1,0 +1,51 @@
+# LeashPlayers  (LeashPlayers-1.0.0.jar)
+## 注册指令
+  /leash  usage='/leash <player|release|list|status|info|selftest|reload|version>' desc='用栓绳栓住玩家' alias=None perm='leashplayers.use'
+
+## 代码类
+  com.example.leashplayers.LeashCommand
+
+## javap 字符串 token
+  already-leashed cannot-self failed help info leashed leashed-target list no-permission offline ok release reload selftest status version
+
+## 文本资源里的帮助/用法行
+  · # 栓玩家插件配置
+  · # 超过这个距离，被栓玩家开始被拽向主人（单位：格）
+  · # 超过这个距离，绳子断裂（单位：格）
+  · # 拉拽冲量，越大拉得越狠（0.1 ~ 1.0 之间比较合理）
+  · # 拉拽时附加的向上速度，帮助被栓玩家翻过小坎
+  · # 逻辑执行间隔（tick），越小越顺滑也越吃性能
+  · # 是否允许用剪刀右键割断绳子
+  · # 每拴住一个玩家是否消耗手里的那根栓绳（原版栓动物是消耗的）
+  · # 绳子被拉断时是否把栓绳掉在地上（原版断绳会掉）
+  · # 触发方式开关：想用哪种就留 true
+  · # 手持栓绳右键玩家即可栓住
+  · # 允许用 /leash <玩家> 命令栓住
+  · # 主人或被栓玩家传送时是否保留绳子（false = 传送即断开）
+  · leashed: "&a你栓住了 &e{target}"
+  · leashed-target: "&e{owner} &a用栓绳栓住了你"
+  · released: "&7你解开了 &f{target} &7的绳子"
+  · released-target: "&7你被 &f{owner} &7解开了绳子"
+  · leash-broken: "&c绳子绷断了！&7你离 &f{owner} &7太远了"
+  · leash-broken-owner: "&c绳子绷断了！&f{target} &7离你太远了"
+  · cut: "&7绳子被剪刀割断了"
+  · already-leashed: "&c{target} 已经被栓住了"
+  · cannot-self: "&c你不能栓自己"
+  · no-permission: "&c你没有权限这么做"
+  · description: 用栓绳栓住玩家，像栓动物一样牵着走
+  · description: 用栓绳栓住玩家
+  · usage: /leash <player|release|list|status|info|selftest|reload|version>
+  · description: 允许使用栓绳栓玩家
+  · description: 允许管理所有人的栓绳 / 重载配置
+
+## 常量池帮助/描述文本
+  · com/example/leashplayers/LeashCommand
+  · Lcom/example/leashplayers/LeashPlayers;
+  · Lcom/example/leashplayers/LeashManager;
+  · com/example/leashplayers/LeashPlayers
+  · com/example/leashplayers/LeashManager
+  · com/example/leashplayers/LeashPair
+  · Leash: console-must-use /leash <owner> is not supported, run as player
+  · com/example/leashplayers/LeashManager$Action
+  · Lcom/example/leashplayers/LeashManager$Action;
+  · Usage: /leash <player> | /leash release [player] | /leash list | /leash info <player> | /leash status | /leash selftest | /leash reload | /leash version

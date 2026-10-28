@@ -1,363 +1,79 @@
 {
-  "name": "LibsDisguises",
-  "role": "把玩家和实体伪装成其他生物、玩家或物品",
-  "summary": "LibsDisguises 是服务端最常用的伪装插件，能让玩家或实体在别人眼里变成另一种生物、另一名玩家、甚至一顶帽子或物品。它的命令按「对象范围」成对设计：自己（disguise）、某个玩家（disguiseplayer）、右键的实体（disguiseentity）、半径内所有实体（disguiseradius）、实体选择器（disguiseselector），撤销命令也一一对应。伪装本身不落盘，重启就没了，想长期保留要用 savedisguise 写进 disguises.yml。所有命令默认只对装了对应权限的管理员开放，给玩家开权限前先想清楚会不会被用来刷怪、卡视角或冒充他人。",
-  "whatFor": [
-    "活动、愚人节、彩蛋玩法里给玩家变身成别的生物，做趣味玩点",
-    "拍剧情、录宣传片时快速把实体或玩家换成指定外观",
-    "给赞助玩家开放变身权限，做成付费或兑换类玩点",
-    "巡查、观察玩家时把自己或周围实体伪装起来，避免被打扰"
-  ],
-  "flow": [
-    "先确认服务端依赖齐全（LibsDisguises 需要 ProtocolLib 这类底层库），启动后用 /disguisehelp 看命令清单",
-    "自己试效果：/disguise 实体类型，变形后用 /disguisemodify 改名字、装备、大小等选项",
-    "对别人用 /disguiseplayer 玩家名 实体类型；对已有实体先执行 /disguiseentity 再右键点它",
-    "批量场景用 /disguiseradius 半径 实体类型 或 /disguiseselector 选择器 实体类型",
-    "想长期保留就用 /savedisguise 名称 伪装内容 写进 disguises.yml，之后直接按名字套用",
-    "撤销：自己对 /undisguise，实体用 /undisguiseentity 右键，批量用 /undisguiseradius 或 /undisguiseselector"
-  ],
-  "commands": [
-    {
-      "cmd": "copydisguise",
-      "what": "把当前伪装导出成可复制的字符串",
-      "syntax": "/copydisguise",
-      "examples": [
-        "/copydisguise"
-      ],
-      "notes": "拿到的字符串可以直接粘到别的命令或配置文件里复用；别名 parsedisguise、disguisecopy 等。"
-    },
-    {
-      "cmd": "disguise",
-      "what": "把自己伪装成指定实体",
-      "syntax": "/disguise 实体类型 [更多参数]",
-      "params": [
-        {
-          "name": "实体类型",
-          "required": true,
-          "note": "如 zombie、creeper、player、item 等，TAB 可补全；player 类还要再跟玩家名"
-        }
-      ],
-      "examples": [
-        "/disguise zombie"
-      ],
-      "notes": "最常用的入口命令，别名 /d。连着猛刷会被 500ms 速率限制挡住，防止刷崩服务端。"
-    },
-    {
-      "cmd": "disguiseanimation",
-      "what": "在自己的伪装上播放支持的动画",
-      "syntax": "/disguiseanimation 动画名",
-      "examples": [
-        "/disguiseanimation swing_mainhand"
-      ],
-      "notes": "只有部分伪装支持动画；可用动画名以 TAB 补全为准，需要 libsdisguises.disguiseanimation 权限。"
-    },
-    {
-      "cmd": "disguiseclone",
-      "what": "把伪装或实体存成模板，之后读出来复用",
-      "syntax": "/disguiseclone save或load 模板名",
-      "params": [
-        {
-          "name": "save/load",
-          "required": true,
-          "note": "save 保存当前或右键实体的伪装，load 读回该模板"
-        },
-        {
-          "name": "模板名",
-          "required": true,
-          "note": "自己起的名字，方便反复调用"
-        }
-      ],
-      "examples": [
-        "/disguiseclone save 主城守卫"
-      ],
-      "notes": "保存时按提示右键目标实体；适合同一套复杂伪装要重复在很多实体上用的场景。"
-    },
-    {
-      "cmd": "disguiseentity",
-      "what": "把右键点到的实体伪装成别的实体",
-      "syntax": "/disguiseentity 实体类型 [更多参数]",
-      "examples": [
-        "/disguiseentity zombie"
-      ],
-      "notes": "执行命令后再右键目标实体生效；想改已伪装的实体用 disguisemodifyentity。"
-    },
-    {
-      "cmd": "disguiseentityanimation",
-      "what": "对右键点到的实体伪装播放动画",
-      "syntax": "/disguiseentityanimation 动画名",
-      "examples": [
-        "/disguiseentityanimation swing_mainhand"
-      ],
-      "notes": "需要 libsdisguises.disguiseentityanimation 权限，动画名以 TAB 补全为准。"
-    },
-    {
-      "cmd": "disguisehelp",
-      "what": "查看 LibsDisguises 全部命令与用法",
-      "syntax": "/disguisehelp [页码]",
-      "examples": [
-        "/disguisehelp"
-      ],
-      "notes": "命令多，第一次接手先用它加 TAB 补全摸清语法，比翻文档快。"
-    },
-    {
-      "cmd": "disguisemodify",
-      "what": "修改自己伪装的名字、装备、大小等选项",
-      "syntax": "/disguisemodify 选项 [值]",
-      "params": [
-        {
-          "name": "选项",
-          "required": true,
-          "note": "如 name、setSkin、size、addride、glow 等，TAB 可补全"
-        },
-        {
-          "name": "值",
-          "required": false,
-          "note": "部分选项需要填值，不填则按提示操作"
-        }
-      ],
-      "examples": [
-        "/disguisemodify name 神秘商人"
-      ],
-      "notes": "改名字、换皮、加骑乘、调大小基本都在这；还有 disguisemodifyplayer / radius / selector / entity 四个对应不同对象范围。"
-    },
-    {
-      "cmd": "disguisemodifyentity",
-      "what": "右键修改某个实体的伪装选项",
-      "syntax": "/disguisemodifyentity 选项 [值]",
-      "examples": [
-        "/disguisemodifyentity name 宝箱怪"
-      ],
-      "notes": "执行后右键目标实体生效；别名很多，如 dmodentity。"
-    },
-    {
-      "cmd": "disguisemodifyplayer",
-      "what": "修改指定玩家的伪装选项",
-      "syntax": "/disguisemodifyplayer 玩家名 选项 [值]",
-      "examples": [
-        "/disguisemodifyplayer Steve name 老板"
-      ],
-      "notes": "也支持用 UUID 指定玩家；改别人的伪装前最好先私聊说一声，避免被当成恶作剧。"
-    },
-    {
-      "cmd": "disguisemodifyradius",
-      "what": "批量修改半径内所有伪装的选项",
-      "syntax": "/disguisemodifyradius 半径 选项 [值]",
-      "examples": [
-        "/disguisemodifyradius 10 glow"
-      ],
-      "notes": "只影响已有伪装的实体，不会凭空给没伪装的实体上伪装。"
-    },
-    {
-      "cmd": "disguisemodifyselector",
-      "what": "用实体选择器批量修改伪装选项",
-      "syntax": "/disguisemodifyselector 选择器 选项 [值]",
-      "examples": [
-        "/disguisemodifyselector @e[type=zombie] name 僵尸哨兵"
-      ],
-      "notes": "选择器写法同原版 @e 语法；范围写大了容易一次改一片，先在小范围试。"
-    },
-    {
-      "cmd": "disguiseplayer",
-      "what": "把指定玩家伪装成某个实体",
-      "syntax": "/disguiseplayer 玩家名 实体类型 [更多参数]",
-      "params": [
-        {
-          "name": "玩家名",
-          "required": true,
-          "note": "在线玩家名或 UUID"
-        },
-        {
-          "name": "实体类型",
-          "required": true,
-          "note": "要伪装成的目标，TAB 可补全"
-        }
-      ],
-      "examples": [
-        "/disguiseplayer Steve zombie"
-      ],
-      "notes": "别名 disguiseuuid、dplayer；把别人变成生物后，对方视角和碰撞体积可能跟着变，注意别让人卡墙里。"
-    },
-    {
-      "cmd": "disguiseplayeranimation",
-      "what": "在指定玩家的伪装上播放支持动画",
-      "syntax": "/disguiseplayeranimation 玩家名 动画名",
-      "examples": [
-        "/disguiseplayeranimation Steve swing_mainhand"
-      ],
-      "notes": "也支持用 UUID 指定；需要 libsdisguises.disguiseplayeranimation 权限。"
-    },
-    {
-      "cmd": "disguiseradius",
-      "what": "把半径内所有实体伪装成某实体",
-      "syntax": "/disguiseradius 半径 实体类型 [更多参数]",
-      "params": [
-        {
-          "name": "半径",
-          "required": true,
-          "note": "以自己为中心的方块距离"
-        },
-        {
-          "name": "实体类型",
-          "required": true,
-          "note": "要伪装成的目标，TAB 可补全"
-        }
-      ],
-      "examples": [
-        "/disguiseradius 10 zombie"
-      ],
-      "notes": "会把范围内的玩家和生物一起变，慎用；撤销要配 /undisguiseradius 同半径。"
-    },
-    {
-      "cmd": "disguiseradiusanimation",
-      "what": "在半径内所有支持的伪装上播放动画",
-      "syntax": "/disguiseradiusanimation 半径 动画名",
-      "examples": [
-        "/disguiseradiusanimation 10 swing_mainhand"
-      ],
-      "notes": "只对支持该动画的伪装生效，其余会被跳过。"
-    },
-    {
-      "cmd": "disguiseselector",
-      "what": "用实体选择器批量伪装实体",
-      "syntax": "/disguiseselector 选择器 实体类型 [更多参数]",
-      "examples": [
-        "/disguiseselector @e[type=zombie,limit=5] skeleton"
-      ],
-      "notes": "适合给成批刷出来的怪统一换外观；选择器写错会报语法错误，先用 @e[limit=1] 试。"
-    },
-    {
-      "cmd": "disguiseselectoranimation",
-      "what": "用选择器给所有支持的伪装播放动画",
-      "syntax": "/disguiseselectoranimation 选择器 动画名",
-      "examples": [
-        "/disguiseselectoranimation @e[type=zombie] swing_mainhand"
-      ],
-      "notes": "动画名以 TAB 补全为准；一次影响整批实体，建议先限定 limit。"
-    },
-    {
-      "cmd": "disguiseviewbar",
-      "what": "开关自己伪装信息在提示栏的显示",
-      "syntax": "/disguiseviewbar",
-      "examples": [
-        "/disguiseviewbar"
-      ],
-      "notes": "别名 /dvb；如果玩家嫌操作栏一直跳自己的伪装信息，可用 libsdisguises.noactionbar 整服关掉。"
-    },
-    {
-      "cmd": "grabhead",
-      "what": "按玩家名或皮肤网址抓一个头颅物品",
-      "syntax": "/grabhead 玩家名或网址",
-      "examples": [
-        "/grabhead Steve"
-      ],
-      "notes": "拿到的是手里/地上的头颅物品，可做装饰或活动道具；需要 libsdisguises.grabhead 权限。"
-    },
-    {
-      "cmd": "grabskin",
-      "what": "从玩家名、网址或文件抓取皮肤",
-      "syntax": "/grabskin 玩家名或网址或文件",
-      "examples": [
-        "/grabskin Steve"
-      ],
-      "notes": "别名 /skin；抓到的皮肤会进缓存，之后可在伪装里按名字引用。"
-    },
-    {
-      "cmd": "libsdisguises",
-      "what": "插件主命令，重载配置、看伪装数量等",
-      "syntax": "/libsdisguises reload",
-      "examples": [
-        "/libsdisguises reload"
-      ],
-      "notes": "别名 /ld；改完配置用 reload，已经在身上的伪装一般不会自动刷新，需要重新伪装一次。"
-    },
-    {
-      "cmd": "savedisguise",
-      "what": "把自定义伪装保存进 disguises.yml",
-      "syntax": "/savedisguise 名称 伪装内容",
-      "params": [
-        {
-          "name": "名称",
-          "required": true,
-          "note": "保存后的伪装名，之后直接用这个名字套用"
-        },
-        {
-          "name": "伪装内容",
-          "required": true,
-          "note": "伪装参数串，可从 /copydisguise 得到的字符串改写"
-        }
-      ],
-      "examples": [
-        "/savedisguise 宝箱怪 item minecraft:chest"
-      ],
-      "notes": "配置里配好权限与冷却后，可把某些伪装只开放给特定权限组，做付费变身。"
-    },
-    {
-      "cmd": "undisguise",
-      "what": "取消自己的伪装",
-      "syntax": "/undisguise",
-      "examples": [
-        "/undisguise"
-      ],
-      "notes": "别名 /und；取消后碰撞箱和视角恢复正常，卡在方块里时先取消伪装再挪位置。"
-    },
-    {
-      "cmd": "undisguiseentity",
-      "what": "取消右键实体的伪装",
-      "syntax": "/undisguiseentity",
-      "examples": [
-        "/undisguiseentity"
-      ],
-      "notes": "执行后右键目标实体；对没伪装过的实体使用不会有反应。"
-    },
-    {
-      "cmd": "undisguiseplayer",
-      "what": "取消指定玩家的伪装",
-      "syntax": "/undisguiseplayer 玩家名",
-      "examples": [
-        "/undisguiseplayer Steve"
-      ],
-      "notes": "也支持 UUID；玩家下线后再上线，此前的伪装通常已失效。"
-    },
-    {
-      "cmd": "undisguiseradius",
-      "what": "取消半径内所有实体的伪装",
-      "syntax": "/undisguiseradius 半径",
-      "examples": [
-        "/undisguiseradius 10"
-      ],
-      "notes": "收尾清理最省事；半径填得比当初伪装的半径更大才清得干净。"
-    },
-    {
-      "cmd": "undisguiseselector",
-      "what": "用选择器批量取消实体伪装",
-      "syntax": "/undisguiseselector 选择器",
-      "examples": [
-        "/undisguiseselector @e[type=zombie]"
-      ],
-      "notes": "适合精确清理某一类实体；写 @e 不带条件会清掉范围内全部实体伪装。"
-    }
-  ],
-  "subcommands": [
-    {
-      "cmd": "reload",
-      "desc": "重载 LibsDisguises 配置文件与 disguises.yml",
-      "example": "/libsdisguises reload"
-    },
-    {
-      "cmd": "help",
-      "desc": "列出主命令的可用子命令",
-      "example": "/libsdisguises help"
-    }
-  ],
-  "caution": [
-    "伪装不落盘：服务器重启或区块卸载后通常就没了，需要固定外观就用 savedisguise 存进 disguises.yml，或用 clone 模板重新套用",
-    "伪装命令有 500ms 速率限制防刷崩，连点会被拒绝；只有持 libsdisguises.ratelimitbypass 的玩家能绕过",
-    "libsdisguises.seecmd 只控制 TAB 补全里是否看得到命令，默认就是 true，真正能执行还要给对应节点的权限，别以为开了 seecmd 就等于给了权限",
-    "把玩家伪装成体积不同的生物可能出现卡方块、进不去门、看不到自己等情况；出问题先 /undisguise 复原，再做调整"
-  ],
-  "related": [
-    "ProtocolLib",
-    "PlaceholderAPI",
-    "Citizens"
-  ]
+ "name": "LibsDisguises",
+ "role": "伪装系统",
+ "summary": "把玩家或实体伪装成任何生物/物品，带玩家皮肤、自定义名称、动画与选项；活动整活、剧情演出与反作弊排查的主力工具。",
+ "quick": [
+  {"scene": "把自己变成苦力怕", "cmd": "/disguise creeper", "note": "别名 /d、/dis"},
+  {"scene": "取消伪装", "cmd": "/undisguise", "note": "别名 /und、/undis"},
+  {"scene": "把某人变成僵尸", "cmd": "/disguiseplayer Steve zombie", "note": "需对目标玩家的伪装权限"},
+  {"scene": "整片区域全变", "cmd": "/disguiseradius 10 bat", "note": "半径内全部实体，慎用"}
+ ],
+ "commands": [
+  {"cmd": "disguise", "what": "把自己伪装成指定实体（可带名称、皮肤、选项）", "syntax": "/disguise <类型> [参数...]",
+   "examples": ["/disguise creeper", "/disguise player Notch setname &e假玩家"], "notes": "别名 /d、/dis、/disg"},
+  {"cmd": "undisguise", "what": "取消自己的伪装", "syntax": "/undisguise", "examples": ["/undisguise"], "notes": "别名 /und、/undis"},
+  {"cmd": "disguiseplayer", "what": "把指定玩家伪装成某实体", "syntax": "/disguiseplayer <玩家> <类型> [参数]",
+   "examples": ["/disguiseplayer Steve zombie"]},
+  {"cmd": "undisguiseplayer", "what": "取消指定玩家的伪装", "syntax": "/undisguiseplayer <玩家>",
+   "examples": ["/undisguiseplayer Steve"]},
+  {"cmd": "disguiseentity", "what": "把准星指向的实体伪装成另一实体", "syntax": "/disguiseentity <类型> [参数]",
+   "examples": ["/disguiseentity cow"], "notes": "要先右键实体选中目标"},
+  {"cmd": "undisguiseentity", "what": "取消准星实体的伪装", "syntax": "/undisguiseentity", "examples": ["/undisguiseentity"]},
+  {"cmd": "disguiseradius", "what": "半径内所有实体统一伪装", "syntax": "/disguiseradius <半径> <类型>",
+   "examples": ["/disguiseradius 10 bat"], "notes": "会把玩家一起改，线上慎用"},
+  {"cmd": "undisguiseradius", "what": "取消半径内全部伪装", "syntax": "/undisguiseradius <半径>",
+   "examples": ["/undisguiseradius 10"]},
+  {"cmd": "disguiseselector", "what": "用实体选择器批量伪装", "syntax": "/disguiseselector <选择器> <类型>",
+   "examples": ["/disguiseselector @e[type=zombie] bat"], "notes": "适合精准整片区域，比 radius 安全"},
+  {"cmd": "undisguiseselector", "what": "用选择器批量取消伪装", "syntax": "/undisguiseselector <选择器>",
+   "examples": ["/undisguiseselector @e[type=zombie]"]},
+  {"cmd": "disguiseclone", "what": "复制某个实体的伪装，之后再套用", "syntax": "/disguiseclone <参数>",
+   "examples": ["/disguiseclone"], "notes": "调试同一套伪装反复使用时省事"},
+  {"cmd": "disguisemodify", "what": "修改自己现有伪装的选项（名称、皮肤等）", "syntax": "/disguisemodify <选项> <值>",
+   "examples": ["/disguisemodify setname &c假苦力怕"]},
+  {"cmd": "disguisemodifyplayer", "what": "修改指定玩家伪装的选项", "syntax": "/disguisemodifyplayer <玩家> <选项> <值>",
+   "examples": ["/disguisemodifyplayer Steve setname &c假僵尸"]},
+  {"cmd": "disguiseviewself", "what": "开关「自己能否看见自己的伪装」", "syntax": "/disguiseviewself",
+   "examples": ["/disguiseviewself"], "notes": "默认看不见自己，调试时打开"},
+  {"cmd": "disguiseviewbar", "what": "开关伪装状态条提示（BOSS 条显示状态）", "syntax": "/disguiseviewbar",
+   "examples": ["/disguiseviewbar"]},
+  {"cmd": "disguiseanimation", "what": "在自己的伪装上播放动画", "syntax": "/disguiseanimation <动画>",
+   "examples": ["/disguiseanimation swing_main_hand"]},
+  {"cmd": "disguiseplayeranimation", "what": "在指定玩家的伪装上播放动画", "syntax": "/disguiseplayeranimation <玩家> <动画>",
+   "examples": ["/disguiseplayeranimation Steve swing_main_hand"]},
+  {"cmd": "copydisguise", "what": "把伪装导出为可复用字符串", "syntax": "/copydisguise [参数]",
+   "examples": ["/copydisguise"], "notes": "配合 /savedisguise 存进配置"},
+  {"cmd": "savedisguise", "what": "把自定义伪装存进 disguises.yml", "syntax": "/savedisguise <名称> <伪装串>",
+   "examples": ["/savedisguise 假苦力怕 creeper setname:&c苦力怕"]},
+  {"cmd": "grabskin", "what": "抓取玩家/URL 皮肤并缓存供伪装使用", "syntax": "/grabskin <玩家名|URL>",
+   "examples": ["/grabskin Notch"]},
+  {"cmd": "grabhead", "what": "获取某皮肤对应的头颅物品", "syntax": "/grabhead <玩家名|URL>", "examples": ["/grabhead Notch"]},
+  {"cmd": "disguisehelp", "what": "打印伪装可用类型与参数帮助", "syntax": "/disguisehelp [类型]",
+   "examples": ["/disguisehelp"]},
+  {"cmd": "libsdisguises", "what": "插件管理指令：重载、配置、调试、统计", "syntax": "/ld <reload|config|count|debug|json|permtest|update|uploadlogs>",
+   "examples": ["/ld reload"], "notes": "别名 /libsdisg"}
+ ],
+ "subcommands": [
+  {"cmd": "/ld reload", "desc": "重载配置与 disguise 定义", "example": "/ld reload"},
+  {"cmd": "/ld config", "desc": "查看/修改运行期配置项", "example": "/ld config"},
+  {"cmd": "/ld count", "desc": "统计当前伪装数量与类型分布", "example": "/ld count"},
+  {"cmd": "/ld permtest <玩家>", "desc": "检查某玩家对指定伪装的权限", "example": "/ld permtest Steve"},
+  {"cmd": "/ld debug", "desc": "开启调试输出（排查伪装不显示）", "example": "/ld debug"},
+  {"cmd": "/ld json", "desc": "导出伪装 JSON 供排查", "example": "/ld json"},
+  {"cmd": "/ld update", "desc": "检查插件更新", "example": "/ld update"},
+  {"cmd": "/ld uploadlogs", "desc": "上传日志生成排查链接", "example": "/ld uploadlogs"}
+ ],
+ "caution": [
+  "disguiseradius 会把范围内的玩家也一起改，线上整活前先确认没别人在旁边。",
+  "伪装需要客户端接受实体元数据，配合 ProtocolLib/新版服务端时出问题优先 /ld reload 再看 debug。",
+  "玩家伪装成生物后碰撞箱与受击判定仍按原玩家，别用伪装做「隐藏玩家」的安全手段。"
+ ],
+ "permissions": {
+  "libsdisguises.disguise": "使用 /disguise",
+  "libsdisguises.disguise.player": "把自己伪装成玩家（带皮肤）",
+  "libsdisguises.disguise.<类型>": "允许伪装成某个具体生物类型",
+  "libsdisguises.disguiseplayer": "使用 /disguiseplayer",
+  "libsdisguises.disguiseradius": "使用 /disguiseradius",
+  "libsdisguises.admin": "管理指令（reload / config / debug）"
+ }
 }

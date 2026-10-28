@@ -1,0 +1,241 @@
+# KaleidoscopeCookeryPlugin  (KaleidoscopeCookeryPlugin-1.3.0-leaf-fixed.jar)
+## 注册指令
+  /kcrecipe  usage='/kcrecipe [edit]' desc='打开食谱菜单，带 edit 参数进入编辑模式' alias=['kcfood'] perm=None
+
+## 代码类
+  net.kaleidoscope.cookery.command.RecipeCommand
+
+## javap 字符串 token
+  edit
+
+## 文本资源里的帮助/用法行
+  · # KaleidoscopeCookery 配置文件
+  · # 控制台日志语言
+  · # 支持：zh_cn, zh_tw, zh_hk, lzh, en_us, es_es, ja_jp, ko_kr, fr_fr, ru_ru, it_it, de_de
+  · # 修改后可重启服务器生效；执行 /ce reload all 时，本插件的 CraftEngine 自检日志也会重新读取该配置。
+  · # 安装 UltimateAdvancementAPI（本地 Pro 版）后启用森罗厨房成就。
+  · # 名称和条件对齐森罗物语 1.6.0；尚未移植的玩法自动隐藏。
+  · # 修改后执行 /ce reload all。disabled 使用模组节点名，例如 [dangerous_chef]。
+  · # 食谱菜单外观（/kcrecipe 打开的那套界面）
+  · # 下面所有项都可以整段删掉或留空，删掉即使用内置默认值。
+  · # 改完执行 /ce reload all 即可生效，不用重启。
+  · # 注意：如果有插件通过 API 设置了同一项，以插件设置的为准，这里的值不会覆盖它。
+  · # 按钮材质。值可以是原版物品 id，也可以是 CraftEngine 自定义物品 id。
+  · # 可用的按钮名：
+  · #   filler        边框玻璃
+  · #   invalid       物品 id 无效时的占位
+  · #   back          返回
+  · #   previous_page 上一页
+  · #   next_page     下一页
+  · #   create        新建
+  · #   save          保存
+  · #   delete        删除
+  · #   add           添加
+  · #   count         数量
+  · #   mode          模式
+  · #   rotation      研磨圈数
+  · #   liquid        汤底 / 液体
+  · #   carrier_none  空手盛出
+  · #   quality_hint  成品左侧悬停品质提示（森罗图标缺失时回退为黄色染料）
+  · # 示例：
+  · # 厨具的图标与显示名。两项都可以只写其中一个。
+  · # 可用的厨具名：pot、stockpot、steamer、shawarma、millstone、chopping_board、teapot
+  · # 示例：
+  · #     name: "铁锅"
+  · #     name: "磨盘"
+  · # 界面标题。支持 MiniMessage 标签（如 <gold>、<bold>）。
+  · # 占位符：<appliance> 厨具名、<count> 条目数、<recipe> 成品物品名
+  · # 不写颜色标签时保持内置的深灰色。
+  · # 可用的界面名与默认值：
+  · #   home_browse       食谱一览 - 选择厨具
+  · #   home_edit         食谱编辑 - 选择厨具
+  · #   list_browse       一览 - <appliance> (<count>)
+  · #   list_edit         编辑 - <appliance> (<count>)
+  · #   create_pick_type  新建食谱 - <appliance>
+  · #   detail_accurate   精准食谱 - <recipe>
+  · #   detail_flex       模糊食谱 - <recipe>
+  · #   detail_chopping   砧板食谱 - <recipe>
+  · #   detail_teapot     茶壶食谱 - <recipe>
+  · #   soup_base         汤底表 - 共 <count> 种
+  · # 示例：
+  · #   home_browse: "<gold><bold>菜谱大全"
+  · #   list_browse: "<yellow><appliance></yellow> 共 <count> 道"
+  · # bStats 匿名统计 (https://bstats.org/plugin/bukkit/KaleidoscopeCookeryPlugin/32444)
+  · # 默认开启。改为 false 可关闭本插件向 bStats 发送匿名统计数据。
+  · description: 打开食谱菜单，带 edit 参数进入编辑模式
+  · usage: /kcrecipe [edit]
+  · description: 允许玩家用 /kcrecipe 浏览全部食谱
+  · description: 允许用 /kcrecipe edit 编辑食谱
+  · "title": "加汤底！",
+  · "description": "制作不同风味的汤首先需要加入不同的汤底！",
+  · "title": "加油！",
+  · "description": "将油脂加入炒锅，当然也可以使用锅铲从搪瓷盆子挖一勺油脂加入锅里，开始烹饪！",
+  · "title": "见习厨师",
+  · "description": "获取一碗罗宋汤",
+  · "title": "肉包打狗，有去无回！",
+  · "description": "潜行并抛出一个蒸包击中狼，使其回血",
+  · "title": "嘶！",
+  · "description": "炒锅不会容忍你加错了食材，并给予从锅里拿回食材的你一点惩罚",
+  · "title": "烫烫烫！",
+  · "description": "加了熔岩汤底的汤锅不会容忍你加错了食材，并给予从锅里拿回食材的你一点惩罚",
+  · "title": "猪儿虫！",
+  · "description": "总会在田间发现这些胖乎乎的家伙",
+  · "title": "咣！咣！咣！",
+  · "description": "使用菜刀在菜板上制备新的食材",
+  · "title": "危险的厨子！",
+  · "description": "使用菜刀击杀猪灵蛮兵",
+  · "title": "黑暗料理",
+  · "description": "厨艺有待进步……",
+  · "title": "拉拉拉拉拉拉面",
+  · "description": "将面团拉扯成面条",
+  · "title": "绝代双椒",
+  · "description": "收获到青辣椒和红辣椒！",
+  · "title": "农夫乐事",
+  · "description": "将农夫套装穿戴整齐，大幅提高在水中插秧的速度",
+  · "title": "高级蛋白质",
+  · "description": "使用猪儿虫喂小鸡",
+  · "title": "鱼稻共生",
+  · "description": "通过在水稻中养鱼来加速水稻生长速度！",
+  · "title": "SAN值回复中……",
+  · "description": "合成缀花草帽，它很好看，虽然没什么特别，但它真的很好看",
+  · "title": "精耕细作",
+  · "description": "使用锄头在水中开垦水田，进行水稻插秧",
+  · "title": "功夫再高也怕菜刀",
+  · "description": "获取第一把菜刀！",
+  · "title": "煲汤！",
+  · "description": "向锅里添加完食材后盖上锅盖进行煲汤，掀开盖子汤煲好后使用碗来盛出！",
+  · "description": "骑着驴到磨盘上驱动磨盘",
+  · "title": "好钢用在刀刃上",
+  · "description": "将菜刀升级至下界合金等级",
+  · "title": "氮气加速",
+  · "description": "在获得胀气效果的情况下爬升100格高度",
+  · "unsupportedReason": "插件尚未实现氮气飞行",
+  · "title": "反冲天体",
+  · "description": "在获得胀气效果的情况下爬升1000格高度",
+  · "unsupportedReason": "插件尚未实现氮气飞行",
+  · "title": "云层突破者",
+  · "description": "在获得胀气效果的情况下爬升300格高度",
+  · "unsupportedReason": "插件尚未实现氮气飞行",
+  · "title": "近地轨道排放",
+  · "description": "在获得胀气效果的情况下爬升3000格高度",
+  · "unsupportedReason": "插件尚未实现氮气飞行",
+  · "title": "油刃有余",
+  · "description": "使用菜刀击杀猪、猪灵、疣猪兽来获取油脂",
+  · "title": "煎炒第一步",
+  · "description": "合成炒锅，将它放在炉灶、营火等热源上方加热",
+  · "title": "禾下乘凉梦",
+  · "description": "收获的季节，愈发怀念老先生……",
+  · "title": "森罗厨房",
+  · "description": "给世界添一丝奇幻色彩！",
+  · "title": "麦田守望者",
+  · "description": "使用稻草人来保护周围耕地",
+  · "title": "接头艺术",
+  · "description": "使用头颅来替换稻草人的南瓜头",
+  · "title": "蒸制第一步",
+  · "description": "将蒸笼放置在热源上蒸制食物",
+  · "title": "翻炒！",
+  · "description": "加入食材后使用锅铲进行不断翻炒，当食材炒熟后使用碗来盛出！",
+  · "title": "煲汤第一步",
+  · "description": "合成汤锅，将它放在炉灶、营火等热源上方加热",
+  · "title": "起锅烧油",
+  · "description": "点燃一个炉灶，开始烹饪美食",
+  · "title": "目标是海贼王！",
+  · "description": "合成一个草帽",
+  · "title": "种子计划",
+  · "description": "清理草丛时候请别忘记穿戴草帽，除了草籽，或许还有其他收获",
+  · "title": "酒囊饭袋！",
+  · "description": "使用嬗变饭袋进食",
+  · console.language.unsupported: '未対応のコンソールログ言語 "{0}" です。{1} に戻します。対応言語：{2}'
+  · plugin.enabled: 'KaleidoscopeCookery が起動しました。'
+  · metrics.disabled: 'bStats の匿名統計は設定で無効になっています (metrics.enabled: false)。'
+  · craftengine.registry.phase.first: '初回読み込み'
+  · craftengine.registry.phase.reload: '再読み込み'
+  · craftengine.registry.blocks.ok: 'CraftEngine のブロック登録チェックは {0}後に成功しました：{1}/{2} 個のブロックを読み込み済み。'
+  · craftengine.registry.blocks.missing: 'CraftEngine のブロック登録チェックは {0}後に失敗しました：Kaleidoscope Cookery のブロックが {1}/{2} 個不足しています。'
+  · craftengine.registry.blocks.missing.item: '- {0}    設定：{1}'
+  · craftengine.registry.blocks.hint: '上記の CraftEngine custom 設定が存在するか、YAML のインデントが正しいか、今回の /ce reload all の前のエラーを確認してください。'
+  · millstone.unknown_entity_type: '[millstone] 不明なエンティティタイプ {0} はスキップされました。'
+  · food.flex.empty_perfect: '[food] レシピ {0} に perfect 理想比がないため、スキップしました。'
+  · food.flex.duplicate_perfect: '[food] レシピ {0} の perfect 理想比の方向が {1} と同じです。コサイン一致が常に同点になるため、スキップしました。'
+  · food.accurate.rotations_millstone_only: '[food] 精密レシピ {0} の rotations は石臼レシピでのみ使用できます。レシピをスキップしました。'
+  · food.teapot.unregistered_liquid: '[food] ティーポットレシピ {0} の液体 {1} は teapot_liquid に登録されていません。レシピをスキップしました。'
+  · food.teapot.missing_tea_cup: '[food] ティーポットレシピ {0} の完成品 {1} は tea_cup にモデルが定義されていません。レシピをスキップしました。'
+  · food.chopping.model_stage_mismatch: '[food] まな板レシピ {0} のモデル数 {1} が stage {2} と一致しません。{3}/0 から /{4} を確認してください。'
+  · food.chopping.single_result_too_many: '[food] まな板レシピ {0} の {1} モードでは result は 1 個のみ設定できますが、現在 {2} 個あります。レシピをスキップしました。'
+  · steamer.drop_failed: '蒸し器の内容物をドロップできませんでした。この問題を報告してください。'
+  · console.language.unsupported: '控制臺日誌之語「{0}」未可用，已退用 {1}。可用：{2}'
+  · plugin.enabled: 'KaleidoscopeCookery 已啟。'
+  · metrics.disabled: 'bStats 匿名統計已於設定中止用 (metrics.enabled: false)'
+  · craftengine.registry.phase.first: '始載'
+  · craftengine.registry.phase.reload: '重載'
+  · craftengine.registry.blocks.ok: 'CraftEngine {0}後方塊註冊自檢已通：{1}/{2} 方塊已載。'
+  · craftengine.registry.blocks.missing: 'CraftEngine {0}後方塊註冊自檢未通：闕 {1}/{2} 個 Kaleidoscope Cookery 方塊。'
+  · craftengine.registry.blocks.missing.item: '- {0}    設定：{1}'
+  · craftengine.registry.blocks.hint: '請察上列 CraftEngine custom 設定存否、YAML 縮排正否，並觀此次 /ce reload all 前所報之錯。'
+  · millstone.unknown_entity_type: '[millstone] 未知生物類型 {0}，已略。'
+  · food.flex.empty_perfect: '[food] 方 {0} 無 perfect 之理配，已略之。'
+  · food.flex.duplicate_perfect: '[food] 方 {0} 之理配向與 {1} 同，餘弦之比恆等，已略之。'
+  · food.accurate.rotations_millstone_only: '[food] 精準配方 {0} 之 rotations 惟石磨可用，已略此方。'
+  · food.teapot.unregistered_liquid: '[food] 茶壺配方 {0} 之液 {1} 未註於 teapot_liquid，已略此方。'
+  · food.teapot.missing_tea_cup: '[food] 茶壺配方 {0} 之成品 {1} 未於 tea_cup 定義模型，已略此方。'
+  · food.chopping.model_stage_mismatch: '[food] 砧板配方 {0} 模型數 {1} 與 stage {2} 不合，請察 {3}/0 至 /{4}。'
+  · food.chopping.single_result_too_many: '[food] 砧板配方 {0} 之 {1} 模式 result 只可設一產物，今有 {2}，已略此方。'
+  · steamer.drop_failed: '蒸籠內容不能掉落。請報作者。'
+  · console.language.unsupported: '不支持的控制台日志语言 "{0}"，已回退到 {1}。支持：{2}'
+  · plugin.enabled: 'KaleidoscopeCookery 已启动！'
+  · metrics.disabled: 'bStats 匿名统计已在配置中关闭 (metrics.enabled: false)'
+  · craftengine.registry.phase.first: '首次加载'
+  · craftengine.registry.phase.reload: '重载'
+  · craftengine.registry.blocks.ok: 'CraftEngine {0}后方块注册自检通过：{1}/{2} 个方块已加载。'
+  · craftengine.registry.blocks.missing: 'CraftEngine {0}后方块注册自检失败：缺少 {1}/{2} 个 Kaleidoscope Cookery 方块。'
+  · craftengine.registry.blocks.missing.item: '- {0}    配置：{1}'
+  · craftengine.registry.blocks.hint: '请检查上述 CraftEngine custom 配置是否存在、YAML 缩进是否正确，并查看本次 /ce reload all 的前置报错。'
+  · millstone.unknown_entity_type: '[millstone] 未知生物类型 {0} 已跳过。'
+  · food.flex.empty_perfect: '[food] 配方 {0} 没有 perfect 理想配比，已跳过该配方。'
+  · food.flex.duplicate_perfect: '[food] 配方 {0} 的理想配比方向与 {1} 相同，余弦匹配会永远打平，已跳过该配方。'
+  · food.accurate.rotations_millstone_only: '[food] 精准配方 {0} 的 rotations 仅石磨可用，已跳过该配方。'
+  · food.teapot.unregistered_liquid: '[food] 茶壶配方 {0} 的液体 {1} 未在 teapot_liquid 注册，已跳过该配方。'
+  · food.teapot.missing_tea_cup: '[food] 茶壶配方 {0} 的成品 {1} 未在 tea_cup 定义模型，已跳过该配方。'
+  · food.chopping.model_stage_mismatch: '[food] 砧板配方 {0} 的模型数 {1} 与 stage {2} 不一致，请检查 {3}/0 到 /{4}。'
+  · food.chopping.single_result_too_many: '[food] 砧板配方 {0} 的 {1} 模式 result 只能配置一个产物，当前有 {2} 个，已跳过该配方。'
+  · steamer.drop_failed: '无法掉落蒸笼内容。请报告作者。'
+  · console.language.unsupported: '不支援嘅控制台日誌語言「{0}」，已改用 {1}。支援：{2}'
+  · plugin.enabled: 'KaleidoscopeCookery 已啟動！'
+  · metrics.disabled: 'bStats 匿名統計已喺設定中停用 (metrics.enabled: false)'
+  · craftengine.registry.phase.first: '首次載入'
+  · craftengine.registry.phase.reload: '重新載入'
+  · craftengine.registry.blocks.ok: 'CraftEngine {0}後方塊註冊自檢通過：已載入 {1}/{2} 個方塊。'
+  · craftengine.registry.blocks.missing: 'CraftEngine {0}後方塊註冊自檢失敗：欠缺 {1}/{2} 個 Kaleidoscope Cookery 方塊。'
+  · craftengine.registry.blocks.missing.item: '- {0}    設定：{1}'
+  · craftengine.registry.blocks.hint: '請檢查上面嘅 CraftEngine custom 設定是否存在、YAML 縮排是否正確，並查看今次 /ce reload all 前面嘅錯誤。'
+  · millstone.unknown_entity_type: '[millstone] 未知生物類型 {0}，已略過。'
+  · food.flex.empty_perfect: '[food] 配方 {0} 沒有 perfect 理想配比，已跳過該配方。'
+  · food.flex.duplicate_perfect: '[food] 配方 {0} 的理想配比方向與 {1} 相同，餘弦匹配會永遠打平，已跳過該配方。'
+  · food.accurate.rotations_millstone_only: '[food] 精準配方 {0} 嘅 rotations 只適用於石磨，已略過該配方。'
+  · food.teapot.unregistered_liquid: '[food] 茶壺配方 {0} 嘅液體 {1} 未喺 teapot_liquid 註冊，已略過該配方。'
+  · food.teapot.missing_tea_cup: '[food] 茶壺配方 {0} 嘅成品 {1} 未喺 tea_cup 定義模型，已略過該配方。'
+  · food.chopping.model_stage_mismatch: '[food] 砧板配方 {0} 嘅模型數 {1} 同 stage {2} 唔一致，請檢查 {3}/0 到 /{4}。'
+  · food.chopping.single_result_too_many: '[food] 砧板配方 {0} 嘅 {1} 模式 result 只可以設定一個產物，目前有 {2} 個，已略過該配方。'
+  · steamer.drop_failed: '無法掉落蒸籠內容。請回報作者。'
+  · console.language.unsupported: '不支援的控制台日誌語言「{0}」，已回退到 {1}。支援：{2}'
+  · plugin.enabled: 'KaleidoscopeCookery 已啟動！'
+  · metrics.disabled: 'bStats 匿名統計已在設定中停用 (metrics.enabled: false)'
+  · craftengine.registry.phase.first: '首次載入'
+  · craftengine.registry.phase.reload: '重新載入'
+  · craftengine.registry.blocks.ok: 'CraftEngine {0}後方塊註冊自檢通過：已載入 {1}/{2} 個方塊。'
+  · craftengine.registry.blocks.missing: 'CraftEngine {0}後方塊註冊自檢失敗：缺少 {1}/{2} 個 Kaleidoscope Cookery 方塊。'
+  · craftengine.registry.blocks.missing.item: '- {0}    設定：{1}'
+  · craftengine.registry.blocks.hint: '請檢查上述 CraftEngine custom 設定是否存在、YAML 縮排是否正確，並查看本次 /ce reload all 前面的錯誤。'
+  · millstone.unknown_entity_type: '[millstone] 未知生物類型 {0}，已略過。'
+  · food.flex.empty_perfect: '[food] 配方 {0} 沒有 perfect 理想配比，已跳過該配方。'
+  · food.flex.duplicate_perfect: '[food] 配方 {0} 的理想配比方向與 {1} 相同，餘弦匹配會永遠打平，已跳過該配方。'
+  · food.accurate.rotations_millstone_only: '[food] 精準配方 {0} 的 rotations 只適用於石磨，已略過該配方。'
+  · food.teapot.unregistered_liquid: '[food] 茶壺配方 {0} 的液體 {1} 未在 teapot_liquid 註冊，已略過該配方。'
+  · food.teapot.missing_tea_cup: '[food] 茶壺配方 {0} 的成品 {1} 未在 tea_cup 定義模型，已略過該配方。'
+  · food.chopping.model_stage_mismatch: '[food] 砧板配方 {0} 的模型數 {1} 與 stage {2} 不一致，請檢查 {3}/0 到 /{4}。'
+  · food.chopping.single_result_too_many: '[food] 砧板配方 {0} 的 {1} 模式 result 只能設定一個產物，目前有 {2} 個，已略過該配方。'
+  · steamer.drop_failed: '無法掉落蒸籠內容。請回報作者。'
+
+## 常量池帮助/描述文本
+  · 该指令只能由玩家执行
+  · 你没有权限使用该指令 缺少 

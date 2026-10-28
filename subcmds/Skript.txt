@@ -1,0 +1,285 @@
+# Skript  (Skript-2.16.1.jar)
+## 注册指令
+  /skript  usage='/skript help' desc="Skript's main command. Type '/skript help' for more information." alias=['sk'] perm='skript.admin'
+
+## 代码类
+  ch.njol.skript.SkriptCommand
+  ch.njol.skript.SkriptCommandTabCompleter
+  ch.njol.skript.bukkitutil.CommandReloader
+  ch.njol.skript.command.Argument
+  ch.njol.skript.command.CommandEvent
+  ch.njol.skript.command.CommandHelp$ArgumentHolder
+  ch.njol.skript.command.CommandHelp
+  ch.njol.skript.command.Commands$1
+  ch.njol.skript.command.Commands$2
+  ch.njol.skript.command.Commands$CommandAliasHelpTopic
+  ch.njol.skript.command.Commands
+  ch.njol.skript.command.CommandUsage
+  ch.njol.skript.command.EffectCommandEvent
+  ch.njol.skript.command.ScriptCommand
+  ch.njol.skript.command.ScriptCommandEvent
+  ch.njol.skript.conditions.CondHasCustomModelData$CMDType
+  ch.njol.skript.conditions.CondIsCommandBlockConditional
+  ch.njol.skript.conditions.CondIsSkriptCommand
+  ch.njol.skript.effects.EffCommand
+  ch.njol.skript.effects.EffCommandBlockConditional
+  ch.njol.skript.events.EvtCommand
+  ch.njol.skript.events.EvtPlayerCommandSend
+  ch.njol.skript.expressions.ExprAllCommands
+  ch.njol.skript.expressions.ExprCmdCooldownInfo$1
+  ch.njol.skript.expressions.ExprCmdCooldownInfo
+  ch.njol.skript.expressions.ExprCommand
+  ch.njol.skript.expressions.ExprCommandBlockCommand$1
+  ch.njol.skript.expressions.ExprCommandBlockCommand
+  ch.njol.skript.expressions.ExprCommandInfo$InfoType
+  ch.njol.skript.expressions.ExprCommandInfo
+  ch.njol.skript.expressions.ExprCommandSender
+  ch.njol.skript.expressions.ExprCustomModelData$CMDType
+  ch.njol.skript.expressions.ExprSentCommands$1
+  ch.njol.skript.expressions.ExprSentCommands
+  ch.njol.skript.structures.StructCommand$1
+  ch.njol.skript.structures.StructCommand$2
+  ch.njol.skript.structures.StructCommand
+
+## javap 字符串 token
+  aliases all alltopics any blocks bukkit bungee bungeecord changes check colors command commandmap conditional config console cooldown description disable enable flags floats gen-docs help info knowncommands label list message name none not paper permission permission_message player players plugin prefix reload script scripts show single_int skript spigot string strings synccommands test trigger un unknown update usage
+
+## 文本资源里的帮助/用法行
+  · website: https://skriptlang.org
+  · description: Skript's main command. Type '/skript help' for more information.
+  · usage: /skript help
+  · "updateSource": "https://api.github.com/repos/SkriptLang/Skript/releases",
+  · You can either put language files into the lang folder in the jar or into the plugins/Skript/lang/ folder, but files in the latter folder take precedence
+
+## 常量池帮助/描述文本
+  · ch/njol/skript/localization/Language
+  · ch/njol/skript/SkriptCommand
+  · Lch/njol/skript/localization/ArgsMessage;
+  · ch/njol/skript/localization/ArgsMessage
+  · ch/njol/skript/Skript
+  · ch/njol/skript/log/LogEntry
+  · ch/njol/skript/log/RedirectingLogHandler
+  · ch/njol/skript/localization/PluralizingArgsMessage
+  · ch/njol/skript/log/TimingLogHandler
+  · Lch/njol/skript/command/CommandHelp;
+  · ch/njol/skript/command/CommandHelp
+  · ch/njol/skript/SkriptConfig
+  · ch/njol/skript/aliases/Aliases
+  · ch/njol/skript/ScriptLoader
+  · ch/njol/skript/util/ExceptionUtils
+  · ch/njol/skript/SkriptUpdater
+  · Lch/njol/skript/localization/Message;
+  · ch/njol/skript/update/ReleaseManifest
+  · org/skriptlang/skript/Skript
+  · org/skriptlang/skript/addon/SkriptAddon
+  · ch/njol/skript/doc/Documentation
+  · ch/njol/skript/doc/JSONGenerator
+  · ch/njol/skript/doc/HTMLGenerator
+  · ch/njol/skript/test/runner/TestMode
+  · ch/njol/skript/log/TestingLogHandler
+  · ch/njol/skript/util/FileUtils
+  · org/skriptlang/skript/lang/script/Script
+  · ch/njol/skript/config/Config
+  · ch/njol/skript/test/runner/SkriptTestEvent
+  · ch/njol/skript/test/runner/TestTracker
+  · ch/njol/skript/test/utils/TestResults
+  · ch/njol/skript/ScriptLoader$ScriptInfo
+  · ch/njol/skript/localization/Message
+  · ch/njol/skript/util/SkriptColor
+  · Lch/njol/skript/util/SkriptColor;
+  · Lch/njol/skript/SkriptCommand;
+  · Lch/njol/skript/log/RedirectingLogHandler;
+  · Lch/njol/skript/log/TimingLogHandler;
+  · Lorg/skriptlang/skript/lang/script/Script;
+  · Lch/njol/skript/SkriptUpdater;
+  · Lorg/skriptlang/skript/addon/SkriptAddon;
+  · Lch/njol/skript/doc/HTMLGenerator;
+  · Lch/njol/skript/log/TestingLogHandler;
+  · Ljava/util/Collection<Lorg/skriptlang/skript/addon/SkriptAddon;>;
+  · Lch/njol/skript/ScriptLoader$ScriptInfo;
+  · Lch/njol/skript/test/utils/TestResults;
+  · ch/njol/skript/log/LogHandler$LogResult
+  · ch/njol/skript/log/LogHandler
+  · ch/njol/skript/SkriptCommandTabCompleter
+  · Lch/njol/skript/SkriptCommandTabCompleter;
+  · ch/njol/skript/bukkitutil/CommandReloader
+  · Lch/njol/skript/bukkitutil/CommandReloader;
+  · ch/njol/skript/command/Argument
+  · Lch/njol/skript/lang/Expression;
+  · Lch/njol/skript/classes/ClassInfo;
+  · ch/njol/skript/lang/Variable
+  · ch/njol/skript/log/SkriptLogger
+  · ch/njol/skript/lang/SkriptParser
+  · ch/njol/skript/lang/ParseContext
+  · Lch/njol/skript/lang/ParseContext;
+  · ch/njol/skript/classes/ClassInfo
+  · ch/njol/skript/log/RetainingLogHandler
+  · ch/njol/skript/lang/VariableString
+  · ch/njol/skript/lang/util/SimpleLiteral
+  · ch/njol/skript/util/Utils
+  · ch/njol/skript/lang/Expression
+  · ch/njol/skript/variables/Variables
+  · Lch/njol/skript/lang/Expression<+TT;>;
+  · Lch/njol/skript/classes/ClassInfo<TT;>;
+  · Lch/njol/skript/command/Argument;
+  · Lch/njol/skript/command/Argument<TT;>;
+  · Lch/njol/skript/log/RetainingLogHandler;
+  · Lch/njol/skript/command/ScriptCommandEvent;
+  · ch/njol/skript/command/CommandEvent
+  · Lch/njol/skript/command/CommandEvent;
+  · ch/njol/skript/command/CommandHelp$ArgumentHolder
+  · Lch/njol/skript/command/CommandHelp$ArgumentHolder;
+  · ch/njol/skript/command/Commands
+  · ch/njol/skript/command/ScriptCommand
+  · Lch/njol/skript/config/Option;
+  · ch/njol/skript/config/Option
+  · ch/njol/skript/command/Commands$1
+  · Lch/njol/skript/command/Commands$1;
+  · Lch/njol/skript/command/ScriptCommand;
+  · ch/njol/skript/command/Commands$2
+  · Lch/njol/skript/command/Commands$2;
+  · ch/njol/skript/command/Commands$CommandAliasHelpTopic
+  · Lch/njol/skript/command/Commands$CommandAliasHelpTopic;
+  · ch/njol/skript/command/EffectCommandEvent
+  · ch/njol/skript/lang/parser/ParserInstance
+  · ch/njol/skript/lang/Effect
+  · org/skriptlang/skript/bukkit/text/TextComponentParser
+  · ch/njol/skript/lang/TriggerItem
+  · Ljava/util/Map<Ljava/lang/String;Lch/njol/skript/command/ScriptCommand;>;
+  · Ljava/util/List<Lch/njol/skript/command/Argument<*>;>;
+  · Lch/njol/skript/command/Commands;
+  · Lch/njol/skript/command/EffectCommandEvent;
+  · Lch/njol/skript/lang/parser/ParserInstance;
+  · Lch/njol/skript/lang/Effect;
+  · Lorg/skriptlang/skript/bukkit/text/TextComponentParser;
+  · ch/njol/skript/command/CommandUsage
+  · Lch/njol/skript/lang/VariableString;
+  · Lch/njol/skript/command/CommandUsage;
+  · Lch/njol/skript/util/Timespan;
+  · ch/njol/skript/variables/HintManager
+  · ch/njol/skript/lang/Trigger
+  · ch/njol/skript/lang/util/SimpleEvent
+  · Lch/njol/skript/lang/Trigger;
+  · ch/njol/skript/config/SectionNode
+  · ch/njol/skript/util/EmptyStacktraceException
+  · ch/njol/skript/command/ScriptCommandEvent
+  · ch/njol/skript/log/ParseLogHandler
+  · ch/njol/skript/log/Verbosity
+  · Lch/njol/skript/log/Verbosity;
+  · ch/njol/skript/util/Date
+  · ch/njol/skript/util/Timespan$TimePeriod
+  · Lch/njol/skript/util/Timespan$TimePeriod;
+  · ch/njol/skript/util/Timespan
+  · Lch/njol/skript/lang/Expression<+Lnet/kyori/adventure/text/Component;>;
+  · Lch/njol/skript/lang/Expression<Ljava/lang/String;>;
+  · Ljava/util/Map<Ljava/util/UUID;Lch/njol/skript/util/Date;>;
+  · Lch/njol/skript/config/SectionNode;
+  · Lch/njol/skript/variables/HintManager;
+  · Lch/njol/skript/command/Argument<*>;
+  · Lch/njol/skript/log/LogEntry;
+  · Lch/njol/skript/log/ParseLogHandler;
+  · Lch/njol/skript/util/Date;
+  · ch/njol/skript/effects/Delay
+  · ch/njol/skript/conditions/CondHasCustomModelData$CMDType
+  · Lch/njol/skript/conditions/CondHasCustomModelData$CMDType;
+  · Ljava/lang/Enum<Lch/njol/skript/conditions/CondHasCustomModelData$CMDType;>;
+  · ch/njol/skript/conditions/CondHasCustomModelData
+  · ch/njol/skript/conditions/base/PropertyCondition
+  · ch/njol/skript/conditions/CondIsCommandBlockConditional
+  · ch/njol/skript/lang/SkriptParser$ParseResult
+  · Lch/njol/skript/conditions/CondIsCommandBlockConditional;
+  · Lch/njol/skript/lang/SkriptParser$ParseResult;
+  · Lch/njol/skript/conditions/base/PropertyCondition<Lorg/bukkit/block/Block;>;
+  · Lch/njol/skript/doc/Name;
+  · Lch/njol/skript/doc/Description;
+  · Lch/njol/skript/doc/Example;
+  · Lch/njol/skript/doc/Since;
+  · ch/njol/skript/conditions/CondIsSkriptCommand
+  · Lch/njol/skript/conditions/CondIsSkriptCommand;
+  · Lch/njol/skript/conditions/base/PropertyCondition<Ljava/lang/String;>;
+  · ch/njol/skript/effects/EffCommand
+  · ch/njol/skript/util/StringMode
+  · Lch/njol/skript/util/StringMode;
+  · ch/njol/skript/effects/EffConnect
+  · Lch/njol/skript/lang/Expression<Lorg/bukkit/command/CommandSender;>;
+  · Lch/njol/skript/effects/EffCommand;
+  · Lch/njol/skript/doc/Example$Examples;
+  · ch/njol/skript/doc/Example$Examples
+  · ch/njol/skript/doc/Example
+  · ch/njol/skript/effects/EffCommandBlockConditional
+  · Lch/njol/skript/lang/Expression<Lorg/bukkit/block/Block;>;
+  · Lch/njol/skript/effects/EffCommandBlockConditional;
+  · ch/njol/skript/lang/SkriptEvent
+  · ch/njol/skript/events/EvtCommand
+  · Lch/njol/skript/lang/Literal;
+  · ch/njol/skript/lang/Literal
+  · ch/njol/skript/lang/SkriptEventInfo
+  · Lch/njol/skript/lang/Literal<Ljava/lang/String;>;
+  · Lch/njol/skript/events/EvtCommand;
+  · ch/njol/skript/events/EvtPlayerCommandSend
+  · Lch/njol/skript/events/EvtPlayerCommandSend;
+  · ch/njol/skript/lang/util/SimpleExpression
+  · ch/njol/skript/expressions/ExprAllCommands
+  · ch/njol/skript/lang/ExpressionType
+  · Lch/njol/skript/lang/ExpressionType;
+  · Lch/njol/skript/expressions/ExprAllCommands;
+  · Lch/njol/skript/lang/util/SimpleExpression<Ljava/lang/String;>;
+  · ch/njol/skript/classes/Changer$ChangeMode
+  · ch/njol/skript/expressions/ExprCmdCooldownInfo$1
+  · Lch/njol/skript/classes/Changer$ChangeMode;
+  · ch/njol/skript/expressions/ExprCmdCooldownInfo
+  · ch/njol/skript/classes/Changer
+  · ch/njol/skript/lang/EventRestrictedSyntax
+  · Lch/njol/skript/expressions/ExprCmdCooldownInfo;
+  · Lch/njol/skript/lang/util/SimpleExpression<Ljava/lang/Object;>;Lch/njol/skript/lang/EventRestrictedSyntax;
+  · ch/njol/skript/expressions/ExprCommand
+  · Lch/njol/skript/expressions/ExprCommand;
+  · Lch/njol/skript/lang/util/SimpleExpression<Ljava/lang/String;>;Lch/njol/skript/lang/EventRestrictedSyntax;
+  · Lch/njol/skript/doc/Events;
+  · ch/njol/skript/expressions/ExprCommandBlockCommand$1
+  · ch/njol/skript/expressions/ExprCommandBlockCommand
+  · ch/njol/skript/expressions/base/SimplePropertyExpression
+  · Lch/njol/skript/expressions/ExprCommandBlockCommand;
+  · Lch/njol/skript/expressions/base/SimplePropertyExpression<Ljava/lang/Object;Ljava/lang/String;>;
+  · ch/njol/skript/expressions/ExprCommandInfo$InfoType
+  · Lch/njol/skript/expressions/ExprCommandInfo$InfoType;
+  · Ljava/lang/Enum<Lch/njol/skript/expressions/ExprCommandInfo$InfoType;>;
+  · ch/njol/skript/expressions/ExprCommandInfo
+  · Lch/njol/skript/expressions/ExprCommandInfo;
+  · ch/njol/skript/expressions/base/EventValueExpression
+  · ch/njol/skript/expressions/ExprCommandSender
+  · Lch/njol/skript/expressions/ExprCommandSender;
+  · Lch/njol/skript/expressions/base/EventValueExpression<Lorg/bukkit/command/CommandSender;>;
+  · ch/njol/skript/expressions/ExprCustomModelData$CMDType
+  · Lch/njol/skript/expressions/ExprCustomModelData$CMDType;
+  · ch/njol/skript/util/Color
+  · Ljava/lang/Enum<Lch/njol/skript/expressions/ExprCustomModelData$CMDType;>;
+  · ch/njol/skript/expressions/ExprCustomModelData
+  · ch/njol/skript/expressions/ExprSentCommands$1
+  · ch/njol/skript/expressions/ExprSentCommands
+  · Lch/njol/skript/expressions/ExprSentCommands;
+  · Lorg/skriptlang/skript/lang/structure/Structure;
+  · org/skriptlang/skript/lang/structure/Structure
+  · org/skriptlang/skript/lang/entry/KeyValueEntryData
+  · ch/njol/skript/structures/StructCommand$1
+  · Lch/njol/skript/structures/StructCommand$1;
+  · Lorg/skriptlang/skript/lang/entry/KeyValueEntryData<Ljava/lang/Integer;>;
+  · ch/njol/skript/structures/StructCommand
+  · ch/njol/skript/structures/StructCommand$2
+  · Lch/njol/skript/structures/StructCommand$2;
+  · Lorg/skriptlang/skript/lang/entry/KeyValueEntryData<Ljava/util/List<Ljava/lang/String;>;>;
+  · Lorg/skriptlang/skript/lang/entry/EntryContainer;
+  · org/skriptlang/skript/lang/entry/EntryContainer
+  · ch/njol/skript/registrations/Classes
+  · ch/njol/skript/classes/Parser
+  · Lorg/skriptlang/skript/lang/structure/Structure$Priority;
+  · ch/njol/skript/localization/Noun
+  · org/skriptlang/skript/lang/structure/Structure$Priority
+  · org/skriptlang/skript/lang/entry/EntryValidator
+  · org/skriptlang/skript/lang/entry/util/VariableStringEntryData
+  · org/skriptlang/skript/lang/entry/EntryValidator$EntryValidatorBuilder
+  · org/skriptlang/skript/lang/entry/util/LiteralEntryData
+  · Lch/njol/skript/structures/StructCommand;
+  · Lch/njol/skript/classes/Parser;
+  · Lch/njol/skript/classes/ClassInfo<*>;
+  · Lch/njol/skript/classes/Parser<*>;

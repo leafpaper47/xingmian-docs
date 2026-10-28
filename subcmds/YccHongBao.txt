@@ -1,0 +1,52 @@
+# YccHongBao  (YccHongBao.1.0.0.jar)
+## 注册指令
+  /ycch  usage='/ycch help' desc='YccHongBao 红包主命令' alias=['ycchongbao', 'ycchb'] perm=None
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · broadcast-click-command: "/ycch claim {id}"
+  · title-main: "&0红包管理"
+  · title-items: "&0选择物品红包物品"
+  · prefix: "&c[红包] "
+  · no-permission: "&c你没有权限。"
+  · player-only: "&c这个命令只能由玩家执行。"
+  · economy-missing: "&cVault 经济服务未找到，请安装 Vault 和经济插件。"
+  · economy-failed: "&c经济扣款或发放失败。"
+  · input-prompt: "&e请在聊天框输入：&6金额 数量&e。输入 &cC &e取消。"
+  · password-input-prompt: "&e请在聊天框输入：&6金额 数量 口令&e。输入 &cC &e取消。"
+  · item-input-prompt: "&e已选择物品 &b{item}&e，请在聊天框输入：&6金额 数量&e。输入 &cC &e取消。"
+  · input-cancelled: "&c已取消发送红包。"
+  · input-format: "&c格式错误。普通红包输入：金额 数量；口令红包输入：金额 数量 口令。"
+  · amount-limit: "&c红包金额必须在 {min} 到 {max} 之间。"
+  · count-limit: "&c红包数量必须在 {min} 到 {max} 之间。"
+  · amount-too-small: "&c金额太低，无法拆成这么多份。"
+  · password-empty: "&c口令不能为空。"
+  · password-reserved: "&c口令不能是 C，因为 C 用于取消。"
+  · created-click: "&e{player}&f 发了一个 &c{type}&f，总金额 &6{amount}&f，数量 &b{count}&f 个。"
+  · created-password: "&e{player}&f 发了一个 &d口令红包&f，总金额 &6{amount}&f，数量 &b{count}&f 个，口令：&a{password}"
+  · created-item: "&e{player}&f 发了一个 &b我有你没有红包&f，手持 &e{item}&f 自动领取，总金额 &6{amount}&f，数量 &b{count}&f 个。"
+  · click-button: "&a[点击领取]"
+  · click-hover: "&e点击领取这个红包"
+  · claim: "&e{player}&f 抢到了 &c{type}&f，获得 &6{amount}&f 金币。"
+  · already-claimed: "&c你已经领过这个红包了。"
+  · empty: "&c这个红包已经被抢完了。"
+  · expired: "&7红包 &f#{id}&7 已结束。"
+  · expired-refund: "&7未领取金额 &6{amount}&7 已退回给 &f{player}&7。"
+  · luck-king: "&6手气王：&e{player}&f 抢到 &6{amount}&f 金币。"
+  · no-luck-king: "&7这个红包没人领取，没有手气王。"
+  · mine-chain: "&c扫雷连锁：&e{player}&f 作为手气王，自动发出同金额红包。"
+  · mine-chain-failed: "&c扫雷连锁停止：手气王 {player} 余额不足或扣款失败。"
+  · reloaded: "&a红包配置已重载。"
+  · description: YccHongBao 红包主命令
+  · usage: /ycch help
+  · description: 打开管理员红包 GUI、发送红包和重载配置
+  · description: 发送红包
+  · description: 领取红包
+  · description: 重载红包配置
+
+## 常量池帮助/描述文本

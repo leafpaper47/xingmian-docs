@@ -1,0 +1,444 @@
+# TownPlugin  (TownPlugin-1.4.8-itemguard.jar)
+## 注册指令
+  /town  usage=None desc='城镇系统（打开城镇核心界面）' alias=['tw'] perm=None
+  /townui  usage=None desc='城镇系统（打开创建界面）' alias=['twu'] perm=None
+  /townadmin  usage=None desc='城镇系统管理面板（需 town.admin 权限）' alias=['twa'] perm=None
+  /townwarp  usage=None desc='城镇传送（全服玩家可查看/传送至各城镇传送点）' alias=['twarp'] perm=None
+  /wh  usage=None desc='城镇仓库（打开所属城镇的共享仓库，需先加入城镇）' alias=None perm=None
+
+## 代码类
+  cn.yxsjmc.town.CommandHandler
+  cn.yxsjmc.town.warehouse.WarehouseCommand
+
+## javap 字符串 token
+  accept delete deny town townadmin townui townwarp warehouse
+
+## 文本资源里的帮助/用法行
+  · # ================= 星冕城镇系统 主配置 =================
+  · # 货币说明：星点 = Vault 经济插件余额；1 星辉 = 100 星点
+  · # 星辉结算方式：POINTS = 直接扣星点；ITEM = 扣除背包中的星辉物品
+  · # 星辉自定义物品 ID（联动 CraftEngine/Oraxen）。留空则用上面材质判定；填写后按自定义 ID 匹配与发放
+  · star-item-name: "&e&l星辉"
+  · # 标志性建筑凭证（创建城镇消耗）
+  · # 凭证自定义物品 ID（联动 CraftEngine/Oraxen）。填写后创建城镇严格按该 ID 校验，普通纸片一律无效
+  · cert-name: "&d&l标志性建筑凭证"
+  · max-name-length: 5           # 城镇名称最短1字、最长5字
+  · create-cost-stars: 600       # 创建消耗星辉
+  · create-cost-certs: 1         # 创建消耗建筑凭证数
+  · reactivate-cost-stars: 100   # 封存激活消耗星辉
+  · reactivate-prosperity: 60    # 激活后繁荣度
+  · # 缴纳星辉不限次数（已移除次数上限）
+  · donate-prosperity: 2         # 每缴 1 星辉获得繁荣度
+  · bond-prosperity-per: 50000   # 债券本金每满 50000 星点
+  · bond-prosperity-gain: 10     # 每日 +10 繁荣度
+  · loan-prosperity-per: 10000   # 贷款每借出 10000 星点
+  · loan-prosperity-cost: 20     # 每日 -20 繁荣度
+  · idle-members-cost: 2         # 当天无人做任务时，每名成员 -2
+  · member-maintenance-per-day: 1   # 每名成员每日维护费（每人每天 -1 繁荣度，加入即生效）
+  · warp-free-times: 2           # 全城镇免费设置城镇传送点次数（整城镇限 N 次，非单人；用完每次收费）
+  · warp-cost-prosperity: 100    # 免费次数用完后，每次额外设置传送点消耗繁荣度
+  · bond-min-hold-hours: 24      # 债券最低存满小时数（未满也可取出，仅本金无利息）
+  · bond-days-per-month: 30      # 月计 30 天
+  · member-join-max: -1          # 最多成员数（-1 不限制）
+  · leave-cooldown-hours: 8      # 玩家退出城镇后，需等待多久（小时）才能加入/创建其他城镇
+  · warehouse-world: "world"     # 城镇仓库仅限在该世界使用（/wh、仓库界面及所有仓库入口）；其它世界打开/使用会被拦截并提示
+  · # 城镇等级：0聚落 / 1乡镇 / 2城镇 / 3王都（按数组顺序递增）
+  · - name: "聚落"
+  · max-prosperity: 2000   # 创建即聚落（初始繁荣 100）；攒到 2000 升入乡镇
+  · - name: "乡镇"
+  · max-prosperity: 20000   # 攒到 20000 升入城镇；跌破 2000（上一级门槛）降回聚落
+  · - name: "城镇"
+  · max-prosperity: 50000   # 攒到 50000 升入王都；跌破 20000（上一级门槛）降回乡镇
+  · - name: "王都"
+  · max-prosperity: -1   # -1 表示顶级：王都繁荣度不封顶（无升级目标，持续累积）；降级按跌破上一级（城镇）门槛 50000 判定
+  · # 每日城镇任务
+  · task-slots: 4                     # 每人每日任务槽位数（固定 4 个：任务 1/2/3/4，生成时保证类型多样、目标不雷同）
+  · scale-per-level: [1, 2, 4, 8]     # 材料数量倍率
+  · kinds-per-level: [3, 5, 8, 10]    # 每个任务包含的物品种类数（按城镇等级：聚落3种/乡镇5种/城镇8种/王都10种）
+  · item-count-min: 3                 # 每个任务包含的物品种类数（最少，未配置 kinds-per-level 时兜底）
+  · item-count-max: 5                 # 每个任务包含的物品种类数（最多，未配置 kinds-per-level 时兜底）
+  · min-amount-per-item: 30           # 任务中每种物品的最低需求数量
+  · submit-max-per-day: 3             # 每名玩家每日最多提交数
+  · # 每日城镇任务材料池：每项格式 "TYPE:MATERIAL:BASE"（TYPE：COLLECT采集 / KILL击杀 / FISH钓鱼 / CRAFT合成 / MINE挖掘）
+  · # 兼容旧格式 "MATERIAL:BASE"（自动按物品归类）。生成时随机抽取类型与物品，同一天 4 个任务类型尽量不同、目标尽量不重复。
+  · # ---- 采集 COLLECT（农作物 / 木材 / 果实） ----
+  · # ---- 钓鱼 FISH（水产 / 海底产物） ----
+  · # ---- 击杀 KILL（怪物掉落） ----
+  · # ---- 挖掘 MINE（矿物 / 石料） ----
+  · # ---- 合成 CRAFT（合成 / 加工产物） ----
+  · # 丰收节（每周六，须为城镇成员）
+  · # 丰收节：所有城镇等级（聚落/乡镇/城镇/王都）均适用，每周六自动触发；城镇成员当天享受以下加成（封存城镇不享受）
+  · # 考古挖掘化石掉落双倍：丰收节当天考古挖掘获得化石的数量 ×2（考古插件经 TownFestivalApi 读取本开关）
+  · # 钓鱼大赛渔获双倍：当天九点插件(EMF)钓鱼大赛期间，钓上来的所有品质鱼数量 ×2
+  · # EMF 稀有度白名单（填写 EMF 稀有度 ID，小写），留空表示不限稀有度全部双倍
+  · # 城镇 buff（乡镇及以上解锁；聚落时界面灰显未激活）
+  · unlock-level: 1            # 解锁等级（0聚落 1乡镇 2城镇 3王都）
+  · personal-cost: 2           # 个人单个 buff 消耗繁荣度
+  · town-cost: 20              # 全员单个 buff 消耗繁荣度
+  · duration-minutes: 10       # buff 持续时间（分钟）
+  · # 购买生命上限（成员身份专属加成，通过 Attribute generic.max_health 实现，与附魔插件生命上限互不冲突）
+  · max-hearts: 2              # 每人最多可购买 2 颗心（= +4 最大生命值）
+  · cost-prosperity: 100       # 默认单次消耗城镇繁荣度（梯度列表不足时回退）
+  · cost-stars: 100            # 默认单次消耗星辉数（1 星辉 = 100 星点）
+  · # 收费梯度（按第 N 次购买，0 起）：第 1 次 = 100 繁荣 + 100 星辉(10000 星点)；第 2 次 = 200 繁荣 + 200 星辉(20000 星点)
+  · # 每日结算时刻（24小时制，服务器时区）
+  · # 系统每分钟例行检查：到达此处时刻且当日尚未结算时，执行当日结算（债券利息/繁荣度、贷款扣减、闲置扣减各一次/天）
+  · # 附魔中文名对照表（用于仓库搜索）
+  · # 数据来源：Minecraft 26.2 官方 zh_cn 语言文件 assets/minecraft/lang/zh_cn.json
+  · # 键为附魔注册名（不含命名空间），值为中文译名
+  · # 注意：服务端没有客户端资源包，Enchantment#displayName 拿不到中文，
+  · #       因此必须用这张内置表，搜索才能命中「锋利」「经验」等中文关键词。
+  · aqua_affinity=水下速掘
+  · bane_of_arthropods=节肢杀手
+  · binding_curse=绑定诅咒
+  · blast_protection=爆炸保护
+  · breach=破甲
+  · channeling=引雷
+  · density=致密
+  · depth_strider=深海探索者
+  · efficiency=效率
+  · feather_falling=摔落缓冲
+  · fire_aspect=火焰附加
+  · fire_protection=火焰保护
+  · flame=火矢
+  · fortune=时运
+  · frost_walker=冰霜行者
+  · impaling=穿刺
+  · infinity=无限
+  · knockback=击退
+  · looting=抢夺
+  · loyalty=忠诚
+  · luck_of_the_sea=海之眷顾
+  · lunge=突进
+  · lure=饵钓
+  · mending=经验修补
+  · multishot=多重射击
+  · piercing=穿透
+  · power=力量
+  · projectile_protection=弹射物保护
+  · protection=保护
+  · punch=冲击
+  · quick_charge=快速装填
+  · respiration=水下呼吸
+  · riptide=激流
+  · sharpness=锋利
+  · silk_touch=精准采集
+  · smite=亡灵杀手
+  · soul_speed=灵魂疾行
+  · sweeping=横扫之刃
+  · sweeping_edge=横扫之刃
+  · swift_sneak=迅捷潜行
+  · thorns=荆棘
+  · unbreaking=耐久
+  · vanishing_curse=消失诅咒
+  · wind_burst=风爆
+  · # 以下为 EcoEnchants 自定义附魔中文名（2026-10 从正式服 plugins/EcoEnchants/enchants/
+  · # 各 yml 的 display-name 字段提取，共 87 条）。
+  · # ★ 为什么必须要它们：EcoEnchants 把自定义附魔注册在 **minecraft: 命名空间**
+  · #   （实测正式服仓库存档里就是 {"minecraft:blackout":3} 这样的键），
+  · #   所以 Bukkit 能正常返回 Enchantment、物品也不掉附魔 —— 但内置表里
+  · #   只有官方 43 条原版译名，自定义附魔**只能搜到英文 id**（blackout / thor …），
+  · #   玩家按中文名「黑暗」「雷神之怒」搜一律搜不到。
+  · # ★ 这些是**内置兜底**；EnchantLang 还会在运行时从 EcoEnchants 插件的数据文件夹
+  · #   重新扫描 plugins/EcoEnchants/enchants/**.yml 的 display-name，
+  · #   服主改了附魔名无需重新打包插件即可生效。
+  · abrasion=耐久耗损
+  · adrenaline=反击
+  · adventurer=冒险家
+  · angler=渔夫
+  · arcane_defence=药水免疫
+  · ascend=悬浮
+  · aura=群体减伤
+  · blackout=黑暗
+  · bleed=流血
+  · block_breather=窒息免疫
+  · boss_hunter=Boss杀手
+  · breaklessness_curse=破坏诅咒
+  · brightness=暗影打击
+  · caffeinated=冲刺之锋
+  · carve=旋风斩
+  · charge=突进
+  · chemist=炼金术士
+  · combatant=战士
+  · confusion=混乱
+  · contagion=毒刺之地
+  · crit_luck=暴击率
+  · criticals=暴伤提升
+  · cubism=立方杀手
+  · dexterity=攻速提升
+  · ender_slayer=末影杀手
+  · enriched_plating=强化装甲
+  · escape=疾速逃脱
+  · finishing=终结
+  · first_strike=先发制人
+  · flashbang=致盲
+  · foraging=觅食
+  · forceful_crit=强力暴击
+  · fortitude=伤害提升
+  · fragile_curse=易损诅咒
+  · frost=霜冻
+  · getaway=生死一线
+  · goliath=逆势回击
+  · green_thumb=耕作能手
+  · hard_worker=勤劳工作者
+  · harmlessness_curse=攻击免疫
+  · haunting=自爆
+  · hunger_curse=饥饿诅咒
+  · infernal_touch=自动熔炼
+  · introversion=近战提升
+  · jumpshot=跳投
+  · metabolism=新陈代谢
+  · might=力量
+  · misfortune_curse=霉运
+  · neptune=海神
+  · ninja=潜行忍者
+  · one_for_all=团结就是力量
+  · overload=过载
+  · permanence_curse=永恒诅咒
+  · petkeeper=宠物管理员
+  · poison_ivy=毒藤
+  · prospector=勘探者
+  · rapid=快速射击
+  · rebounding=反弹
+  · replenish=补种
+  · rocket_saver=火箭节省者
+  · rumble=震动
+  · shura=绝境爆发
+  · skull_puncture=颅骨穿刺
+  · slaughter=屠戮
+  · slipstream=滑流
+  · snipe=狙击
+  · sorcery=巫术
+  · soul_storm=灵魂风暴
+  · soulbound=灵魂绑定
+  · sparks=电闪雷鸣
+  · stamina=耐力
+  · steel_string=钢弦
+  · stimulating=刺激
+  · streamlining=流线型
+  · strongarm=强臂
+  · stun=晕眩
+  · superior=卓越
+  · thor=雷神之怒
+  · thrive=生机勃发
+  · transmission=传送
+  · tripleshot=三重射击
+  · vicious=凶暴
+  · warp_drive=箭跃
+  · wisdom=智慧之赐
+  · woodworker=木工
+  · wound=创伤
+  · wyvern=翼刃
+  · acacia_boat=金合欢木船
+  · acacia_button=金合欢木按钮
+  · acacia_chest_boat=金合欢木运输船
+  · acacia_door=金合欢木门
+  · acacia_fence=金合欢木栅栏
+  · acacia_fence_gate=金合欢木栅栏门
+  · acacia_hanging_sign=悬挂式金合欢木告示牌
+  · acacia_leaves=金合欢树叶
+  · acacia_log=金合欢原木
+  · acacia_planks=金合欢木板
+  · acacia_pressure_plate=金合欢木压力板
+  · acacia_sapling=金合欢树苗
+  · acacia_shelf=金合欢木展示架
+  · acacia_sign=金合欢木告示牌
+  · acacia_slab=金合欢木台阶
+  · acacia_stairs=金合欢木楼梯
+  · acacia_trapdoor=金合欢木活板门
+  · acacia_wall_hanging_sign=墙上的悬挂式金合欢木告示牌
+  · acacia_wall_sign=墙上的金合欢木告示牌
+  · acacia_wood=金合欢木
+  · activator_rail=激活铁轨
+  · air=空气
+  · allay_spawn_egg=悦灵刷怪蛋
+  · allium=绒球葱
+  · amethyst_block=紫水晶块
+  · amethyst_cluster=紫水晶簇
+  · amethyst_shard=紫水晶碎片
+  · ancient_debris=远古残骸
+  · andesite=安山岩
+  · andesite_slab=安山岩台阶
+  · andesite_stairs=安山岩楼梯
+  · andesite_wall=安山岩墙
+  · angler_pottery_shard=垂钓纹样陶片
+  · angler_pottery_sherd=垂钓纹样陶片
+  · anvil=铁砧
+  · apple=苹果
+  · archer_pottery_shard=弓箭纹样陶片
+  · archer_pottery_sherd=弓箭纹样陶片
+  · armadillo_scute=犰狳鳞甲
+  · armadillo_spawn_egg=犰狳刷怪蛋
+  · armor_stand=盔甲架
+  · arms_up_pottery_shard=举臂纹样陶片
+  · arms_up_pottery_sherd=举臂纹样陶片
+  · arrow=箭
+  · attached_melon_stem=结果的西瓜茎
+  · attached_pumpkin_stem=结果的南瓜茎
+  · axolotl_bucket=美西螈桶
+  · axolotl_spawn_egg=美西螈刷怪蛋
+  · azalea=杜鹃花丛
+  · azalea_leaves=杜鹃树叶
+  · azure_bluet=蓝花美耳草
+  · baked_potato=烤马铃薯
+  · bamboo=竹子
+  · bamboo_block=竹块
+  · bamboo_button=竹按钮
+  · bamboo_chest_raft=运输竹筏
+  · bamboo_door=竹门
+  · bamboo_fence=竹栅栏
+  · bamboo_fence_gate=竹栅栏门
+  · bamboo_hanging_sign=悬挂式竹告示牌
+  · bamboo_mosaic=竹马赛克
+  · bamboo_mosaic_slab=竹马赛克台阶
+  · bamboo_mosaic_stairs=竹马赛克楼梯
+  · bamboo_planks=竹板
+  · bamboo_pressure_plate=竹压力板
+  · bamboo_raft=竹筏
+  · bamboo_sapling=竹笋
+  · bamboo_shelf=竹展示架
+  · bamboo_sign=竹告示牌
+  · bamboo_slab=竹台阶
+  · bamboo_stairs=竹楼梯
+  · bamboo_trapdoor=竹活板门
+  · bamboo_wall_hanging_sign=墙上的悬挂式竹告示牌
+  · bamboo_wall_sign=墙上的竹告示牌
+  · banner.base.black=黑底
+  · banner.base.blue=蓝底
+  · banner.base.brown=棕底
+  · banner.base.cyan=青底
+  · banner.base.gray=灰底
+  · banner.base.green=绿底
+  · banner.base.light_blue=淡蓝底
+  · banner.base.light_gray=淡灰底
+  · banner.base.lime=黄绿底
+  · banner.base.magenta=品红底
+  · banner.base.orange=橙底
+  · banner.base.pink=粉红底
+  · banner.base.purple=紫底
+  · banner.base.red=红底
+  · banner.base.white=白底
+  · banner.base.yellow=黄底
+  · banner.border.black=黑色方框边
+  · banner.border.blue=蓝色方框边
+  · banner.border.brown=棕色方框边
+  · banner.border.cyan=青色方框边
+  · banner.border.gray=灰色方框边
+  · banner.border.green=绿色方框边
+  · banner.border.light_blue=淡蓝色方框边
+  · banner.border.light_gray=淡灰色方框边
+  · banner.border.lime=黄绿色方框边
+  · banner.border.magenta=品红色方框边
+  · banner.border.orange=橙色方框边
+  · banner.border.pink=粉红色方框边
+  · banner.border.purple=紫色方框边
+  · banner.border.red=红色方框边
+  · banner.border.white=白色方框边
+  · banner.border.yellow=黄色方框边
+  · banner.bricks.black=黑色砖纹
+  · banner.bricks.blue=蓝色砖纹
+  · banner.bricks.brown=棕色砖纹
+  · banner.bricks.cyan=青色砖纹
+  · banner.bricks.gray=灰色砖纹
+  · banner.bricks.green=绿色砖纹
+  · banner.bricks.light_blue=淡蓝色砖纹
+  · banner.bricks.light_gray=淡灰色砖纹
+  · banner.bricks.lime=黄绿色砖纹
+  · banner.bricks.magenta=品红色砖纹
+  · banner.bricks.orange=橙色砖纹
+  · banner.bricks.pink=粉红色砖纹
+  · banner.bricks.purple=紫色砖纹
+  · banner.bricks.red=红色砖纹
+  · banner.bricks.white=白色砖纹
+  · banner.bricks.yellow=黄色砖纹
+  · banner.circle.black=黑色圆形
+  · banner.circle.blue=蓝色圆形
+  · banner.circle.brown=棕色圆形
+  · banner.circle.cyan=青色圆形
+  · banner.circle.gray=灰色圆形
+  · banner.circle.green=绿色圆形
+  · banner.circle.light_blue=淡蓝色圆形
+  · banner.circle.light_gray=淡灰色圆形
+  · banner.circle.lime=黄绿色圆形
+  · banner.circle.magenta=品红色圆形
+  · banner.circle.orange=橙色圆形
+  · banner.circle.pink=粉红色圆形
+  · banner.circle.purple=紫色圆形
+  · banner.circle.red=红色圆形
+  · banner.circle.white=白色圆形
+  · banner.circle.yellow=黄色圆形
+  · banner.creeper.black=黑色苦力怕盾徽
+  · banner.creeper.blue=蓝色苦力怕盾徽
+  · banner.creeper.brown=棕色苦力怕盾徽
+  · banner.creeper.cyan=青色苦力怕盾徽
+  · banner.creeper.gray=灰色苦力怕盾徽
+  · banner.creeper.green=绿色苦力怕盾徽
+  · banner.creeper.light_blue=淡蓝色苦力怕盾徽
+  · banner.creeper.light_gray=淡灰色苦力怕盾徽
+  · banner.creeper.lime=黄绿色苦力怕盾徽
+  · banner.creeper.magenta=品红色苦力怕盾徽
+  · banner.creeper.orange=橙色苦力怕盾徽
+  · banner.creeper.pink=粉红色苦力怕盾徽
+  · banner.creeper.purple=紫色苦力怕盾徽
+  · banner.creeper.red=红色苦力怕盾徽
+  · banner.creeper.white=白色苦力怕盾徽
+  · banner.creeper.yellow=黄色苦力怕盾徽
+  · banner.cross.black=黑斜十字
+  · banner.cross.blue=蓝斜十字
+  · banner.cross.brown=棕斜十字
+  · banner.cross.cyan=青斜十字
+  · banner.cross.gray=灰斜十字
+  · banner.cross.green=绿斜十字
+  · banner.cross.light_blue=淡蓝斜十字
+  · banner.cross.light_gray=淡灰斜十字
+  · banner.cross.lime=黄绿斜十字
+  · banner.cross.magenta=品红斜十字
+  · banner.cross.orange=橙斜十字
+  · banner.cross.pink=粉红斜十字
+  · banner.cross.purple=紫斜十字
+  · banner.cross.red=红斜十字
+  · banner.cross.white=白斜十字
+  · banner.cross.yellow=黄斜十字
+  · banner.curly_border.black=黑色波纹边
+  · banner.curly_border.blue=蓝色波纹边
+  · banner.curly_border.brown=棕色波纹边
+  · banner.curly_border.cyan=青色波纹边
+  · banner.curly_border.gray=灰色波纹边
+  · banner.curly_border.green=绿色波纹边
+  · banner.curly_border.light_blue=淡蓝色波纹边
+  · banner.curly_border.light_gray=淡灰色波纹边
+  · banner.curly_border.lime=黄绿色波纹边
+  · banner.curly_border.magenta=品红色波纹边
+  · banner.curly_border.orange=橙色波纹边
+  · banner.curly_border.pink=粉红色波纹边
+  · banner.curly_border.purple=紫色波纹边
+  · banner.curly_border.red=红色波纹边
+  · banner.curly_border.white=白色波纹边
+
+## 常量池帮助/描述文本
+  · cn/yxsjmc/town/CommandHandler
+  · Lcn/yxsjmc/town/TownPlugin;
+  · cn/yxsjmc/town/TownPlugin
+  · cn/yxsjmc/town/gui/TownGUI
+  · &c你没有管理员权限删除城镇。
+  · cn/yxsjmc/town/Lang
+  · &c用法：/town delete <城镇名>
+  · cn/yxsjmc/town/TownManager
+  · cn/yxsjmc/town/Town
+  · cn/yxsjmc/town/DataStore
+  · cn/yxsjmc/town/warehouse/TownWarehouse
+  · cn/yxsjmc/town/warehouse/WarehouseManager
+  ·   &7其成员记录、已购生命加成与全部城镇数据已清除。
+  · &c你没有管理员权限。
+  · 该指令仅玩家可用。
+  · &c未找到城镇 &b&c。
+  · 删除城镇 [] 时清理仓库数据失败。
+  ·   &c✘ &b &c已被管理员解散，城镇不复存在。
+  · &a已删除城镇 &b&a。
+  · cn/yxsjmc/town/warehouse/WarehouseCommand
+  · &c你还没有加入任何城镇，加入城镇后即可使用&e城镇仓库&c。
+  · &7输入 &b/townui &7创建自己的城镇，或由其他城镇成员邀请加入。
+  · &c无权限
+  · &c只有玩家可以使用城镇仓库。
+  · &c城镇仓库暂时不可用，请稍后再试。
+  · cn/yxsjmc/town/warehouse/WarehouseGui

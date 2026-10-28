@@ -1,0 +1,1075 @@
+﻿BaseCommand :: &e/mm &fmobs &7? &7&oMob-related commands
+ | &e/mm &fitems &7? &7&oItems-related commands
+ | &e/mm &fskills &7? &7&oSkill-related commands
+ | &e/mm &fspawners &7? &7&oSpawner-related commands
+ | &e/mm &futility &7? &7&oSome helpful utility commands
+ | &e/mm &amenu &7? &7&oOpen the main menu
+ | &e/mm &areload &7? &7&oReloads all configuration files and mobs
+ | &e/mm &adebug &6[level] &7? &7&oEnables console debugging output
+ | &e/mm &aversion &7? &7&oPlugin version information
+ | &e/mm &fmobs &7? &7&oMob-related commands
+ | &e/mm &fitems &7? &7&oItems-related commands
+ | &e/mm &fskills &7? &7&oSkill-related commands
+ | &e/mm &fspawners &7? &7&oSpawner-related commands
+ | &e/mm &futility &7? &7&oSome helpful utility commands
+ | &e/mm &areload &7? &7&oReloads all configuration files and mobs
+ | &e/mm &adebug &6[level] &7? &7&oEnables console debugging output
+ | &e/mm &aversion &7? &7&oPlugin version information
+ | mythicmobs.command.base
+
+CameraCommand :: hold
+ | h
+ | easing
+ | e
+ | relative
+ | r
+ | rel
+ | index
+ | i
+ | add
+ | remove
+ | Added keyframe to \'
+ | \'
+ | (appended)
+ | . Now
+ |  points
+ | , hold=
+ | , easing=
+ | , relative
+ | (last point)
+ | add
+ | remove
+ | easing
+ | e
+ | relative
+ | r
+ | rel
+ | hold
+ | h
+ | index
+ | i
+ | true
+ | false
+ | add
+ | add
+ | hold=
+ | easing=
+ | relative=true
+ | mythicmobs.command.camera
+ | camera
+
+CommandHelper :: <yellow><strikethrough>-------------<gold>========</strikethrough> <bold><gradient:#20DAE9:#2815EC>Mythic</gradient></bold> <strikethrough><gold>========<yellow>-------------</strikethrough>
+ | <yellow><strikethrough>-----------------</strikethrough> <gradient:#20DAE9:#2815EC>www.mythiccraft.io</gradient> <yellow><strikethrough>-----------------</strikethrough>
+ | <bold><gray>[<gradient:#20DAE9:#2815EC>Mythic</gradient><gray>]</bold>
+
+InfoCommand :: mythicmobs.command.info
+ | info
+
+ReloadCommand :: Plugin is already reloading...
+ | -
+ | -a
+ | -p
+ | command.reload.started
+ | Reloading plugin...
+ | command.reload.started
+ | Reloading plugin...
+ | command.reload.started
+ | Reloading plugin...
+ | An error occurred while reloading!
+ | mythicmobs.command.reload
+ | reload
+ | r
+ | re
+ | An error occurred while reloading!
+ | An error occurred while reloading active mobs!
+ | An error occurred while reloading player data!
+ | An error occurred while reloading!
+ | An error occurred while reloading!
+ | command.reload.completed
+ | Mythic has finished reloading!
+ | command.reload.completed
+ | Mythic has finished reloading!
+ | command.reload.completed
+ | Mythic has finished reloading!
+ | command.reload.completed
+ | Mythic has finished reloading!
+
+SaveCommand :: mythicmobs.command.save
+ | save
+
+SignalCommand :: mythicmobs.signal
+ | mythicmobs.command.signal
+ | signal
+ | si
+
+VersionCommand :: SNAPSHOT
+ | &aYes
+ | &aNo
+ | &aYes
+ | &cNo
+ | &cNo
+ | &aYes
+ | mythicmobs.command.version
+ | version
+ | ver
+ | v
+
+debug.DebugCommand ::   &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional
+ | &e/mm d &3[level] &7? &7&oSets debug reporting. Can be between 0 and 4 (0=off,4=too much info).
+ | &e/mm d &fmode &6[true/false] &7? &7&oSets debug mode on or off. See plugin manual for details).
+ | &e/mm d &ftimings &7? &7&oShow basic timing information (timings must be on first).
+ | &e/mm d &ftimings &3[on/off] &7? &7&oTurns timings on/off.
+ | &e/mm d &ftimings skills &7? &7&oShows skill-specific timings in the console.
+ | &e/mm d &ftimings spawners &7? &7&oShows spawner-specific timings in the console.
+ | Debug Level must be an integer (1-5).
+ | mythicmobs.command.debug
+ | debug
+ | d
+
+debug.TimingsCommand :: ON
+ | OFF
+ | RESET
+ | SPAWNERS
+ | Spawner Timings
+ | -- All Spawners:
+ | ** %32s %8d ms - %4d pS %4d pC %4d pOverall)
+ | SKILLS
+ |  AbstractSkill Timings
+ | -- All Timer Skills:
+ | ** %64s %8d ms - %4d pS %4d pC %4d pOverall)
+ | mythicmobs.command.debug.timings
+ | timings
+ | t
+
+debug.ToggleClockCommand :: Clocks Disabled
+ | Clocks Enabled
+ | mythicmobs.command.debug
+ | toggleclock
+
+debug.ToggleNewCommand :: Debugger Disabled
+ | Debugger Enabled
+ | mythicmobs.command.debug
+ | new
+
+dialogs.DialogsCommand :: mythicmobs.command.dialogs
+ | dialogs
+ | dialog
+ | dl
+
+dialogs.ListDialogsCommand :: No dialog definitions loaded.
+ | mythicmobs.command.dialogs.list
+ | list
+ | l
+
+dialogs.ShowDialogCommand :: Usage: /mm dialogs show <dialog> [player]
+ | Dialogs require Mythic Premium.
+ | Specify a player: /mm dialogs show <dialog> <player>
+ | Failed to build showDialog mechanic.
+ | mythicmobs.command.dialogs.show
+ | show
+ | s
+ | open
+
+eggs.EggsCommand ::   &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional
+ | /mm egg get &6[mob] &3<amount> &7? &7&oGives you mob eggs
+ | /mm egg give &6[player] &6[mob] &3<amount> &7? &7&oGives player some mob eggs
+ | mythicmobs.command.eggs
+ | egg
+ | eggs
+ | e
+
+eggs.GetCommand :: Command Syntax: /mm egg get <mob_name> [amount]
+ | Could not get egg: inventory is full.
+ | mythicmobs.command.eggs.get
+ | get
+
+eggs.GiveCommand :: -
+ | s
+ | Command Syntax: /mm egg give <name> <mob_name> [amount]
+ | Amount provided is not a number
+ | That player is not online
+ | -
+ | mythicmobs.command.eggs.give
+ | give
+ | g
+ | gi
+
+items.BrowseCommand :: This feature requires MythicMobs Premium
+ | mythicmobs.command.items.browse
+ | browse
+
+items.EnchantCommand :: Syntax: /mm item enchant <name> [level]
+ | Level must be an integer.
+ | You must be holding a valid item!
+ | You must enter a valid enchantment name!
+ | Applied enchantment to held item!
+ | Applied enchantment to held item!
+ | mythicmobs.command.items.enchant
+ | enchant
+ | ench
+ | e
+
+items.ExportCommand :: mythicmobs.command.items.export
+ | export
+
+items.GetCommand :: Command Syntax: /mm item get <name>
+ | Could not get item: item is improperly configured and returned null.
+ | command.item.get.success
+ | Item <aqua>{0} <green>was put in your inventory!
+ | command.item.get.error.not-found
+ | No Mythic Item loaded with the name {0}.
+ | mythicmobs.command.items.get
+ | get
+
+items.GiveCommand :: -
+ | s
+ | d
+ | t
+ | Command Syntax: /mm item give <name> <item>
+ | That player is not online
+ | mythicmobs.command.items.give
+ | give
+ | g
+ | gi
+ | Configuration.General.SendGiveItemFeedback
+
+items.ImportCommand :: You must specify a name for this item.
+ | You must be holding an item to import.
+ | items
+ | Items
+ | items
+ | .yml
+ | Failed to create new file for Item Import.
+ | Failed to create new file for Item Import.
+ | Material
+ | Model
+ | CustomModelData
+ | CustomModelData
+ | CustomModelData
+ | Display
+ | Lore
+ | Damage
+ | Enchantments
+ | NBT
+ | mythicmobs.command.items.import
+ | import
+ | <byte-array>
+ | <int-array>
+ | <compound>
+ | <list>
+ | #%02x%02x%02x
+
+items.InfoCommand :: mythicmobs.command.items.info
+ | info
+
+items.ItemsCommand ::   &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional
+ | &e/mm i &fbrowse &7? &7&oOpen Item Browser
+ | &e/mm i &flist &3<filter> &7? &7&oList all loaded items
+ | &e/mm i &finfo &6[name] &7? &7&oShow info about an item
+ | &e/mm i &fget &6[name] &7? &7&oGive yourself an item
+ | &e/mm i &fgive &3<-s> &6[player] &6[name] &3<amount> &7? &7&oGive a player an item
+ | &e/mm i &fenchant &6[name] &6<level> &7? &7&oEnchant your held item
+ | &e/mm i &fimport &6[name] &3<fileName> &7? &7&oImport your held item
+ | mythicmobs.command.items
+ | items
+ | i
+
+items.ListCommand :: mythicmobs.command.items.list
+ | list
+
+items.edit.EditEnchantsCommand :: This feature requires Mythic Premium
+ | Invalid Item Name
+ | Type in the Enchantment you\'d like to add.
+ | Format: [enchantment_type] [amount]
+ | Type cancel to abort editing.
+ | Invalid Enchantment
+ | mythicmobs.command.items.edit
+ | enchants
+ | Enchantments
+ | <gray><bold>--------------------</bold>
+ | cancel
+ | Invalid enchantment supplied
+
+items.edit.EditEnchantsCommand$EditAction :: CLEAR
+ | ADD
+ | REMOVE
+
+items.edit.EditLoreCommand :: This feature requires Mythic Premium
+ | Invalid Item Name
+ | Type in the Lore line you\'d like to add.
+ | Type cancel to abort editing.
+ | Invalid Line Number
+ | mythicmobs.command.items.edit
+ | lore
+ | Lore
+ | <gray><bold>--------------------</bold>
+ | cancel
+
+items.edit.EditLoreCommand$EditAction :: CLEAR
+ | ADD_LINE
+ | REMOVE_LINE
+ | MOVE_LINE_UP
+ | MOVE_LINE_DOWN
+
+items.edit.EditStatsCommand :: This feature requires Mythic Premium
+ | Invalid Item Name
+ | Type in the stat you\'d like to add.
+ | Type cancel to abort editing.
+ | Invalid index
+ | mythicmobs.command.items.edit
+ | stats
+ | Lore
+ | <gray><bold>--------------------</bold>
+ | cancel
+ | list
+ | Format: [amount] [stat_name] <ADDITIVE/MULTIPLICATIVE/COMPOUND>
+
+items.edit.EditStatsCommand$EditAction :: CLEAR
+ | ADD
+ | REMOVE
+
+items.edit.ItemEditCommand :: This feature requires Mythic Premium
+ | Invalid Item Name
+ | mythicmobs.command.items.edit
+ | edit
+
+menus.ItemBrowserMenuCommand :: This feature requires Mythic Premium
+ | mythicmobs.command.items.browse
+ | items
+ | i
+
+menus.MenuCommand :: This feature requires MythicMobs Premium
+ | mythicmobs.command.menu
+ | menu
+ | menus
+
+menus.MobBrowserMenuCommand :: This feature requires Mythic Premium
+ | mythicmobs.command.mobs.browse
+ | mobs
+ | m
+
+menus.OpenCommand :: Custom Menus require Mythic Premium or MythicRPG
+ | Custom menu not found.
+ | custom
+ | open
+ | o
+
+mobs.BrowseCommand :: This feature requires Mythic Premium
+ | mythicmobs.command.mobs.browse
+ | browse
+ | b
+
+mobs.CleanCommand :: mythicmobs.command.mobs.clean
+ | clean
+
+mobs.EditCommand :: This feature requires Mythic Premium
+ | mythicmobs.command.mobs.browse
+ | edit
+ | e
+
+mobs.InfoCommand :: Usage /mm m[obs] i[nfo] <internal-name>
+ | mythicmobs.command.mobs.info
+ | info
+ | i
+
+mobs.KillAllCommand :: -
+ | p
+ | LITERALLY
+ | mythicmobs.command.mobs.killall
+ | killall
+ | ka
+
+mobs.KillCommand :: -
+ | p
+ | e
+ | v
+ | f
+ | Must supply mob type to kill (or use <yellow>killall<red>)
+ | -
+ | mythicmobs.command.mobs.kill
+ | kill
+ | k
+
+mobs.ListActiveCommand :: *
+ | [0-9]*
+ | &7- &eEntity is null
+ | &7- &eType is null
+ | &7[&aTP&7]
+ | &7[&dTPHere&7]
+ | &7[&cD&7]
+ | &7[&cK&7]
+ | &7[&bInfo&7]
+ | mythicmobs.command.mobs.listactive
+ | listactive
+ | la
+
+mobs.ListCommand :: mythicmobs.command.mobs.list
+ | list
+ | l
+
+mobs.MobsCommand ::   &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional
+ | &e/mm m &fbrowse &3<filter> &7? &7&oOpen mob browser (premium-only)
+ | &e/mm m &flist &3<filter> &7? &7&oList all loaded Mythic Mobs
+ | &e/mm m &finfo &6[type] &7? &7&oShow info about a mob type
+ | &e/mm m &fkill &6[type] &7? &7&oKill all mobs of type [type]
+ | &e/mm m &fkillall &3<radius> &7? &7&oRemove all active mobs
+ | &e/mm m &fspawn &3<-t> &6[type] &3<amount> &3<w,x,y,z> &7? &7&oSpawn mobs
+ | &e/mm m &fstats &7? &7&oShows stats about active mobs
+ | mythicmobs.command.mobs
+ | mobs
+ | mob
+ | m
+
+mobs.SpawnCommand :: You must specify a mob to spawn.
+ | -
+ | s
+ | t
+ | p
+ | n
+ | @
+ | Invalid location targeter specified for spawning a mob.
+ | Invalid location targeter specified for spawning a mob.
+ | ,
+ | Invalid location specified for spawning a mob: location must be in format world,x,y,z,yaw,pitch
+ | Invalid location specified for spawning a mob: world does not exist.
+ | :
+ | :
+ | Invalid mob level supplied: must be a number.
+ | Failed to spawn mob. See console for more details. If no error then you are in a mob spawning denied region.
+ | -
+ | mythicmobs.command.mobs.spawn
+ | spawn
+ | s
+
+mobs.StatsCommand :: <red>
+ | <gold>Statistics<gray>:
+ | mythicmobs.command.mobs.stats
+ | stats
+
+mobs.StatsCommand$MobStats :: 
+pins.AddPinCommand :: -
+ | s
+ | mythicmobs.command.pins
+ | createpin
+ | addpin
+ | cp
+
+pins.AddRegionCommand :: ,
+ | No region selected. Use WorldEdit wand to select.
+ | mythicmobs.command.pins
+ | createregion
+ | addregion
+ | cr
+
+pins.ListPinsCommand :: <gold><bold>List of Pins:
+ | mythicmobs.command.pins.list
+ | list
+
+pins.ListRegionsCommand :: <gold><bold>Regions At This Location:
+ | <gray>
+ | mythicmobs.command.pins.list
+ | listregions
+
+pins.MovePinCommand :: Pin not found.
+ | MultiPin does not support moving.
+ | mythicmobs.command.pins
+ | move
+ | m
+
+pins.PinsCommand :: mythicmobs.command.pins
+ | pins
+ | pin
+ | p
+
+pins.RedefineRegionCommand :: Region not found
+ | No region selected. Use WorldEdit wand to select.
+ | Region redefined
+ | mythicmobs.command.pins
+ | redefineregion
+ | rdr
+
+pins.RemovePinCommand :: -
+ | s
+ | Pin removed
+ | Pin could not be removed
+ | mythicmobs.command.pins
+ | removepin
+ | rp
+
+pins.RemoveRegionCommand :: Region removed
+ | Region could not be removed
+ | mythicmobs.command.pins
+ | removeregion
+ | rr
+
+pins.SwapPinCommand :: Pin 1 not found.
+ | Pin 2 not found.
+ | MultiPin does not support moving.
+ | MultiPin does not support moving.
+ | mythicmobs.command.pins
+ | swap
+
+pins.TeleportCommand :: Pin not found.
+ | block.respawn_anchor.deplete
+ | mythicmobs.command.pins
+ | warp
+ | teleport
+ | tp
+
+pins.ToggleViewingPinsCommand :: Pins now visible
+ | Pins no longer visible
+ | mythicmobs.command.pins
+ | toggleviewing
+ | tv
+
+pins.WandCommand :: Command Syntax: /mm pins wand <pack> <pin>
+ | mythicmobs.command.pins
+ | wand
+ | w
+
+skills.InfoCommand :: Usage /mm s[kills] i[nfo] <internal-name>
+ | mythicmobs.command.skills.info
+ | info
+ | i
+
+skills.SkillsCommand ::   &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional
+ | &e/mm s &finfo &6[name] &7? &7&oShow info about a skill
+ | mythicmobs.command.skills
+ | skills
+ | skill
+ | sk
+
+spawners.ActivateCommand :: g:
+ | *
+ | *
+ | ?
+ | ?
+ | .?
+ | *
+ | .*?
+ | mythicmobs.command.spawners.activate
+ | activate
+ | a
+
+spawners.AddConditionCommand :: Invalid Syntax: <aqua>/mm spawners addcondition [spawner] [condition]
+ | g:
+ | The condition you entered was invalid!
+ | *
+ | The condition you entered was invalid!
+ | *
+ | ?
+ | ?
+ | .?
+ | *
+ | .*?
+ | The condition you entered was invalid!
+ | You must enter a valid Mythic Spawner ID. That one was not found!
+ | The condition you entered was invalid!
+ | mythicmobs.command.spawners.addcondition
+ | addcondition
+ | ac
+
+spawners.AddConditionSpawnCommand :: Invalid Syntax: <aqua>/mm spawners addspawncondition [spawner] [condition]
+ | g:
+ | The condition you entered was invalid!
+ | *
+ | The condition you entered was invalid!
+ | *
+ | ?
+ | ?
+ | .?
+ | *
+ | .*?
+ | The condition you entered was invalid!
+ | You must enter a valid Mythic Spawner ID. That one was not found!
+ | The condition you entered was invalid!
+ | mythicmobs.command.spawners.addcondition
+ | addspawncondition
+ | asc
+
+spawners.CopyCommand :: You must enter the name of a spawner to copy.
+ | You must enter a valid Mythic Spawner to copy!
+ | You must enter a name for the new spawner.
+ | The name you entered for a new spawner is already in use!
+ | You must target a valid block to place the spawner!
+ | New spawner was cloned successfully!
+ | mythicmobs.command.spawners.copy
+ | copy
+
+spawners.CreateCommand :: -
+ | p
+ | You must enter a name for the spawner.
+ | Spawner name must resolve to a unique hashcode.
+ | :
+ | :
+ | Invalid mob level supplied: must be an integer or range (1, 2to5, etc).
+ | You must enter a Mythic Mob for the spawner to spawn.
+ | You must enter a valid Mythic Mob. That one was not found!
+ | ,
+ | Invalid location specified for spawner: location must be in format world,x,y,z
+ | Invalid location specified for spawner: location must be in format world,x,y,z
+ | You must target a valid block to place the spawner!
+ | Spawner creation failed: spawner name is probably already taken!
+ | mythicmobs.command.spawners.create
+ | create
+ | cr
+ | c
+
+spawners.CutCommand :: You must enter a pattern of spawners to cut.
+ | Your entry returned no spawners to cut.
+ | mythicmobs.command.spawners.cut
+ | cut
+
+spawners.FindCommand :: (\\d+\\.\\d+)
+ | (\\d+)
+ | mythicmobs.command.spawners.find
+ | find
+ | listnear
+ | ln
+
+spawners.InfoCommand :: <gold>Activation Conditions<gray>:
+ | <gold>Spawn Conditions<gray>:
+ | <gold>Mobs Associated with Spawner</gold><white>:
+ | &7[&aTP&7]
+ | &7[&bInfo&7]
+ | &7[&cD&7]
+ | &7[&dTPHERE&7]
+ | mythicmobs.command.spawners.info
+ | info
+
+spawners.MoveCommand :: -
+ | p
+ | You must enter the name of a spawner to move.
+ | You must enter a valid Mythic Spawner to move!
+ | You must target a valid block to move the spawner!
+ | mythicmobs.command.spawners.move
+ | move
+
+spawners.PasteCommand :: Spawners pasted from the clipboard!
+ | There are no spawners to paste in the clipboard (or an error occured!)
+ | mythicmobs.command.spawners.paste
+ | paste
+
+spawners.RemoveCommand :: You must enter the name of a mob spawner to remove!
+ | g:
+ | *
+ | ?
+ | ?
+ | .?
+ | *
+ | .*?
+ | The spawner entered does not exist!
+ | Spawner was removed successfully!
+ | mythicmobs.command.spawners.remove
+ | remove
+ | re
+ | delete
+ | r
+
+spawners.RemoveConditionCommand :: Invalid Syntax: <aqua>/mm spawners removecondition [spawner] [condition]
+ | g:
+ | The condition you entered was invalid!
+ | *
+ | The condition you entered was invalid!
+ | *
+ | ?
+ | ?
+ | .?
+ | *
+ | .*?
+ | The condition you entered was invalid!
+ | You must enter a valid Mythic Spawner ID. That one was not found!
+ | The condition you entered was invalid!
+ | mythicmobs.command.spawners.removecondition
+ | removecondition
+ | rc
+
+spawners.RemoveConditionSpawnCommand :: Invalid Syntax: <aqua>/mm spawners removespawncondition [spawner] [condition]
+ | g:
+ | The condition you entered was invalid!
+ | *
+ | The condition you entered was invalid!
+ | *
+ | ?
+ | ?
+ | .?
+ | *
+ | .*?
+ | The condition you entered was invalid!
+ | You must enter a valid Mythic Spawner ID. That one was not found!
+ | The condition you entered was invalid!
+ | mythicmobs.command.spawners.removecondition
+ | removespawncondition
+ | rsc
+
+spawners.ResetTimersCommand :: g:
+ | *
+ | *
+ | ?
+ | ?
+ | .?
+ | *
+ | .*?
+ | mythicmobs.command.spawners.resettimers
+ | resettimers
+ | rt
+
+spawners.SetCommand :: &6--====|||| &c&lMythicMobs &6||||====--
+ | g:
+ | *
+ | *
+ | ?
+ | ?
+ | .?
+ | *
+ | .*?
+ | mythicmobs.command.spawners.set
+ | set
+ | s
+
+spawners.SpawnersCommand :: 2
+ |   &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional
+ | &e/mm s &fcreate &6[name] &6[mob] &3<w,x,y,z> &7? &7&oCreate a mob spawner.
+ | &e/mm s &fdelete &6[name] &7? &7&oRemove a mob spawner.
+ | &e/mm s &finfo &6[name] &7? &7&oShow info about a spawner.
+ | &e/mm s &ffind &3<radius> &7? &7&oList nearby spawners
+ | &e/mm s &factivate &6[name] &7? &7&o Force-ticks a spawner.
+ | &e/mm s &fset &6[name] &6[attribute] &6[value] &7? &7&oModify spawner attributes.
+ | &e/mm s &faddcondition &6[name] &6[condition] &6[value] &7? &7&oAdds a condition to a spawner.
+ | &e/mm s &fremovecondition &6[name] &6[condition] &7? &7&oRemoves a condition from a spawner.
+ | &6&L ** Page 1 of 2
+ |   &7Arguments: &6[arg] &f= Required&7, &3<arg> &f= Optional
+ | &e/mm s &fmove &6[name] &7? &7&oMoves the spawner to the location you are looking at.
+ | &e/mm s &fcopy &6[name] &6[copyName] &7? &7&oTurns the block you\'re looking at into a copy of a mob spawner.
+ | &e/mm s &fcut &6[name] &7? &7&oCuts the given spawners and saves them to the clipboard.
+ | &e/mm s &fpaste &6[name] &7? &7&oPastes spawners in your clipboard based on your relative location.
+ | &e/mm s &fundo &7? &7&oUndo the last clipboard-related change you\'ve done (clipboard must still have spawners in it for this to work)
+ | &6&L ** Page 2 of 2
+ | mythicmobs.command.spawners
+ | spawners
+ | s
+ | sp
+
+spawners.UndoCommand :: Last spawner clipboard changes undone!
+ | There are no spawners in the clipboard to undo an action on!
+ | mythicmobs.command.spawners.undo
+ | undo
+
+test.AddThreatCommand :: Amount must be a number.
+ | Failed to add threat to target mob.
+ | mythicmobs.command.test.addthreat
+ | addthreat
+
+test.CastCommand :: -
+ | -s
+ | -
+ | -s
+ | mythicmobs.command.test.cast
+ | cast
+ | c
+
+test.MechanicCommand :: -
+ | s
+ | d
+ | Invalid line supplied
+ | mythicmobs.command.test.mechanic
+ | mechanic
+ | m
+
+test.ReduceThreatCommand :: Amount must be a number.
+ | Failed to reduuce threat on target mob.
+ | mythicmobs.command.test.reducethreat
+ | reducethreat
+
+test.SpawnersCommand :: 1
+ | 2
+ | 3
+ | 4
+ | mythicmobs.command.test.taunt
+ | spawners
+
+test.TauntCommand :: Taunted target mob.
+ | Failed to taunt target mob.
+ | mythicmobs.command.test.taunt
+ | taunt
+
+test.TestAPICommand :: mythicmobs.command.test
+ | api
+
+test.TestAPINameplateCommand :: You must target a valid entity!
+ | You must target a valid MythicMob!
+ | Input Required
+ | -
+ | t
+ | mythicmobs.command.test
+ | setname
+
+test.TestCommand :: mythicmobs.command.test
+ | test
+ | t
+
+utility.ActiveInfoCommand :: You must target a valid entity!
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | mythicmobs.command.utilities.gettargetinfo
+ | activeinfo
+
+utility.ActiveRemoveCommand :: You must target a valid entity!
+ | Removed entity
+ | mythicmobs.command.utilities.activeremove
+ | activeremove
+
+utility.AddEntityNBTCommand :: You must target a valid entity!
+ | test
+ | yes
+ | mythicmobs
+ | gaygrounds
+ | fuck
+ | test
+ | Health
+ | NoAI
+ | Added NBT
+ | mythicmobs.command.utilities.addentitynbt
+ | addentitynbt
+ | addenbt
+
+utility.BroadcastCommand :: Input Required
+ | -
+ | t
+ | mythicmobs.command.utilities.broadcast
+ | broadcast
+ | b
+
+utility.GetBlockCoordinatesCommand :: util-last-checked-coordinate
+ | <gray>[<yellow>
+ | <click:copy_to_clipboard:
+ | >Block</click>
+ | <gray>]
+ | <gray>[<yellow>
+ | <click:copy_to_clipboard:
+ | >Center</click>
+ | <gray>]
+ | <gray>[<yellow>
+ | <click:copy_to_clipboard:
+ | >Exact</click>
+ | <gray>]
+ | <gray> <gold>Coordinates<gray> >>
+ | <aqua>
+ | ,
+ | ,
+ | util-last-checked-coordinate
+ | You must target a valid block!
+ | <gray>[<yellow>
+ | <click:copy_to_clipboard:
+ | >Block</click>
+ | <gray>]
+ | <gray>[<yellow>
+ | <click:copy_to_clipboard:
+ | >Center</click>
+ | <gray>]
+ | <gray>[<yellow>
+ | <click:copy_to_clipboard:
+ | >Exact</click>
+ | <gray>]
+ | <gray> <gold>Target <gray>>> <aqua>
+ | ,
+ | ,
+ | <gray>[<yellow>
+ | <click:copy_to_clipboard:
+ | >Block</click>
+ | <gray>]
+ | <gray>[<yellow>
+ | <click:copy_to_clipboard:
+
+utility.GetBlockInfoCommand :: You must target a valid block!
+ | mythicmobs.command.utilities.getblockcoordinates
+ | getblockinfo
+ | gbi
+
+utility.GetDyeCombinationCommand :: mythicmobs.command.utilities.getdyecombination
+ | getdyecombination
+
+utility.GetItemInfoCommand :: You must be holding a valid item!
+ | &6&lInformation About Held Item&f:
+ | <gray><bold>>> <gold><bold>Component Data
+ | <gray>
+ | <gray><bold>>> <gold><bold>NBT Data
+ | <gray>
+ | mythicmobs.command.utilities.getiteminfo
+ | getiteminfo
+ | gii
+
+utility.GetLightLevelCommand :: <gold>Light Level at Location:
+ | mythicmobs.command.utilities.getlightlevel
+ | getlightlevel
+ | gll
+
+utility.GetOptimalDyesCommand :: Dyes needed:
+ | mythicmobs.command.utilities.getoptimaldyes
+ | getoptimaldyes
+ | god
+
+utility.GetPathStringCommand :: mythicmobs.command.utilities.getpathstring
+ | getpathstring
+ | getpath
+ | gps
+
+utility.GetPathStringCommand$PathStringGetter :: Place blocks to record coordinates for a goto or patrol goal. Type anything when you\'re finished to end!
+ | PathString sent to console.
+
+utility.GetSpawnLevelCommand :: 
+utility.GetSpawnStateCommand :: <red>
+ | <gold>SpawnState Information<gray>:
+ | <red>
+ | <gold>Configuration<gray>: <white>
+ | <red>
+ | <gold>Bukkit Tracked Entities<gray>:
+ | <red>
+ | <gold>NMS Tracked Entities<gray>:
+ | mythicmobs.command.test.spawncheck
+ | getspawnstate
+
+utility.GetSpawnStateCommand$MobStats :: 
+utility.GetStatsCommand :: Target not found
+ | · Additive Modifiers
+ | · Additive Multiplier Modifiers
+ | · Compound Multiplier Modifiers
+ | · Setter Modifiers
+ | mythicmobs.command.utilities.getstats
+ | getstats
+
+utility.GetStructuresCommand :: Structures at your location:
+ | mythicmobs.command.utilities.getstructures
+ | getstructures
+
+utility.GetTargetInfoCommand :: You must target a valid entity!
+ | <gold><bold>Information about Targeted Mob:</bold> <gray>
+ | <gray>- <gold>Is MythicMob: <white>TRUE
+ | <gray>- <gold>Is MythicMob: <white>FALSE
+ | <gray>- <gold>in Void List: <white>TRUE
+ | <gray>- <gold>in Void List: <white>FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | <red><strikethrough><bold>----</bold><strikethrough></red> <white>Stats
+ | [Not Set]
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | TRUE
+ | FALSE
+ | mythicmobs.command.utilities.gettargetinfo
+ | gettargetinfo
+ | gti
+
+utility.GetTargetNBTCommand :: You must target a valid entity!
+ | mythicmobs.command.utilities.getentitynbt
+ | gettargetnbt
+ | getnbt
+
+utility.ListAllEntitiesCommand :: &7[&aTP&7]
+ | &7[&bInfo&7]
+ | &7[&cD&7]
+ | &7[&dTPHERE&7]
+ | mythicmobs.command.mobs.listactive
+ | listallentities
+ | listall
+ | la
+
+utility.ListValidStructuresCommand :: Structures Loaded:
+ | mythicmobs.command.utilities.listvalidstructures
+ | listvalidstructures
+
+utility.OpenColorPickerCommand :: mythicmobs.command.utilities.getoptimaldyes
+ | opencolorpicker
+
+utility.PluginDumpCommand :: mythicmobs.command.utilities.plugindump
+ | plugindump
+
+utility.SetBaseStatCommand :: Target not found
+ | Set base stat
+ | mythicmobs.command.utilities.getstats
+ | setbasestat
+
+utility.TestEntityNBTCommand :: \n{id:\"minecraft:skeleton\",BukkitValues:{\"mythicmobs:type\":\"TestingDummy\"}}\n\n\n
+ | \n{id:\"minecraft:skeleton\",BukkitValues:{\"mythicmobs:type\":\"TestingDummy\"}}\n\n\n
+ | mythicmobs.command.utilities.addentitynbt
+ | testspawn
+
+utility.ToggleTimerCommand :: Toggled timer on
+ | Toggled timer off
+ | mythicmobs.command.utilities.toggletimer
+ | toggletimer
+ | tt
+
+utility.UtilitiesCommand :: generatedocs
+ | file.separator
+ | file.separator
+ | file.separator
+ | io.lumine.mythic.core.skills.mechanics
+ | Dummy
+ | file.separator
+ | <WRAP infobox right>
+ | <WRAP infoboxtable>
+ | ,
+ | </WRAP>
+ | </WRAP>
+ | ===== Attributes =====
+ | ^Attribute ^Aliases ^Description ^Default ^
+ | |  |  |  |
+ | ,
+ | \\\\
+ | ===== Examples =====
+ | <code>
+ | Skills:
+ | </code>
+ | file.separator
+ | file.separator
+ | io.lumine.mythic.core.skills.conditions.all
+ | Entity
+ | file.separator
+ | <WRAP infobox right>
+ | <WRAP infoboxtable>
+ | ,
+ | </WRAP>
+ | </WRAP>
+ | ===== Attributes =====
+ | ^Attribute ^Aliases ^Description ^
+ | |  |  |  |
+ | ,
+ | \\\\
+ | ===== Examples =====
+ | <code>
+ | Conditions:
+ | </code>
+

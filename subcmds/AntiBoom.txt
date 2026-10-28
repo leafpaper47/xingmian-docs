@@ -1,0 +1,21 @@
+# AntiBoom  (AntiBoom-1.0.4.jar)
+## 注册指令
+  /antiboom  usage='/antiboom reload' desc='Manage AntiBoom plugin settings.' alias=None perm='antiboom.reload'
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · # AntiBoom 默认配置
+  · # 可选项：'protect'（阻止破坏方块）、'allow'（允许破坏方块）、'firework'（展示烟花效果并阻止破坏）
+  · # 是否保护被列入保护清单的挂饰背后的支撑方块（true 表示同时阻止支撑方块被破坏）
+  · # 船类支持 `oak_boat`、`bamboo_raft` 等别名
+  · # 箱船支持 `oak_chest_boat`、`bamboo_chest_raft` 等别名
+  · # 可选：按 XYZ 范围定义区域防爆，示例结构如下（去掉注释后生效）：
+  · # 区域启用 protect/firework 时，区域内激活的 TNT、TNT 矿车、苦力怕与硫方怪会在爆炸前被移除，床导致的爆炸会被取消，不会影响方块。
+  · usage: "/antiboom reload"
+
+## 常量池帮助/描述文本

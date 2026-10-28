@@ -1,0 +1,248 @@
+﻿==== items.ExportCommand
+2: invokespecial #11                 // Method io/lumine/mythic/bukkit/utils/commands/Command."<init>":(Lio/lumine/mythi
+0: ldc           #28                 // String mythicmobs.command.items.export
+0: ldc           #33                 // String export
+
+==== items.ListCommand
+10: invokevirtual #40                 // Method io/lumine/mythic/core/items/ItemExecutor.getItems:()Ljava/util/Collectio
+13: invokespecial #43                 // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+23: invokeinterface #71,  2           // InterfaceMethod java/util/List.removeIf:(Ljava/util/function/Predicate;)Z
+30: invokestatic  #77                 // Method java/util/Collections.sort:(Ljava/util/List;)V
+42: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+48: invokedynamic #101,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)
+53: invokeinterface #107,  2          // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String
+65: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+69: invokeinterface #111,  1          // InterfaceMethod java/util/List.size:()I
+74: invokedynamic #116,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;I)Ljava/lang/String
+79: invokeinterface #107,  2          // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String
+84: ldc           #118                // String
+92: invokeinterface #122,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+101: invokeinterface #127,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+111: invokeinterface #131,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+128: invokevirtual #135                // Method io/lumine/mythic/core/items/MythicItem.getInternalName:()Ljava/lang/Str
+134: invokevirtual #139                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+142: invokevirtual #135                // Method io/lumine/mythic/core/items/MythicItem.getInternalName:()Ljava/lang/Str
+148: invokevirtual #143                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+165: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+175: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+184: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+194: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+197: invokedynamic #157,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;
+216: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+226: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+235: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+238: invokedynamic #164,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;
+256: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+265: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+268: invokedynamic #169,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;
+283: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+288: invokevirtual #135                // Method io/lumine/mythic/core/items/MythicItem.getInternalName:()Ljava/lang/Str
+294: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+297: invokedynamic #169,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;
+320: invokeinterface #107,  2          // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/Strin
+325: ldc           #118                // String
+335: invokeinterface #107,  2          // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/Strin
+0: ldc           #188                // String mythicmobs.command.items.list
+0: ldc           #192                // String list
+
+==== mobs.ListCommand
+283: invokeinterface #112,  1          // InterfaceMethod io/lumine/mythic/api/mobs/MythicMob.getInternalName:()Ljava/la
+291: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+294: invokedynamic #146,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;
+314: invokeinterface #79,  2           // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/Strin
+319: ldc           #92                 // String
+330: invokestatic  #30                 // Method io/lumine/mythic/bukkit/MythicBukkit.inst:()Lio/lumine/mythic/bukkit/My
+333: invokevirtual #34                 // Method io/lumine/mythic/bukkit/MythicBukkit.getMobManager:()Lio/lumine/mythic/
+336: invokevirtual #149                // Method io/lumine/mythic/core/mobs/MobExecutor.getMobStacks:()Ljava/util/Collec
+339: invokespecial #43                 // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+346: invokestatic  #49                 // Method java/util/Collections.sort:(Ljava/util/List;)V
+351: invokeinterface #96,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+360: invokeinterface #102,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+370: invokeinterface #106,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+387: invokevirtual #154                // Method io/lumine/mythic/core/mobs/MobStack.getName:()Ljava/lang/String;
+393: invokevirtual #116                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+401: invokevirtual #154                // Method io/lumine/mythic/core/mobs/MobStack.getName:()Ljava/lang/String;
+407: invokevirtual #120                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+424: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+434: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+443: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+453: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+456: invokedynamic #134,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;
+475: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+485: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+494: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+497: invokedynamic #141,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;
+515: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+524: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+527: invokedynamic #146,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;
+545: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+550: invokevirtual #154                // Method io/lumine/mythic/core/mobs/MobStack.getName:()Ljava/lang/String;
+556: invokestatic  #61                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+559: invokedynamic #146,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;
+579: invokeinterface #79,  2           // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/Strin
+584: ldc           #92                 // String
+594: invokeinterface #79,  2           // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/Strin
+0: ldc           #180                // String mythicmobs.command.mobs.list
+0: ldc           #183                // String list
+1: anewarray     #57                 // class java/lang/String
+6: ldc           #187                // String l
+
+==== skills.InfoCommand
+2: invokespecial #16                 // Method io/lumine/mythic/bukkit/utils/commands/Command."<init>":(Lio/lumine/mythi
+6: ldc           #24                 // String Usage /mm s[kills] i[nfo] <internal-name>
+8: invokestatic  #30                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/com
+14: invokevirtual #34                 // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+20: invokevirtual #40                 // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic
+26: invokevirtual #46                 // Method io/lumine/mythic/core/skills/SkillExecutor.getSkill:(Ljava/lang/String;)
+29: invokevirtual #52                 // Method java/util/Optional.isPresent:()Z
+36: invokevirtual #34                 // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+42: invokevirtual #40                 // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic
+48: invokevirtual #46                 // Method io/lumine/mythic/core/skills/SkillExecutor.getSkill:(Ljava/lang/String;)
+51: invokevirtual #56                 // Method java/util/Optional.get:()Ljava/lang/Object;
+60: invokevirtual #62                 // Method io/lumine/mythic/core/skills/MetaSkill.getInternalName:()Ljava/lang/Stri
+63: invokedynamic #74,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+68: invokestatic  #78                 // Method io/lumine/mythic/bukkit/utils/chat/ColorString.get:(Ljava/lang/String;)L
+71: invokeinterface #84,  2           // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String
+78: invokevirtual #90                 // Method java/lang/Object.hashCode:()I
+81: invokedynamic #95,  0             // InvokeDynamic #1:makeConcatWithConstants:(I)Ljava/lang/String;
+86: invokestatic  #78                 // Method io/lumine/mythic/bukkit/utils/chat/ColorString.get:(Ljava/lang/String;)L
+89: invokeinterface #84,  2           // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String
+96: invokevirtual #99                 // Method io/lumine/mythic/core/skills/MetaSkill.getFile:()Ljava/io/File;
+99: invokestatic  #105                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+102: invokedynamic #108,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String
+107: invokestatic  #78                 // Method io/lumine/mythic/bukkit/utils/chat/ColorString.get:(Ljava/lang/String;)
+110: invokeinterface #84,  2           // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/Strin
+122: invokedynamic #111,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String
+127: invokestatic  #30                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/c
+10: invokevirtual #34                 // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+16: invokevirtual #40                 // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic
+19: invokevirtual #124                // Method io/lumine/mythic/core/skills/SkillExecutor.getSkills:()Ljava/util/Collec
+22: invokeinterface #130,  1          // InterfaceMethod java/util/Collection.stream:()Ljava/util/stream/Stream;
+32: invokeinterface #155,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljav
+37: invokestatic  #161                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+40: invokeinterface #165,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)L
+49: invokestatic  #171                // Method io/lumine/mythic/bukkit/utils/CollectionUtils.filterMatches:(Ljava/lang/
+53: invokestatic  #177                // Method java/util/Collections.emptyList:()Ljava/util/List;
+0: ldc           #180                // String mythicmobs.command.skills.info
+0: ldc           #184                // String info
+1: anewarray     #101                // class java/lang/String
+6: ldc           #188                // String i
+
+==== test.CastCommand
+2: invokespecial #16                 // Method io/lumine/mythic/bukkit/utils/commands/Command."<init>":(Lio/lumine/mythi
+15: ldc           #24                 // String -
+17: invokevirtual #30                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+26: ldc           #32                 // String -s
+28: invokevirtual #30                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+40: invokestatic  #38                 // Method java/util/Arrays.copyOfRange:([Ljava/lang/Object;II)[Ljava/lang/Object;
+43: checkcast     #40                 // class "[Ljava/lang/String;"
+51: invokespecial #45                 // Method java/util/ArrayList."<init>":()V
+81: invokeinterface #53,  1           // InterfaceMethod org/bukkit/entity/Entity.getLocation:()Lorg/bukkit/Location;
+90: invokestatic  #59                 // Method io/lumine/mythic/core/utils/MythicUtil.getTargetedEntity:(Lorg/bukkit/en
+104: invokeinterface #65,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+124: invokestatic  #75                 // Method io/lumine/mythic/bukkit/MythicBukkit.inst:()Lio/lumine/mythic/bukkit/My
+127: invokevirtual #79                 // Method io/lumine/mythic/bukkit/MythicBukkit.getAPIHelper:()Lio/lumine/mythic/b
+142: invokevirtual #85                 // Method io/lumine/mythic/bukkit/BukkitAPIHelper.castSkill:(Lorg/bukkit/entity/E
+153: invokedynamic #97,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String
+158: invokestatic  #103                // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendSuccess:(Lorg/bukkit
+10: invokevirtual #128                // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+16: invokevirtual #132                // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic
+19: invokevirtual #138                // Method io/lumine/mythic/core/skills/SkillExecutor.getSkillNames:()Ljava/util/Co
+26: invokespecial #45                 // Method java/util/ArrayList."<init>":()V
+29: invokestatic  #144                // Method org/bukkit/util/StringUtil.copyPartialMatches:(Ljava/lang/String;Ljava/l
+45: ldc           #24                 // String -
+47: invokevirtual #30                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+56: ldc           #32                 // String -s
+58: invokevirtual #30                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+68: invokevirtual #128                // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+74: invokevirtual #132                // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic
+77: invokevirtual #138                // Method io/lumine/mythic/core/skills/SkillExecutor.getSkillNames:()Ljava/util/Co
+84: invokespecial #45                 // Method java/util/ArrayList."<init>":()V
+87: invokestatic  #144                // Method org/bukkit/util/StringUtil.copyPartialMatches:(Ljava/lang/String;Ljava/l
+0: ldc           #148                // String mythicmobs.command.test.cast
+0: ldc           #153                // String cast
+1: anewarray     #26                 // class java/lang/String
+6: ldc           #157                // String c
+
+==== spawners.FindCommand
+2: invokespecial #26                 // Method io/lumine/mythic/bukkit/utils/commands/Command."<init>":(Lio/lumine/mythi
+6: invokeinterface #38,  1           // InterfaceMethod org/bukkit/entity/Player.getLocation:()Lorg/bukkit/Location;
+11: invokestatic  #44                 // Method io/lumine/mythic/bukkit/BukkitAdapter.adapt:(Lorg/bukkit/Location;)Lio/l
+29: ldc           #48                 // String (\\d+\\.\\d+)
+31: invokevirtual #54                 // Method java/lang/String.matches:(Ljava/lang/String;)Z
+40: ldc           #56                 // String (\\d+)
+42: invokevirtual #54                 // Method java/lang/String.matches:(Ljava/lang/String;)Z
+51: invokestatic  #64                 // Method java/lang/Double.parseDouble:(Ljava/lang/String;)D
+57: invokestatic  #70                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendHeader:(Lorg/bukkit/c
+63: invokedynamic #82,  0             // InvokeDynamic #0:makeConcatWithConstants:(D)Ljava/lang/String;
+68: invokeinterface #88,  2           // InterfaceMethod org/bukkit/command/CommandSender.sendMessage:(Ljava/lang/String
+74: invokevirtual #92                 // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+80: invokevirtual #98                 // Method io/lumine/mythic/bukkit/MythicBukkit.getSpawnerManager:()Lio/lumine/myth
+83: invokevirtual #104                // Method io/lumine/mythic/core/spawning/spawners/SpawnerManager.getSpawners:()Lja
+86: invokeinterface #110,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+95: invokeinterface #118,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+105: invokeinterface #122,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+117: invokevirtual #127                // Method io/lumine/mythic/core/spawning/spawners/MythicSpawner.getLocation:()Lio
+120: invokevirtual #131                // Method io/lumine/mythic/api/adapters/AbstractLocation.getWorld:()Lio/lumine/my
+128: invokevirtual #127                // Method io/lumine/mythic/core/spawning/spawners/MythicSpawner.getLocation:()Lio
+131: invokevirtual #131                // Method io/lumine/mythic/api/adapters/AbstractLocation.getWorld:()Lio/lumine/my
+134: invokeinterface #137,  1          // InterfaceMethod io/lumine/mythic/api/adapters/AbstractWorld.getUniqueId:()Ljav
+141: invokevirtual #131                // Method io/lumine/mythic/api/adapters/AbstractLocation.getWorld:()Lio/lumine/my
+144: invokeinterface #137,  1          // InterfaceMethod io/lumine/mythic/api/adapters/AbstractWorld.getUniqueId:()Ljav
+149: invokevirtual #143                // Method java/util/UUID.equals:(Ljava/lang/Object;)Z
+159: invokevirtual #147                // Method io/lumine/mythic/core/spawning/spawners/MythicSpawner.distanceTo:(Lio/l
+178: invokevirtual #153                // Method io/lumine/mythic/core/spawning/spawners/MythicSpawner.getInternalName:(
+183: invokedynamic #158,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;D)Ljava/lang/Strin
+188: invokespecial #160                // Method net/md_5/bungee/api/chat/TextComponent."<init>":(Ljava/lang/String;)V
+204: invokevirtual #153                // Method io/lumine/mythic/core/spawning/spawners/MythicSpawner.getInternalName:(
+207: invokedynamic #169,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String
+212: invokespecial #172                // Method net/md_5/bungee/api/chat/ClickEvent."<init>":(Lnet/md_5/bungee/api/chat
+215: invokevirtual #176                // Method net/md_5/bungee/api/chat/TextComponent.setClickEvent:(Lnet/md_5/bungee/
+219: invokeinterface #180,  1          // InterfaceMethod org/bukkit/entity/Player.spigot:()Lorg/bukkit/entity/Player$Sp
+226: invokevirtual #183                // Method org/bukkit/entity/Player$Spigot.sendMessage:(Lnet/md_5/bungee/api/chat/
+0: ldc           #205                // String mythicmobs.command.spawners.find
+0: ldc           #209                // String find
+1: anewarray     #50                 // class java/lang/String
+6: ldc           #213                // String listnear
+11: ldc           #215                // String ln
+
+==== eggs.GetCommand
+2: invokespecial #16                 // Method io/lumine/mythic/bukkit/utils/commands/Command."<init>":(Lio/lumine/mythi
+12: ldc           #26                 // String Command Syntax: /mm egg get <mob_name> [amount]
+14: invokestatic  #32                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/co
+19: invokestatic  #38                 // Method io/lumine/mythic/bukkit/MythicBukkit.inst:()Lio/lumine/mythic/bukkit/Myt
+22: invokevirtual #42                 // Method io/lumine/mythic/bukkit/MythicBukkit.getMobManager:()Lio/lumine/mythic/c
+28: invokevirtual #48                 // Method io/lumine/mythic/core/mobs/MobExecutor.getMythicMob:(Ljava/lang/String;)
+36: invokevirtual #73                 // Method java/util/Optional.orElseGet:(Ljava/util/function/Supplier;)Ljava/lang/O
+56: invokestatic  #81                 // Method java/lang/Integer.valueOf:(Ljava/lang/String;)Ljava/lang/Integer;
+59: invokevirtual #85                 // Method java/lang/Integer.intValue:()I
+73: invokedynamic #97,  0             // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+78: invokestatic  #32                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/co
+84: invokevirtual #101                // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+90: invokevirtual #42                 // Method io/lumine/mythic/bukkit/MythicBukkit.getMobManager:()Lio/lumine/mythic/c
+93: invokevirtual #105                // Method io/lumine/mythic/core/mobs/MobExecutor.getEggManager:()Lio/lumine/mythic
+98: invokevirtual #111                // Method io/lumine/mythic/core/mobs/EggExecutor.createMythicEgg:(Lio/lumine/mythi
+107: invokevirtual #117                // Method io/lumine/mythic/bukkit/adapters/BukkitItemStack.amount:(I)Lio/lumine/m
+110: invokevirtual #121                // Method io/lumine/mythic/bukkit/adapters/BukkitItemStack.getItemStack:()Lorg/bu
+116: invokeinterface #125,  1          // InterfaceMethod org/bukkit/entity/Player.getInventory:()Lorg/bukkit/inventory/
+130: invokeinterface #133,  2          // InterfaceMethod org/bukkit/inventory/PlayerInventory.addItem:([Lorg/bukkit/inv
+135: invokevirtual #139                // Method java/util/HashMap.isEmpty:()Z
+145: invokestatic  #150                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+153: invokestatic  #150                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+159: invokestatic  #150                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+162: invokedynamic #158,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;ILjava/lang/String
+167: invokestatic  #161                // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendSuccess:(Lorg/bukkit
+174: ldc           #163                // String Could not get egg: inventory is full.
+176: invokestatic  #32                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/c
+10: invokevirtual #101                // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+16: invokevirtual #42                 // Method io/lumine/mythic/bukkit/MythicBukkit.getMobManager:()Lio/lumine/mythic/c
+19: invokevirtual #183                // Method io/lumine/mythic/core/mobs/MobExecutor.getMobTypes:()Ljava/util/Collecti
+22: invokeinterface #189,  1          // InterfaceMethod java/util/Collection.stream:()Ljava/util/stream/Stream;
+32: invokeinterface #207,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)
+42: invokeinterface #224,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljav
+47: invokeinterface #228,  1          // InterfaceMethod java/util/stream/Stream.toList:()Ljava/util/List;
+53: invokestatic  #234                // Method io/lumine/mythic/bukkit/utils/CollectionUtils.filterMatches:(Ljava/lang/
+0: ldc           #237                // String mythicmobs.command.eggs.get
+0: ldc           #240                // String get
+1: invokeinterface #243,  1          // InterfaceMethod io/lumine/mythic/api/mobs/MythicMob.isHidden:()Z
+

@@ -1,0 +1,23 @@
+# BossBarHealth  (BossBarHealth-4.1.16-SNAPSHOT.jar)
+## 注册指令
+  /bossbarhealth  usage=None desc='Main command' alias=['bbh'] perm=None
+
+## 代码类
+  to.epac.factorycraft.bossbarhealth.commands.Commands
+
+## javap 字符串 token
+  help hide reload show
+
+## 文本资源里的帮助/用法行
+
+## 常量池帮助/描述文本
+  · to/epac/factorycraft/bossbarhealth/commands/Commands
+  · to/epac/factorycraft/bossbarhealth/hpbar/HealthBar$BarType
+  · to/epac/factorycraft/bossbarhealth/hpbar/HealthBar
+  · Lto/epac/factorycraft/bossbarhealth/commands/Commands;
+  · to/epac/factorycraft/bossbarhealth/utils/ChatColor
+  · Lto/epac/factorycraft/bossbarhealth/utils/ChatColor;
+  · to/epac/factorycraft/bossbarhealth/BossBarHealth
+  · to/epac/factorycraft/bossbarhealth/config/ConfigManager
+  · to/epac/factorycraft/bossbarhealth/config/LangManager
+  · Lto/epac/factorycraft/bossbarhealth/hpbar/HealthBar;

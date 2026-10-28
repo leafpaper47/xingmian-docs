@@ -1,0 +1,694 @@
+# CoreProtect  (CoreProtect-24.2-dev-zh.jar)
+## 注册指令
+  /co  usage='/<command> <params>' desc='使用该插件' alias=None perm='coreprotect.co'
+  /core  usage='/<command> <params>' desc='使用该插件' alias=None perm='coreprotect.core'
+  /coreprotect  usage='/<command> <params>' desc='使用该插件' alias=None perm='coreprotect.coreprotect'
+
+## 代码类
+  com.clickhouse.client.api.command.CommandResponse
+  com.clickhouse.client.api.command.CommandSettings
+  com.clickhouse.client.internal.org.apache.hc.client5.http.impl.auth.NTLMEngineImpl$HMACMD5
+  com.clickhouse.client.internal.org.apache.hc.core5.http.nio.command.CommandSupport
+  com.clickhouse.client.internal.org.apache.hc.core5.http.nio.command.ExecutableCommand
+  com.clickhouse.client.internal.org.apache.hc.core5.http.nio.command.package-info
+  com.clickhouse.client.internal.org.apache.hc.core5.http.nio.command.RequestExecutionCommand
+  com.clickhouse.client.internal.org.apache.hc.core5.http.nio.command.ShutdownCommand
+  com.clickhouse.client.internal.org.apache.hc.core5.http2.nio.command.package-info
+  com.clickhouse.client.internal.org.apache.hc.core5.http2.nio.command.PingCommand
+  com.clickhouse.client.internal.org.apache.hc.core5.reactor.Command$Priority
+  com.clickhouse.client.internal.org.apache.hc.core5.reactor.Command
+  net.coreprotect.command.ApplyCommand
+  net.coreprotect.command.CancelCommand
+  net.coreprotect.command.CommandHandler$1updateAlert
+  net.coreprotect.command.CommandHandler
+  net.coreprotect.command.CommandParser
+  net.coreprotect.command.ConsumerCommand
+  net.coreprotect.command.GiveCommand
+  net.coreprotect.command.HelpCommand
+  net.coreprotect.command.InspectCommand
+  net.coreprotect.command.LookupCommand
+  net.coreprotect.command.NetworkDebugCommand
+  net.coreprotect.command.PurgeCommand$1BasicThread
+  net.coreprotect.command.PurgeCommand
+  net.coreprotect.command.ReloadCommand$1BasicThread
+  net.coreprotect.command.ReloadCommand
+  net.coreprotect.command.RollbackRestoreCommand$1BasicThread2
+  net.coreprotect.command.RollbackRestoreCommand
+  net.coreprotect.command.StatusCommand$1BasicThread
+  net.coreprotect.command.StatusCommand
+  net.coreprotect.command.TabHandler$ParamState
+  net.coreprotect.command.TabHandler
+  net.coreprotect.command.TeleportCommand
+  net.coreprotect.command.UndoCommand
+  net.coreprotect.command.WorldEditHandler
+  net.coreprotect.command.lookup.BlockLookupThread
+  net.coreprotect.command.lookup.ChestTransactionLookupThread
+  net.coreprotect.command.lookup.EntityInteractionLookupThread
+  net.coreprotect.command.lookup.StandardLookupThread$EntityDisplayLocation
+  net.coreprotect.command.lookup.StandardLookupThread
+  net.coreprotect.command.parser.ActionParser$ParseResult
+  net.coreprotect.command.parser.ActionParser
+  net.coreprotect.command.parser.GivableItemIdParser
+  net.coreprotect.command.parser.LocationParser
+  net.coreprotect.command.parser.MaterialParser
+  net.coreprotect.command.parser.MessageFilterParser$ParseResult
+  net.coreprotect.command.parser.MessageFilterParser
+  net.coreprotect.command.parser.RollbackStateParser$ParseResult
+  net.coreprotect.command.parser.RollbackStateParser
+  net.coreprotect.command.parser.TimeParser
+  net.coreprotect.command.parser.UserParser
+  net.coreprotect.command.parser.WorldParser
+  net.coreprotect.consumer.process.PlayerCommandProcess
+  net.coreprotect.database.logger.CommandLogger
+  net.coreprotect.database.statement.CommandStatement
+  net.coreprotect.listener.player.PlayerCommandListener
+
+## javap 字符串 token
+  a aaction action actions add-container apply b bblock bblocks block block- block-break block-change block-place block-remove blocks break broke cancel change changes chat chats checkpoint chest click clicks co command commands connection connection- connections consumer container container- container-add container-change containers core coreedit coreprotect count cpu d database_lock death deaths deposit deposited deposits destroy disable drop drops e eexclude enable entity entity-death entity-deaths entity-kill entity-kills entity-spawn entity-spawns entity_spawn exclude f false ffilter filter give global h handler help i iinclude immediate in include inspect inspector interact interaction inv inv- inventories inventory inventory- item item- items items- kill kills l login logins logout logouts lookup lookups m message messages migrate-db minecraft mo n name name-change name-changes names near network-debug noisy none normal off on page param parameter parameters params pause pickup pickups place placed player-click player-interact player-interaction preview preview-cancel preview_cancel processor purge purges r radius rb re reload remove remove-container restore restores resume ro rollback rollbacks rradius rs s session session- sessions sign signs spawn spawns start stats status stop sum t teleport time tp transaction transactions ttime u undo unknown user username username-change username-changes usernames users uuid uuids uuser uusers v verbose version w withdraw withdraws withdrew worldedit x y
+
+## 文本资源里的帮助/用法行
+  · website: http://coreprotect.net
+  · 为你的服务器提供方块保护。
+  · description: 使用该插件
+  · permission-message: §3CoreProtect §f- 你没有权限执行该操作。
+  · description: 使用该插件
+  · permission-message: §3CoreProtect §f- 你没有权限执行该操作。
+  · description: 使用该插件
+  · permission-message: §3CoreProtect §f- 你没有权限执行该操作。
+  · description: 授予所有 CoreProtect 操作与命令的访问权限
+  · description: 拥有访问 CoreProtect /co 命令的权限
+  · description: 拥有访问 CoreProtect /core 命令的权限
+  · description: 拥有访问 CoreProtect /coreprotect 命令的权限
+  · description: 拥有使用查询命令的权限
+  · description: 拥有使用 near 命令查询附近改动的权限
+  · description: 拥有查询聊天消息的权限
+  · description: 拥有查询玩家命令的权限
+  · description: 拥有查询玩家会话的权限
+  · description: 拥有查询玩家改名记录的权限
+  · description: 拥有查询方块数据的权限
+  · description: 拥有查询告示牌消息的权限
+  · description: 拥有查询玩家交互的权限
+  · description: 拥有查询容器交易的权限
+  · description: 拥有查询背包交易的权限
+  · description: 拥有查询物品交易的权限
+  · description: 拥有查询实体击杀的权限
+  · description: 拥有查询实体生成的权限
+  · description: 拥有执行回滚的权限
+  · description: 拥有执行恢复的权限
+  · description: 拥有使用检查模式的权限
+  · description: 拥有使用帮助命令的权限
+  · description: 拥有使用清理命令的权限
+  · description: 拥有使用传送命令的权限
+  · description: 拥有使用重载命令的权限
+  · description: 拥有使用状态命令的权限
+  · description: 拥有使用消费者命令的权限
+  · description: 拥有使用网络 API 的权限
+  · description: 拥有使用 give 命令的权限
+  · acacia_boat	金合欢木船
+  · acacia_button	金合欢木按钮
+  · acacia_chest_boat	金合欢木运输船
+  · acacia_door	金合欢木门
+  · acacia_fence	金合欢木栅栏
+  · acacia_fence_gate	金合欢木栅栏门
+  · acacia_hanging_sign	悬挂式金合欢木告示牌
+  · acacia_leaves	金合欢树叶
+  · acacia_log	金合欢原木
+  · acacia_planks	金合欢木板
+  · acacia_pressure_plate	金合欢木压力板
+  · acacia_sapling	金合欢树苗
+  · acacia_shelf	金合欢木展示架
+  · acacia_sign	金合欢木告示牌
+  · acacia_slab	金合欢木台阶
+  · acacia_stairs	金合欢木楼梯
+  · acacia_trapdoor	金合欢木活板门
+  · acacia_wall_hanging_sign	墙上的悬挂式金合欢木告示牌
+  · acacia_wall_sign	墙上的金合欢木告示牌
+  · acacia_wood	金合欢木
+  · activator_rail	激活铁轨
+  · air	空气
+  · allay	悦灵
+  · allay_spawn_egg	悦灵刷怪蛋
+  · allium	绒球葱
+  · amethyst_block	紫水晶块
+  · amethyst_cluster	紫水晶簇
+  · amethyst_shard	紫水晶碎片
+  · ancient_debris	远古残骸
+  · andesite	安山岩
+  · andesite_slab	安山岩台阶
+  · andesite_stairs	安山岩楼梯
+  · andesite_wall	安山岩墙
+  · angler_pottery_shard	垂钓纹样陶片
+  · angler_pottery_sherd	垂钓纹样陶片
+  · anvil	铁砧
+  · apple	苹果
+  · archer_pottery_shard	弓箭纹样陶片
+  · archer_pottery_sherd	弓箭纹样陶片
+  · area_effect_cloud	区域效果云
+  · armadillo	犰狳
+  · armadillo_scute	犰狳鳞甲
+  · armadillo_spawn_egg	犰狳刷怪蛋
+  · armor_stand	盔甲架
+  · arms_up_pottery_shard	举臂纹样陶片
+  · arms_up_pottery_sherd	举臂纹样陶片
+  · arrow	箭
+  · attached_melon_stem	结果的西瓜茎
+  · attached_pumpkin_stem	结果的南瓜茎
+  · axolotl	美西螈
+  · axolotl_bucket	美西螈桶
+  · axolotl_spawn_egg	美西螈刷怪蛋
+  · azalea	杜鹃花丛
+  · azalea_leaves	杜鹃树叶
+  · azure_bluet	蓝花美耳草
+  · baked_potato	烤马铃薯
+  · bamboo	竹子
+  · bamboo_block	竹块
+  · bamboo_button	竹按钮
+  · bamboo_chest_raft	运输竹筏
+  · bamboo_door	竹门
+  · bamboo_fence	竹栅栏
+  · bamboo_fence_gate	竹栅栏门
+  · bamboo_hanging_sign	悬挂式竹告示牌
+  · bamboo_mosaic	竹马赛克
+  · bamboo_mosaic_slab	竹马赛克台阶
+  · bamboo_mosaic_stairs	竹马赛克楼梯
+  · bamboo_planks	竹板
+  · bamboo_pressure_plate	竹压力板
+  · bamboo_raft	竹筏
+  · bamboo_sapling	竹笋
+  · bamboo_shelf	竹展示架
+  · bamboo_sign	竹告示牌
+  · bamboo_slab	竹台阶
+  · bamboo_stairs	竹楼梯
+  · bamboo_trapdoor	竹活板门
+  · bamboo_wall_hanging_sign	墙上的悬挂式竹告示牌
+  · bamboo_wall_sign	墙上的竹告示牌
+  · banner.base.black	黑底
+  · banner.base.blue	蓝底
+  · banner.base.brown	棕底
+  · banner.base.cyan	青底
+  · banner.base.gray	灰底
+  · banner.base.green	绿底
+  · banner.base.light_blue	淡蓝底
+  · banner.base.light_gray	淡灰底
+  · banner.base.lime	黄绿底
+  · banner.base.magenta	品红底
+  · banner.base.orange	橙底
+  · banner.base.pink	粉红底
+  · banner.base.purple	紫底
+  · banner.base.red	红底
+  · banner.base.white	白底
+  · banner.base.yellow	黄底
+  · banner.border.black	黑色方框边
+  · banner.border.blue	蓝色方框边
+  · banner.border.brown	棕色方框边
+  · banner.border.cyan	青色方框边
+  · banner.border.gray	灰色方框边
+  · banner.border.green	绿色方框边
+  · banner.border.light_blue	淡蓝色方框边
+  · banner.border.light_gray	淡灰色方框边
+  · banner.border.lime	黄绿色方框边
+  · banner.border.magenta	品红色方框边
+  · banner.border.orange	橙色方框边
+  · banner.border.pink	粉红色方框边
+  · banner.border.purple	紫色方框边
+  · banner.border.red	红色方框边
+  · banner.border.white	白色方框边
+  · banner.border.yellow	黄色方框边
+  · banner.bricks.black	黑色砖纹
+  · banner.bricks.blue	蓝色砖纹
+  · banner.bricks.brown	棕色砖纹
+  · banner.bricks.cyan	青色砖纹
+  · banner.bricks.gray	灰色砖纹
+  · banner.bricks.green	绿色砖纹
+  · banner.bricks.light_blue	淡蓝色砖纹
+  · banner.bricks.light_gray	淡灰色砖纹
+  · banner.bricks.lime	黄绿色砖纹
+  · banner.bricks.magenta	品红色砖纹
+  · banner.bricks.orange	橙色砖纹
+  · banner.bricks.pink	粉红色砖纹
+  · banner.bricks.purple	紫色砖纹
+  · banner.bricks.red	红色砖纹
+  · banner.bricks.white	白色砖纹
+  · banner.bricks.yellow	黄色砖纹
+  · banner.circle.black	黑色圆形
+  · banner.circle.blue	蓝色圆形
+  · banner.circle.brown	棕色圆形
+  · banner.circle.cyan	青色圆形
+  · banner.circle.gray	灰色圆形
+  · banner.circle.green	绿色圆形
+  · banner.circle.light_blue	淡蓝色圆形
+  · banner.circle.light_gray	淡灰色圆形
+  · banner.circle.lime	黄绿色圆形
+  · banner.circle.magenta	品红色圆形
+  · banner.circle.orange	橙色圆形
+  · banner.circle.pink	粉红色圆形
+  · banner.circle.purple	紫色圆形
+  · banner.circle.red	红色圆形
+  · banner.circle.white	白色圆形
+  · banner.circle.yellow	黄色圆形
+  · banner.creeper.black	黑色苦力怕盾徽
+  · banner.creeper.blue	蓝色苦力怕盾徽
+  · banner.creeper.brown	棕色苦力怕盾徽
+  · banner.creeper.cyan	青色苦力怕盾徽
+  · banner.creeper.gray	灰色苦力怕盾徽
+  · banner.creeper.green	绿色苦力怕盾徽
+  · banner.creeper.light_blue	淡蓝色苦力怕盾徽
+  · banner.creeper.light_gray	淡灰色苦力怕盾徽
+  · banner.creeper.lime	黄绿色苦力怕盾徽
+  · banner.creeper.magenta	品红色苦力怕盾徽
+  · banner.creeper.orange	橙色苦力怕盾徽
+  · banner.creeper.pink	粉红色苦力怕盾徽
+  · banner.creeper.purple	紫色苦力怕盾徽
+  · banner.creeper.red	红色苦力怕盾徽
+  · banner.creeper.white	白色苦力怕盾徽
+  · banner.creeper.yellow	黄色苦力怕盾徽
+  · banner.cross.black	黑斜十字
+  · banner.cross.blue	蓝斜十字
+  · banner.cross.brown	棕斜十字
+  · banner.cross.cyan	青斜十字
+  · banner.cross.gray	灰斜十字
+  · banner.cross.green	绿斜十字
+  · banner.cross.light_blue	淡蓝斜十字
+  · banner.cross.light_gray	淡灰斜十字
+  · banner.cross.lime	黄绿斜十字
+  · banner.cross.magenta	品红斜十字
+  · banner.cross.orange	橙斜十字
+  · banner.cross.pink	粉红斜十字
+  · banner.cross.purple	紫斜十字
+  · banner.cross.red	红斜十字
+  · banner.cross.white	白斜十字
+  · banner.cross.yellow	黄斜十字
+  · banner.curly_border.black	黑色波纹边
+  · banner.curly_border.blue	蓝色波纹边
+  · banner.curly_border.brown	棕色波纹边
+  · banner.curly_border.cyan	青色波纹边
+  · banner.curly_border.gray	灰色波纹边
+  · banner.curly_border.green	绿色波纹边
+  · banner.curly_border.light_blue	淡蓝色波纹边
+  · banner.curly_border.light_gray	淡灰色波纹边
+  · banner.curly_border.lime	黄绿色波纹边
+  · banner.curly_border.magenta	品红色波纹边
+  · banner.curly_border.orange	橙色波纹边
+  · banner.curly_border.pink	粉红色波纹边
+  · banner.curly_border.purple	紫色波纹边
+  · banner.curly_border.red	红色波纹边
+  · banner.curly_border.white	白色波纹边
+  · banner.curly_border.yellow	黄色波纹边
+  · banner.diagonal_left.black	黑色右上三角
+  · banner.diagonal_left.blue	蓝色右上三角
+  · banner.diagonal_left.brown	棕色右上三角
+  · banner.diagonal_left.cyan	青色右上三角
+  · banner.diagonal_left.gray	灰色右上三角
+  · banner.diagonal_left.green	绿色右上三角
+  · banner.diagonal_left.light_blue	淡蓝色右上三角
+  · banner.diagonal_left.light_gray	淡灰色右上三角
+  · banner.diagonal_left.lime	黄绿色右上三角
+  · banner.diagonal_left.magenta	品红色右上三角
+  · banner.diagonal_left.orange	橙色右上三角
+  · banner.diagonal_left.pink	粉红色右上三角
+  · banner.diagonal_left.purple	紫色右上三角
+  · banner.diagonal_left.red	红色右上三角
+  · banner.diagonal_left.white	白色右上三角
+  · banner.diagonal_left.yellow	黄色右上三角
+  · banner.diagonal_right.black	黑色左上三角
+  · banner.diagonal_right.blue	蓝色左上三角
+  · banner.diagonal_right.brown	棕色左上三角
+  · banner.diagonal_right.cyan	青色左上三角
+  · banner.diagonal_right.gray	灰色左上三角
+  · banner.diagonal_right.green	绿色左上三角
+  · banner.diagonal_right.light_blue	淡蓝色左上三角
+  · banner.diagonal_right.light_gray	淡灰色左上三角
+  · banner.diagonal_right.lime	黄绿色左上三角
+  · banner.diagonal_right.magenta	品红色左上三角
+  · banner.diagonal_right.orange	橙色左上三角
+  · banner.diagonal_right.pink	粉红色左上三角
+  · banner.diagonal_right.purple	紫色左上三角
+  · banner.diagonal_right.red	红色左上三角
+  · banner.diagonal_right.white	白色左上三角
+  · banner.diagonal_right.yellow	黄色左上三角
+  · banner.diagonal_up_left.black	黑色右下三角
+  · banner.diagonal_up_left.blue	蓝色右下三角
+  · banner.diagonal_up_left.brown	棕色右下三角
+  · banner.diagonal_up_left.cyan	青色右下三角
+  · banner.diagonal_up_left.gray	灰色右下三角
+  · banner.diagonal_up_left.green	绿色右下三角
+  · banner.diagonal_up_left.light_blue	淡蓝色右下三角
+  · banner.diagonal_up_left.light_gray	淡灰色右下三角
+  · banner.diagonal_up_left.lime	黄绿色右下三角
+  · banner.diagonal_up_left.magenta	品红色右下三角
+  · banner.diagonal_up_left.orange	橙色右下三角
+  · banner.diagonal_up_left.pink	粉红色右下三角
+  · banner.diagonal_up_left.purple	紫色右下三角
+  · banner.diagonal_up_left.red	红色右下三角
+  · banner.diagonal_up_left.white	白色右下三角
+  · banner.diagonal_up_left.yellow	黄色右下三角
+  · banner.diagonal_up_right.black	黑色左下三角
+  · banner.diagonal_up_right.blue	蓝色左下三角
+  · banner.diagonal_up_right.brown	棕色左下三角
+  · banner.diagonal_up_right.cyan	青色左下三角
+  · banner.diagonal_up_right.gray	灰色左下三角
+  · banner.diagonal_up_right.green	绿色左下三角
+  · banner.diagonal_up_right.light_blue	淡蓝色左下三角
+  · banner.diagonal_up_right.light_gray	淡灰色左下三角
+  · banner.diagonal_up_right.lime	黄绿色左下三角
+  · banner.diagonal_up_right.magenta	品红色左下三角
+  · banner.diagonal_up_right.orange	橙色左下三角
+  · banner.diagonal_up_right.pink	粉红色左下三角
+  · banner.diagonal_up_right.purple	紫色左下三角
+  · banner.diagonal_up_right.red	红色左下三角
+  · banner.diagonal_up_right.white	白色左下三角
+  · banner.diagonal_up_right.yellow	黄色左下三角
+  · banner.flow.black	黑色涡流
+  · banner.flow.blue	蓝色涡流
+  · banner.flow.brown	棕色涡流
+  · banner.flow.cyan	青色涡流
+  · banner.flow.gray	灰色涡流
+  · banner.flow.green	绿色涡流
+  · banner.flow.light_blue	淡蓝色涡流
+  · banner.flow.light_gray	淡灰色涡流
+  · banner.flow.lime	黄绿色涡流
+  · banner.flow.magenta	品红色涡流
+  · banner.flow.orange	橙色涡流
+  · banner.flow.pink	粉红色涡流
+  · banner.flow.purple	紫色涡流
+  · banner.flow.red	红色涡流
+  · banner.flow.white	白色涡流
+  · banner.flow.yellow	黄色涡流
+  · banner.flower.black	黑色花朵盾徽
+  · banner.flower.blue	蓝色花朵盾徽
+  · banner.flower.brown	棕色花朵盾徽
+  · banner.flower.cyan	青色花朵盾徽
+  · banner.flower.gray	灰色花朵盾徽
+  · banner.flower.green	绿色花朵盾徽
+  · banner.flower.light_blue	淡蓝色花朵盾徽
+  · banner.flower.light_gray	淡灰色花朵盾徽
+  · banner.flower.lime	黄绿色花朵盾徽
+  · banner.flower.magenta	品红色花朵盾徽
+  · banner.flower.orange	橙色花朵盾徽
+  · banner.flower.pink	粉红色花朵盾徽
+  · banner.flower.purple	紫色花朵盾徽
+  · banner.flower.red	红色花朵盾徽
+  · banner.flower.white	白色花朵盾徽
+  · banner.flower.yellow	黄色花朵盾徽
+  · banner.globe.black	黑色地球
+  · banner.globe.blue	蓝色地球
+  · banner.globe.brown	棕色地球
+  · banner.globe.cyan	青色地球
+  · banner.globe.gray	灰色地球
+  · banner.globe.green	绿色地球
+  · banner.globe.light_blue	淡蓝色地球
+  · banner.globe.light_gray	淡灰色地球
+  · banner.globe.lime	黄绿色地球
+  · banner.globe.magenta	品红色地球
+  · banner.globe.orange	橙色地球
+  · banner.globe.pink	粉红色地球
+  · banner.globe.purple	紫色地球
+  · banner.globe.red	红色地球
+  · banner.globe.white	白色地球
+  · banner.globe.yellow	黄色地球
+  · banner.gradient.black	黑色自上渐淡
+  · banner.gradient.blue	蓝色自上渐淡
+  · banner.gradient.brown	棕色自上渐淡
+  · banner.gradient.cyan	青色自上渐淡
+  · banner.gradient.gray	灰色自上渐淡
+  · banner.gradient.green	绿色自上渐淡
+  · banner.gradient.light_blue	淡蓝色自上渐淡
+  · banner.gradient.light_gray	淡灰色自上渐淡
+  · banner.gradient.lime	黄绿色自上渐淡
+  · banner.gradient.magenta	品红色自上渐淡
+  · banner.gradient.orange	橙色自上渐淡
+  · banner.gradient.pink	粉红色自上渐淡
+  · banner.gradient.purple	紫色自上渐淡
+  · banner.gradient.red	红色自上渐淡
+  · banner.gradient.white	白色自上渐淡
+  · banner.gradient.yellow	黄色自上渐淡
+  · banner.gradient_up.black	黑色自下渐淡
+  · banner.gradient_up.blue	蓝色自下渐淡
+  · banner.gradient_up.brown	棕色自下渐淡
+  · banner.gradient_up.cyan	青色自下渐淡
+  · banner.gradient_up.gray	灰色自下渐淡
+  · banner.gradient_up.green	绿色自下渐淡
+  · banner.gradient_up.light_blue	淡蓝色自下渐淡
+  · banner.gradient_up.light_gray	淡灰色自下渐淡
+  · banner.gradient_up.lime	黄绿色自下渐淡
+  · banner.gradient_up.magenta	品红色自下渐淡
+  · banner.gradient_up.orange	橙色自下渐淡
+  · banner.gradient_up.pink	粉红色自下渐淡
+  · banner.gradient_up.purple	紫色自下渐淡
+  · banner.gradient_up.red	红色自下渐淡
+  · banner.gradient_up.white	白色自下渐淡
+  · banner.gradient_up.yellow	黄色自下渐淡
+  · banner.guster.black	黑色旋风
+  · banner.guster.blue	蓝色旋风
+  · banner.guster.brown	棕色旋风
+  · banner.guster.cyan	青色旋风
+  · banner.guster.gray	灰色旋风
+  · banner.guster.green	绿色旋风
+  · banner.guster.light_blue	淡蓝色旋风
+  · banner.guster.light_gray	淡灰色旋风
+  · banner.guster.lime	黄绿色旋风
+  · banner.guster.magenta	品红色旋风
+  · banner.guster.orange	橙色旋风
+  · banner.guster.pink	粉红色旋风
+  · banner.guster.purple	紫色旋风
+  · banner.guster.red	红色旋风
+  · banner.guster.white	白色旋风
+  · banner.guster.yellow	黄色旋风
+  · banner.half_horizontal.black	黑色上半方形
+  · banner.half_horizontal.blue	蓝色上半方形
+  · banner.half_horizontal.brown	棕色上半方形
+  · banner.half_horizontal.cyan	青色上半方形
+  · banner.half_horizontal.gray	灰色上半方形
+  · banner.half_horizontal.green	绿色上半方形
+  · banner.half_horizontal.light_blue	淡蓝色上半方形
+  · banner.half_horizontal.light_gray	淡灰色上半方形
+  · banner.half_horizontal.lime	黄绿色上半方形
+  · banner.half_horizontal.magenta	品红色上半方形
+  · banner.half_horizontal.orange	橙色上半方形
+  · banner.half_horizontal.pink	粉红色上半方形
+  · banner.half_horizontal.purple	紫色上半方形
+
+## 常量池帮助/描述文本
+  · com/clickhouse/client/internal/org/apache/hc/core5/http/nio/command/CommandSupport
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/annotation/Internal;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http/nio/command/CommandSupport;
+  · com/clickhouse/client/internal/org/apache/hc/core5/util/Args
+  · com/clickhouse/client/internal/org/apache/hc/core5/reactor/IOSession
+  · com/clickhouse/client/internal/org/apache/hc/core5/http/nio/command/ExecutableCommand
+  · com/clickhouse/client/internal/org/apache/hc/core5/reactor/Command
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/reactor/IOSession;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/reactor/Command;
+  · com/clickhouse/client/internal/org/apache/hc/core5/http/RequestNotExecutedException
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http/nio/command/ExecutableCommand;
+  · com/clickhouse/client/internal/org/apache/hc/core5/http/nio/command/package-info
+  · com/clickhouse/client/internal/org/apache/hc/core5/http/nio/command/RequestExecutionCommand
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http/nio/AsyncClientExchangeHandler;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http/nio/HandlerFactory;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http/nio/HandlerFactory<Lcom/clickhouse/client/internal/org/apache/hc/core5/http/nio/AsyncPushConsumer;>;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/concurrent/CancellableDependency;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http/protocol/HttpContext;
+  · com/clickhouse/client/internal/org/apache/hc/core5/http/nio/AsyncClientExchangeHandler
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http/nio/command/RequestExecutionCommand;
+  · com/clickhouse/client/internal/org/apache/hc/core5/http/nio/command/ShutdownCommand
+  · com/clickhouse/client/internal/org/apache/hc/core5/reactor/Command$Priority
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http/nio/command/ShutdownCommand;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/function/Callback;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/function/Callback<Lcom/clickhouse/client/internal/org/apache/hc/core5/reactor/IOSession;>;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/io/CloseMode;
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/reactor/Command$Priority;
+  · com/clickhouse/client/internal/org/apache/hc/core5/io/CloseMode
+  · com/clickhouse/client/internal/org/apache/hc/core5/http2/nio/command/package-info
+  · com/clickhouse/client/internal/org/apache/hc/core5/http2/nio/command/PingCommand
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http2/nio/AsyncPingHandler;
+  · com/clickhouse/client/internal/org/apache/hc/core5/http2/nio/AsyncPingHandler
+  · Lcom/clickhouse/client/internal/org/apache/hc/core5/http2/nio/command/PingCommand;
+  · Ljava/lang/Enum<Lcom/clickhouse/client/internal/org/apache/hc/core5/reactor/Command$Priority;>;
+  · com/clickhouse/client/internal/org/apache/hc/core5/concurrent/Cancellable
+  · net/coreprotect/config/ConfigHandler
+  · net/coreprotect/utility/Color
+  · net/coreprotect/language/Phrase
+  · Lnet/coreprotect/language/Phrase;
+  · net/coreprotect/language/Selector
+  · net/coreprotect/utility/Chat
+  · net/coreprotect/command/RollbackRestoreCommand
+  · net/coreprotect/utility/ErrorReporter
+  · net/coreprotect/command/ApplyCommand
+  · Lnet/coreprotect/command/ApplyCommand;
+  · net/coreprotect/command/CancelCommand
+  · Lnet/coreprotect/command/CancelCommand;
+  · net/coreprotect/command/CommandHandler$1updateAlert
+  · Lnet/coreprotect/command/CommandHandler;
+  · Lnet/coreprotect/command/CommandHandler$1updateAlert;
+  · net/coreprotect/command/CommandHandler
+  · net/coreprotect/command/UndoCommand
+  · net/coreprotect/command/HelpCommand
+  · net/coreprotect/command/PurgeCommand
+  · net/coreprotect/command/InspectCommand
+  · net/coreprotect/command/LookupCommand
+  · net/coreprotect/command/TeleportCommand
+  · net/coreprotect/command/StatusCommand
+  · net/coreprotect/command/ReloadCommand
+  · net/coreprotect/command/ConsumerCommand
+  · net/coreprotect/command/NetworkDebugCommand
+  · net/coreprotect/command/GiveCommand
+  · net/coreprotect/utility/VersionUtils
+  · net/coreprotect/utility/Extensions
+  · net/coreprotect/thread/NetworkHandler
+  · net/coreprotect/command/parser/ActionParser
+  · net/coreprotect/command/parser/MessageFilterParser
+  · net/coreprotect/command/parser/RollbackStateParser
+  · net/coreprotect/command/parser/LocationParser
+  · net/coreprotect/command/parser/MaterialParser
+  · net/coreprotect/command/parser/UserParser
+  · net/coreprotect/command/parser/WorldParser
+  · net/coreprotect/command/WorldEditHandler
+  · net/coreprotect/command/parser/TimeParser
+  · net/coreprotect/command/parser/GivableItemIdParser
+  · net/coreprotect/command/CommandParser
+  · Lnet/coreprotect/command/CommandParser;
+  · net/coreprotect/command/parser/ActionParser$ParseResult
+  · net/coreprotect/command/parser/MessageFilterParser$ParseResult
+  · net/coreprotect/command/parser/RollbackStateParser$ParseResult
+  · Lnet/coreprotect/command/ConsumerCommand;
+  · net/coreprotect/utility/ChatMessage
+  · net/coreprotect/utility/ItemUtils
+  · Lnet/coreprotect/command/GiveCommand;
+  · https://coreprotect.net/wiki-blocks
+  · https://coreprotect.net/wiki-entities
+  · Lnet/coreprotect/command/HelpCommand;
+  · Lnet/coreprotect/command/InspectCommand;
+  · net/coreprotect/model/lookup/LookupOutputMode
+  · Lnet/coreprotect/model/lookup/LookupOutputMode;
+  · net/coreprotect/model/action/LookupActions
+  · net/coreprotect/model/action/EntityActionFilter
+  · net/coreprotect/model/lookup/LookupRollbackState
+  · Lnet/coreprotect/model/lookup/LookupRollbackState;
+  · net/coreprotect/utility/WorldUtils
+  · net/coreprotect/command/lookup/ChestTransactionLookupThread
+  · net/coreprotect/command/lookup/EntityInteractionLookupThread
+  · net/coreprotect/command/lookup/BlockLookupThread
+  · net/coreprotect/config/Config
+  · Lnet/coreprotect/model/action/EntityActionFilter;
+  · net/coreprotect/command/lookup/StandardLookupThread
+  · Lnet/coreprotect/command/LookupCommand;
+  · Lnet/coreprotect/command/parser/MessageFilterParser$ParseResult;
+  · Lnet/coreprotect/command/parser/ActionParser$ParseResult;
+  · Lnet/coreprotect/command/parser/RollbackStateParser$ParseResult;
+  · net/coreprotect/listener/channel/PluginChannelListener
+  · Lnet/coreprotect/command/NetworkDebugCommand;
+  · net/coreprotect/command/PurgeCommand$1BasicThread
+  · net/coreprotect/consumer/Consumer
+  · net/coreprotect/database/PurgeFilter
+  · net/coreprotect/database/Database
+  · net/coreprotect/consumer/Consumer$OperationStartResult
+  · Lnet/coreprotect/consumer/Consumer$OperationStartResult;
+  · Lnet/coreprotect/database/DatabaseType;
+  · net/coreprotect/database/DatabaseType
+  · net/coreprotect/utility/EntitySpawnTracking
+  · net/coreprotect/patch/Patch
+  · net/coreprotect/database/PurgePolicy
+  · Lnet/coreprotect/command/PurgeCommand$1BasicThread;
+  · Lnet/coreprotect/database/PurgeFilter;
+  · net/coreprotect/utility/EntityUtils
+  · net/coreprotect/utility/MaterialUtils
+  · net/coreprotect/bukkit/BukkitAdapter
+  · Lnet/coreprotect/bukkit/BukkitInterface;
+  · net/coreprotect/bukkit/BukkitInterface
+  · Lnet/coreprotect/command/PurgeCommand;
+  · net/coreprotect/command/ReloadCommand$1BasicThread
+  · net/coreprotect/utility/LookupThrottle
+  · Lnet/coreprotect/command/ReloadCommand$1BasicThread;
+  · net/coreprotect/database/DuckDBRecovery
+  · Lnet/coreprotect/command/ReloadCommand;
+  · net/coreprotect/command/RollbackRestoreCommand$1BasicThread2
+  · net/coreprotect/database/lookup/PlayerLookup
+  · net/coreprotect/database/ContainerRollback
+  · net/coreprotect/database/rollback/Rollback
+  · Lnet/coreprotect/command/RollbackRestoreCommand$1BasicThread2;
+  · Lnet/coreprotect/command/RollbackRestoreCommand;
+  · net/coreprotect/command/StatusCommand$1BasicThread
+  · net/coreprotect/CoreProtect
+  · net/coreprotect/consumer/process/Process
+  · Lnet/coreprotect/utility/SystemUtils$ProcessorInfo;
+  · net/coreprotect/utility/SystemUtils$ProcessorInfo
+  · net/coreprotect/utility/SystemUtils
+  · www.patreon.com/coreprotect/
+  · Lnet/coreprotect/command/StatusCommand$1BasicThread;
+  · Lnet/coreprotect/CoreProtect;
+  · Lnet/coreprotect/command/StatusCommand;
+  · net/coreprotect/command/TabHandler$ParamState
+  · Lnet/coreprotect/command/TabHandler$ParamState;
+  · net/coreprotect/command/TabHandler
+  · Lnet/coreprotect/command/TabHandler;
+  · net/coreprotect/thread/Scheduler
+  · net/coreprotect/utility/Teleport
+  · Lnet/coreprotect/command/TeleportCommand;
+  · Lnet/coreprotect/command/UndoCommand;
+  · net/coreprotect/worldedit/WorldEditLogger
+  · Lnet/coreprotect/command/WorldEditHandler;
+  · net/coreprotect/database/lookup/SignMessageLookup
+  · net/coreprotect/database/lookup/InteractionLookup
+  · net/coreprotect/database/lookup/BlockLookup
+  · Lnet/coreprotect/command/lookup/BlockLookupThread;
+  · net/coreprotect/database/lookup/ChestTransactionLookup
+  · Lnet/coreprotect/command/lookup/ChestTransactionLookupThread;
+  · net/coreprotect/database/lookup/EntityInteractionLookup
+  · Lnet/coreprotect/command/lookup/EntityInteractionLookupThread;
+  · net/coreprotect/command/lookup/StandardLookupThread$EntityDisplayLocation
+  · net/coreprotect/utility/ChatUtils
+  · Lnet/coreprotect/command/lookup/StandardLookupThread$EntityDisplayLocation;
+  · net/coreprotect/database/statement/UserStatement
+  · net/coreprotect/model/lookup/EntityLookupContext
+  · net/coreprotect/database/statement/EntitySpawnStatement
+  · net/coreprotect/utility/EntitySpawnTracking$LoadedEntityRadius
+  · net/coreprotect/database/Lookup
+  · net/coreprotect/model/lookup/LookupSummaryPage
+  · net/coreprotect/model/lookup/LookupPage
+  · net/coreprotect/model/lookup/LookupCursor
+  · net/coreprotect/model/item/InventorySources
+  · net/coreprotect/model/entity/EntitySpawnRecord
+  · net/coreprotect/listener/channel/PluginChannelHandshakeListener
+  · net/coreprotect/utility/StringUtils
+  · net/coreprotect/model/item/ItemTransactionActions
+  · net/coreprotect/model/lookup/LookupSummaryRow
+  · Lnet/coreprotect/command/lookup/StandardLookupThread;
+  · Lnet/coreprotect/utility/EntitySpawnTracking$LoadedEntityRadius;
+  · Lnet/coreprotect/model/lookup/LookupSummaryPage;
+  · Lnet/coreprotect/model/lookup/LookupCursor;
+  · Lnet/coreprotect/model/entity/EntitySpawnRecord;
+  · Lnet/coreprotect/model/lookup/EntityLookupContext;
+  · Lnet/coreprotect/model/lookup/LookupPage;
+  · Ljava/util/Map<Ljava/lang/Integer;Lnet/coreprotect/model/entity/EntitySpawnRecord;>;
+  · Ljava/util/Map<[Ljava/lang/String;Lnet/coreprotect/command/lookup/StandardLookupThread$EntityDisplayLocation;>;
+  · Ljava/util/List<Lnet/coreprotect/model/lookup/LookupSummaryRow;>;
+  · Lnet/coreprotect/model/lookup/LookupSummaryRow;
+  · net/coreprotect/utility/ZhNames
+  · net/coreprotect/model/action/SessionActions
+  · Lnet/coreprotect/command/parser/ActionParser;
+  · Lnet/coreprotect/command/parser/GivableItemIdParser;
+  · Lnet/coreprotect/command/parser/LocationParser;
+  · net/coreprotect/utility/BlockTypeUtils
+  · net/coreprotect/model/BlockGroup
+  · Lnet/coreprotect/command/parser/MaterialParser;
+  · Lnet/coreprotect/command/parser/MessageFilterParser;
+  · Lnet/coreprotect/command/parser/RollbackStateParser;
+  · Lnet/coreprotect/command/parser/TimeParser;
+  · Lnet/coreprotect/command/parser/UserParser;
+  · net/coreprotect/config/ConfigHandler$CacheType
+  · Lnet/coreprotect/config/ConfigHandler$CacheType;
+  · Lnet/coreprotect/command/parser/WorldParser;
+  · net/coreprotect/database/logger/CommandLogger
+  · net/coreprotect/consumer/process/PlayerCommandProcess
+  · Lnet/coreprotect/consumer/process/PlayerCommandProcess;
+  · Lnet/coreprotect/database/ConsumerWriteBatch;
+  · net/coreprotect/event/CoreProtectPreLogEvent
+  · net/coreprotect/event/CoreProtectPreLogEvent$Action
+  · Lnet/coreprotect/event/CoreProtectPreLogEvent$Action;
+  · net/coreprotect/database/statement/CommandStatement
+  · Lnet/coreprotect/database/logger/CommandLogger;
+  · Lnet/coreprotect/event/CoreProtectPreLogEvent;
+  · net/coreprotect/database/ConsumerWriteBatch
+  · Lnet/coreprotect/database/statement/CommandStatement;
+  · net/coreprotect/consumer/Queue
+  · net/coreprotect/listener/player/PlayerCommandListener
+  · Lnet/coreprotect/listener/player/PlayerCommandListener;

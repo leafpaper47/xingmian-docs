@@ -1,0 +1,20 @@
+# InfiniteFuel  (InfiniteFuel-1.0.0.jar)
+## 注册指令
+  /infinitefuel  usage='/infinitefuel give <player> [amount] | reload' desc='Give infinite coal blocks / reload config' alias=None perm='infinitefuel.admin'
+
+## 代码类
+  
+
+## javap 字符串 token
+  
+
+## 文本资源里的帮助/用法行
+  · # 单次燃烧时长（单位：tick，1 秒 = 20 tick，60 = 3 秒）
+  · # 底层最终写入 short，硬上限 32767 tick ≈ 27.9 分钟，超过会被钳到这个值。
+  · # 烧完后熔炉会再次尝试烧燃料栏 -> 再次触发 -> 续上，所以只要燃料留在槽里就一直烧。
+  · # 物品显示名，支持 & 颜色代码
+  · display-name: '&6无尽能源方块'
+  · description: 无限煤炭块 —— 熔炉永燃且燃料不消耗，取出燃料立即熄火
+  · usage: /infinitefuel give <player> [amount] | reload
+
+## 常量池帮助/描述文本

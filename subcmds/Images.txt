@@ -1,0 +1,79 @@
+# Images  (images-2.5.12.jar)
+## 注册指令
+  /image  usage='/<command> [create|delete|list|import]' desc='Manage custom images.' alias=['customimage', 'images', 'img'] perm=None
+
+## 代码类
+  com.andavin.images.command.BaseCommand
+  com.andavin.images.command.CommandExecutor
+  com.andavin.images.command.CommandRegistry
+  com.andavin.images.command.CreateCommand$1
+  com.andavin.images.command.CreateCommand$CreateImageTask
+  com.andavin.images.command.CreateCommand$ImageSupplier
+  com.andavin.images.command.CreateCommand
+  com.andavin.images.command.DeleteCommand$1
+  com.andavin.images.command.DeleteCommand
+  com.andavin.images.command.DeleteNearCommand
+  com.andavin.images.command.ImageCommand
+  com.andavin.images.command.ImportCommand
+  com.andavin.images.command.ListCommand
+  com.andavin.images.command.ResizeCommand
+  com.andavin.images.command.SizeCommand
+  com.andavin.images.command.TransferCommand
+
+## javap 字符串 token
+  add blocks create customimage datatransfer del delete file getcommandmap image images img import import-confirm knowncommands legacyimport list load mysql n near new options referer remove resize size sqlite transfer unload
+
+## 文本资源里的帮助/用法行
+
+## 常量池帮助/描述文本
+  · com/andavin/images/command/BaseCommand
+  · Ljava/util/Map<Ljava/lang/String;Lcom/andavin/images/command/BaseCommand;>;
+  · Lcom/andavin/images/command/BaseCommand;
+  · com/andavin/images/command/CommandExecutor
+  · Lcom/andavin/images/command/CommandExecutor;
+  · com/andavin/images/command/ImageCommand
+  · com/andavin/images/command/CommandRegistry
+  · Lcom/andavin/images/command/CommandRegistry;
+  · com/andavin/images/command/CreateCommand$1
+  · com/andavin/images/command/CreateCommand
+  · com/andavin/images/command/CreateCommand$CreateImageTask
+  · com/andavin/images/command/CreateCommand$ImageSupplier
+  · Lcom/andavin/images/command/CreateCommand$ImageSupplier;
+  · Lcom/andavin/images/command/CreateCommand$CreateImageTask;
+  · Ljava/awt/image/BufferedImage;
+  · Ljava/awt/Image;
+  · com/andavin/images/Images
+  · com/andavin/images/image/CustomImage
+  · Ljava/util/Map<Ljava/util/UUID;Lcom/andavin/images/command/CreateCommand$CreateImageTask;>;
+  · Lcom/andavin/images/command/CreateCommand;
+  · Lcom/andavin/images/image/CustomImage;
+  · com/andavin/images/command/DeleteCommand$1
+  · com/andavin/images/command/DeleteCommand
+  · com/andavin/images/command/DeleteNearCommand
+  · com/andavin/images/PacketListener$InteractType
+  · Lcom/andavin/images/PacketListener$InteractType;
+  · Lcom/andavin/images/command/DeleteCommand;
+  · Lcom/andavin/images/image/CustomImageSection;
+  · Lcom/andavin/images/PacketListener$Hand;
+  · com/andavin/images/PacketListener$ImageListener
+  · com/andavin/images/PacketListener
+  · com/andavin/images/PacketListener$Hand
+  · Lcom/andavin/images/command/DeleteNearCommand;
+  · Ljava/util/List<Lcom/andavin/images/image/CustomImage;>;
+  · com/andavin/images/command/ListCommand
+  · com/andavin/images/command/ImportCommand
+  · com/andavin/images/command/TransferCommand
+  · Lcom/andavin/images/command/ImageCommand;
+  · com/andavin/images/legacy/LegacyImportManager
+  · Lcom/andavin/images/command/ImportCommand;
+  · Lcom/andavin/images/command/ListCommand;
+  · com/andavin/images/command/ResizeCommand
+  · Lcom/andavin/images/command/ResizeCommand;
+  · com/andavin/images/command/SizeCommand
+  · Lcom/andavin/images/command/SizeCommand;
+  · com/andavin/images/data/MySQLDataManager
+  · com/andavin/images/data/SQLiteDataManager
+  · com/andavin/images/data/FileDataManager
+  · com/andavin/images/data/DataManager
+  · Lcom/andavin/images/command/TransferCommand;
+  · Lcom/andavin/images/data/DataManager;

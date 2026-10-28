@@ -1,0 +1,139 @@
+﻿## 注册指令（plugin.yml）
+/mythicmobs | usage=None | desc='MythicMobs base command' | alias=['mm'] | perm=None
+/mythicmobsmenu | usage=None | desc='MythicMobs menu command' | alias=['mmmenu', 'mmm'] | perm=None
+/spawnmob | usage=None | desc='Spawn a mob' | alias=['spawnmythicmob', 'mspawn', 'msummon'] | perm=None
+/pins | usage=None | desc='Easier command for pins' | alias=['pin'] | perm=None
+/addpin | usage=None | desc='quickly adds a pin' | alias=None | perm=None
+
+## 权限节点（plugin.yml）
+mythicmobs.admin | default='op' | desc='Gives access to everything!'
+mythicmobs.reload | default='op' | desc='Gives access /mm reload!'
+mythicmobs.signal | default='op' | desc='Gives access /mm signal!'
+
+## 命令包下的类名（≈子指令，共 58 个）
+  AbstractCommand AdvancedBinaryJedisCommands AdvancedJedisCommands BaseCommand BasicCommands BasicRedisPipeline BinaryJedisClusterCommands BinaryJedisCommands BinaryRedisPipeline BinaryScriptingCommands BinaryScriptingCommandsPipeline CameraCommand ClusterCommands ClusterPipeline Command CommandHelper CommandInterruptException CommandMapUtil CommandRegistrar CommandSkillExecutor Commands CustomCommandFunction InfoCommand JedisClusterBinaryScriptingCommands JedisClusterCommands JedisClusterScriptingCommands JedisCommands ModuleCommands MultiKeyBinaryCommands MultiKeyBinaryJedisClusterCommands MultiKeyBinaryRedisPipeline MultiKeyCommands MultiKeyCommandsPipeline MultiKeyJedisClusterCommands ProtocolCommand RedisPipeline RegisteredCommand ReloadCommand SaveCommand ScriptingCommands ScriptingCommandsPipeline SentinelCommands SignalCommand VersionCommand argument context debug dialogs eggs functional items menus mobs pins skills spawners test utility
+
+## javap 字符串 token
+  a ac activate activeinfo activeremove add add_line addcondition addenbt addentitynbt addpin addregion addspawncondition addthreat api asc b broadcast browse c camera cancel cast clean clear commandmap copy cp cr create createpin createregion custom custommodeldata cut d damage debug delete dialog dialogs display dl dummy e easing edit egg eggs ench enchant enchantments enchants entity export f false find fuck g gaygrounds gbc gbi gc generatedocs get getblockcoordinates getblockcoords getblockinfo getcoordinates getdyecombination getiteminfo getlightlevel getnbt getoptimaldyes getpath getpathstring getspawnstate getstats getstructures gettargetinfo gettargetnbt gi gii give gll god gps gti h health hold i import index info items k ka kill killall knowncommands l la list listactive listall listallentities listnear listregions listvalidstructures literally ln lore m material mechanic menu menus mob mobs model move move_line_down move_line_up mythicmobs n nbt new noai o off on open opencolorpicker p paste pin pins plugindump points r rc rdr re redefineregion reducethreat rel relative reload remove remove_line removecondition removepin removeregion removespawncondition reset resettimers rp rr rsc rt s save set setbasestat setname show si signal sk skill skills snapshot sp spawn spawners stats swap t taunt teleport test testspawn timings toggleclock toggletimer toggleviewing tp true tt tv u undo utilities utility v ver version w wand warp yes
+
+## 资源文件里的用法/帮助行
+  · # Manual - https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/home
+  · # https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/Items/Items
+  · # https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/Mobs/Mobs
+  · # https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/Skills/Skills
+  · # Random Spawning -> https://git.lumine.io/mythiccraft/MythicMobs/-/wikis/Random-Spawns
+  · # Spawners -> https://git.lumine.io/mythiccraft/MythicMobs/-/wikis/Spawners
+  · # Manual - https://git.mythiccraft.io/mythiccraft/MythicMobs/-/wikis/home
+  · "command.item.get.success": "物品 <aqua>{0} <green>已放入你的背包！",
+  · "command.reload.completed": "Mythic 重新加载完成！",
+  · "command.reload.started": "正在重载插件..."
+  · "command.item.get.success": "物品 <aqua>{0} <green>已放入你的背包！",
+  · "command.reload.completed": "Mythic 重新加载完成！",
+  · "command.reload.started": "正在重载插件..."
+  · Display: "&l颜色选择器"
+  · Display: '&f提高饱和度'
+  · Display: '&f降低饱和度'
+  · Display: '&f返回'
+  · Display: '&f确认'
+  · Display: "<bold>Mythic 配置菜单"
+  · Display: '<gold><bold>生物浏览'
+  · - '<gray>浏览与编辑生物'
+  · - '<red>注意：本编辑器不能替代配置文件，'
+  · - '<red>仅供操作便捷使用，'
+  · - '<red>且并非所有选项都可用。'
+  · - '&e» &a点击打开'
+  · Display: "&l物品浏览"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&a创建物品'
+  · Display: '&9搜索 / 筛选物品'
+  · Display: '&9重置筛选'
+  · Display: '&9切换视图'
+  · - '&7点击切换视图'
+  · Display: '&9编辑全局物品选项'
+  · Display: "&l物品组件"
+  · Display: '&f返回'
+  · Display: '&c移除组件'
+  · Display: "&l物品编辑器"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&c删除物品'
+  · Display: '&9搜索 / 筛选选项'
+  · Display: '&9重置筛选'
+  · Display: "<bold>Mythic 主菜单"
+  · Display: '<gold><bold>生物浏览'
+  · - '<gray>浏览与编辑生物'
+  · - '<red>注意：本编辑器不能替代配置文件，'
+  · - '<red>仅供操作便捷使用，'
+  · - '<red>且并非所有选项都可用。'
+  · - '&e» &a点击打开'
+  · Display: '<gold><bold>物品浏览'
+  · - '<gray>浏览与编辑物品'
+  · - '<red>注意：本编辑器不能替代配置文件，'
+  · - '<red>仅供操作便捷使用，'
+  · - '<red>且并非所有选项都可用。'
+  · - '&e» &a点击打开'
+  · Display: '&9掉落表浏览'
+  · - '&c敬请期待？'
+  · - '&e» &a点击打开'
+  · Display: '&9随机刷怪浏览'
+  · - '&c敬请期待？'
+  · - '&e» &a点击打开'
+  · Display: '&9刷怪点浏览'
+  · - '&c敬请期待？'
+  · - '&e» &a点击打开'
+  · Display: "&l生物浏览"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&a创建生物'
+  · Display: '&9搜索 / 筛选生物'
+  · Display: '&9重置筛选'
+  · Display: '&9切换视图'
+  · - '&7点击切换视图'
+  · Display: '&9编辑全局生物选项'
+  · Display: "&l生物编辑器"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&c删除生物'
+  · Display: '&9搜索 / 筛选选项'
+  · Display: '&9重置筛选'
+  · Display: "<bold>刷怪点浏览"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&a创建生物'
+  · Display: '&9搜索 / 筛选生物'
+  · Display: '&9重置筛选'
+  · Display: '&9切换视图'
+  · - '&7点击切换视图'
+  · Display: '&9编辑全局生物选项'
+  · Display: "<bold>刷怪点编辑器"
+  · Display: '&f下一页'
+  · Display: '&f上一页'
+  · Display: '&f返回'
+  · Display: '&c删除生物'
+  · Display: '&9搜索 / 筛选选项'
+  · Display: '&9重置筛选'
+  · 公司.cn
+  · 网络.cn
+  · 網絡.cn
+  · 公司.hk
+  · 教育.hk
+  · 敎育.hk
+  · 政府.hk
+  · 個人.hk
+  · 个人.hk
+  · 箇人.hk
+  · 網络.hk
+  · 网络.hk
+  · 组織.hk
+  · 網絡.hk
+  · 网絡.hk
+  · 组织.hk
+  · 組織.hk
+  · 組织.hk
+  · 栃木.jp

@@ -1,141 +1,41 @@
 {
-  "name": "PlaceholderAPI",
-  "role": "全服统一的变量占位符引擎，供各插件取值",
-  "summary": "它本身不提供玩法，而是给全服插件提供统一的占位符解析：别的插件配置里写 %player_name% 这类变量，由 PAPI 向对应扩展要值再填回文本。计分板、聊天格式、菜单、TAB、称号这类展示型插件几乎都靠它把玩家数据拼进文字里。没有它，多数现代插件的变量会原样显示成一串百分号。",
-  "whatFor": [
-    "装了计分板、聊天格式、菜单或 TAB 之类的插件，但里面的变量原样显示成 %xxx% 时",
-    "想知道某个占位符此刻到底解析出什么值，排查变量为空或不生效",
-    "需要下载或更新扩展（比如 player、server、statistic）来支持想要的变量",
-    "新加了扩展或改了配置后，要重载 PAPI 让它生效"
-  ],
-  "flow": [
-    "把 PlaceholderAPI 放进 plugins 目录重启服务器，确认控制台无报错",
-    "游戏内输入 /papi list 查看已注册扩展，缺哪个就用 /papi ecloud download 扩展名 下载",
-    "下载完执行 /papi reload，再用 /papi parse me 占位符 实测解析结果",
-    "把验证通过的占位符填进其它插件的配置文件里"
-  ],
-  "commands": [
-    {
-      "cmd": "placeholderapi",
-      "what": "PAPI 主命令，用于管理扩展、下载云端扩展与调试占位符",
-      "syntax": "/papi 子命令 参数",
-      "params": [
-        {
-          "name": "子命令",
-          "required": true,
-          "note": "如 help、list、info、parse、ecloud、reload、version"
-        }
-      ],
-      "examples": [
-        "/papi list",
-        "/papi parse me %player_name%"
-      ],
-      "notes": "别名 /papi，日常几乎都用 /papi；每个子命令对应一个独立权限节点，给管理组授权时按需给"
-    }
-  ],
-  "subcommands": [
-    {
-      "cmd": "help [页码]",
-      "desc": "列出 PAPI 全部子命令及对应权限",
-      "example": "/papi help"
-    },
-    {
-      "cmd": "info 扩展名",
-      "desc": "查看某个扩展的作者、版本与它提供的占位符",
-      "example": "/papi info Player"
-    },
-    {
-      "cmd": "list",
-      "desc": "列出服务器上已注册（当前可用）的扩展",
-      "example": "/papi list"
-    },
-    {
-      "cmd": "parse 玩家名 文本",
-      "desc": "以指定玩家为上下文解析一段占位符文本",
-      "example": "/papi parse Steve %player_name%"
-    },
-    {
-      "cmd": "parse me 文本",
-      "desc": "以自己为上下文解析，最常用的调试方式",
-      "example": "/papi parse me %player_health%"
-    },
-    {
-      "cmd": "parse --null 文本",
-      "desc": "不带玩家上下文解析，适合服务器类占位符",
-      "example": "/papi parse --null %server_online%"
-    },
-    {
-      "cmd": "reload",
-      "desc": "重载 PAPI 配置与已下载的扩展，下载后必做",
-      "example": "/papi reload"
-    },
-    {
-      "cmd": "version",
-      "desc": "查看当前 PAPI 版本号",
-      "example": "/papi version"
-    },
-    {
-      "cmd": "register 扩展名",
-      "desc": "手动注册本地扩展，多数情况会自动注册，非必要不用",
-      "example": "/papi register Player"
-    },
-    {
-      "cmd": "unregister 扩展名",
-      "desc": "取消注册某个扩展，让它暂时不起作用",
-      "example": "/papi unregister Player"
-    },
-    {
-      "cmd": "ecloud status",
-      "desc": "查看 eCloud 云扩展仓库的连接状态",
-      "example": "/papi ecloud status"
-    },
-    {
-      "cmd": "ecloud list all 页码",
-      "desc": "列出云端可用扩展，可指定页码翻页",
-      "example": "/papi ecloud list all 1"
-    },
-    {
-      "cmd": "ecloud info 扩展名",
-      "desc": "查看云端某个扩展的说明、作者与版本",
-      "example": "/papi ecloud info player"
-    },
-    {
-      "cmd": "ecloud download 扩展名",
-      "desc": "从云端下载扩展，下载完需 /papi reload",
-      "example": "/papi ecloud download Player"
-    },
-    {
-      "cmd": "ecloud update 扩展名",
-      "desc": "更新已下载的云端扩展，写 all 表示全部更新",
-      "example": "/papi ecloud update all"
-    },
-    {
-      "cmd": "ecloud refresh",
-      "desc": "刷新本地 eCloud 扩展缓存，看不到新扩展时用",
-      "example": "/papi ecloud refresh"
-    },
-    {
-      "cmd": "ecloud clear",
-      "desc": "清空本地 eCloud 缓存文件",
-      "example": "/papi ecloud clear"
-    },
-    {
-      "cmd": "ecloud placeholders 扩展名",
-      "desc": "查看某个扩展提供的全部占位符清单",
-      "example": "/papi ecloud placeholders player"
-    }
-  ],
-  "caution": [
-    "没有玩家上下文时（控制台、异步任务）占位符会取到空值，要显式指定玩家或改用 --null 形式",
-    "刚下载的扩展必须 /papi reload 才生效，但扩展很多时 reload 会有短暂卡顿，尽量在低峰做",
-    "占位符前缀和大小写要照扩展文档写全，写错不会报错，只会原样输出一串百分号",
-    "扩展装太多会拖慢每次解析，计分板这种高频刷新的地方少用重计算的扩展"
-  ],
-  "related": [
-    "TAB",
-    "DeluxeMenus",
-    "LuckPerms",
-    "Vault",
-    "Skript"
-  ]
+ "name": "PlaceholderAPI",
+ "role": "变量占位符",
+ "summary": "全服变量中转站：把等级/经济/在线人数等数据变成 %xxx% 占位符，供计分板、聊天、菜单等插件引用，并可从云端下载扩展包。",
+ "quick": [
+  {"scene": "看装了哪些扩展", "cmd": "/papi list", "note": "显示已加载的扩展与作者"},
+  {"scene": "测变量能不能出值", "cmd": "/papi parse me %player_level%", "note": "最常用的排错手段"},
+  {"scene": "下载扩展包", "cmd": "/papi ecloud download Player", "note": "下载后必须 /papi reload"},
+  {"scene": "改完配置生效", "cmd": "/papi reload", "note": "重载所有扩展与配置"}
+ ],
+ "commands": [
+  {"cmd": "papi", "what": "占位符主指令：扩展管理、解析测试、云端操作", "syntax": "/papi <help|list|info|parse|reload|version|ecloud ...>",
+   "examples": ["/papi list"], "notes": "别名 /placeholderapi"}
+ ],
+ "subcommands": [
+  {"cmd": "/papi list", "desc": "列出已安装的扩展（含版本与作者）", "example": "/papi list"},
+  {"cmd": "/papi info <扩展>", "desc": "查看某扩展的详细信息与占用情况", "example": "/papi info Player"},
+  {"cmd": "/papi parse <玩家> <文本>", "desc": "用指定玩家上下文解析占位符，直接看到替换结果", "example": "/papi parse Steve %player_level%"},
+  {"cmd": "/papi parse me <文本>", "desc": "以自己为上下文解析（玩家最常用）", "example": "/papi parse me %server_online%"},
+  {"cmd": "/papi reload", "desc": "重载配置并重新注册全部扩展", "example": "/papi reload"},
+  {"cmd": "/papi version", "desc": "查看 PAPI 版本与更新状态", "example": "/papi version"},
+  {"cmd": "/papi dump", "desc": "导出诊断信息（反馈问题用）", "example": "/papi dump"},
+  {"cmd": "/papi ecloud download <扩展>", "desc": "从云端下载扩展 jar", "example": "/papi ecloud download Player"},
+  {"cmd": "/papi ecloud update <扩展|all>", "desc": "更新云端扩展", "example": "/papi ecloud update all"},
+  {"cmd": "/papi ecloud refresh", "desc": "刷新云端扩展列表缓存", "example": "/papi ecloud refresh"},
+  {"cmd": "/papi ecloud status", "desc": "查看云端可用性与本地缓存状态", "example": "/papi ecloud status"},
+  {"cmd": "/papi ecloud list <all|installed|作者>", "desc": "列出云端扩展", "example": "/papi ecloud list installed"},
+  {"cmd": "/papi ecloud placeholders <扩展>", "desc": "查看某扩展提供的全部占位符", "example": "/papi ecloud placeholders Player"},
+  {"cmd": "/papi ecloud clear", "desc": "清空本地云端缓存", "example": "/papi ecloud clear"},
+  {"cmd": "/papi register <jar 名>", "desc": "手动注册一个本地扩展 jar", "example": "/papi register MyExpansion.jar"},
+  {"cmd": "/papi unregister <扩展>", "desc": "卸载某个扩展", "example": "/papi unregister Player"}
+ ],
+ "caution": [
+  "占位符解析失败时先 `/papi parse me %xxx%` 单测，再怀疑引用方插件——90% 的「计分板不显示」是变量名写错或扩展没加载。",
+  "ecloud download 之后必须 /papi reload 才生效，很多人以为下载完就完事了。",
+  "PAPI 本身不产出数据，`%xxx%` 全靠扩展；没装对应扩展的占位符会原样显示。"
+ ],
+ "permissions": {
+  "placeholderapi.admin": "使用 /papi 管理类子指令"
+ }
 }

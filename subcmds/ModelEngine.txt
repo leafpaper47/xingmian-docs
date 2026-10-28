@@ -1,0 +1,28 @@
+# ModelEngine  (ModelEngine-R4.1.1-2410.jar)
+## 注册指令
+  /meg  usage=None desc='All things Model Engine related.' alias=None perm=None
+
+## 代码类
+  com.ticxo.modelengine.api.command.AbstractCommand
+  com.ticxo.modelengine.core.citizens.CitizensCommand$ModelCommand
+  com.ticxo.modelengine.core.citizens.CitizensCommand$StateCommand
+  com.ticxo.modelengine.core.citizens.CitizensCommand
+  com.ticxo.modelengine.core.command.MECommand
+  com.ticxo.modelengine.core.command.ModelOptionParser
+  com.ticxo.modelengine.core.command.sub.DebugCommand
+  com.ticxo.modelengine.core.command.sub.DisguiseCommand
+  com.ticxo.modelengine.core.command.sub.MenuCommand
+  com.ticxo.modelengine.core.command.sub.PluginHealthCommand
+  com.ticxo.modelengine.core.command.sub.ReloadCommand
+  com.ticxo.modelengine.core.command.sub.ResyncCommand
+  com.ticxo.modelengine.core.command.sub.SummonCommand
+  com.ticxo.modelengine.core.command.sub.TestCommand
+  com.ticxo.modelengine.core.command.sub.ToggleLODCommand
+  com.ticxo.modelengine.core.command.sub.UndisguiseCommand
+
+## javap 字符串 token
+  add color config debug disguise dodamagetint false health hideself hideselfdisguise hitboxscale lockpitch lockyaw mappings menu model models npc pivotoverride reload remove resync scale showhitbox showshadow state stepheight summon test toggle-lod true undisguise viewradius
+
+## 文本资源里的帮助/用法行
+
+## 常量池帮助/描述文本

@@ -1,0 +1,92 @@
+﻿3: istore        4
+6: istore        5
+9: istore        6
+12: istore        7
+15: istore        8
+23: ldc           #34                 // String You must specify a mob to spawn.
+25: invokestatic  #40                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/command/Comm
+43: ldc           #48                 // String -
+45: invokevirtual #54                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+54: ldc           #56                 // String s
+56: invokevirtual #60                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+63: istore        7
+68: ldc           #62                 // String t
+70: invokevirtual #60                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+77: istore        5
+82: ldc           #64                 // String p
+84: invokevirtual #60                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+91: istore        6
+96: ldc           #66                 // String n
+98: invokevirtual #60                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+105: istore        8
+111: invokestatic  #72                 // Method java/util/Arrays.copyOfRange:([Ljava/lang/Object;II)[Ljava/lang/Object;
+114: checkcast     #44                 // class "[Ljava/lang/String;"
+118: iload         6
+130: invokestatic  #78                 // Method org/bukkit/Bukkit.getPlayer:(Ljava/lang/String;)Lorg/bukkit/entity/Player;
+140: iload         7
+148: invokedynamic #90,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+153: invokestatic  #40                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/command/Com
+158: iload         5
+165: invokestatic  #98                 // Method io/lumine/mythic/bukkit/MythicBukkit.inst:()Lio/lumine/mythic/bukkit/MythicBukkit
+168: invokevirtual #102                // Method io/lumine/mythic/bukkit/MythicBukkit.getConfiguration:()Lio/lumine/mythic/core/co
+171: invokevirtual #108                // Method io/lumine/mythic/core/config/ConfigExecutor.getTransparentBlocks:()Ljava/util/Has
+177: invokeinterface #112,  3          // InterfaceMethod org/bukkit/entity/Player.getTargetBlock:(Ljava/util/Set;I)Lorg/bukkit/bl
+182: getstatic     #118                // Field org/bukkit/block/BlockFace.UP:Lorg/bukkit/block/BlockFace;
+185: invokeinterface #124,  2          // InterfaceMethod org/bukkit/block/Block.getRelative:(Lorg/bukkit/block/BlockFace;)Lorg/bu
+190: invokeinterface #128,  1          // InterfaceMethod org/bukkit/block/Block.getLocation:()Lorg/bukkit/Location;
+201: invokeinterface #129,  1          // InterfaceMethod org/bukkit/entity/Player.getLocation:()Lorg/bukkit/Location;
+211: invokestatic  #72                 // Method java/util/Arrays.copyOfRange:([Ljava/lang/Object;II)[Ljava/lang/Object;
+214: checkcast     #44                 // class "[Ljava/lang/String;"
+230: invokestatic  #135                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+233: istore        4
+241: istore        4
+256: ldc           #137                // String @
+258: invokevirtual #54                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+265: invokevirtual #141                // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+268: checkcast     #94                 // class io/lumine/mythic/bukkit/MythicBukkit
+271: invokevirtual #145                // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic/core/ski
+276: invokevirtual #151                // Method io/lumine/mythic/core/skills/SkillExecutor.getTargeter:(Ljava/lang/String;)Lio/lu
+287: instanceof    #92                 // class org/bukkit/entity/Player
+294: checkcast     #92                 // class org/bukkit/entity/Player
+300: invokevirtual #141                // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+303: checkcast     #94                 // class io/lumine/mythic/bukkit/MythicBukkit
+306: invokevirtual #145                // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic/core/ski
+311: invokestatic  #157                // Method io/lumine/mythic/bukkit/BukkitAdapter.adapt:(Lorg/bukkit/entity/Player;)Lio/lumin
+314: invokevirtual #161                // Method io/lumine/mythic/core/skills/SkillExecutor.getCaster:(Lio/lumine/mythic/api/adapt
+323: invokevirtual #141                // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+326: checkcast     #94                 // class io/lumine/mythic/bukkit/MythicBukkit
+329: invokevirtual #145                // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic/core/ski
+332: new           #165                // class io/lumine/mythic/core/adapters/VirtualEntity
+336: invokespecial #168                // Method io/lumine/mythic/core/adapters/VirtualEntity."<init>":()V
+339: invokevirtual #161                // Method io/lumine/mythic/core/skills/SkillExecutor.getCaster:(Lio/lumine/mythic/api/adapt
+345: invokevirtual #141                // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+348: checkcast     #94                 // class io/lumine/mythic/bukkit/MythicBukkit
+351: invokevirtual #145                // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic/core/ski
+354: invokevirtual #174                // Method io/lumine/mythic/core/skills/SkillExecutor.getEventBus:()Lio/lumine/mythic/core/s
+357: getstatic     #180                // Field io/lumine/mythic/core/skills/SkillTriggers.API:Lio/lumine/mythic/api/skills/SkillT
+364: invokeinterface #184,  1          // InterfaceMethod io/lumine/mythic/api/skills/SkillCaster.getEntity:()Lio/lumine/mythic/ap
+371: invokeinterface #184,  1          // InterfaceMethod io/lumine/mythic/api/skills/SkillCaster.getEntity:()Lio/lumine/mythic/ap
+376: invokeinterface #189,  1          // InterfaceMethod io/lumine/mythic/api/adapters/AbstractEntity.getLocation:()Lio/lumine/my
+382: invokevirtual #195                // Method io/lumine/mythic/core/skills/EventExecutor.buildSkillMetadata:(Lio/lumine/mythic/
+388: invokevirtual #141                // Method getPlugin:()Lorg/bukkit/plugin/Plugin;
+391: checkcast     #94                 // class io/lumine/mythic/bukkit/MythicBukkit
+394: invokevirtual #145                // Method io/lumine/mythic/bukkit/MythicBukkit.getSkillManager:()Lio/lumine/mythic/core/ski
+401: invokevirtual #199                // Method io/lumine/mythic/core/skills/SkillExecutor.getLocationTarget:(Lio/lumine/mythic/c
+404: invokestatic  #202                // Method io/lumine/mythic/bukkit/BukkitAdapter.adapt:(Lio/lumine/mythic/api/adapters/Abstr
+412: ldc           #204                // String Invalid location targeter specified for spawning a mob.
+414: invokestatic  #40                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/command/Com
+425: ldc           #204                // String Invalid location targeter specified for spawning a mob.
+427: invokestatic  #40                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/command/Com
+435: ldc           #206                // String ,
+437: invokevirtual #210                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+446: invokestatic  #214                // Method org/bukkit/Bukkit.getWorld:(Ljava/lang/String;)Lorg/bukkit/World;
+455: invokestatic  #220                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+464: invokestatic  #220                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+473: invokestatic  #220                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+495: invokestatic  #220                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+511: invokestatic  #220                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+521: new           #46                 // class org/bukkit/Location
+540: invokespecial #225                // Method org/bukkit/Location."<init>":(Lorg/bukkit/World;DDDFF)V
+550: ldc           #227                // String Invalid location specified for spawning a mob: location must be in format world,x
+552: invokestatic  #40                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/command/Com
+560: iload         6

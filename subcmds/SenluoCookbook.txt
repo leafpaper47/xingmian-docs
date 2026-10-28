@@ -1,0 +1,207 @@
+# SenluoCookbook  (SenluoCookbook-1.0.0.jar)
+## 注册指令
+  /cookbook  usage='/cookbook [reload|debug|sync]' desc='打开森罗厨房图鉴' alias=['ckbook', '森罗图鉴', '厨房图鉴', 'ckb'] perm=None
+
+## 代码类
+  com.xingmian.senluocookbook.CookbookCommand
+
+## javap 字符串 token
+  debug null reload sync x
+
+## 文本资源里的帮助/用法行
+  · # 森罗厨房图鉴 - 配置文件
+  · # 条目格式: "kaleidoscopecookery:物品id|显示名"
+  · # 解锁条件：玩家亲手从 KC 制作方块/家具上取下成品（炒锅/汤锅/蒸笼/沙威玛/磨盘/
+  · #          砧板/茶壶/茶杯垫…），或在合成台做出该物品
+  · # 改完配置执行 /cookbook reload 生效
+  · # 产出追踪：玩家与 KC 方块/家具交互后，比对"交互前 / 交互后"的背包，
+  · # 多出来的图鉴内菜品即判定为本次自己产出。
+  · # 为什么需要它：KC 的茶壶、茶杯垫是 CraftEngine 家具（不是方块），
+  · # 蒸笼正常取熟食也不发任何 KC 事件——这些通路只能靠这条链路捕获。
+  · # 采集点在 CE 的方块/家具交互事件里（它们都在"给物品之前"触发），
+  · # 所以拍到的基线是干净的；玩家互送菜、从箱子取菜都不经过这个点，不会被误记。
+  · # 只追踪该命名空间内的方块/家具（KC 的东西全在这个命名空间下）
+  · # 采样延迟（tick）：CE 在事件 fire 之后才真正把物品给到玩家，必须延后采样。
+  · # 两个采样点兼顾"立刻给"和"下一拍才给"两种情况。
+  · # 排除的方块/家具：展示架/厨具架/果篮这类"可以放别人成品再取下"的载体，
+  · # 避免玩家把别人做的菜放上去再拿下来刷图鉴。
+  · main-title: "&8✦ 森罗厨房图鉴"
+  · unlocked: "&a✔ 已做出"
+  · first-time: "&7首次做出: &e{date}"
+  · make-count: "&7共做出: &f{count} 次"
+  · no-permission: "&c你没有权限。"
+  · reloaded: "&a图鉴配置已重载，目录现 &e{count} &a种。"
+  · unlock: "&6[森罗厨房] &a✔ 图鉴解锁：&f{dish}"
+  · title: "炒锅小炒"
+  · description: "铁锅现炒，锅气十足"
+  · - "kaleidoscopecookery:blaze_lamb_chop|烈焰羊排"
+  · - "kaleidoscopecookery:braised_beef|红烧牛肉"
+  · - "kaleidoscopecookery:braised_fish|红烧鱼"
+  · - "kaleidoscopecookery:braised_pork_ribs|红烧排骨"
+  · - "kaleidoscopecookery:candied_potato|拔丝土豆"
+  · - "kaleidoscopecookery:chorus_fried_egg|荷包紫颂烧"
+  · - "kaleidoscopecookery:cooked_cow_offal|熟牛杂"
+  · - "kaleidoscopecookery:cooked_cut_small_meats|熟切制小肉"
+  · - "kaleidoscopecookery:cooked_donkey_meat|熟驴肉"
+  · - "kaleidoscopecookery:cooked_lamb_chops|熟羊排"
+  · - "kaleidoscopecookery:cooked_meatball|熟丸子"
+  · - "kaleidoscopecookery:cooked_pork_belly|熟五花肉"
+  · - "kaleidoscopecookery:crystal_lamb_chop|水晶羊排"
+  · - "kaleidoscopecookery:delicious_egg_fried_rice|美味蛋炒饭"
+  · - "kaleidoscopecookery:dongpo_pork|东坡肉"
+  · - "kaleidoscopecookery:donkey_burger|驴肉火烧"
+  · - "kaleidoscopecookery:egg_fried_rice|蛋炒饭"
+  · - "kaleidoscopecookery:fish_flavored_shredded_pork|鱼香肉丝"
+  · - "kaleidoscopecookery:fondant_pie|翻糖派"
+  · - "kaleidoscopecookery:fondant_spider_eye|翻糖蛛眼"
+  · - "kaleidoscopecookery:fried_caterpillar|油炸猪儿虫"
+  · - "kaleidoscopecookery:fried_egg|煎蛋"
+  · - "kaleidoscopecookery:fried_spring_roll|炸春卷"
+  · - "kaleidoscopecookery:frost_lamb_chop|凛冬羊排"
+  · - "kaleidoscopecookery:meat_pie|馅饼"
+  · - "kaleidoscopecookery:oil_splashed_fish|油泼鱼"
+  · - "kaleidoscopecookery:pan_seared_knight_steak|香煎骑士牛排"
+  · - "kaleidoscopecookery:scramble_egg_with_tomatoes|番茄炒蛋"
+  · - "kaleidoscopecookery:slime_ball_meal|黏液饭"
+  · - "kaleidoscopecookery:spicy_chicken|辣子鸡"
+  · - "kaleidoscopecookery:spicy_rabbit_head|麻辣兔头"
+  · - "kaleidoscopecookery:stargazy_pie|仰望星空派"
+  · - "kaleidoscopecookery:sticky_candy|牛皮糖"
+  · - "kaleidoscopecookery:sticky_rice_cake|糍粑"
+  · - "kaleidoscopecookery:stir_fried_pork_with_peppers|青椒炒肉"
+  · - "kaleidoscopecookery:stuffed_tiger_skin_pepper|虎皮青椒酿肉"
+  · - "kaleidoscopecookery:sweet_and_sour_ender_pearls|珍珠咕噜肉"
+  · - "kaleidoscopecookery:sweet_and_sour_pork|糖醋里脊"
+  · - "kaleidoscopecookery:yakitori|烧鸟串"
+  · - "kaleidoscopecookery:dark_cuisine|黑暗料理"
+  · - "kaleidoscopecookery:suspicious_stir_fry|谜之炒菜"
+  · title: "汤锅炖煮"
+  · description: "瓦罐慢炖，暖胃主食"
+  · - "kaleidoscopecookery:beef_meatball_soup|牛丸汤"
+  · - "kaleidoscopecookery:beef_noodle|牛肉面"
+  · - "kaleidoscopecookery:borscht|罗宋汤"
+  · - "kaleidoscopecookery:braised_beef_with_potatoes|土豆炖牛肉"
+  · - "kaleidoscopecookery:brown_mushroom_pot_soup|棕蘑菇瓦罐汤"
+  · - "kaleidoscopecookery:buddha_jumps_over_the_wall|佛跳墙"
+  · - "kaleidoscopecookery:chicken_and_mushroom_stew|小鸡炖蘑菇"
+  · - "kaleidoscopecookery:cooked_rice|米饭"
+  · - "kaleidoscopecookery:crimson_fungus_pot_soup|绯红菌瓦罐汤"
+  · - "kaleidoscopecookery:dough_drop_soup|疙瘩汤"
+  · - "kaleidoscopecookery:dumpling|饺子"
+  · - "kaleidoscopecookery:fearsome_thick_soup|恐惧浓汤"
+  · - "kaleidoscopecookery:four_joy_meatball_soup|四喜丸子汤"
+  · - "kaleidoscopecookery:hot_dry_noodles|热干面"
+  · - "kaleidoscopecookery:hui_noodle|羊肉烩面"
+  · - "kaleidoscopecookery:laba_congee|腊八粥"
+  · - "kaleidoscopecookery:lamb_and_radish_soup|萝卜羊肉汤"
+  · - "kaleidoscopecookery:numbing_spicy_chicken|椒麻鸡"
+  · - "kaleidoscopecookery:pork_bone_soup|大骨汤"
+  · - "kaleidoscopecookery:pufferfish_soup|河豚汤"
+  · - "kaleidoscopecookery:red_mushroom_pot_soup|红蘑菇瓦罐汤"
+  · - "kaleidoscopecookery:seafood_miso_soup|海鲜味噌汤"
+  · - "kaleidoscopecookery:shengjian_mantou|水煎包"
+  · - "kaleidoscopecookery:spicy_blood_stew|毛血旺"
+  · - "kaleidoscopecookery:tomato_beef_brisket_soup|番茄牛腩汤"
+  · - "kaleidoscopecookery:udon_noodle|乌冬面"
+  · - "kaleidoscopecookery:warped_fungus_pot_soup|诡异菌瓦罐汤"
+  · - "kaleidoscopecookery:wild_mushroom_rabbit_soup|野菌兔肉汤"
+  · - "kaleidoscopecookery:zongzi|熟粽子"
+  · title: "蒸笼点心"
+  · description: "竹蒸笼里的松软点心"
+  · - "kaleidoscopecookery:bamboo_tube_rice|熟竹筒饭"
+  · - "kaleidoscopecookery:baozi|包子"
+  · - "kaleidoscopecookery:mantou|馒头"
+  · - "kaleidoscopecookery:qingtuan|青团"
+  · title: "食材加工"
+  · description: "砧板切割、石磨研磨的食材"
+  · - "kaleidoscopecookery:raw_cow_offal|生牛杂"
+  · - "kaleidoscopecookery:raw_cut_small_meats|生切制小肉"
+  · - "kaleidoscopecookery:raw_lamb_chops|生羊排"
+  · - "kaleidoscopecookery:raw_noodles|生面条"
+  · - "kaleidoscopecookery:raw_pork_belly|生五花肉"
+  · - "kaleidoscopecookery:sashimi|刺身"
+  · - "kaleidoscopecookery:flour|面粉"
+  · - "kaleidoscopecookery:oil|油脂"
+  · - "kaleidoscopecookery:rice|稻米"
+  · - "kaleidoscopecookery:tomato|番茄"
+  · - "kaleidoscopecookery:lettuce|生菜"
+  · - "kaleidoscopecookery:caterpillar|猪儿虫"
+  · - "kaleidoscopecookery:raw_bamboo_tube_rice|生竹筒饭"
+  · - "kaleidoscopecookery:raw_donkey_meat|生驴肉"
+  · - "kaleidoscopecookery:raw_meatball|生丸子"
+  · - "kaleidoscopecookery:raw_dough|生面团"
+  · - "kaleidoscopecookery:raw_zongzi|生粽子"
+  · - "kaleidoscopecookery:stuffed_dough_food|裹馅面食"
+  · title: "合成与烤制"
+  · description: "拼盘、盖饭与烤制料理"
+  · - "kaleidoscopecookery:samsa|烤包子"
+  · - "kaleidoscopecookery:scramble_egg_with_tomatoes_rice_bowl|番茄炒蛋盖饭"
+  · - "kaleidoscopecookery:braised_beef_rice_bowl|红烧牛肉盖饭"
+  · - "kaleidoscopecookery:stir_fried_pork_with_peppers_rice_bowl|青椒炒肉盖饭"
+  · - "kaleidoscopecookery:sweet_and_sour_pork_rice_bowl|糖醋里脊盖饭"
+  · - "kaleidoscopecookery:fish_flavored_shredded_pork_rice_bowl|鱼香肉丝盖饭"
+  · - "kaleidoscopecookery:apple_platter|苹果拼盘"
+  · - "kaleidoscopecookery:baozi_plate|一盘包子"
+  · - "kaleidoscopecookery:berry_platter|浆果拼盘"
+  · - "kaleidoscopecookery:chorus_fruit_platter|紫颂果拼盘"
+  · - "kaleidoscopecookery:cold_cut_ham_slices|冷切火腿片"
+  · - "kaleidoscopecookery:cold_roasted_meat|冷肉炙"
+  · - "kaleidoscopecookery:cold_style_sashimi|寒带风味刺身"
+  · - "kaleidoscopecookery:desert_style_sashimi|沙漠风味刺身"
+  · - "kaleidoscopecookery:end_style_sashimi|末地风味刺身"
+  · - "kaleidoscopecookery:golden_salad|黄金沙拉"
+  · - "kaleidoscopecookery:nether_style_sashimi|下界风味刺身"
+  · - "kaleidoscopecookery:qingtuan_plate|一盘青团"
+  · - "kaleidoscopecookery:shengjian_mantou_plate|一盘水煎包"
+  · - "kaleidoscopecookery:sticky_candy_plate|一盘牛皮糖"
+  · - "kaleidoscopecookery:sticky_rice_cake_plate|一盘糍粑"
+  · - "kaleidoscopecookery:tomato_platter|番茄拼盘"
+  · - "kaleidoscopecookery:tundra_style_sashimi|苔原风味刺身"
+  · - "kaleidoscopecookery:watermelon_platter|西瓜拼盘"
+  · - "kaleidoscopecookery:zongzi_plate|一盘粽子"
+  · title: "茶饮品茗"
+  · description: "茶壶里沏出的六种茶"
+  · - "kaleidoscopecookery:barley_tea|大麦茶"
+  · - "kaleidoscopecookery:biluochun|碧螺春"
+  · - "kaleidoscopecookery:oolong|乌龙茶"
+  · - "kaleidoscopecookery:flower_tea|花茶"
+  · - "kaleidoscopecookery:sakura_fubuki|樱吹雪"
+  · - "kaleidoscopecookery:tieguanyin|铁观音"
+  · description: 森罗厨房图鉴：炒出或做出 kaleidoscopecookery 菜品即解锁，全菜品图鉴 GUI。
+  · description: 打开森罗厨房图鉴
+  · aliases: [ckbook, 森罗图鉴, 厨房图鉴, ckb]
+  · usage: /cookbook [reload|debug|sync]
+  · description: 允许使用森罗厨房图鉴
+  · description: 允许重载图鉴配置
+
+## 常量池帮助/描述文本
+  · com/xingmian/senluocookbook/CookbookCommand
+  · &c你没有权限。
+  · &a配置已重载，图鉴目录现 &e{count} &a种。
+  · 控制台执行请带玩家名：/cookbook sync <玩家>
+  · debug 需要玩家执行（要看手持物和视线方块）。
+  · 只有玩家能打开图鉴。
+  · com/xingmian/senluocookbook/CookbookGUI
+  · 
+手持: 
+  · 
+-- 背包内可识别的 CE 物品 --
+  ·   [目录内]
+  ·   [目录外!]
+  · 
+   ...(截断)
+  · 
+   (背包里没有 CE 物品)
+  · 
+视线方块: 
+  · 
+视线方块: 未命中
+  · 
+视线方块: 探测失败 
+  · 
+===== debug 结束 =====
+  · &a已挂载
+  · &c不可用
+  · &c找不到在线玩家 
+  · &a已扫描  的背包，补录 &e &a条新收录。
+  · &7产出追踪：方块事件=&7，家具事件=

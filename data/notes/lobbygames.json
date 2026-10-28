@@ -1,60 +1,41 @@
 {
-  "name": "LobbyGames",
-  "role": "在大厅里开小游戏对局，玩家随进随玩",
-  "summary": "LobbyGames 把一堆轻量小游戏（扫雷、贪吃蛇、五子棋、2048、斯诺克、踢球、打地鼠之类）打包进服务端，让玩家在主城等待时有事可做。玩家用一条指令就能进游戏，管理员可以把指定玩家直接送进对局、踢出对局、看排行榜和开新游戏。它一般和主城/大厅系统、权限插件配合，权限靠 luckperms 之类的插件按节点分配。",
-  "whatFor": [
-    "主城大厅玩家等待传送、等人组队时，想给点不占地图资源的消遣玩法",
-    "服务器活动日想组织几局小游戏比赛，需要把玩家直接送进对局",
-    "想给普通玩家开放部分小游戏、只给管理员开放踢人和创建游戏"
-  ],
-  "flow": [
-    "先确认插件已加载，控制台或游戏内试一下 /lobbygames（别名 /lg），看是否有回应",
-    "用 /lgjoin 进一局小游戏，确认地图、计分板、结算都正常",
-    "在 LuckPerms 里给默认组 lobbygames.command，给管理员组 lobbygames.admin、lobbygames.kickplayer、lobbygames.forcejoin",
-    "把 /lobbygames 或某个小游戏指令挂到主城菜单/NPC 交互上，方便玩家一键进"
-  ],
-  "commands": [
-    {
-      "cmd": "lgjoin",
-      "what": "直接加入大厅小游戏，游戏名用指令别名区分",
-      "syntax": "/lgjoin",
-      "params": [],
-      "examples": [
-        "/lgjoin"
-      ],
-      "notes": "该指令带多个别名（如 clicker、minesweeper、snake、soccer、spleef、sudoku、2048、tictactoe、pool、connect4 等），很可能每个别名对应直接进某一款小游戏；具体对应关系与是否还能带游戏名，以游戏内 help 为准。"
-    },
-    {
-      "cmd": "lgjoinplayer",
-      "what": "把指定玩家送进对局的强制加入指令，别名 /lgforcejoin",
-      "syntax": "/lgjoinplayer",
-      "params": [],
-      "examples": [
-        "/lgjoinplayer"
-      ],
-      "notes": "说明里写的是控制台命令，权限节点为 lobbygames.forcejoin；目标玩家参数怎么写以游戏内 help 为准。"
-    },
-    {
-      "cmd": "lobbygames",
-      "what": "插件主命令，别名 /lg、/minigames，管游戏列表、传送、踢人、排行榜",
-      "syntax": "/lobbygames",
-      "params": [],
-      "examples": [
-        "/lobbygames",
-        "/lg"
-      ],
-      "notes": "从权限节点看，/lg 下面大概有列表、tp、kick、排行榜、创建、删除等子命令，权限分别是 lobbygames.command、lobbygames.kickplayer、lobbygames.admin；子命令拼写以游戏内 help 为准。"
-    }
-  ],
-  "subcommands": [],
-  "caution": [
-    "这是小众/私家插件，具体参数与子指令以游戏内 help（或 /lg help）为准，别照抄别的服教程",
-    "/lgjoinplayer 走的是 lobbygames.forcejoin 权限，普通玩家不该有这个节点，否则能被互相拉进对局",
-    "踢人和创建/删除游戏属于 lobbygames.admin，权限建议只给管理组，避免玩家删掉你配好的游戏",
-    "改完权限或配置后先自己进一局验证，小游戏涉及计分与背包状态，出问题容易卡住玩家"
-  ],
-  "related": [
-    "LuckPerms",
-    "DeluxeMenus"
-  ]
+ "name": "LobbyGames",
+ "role": "小游戏汇总",
+ "summary": "大厅里的成套小游戏（2048/扫雷/贪吃蛇/井字棋/数独/桌球/四子棋/足球/雪球战），玩家一条命令进游戏，服务器侧无需额外状态。",
+ "quick": [
+  {"scene": "看有哪些小游戏", "cmd": "/lg join", "note": "不带游戏名会列出可玩清单"},
+  {"scene": "直接进 2048", "cmd": "/lgjoin 2048", "note": "别名也可直接当命令：/2048"},
+  {"scene": "把人踢出游戏", "cmd": "/lg kick Steve", "note": "需 lobbygames.kickplayer"},
+  {"scene": "清排行榜", "cmd": "/lg clearleaderboard", "note": "不可撤销，活动结算后再清"}
+ ],
+ "commands": [
+  {"cmd": "lobbygames", "what": "小游戏主指令：进入、管理、排行、传送", "syntax": "/lg <join|list|tp|kick|create|delete|leaderboard|reload|help>",
+   "examples": ["/lg help"], "notes": "别名 /lg、/minigames"},
+  {"cmd": "lgjoin", "what": "直接进入指定小游戏", "syntax": "/lgjoin <游戏>",
+   "examples": ["/lgjoin snake"], "notes": "每个游戏还有独立别名（/snake、/ttt、/connect4…）"},
+  {"cmd": "lgjoinplayer", "what": "把指定玩家送进某局游戏（控制台可用）", "syntax": "/lgjoinplayer <玩家> <游戏>",
+   "examples": ["/lgjoinplayer Steve minesweeper"], "notes": "别名 /lgforcejoin；需 lobbygames.forcejoin"}
+ ],
+ "subcommands": [
+  {"cmd": "/lg join", "desc": "查看可玩小游戏并进入", "example": "/lg join"},
+  {"cmd": "/lg list", "desc": "列出进行中的游戏与所在服务器", "example": "/lg list"},
+  {"cmd": "/lg tp <玩家>", "desc": "传送到某玩家正在玩的对局", "example": "/lg tp Steve"},
+  {"cmd": "/lg kick <玩家>", "desc": "把玩家踢出对局", "example": "/lg kick Steve"},
+  {"cmd": "/lg leaderboard", "desc": "查看排行榜（别名 /lg lb）", "example": "/lg lb"},
+  {"cmd": "/lg clearleaderboard", "desc": "清空排行榜", "example": "/lg clearleaderboard"},
+  {"cmd": "/lg create <游戏>", "desc": "创建一局游戏", "example": "/lg create tictactoe"},
+  {"cmd": "/lg delete <游戏>", "desc": "删除一局游戏", "example": "/lg delete tictactoe"},
+  {"cmd": "/lg reload", "desc": "重载配置与别名开关", "example": "/lg reload"}
+ ],
+ "caution": [
+  "小游戏对局在内存里，重启服务器会全部丢失，活动前别重启。",
+  "clearleaderboard 没有二次确认，赛季结算前先导出排行榜。",
+  "关掉 lg-join-command-enabled 后 /lgjoin 失效，玩家只能靠告示牌或控制台送达。"
+ ],
+ "permissions": {
+  "lobbygames.command": "使用 /lg list 与 /lg tp",
+  "lobbygames.kickplayer": "使用 /lg kick",
+  "lobbygames.forcejoin": "使用 /lgjoinplayer",
+  "lobbygames.admin": "使用 /lg leaderboard、/lg create、/lg delete"
+ }
 }

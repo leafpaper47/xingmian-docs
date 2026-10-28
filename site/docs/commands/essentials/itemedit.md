@@ -7,63 +7,48 @@ createTime: 2026/10/24
 
 > 分类 🧰 基础工具 · 版本 `3.7.10` · 指令 6 条 · api-version `1.13`
 
-::: tip 手持物品的图形化编辑器，改名改 Lore 改属性
-ItemEdit 让人不用碰命令方块和 NBT 数据，直接在界面里把手上这件物品改成想要的样子：名字、Lore、附魔、耐久、药水效果、盔甲纹饰都能调。它自带个人物品库 /itemstorage 和全服物品库 /serveritem，做好的物品可以存档、反复发放，也能配合经济插件对玩家出售或收购。适合服主做活动奖励、称号道具和商店商品，权限按功能拆得很细，可以只给管理员开放其中几项能力。
+::: tip 物品编辑
+手持物品的图形化编辑器：改名、改 Lore、改附魔与属性、做 NBT 痕迹，还能把成品存成可复用物品库。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 做活动奖励或礼包道具：改名、加 Lore、加发光，一次做成模板存起来反复发放。
-- 临时救火：玩家物品卡住、耐久见底、数量不对，现场改数量、耐久或改成无法破坏。
-- 搭建商店：先用 /serveritem 存好商品，再让玩家用经济插件买或卖。
-- 配合资源包做自定义外观：给物品设置 custom model data 或 item model，替换成自己的贴图。
-- 做药水、烟花、旗帜、头颅、盔甲纹饰这类特殊物品，点界面比记 NBT 快得多。
-
-## 上手流程
-
-1. 手上拿着要改的物品，输入 /ie 打开编辑界面；也可以直接用 /itemedit 的子指令改单项属性。
-2. 按需点选修改：改名、加 Lore、调附魔等级、改数量或耐久，改动立刻作用在当前手持物品上。
-3. 改满意后，用 /itemstorage 存进自己的物品库；需要全服通用就用 /serveritem 存进服务器物品库当模板。
-4. 要发给玩家或上架时，从 /serveritem 取用、发放，或配合经济插件做买卖。
-5. 改过插件配置后执行 /itemeditreload 让设置生效。
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 编辑手里的物品 | /itemedit | 打开 GUI，逐项改名字/Lore/附魔/属性 |
+| 存成可复用物品 | /itemstorage | 把当前手持保存进自己的物品库，随时取回 |
+| 给玩家发一个成品 | /serveritem | 服务器物品库，可控制台出售或购买 |
+| 导入别处配置 | /itemeditimport | 重装插件后用它恢复物品库 |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/itemedit` | 打开手持物品的编辑界面，或用子指令直接改某项属性<br>别名 `/ie` | `/itemedit 子指令 [参数值]` | — |
-| `/itemeditimport` | 从其它插件或旧数据导入物品配置 | `/itemeditimport` | — |
-| `/itemeditinfo` | 查看 ItemEdit 的版本与运行信息 | `/itemeditinfo` | — |
-| `/itemeditreload` | 重载 ItemEdit 的配置文件 | `/itemeditreload` | — |
-| `/itemstorage` | 打开个人物品库，保存与取回自己做过的物品<br>别名 `/is` | `/itemstorage` | — |
-| `/serveritem` | 服务器物品库，保存取回物品，并可向玩家出售或收购<br>别名 `/si` | `/serveritem` | — |
+| `/itemedit` | 打开手持物品的编辑 GUI<br>别名 `/ie` | `/itemedit` | — |
+| `/itemeditimport` | 从其他插件的配置导入物品定义 | `/itemeditimport [插件名]` | — |
+| `/itemeditinfo` | 查看 ItemEdit 版本与配置状态 | `/itemeditinfo` | — |
+| `/itemeditreload` | 重载配置与物品库 | `/itemeditreload` | — |
+| `/itemstorage` | 打开个人物品库：保存/取回自己做的物品<br>别名 `/is` | `/itemstorage` | — |
+| `/serveritem` | 打开服务器物品库，可用于发放与商店买卖<br>别名 `/si` | `/serveritem` | — |
 
 ## 指令详解
 
-### `/itemedit` — 打开手持物品的编辑界面，或用子指令直接改某项属性
+### `/itemedit` — 打开手持物品的编辑 GUI
 
-- **语法**：`/itemedit 子指令 [参数值]`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `子指令` | 可选 | 如 rename、lore、amount、enchant 等；不写则打开编辑界面 |
-| `参数值` | 可选 | 子指令需要的值，如新名称、数量、附魔等级 |
-
+- **语法**：`/itemedit`
 
 - **示例**：
 
 ```
 /itemedit
-/itemedit rename 星冕之剑
-/itemedit amount 16
 ```
 
 - **别名**：`/ie`
-- **备注**：别名 /ie。主指令本身是界面入口，具体能改哪些项取决于执行者拿到的权限节点，没权限的项会直接不生效；颜色、粗体斜体等格式也要单独授权。
+- **备注**：必须手持物品；改完点保存才生效，中途关闭会丢弃修改
 
-### `/itemeditimport` — 从其它插件或旧数据导入物品配置
+### `/itemeditimport` — 从其他插件的配置导入物品定义
 
-- **语法**：`/itemeditimport`
+- **语法**：`/itemeditimport [插件名]`
 
 - **示例**：
 
@@ -71,9 +56,9 @@ ItemEdit 让人不用碰命令方块和 NBT 数据，直接在界面里把手上
 /itemeditimport
 ```
 
-- **备注**：换服、换插件版本时用来把已有物品数据搬进来。导入前先备份插件数据目录，导入后抽查几件物品的名称、Lore 和附魔有没有丢掉。
+- **备注**：导入的是 items.yml 里的定义，不是玩家物品
 
-### `/itemeditinfo` — 查看 ItemEdit 的版本与运行信息
+### `/itemeditinfo` — 查看 ItemEdit 版本与配置状态
 
 - **语法**：`/itemeditinfo`
 
@@ -83,9 +68,9 @@ ItemEdit 让人不用碰命令方块和 NBT 数据，直接在界面里把手上
 /itemeditinfo
 ```
 
-- **备注**：报 bug 或求助时先跑这条，把输出的版本号一起发出去。
+- **备注**：反馈问题前先跑这条
 
-### `/itemeditreload` — 重载 ItemEdit 的配置文件
+### `/itemeditreload` — 重载配置与物品库
 
 - **语法**：`/itemeditreload`
 
@@ -95,9 +80,9 @@ ItemEdit 让人不用碰命令方块和 NBT 数据，直接在界面里把手上
 /itemeditreload
 ```
 
-- **备注**：只重载配置，不会补装新权限节点。改完权限还是要靠 LuckPerms 之类重新给，重载后建议拿测试号实际试一次界面是否正常。
+- **备注**：手动改过 yml 才需要跑
 
-### `/itemstorage` — 打开个人物品库，保存与取回自己做过的物品
+### `/itemstorage` — 打开个人物品库：保存/取回自己做的物品
 
 - **语法**：`/itemstorage`
 
@@ -105,13 +90,12 @@ ItemEdit 让人不用碰命令方块和 NBT 数据，直接在界面里把手上
 
 ```
 /itemstorage
-/is
 ```
 
 - **别名**：`/is`
-- **备注**：别名 /is。库是跟着账号走的，适合给自己攒模板；要发给别人或给全服当商品，用 /serveritem。保存、删除、更新、查看、取出分属不同权限节点。
+- **备注**：别名 /is；库里是按名字区分的模板，取回是复制一份
 
-### `/serveritem` — 服务器物品库，保存取回物品，并可向玩家出售或收购
+### `/serveritem` — 打开服务器物品库，可用于发放与商店买卖
 
 - **语法**：`/serveritem`
 
@@ -119,57 +103,32 @@ ItemEdit 让人不用碰命令方块和 NBT 数据，直接在界面里把手上
 
 ```
 /serveritem
-/si
 ```
 
 - **别名**：`/si`
-- **备注**：别名 /si。这是全服共享的库，存进去的物品可以给玩家发放、让玩家取用，也能配合经济插件做定量出售/收购（对应 sell、buy、sellmax、buymax 等权限）。上架前务必确认价格和数量，控制台也能发起这类发布操作。
-
-## 子指令速查
-
-| 子指令 | 功能 | 示例 |
-| --- | --- | --- |
-| `rename 新名称` | 重命名手持物品，颜色与格式受授权限制 | `/itemedit rename 星冕之剑` |
-| `lore` | 编辑手持物品的 Lore 说明文本 | `/itemedit lore` |
-| `lore copy` | 把物品的 Lore 复制到另一件物品上 | `/itemedit lore copy` |
-| `amount 数量` | 修改这一堆物品的数量 | `/itemedit amount 16` |
-| `damage 数值` | 修改物品的耐久损耗值 | `/itemedit damage 100` |
-| `enchant 附魔名 等级` | 给物品加附魔并设置等级 | `/itemedit enchant sharpness 5` |
-| `unbreakable` | 把物品设置为无法破坏 | `/itemedit unbreakable` |
-| `hideall` | 一次性隐藏物品上的全部属性标签 | `/itemedit hideall` |
-| `type 材料名` | 更换物品的材质类型 | `/itemedit type diamond_sword` |
-| `skullowner 玩家名` | 设置玩家头颅使用哪个玩家的皮肤 | `/itemedit skullowner Notch` |
-| `potioneffect 效果名` | 给药水类物品添加或修改效果 | `/itemedit potioneffect speed` |
-| `color 颜色值` | 设置皮革、药水、烟花星等物品的颜色 | `/itemedit color ff0000` |
-| `custommodeldata 数值` | 设置物品的自定义模型数据，配合资源包换外观 | `/itemedit custommodeldata 1001` |
-| `repaircost 数值` | 设置铁砧修理所需等级成本 | `/itemedit repaircost 10` |
-| `maxstacksize 数值` | 设置这堆物品的最大堆叠数量 | `/itemedit maxstacksize 64` |
-| `rarity 稀有度` | 设置物品名称的稀有度配色 | `/itemedit rarity epic` |
-| `glow` | 给物品加发光效果 | `/itemedit glow` |
-| `listaliases` | 显示可用的别名列表 | `/itemedit listaliases` |
+- **备注**：别名 /si；可配合控制台命令向玩家出售/收购
 
 ## 注意事项
 
 ::: warning
-- 权限拆得很细：只给 itemedit.itemedit.rename 只能写纯文本名字，要上颜色和粗体斜体还得给 itemedit.itemedit.rename.color.* 和 rename.format.* 这类子节点，Lore 同理。
-- 超出原版上限的附魔等级、2 级以上的药水效果、自定义食物属性需要单独的 bypass 节点（enchant.bypass_max_level、potioneffect.bypass_limits、food.bypass_limits），不给就只能写原版范围内。
-- 编辑后的物品带自定义数据和 NBT，跨版本升级、转手给其它插件前先在测试服验证能正常识别，不要直接把改过的物品批量回滚给玩家。
-- 子指令与参数的完整清单以游戏内执行 /itemedit 时的提示和插件配置文件为准，命令前先在工作服试一遍再上正服。
+- 编辑出来的物品带自定义 NBT，重装/换版本后可能失效，重要物品先 /itemstorage 备份。
+- 玩家能改名的场景要开 itemedit.bypass.censure，否则会被词表拦下。
+- 把 itemedit.admin 发给非管理员= 他们能造任意属性物品，权限要收紧。
 :::
 
 ## 权限节点
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `itemedit.admin` | 拥有该插件的全部权限 | op |
+| `itemedit.admin` | 完全访问权限（编辑、服务器物品库） | op |
 | `itemedit.bypass.*` | 拥有该插件的全部权限 | op |
-| `itemedit.bypass.censure` | 编辑项目时绕过单词限制 | op |
+| `itemedit.bypass.censure` | 绕过命名与 Lore 的词表过滤 | op |
 | `itemedit.bypass.lore_length_limit` | 在配置上设置的知识线最大长度的旁路限制 | op |
 | `itemedit.bypass.lore_line_limit` | 绕过配置上设置的知识线数量的限制 | op |
 | `itemedit.bypass.lore_type_restriction` | 编辑项目知识时绕过类型限制 | op |
 | `itemedit.bypass.rename_length_limit` | 绕过配置上设置的重命名行最大长度的限制 | op |
-| `itemedit.bypass.rename_type_restriction` | 重命名项目时绕过类型限制 | op |
-| `itemedit.creativeuser` | 拥有该插件的全部权限 | op |
+| `itemedit.bypass.rename_type_restriction` | 绕过改名时的类型限制 | op |
+| `itemedit.creativeuser` | 创造模式用户的完全访问 | op |
 | `itemedit.itemedit.*` | 授予对command/itemedit的完全访问权限 | op |
 | `itemedit.itemedit.amount` | 允许编辑项目金额 | op |
 | `itemedit.itemedit.armortrim` | 允许在盔甲上设置修剪 | op |
@@ -291,7 +250,3 @@ ItemEdit 让人不用碰命令方块和 NBT 数据，直接在界面里把手上
 | `itemedit.serveritem.show` | 允许查看已存储的物品 | op |
 | `itemedit.serveritem.take` | 允许取用存储的物料 | op |
 | `itemedit.serveritem.update` | 允许更新已存储的物品 | op |
-
-## 相关插件
-
-[Vault](/commands/core/vault.md)、[LuckPerms](/commands/core/luckperms.md)、[PlaceholderAPI](/commands/config/placeholderapi.md)

@@ -1,44 +1,41 @@
 {
-  "name": "PlayerTitle",
-  "role": "称号系统：发放、展示、商城与收藏",
-  "summary": "PlayerTitle 给服务器加一套完整的「称号」玩法：玩家可以从称号仓库里更换头顶/聊天显示的称号，也能在称号商城里用称号币购买新称号。管理侧负责发称号、发称号币和称号卡，并可给称号挂粒子和属性 buff。它通常和聊天格式、经济类插件一起用，称号通过占位符显示到聊天、计分板或 TAB 列表里。",
-  "whatFor": [
-    "想给服务器加一个玩家可以自己收集、切换的称号系统时",
-    "做活动或充值回馈，要给玩家发限定称号、称号币、称号卡时",
-    "需要称号带粒子特效或属性加成，做成「有特效的称号」时",
-    "玩家称号显示错乱或数据异常，需要查人、清理某人称号数据时"
-  ],
-  "flow": [
-    "先把插件放进 plugins 目录启动一次，生成配置与数据库，再按需改配置里的称号列表和商城价格",
-    "执行 /playerTitle 打开主界面，确认自己能看到称号仓库和称号商城的入口",
-    "给自己的管理账号加上 playerTitle.* 或其下需要的子权限，避免用 OP 直接测",
-    "给测试玩家发一个称号并让他在仓库里换上，确认聊天/头顶显示正常",
-    "接第三方显示时，到聊天格式或 TAB 配置里写 PlayerTitle 提供的称号占位符"
-  ],
-  "commands": [
-    {
-      "cmd": "playerTitle",
-      "what": "称号插件主指令，打开界面或进入各类称号子功能",
-      "syntax": "/playerTitle",
-      "params": [],
-      "examples": [
-        "/playerTitle",
-        "/plt"
-      ],
-      "notes": "别名 /plt。输入后一般会输出可用子指令列表或直接打开称号仓库界面；具体子指令与参数以游戏内输入该指令后的提示和 help 输出为准。玩家侧常用的是打开仓库和商城，管理侧对应 reload、发放称号、称号币、称号卡、buff、粒子、查人、清理数据等权限节点。"
-    }
-  ],
-  "subcommands": [],
-  "caution": [
-    "本插件以主指令加子功能的形式工作，具体参数与子指令以游戏内 help 为准，不同版本可能增删，不要照抄网上旧教程的写法",
-    "playerTitle.open 与 playerTitle.shop 默认对所有人开放，其余权限默认仅 OP；给普通玩家放开时要逐个确认，别直接给 playerTitle.*",
-    "称号数据存数据库，重载配置前先在测试服验证；涉及清数据、转数据库类操作务必先备份",
-    "称号粒子与 buff 可能受世界限制（有忽略世界限制的独立权限），换世界后效果消失属正常现象，先确认是不是被世界限制了"
-  ],
-  "related": [
-    "PlaceholderAPI",
-    "LuckPerms",
-    "Vault",
-    "TAB"
-  ]
+ "name": "PlayerTitle",
+ "role": "称号系统",
+ "summary": "玩家称号的发放、佩戴、商城与粒子特效，称号可带属性增益与展示粒子，是常用的氪金/活动奖励载体。",
+ "quick": [
+  {"scene": "玩家看自己的称号", "cmd": "/plt open", "note": "主界面里佩戴/卸下"},
+  {"scene": "打开称号商城", "cmd": "/plt shop", "note": "用点券或称号币购买"},
+  {"scene": "给玩家发称号", "cmd": "/plt title give Steve <称号id>", "note": "补偿/活动发放"},
+  {"scene": "改完配置生效", "cmd": "/plt reload", "note": "称号表在配置文件里"}
+ ],
+ "commands": [
+  {"cmd": "playertitle", "what": "称号主指令（玩家端 open/shop，其余为管理）", "syntax": "/plt <open|shop|title|card|buff|coin|particle|reward|clear|player|view|reload|convert>",
+   "examples": ["/plt open"], "notes": "别名 /plt"}
+ ],
+ "subcommands": [
+  {"cmd": "/plt open", "desc": "打开称号界面（玩家端）", "example": "/plt open"},
+  {"cmd": "/plt shop", "desc": "打称号商城（玩家端）", "example": "/plt shop"},
+  {"cmd": "/plt title <give|remove|list> <玩家> [称号]", "desc": "发放/回收/查询玩家称号", "example": "/plt title give Steve vip_2025"},
+  {"cmd": "/plt card <玩家> <数量>", "desc": "发放称号卡（抽称号的道具）", "example": "/plt card Steve 5"},
+  {"cmd": "/plt buff <玩家> <buff> <时长>", "desc": "给玩家的称号附加临时增益", "example": "/plt buff Steve speed 600"},
+  {"cmd": "/plt particle <玩家> <粒子>", "desc": "设置称号展示粒子效果", "example": "/plt particle Steve flame"},
+  {"cmd": "/plt coin <玩家> <数量>", "desc": "调整玩家称号币余额", "example": "/plt coin Steve 100"},
+  {"cmd": "/plt reward <玩家>", "desc": "手动触发称号奖励结算", "example": "/plt reward Steve"},
+  {"cmd": "/plt clear <玩家>", "desc": "清空玩家已获得的称号", "example": "/plt clear Steve"},
+  {"cmd": "/plt player <玩家>", "desc": "查看玩家称号数据面板", "example": "/plt player Steve"},
+  {"cmd": "/plt view <玩家>", "desc": "以只读方式查看玩家当前佩戴的称号", "example": "/plt view Steve"},
+  {"cmd": "/plt getip <玩家>", "desc": "按称号来源查询相关玩家 IP 归属（风控用）", "example": "/plt getip Steve"},
+  {"cmd": "/plt reload", "desc": "重载称号配置与商城", "example": "/plt reload"},
+  {"cmd": "/plt convert", "desc": "转换数据源（换存档格式前先备份）", "example": "/plt convert"}
+ ],
+ "caution": [
+  "clear 会清掉玩家所有已获得称号，且通常不带二次确认，操作前先 /plt player 确认。",
+  "称号带属性增益时，改称号属性会让在线玩家立即生效，注意别把平衡性调崩。",
+  "convert 属于数据迁移，跑之前备份 plugins/PlayerTitle/。"
+ ],
+ "permissions": {
+  "playertitle.use": "使用称号界面（默认开启）",
+  "playertitle.shop": "使用称号商城",
+  "playertitle.admin": "称号管理（发放/回收/重载）"
+ }
 }

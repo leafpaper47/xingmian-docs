@@ -33,19 +33,19 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [PlugManX](/commands/core/plugmanx.md) | `plugman.enable.all` | 允许使用enable all命令。 | op |
 | [PlugManX](/commands/core/plugmanx.md) | `plugman.help` | 允许使用help命令。 | op |
 | [PlugManX](/commands/core/plugmanx.md) | `plugman.info` | 允许使用info命令。 | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.list` | 允许使用list命令。 | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.load` | 允许使用load命令。 | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.lookup` | 允许使用查找命令。 | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.reload` | 允许使用reload命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.list` | 查看插件列表与信息 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.load` | 装载插件 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.lookup` | 查询命令归属 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.reload` | 重载插件 | op |
 | [PlugManX](/commands/core/plugmanx.md) | `plugman.reloadconfig` | 允许使用reload config命令。 | op |
 | [PlugManX](/commands/core/plugmanx.md) | `plugman.reloadmode` | 允许使用reload mode命令。 | op |
 | [PlugManX](/commands/core/plugmanx.md) | `plugman.restart` | 允许使用重新启动命令。 | op |
 | [PlugManX](/commands/core/plugmanx.md) | `plugman.restart.all` | 允许使用RESTART ALL命令。 | op |
-| [PlugManX](/commands/core/plugmanx.md) | `plugman.unload` | 允许使用unload命令。 | op |
+| [PlugManX](/commands/core/plugmanx.md) | `plugman.unload` | 卸载插件 | op |
 | [PlugManX](/commands/core/plugmanx.md) | `plugman.update` | 允许玩家查看更新警报。 | op |
 | [PlugManX](/commands/core/plugmanx.md) | `plugman.usage` | 允许使用usage命令。 | op |
-| [Vault](/commands/core/vault.md) | `vault.admin` | 授予对管理工具的访问权限。 | op |
-| [Vault](/commands/core/vault.md) | `vault.update` | 当避难所需要更新时通知玩家。 | op |
+| [Vault](/commands/core/vault.md) | `vault.admin` | Vault 管理工具总权限（含 info、convert） | op |
+| [Vault](/commands/core/vault.md) | `vault.update` | 有新版本时收到提示 | op |
 
 ## 🧰 基础工具
 
@@ -57,6 +57,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [ArmoredElytra](/commands/essentials/armoredelytra.md) | `xingmian.armoredelytra.use` | 允许使用装甲鞘翅合成/穿戴 | — |
 | [ArmorUnbreaking](/commands/essentials/armorunbreaking.md) | `armorunbreaking.admin` | 允许使用 /armordura | op |
 | [BookEdit](/commands/essentials/bookedit.md) | `bookedit.use` | 允许修改自己写的书（作者改匿名、设为破旧） | True |
+| [CMILib](/commands/essentials/cmilib.md) | `cmilib.admin` | 使用 /cmil 维护指令 | — |
 | [CraftBench](/commands/essentials/craftbench.md) | `craftbench.admin` | 允许管理配方 | op |
 | [CraftBench](/commands/essentials/craftbench.md) | `craftbench.use` | 允许使用合成台 | True |
 | [Essentials](/commands/essentials/essentials.md) | `essentials.*` | 默认让 OP 玩家拥有全部权限 | op |
@@ -517,19 +518,19 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [InBlock](/commands/essentials/inblock.md) | `Inblock.reload` | 允许重载配置 | op |
 | [InfiniteFuel](/commands/essentials/infinitefuel.md) | `infinitefuel.admin` | — | op |
 | [InvSaver](/commands/essentials/invsaver.md) | `invSaver.list` | 查看玩家的备份记录列表 | op |
-| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.preview` | 预览（或加 -e 编辑）玩家的备份记录 | op |
+| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.preview` | 预览（或带 -e 编辑）备份内容 | op |
 | [InvSaver](/commands/essentials/invsaver.md) | `invSaver.reload` | 重载插件配置文件 | op |
-| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.restore` | 恢复玩家背包到指定备份记录 | op |
-| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.save` | 保存玩家背包快照 | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.admin` | 拥有该插件的全部权限 | op |
+| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.restore` | 把玩家背包回滚到指定备份 | op |
+| [InvSaver](/commands/essentials/invsaver.md) | `invSaver.save` | 为玩家保存背包快照 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.admin` | 完全访问权限（编辑、服务器物品库） | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.*` | 拥有该插件的全部权限 | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.censure` | 编辑项目时绕过单词限制 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.censure` | 绕过命名与 Lore 的词表过滤 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.lore_length_limit` | 在配置上设置的知识线最大长度的旁路限制 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.lore_line_limit` | 绕过配置上设置的知识线数量的限制 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.lore_type_restriction` | 编辑项目知识时绕过类型限制 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.rename_length_limit` | 绕过配置上设置的重命名行最大长度的限制 | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.rename_type_restriction` | 重命名项目时绕过类型限制 | op |
-| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.creativeuser` | 拥有该插件的全部权限 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.bypass.rename_type_restriction` | 绕过改名时的类型限制 | op |
+| [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.creativeuser` | 创造模式用户的完全访问 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.*` | 授予对command/itemedit的完全访问权限 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.amount` | 允许编辑项目金额 | op |
 | [ItemEdit](/commands/essentials/itemedit.md) | `itemedit.itemedit.armortrim` | 允许在盔甲上设置修剪 | op |
@@ -654,34 +655,41 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [LeafHat](/commands/essentials/leafhat.md) | `leafhat.reload` | 允许使用 /hat reload 重载配置 | op |
 | [LeafHat](/commands/essentials/leafhat.md) | `leafhat.use` | 允许使用 /hat 与 /unhat | op |
 | [OpenInv](/commands/essentials/openinv.md) | `openinv` | — | — |
-| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.*` | 离线变量 | — |
-| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.card` | 管理虚拟补签卡 | op |
-| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.convert` | 转换数据源 | op |
-| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.default` | 默认权限 | True |
-| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.giveSignCard` | 给予实体补签卡 | op |
-| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.reload` | 重新加载配置 | op |
-| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.signIn` | 签到gui | True |
+| [OpenInv](/commands/essentials/openinv.md) | `openinv.clear.other` | 清空他人背包/末影箱 | — |
+| [OpenInv](/commands/essentials/openinv.md) | `openinv.container.any` | 使用 /anycontainer | — |
+| [OpenInv](/commands/essentials/openinv.md) | `openinv.container.silent` | 使用静默容器 | — |
+| [OpenInv](/commands/essentials/openinv.md) | `openinv.enderchest.open.other` | 打开他人末影箱 | — |
+| [OpenInv](/commands/essentials/openinv.md) | `openinv.inventory.open.other` | 打开他人背包 | — |
+| [OpenInv](/commands/essentials/openinv.md) | `openinv.search.container` | 使用 /searchcontainer | — |
+| [OpenInv](/commands/essentials/openinv.md) | `openinv.search.inventory` | 使用 /searchinv /searchender /searchenchant | — |
+| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.*` | 以上全部 | — |
+| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.card` | 查看签到卡 | op |
+| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.convert` | 转换历史签到数据 | op |
+| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.default` | 普通玩家签到与查看签到卡 | True |
+| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.giveSignCard` | 发放补签卡 | op |
+| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.reload` | 重载配置 | op |
+| [PlayerSignIn](/commands/essentials/playersignin.md) | `playerSignIn.signIn` | 执行签到 | True |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.*` | 玩家任务插件 | — |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.addDemand` | 新增任务目标 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.addNpcTask` | 新增NPC任务 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.addReward` | 新增任务奖励 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.addShop` | 新增任务币商品 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.changeItem` | 将对应id的任务转化成物品 | op |
-| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.coin` | 任务币处理 | op |
+| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.coin` | 处理任务币 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.convert` | 转换数据源 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.create` | 创建任务 | op |
-| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.delToday` | 删除今日的任务 | op |
+| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.delToday` | 删除今日任务 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.edit` | 编辑任务 | op |
-| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.getToday` | 立即获取今日任务 | op |
+| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.getToday` | 立即生成今日任务 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.import` | 从配置文件导入任务 | op |
-| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.open` | 查看任务 | True |
+| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.open` | 查看任务（默认开启） | True |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.openMeNpcTask` | 打开自己领取的的NPC任务列表 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.openNpc` | 打开NPC菜单 | op |
-| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.reload` | 重新加载配置 | op |
+| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.reload` | 重载配置 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.setDescription` | 设置任务描述 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.setEnableCommand` | 设置领取npc任务执行的命令 | op |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.setRarity` | 设置稀有度 | op |
-| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.shop` | 查看任务币商城 | True |
+| [PlayerTask](/commands/essentials/playertask.md) | `playerTask.shop` | 查看任务币商城（默认开启） | True |
 | [PlayerTask](/commands/essentials/playertask.md) | `playerTask.view` | 管理任务 | op |
 | [StarAFK](/commands/essentials/starafk.md) | `starafk.auto` | 参与自动挂机判定 | True |
 | [StarAFK](/commands/essentials/starafk.md) | `starafk.bypass` | 永不被自动挂机（不进 AFK 状态）。默认不授予任何人，需要豁免时用 LuckPerms 单独给 | — |
@@ -694,9 +702,10 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.*` | — | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.biome` | 特定生物群落的RTP | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.admin` | 管理指令（reload / edit / settings） | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.biome` | 允许按生物群系传送 | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.*` | — | — |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.cooldown` | 绕过冷却时间 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.cooldown` | 跳过传送冷却 | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.delay` | 绕过延迟 | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.economy` | 旁路经济 | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.bypass.hunger` | 绕过饥饿 | — |
@@ -704,19 +713,21 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.group.*` | 使用权限组以不同的限制进行rtp | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.info` | 查看有关rtp将工作的所有世界的信息 | op |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.location` | 使用特定位置的RTP | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.other` | 给其他玩家传送（player / playersudo） | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.player` | RTP其他玩家 | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.reload` | 重新加载配置 | op |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.sign` | 能够创建RTP标志 | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.test` | 启用调试器后，能够测试粒子、药水效果和声音 | op |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.updater` | 获取有关新更新的通知 | op |
-| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.use` | 使用RTP命令 | True |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.use` | 使用 /rtp 随机传送 | True |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.version` | 查看正在运行的版本 | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.world` | 使用世界命令 | — |
 | [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.world.*` | 所有已启用世界中的RTP | — |
-| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.setspawn` | 允许访问/setspawn命令 | — |
-| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn` | 允许访问/spawn命令 | — |
-| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn-on-join.exempt` | 当spawn-on-join为true时，在加入时绕过spawn传送 | — |
-| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn.others` | 允许其他玩家访问/spawn命令 | — |
+| [BetterRTP](/commands/teleport/betterrtp.md) | `betterrtp.world.<世界>` | 允许传送到指定世界 | — |
+| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.setspawn` | 允许使用 /setspawn | — |
+| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn` | 允许使用 /spawn | — |
+| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn-on-join.exempt` | 开启登录传送到出生点后被豁免 | — |
+| [EssentialsSpawn](/commands/teleport/essentialsspawn.md) | `essentials.spawn.others` | 允许把其他玩家传送到出生点 | — |
 
 ## 🗺️ 世界与地图
 
@@ -749,7 +760,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.protect` | 保护容器和门。 | True |
 | [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.reload` | 使用/blocklocker reload重新加载插件。 | op |
 | [BlockLocker](/commands/protect/blocklocker.md) | `blocklocker.wilderness` | 在荒野中放置宝箱（在Towny领地之外） | True |
-| [Residence](/commands/protect/residence.md) | `residence.admin` | 允许您访问/resadmin | op |
+| [Residence](/commands/protect/residence.md) | `residence.admin` | 完全管理权（含全部 /resadmin 子指令） | op |
 | [Residence](/commands/protect/residence.md) | `residence.admin.move` | 允许覆盖移动标志 | op |
 | [Residence](/commands/protect/residence.md) | `residence.admin.tp` | 允许覆盖tp标志 | op |
 | [Residence](/commands/protect/residence.md) | `residence.bypass.command` | 在驻留中绕过命令标志 | op |
@@ -765,7 +776,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Residence](/commands/protect/residence.md) | `residence.command.command` | 允许访问特定命令 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.compass` | 允许访问特定命令 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.confirm` | 允许访问特定命令 | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.contract` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.contract` | 允许给住宅写出租/出售合同 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.create` | 允许访问特定命令 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.current` | 允许访问特定命令 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.expand` | 允许访问特定命令 | True |
@@ -779,7 +790,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Residence](/commands/protect/residence.md) | `residence.command.limits` | 允许访问特定命令 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.list` | 允许访问特定命令 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.list.others` | 允许访问特定命令 | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.listall` | 允许访问特定命令 | True |
+| [Residence](/commands/protect/residence.md) | `residence.command.listall` | 允许列出全服住宅 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.listallhidden` | 允许访问特定命令 | op |
 | [Residence](/commands/protect/residence.md) | `residence.command.listhidden` | 允许访问特定命令 | op |
 | [Residence](/commands/protect/residence.md) | `residence.command.lists` | 允许访问特定命令 | True |
@@ -796,7 +807,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Residence](/commands/protect/residence.md) | `residence.command.pdel` | 允许访问特定命令 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.pset` | 允许访问特定命令 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.rc` | 允许访问特定命令 | True |
-| [Residence](/commands/protect/residence.md) | `residence.command.reload` | 允许访问特定命令 | op |
+| [Residence](/commands/protect/residence.md) | `residence.command.reload` | 允许执行 /resreload 与 /resload | op |
 | [Residence](/commands/protect/residence.md) | `residence.command.remove` | 允许访问特定命令 | True |
 | [Residence](/commands/protect/residence.md) | `residence.command.removeall` | 允许访问特定命令 | op |
 | [Residence](/commands/protect/residence.md) | `residence.command.removeworld` | 允许访问特定命令 | op |
@@ -842,9 +853,9 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Residence](/commands/protect/residence.md) | `residence.select.auto.others` | 允许为其他玩家打开自动选择 | op |
 | [Residence](/commands/protect/residence.md) | `residence.topadmin` | 允许您访问/resreload和/resload命令 | op |
 | [Residence](/commands/protect/residence.md) | `residence.versioncheck` | 连接后通知新版本 | op |
-| [TownPlugin](/commands/protect/townplugin.md) | `town.admin` | 城镇系统管理权限 | op |
-| [TownPlugin](/commands/protect/townplugin.md) | `town.use` | 允许使用城镇功能 | True |
-| [TownPlugin](/commands/protect/townplugin.md) | `town.warehouse.clear` | 城镇仓库清理权限（清理任意城镇仓库） | op |
+| [TownPlugin](/commands/protect/townplugin.md) | `town.admin` | 城镇系统管理权限（审批、删除） | op |
+| [TownPlugin](/commands/protect/townplugin.md) | `town.use` | 使用城镇功能（默认开启） | True |
+| [TownPlugin](/commands/protect/townplugin.md) | `town.warehouse.clear` | 清理任意城镇仓库（高危） | op |
 | [WorldGuardGUI](/commands/protect/worldguardgui.md) | `wggui.admin` | 允许管理所有区域 | op |
 | [WorldGuardGUI](/commands/protect/worldguardgui.md) | `wggui.use` | 允许使用 /wggui 管理自己的区域 | op |
 
@@ -859,6 +870,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [AfDianPay](/commands/economy/afdianpay.md) | `afDianPay.reload` | 重载插件 | op |
 | [AfDianPay](/commands/economy/afdianpay.md) | `afDianPay.reward` | 根据订单号发送奖励 | op |
 | [AfDianPay](/commands/economy/afdianpay.md) | `afDianPay.send` | 发送赞助链接 | True |
+| [AfDianPay](/commands/economy/afdianpay.md) | `afdianpay.admin` | 使用 /afdianpay 全部子指令 | — |
 | [DummyPool](/commands/economy/dummypool.md) | `dummypool.admin` | 执行管理命令（reloadconfig / reloadmessages） | op |
 | [DummyPool](/commands/economy/dummypool.md) | `dummypool.ball` | 领取球物品（/dummypool ball get）——默认仅 OP，防止普通玩家刷球 | op |
 | [DummyPool](/commands/economy/dummypool.md) | `dummypool.create` | 创建球台 | op |
@@ -872,13 +884,14 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [SenluoBuyer](/commands/economy/senluobuyer.md) | `senluobuyer.admin` | 允许重载配置 | op |
 | [SenluoBuyer](/commands/economy/senluobuyer.md) | `senluobuyer.use` | 允许使用森罗收购 | True |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.*` | 无障碍通道 | op |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.admin` | 创建和修改管理员店主 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.admin` | 创建/删除/移动任意店主 | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.bypass` | 绕过玩家商店限制（进入其他玩家的商店） | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.citizen` | 创建公民NPC店主 | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.cleanup-citizen-shopkeepers` | 通过命令删除无效的公民店主 | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.create` | 允许通过命令创建店主 | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.debug` | 切换调试模式并访问调试命令 | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.delete-unspawnable-shopkeepers` | 通过命令删除不可生成的店主 | op |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.edit` | 编辑店主内容 | — |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.edit-villagers` | 编辑常规村民 | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.edit-wandering-traders` | 编辑经常流浪的商人 | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.entity.*` | 创建任何类型的店主 | True |
@@ -894,7 +907,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.list.own` | 列出您自己的玩家商店 | True |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.maxshops.unlimited` | 允许创建无限数量的商店 | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.notify.trades` | 允许通过命令为您打开或关闭交易通知 | True |
-| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player` | 创建任何类型的玩家店主 | True |
+| [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player` | 创建自己的玩家商店 | True |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.book` | 创建出售玩家店主的书籍 | — |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.buy` | 创建购买玩家店主 | — |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.player.sell` | 创建销售玩家店主 | — |
@@ -923,10 +936,10 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.trade-notifications.player` | 接收玩家商店的交易通知 | — |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.transfer` | 转让玩家商店的所有权 | op |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | `shopkeeper.updateitems` | 更新第三方餐点 | op |
-| [WineSuite](/commands/economy/winesuite.md) | `winebook.admin` | 允许管理图鉴 | op |
-| [WineSuite](/commands/economy/winesuite.md) | `winebook.use` | 允许使用酿酒图鉴 | True |
-| [WineSuite](/commands/economy/winesuite.md) | `winebuyer.admin` | 允许重载/重置收购配置 | op |
-| [WineSuite](/commands/economy/winesuite.md) | `winebuyer.use` | 允许使用酒水收购 | True |
+| [WineSuite](/commands/economy/winesuite.md) | `winebook.admin` | 重载图鉴 | op |
+| [WineSuite](/commands/economy/winesuite.md) | `winebook.use` | 使用酿酒图鉴（默认开启） | True |
+| [WineSuite](/commands/economy/winesuite.md) | `winebuyer.admin` | 重载/重置收购配置 | op |
+| [WineSuite](/commands/economy/winesuite.md) | `winebuyer.use` | 使用酒水收购（默认开启） | True |
 
 ## ⚔️ 战斗与 RPG
 
@@ -943,13 +956,18 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.gui` | 允许使用/ecoenchants gui。 | True |
 | [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.reload` | 允许重新加载配置 | op |
 | [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.command.toggledescriptions` | 允许使用/ecoenchants切换描述。 | True |
-| [EliteMobs](/commands/rpg/elitemobs.md) | `elitemobs.admin` | 管理 EliteMobs（开关/重载/刷怪） | op |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.enchant` | 使用 /ee enchant 打附魔 | — |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.enchant.<附魔>` | 允许玩家使用/获得某个具体附魔 | — |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.givebook` | 发放附魔书 | — |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.gui` | 打开附魔界面 | — |
+| [EcoEnchants](/commands/rpg/ecoenchants.md) | `ecoenchants.reload` | 重载配置 | — |
+| [EliteMobs](/commands/rpg/elitemobs.md) | `elitemobs.admin` | 使用 /elitemobs 全部子指令 | op |
 | [EnchantInfuser](/commands/rpg/enchantinfuser.md) | `infuser.use` | 允许使用铁匠铺 | True |
 | [FoMiningComp](/commands/rpg/fominingcomp.md) | `fominingcomp.admin` | 访问所有FoMiningComp管理命令 | op |
-| [KaoguGuide](/commands/rpg/kaoguguide.md) | `kaoguguide.admin` | 允许重载图鉴数据 | op |
-| [KaoguGuide](/commands/rpg/kaoguguide.md) | `kaoguguide.use` | 允许使用考古图鉴 | True |
-| [KaoguPlugin](/commands/rpg/kaoguplugin.md) | `kaogu.admin` | 考古插件管理权限 | op |
-| [KaoguPlugin](/commands/rpg/kaoguplugin.md) | `kaogu.use` | 使用考古插件基础功能 | True |
+| [KaoguGuide](/commands/rpg/kaoguguide.md) | `kaoguguide.admin` | 重载图鉴数据 | op |
+| [KaoguGuide](/commands/rpg/kaoguguide.md) | `kaoguguide.use` | 使用考古图鉴（默认开启） | True |
+| [KaoguPlugin](/commands/rpg/kaoguplugin.md) | `kaogu.admin` | 管理权限：give / reload 等 | op |
+| [KaoguPlugin](/commands/rpg/kaoguplugin.md) | `kaogu.use` | 使用考古功能（默认开启） | True |
 | [MythicMobs](/commands/rpg/mythicmobs.md) | `mythicmobs.admin` | 方便您使用所有设施！ | op |
 | [MythicMobs](/commands/rpg/mythicmobs.md) | `mythicmobs.reload` | 允许访问/mm重新加载！ | op |
 | [MythicMobs](/commands/rpg/mythicmobs.md) | `mythicmobs.signal` | 提供接入/mm信号！ | op |
@@ -961,8 +979,8 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [PVPPlugin](/commands/rpg/pvpplugin.md) | `pvp.bypass` | 跳过竞技场传送 / 飞行限制（OP 默认拥有） | op |
 | [PVPPlugin](/commands/rpg/pvpplugin.md) | `pvp.team` | 允许创建团战房间 | True |
 | [PVPPlugin](/commands/rpg/pvpplugin.md) | `pvp.use` | 允许使用 PVP 决斗功能 | True |
-| [StarPact](/commands/rpg/starpact.md) | `starpact.admin` | 星之契约管理权限 | op |
-| [XingmianElement](/commands/rpg/xingmianelement.md) | `xingmianelement.admin` | 元素之力管理权限 | op |
+| [StarPact](/commands/rpg/starpact.md) | `starpact.admin` | 星之契约管理权限（/xzqy admin 全部子指令，未给则默认 OP） | op |
+| [XingmianElement](/commands/rpg/xingmianelement.md) | `xingmianelement.admin` | 管理权限：exp / level / forceswitch / reset / reload /  | op |
 | [XingmianRPG](/commands/rpg/xingmianrpg.md) | `xingmianrpg.admin` | RPG 世界管理权限 | op |
 | [XingmianRPG](/commands/rpg/xingmianrpg.md) | `xingmianrpg.bypass` | 无视 RPG 世界的传送封锁（进出都放行）、命令拦截与鞘翅限制（OP 已自动拥有） | op |
 | [XingmianRPG](/commands/rpg/xingmianrpg.md) | `xingmianrpg.use` | 使用 RPG 菜单与进入 RPG 世界 | True |
@@ -995,12 +1013,18 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.delete` | — | op |
 | [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.edit` | — | op |
 | [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | `fancynpcsgui.use` | — | op |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.admin` | 管理指令（reload / config / debug） | — |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.config` | 允许玩家检查Lib的伪装配置的值 | — |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.count` | 允许用户查看有多少伪装处于活动状态 | — |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.debug` | 允许服务器管理员测试玩家伪装在计分板上是否正常 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguise` | 使用 /disguise | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguise.<类型>` | 允许伪装成某个具体生物类型 | — |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguise.player` | 把自己伪装成玩家（带皮肤） | — |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseanimation` | 在您自己的伪装上播放受支持的动画 | op |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseentityanimation` | 在右键单击的实体的伪装上播放支持的动画 | op |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseplayer` | 使用 /disguiseplayer | — |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseplayeranimation` | 在玩家/UUID的伪装上播放支持的动画 | op |
+| [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseradius` | 使用 /disguiseradius | — |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseradiusanimation` | 在半径范围内的所有受支持的伪装上播放受支持的动画 | op |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.disguiseselectoranimation` | 通过实体选择器在所有受支持的伪装上播放受支持的动画 | op |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.grabhead` | 允许用户使用/grabhead命令 | — |
@@ -1048,7 +1072,8 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.seethrough` | 允许玩家看穿伪装。 | — |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.selfdisguises` | 控制玩家是否可以查看自我伪装，默认为true。仅在伪装开始和切换自我伪装命令时选中。如果玩家有权访问 | True |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | `libsdisguises.update` | 允许用户更新Libs伪装 | — |
-| [ModelEngine](/commands/entity/modelengine.md) | `modelengine.command` | 访问所有模型引擎命令。 | op |
+| [ModelEngine](/commands/entity/modelengine.md) | `modelengine.admin` | 管理权限（reload / debug / summon） | — |
+| [ModelEngine](/commands/entity/modelengine.md) | `modelengine.command` | 使用 ModelEngine 指令 | op |
 | [YiyunCEskin](/commands/entity/yiyunceskin.md) | `yiyunceskin.admin` | YiyunCEskin的管理员权限 | op |
 | [YiyunCEskin](/commands/entity/yiyunceskin.md) | `yiyunceskin.use` | 基本皮肤使用权限 | true |
 
@@ -1056,9 +1081,9 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.admin` | 完全控制—发送、单间公寓、重新加载。 | op |
-| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.send` | 发送广播和预览预设。 | op |
-| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.studio` | 打开Broadcast Studio GUI。 | op |
+| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.admin` | 校验、重载与预设管理 | op |
+| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.send` | 发送与预览广播 | op |
+| [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | `broadcastplusplus.studio` | 使用 /bc studio 图形化编辑 | op |
 | [LeafChat](/commands/chat/leafchat.md) | `leafchat.admin` | 管理员直接查看他人背包/末影箱（聊天内 [inv]/[ec] 展示链接无需该权限） | op |
 | [LeafChat](/commands/chat/leafchat.md) | `leafchat.chatcolor` | 允许使用聊天颜色 | True |
 | [LeafChat](/commands/chat/leafchat.md) | `leafchat.color.*` | 授予所有聊天颜色权限（单色/渐变/彩虹） | op |
@@ -1088,12 +1113,15 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [PlayerTitle](/commands/chat/playertitle.md) | `playerTitle.shop.custom` | 自定义称号 | True |
 | [PlayerTitle](/commands/chat/playertitle.md) | `playerTitle.title` | 称号相关 | op |
 | [PlayerTitle](/commands/chat/playertitle.md) | `playerTitle.view` | 查看管理 | op |
-| [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.attachment.item` | — | True |
+| [PlayerTitle](/commands/chat/playertitle.md) | `playertitle.admin` | 称号管理（发放/回收/重载） | — |
+| [PlayerTitle](/commands/chat/playertitle.md) | `playertitle.shop` | 使用称号商城 | — |
+| [PlayerTitle](/commands/chat/playertitle.md) | `playertitle.use` | 使用称号界面（默认开启） | — |
+| [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.attachment.item` | 可在邮件里附带物品（默认开启） | True |
 | [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.draft.outdate.default` | — | True |
-| [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.icon.default` | — | True |
-| [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.outdate.default` | — | True |
-| [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.price.default` | — | True |
-| [TAB](/commands/chat/tab.md) | `tab.admin` | 授予所有标签页权限 | op |
+| [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.icon.default` | 使用默认邮件图标 | True |
+| [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.outdate.default` | 使用默认过期时限 | True |
+| [SweetMail](/commands/chat/sweetmail.md) | `sweetmail.price.default` | 使用默认邮费档位 | True |
+| [TAB](/commands/chat/tab.md) | `tab.admin` | 使用 /tab 管理指令（reload / debug / cpu） | op |
 | [TAB](/commands/chat/tab.md) | `tab.announce.bar` | 允许玩家运行/tab bossbar公告 | op |
 | [TAB](/commands/chat/tab.md) | `tab.announce.scoreboard` | 允许玩家运行/tab 计分板公告 | op |
 | [TAB](/commands/chat/tab.md) | `tab.bossbar.toggle` | 允许玩家运行/tab bossbar | op |
@@ -1121,8 +1149,8 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [TAB](/commands/chat/tab.md) | `tab.spectatorbypass` | 使玩家绕过旁观者修复 | op |
 | [TAB](/commands/chat/tab.md) | `tab.staff` | 使玩家在% staffonline %占位符中计数 | op |
 | [TAB](/commands/chat/tab.md) | `tab.tabcomplete` | 允许玩家完成所有选项卡命令 | op |
-| [vcm](/commands/chat/vcm.md) | `vcm.admin` | 允许使用管理命令（/vcm give、/vcm reload） | op |
-| [vcm](/commands/chat/vcm.md) | `vcm.use` | 允许使用扩音器 | op |
+| [vcm](/commands/chat/vcm.md) | `vcm.admin` | 发放与重载（give / reload / manager） | op |
+| [vcm](/commands/chat/vcm.md) | `vcm.use` | 使用语音喇叭物品 | op |
 | [voicechat](/commands/chat/voicechat.md) | `voicechat.admin` | 允许测试语音聊天连接 | — |
 | [voicechat](/commands/chat/voicechat.md) | `voicechat.groups` | 允许加入群组 | — |
 | [voicechat](/commands/chat/voicechat.md) | `voicechat.listen` | 允许收听语音聊天 | — |
@@ -1134,18 +1162,20 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.admin` | 管理员指令 | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.admin` | 管理员（execute / dump / meta） | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.list` | 查看菜单列表 | — |
 | [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.menu.*` | 所有菜单的权限 | op |
-| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open` | 打开菜单，打开/dm &lt;menu&gt; | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open` | 打开菜单（各菜单还可单独限权） | op |
 | [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open.bypass` | 尝试为观众打开菜单，跳过播放器的观看要求检查 | op |
 | [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.open.others` | 打开菜单，打开/dm &lt;menu&gt; &lt;player&gt; | op |
 | [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.openrequirement.bypass.*` | 允许查看器绕过所有菜单打开要求 | op |
 | [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.placeholdersfor` | /dm open &lt;menu&gt; p解析菜单占位符的权限：&lt;player&gt; | op |
 | [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.placeholdersfor.exempt` | 当/dm为具有&lt;menu p:&lt;player&gt;此权限的玩家打开时，免于解析占位符 | op |
+| [DeluxeMenus](/commands/config/deluxemenus.md) | `deluxemenus.reload` | 重载菜单 | — |
 | [KaleidoscopeCookeryPlugin](/commands/config/kaleidoscopecookeryplugin.md) | `kaleidoscopecookery.recipe.browse` | 允许玩家用 /kcrecipe 浏览全部食谱 | op |
 | [KaleidoscopeCookeryPlugin](/commands/config/kaleidoscopecookeryplugin.md) | `kaleidoscopecookery.recipe.edit` | 允许用 /kcrecipe edit 编辑食谱 | op |
 | [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.*` | 能够使用所有PAPI命令 | — |
-| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.admin` | 能够使用所有PAPI命令 | — |
+| [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.admin` | 使用 /papi 管理类子指令 | — |
 | [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud` | 允许您访问PAPI eCloud | op |
 | [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.*` | 能够使用所有PAPI ecloud命令 | — |
 | [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.ecloud.clear` | 允许您清除本地eCloud扩展缓存 | op |
@@ -1166,7 +1196,7 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.updatenotify` | 当有PAPI更新时通知您 | op |
 | [PlaceholderAPI](/commands/config/placeholderapi.md) | `placeholderapi.version` | 允许您查看已安装的PAPI版本 | op |
 | [Skript](/commands/config/skript.md) | `skript.*` | — | — |
-| [Skript](/commands/config/skript.md) | `skript.admin` | 允许使用管理命令并接收新版本的通知。 | op |
+| [Skript](/commands/config/skript.md) | `skript.admin` | 使用 /sk 管理脚本（reload / enable / disable） | op |
 | [Skript](/commands/config/skript.md) | `skript.effectcommands` | 允许将效果用作命令，例如“! set health to 10” | — |
 | [Skript](/commands/config/skript.md) | `skript.reloadnotify` | 当其他人正在重新加载脚本文件时通知。 | — |
 | [Skript](/commands/config/skript.md) | `skript.see_runtime_errors` | 发生运行时错误时在聊天中显示通知。 | op |
@@ -1175,15 +1205,15 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.*` | 授予所有 CoreProtect 操作与命令的访问权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.co` | 拥有访问 CoreProtect /co 命令的权限 | True |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.*` | 全部权限（默认仅 OP） | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.co` | 访问 /co 主指令（默认所有人可用） | True |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.consumer` | 拥有使用消费者命令的权限 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.core` | 拥有访问 CoreProtect /core 命令的权限 | — |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.coreprotect` | 拥有访问 CoreProtect /coreprotect 命令的权限 | — |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.give` | 拥有使用 give 命令的权限 | — |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.give` | 使用 /co give 补发物品（默认关闭） | — |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.help` | 拥有使用帮助命令的权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.inspect` | 拥有使用检查模式的权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup` | 拥有使用查询命令的权限 | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.inspect` | 使用检查器模式 /co i | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup` | 使用查询类子指令 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.block` | 拥有查询方块数据的权限 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.chat` | 拥有查询聊天消息的权限 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.click` | 拥有查询玩家交互的权限 | op |
@@ -1192,18 +1222,21 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.inventory` | 拥有查询背包交易的权限 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.item` | 拥有查询物品交易的权限 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.kill` | 拥有查询实体击杀的权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.near` | 拥有使用 near 命令查询附近改动的权限 | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.near` | 使用 /co near | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.session` | 拥有查询玩家会话的权限 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.sign` | 拥有查询告示牌消息的权限 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.spawn` | 拥有查询实体生成的权限 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.lookup.username` | 拥有查询玩家改名记录的权限 | op |
 | [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.networking` | 拥有使用网络 API 的权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.purge` | 拥有使用清理命令的权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.reload` | 拥有使用重载命令的权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.restore` | 拥有执行恢复的权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.rollback` | 拥有执行回滚的权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.status` | 拥有使用状态命令的权限 | op |
-| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.teleport` | 拥有使用传送命令的权限 | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.purge` | 清理日志 /co purge | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.reload` | 重载配置 /co reload | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.restore` | 执行恢复 /co rs | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.rollback` | 执行回滚 /co rb 与 /co undo | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.status` | 查看状态 /co status | op |
+| [CoreProtect](/commands/audit/coreprotect.md) | `coreprotect.teleport` | 传送到查询结果 /co tp | op |
+| [spark](/commands/audit/spark.md) | `spark` | 使用 spark 全部指令 | — |
+| [spark](/commands/audit/spark.md) | `spark.heapsummary` | 生成堆摘要 | — |
+| [spark](/commands/audit/spark.md) | `spark.profiler` | 使用 profiler | — |
 
 ## 🎲 小游戏与娱乐
 
@@ -1213,6 +1246,8 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [Ah-Toy-1.0](/commands/minigame/ah-toy-1-0.md) | `ahtoy.command.reload` | 允许使用 /toy reload 重载玩具配置 | op |
 | [Ah-WolfmanKill-1.0](/commands/minigame/ah-wolfmankill-1-0.md) | `wolfmankill.admin` | 管理员权限 | op |
 | [Ah-WolfmanKill-1.0](/commands/minigame/ah-wolfmankill-1-0.md) | `wolfmankill.use` | 基础使用权限 | True |
+| [allmusic](/commands/minigame/allmusic.md) | `music.admin` | 管理类子指令（ban/unban/delete/reload/push/stop） | — |
+| [allmusic](/commands/minigame/allmusic.md) | `music.use` | 使用点歌、列表、搜索等基础子指令 | — |
 | [GSit](/commands/minigame/gsit.md) | `GSit.*` | GSit \|权限 | op |
 | [GSit](/commands/minigame/gsit.md) | `GSit.BellyFlop` | BellyFlop命令\|权限 | True |
 | [GSit](/commands/minigame/gsit.md) | `GSit.ByPass.*` | ByPass \|权限 | op |
@@ -1225,37 +1260,37 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 | [GSit](/commands/minigame/gsit.md) | `GSit.CrawlToggle` | 切换爬网能力\|权限 | True |
 | [GSit](/commands/minigame/gsit.md) | `GSit.Kick.*` | 踢出\|权限 | op |
 | [GSit](/commands/minigame/gsit.md) | `GSit.Kick.Pose` | 踢腿姿势\|权限 | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Kick.Sit` | Kick SIT \|权限 | op |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Kick.Sit` | 允许把坐着的人踢起来 | op |
 | [GSit](/commands/minigame/gsit.md) | `GSit.Lay` | Lay命令\|权限 | True |
 | [GSit](/commands/minigame/gsit.md) | `GSit.LayBack` | LayBack命令\|权限 | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSit` | PlayerSit单击\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSit` | 允许坐其他玩家 | True |
 | [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSit.*` | PlayerSit \|权限 | op |
 | [GSit](/commands/minigame/gsit.md) | `GSit.PlayerSitToggle` | 切换PlayerSit能力\|权限 | True |
 | [GSit](/commands/minigame/gsit.md) | `GSit.Pose.*` | 姿势\|权限 | op |
 | [GSit](/commands/minigame/gsit.md) | `GSit.Reload` | 插件重新加载命令\|权限 | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.Sit` | SIT命令\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.Sit` | 使用 /sit 坐下（默认开启） | True |
 | [GSit](/commands/minigame/gsit.md) | `GSit.Sit.*` | SIT \|权限 | op |
-| [GSit](/commands/minigame/gsit.md) | `GSit.SitClick` | SIT单击\|权限 | True |
-| [GSit](/commands/minigame/gsit.md) | `GSit.SitToggle` | 切换坐姿能力\|权限 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.SitClick` | 右键台阶自动坐下 | True |
+| [GSit](/commands/minigame/gsit.md) | `GSit.SitToggle` | 允许 /sit toggle 关闭自动就坐 | True |
 | [GSit](/commands/minigame/gsit.md) | `GSit.Spin` | 旋转命令\|权限 | True |
 | [GSit](/commands/minigame/gsit.md) | `GSit.Update` | 更新通知\|权限 | op |
 | [LeashPlayers](/commands/minigame/leashplayers.md) | `leashplayers.admin` | 允许管理所有人的栓绳 / 重载配置 | op |
 | [LeashPlayers](/commands/minigame/leashplayers.md) | `leashplayers.use` | 允许使用栓绳栓玩家 | True |
-| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.admin` | 访问/lg排行榜、/lg创建和/lg删除 | — |
-| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.command` | 访问/lg列表，/lg tp | — |
-| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.forcejoin` | 访问/lgjoinplayer | — |
-| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.kickplayer` | 进入/lg kick | — |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.action` | 允许执行麻将操作 | True |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.bot` | 允许添加机器人 | — |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.create` | 允许创建麻将桌 | — |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.destroy` | 允许销毁麻将桌 | — |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.info` | 允许查看麻将桌信息 | True |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.join` | 允许加入麻将桌 | True |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.kick` | 允许踢出玩家 | — |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.leave` | 允许离开麻将桌 | True |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.list` | 允许查看麻将桌列表 | True |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.ready` | 允许准备 | True |
-| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.start` | 允许强制开始游戏 | — |
+| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.admin` | 使用 /lg leaderboard、/lg create、/lg delete | — |
+| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.command` | 使用 /lg list 与 /lg tp | — |
+| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.forcejoin` | 使用 /lgjoinplayer | — |
+| [LobbyGames](/commands/minigame/lobbygames.md) | `lobbygames.kickplayer` | 使用 /lg kick | — |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.action` | 牌局内操作（摸打吃碰杠胡） | True |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.bot` | 机器人补位 | — |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.create` | 创建牌桌 | — |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.destroy` | 解散牌桌 | — |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.info` | 查看牌桌状态 | True |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.join` | 加入牌桌 | True |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.kick` | 踢人出桌 | — |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.leave` | 离开牌桌 | True |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.list` | 列出牌桌 | True |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.ready` | 准备 / 取消准备 | True |
+| [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.start` | 开始牌局 | — |
 | [MahjongPlay](/commands/minigame/mahjongplay.md) | `mahjongplay.command.unready` | 允许取消准备 | True |
 | [XingmianQuiz](/commands/minigame/xingmianquiz.md) | `xingmian.quiz.admin` | 星冕答题管理员 | op |
 
@@ -1263,6 +1298,16 @@ LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 
 
 | 插件 | 节点 | 说明 | 默认 |
 | --- | --- | --- | --- |
+| [AntiBoom](/commands/other/antiboom.md) | `antiboom.reload` | Allows reloading AntiBoom configuration. | op |
 | [ArchitectPlugin](/commands/other/architectplugin.md) | `architect.admin` | 建筑师插件管理员 | op |
 | [ArchitectPlugin](/commands/other/architectplugin.md) | `architect.shop` | 建材商店使用权（资深及以上默认可进，本权限用于单独开通） | op |
 | [ArchitectPlugin](/commands/other/architectplugin.md) | `architect.use` | 使用建筑师插件 | True |
+| [Images](/commands/other/images.md) | `images.admin` | 使用 /image 全部子指令 | — |
+| [PatPatPlugin](/commands/other/patpatplugin.md) | `patpat.admin` | info / list / ratelimit / permission / reload 管理子指 | — |
+| [PatPatPlugin](/commands/other/patpatplugin.md) | `patpat.use` | 普通玩家拍拍他人 | — |
+| [SenluoCookbook](/commands/other/senluocookbook.md) | `cookbook.admin` | 允许重载图鉴配置 | op |
+| [SenluoCookbook](/commands/other/senluocookbook.md) | `cookbook.use` | 允许使用森罗厨房图鉴 | True |
+| [YccHongBao](/commands/other/ycchongbao.md) | `ycch.admin` | 打开管理员红包 GUI、发送红包和重载配置 | op |
+| [YccHongBao](/commands/other/ycchongbao.md) | `ycch.claim` | 领取红包 | True |
+| [YccHongBao](/commands/other/ycchongbao.md) | `ycch.reload` | 重载红包配置 | op |
+| [YccHongBao](/commands/other/ycchongbao.md) | `ycch.send` | 发送红包 | — |

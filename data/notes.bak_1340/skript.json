@@ -1,0 +1,98 @@
+{
+  "name": "Skript",
+  "role": "脚本引擎，用接近英语的语句改写服务器机制",
+  "summary": "Skript 是服务器端的脚本引擎，用接近自然英语的语句编写 .sk 脚本，实现自定义规则、事件响应、定时任务和小游戏逻辑，不用写 Java 插件。脚本放在 plugins/Skript/scripts 下，修改后用 /skript reload 热重载，不需要重启服务器。它也是很多服主实现经济、传送、抽奖、公告等定制功能的低成本方案。",
+  "whatFor": [
+    "不写 Java 插件就实现自定义规则，如欢迎语、定时公告、签到奖励",
+    "监听玩家行为事件做相应处理，如进服提示、死亡掉落控制、区块限制",
+    "拼接命令与条件判断，做小游戏、任务系统、经济流程等轻量玩法",
+    "替代频繁改动 jar 的定制需求，改一行脚本即可热重载生效"
+  ],
+  "flow": [
+    "把 .sk 脚本文件放到 plugins/Skript/scripts 目录，首次可先看官方示例脚本",
+    "在游戏内执行 /skript reload 加载全部脚本，观察控制台是否有语法报错",
+    "只改单个脚本时用 /skript reload 脚本名 单独重载，避免影响其它脚本",
+    "调试阶段给自己 skript.admin 权限，并留意聊天中的运行时错误提示",
+    "脚本不稳定时用 disable 临时停用，确认无误后再正式启用"
+  ],
+  "commands": [
+    {
+      "cmd": "skript",
+      "what": "Skript 主命令，用于查看帮助、重载与启停脚本",
+      "syntax": "/skript help",
+      "params": [
+        {
+          "name": "子命令",
+          "required": false,
+          "note": "help 查看帮助；reload、enable、disable、update 等，具体见子指令表"
+        }
+      ],
+      "examples": [
+        "/skript help",
+        "/skript reload all",
+        "/skript reload scripts",
+        "/skript update check"
+      ],
+      "notes": "别名 sk；需要 skript.admin 权限。reload 后旧脚本的定时器会被重新注册，重载频繁会有短时卡顿。"
+    }
+  ],
+  "subcommands": [
+    {
+      "cmd": "skript help",
+      "desc": "显示帮助与可用子命令列表",
+      "example": "/skript help"
+    },
+    {
+      "cmd": "skript reload all",
+      "desc": "重载脚本、配置与别名等全部内容",
+      "example": "/skript reload all"
+    },
+    {
+      "cmd": "skript reload scripts",
+      "desc": "只重载 scripts 目录下的全部脚本",
+      "example": "/skript reload scripts"
+    },
+    {
+      "cmd": "skript reload 脚本名",
+      "desc": "只重载指定脚本文件，最常见的热更新方式",
+      "example": "/skript reload welcome.sk"
+    },
+    {
+      "cmd": "skript reload config",
+      "desc": "重载 Skript 的配置文件",
+      "example": "/skript reload config"
+    },
+    {
+      "cmd": "skript reload aliases",
+      "desc": "重载 aliases 别名配置",
+      "example": "/skript reload aliases"
+    },
+    {
+      "cmd": "skript enable 脚本名",
+      "desc": "启用被禁用的脚本",
+      "example": "/skript enable welcome.sk"
+    },
+    {
+      "cmd": "skript disable 脚本名",
+      "desc": "临时禁用某个脚本",
+      "example": "/skript disable welcome.sk"
+    },
+    {
+      "cmd": "skript update check",
+      "desc": "检查 Skript 是否有新版本",
+      "example": "/skript update check"
+    }
+  ],
+  "caution": [
+    "reload 只是重跑脚本，脚本里已创建的实体、记分板或定时任务可能残留，反复重载请观察服务器内存与 TPS",
+    "脚本语法错误会导致该脚本加载失败，务必看控制台或 skript.see_runtime_errors 的聊天提示，别以为已生效",
+    "skript.effectcommands 允许把效果直接当命令用（如 !set health to 10），权限给错等于给出极大的越权能力",
+    "disable 只在本次运行内有效，服务器重启或 reload 后会按脚本文件重新加载"
+  ],
+  "related": [
+    "PlaceholderAPI",
+    "Vault",
+    "LuckPerms",
+    "Essentials"
+  ]
+}

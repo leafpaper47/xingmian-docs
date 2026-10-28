@@ -1,0 +1,154 @@
+# DeluxeMenus  (DeluxeMenus-1.14.1-Release.jar)
+## 注册指令
+  /deluxemenus  usage=None desc='DeluxeMenus main commands' alias=['dm', 'deluxemenu', 'dmenu'] perm=None
+
+## 代码类
+  com.extendedclip.deluxemenus.command.DeluxeMenusCommand
+  com.extendedclip.deluxemenus.command.subcommand.DumpCommand
+  com.extendedclip.deluxemenus.command.subcommand.ExecuteCommand
+  com.extendedclip.deluxemenus.command.subcommand.HelpCommand
+  com.extendedclip.deluxemenus.command.subcommand.ListCommand
+  com.extendedclip.deluxemenus.command.subcommand.MetaCommand$1
+  com.extendedclip.deluxemenus.command.subcommand.MetaCommand$ContextKeys
+  com.extendedclip.deluxemenus.command.subcommand.MetaCommand
+  com.extendedclip.deluxemenus.command.subcommand.OpenCommand
+  com.extendedclip.deluxemenus.command.subcommand.ReloadCommand
+  com.extendedclip.deluxemenus.command.subcommand.SubCommand
+  com.extendedclip.deluxemenus.libs.adventure.adventure.platform.bukkit.BukkitFacet$CommandSenderPointers
+  com.extendedclip.deluxemenus.libs.adventure.adventure.platform.bukkit.BukkitFacet$ConsoleCommandSenderPointers
+  com.extendedclip.deluxemenus.libs.nashorn.internal.runtime.CommandExecutor$1
+  com.extendedclip.deluxemenus.libs.nashorn.internal.runtime.CommandExecutor$Piper
+  com.extendedclip.deluxemenus.libs.nashorn.internal.runtime.CommandExecutor$RedirectInfo
+  com.extendedclip.deluxemenus.libs.nashorn.internal.runtime.CommandExecutor$RedirectType
+  com.extendedclip.deluxemenus.libs.nashorn.internal.runtime.CommandExecutor
+  com.extendedclip.deluxemenus.menu.command.RegistrableMenuCommand
+
+## javap 字符串 token
+  add all cd commandmap config deluxemenus dump execute help jjs_echo jjs_inherit_io jjs_throw_on_exit jjs_timeout key_name knowncommands list meta no_redirect open pwd redirect_error redirect_error_append redirect_error_to_output redirect_input redirect_output redirect_output_append reload remove set setenv show subtract switch timeout type_name unsetenv value windows
+
+## 文本资源里的帮助/用法行
+  · # For full reference, check https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements
+  · # For full reference, check https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/item
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements#has-permission
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements#has-money
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/item#shift-left-middle-right-click-commands
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements#has-item
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/item#shift-left-middle-right-click-commands
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements#has-money
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/item#shift-left-middle-right-click-commands
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements#has-item
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/item#shift-left-middle-right-click-commands
+  · #   https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/item#view-requirement
+
+## 常量池帮助/描述文本
+  · com/extendedclip/deluxemenus/command/DeluxeMenusCommand
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/text/TextReplacementConfig$Builder
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/text/TextReplacementConfig
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/text/TextReplacementConfig$Builder;
+  · Lcom/extendedclip/deluxemenus/DeluxeMenus;
+  · Ljava/util/Map<Ljava/lang/String;Lcom/extendedclip/deluxemenus/command/subcommand/SubCommand;>;
+  · Lcom/extendedclip/deluxemenus/command/DeluxeMenusCommand;
+  · com/extendedclip/deluxemenus/DeluxeMenus
+  · com/extendedclip/deluxemenus/utils/Messages
+  · Lcom/extendedclip/deluxemenus/utils/Messages;
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/text/Component
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/text/format/NamedTextColor
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/text/format/NamedTextColor;
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/text/ComponentLike
+  · com/extendedclip/deluxemenus/command/subcommand/SubCommand
+  · Lcom/extendedclip/deluxemenus/command/subcommand/SubCommand;
+  · com/extendedclip/deluxemenus/command/subcommand/DumpCommand
+  · com/extendedclip/deluxemenus/command/subcommand/ExecuteCommand
+  · com/extendedclip/deluxemenus/command/subcommand/HelpCommand
+  · com/extendedclip/deluxemenus/command/subcommand/ListCommand
+  · com/extendedclip/deluxemenus/command/subcommand/MetaCommand
+  · com/extendedclip/deluxemenus/command/subcommand/OpenCommand
+  · com/extendedclip/deluxemenus/command/subcommand/ReloadCommand
+  · Ljava/util/List<Lcom/extendedclip/deluxemenus/command/subcommand/SubCommand;>;
+  · Lcom/extendedclip/deluxemenus/command/subcommand/DumpCommand;
+  · com/extendedclip/deluxemenus/utils/DumpUtils
+  · com/extendedclip/deluxemenus/menu/Menu
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/text/event/ClickEvent
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/text/TextComponent
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/text/TextComponent;
+  · Lcom/extendedclip/deluxemenus/command/subcommand/ExecuteCommand;
+  · com/extendedclip/deluxemenus/action/ActionType
+  · com/extendedclip/deluxemenus/action/ClickAction
+  · com/extendedclip/deluxemenus/config/DeluxeMenusConfig
+  · com/extendedclip/deluxemenus/menu/MenuHolder
+  · com/extendedclip/deluxemenus/action/ClickActionTask
+  · Lcom/extendedclip/deluxemenus/action/ActionType;
+  · Lcom/extendedclip/deluxemenus/action/ClickAction;
+  · Lcom/extendedclip/deluxemenus/menu/MenuHolder;
+  · Lcom/extendedclip/deluxemenus/action/ClickActionTask;
+  · Lcom/extendedclip/deluxemenus/command/subcommand/HelpCommand;
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/text/TextComponent$Builder
+  · Lcom/extendedclip/deluxemenus/command/subcommand/ListCommand;
+  · Ljava/util/Collection<Lcom/extendedclip/deluxemenus/menu/Menu;>;
+  · Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Lcom/extendedclip/deluxemenus/menu/Menu;>;>;
+  · Ljava/util/List<Lcom/extendedclip/deluxemenus/menu/Menu;>;
+  · com/extendedclip/deluxemenus/config/GeneralConfig
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/text/Component;
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/text/TextComponent$Builder;
+  · com/extendedclip/deluxemenus/utils/PaginationUtils
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/text/event/HoverEvent
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lcom/extendedclip/deluxemenus/menu/Menu;>;
+  · Lcom/extendedclip/deluxemenus/menu/Menu;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Lcom/extendedclip/deluxemenus/menu/Menu;>;>;
+  · Ljava/util/Map<Ljava/lang/String;Lcom/extendedclip/deluxemenus/menu/Menu;>;
+  · com/extendedclip/deluxemenus/menu/options/MenuOptions
+  · com/extendedclip/deluxemenus/command/subcommand/MetaCommand$1
+  · com/extendedclip/deluxemenus/persistentmeta/PersistentMetaHandler$OperationResult
+  · com/extendedclip/deluxemenus/persistentmeta/PersistentMetaHandler
+  · com/extendedclip/deluxemenus/persistentmeta/DataAction
+  · Lcom/extendedclip/deluxemenus/persistentmeta/DataAction;
+  · Lcom/extendedclip/deluxemenus/persistentmeta/PersistentMetaHandler$OperationResult;
+  · com/extendedclip/deluxemenus/command/subcommand/MetaCommand$ContextKeys
+  · Ljava/lang/Enum<Lcom/extendedclip/deluxemenus/command/subcommand/MetaCommand$ContextKeys;>;
+  · Lcom/extendedclip/deluxemenus/command/subcommand/MetaCommand$ContextKeys;
+  · Lcom/extendedclip/deluxemenus/command/subcommand/MetaCommand;
+  · com/extendedclip/deluxemenus/utils/VersionHelper
+  · com/extendedclip/deluxemenus/utils/StringUtils
+  · com/extendedclip/deluxemenus/persistentmeta/DataType
+  · Ljava/util/Map<Lcom/extendedclip/deluxemenus/command/subcommand/MetaCommand$ContextKeys;Ljava/lang/String;>;
+  · Lcom/extendedclip/deluxemenus/persistentmeta/DataType<**>;
+  · Lcom/extendedclip/deluxemenus/persistentmeta/DataType;
+  · Lcom/extendedclip/deluxemenus/command/subcommand/OpenCommand;
+  · Ljava/util/Optional<Lcom/extendedclip/deluxemenus/menu/Menu;>;
+  · Lcom/extendedclip/deluxemenus/command/subcommand/ReloadCommand;
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/platform/bukkit/BukkitFacet$CommandSenderPointers
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/platform/bukkit/BukkitFacet
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/platform/facet/Facet$Pointers
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/pointer/Pointers$Builder
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/pointer/Pointers
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/platform/facet/Facet
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/platform/bukkit/BukkitFacet$CommandSenderPointers;
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/identity/Identity
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/pointer/Pointer;
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/permission/PermissionChecker
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/pointer/Pointers$Builder;
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/util/TriState
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/util/TriState;
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/platform/bukkit/BukkitFacet$ConsoleCommandSenderPointers
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/platform/facet/FacetPointers$Type
+  · com/extendedclip/deluxemenus/libs/adventure/adventure/platform/facet/FacetPointers
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/platform/bukkit/BukkitFacet$ConsoleCommandSenderPointers;
+  · Lcom/extendedclip/deluxemenus/libs/adventure/adventure/platform/facet/FacetPointers$Type;
+  · com/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor$1
+  · com/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor
+  · com/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor$RedirectType
+  · Lcom/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor$RedirectType;
+  · com/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor$Piper
+  · Lcom/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor$Piper;
+  · com/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor$RedirectInfo
+  · Lcom/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor$RedirectInfo;
+  · Ljava/lang/Enum<Lcom/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor$RedirectType;>;
+  · Lcom/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor;
+  · com/extendedclip/deluxemenus/libs/nashorn/internal/runtime/ScriptRuntime
+  · com/extendedclip/deluxemenus/libs/nashorn/internal/runtime/ECMAErrors
+  · Ljava/util/List<Lcom/extendedclip/deluxemenus/libs/nashorn/internal/runtime/CommandExecutor$Piper;>;
+  · com/extendedclip/deluxemenus/menu/command/RegistrableMenuCommand
+  · Lcom/extendedclip/deluxemenus/menu/command/RegistrableMenuCommand;
+  · com/extendedclip/deluxemenus/utils/DebugLevel
+  · Lcom/extendedclip/deluxemenus/utils/DebugLevel;

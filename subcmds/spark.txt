@@ -1,0 +1,296 @@
+# spark  (spark-1.10.175-bukkit.jar)
+## 注册指令
+  /spark  usage=None desc='Main plugin command' alias=None perm=None
+
+## 代码类
+  me.lucko.spark.bukkit.BukkitCommandSender
+  me.lucko.spark.bukkit.CommandMapUtil
+  me.lucko.spark.common.command.Arguments$ParseException
+  me.lucko.spark.common.command.Arguments
+  me.lucko.spark.common.command.Command$1
+  me.lucko.spark.common.command.Command$ArgumentInfo
+  me.lucko.spark.common.command.Command$Builder
+  me.lucko.spark.common.command.Command$Executor
+  me.lucko.spark.common.command.Command$TabCompleter
+  me.lucko.spark.common.command.Command
+  me.lucko.spark.common.command.CommandManager
+  me.lucko.spark.common.command.CommandModule
+  me.lucko.spark.common.command.CommandResponseHandler
+  me.lucko.spark.common.command.modules.ActivityLogModule$1
+  me.lucko.spark.common.command.modules.ActivityLogModule
+  me.lucko.spark.common.command.modules.GcMonitoringModule$ReportingGcMonitor
+  me.lucko.spark.common.command.modules.GcMonitoringModule
+  me.lucko.spark.common.command.modules.HealthModule
+  me.lucko.spark.common.command.modules.HeapAnalysisModule
+  me.lucko.spark.common.command.modules.SamplerModule
+  me.lucko.spark.common.command.modules.TickMonitoringModule$ReportingTickMonitor
+  me.lucko.spark.common.command.modules.TickMonitoringModule
+  me.lucko.spark.common.command.sender.AbstractCommandSender
+  me.lucko.spark.common.command.sender.CommandSender$Data
+  me.lucko.spark.common.command.sender.CommandSender
+  me.lucko.spark.common.command.tabcomplete.CompletionSupplier
+  me.lucko.spark.common.command.tabcomplete.TabCompleter
+  me.lucko.spark.common.heapdump.HeapDumpSummary$DiagnosticCommandMXBean
+  me.lucko.spark.lib.adventure.platform.bukkit.BukkitFacet$CommandSenderPointers
+  me.lucko.spark.lib.adventure.platform.bukkit.BukkitFacet$ConsoleCommandSenderPointers
+  me.lucko.spark.lib.adventure.text.feature.pagination.Pagination$PageCommandFunction
+  me.lucko.spark.proto.SparkProtos$CommandSenderMetadata$Builder
+  me.lucko.spark.proto.SparkProtos$CommandSenderMetadata$Type$1
+  me.lucko.spark.proto.SparkProtos$CommandSenderMetadata$Type$TypeVerifier
+  me.lucko.spark.proto.SparkProtos$CommandSenderMetadata$Type
+  me.lucko.spark.proto.SparkProtos$CommandSenderMetadata
+  me.lucko.spark.proto.SparkProtos$CommandSenderMetadataOrBuilder
+
+## javap 字符串 token
+  activity activitylog ago alloc alloc-live-only async automatically cancel collections combine-all commandmap comment compress compressed cpu d disableresponsebroadcast executor force-java-sampler gc gcmonitor gcmonitoring h has health healthreport heap heapdump heapsummary help hprof ht id ignore-sleeping include-non-live info interval knowncommands lasting live log m memory name name_ network not-combined now only-ticks-over open other page phd ping player pps profile profiler regex run run-gc-before s sampler save-to-file separate-parent-calls spark sparkheap sparkprofile start stop tabcompleter thread threshold threshold-tick tickmonitor tickmonitoring timeout tps trust-viewer type type_ uniqueid uniqueid_ unrecognized upload url username v without-gc
+
+## 文本资源里的帮助/用法行
+  · website: https://spark.lucko.me/
+
+## 常量池帮助/描述文本
+  · me/lucko/spark/bukkit/BukkitCommandSender
+  · Lme/lucko/spark/common/command/sender/AbstractCommandSender<Lorg/bukkit/command/CommandSender;>;
+  · me/lucko/spark/common/command/sender/AbstractCommandSender
+  · Lme/lucko/spark/lib/adventure/audience/Audience;
+  · me/lucko/spark/lib/adventure/platform/bukkit/BukkitAudiences
+  · Lme/lucko/spark/bukkit/BukkitCommandSender;
+  · Lme/lucko/spark/lib/adventure/platform/bukkit/BukkitAudiences;
+  · me/lucko/spark/lib/adventure/audience/Audience
+  · Lme/lucko/spark/lib/adventure/text/Component;
+  · me/lucko/spark/bukkit/CommandMapUtil
+  · Ljava/lang/Enum<Lme/lucko/spark/bukkit/CommandMapUtil;>;
+  · Lme/lucko/spark/bukkit/CommandMapUtil;
+  · me/lucko/spark/common/command/Arguments$ParseException
+  · me/lucko/spark/common/command/Arguments
+  · Lme/lucko/spark/common/command/Arguments$ParseException;
+  · Lme/lucko/spark/common/command/Arguments;
+  · me/lucko/spark/common/command/Command$1
+  · me/lucko/spark/common/command/Command
+  · me/lucko/spark/common/command/Command$ArgumentInfo
+  · me/lucko/spark/lib/adventure/text/TextComponent$Builder
+  · me/lucko/spark/lib/adventure/text/TextComponent
+  · Lme/lucko/spark/common/command/Command$ArgumentInfo;
+  · me/lucko/spark/lib/adventure/text/Component
+  · me/lucko/spark/lib/adventure/text/format/NamedTextColor
+  · Lme/lucko/spark/lib/adventure/text/format/NamedTextColor;
+  · me/lucko/spark/common/command/Command$Builder
+  · me/lucko/spark/common/command/Command$Executor
+  · me/lucko/spark/common/command/Command$TabCompleter
+  · Lcom/google/common/collect/ImmutableList$Builder<Lme/lucko/spark/common/command/Command$ArgumentInfo;>;
+  · Lme/lucko/spark/common/command/Command$Executor;
+  · Lme/lucko/spark/common/command/Command$TabCompleter;
+  · Lme/lucko/spark/common/command/Command$Builder;
+  · Lme/lucko/spark/common/SparkPlatform;
+  · Lme/lucko/spark/common/command/sender/CommandSender;
+  · Ljava/util/List<Lme/lucko/spark/common/command/Command$ArgumentInfo;>;
+  · Lme/lucko/spark/common/command/Command;
+  · Lme/lucko/spark/common/command/Command$1;
+  · me/lucko/spark/common/command/CommandManager
+  · Ljava/util/List<Lme/lucko/spark/common/command/CommandModule;>;
+  · Ljava/util/List<Lme/lucko/spark/common/command/Command;>;
+  · me/lucko/spark/common/util/config/Configuration
+  · me/lucko/spark/common/command/modules/SamplerModule
+  · me/lucko/spark/common/command/modules/HealthModule
+  · me/lucko/spark/common/SparkPlatform
+  · me/lucko/spark/common/command/modules/TickMonitoringModule
+  · me/lucko/spark/common/command/modules/GcMonitoringModule
+  · me/lucko/spark/common/command/modules/HeapAnalysisModule
+  · me/lucko/spark/common/command/modules/ActivityLogModule
+  · me/lucko/spark/common/command/CommandModule
+  · Lme/lucko/spark/common/command/CommandModule;
+  · Lme/lucko/spark/common/command/CommandManager;
+  · Lme/lucko/spark/common/util/config/Configuration;
+  · Lcom/google/common/collect/ImmutableList$Builder<Lme/lucko/spark/common/command/Command;>;
+  · me/lucko/spark/common/command/sender/CommandSender
+  · me/lucko/spark/common/SparkPlugin
+  · Lme/lucko/spark/common/SparkPlugin;
+  · me/lucko/spark/common/command/CommandResponseHandler
+  · me/lucko/spark/lib/adventure/text/event/ClickEvent
+  · Lme/lucko/spark/common/command/CommandResponseHandler;
+  · me/lucko/spark/common/command/tabcomplete/TabCompleter
+  · me/lucko/spark/common/command/tabcomplete/CompletionSupplier
+  · me/lucko/spark/lib/adventure/text/format/TextDecoration
+  · Lme/lucko/spark/lib/adventure/text/format/TextDecoration;
+  · https://spark.lucko.me/docs/Command-Usage
+  · Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Lme/lucko/spark/common/command/Command$ArgumentInfo;>;>;
+  · me/lucko/spark/common/command/sender/CommandSender$Data
+  · me/lucko/spark/common/platform/PlatformInfo$Type
+  · me/lucko/spark/common/platform/PlatformInfo
+  · Lme/lucko/spark/lib/adventure/text/TextComponent;
+  · Lme/lucko/spark/common/command/sender/CommandSender$Data;
+  · Ljava/lang/ref/WeakReference<Lme/lucko/spark/common/command/sender/CommandSender;>;
+  · Lme/lucko/spark/common/platform/PlatformInfo$Type;
+  · Ljava/util/function/Consumer<-Lme/lucko/spark/common/command/sender/CommandSender;>;
+  · Ljava/util/Set<Lme/lucko/spark/common/command/sender/CommandSender;>;
+  · me/lucko/spark/lib/adventure/text/JoinConfiguration
+  · Ljava/lang/Iterable<Lme/lucko/spark/lib/adventure/text/Component;>;
+  · me/lucko/spark/common/command/modules/ActivityLogModule$1
+  · me/lucko/spark/lib/adventure/text/feature/pagination/Pagination$Renderer
+  · me/lucko/spark/lib/adventure/text/feature/pagination/Pagination
+  · Lme/lucko/spark/common/command/modules/ActivityLogModule;
+  · Lme/lucko/spark/common/command/modules/ActivityLogModule$1;
+  · me/lucko/spark/lib/adventure/text/feature/pagination/Pagination$Renderer$RowRenderer
+  · me/lucko/spark/lib/adventure/text/feature/pagination/Pagination$Builder
+  · me/lucko/spark/lib/adventure/text/feature/pagination/Pagination$PageCommandFunction
+  · Lme/lucko/spark/lib/adventure/text/feature/pagination/Pagination$Builder;
+  · me/lucko/spark/common/activitylog/Activity
+  · Lme/lucko/spark/common/activitylog/Activity;
+  · Ljava/util/List<Lme/lucko/spark/lib/adventure/text/Component;>;
+  · Lme/lucko/spark/lib/adventure/text/TextComponent$Builder;
+  · Ljava/util/function/Consumer<Lme/lucko/spark/common/command/Command;>;
+  · me/lucko/spark/common/activitylog/ActivityLog
+  · Ljava/util/List<Lme/lucko/spark/common/activitylog/Activity;>;
+  · Lme/lucko/spark/lib/adventure/text/feature/pagination/Pagination<Lme/lucko/spark/common/activitylog/Activity;>;
+  · Lme/lucko/spark/lib/adventure/text/feature/pagination/Pagination;
+  · me/lucko/spark/common/command/modules/GcMonitoringModule$ReportingGcMonitor
+  · me/lucko/spark/common/monitor/memory/GarbageCollectionMonitor
+  · me/lucko/spark/common/monitor/memory/GarbageCollectionMonitor$Listener
+  · Lme/lucko/spark/common/command/modules/GcMonitoringModule$ReportingGcMonitor;
+  · me/lucko/spark/common/util/FormatUtil
+  · Lme/lucko/spark/common/command/modules/GcMonitoringModule;
+  · me/lucko/spark/common/monitor/memory/GarbageCollectorStatistics
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lme/lucko/spark/common/monitor/memory/GarbageCollectorStatistics;>;
+  · Ljava/util/Map<Ljava/lang/String;Lme/lucko/spark/common/monitor/memory/GarbageCollectorStatistics;>;
+  · me/lucko/spark/common/monitor/ping/PingStatistics$PlayerPing
+  · me/lucko/spark/common/monitor/ping/PingStatistics
+  · me/lucko/spark/proto/SparkProtos$HealthMetadata
+  · me/lucko/spark/proto/SparkProtos
+  · me/lucko/spark/proto/SparkProtos$HealthMetadata$Builder
+  · me/lucko/spark/proto/SparkProtos$HealthData
+  · me/lucko/spark/proto/SparkProtos$HealthData$Builder
+  · me/lucko/spark/common/util/BytebinClient$Content
+  · me/lucko/spark/common/util/BytebinClient
+  · Lme/lucko/spark/common/command/modules/HealthModule;
+  · me/lucko/spark/common/monitor/tick/TickStatistics
+  · me/lucko/spark/common/util/StatisticFormatter
+  · me/lucko/spark/common/monitor/cpu/CpuMonitor
+  · Lme/lucko/spark/common/monitor/tick/TickStatistics;
+  · me/lucko/spark/common/monitor/ping/PingSummary
+  · me/lucko/spark/common/util/RollingAverage
+  · Lme/lucko/spark/common/monitor/ping/PingStatistics$PlayerPing;
+  · Lme/lucko/spark/common/monitor/ping/PingStatistics;
+  · Lme/lucko/spark/common/monitor/ping/PingSummary;
+  · Lme/lucko/spark/common/util/RollingAverage;
+  · me/lucko/spark/common/platform/SparkMetadata
+  · me/lucko/spark/common/sampler/SamplerContainer
+  · me/lucko/spark/common/sampler/Sampler
+  · Lme/lucko/spark/proto/SparkProtos$HealthMetadata$Builder;
+  · Lme/lucko/spark/proto/SparkProtos$HealthData$Builder;
+  · Lme/lucko/spark/common/sampler/Sampler;
+  · me/lucko/spark/common/monitor/net/NetworkMonitor
+  · me/lucko/spark/common/monitor/net/NetworkInterfaceAverages
+  · me/lucko/spark/common/monitor/net/Direction
+  · Lme/lucko/spark/common/monitor/net/Direction;
+  · Lme/lucko/spark/common/monitor/net/NetworkInterfaceAverages;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lme/lucko/spark/common/monitor/net/NetworkInterfaceAverages;>;
+  · me/lucko/spark/common/monitor/disk/DiskUsage
+  · me/lucko/spark/proto/SparkHeapProtos$HeapData
+  · me/lucko/spark/proto/SparkHeapProtos
+  · Lme/lucko/spark/common/command/modules/HeapAnalysisModule;
+  · me/lucko/spark/common/heapdump/HeapDumpSummary
+  · Lme/lucko/spark/common/heapdump/HeapDumpSummary;
+  · Lme/lucko/spark/proto/SparkHeapProtos$HeapData;
+  · me/lucko/spark/common/heapdump/HeapDump
+  · me/lucko/spark/common/util/Compression
+  · Lme/lucko/spark/common/util/Compression;
+  · me/lucko/spark/common/sampler/ThreadDumper$Regex
+  · me/lucko/spark/common/sampler/ThreadDumper
+  · me/lucko/spark/common/sampler/ThreadDumper$Specific
+  · me/lucko/spark/common/sampler/Sampler$ExportProps
+  · me/lucko/spark/proto/SparkSamplerProtos$SamplerData
+  · me/lucko/spark/proto/SparkSamplerProtos
+  · me/lucko/spark/proto/SparkSamplerProtos$SocketChannelInfo
+  · Lme/lucko/spark/common/command/modules/SamplerModule;
+  · me/lucko/spark/common/sampler/SamplerMode
+  · Lme/lucko/spark/common/sampler/SamplerMode;
+  · Lme/lucko/spark/common/sampler/ThreadDumper;
+  · me/lucko/spark/common/sampler/ThreadGrouper
+  · me/lucko/spark/common/tick/TickHook
+  · me/lucko/spark/common/sampler/SamplerBuilder
+  · me/lucko/spark/common/sampler/async/AsyncSampler
+  · Ljava/util/function/Supplier<Lme/lucko/spark/common/sampler/ThreadGrouper;>;
+  · Lme/lucko/spark/common/sampler/Sampler$ExportProps;
+  · Lme/lucko/spark/common/tick/TickHook;
+  · Lme/lucko/spark/common/sampler/SamplerBuilder;
+  · Ljava/util/concurrent/CompletableFuture<Lme/lucko/spark/common/sampler/Sampler;>;
+  · me/lucko/spark/lib/bytesocks/BytesocksClient
+  · Lme/lucko/spark/lib/bytesocks/BytesocksClient;
+  · me/lucko/spark/common/ws/TrustedKeyStore
+  · me/lucko/spark/common/ws/ViewerSocket
+  · Lme/lucko/spark/common/ws/ViewerSocket;
+  · me/lucko/spark/common/sampler/BackgroundSamplerManager
+  · Lme/lucko/spark/proto/SparkSamplerProtos$SamplerData;
+  · me/lucko/spark/common/sampler/java/MergeStrategy
+  · Lme/lucko/spark/common/sampler/java/MergeStrategy;
+  · me/lucko/spark/common/sampler/source/ClassSourceLookup
+  · me/lucko/spark/common/command/modules/TickMonitoringModule$ReportingTickMonitor
+  · me/lucko/spark/common/monitor/tick/TickMonitor
+  · Lme/lucko/spark/common/command/modules/TickMonitoringModule$ReportingTickMonitor;
+  · Lme/lucko/spark/common/monitor/tick/ReportPredicate;
+  · me/lucko/spark/common/monitor/tick/ReportPredicate$PercentageChangeGt
+  · me/lucko/spark/common/monitor/tick/ReportPredicate
+  · me/lucko/spark/common/monitor/tick/ReportPredicate$DurationGt
+  · Lme/lucko/spark/common/monitor/tick/TickMonitor;
+  · Lme/lucko/spark/common/command/modules/TickMonitoringModule;
+  · Lme/lucko/spark/common/command/sender/AbstractCommandSender<TS;>;
+  · Lme/lucko/spark/common/command/sender/AbstractCommandSender;
+  · Lme/lucko/spark/common/command/sender/AbstractCommandSender<*>;
+  · me/lucko/spark/proto/SparkProtos$CommandSenderMetadata
+  · me/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Builder
+  · me/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Type
+  · Lme/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Type;
+  · Lme/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Builder;
+  · Lme/lucko/spark/common/command/tabcomplete/CompletionSupplier;
+  · Ljava/util/Map<Ljava/lang/Integer;Lme/lucko/spark/common/command/tabcomplete/CompletionSupplier;>;
+  · Lme/lucko/spark/common/command/tabcomplete/TabCompleter;
+  · me/lucko/spark/common/heapdump/HeapDumpSummary$DiagnosticCommandMXBean
+  · me/lucko/spark/lib/adventure/platform/bukkit/BukkitFacet$CommandSenderPointers
+  · me/lucko/spark/lib/adventure/platform/bukkit/BukkitFacet
+  · me/lucko/spark/lib/adventure/platform/facet/Facet$Pointers
+  · me/lucko/spark/lib/adventure/pointer/Pointers$Builder
+  · me/lucko/spark/lib/adventure/pointer/Pointers
+  · me/lucko/spark/lib/adventure/platform/facet/Facet
+  · Lme/lucko/spark/lib/adventure/platform/bukkit/BukkitFacet$CommandSenderPointers;
+  · me/lucko/spark/lib/adventure/identity/Identity
+  · Lme/lucko/spark/lib/adventure/pointer/Pointer;
+  · me/lucko/spark/lib/adventure/permission/PermissionChecker
+  · Lme/lucko/spark/lib/adventure/pointer/Pointers$Builder;
+  · me/lucko/spark/lib/adventure/util/TriState
+  · Lme/lucko/spark/lib/adventure/util/TriState;
+  · me/lucko/spark/lib/adventure/platform/bukkit/BukkitFacet$ConsoleCommandSenderPointers
+  · me/lucko/spark/lib/adventure/platform/facet/FacetPointers$Type
+  · me/lucko/spark/lib/adventure/platform/facet/FacetPointers
+  · Lme/lucko/spark/lib/adventure/platform/bukkit/BukkitFacet$ConsoleCommandSenderPointers;
+  · Lme/lucko/spark/lib/adventure/platform/facet/FacetPointers$Type;
+  · me/lucko/spark/lib/protobuf/GeneratedMessageLite$Builder
+  · me/lucko/spark/proto/SparkProtos$CommandSenderMetadataOrBuilder
+  · me/lucko/spark/lib/protobuf/GeneratedMessageLite
+  · me/lucko/spark/proto/SparkProtos$1
+  · Lme/lucko/spark/lib/protobuf/GeneratedMessageLite;
+  · Lme/lucko/spark/lib/protobuf/ByteString;
+  · Lme/lucko/spark/proto/SparkProtos$1;
+  · me/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Type$1
+  · Ljava/lang/Object;Lme/lucko/spark/lib/protobuf/Internal$EnumLiteMap<Lme/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Type;>;
+  · me/lucko/spark/lib/protobuf/Internal$EnumLiteMap
+  · me/lucko/spark/lib/protobuf/Internal
+  · me/lucko/spark/lib/protobuf/Internal$EnumLite
+  · Lme/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Type$1;
+  · me/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Type$TypeVerifier
+  · me/lucko/spark/lib/protobuf/Internal$EnumVerifier
+  · Lme/lucko/spark/lib/protobuf/Internal$EnumVerifier;
+  · Lme/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Type$TypeVerifier;
+  · Ljava/lang/Enum<Lme/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Type;>;Lme/lucko/spark/lib/protobuf/Internal$EnumLite;
+  · Lme/lucko/spark/lib/protobuf/Internal$EnumLiteMap;
+  · Lme/lucko/spark/lib/protobuf/Internal$EnumLiteMap<Lme/lucko/spark/proto/SparkProtos$CommandSenderMetadata$Type;>;
+  · me/lucko/spark/lib/protobuf/GeneratedMessageLite$MethodToInvoke
+  · me/lucko/spark/lib/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser
+  · Lme/lucko/spark/proto/SparkProtos$CommandSenderMetadata;
+  · Lme/lucko/spark/lib/protobuf/Parser;
+  · Lme/lucko/spark/lib/protobuf/Parser<Lme/lucko/spark/proto/SparkProtos$CommandSenderMetadata;>;
+  · me/lucko/spark/lib/protobuf/ByteString
+  · me/lucko/spark/lib/protobuf/InvalidProtocolBufferException
+  · Lme/lucko/spark/lib/protobuf/ExtensionRegistryLite;
+  · Lme/lucko/spark/lib/protobuf/CodedInputStream;
+  · me/lucko/spark/lib/protobuf/Parser
+  · Lme/lucko/spark/lib/protobuf/GeneratedMessageLite$MethodToInvoke;
+  · me/lucko/spark/lib/protobuf/MessageLiteOrBuilder

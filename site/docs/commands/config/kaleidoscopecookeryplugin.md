@@ -7,23 +7,15 @@ createTime: 2026/10/24
 
 > 分类 🧩 脚本与菜单 · 版本 `1.3.0` · 指令 1 条 · api-version `1.21`
 
-::: tip 森罗厨房菜谱系统，查看与编辑自定义食物配方
-森罗厨房（KaleidoscopeCookery）是把自定义食物与烹饪配方做成菜单的服务端插件，玩家在一个图形菜单里就能查到每道菜要什么材料、怎么做。它把原本要翻配置文件或查维基的配方信息搬到游戏内，减少玩家反复问“这道菜怎么做”。管理员可以用同一个指令切到编辑模式维护菜谱，因此它常和自定义物品/资源包一起使用。具体菜品与合成流程取决于服内配置，条目内容以游戏内实际显示为准。
+::: tip 森罗厨房菜谱系统
+森罗厨房（KaleidoscopeCookery）是把自定义食物与烹饪配方做成菜单的服务端插件，玩家在一个图形菜单里就能查到每道菜要什么材料、怎么做。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 玩家问“这道菜要什么材料、在哪口锅做”时，直接让他打开食谱菜单自己看
-- 服主新增或调整一道菜的材料与产出，需要进编辑模式改配方
-- 开服初期整理厨房玩法，先对照菜谱核对哪些食物还没配好
-- 给不同玩家组分配权限：普通玩家只看，管理员才能改
-
-## 上手流程
-
-1. 先确认服务端已装好插件并生成了配置文件，重启后 /plugins 里该插件为绿色
-2. 给管理员组授予 kaleidoscopecookery.recipe.browse 和 kaleidoscopecookery.recipe.edit，普通玩家只给 browse
-3. 游戏内输入 /kcrecipe 打开食谱菜单，翻页查看已有菜品与所需材料
-4. 需要改配方时输入 /kcrecipe edit 进入编辑模式，改完按插件方式保存并重载，再让玩家打开菜单复核
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 看食谱菜单 | /kcrecipe | 加 edit 进编辑模式 |
 
 ## 指令一览
 
@@ -50,7 +42,7 @@ createTime: 2026/10/24
 ```
 
 - **别名**：`/kcfood`
-- **备注**：别名 /kcfood，效果相同。浏览菜单需要 kaleidoscopecookery.recipe.browse，进入编辑模式需要 kaleidoscopecookery.recipe.edit，两个权限默认都只给 OP。
+- **备注**：别名 /kcfood，效果相同。浏览菜单需要 kaleidoscopecookery.recipe.browse，进入编辑模式需要 kaleidoscopeco…
 
 ## 子指令速查
 
@@ -64,7 +56,6 @@ createTime: 2026/10/24
 - 浏览和编辑是两个独立权限，普通玩家只给 kaleidoscopecookery.recipe.browse，否则他能直接改你的菜谱
 - 编辑模式里改完一定要按插件要求保存并重载，重载前先小退或提醒在线玩家，避免菜单读到半截数据
 - 若菜单里出现空白图标或点了没反应，通常是配置里引用了不存在的物品或客户端资源包没装，先看服务端日志报错再改配置
-- 本手册只覆盖 /kcrecipe 这条主指令，其它参数与更细的用法以游戏内 help 和插件自带文档为准
 :::
 
 ## 权限节点
@@ -73,7 +64,3 @@ createTime: 2026/10/24
 | --- | --- | --- |
 | `kaleidoscopecookery.recipe.browse` | 允许玩家用 /kcrecipe 浏览全部食谱 | op |
 | `kaleidoscopecookery.recipe.edit` | 允许用 /kcrecipe edit 编辑食谱 | op |
-
-## 相关插件
-
-CraftEngine

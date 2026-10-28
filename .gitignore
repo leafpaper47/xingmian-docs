@@ -18,6 +18,14 @@ Thumbs.db
 __pycache__/
 *.pyc
 
+# 反编译/解包取证中间产物（体积大，且属第三方 jar 内容，不入库）
+ext/
+.ev/
+jars/
+_*.txt
+_*.py
+data/notes.bak_*/
+
 # 数据采集用的凭据（如果你把凭据写进本地脚本，别提交）
 .env
 credentials.*

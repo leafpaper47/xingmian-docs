@@ -1,0 +1,181 @@
+# PlayerSignIn  (PlayerSignIn-1.4.0.jar)
+## 注册指令
+  /playerSignIn  usage=None desc='玩家签到' alias=['psi'] perm=None
+
+## 代码类
+  cn.handyplus.sign.in.command.PlayerSignInCommand
+  cn.handyplus.sign.in.command.admin.CardCommand$1
+  cn.handyplus.sign.in.command.admin.CardCommand
+  cn.handyplus.sign.in.command.admin.ConvertCommand
+  cn.handyplus.sign.in.command.admin.GiveSignCardCommand
+  cn.handyplus.sign.in.command.admin.ReloadCommand
+  cn.handyplus.sign.in.command.player.SignInCommand
+  cn.handyplus.sign.in.constants.CommandChildTypeEnum
+  cn.handyplus.sign.in.lib.annotation.HandyCommand
+  cn.handyplus.sign.in.lib.annotation.HandySubCommand
+  cn.handyplus.sign.in.lib.command.HandyCommandFactory
+  cn.handyplus.sign.in.lib.command.HandyCommandWrapper$1
+  cn.handyplus.sign.in.lib.command.HandyCommandWrapper
+  cn.handyplus.sign.in.lib.command.HandySubCommandParam
+  cn.handyplus.sign.in.lib.command.HandyTab$1
+  cn.handyplus.sign.in.lib.command.HandyTab$Condition
+  cn.handyplus.sign.in.lib.command.HandyTab$Context
+  cn.handyplus.sign.in.lib.command.HandyTab$DynamicCondition
+  cn.handyplus.sign.in.lib.command.HandyTab$DynamicConditionBranch
+  cn.handyplus.sign.in.lib.command.HandyTab$Node
+  cn.handyplus.sign.in.lib.command.HandyTab$Root
+  cn.handyplus.sign.in.lib.command.HandyTab
+  cn.handyplus.sign.in.lib.command.IHandyCommandEvent
+  cn.handyplus.sign.in.lib.command.package-info
+
+## javap 字符串 token
+  amount card card_give card_look card_set card_take commandmap convert default expire forever give givesigncard helps look month n next nopermission noplayerfailuremsg not paramfailuremsg permission player playernotfound reload reloadmsg resigncardgivesuccess resigncardreceived root set signcardamountfailuremsg signin storage-method take total type virtualsigncardfailure virtualsigncardlook virtualsigncardsetsuccess
+
+## 文本资源里的帮助/用法行
+  · # 是否开启更新提醒,建议开启(Whether to turn on update alerts, recommended)
+  · # op登录时候是否发送更新提醒(Whether to send update alerts when op logs in)
+  · # 补签卡配置
+  · # 补签卡类型: ITEM 实体卡,VIRTUAL 虚拟卡
+  · # 虚拟补签卡默认可用类型: MONTH 本月可用,FOREVER 永久可用
+  · # 名称
+  · name: "&a补签卡"
+  · # 物品材质
+  · - "&7用于补签断签"
+  · # 自定义模型id
+  · # 工具提示样式
+  · # 自定义模型
+  · website: https://ricedoc.handyplus.cn/wiki/PlayerSignIn/log
+  · description: 玩家签到
+  · description: 玩家签到
+  · description: 离线变量
+  · description: 重新加载配置
+  · description: 转换数据源
+  · description: 签到gui
+  · description: 给予实体补签卡
+  · description: 管理虚拟补签卡
+  · description: 默认权限
+  · # 存储方法(MySQL,SQLite)请复制括号内的类型,不要自己写
+  · # 选择mysql后必填
+  · # 额外参数-例如mysql8+如果报错可以添加 &allowPublicKeyRetrieval=true
+  · title: "&a签到菜单 -> &e${date}"
+  · # 配置的物品材质支持 材质/自定义模型id/工具提示样式/自定义模型 可自己在下面配置
+  · # 例如今日未签到对应配置
+  · # 材质:todayNotMaterial 自定义模型id:todayNotCustomModelDataId
+  · # 工具提示样式:todayNotTooltipStyle 自定义模型:todayNotItemModel
+  · # 名称支持 节日 ${festival} 和 日期{date}
+  · # 今日未签到
+  · # 今日已签到
+  · # 过去已签到
+  · # 过去未签到
+  · # 未来
+  · # 节日签到
+  · # 节日过去已签到
+  · # 节日过去未签到
+  · - '&6&l☀ 今日运势 ☀'
+  · - '&7&l吉: &a${fitness}'
+  · - '&7&l忌: &c${taboo}'
+  · # 可补签提示
+  · - '&a可补签'
+  · # 自定义按钮 你可以在这无限扩展你想要的按钮，格式跟这个例子返回一样就好
+  · # 返回按钮
+  · name: "   &8[&a返回&8]"
+  · - '&f- &7点击返回'
+  · # 执行的命令
+  · # 分隔板
+  · name: "        &8[&7分割板&8]"
+  · - "&7哎呀,不要随便戳人家啦"
+  · # 没权限时候提醒
+  · noPermission: "&4你没有权限执行该命令"
+  · # 重载插件提醒
+  · reloadMsg: "&a插件重载完成"
+  · # vault提醒
+  · vaultSucceedMsg: "&a成功加载Vault,启用经济相关功能!"
+  · vaultFailureMsg: "&7未找到Vault,未启用经济相关功能!"
+  · # placeholderAPI提醒
+  · placeholderAPISucceedMsg: "&a成功加载placeholderApi,启用自定义变量功能!"
+  · placeholderAPIFailureMsg: "&7未找到placeholderApi,未启用自定义变量功能!"
+  · # PlayerPoints提醒
+  · playerPointsSucceedMsg: "&a成功加载PlayerPoints,启用点券相关功能!"
+  · playerPointsFailureMsg: "&7未找到PlayerPoints,未启用点券相关功能!"
+  · # PlayerCurrency提醒
+  · playerCurrencySucceedMsg: '&a已成功加载PlayerCurrency 启用多货币经济兼容'
+  · playerCurrencyFailureMsg: '&7你的服务端没有安装PlayerCurrency 未启用多货币经济兼容'
+  · # /psi 指令管理员出现的提醒
+  · - " &3Player&bSignIn &8▪ &7米饭出品～"
+  · - " &7命令: &f/psi &8[...]"
+  · - " &7参数:"
+  · - "   &8- &f convert [MySQL|SQLite]  &7转换数据"
+  · - "   &8- &f reload    &f重载配置文件"
+  · - "   &8- &f giveSignCard <玩家> [数量]  &7给予实体补签卡"
+  · - "   &8- &f card <give|set|take|look> <玩家> [数量] [MONTH|FOREVER]  &7管理虚拟补签卡"
+  · - "&e[]必填 ()选填"
+  · paramFailureMsg: "&8[&c✘&8] &7参数不足,请使用TAB补全"
+  · signCardAmountFailureMsg: "&8[&c✘&8] &7补签卡数量必须为正整数"
+  · signCardAvailableTypeFailureMsg: "&8[&c✘&8] &7可用类型只能为 MONTH 或 FOREVER"
+  · noPlayerFailureMsg: "&c该命令只能玩家执行."
+  · errorMsg: "&4签到失败"
+  · notConfigRewardMsg: "&8[&c✘&8] &7服主没有配置签到奖励"
+  · signInClick: "&a点击签到"
+  · signIn: " &8[&a✔&8] &7点击进行签到"
+  · missed: " &8[&c✘&8] &7漏签"
+  · alreadySigned: " &8[&c✔&8] &7你已经签到过了"
+  · noReSignCard: "&8[&c✘&8] &7你没有补签卡"
+  · reSignSuccess: "&a补签成功"
+  · playerNotFound: "&8[&c✘&8] &7未找到在线玩家"
+  · reSignCardGiveSuccess: "&7已给予玩家 &a${player} &7补签卡 &a${amount} &7张${expire}"
+  · reSignCardReceived: "&7你获得了补签卡 &a${amount} &7张${expire}"
+  · virtualSignCardGiveSuccess: "&7已给予玩家 &a${player} &7补签卡 &a${amount} &7张, &a${type}"
+  · virtualSignCardSetSuccess: "&7已设置玩家 &a${player} &7补签卡为 &a${amount} &7张, &a${type}"
+  · virtualSignCardTakeSuccess: "&7已扣除玩家 &a${player} &7补签卡 &a${amount} &7张, &a${type}"
+  · virtualSignCardLook: "&7玩家 &a${player} &7补签卡: 本月 &a${month} &7张, 永久 &a${forever} &7张, 合计 &a${total} &7张"
+  · virtualSignCardFailure: "&8[&c✘&8] &7补签卡操作失败"
+  · # 提醒签到
+  · - '&6☀ 今日运势 ☀'
+  · - '&7吉: &a${fitness}'
+  · - '&7忌: &7${taboo}'
+  · - '&e您今天还没有签到 &8[&a${button}&8]'
+  · # 签到成功提醒
+  · - '&a✔ 签到成功！'
+  · - '&e本月已连续签到 &b${streak} &e天'
+  · - '&6您是今日第 &e${rank} &6个签到的玩家'
+  · # 本配置需要的权限节点 playerSignIn.default 所有玩家拥有
+  · # 奖励优先级
+  · # 每日固定奖励
+  · # 今日签到排名额外奖励
+  · # 本月连续签到奖励
+  · # 节日奖励
+  · '元旦':
+  · '春节':
+  · '清明节':
+  · '劳动节':
+  · '端午节':
+  · '中秋节':
+  · '国庆节':
+  · # 本配置需要的权限节点 playerSignIn.vip
+  · # 奖励优先级 默认权限 playerSignIn.vip 所有玩家拥有
+  · # 每日固定奖励
+  · # 今日签到排名额外奖励
+  · # 本月连续签到奖励
+  · # 节日奖励
+  · '元旦':
+  · '春节':
+  · '清明节':
+  · '劳动节':
+  · '端午节':
+  · '中秋节':
+  · '国庆节':
+
+## 常量池帮助/描述文本
+  · cn/handyplus/sign/in/command/PlayerSignInCommand
+  · Lcn/handyplus/sign/in/command/PlayerSignInCommand;
+  · &4禁止转换！原因，您当前使用的存储方式已经为：
+  · cn/handyplus/sign/in/enter/PlayerSignInEnter
+  · 存储方法(MySQL,SQLite)请复制括号内的类型,不要自己写
+  · Ljava/util/List<Lcn/handyplus/sign/in/enter/PlayerSignInEnter;>;
+  · §4你没有权限执行该命令
+  · when/whenAt 的 value 不能为空
+  · when/whenAt 的 values 不能为空
+  · when/whenAt 的 values 不能包含空值
+  · when/whenAt 的 provider 不能为空
+  · when/whenAt 必须在 next 之后调用
+  · whenAt 的 index 必须大于等于 1

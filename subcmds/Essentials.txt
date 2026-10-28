@@ -1,0 +1,1315 @@
+# Essentials  (EssentialsX-2.22.1-dev+12-776f709.jar)
+## 注册指令
+  /afk  usage='/<command> [player/message...]' desc='Marks you as away-from-keyboard.' alias=['eafk', 'away', 'eaway'] perm=None
+  /antioch  usage='/<command> [message]' desc='A little surprise for operators.' alias=['eantioch', 'grenade', 'egrenade', 'tnt', 'etnt'] perm=None
+  /anvil  usage='/<command>' desc='Opens up an Anvil.' alias=['eanvil'] perm=None
+  /back  usage='/<command> [player]' desc='Teleports you to your location prior to tp/spawn/warp.' alias=['eback', 'return', 'ereturn'] perm=None
+  /backup  usage='/<command>' desc='Runs the backup if configured.' alias=['ebackup'] perm=None
+  /balance  usage='/<command> [player]' desc='States the current balance of a player.' alias=['bal', 'ebal', 'ebalance', 'money', 'emoney'] perm=None
+  /balancetop  usage='/<command> [page]' desc='Gets the top balance values.' alias=['ebalancetop', 'baltop', 'ebaltop'] perm=None
+  /ban  usage='/<command> <player> [reason]' desc='Bans a player.' alias=['eban'] perm=None
+  /banip  usage='/<command> <address> [reason]' desc='Bans an IP address.' alias=['ebanip'] perm=None
+  /beezooka  usage='/<command>' desc='Throw an exploding bee at your opponent.' alias=['ebeezooka', 'beecannon', 'ebeecannon'] perm=None
+  /book  usage='/<command> [title|author [name]]' desc='Allows reopening and editing of sealed books.' alias=['ebook'] perm=None
+  /bottom  usage='/<command>' desc='Teleport to the lowest block at your current position.' alias=['ebottom'] perm=None
+  /break  usage='/<command>' desc='Breaks the block you are looking at.' alias=['ebreak'] perm=None
+  /broadcast  usage='/<command> <msg>' desc='Broadcasts a message to the entire server.' alias=['bc', 'ebc', 'bcast', 'ebcast', 'ebroadcast', 'shout', 'eshout'] perm=None
+  /broadcastworld  usage='/<command> <world> <msg>' desc='Broadcasts a message to a world.' alias=['bcw', 'ebcw', 'bcastw', 'ebcastw', 'ebroadcastworld', 'shoutworld', 'eshoutworld'] perm=None
+  /bigtree  usage='/<command> <tree|redwood|jungle|darkoak>' desc='Spawn a big tree where you are looking.' alias=['ebigtree', 'largetree', 'elargetree'] perm=None
+  /burn  usage='/<command> <player> <seconds>' desc='Set a player on fire.' alias=['eburn'] perm=None
+  /cartographytable  usage='/<command>' desc='Opens up a cartography table.' alias=['ecartographytable', 'carttable', 'ecarttable'] perm=None
+  /clearinventory  usage='/<command> [player|*] [item[:<data>]|*|**] [amount]' desc='Clear all items in your inventory.' alias=['ci', 'eci', 'clean', 'eclean', 'clear', 'eclear', 'clearinvent', 'eclearinvent', 'eclearinventory'] perm=None
+  /clearinventoryconfirmtoggle  usage='/<command>' desc='Toggles whether you are prompted to confirm inventory clears.' alias=['eclearinventoryconfirmtoggle', 'clearinventoryconfirmoff', 'eclearinventoryconfirmoff', 'clearconfirmoff', 'eclearconfirmoff', 'clearconfirmon', 'eclearconfirmon', 'clearconfirm', 'eclearconfirm'] perm=None
+  /condense  usage='/<command> [itemname]' desc='Condenses items into a more compact blocks.' alias=['econdense', 'compact', 'ecompact', 'blocks', 'eblocks', 'toblocks', 'etoblocks'] perm=None
+  /compass  usage='/<command>' desc='Describes your current bearing.' alias=['ecompass', 'direction', 'edirection'] perm=None
+  /createkit  usage='/<command> <kitname> <delay>' desc='Create a kit in game!' alias=['kitcreate', 'createk', 'kc', 'ck'] perm=None
+  /customtext  usage='/<alias> - Define in bukkit.yml' desc='Allows you to create custom text commands.' alias=None perm=None
+  /delhome  usage='/<command> [player:]<name>' desc='Removes a home.' alias=['edelhome', 'remhome', 'eremhome', 'rmhome', 'ermhome'] perm=None
+  /deljail  usage='/<command> <jailname>' desc='Removes a jail.' alias=['edeljail', 'remjail', 'eremjail', 'rmjail', 'ermjail'] perm=None
+  /delkit  usage='/<command> <kit>' desc='Deletes the specified kit.' alias=['edelkit', 'remkit', 'eremkit', 'rmkit', 'ermkit', 'deletekit', 'edeletekit'] perm=None
+  /delwarp  usage='/<command> <warp>' desc='Deletes the specified warp.' alias=['edelwarp', 'remwarp', 'eremwarp', 'rmwarp', 'ermwarp'] perm=None
+  /depth  usage='/<command>' desc='States current depth, relative to sea level.' alias=['edepth', 'height', 'eheight'] perm=None
+  /disposal  usage='/<command>' desc='Opens a portable disposal menu.' alias=['edisposal', 'trash', 'etrash'] perm=None
+  /eco  usage='/<command> <give|take|set|reset> <player> <amount>' desc='Manages the server economy.' alias=['eeco', 'economy', 'eeconomy'] perm=None
+  /enchant  usage='/<command> <enchantmentname> [level]' desc='Enchants the item the user is holding.' alias=['eenchant', 'enchantment', 'eenchantment'] perm=None
+  /enderchest  usage='/<command> [player]' desc='Lets you see inside an enderchest.' alias=['echest', 'eechest', 'eenderchest', 'endersee', 'eendersee', 'ec', 'eec'] perm=None
+  /essentials  usage='/<command>' desc='Reloads essentials.' alias=['eessentials', 'ess', 'eess', 'essversion'] perm=None
+  /exp  usage='/<command> [reset|show|set|give] [playername [amount]]' desc='Give, set, reset, or look at a players experience.' alias=['eexp', 'xp'] perm=None
+  /ext  usage='/<command> [player]' desc='Extinguish players.' alias=['eext', 'extinguish', 'eextinguish'] perm=None
+  /feed  usage='/<command> [player]' desc='Satisfy the hunger.' alias=['eat', 'eeat', 'efeed'] perm=None
+  /fly  usage='/<command> [player] [on|off]' desc='Take off, and soar!' alias=['efly'] perm=None
+  /fireball  usage='/<command> [fireball|small|large|arrow|skull|egg|snowball|expbottle|dragon|splashpotion|lingeringpotion|trident] [speed]' desc='Throw a fireball or other assorted projectiles.' alias=['efireball', 'fireentity', 'efireentity', 'fireskull', 'efireskull'] perm=None
+  /firework  usage='/<command> <<meta param>|power [amount]|clear|fire [amount]>' desc='Allows you to modify a stack of fireworks.' alias=['efirework'] perm=None
+  /gamemode  usage='/<command> <survival|creative|adventure|spectator> [player]' desc='Change player gamemode.' alias=['adventure', 'eadventure', 'adventuremode', 'eadventuremode', 'creative', 'ecreative', 'eecreative', 'creativemode', 'ecreativemode', 'egamemode', 'gm', 'egm', 'gma', 'egma', 'gmc', 'egmc', 'gms', 'egms', 'gmt', 'egmt', 'survival', 'esurvival', 'survivalmode', 'esurvivalmode', 'gmsp', 'sp', 'egmsp', 'spec', 'spectator'] perm=None
+  /gc  usage='/<command>' desc='Reports memory, uptime and tick info.' alias=['lag', 'elag', 'egc', 'mem', 'emem', 'memory', 'ememory', 'uptime', 'euptime', 'tps', 'etps', 'entities', 'eentities'] perm=None
+  /getpos  usage='/<command> [player]' desc='Get your current coordinates or those of a player.' alias=['coords', 'egetpos', 'position', 'eposition', 'whereami', 'ewhereami', 'getlocation', 'egetlocation', 'getloc', 'egetloc'] perm=None
+  /give  usage='/<command> <player> <item|numeric> [amount [itemmeta...]]' desc='Give a player an item.' alias=['egive'] perm=None
+  /god  usage='/<command> [player] [on|off]' desc='Enables your godly powers.' alias=['egod', 'godmode', 'egodmode', 'tgm', 'etgm'] perm=None
+  /grindstone  usage='/<command>' desc='Opens up a grindstone.' alias=['egrindstone'] perm=None
+  /hat  usage='/<command> [remove]' desc='Get some cool new headgear.' alias=['ehat', 'head', 'ehead'] perm=None
+  /heal  usage='/<command> [player]' desc='Heals you or the given player.' alias=['eheal'] perm=None
+  /help  usage='/<command> [search term] [page]' desc='Views a list of available commands.' alias=['ehelp'] perm=None
+  /helpop  usage='/<command> <message>' desc='Message online admins.' alias=['ac', 'eac', 'amsg', 'eamsg', 'ehelpop'] perm=None
+  /home  usage='/<command> [player:][name]' desc='Teleport to your home.' alias=['ehome', 'homes', 'ehomes'] perm=None
+  /ice  usage='/<command> [player]' desc='Cools a player off.' alias=['eice', 'efreeze'] perm=None
+  /ignore  usage='/<command> <player>' desc='Ignore or unignore other players.' alias=['eignore', 'unignore', 'eunignore', 'delignore', 'edelignore', 'remignore', 'eremignore', 'rmignore', 'ermignore'] perm=None
+  /info  usage='/<command> [chapter] [page]' desc='Shows information set by the server owner.' alias=['about', 'eabout', 'ifo', 'eifo', 'einfo', 'inform', 'einform', 'news', 'enews'] perm=None
+  /invsee  usage='/<command> <player>' desc='See the inventory of other players.' alias=['einvsee'] perm=None
+  /item  usage='/<command> <item|numeric> [amount [itemmeta...]]' desc='Spawn an item.' alias=['i', 'eitem', 'ei'] perm=None
+  /itemdb  usage='/<command> <item>' desc='Searches for an item.' alias=['dura', 'edura', 'durability', 'edurability', 'eitemdb', 'itemno', 'eitemno'] perm=None
+  /itemlore  usage='/<command> <add/set/clear> [text/line] [text]' desc='Edit the lore of an item.' alias=['lore', 'elore', 'ilore', 'eilore', 'eitemlore'] perm=None
+  /itemname  usage='/<command> [name]' desc='Names an item.' alias=['iname', 'einame', 'eitemname', 'itemrename', 'irename', 'eitemrename', 'eirename'] perm=None
+  /jailedplayers  usage='/<command>' desc='List all jailed players.' alias=['ejailedplayers', 'ejailed', 'ejp'] perm=None
+  /jails  usage='/<command>' desc='List all jails.' alias=['ejails'] perm=None
+  /jump  usage='/<command>' desc='Jumps to the nearest block in the line of sight.' alias=['j', 'ej', 'ejump', 'jumpto', 'ejumpto'] perm=None
+  /kick  usage='/<command> <player> [reason]' desc='Kicks a specified player with a reason.' alias=['ekick'] perm=None
+  /kickall  usage='/<command> [reason]' desc='Kicks all players off the server except the issuer.' alias=['ekickall'] perm=None
+  /kill  usage='/<command> <player>' desc='Kills specified player.' alias=['ekill'] perm=None
+  /kit  usage='/<command> [kit] [player]' desc='Obtains the specified kit or views all available kits.' alias=['ekit', 'kits', 'ekits'] perm=None
+  /kitreset  usage='/<command> <kit> [player]' desc='Resets the cooldown on the specified kit.' alias=['ekitreset', 'kitr', 'ekitr', 'resetkit', 'eresetkit'] perm=None
+  /kittycannon  usage='/<command>' desc='Throw an exploding kitten at your opponent.' alias=['ekittycannon'] perm=None
+  /lightning  usage='/<command> [player] [power]' desc='The power of Thor. Strike at cursor or player.' alias=['elightning', 'shock', 'eshock', 'smite', 'esmite', 'strike', 'estrike', 'thor', 'ethor'] perm=None
+  /list  usage='/<command> [group]' desc='List all online players.' alias=['elist', 'online', 'eonline', 'playerlist', 'eplayerlist', 'plist', 'eplist', 'who', 'ewho'] perm=None
+  /loom  usage='/<command>' desc='Opens up a loom.' alias=['eloom'] perm=None
+  /mail  usage='/<command> [read|clear|clear [number]|clear <player> [number]|send [to] [message]|sendtemp [to] [expire time] [message]|sendall [message]]' desc='Manages inter-player, intra-server mail.' alias=['email', 'eemail', 'memo', 'ememo'] perm=None
+  /me  usage='/<command> <description>' desc='Describes an action in the context of the player.' alias=['action', 'eaction', 'describe', 'edescribe', 'eme'] perm=None
+  /more  usage='/<command> [amount]' desc='Fills the item stack in hand to specified amount, or to maximum size if none is specified.' alias=['emore'] perm=None
+  /motd  usage='/<command> [chapter] [page]' desc='Views the Message Of The Day.' alias=['emotd'] perm=None
+  /msg  usage='/<command> <to> <message>' desc='Sends a private message to the specified player.' alias=['w', 'm', 't', 'pm', 'emsg', 'epm', 'tell', 'etell', 'whisper', 'ewhisper'] perm=None
+  /msgtoggle  usage='/<command> [player] [on|off]' desc='Blocks receiving all private messages.' alias=['emsgtoggle'] perm=None
+  /mute  usage='/<command> <player> [datediff] [reason]' desc='Mutes or unmutes a player.' alias=['emute', 'silence', 'esilence', 'unmute', 'eunmute'] perm=None
+  /near  usage='/<command> [playername] [radius]' desc='Lists the players near by or around a player.' alias=['enear', 'nearby', 'enearby'] perm=None
+  /nick  usage='/<command> [player] <nickname|off>' desc='Change your nickname or that of another player.' alias=['enick', 'nickname', 'enickname'] perm=None
+  /nuke  usage='/<command> [player]' desc='May death rain upon them.' alias=['enuke'] perm=None
+  /tpoffline  usage='/<command> <player>' desc="Teleport to a player's last known logout location" alias=['otp', 'offlinetp', 'tpoff', 'tpoffline', 'etpoffline'] perm=None
+  /pay  usage='/<command> <player> <amount>' desc='Pays another player from your balance.' alias=['epay'] perm=None
+  /paytoggle  usage='/<command> [player]' desc='Toggles whether you are accepting payments.' alias=['epaytoggle', 'payoff', 'epayoff', 'payon', 'epayon'] perm=None
+  /payconfirmtoggle  usage='/<command>' desc='Toggles whether you are prompted to confirm payments.' alias=['epayconfirmtoggle', 'payconfirmoff', 'epayconfirmoff', 'payconfirmon', 'epayconfirmon', 'payconfirm', 'epayconfirm'] perm=None
+  /ping  usage='/<command>' desc='Pong!' alias=['echo', 'eecho', 'eping', 'pong', 'epong'] perm=None
+  /playtime  usage='/<command> [player]' desc="Shows a player's time played in game" alias=['eplaytime'] perm=None
+  /potion  usage='/<command> <clear|apply|effect:<effect> power:<power> duration:<duration>>' desc='Adds custom potion effects to a potion.' alias=['epotion', 'elixer', 'eelixer'] perm=None
+  /powertool  usage='/<command> [l:|a:|r:|c:|d:][command] [arguments] - {player} can be replaced by name of a clicked player.' desc='Assigns a command to the item in hand.' alias=['epowertool', 'pt', 'ept'] perm=None
+  /powertoollist  usage='/<command>' desc='Lists all current powertools.' alias=['epowertoollist', 'ptlist', 'eptlist'] perm=None
+  /powertooltoggle  usage='/<command>' desc='Enables or disables all current powertools.' alias=['epowertooltoggle', 'ptt', 'eptt', 'pttoggle', 'epttoggle'] perm=None
+  /ptime  usage='/<command> [list|reset|day|night|dawn|17:30|4pm|4000ticks] [player|*]' desc="Adjust player's client time. Add @ prefix to fix." alias=['playertime', 'eplayertime', 'eptime'] perm=None
+  /pweather  usage='/<command> [list|reset|storm|sun|clear] [player|*]' desc="Adjust a player's weather" alias=['playerweather', 'eplayerweather', 'epweather'] perm=None
+  /r  usage='/<command> <message>' desc='Quickly reply to the last player to message you.' alias=['er', 'reply', 'ereply'] perm=None
+  /rtoggle  usage='/<command> [player] [on|off]' desc='Change whether the recipient of the reply is last recipient or last sender' alias=['ertoggle', 'replytoggle', 'ereplytoggle'] perm=None
+  /realname  usage='/<command> <nickname>' desc='Displays the username of a user based on nick.' alias=['erealname'] perm=None
+  /recipe  usage='/<command> <item> [number]' desc='Displays how to craft items.' alias=['formula', 'eformula', 'method', 'emethod', 'erecipe', 'recipes', 'erecipes'] perm=None
+  /remove  usage='/<command> <all|tamed|named|drops|arrows|boats|minecarts|xp|paintings|itemframes|endercrystals|monsters|animals|ambient|mobs|[mobType]> [radius|world]' desc='Removes entities in your world.' alias=['eremove', 'butcher', 'ebutcher', 'killall', 'ekillall', 'mobkill', 'emobkill'] perm=None
+  /renamehome  usage='/<command> <[player:]name> <new name>' desc='Renames a home.' alias=['erenamehome'] perm=None
+  /repair  usage='/<command> [hand|all]' desc='Repairs the durability of one or all items.' alias=['fix', 'efix', 'erepair'] perm=None
+  /rest  usage='/<command> [player]' desc='Rests you or the given player.' alias=['erest'] perm=None
+  /rules  usage='/<command> [chapter] [page]' desc='Views the server rules.' alias=['erules'] perm=None
+  /seen  usage='/<command> <playername>' desc='Shows the last logout time of a player.' alias=['eseen', 'ealts', 'alts'] perm=None
+  /sell  usage='/<command> <<itemname>|<id>|hand|inventory|blocks> [amount]' desc='Sells the item currently in your hand.' alias=['esell'] perm=None
+  /sethome  usage='/<command> [[player:]name]' desc='Set your home to your current location.' alias=['esethome', 'createhome', 'ecreatehome'] perm=None
+  /setjail  usage='/<command> <jailname>' desc='Creates a jail where you specified named [jailname].' alias=['esetjail', 'createjail', 'ecreatejail'] perm=None
+  /settpr  usage='/<command> [center|minrange|maxrange] [value]' desc='Set the random teleport location and parameters.' alias=['esettpr', 'settprandom', 'esettprandom'] perm=None
+  /setwarp  usage='/<command> <warp>' desc='Creates a new warp.' alias=['createwarp', 'ecreatewarp', 'esetwarp'] perm=None
+  /setworth  usage='/<command> [itemname|id] <price>' desc='Set the sell value of an item.' alias=['esetworth'] perm=None
+  /showkit  usage='/<command> <kitname>' desc='Show contents of a kit.' alias=['kitpreview', 'preview', 'kitshow'] perm=None
+  /editsign  usage='/<command> <set/clear/copy/paste> [line number] [text]' desc='Edits a sign in the world.' alias=['sign', 'esign', 'eeditsign'] perm=None
+  /skull  usage='/<command> [owner] [player]' desc='Set the owner of a player skull' alias=['eskull', 'playerskull', 'eplayerskull', 'head', 'ehead'] perm=None
+  /smithingtable  usage='/<command>' desc='Opens up a smithing table.' alias=['esmithingtable', 'smithtable', 'esmithtable'] perm=None
+  /socialspy  usage='/<command> [player] [on|off]' desc='Toggles if you can see msg/mail commands in chat.' alias=['esocialspy'] perm=None
+  /spawner  usage='/<command> <mob> [delay]' desc='Change the mob type of a spawner.' alias=['changems', 'echangems', 'espawner', 'mobspawner', 'emobspawner'] perm=None
+  /spawnmob  usage='/<command> <mob>[:data][,<mount>[:data]] [amount] [player]' desc='Spawns a mob.' alias=['mob', 'emob', 'spawnentity', 'espawnentity', 'espawnmob'] perm=None
+  /speed  usage='/<command> [type] <speed> [player]' desc='Change your speed limits.' alias=['flyspeed', 'eflyspeed', 'fspeed', 'efspeed', 'espeed', 'walkspeed', 'ewalkspeed', 'wspeed', 'ewspeed'] perm=None
+  /stonecutter  usage='/<command>' desc='Opens up a stonecutter.' alias=['estonecutter'] perm=None
+  /sudo  usage='/<command> <player> <command [args]>' desc='Make another user perform a command.' alias=['esudo'] perm=None
+  /suicide  usage='/<command>' desc='Causes you to perish.' alias=['esuicide'] perm=None
+  /tempban  usage='/<command> <playername> <datediff> [reason]' desc='Temporary ban a user.' alias=['etempban'] perm=None
+  /tempbanip  usage='/<command> <playername> <datediff> [reason]' desc='Temporarily ban an IP Address.' alias=['etempbanip'] perm=None
+  /thunder  usage='/<command> <true/false> [duration]' desc='Enable/disable thunder.' alias=['ethunder'] perm=None
+  /time  usage='/<command> [set|add] [day|night|dawn|17:30|4pm|4000ticks] [worldname|all]' desc='Display/Change the world time. Defaults to current world.' alias=['day', 'eday', 'night', 'enight', 'etime'] perm=None
+  /togglejail  usage='/<command> <player> <jailname> [datediff]' desc='Jails/Unjails a player, TPs them to the jail specified.' alias=['jail', 'ejail', 'tjail', 'etjail', 'etogglejail', 'unjail', 'eunjail'] perm=None
+  /top  usage='/<command>' desc='Teleport to the highest block at your current position.' alias=['etop'] perm=None
+  /tp  usage='/<command> <player> [otherplayer]' desc='Teleport to a player.' alias=['tele', 'etele', 'teleport', 'eteleport', 'etp', 'tp2p', 'etp2p'] perm=None
+  /tpa  usage='/<command> <player>' desc='Request to teleport to the specified player.' alias=['call', 'ecall', 'etpa', 'tpask', 'etpask'] perm=None
+  /tpaall  usage='/<command> <player>' desc='Requests all players online to teleport to you.' alias=['etpaall'] perm=None
+  /tpaccept  usage='/<command> [player|*]' desc='Accepts teleport requests.' alias=['etpaccept', 'tpyes', 'etpyes'] perm=None
+  /tpahere  usage='/<command> <player>' desc='Request that the specified player teleport to you.' alias=['etpahere'] perm=None
+  /tpall  usage='/<command> [player]' desc='Teleport all online players to another player.' alias=['etpall'] perm=None
+  /tpauto  usage='/<command> [player]' desc='Automatically accept teleportation requests.' alias=['etpauto'] perm=None
+  /tpacancel  usage='/<command> [player]' desc='Cancel all outstanding teleport requests. Specify [player] to cancel requests with them.' alias=['etpacancel'] perm=None
+  /tpdeny  usage='/<command> [player|*]' desc='Rejects teleport requests.' alias=['etpdeny', 'tpno', 'etpno'] perm=None
+  /tphere  usage='/<command> <player>' desc='Teleport a player to you.' alias=['s', 'etphere'] perm=None
+  /tpo  usage='/<command> <player> [otherplayer]' desc='Teleport override for tptoggle.' alias=['etpo'] perm=None
+  /tpohere  usage='/<command> <player>' desc='Teleport here override for tptoggle.' alias=['etpohere'] perm=None
+  /tppos  usage='/<command> <x> <y> <z> [yaw] [pitch] [world]' desc='Teleport to coordinates.' alias=['etppos'] perm=None
+  /tpr  usage='/<command>' desc='Teleport randomly.' alias=['etpr', 'tprandom', 'etprandom'] perm=None
+  /tptoggle  usage='/<command> [player] [on|off]' desc='Blocks all forms of teleportation.' alias=['etptoggle'] perm=None
+  /tree  usage='/<command> <tree|birch|redwood|redmushroom|brownmushroom|jungle|junglebush|swamp>' desc='Spawn a tree where you are looking.' alias=['etree'] perm=None
+  /unban  usage='/<command> <player>' desc='Unbans the specified player.' alias=['pardon', 'eunban', 'epardon'] perm=None
+  /unbanip  usage='/<command> <address>' desc='Unbans the specified IP address.' alias=['eunbanip', 'pardonip', 'epardonip'] perm=None
+  /unlimited  usage='/<command> <list|item|clear> [player]' desc='Allows the unlimited placing of items.' alias=['eunlimited', 'ul', 'unl', 'eul', 'eunl'] perm=None
+  /vanish  usage='/<command> [player] [on|off]' desc='Hide yourself from other players.' alias=['v', 'ev', 'evanish'] perm=None
+  /warp  usage='/<command> <pagenumber|warp> [player]' desc='List all warps or warp to the specified location.' alias=['ewarp', 'warps', 'ewarps'] perm=None
+  /warpinfo  usage='/<command> <warp>' desc='Finds location information for a specified warp.' alias=['ewarpinfo'] perm=None
+  /weather  usage='/<command> <storm/sun> [duration]' desc='Sets the weather.' alias=['rain', 'erain', 'sky', 'esky', 'storm', 'estorm', 'sun', 'esun', 'eweather'] perm=None
+  /whois  usage='/<command> <nickname>' desc='Determine basic information about the specified player.' alias=['ewhois'] perm=None
+  /workbench  usage='/<command>' desc='Opens up a workbench.' alias=['craft', 'ecraft', 'wb', 'ewb', 'wbench', 'ewbench', 'eworkbench'] perm=None
+  /world  usage='/<command> [world]' desc='Switch between worlds.' alias=['eworld'] perm=None
+  /worth  usage='/<command> <<itemname>|<id>|hand|inventory|blocks> [-][amount]' desc='Calculates the worth of items in hand or as specified.' alias=['eprice', 'price', 'eworth'] perm=None
+
+## 代码类
+  com.earth2me.essentials.AlternativeCommandsHandler
+  com.earth2me.essentials.CommandSource
+  com.earth2me.essentials.EssentialsPlayerListener$CommandSendFilter
+  com.earth2me.essentials.commands.Commandafk
+  com.earth2me.essentials.commands.Commandantioch
+  com.earth2me.essentials.commands.Commandanvil
+  com.earth2me.essentials.commands.Commandback
+  com.earth2me.essentials.commands.Commandbackup
+  com.earth2me.essentials.commands.Commandbalance
+  com.earth2me.essentials.commands.Commandbalancetop$Viewer
+  com.earth2me.essentials.commands.Commandbalancetop
+  com.earth2me.essentials.commands.Commandban
+  com.earth2me.essentials.commands.Commandbanip
+  com.earth2me.essentials.commands.Commandbeezooka
+  com.earth2me.essentials.commands.Commandbigtree
+  com.earth2me.essentials.commands.Commandbook
+  com.earth2me.essentials.commands.Commandbottom
+  com.earth2me.essentials.commands.Commandbreak
+  com.earth2me.essentials.commands.Commandbroadcast
+  com.earth2me.essentials.commands.Commandbroadcastworld
+  com.earth2me.essentials.commands.Commandburn
+  com.earth2me.essentials.commands.Commandcartographytable
+  com.earth2me.essentials.commands.Commandclearinventory$ClearHandlerType
+  com.earth2me.essentials.commands.Commandclearinventory$Item
+  com.earth2me.essentials.commands.Commandclearinventory
+  com.earth2me.essentials.commands.Commandclearinventoryconfirmtoggle
+  com.earth2me.essentials.commands.Commandcompass
+  com.earth2me.essentials.commands.Commandcondense$1
+  com.earth2me.essentials.commands.Commandcondense$SimpleRecipe
+  com.earth2me.essentials.commands.Commandcondense$SimpleRecipeComparator
+  com.earth2me.essentials.commands.Commandcondense
+  com.earth2me.essentials.commands.Commandcreatekit
+  com.earth2me.essentials.commands.Commandcustomtext
+  com.earth2me.essentials.commands.Commanddelhome
+  com.earth2me.essentials.commands.Commanddeljail
+  com.earth2me.essentials.commands.Commanddelkit
+  com.earth2me.essentials.commands.Commanddelwarp
+  com.earth2me.essentials.commands.Commanddepth
+  com.earth2me.essentials.commands.Commanddisposal
+  com.earth2me.essentials.commands.Commandeco$EcoCommands
+  com.earth2me.essentials.commands.Commandeco
+  com.earth2me.essentials.commands.Commandeditsign$1
+  com.earth2me.essentials.commands.Commandeditsign$2
+  com.earth2me.essentials.commands.Commandeditsign$ModifiableSign
+  com.earth2me.essentials.commands.Commandeditsign
+  com.earth2me.essentials.commands.Commandenchant
+  com.earth2me.essentials.commands.Commandenderchest
+  com.earth2me.essentials.commands.Commandessentials
+  com.earth2me.essentials.commands.Commandexp$ExpCommands
+  com.earth2me.essentials.commands.Commandexp
+  com.earth2me.essentials.commands.Commandext
+  com.earth2me.essentials.commands.Commandfeed
+  com.earth2me.essentials.commands.Commandfireball
+  com.earth2me.essentials.commands.Commandfirework
+  com.earth2me.essentials.commands.Commandfly
+  com.earth2me.essentials.commands.Commandgamemode
+  com.earth2me.essentials.commands.Commandgc$1
+  com.earth2me.essentials.commands.Commandgc
+  com.earth2me.essentials.commands.Commandgetpos
+  com.earth2me.essentials.commands.Commandgive
+  com.earth2me.essentials.commands.Commandgod
+  com.earth2me.essentials.commands.Commandgrindstone
+  com.earth2me.essentials.commands.Commandhat
+  com.earth2me.essentials.commands.Commandheal
+  com.earth2me.essentials.commands.Commandhelp
+  com.earth2me.essentials.commands.Commandhelpop
+  com.earth2me.essentials.commands.Commandhome
+  com.earth2me.essentials.commands.Commandice
+  com.earth2me.essentials.commands.Commandignore
+  com.earth2me.essentials.commands.Commandinfo
+  com.earth2me.essentials.commands.Commandinvsee
+  com.earth2me.essentials.commands.Commanditem
+  com.earth2me.essentials.commands.Commanditemdb
+  com.earth2me.essentials.commands.Commanditemlore
+  com.earth2me.essentials.commands.Commanditemname
+  com.earth2me.essentials.commands.Commandjailedplayers
+  com.earth2me.essentials.commands.Commandjails
+  com.earth2me.essentials.commands.Commandjump
+  com.earth2me.essentials.commands.Commandkick
+  com.earth2me.essentials.commands.Commandkickall
+
+## javap 字符串 token
+  a abcdefghi action add advent adventure afk afternoon air all all_except_armor all_including_armor alphanames alts ambient animals antioch anvil apply arrow arrows author back backother backup backupdisabled backupstarted balance balanceother balancetop balancetopline ban banexempt banexemptoffline banformat banip bed bedmissing bednull bedoffline beezooka bigtree bigtreefailure bigtreesuccess blocks boats book book_and_quill bookauthorset booklocked booktitleset bottom break broadcast broadcastworld burn burnmsg c cannotremovenegativeitems cannotsellnameditem cannotsellthesenameditems cannotstackmob cantgamemode cantspawnitem cartographytable center clear clearall clearinventory command commanddescription commandhelpline1 commandhelpline2 commandhelpline3 commandhelpline4 commandhelplineusage compass compassbearing condense confirmclear confirmpayment console consolecannotusecommand copy creat createdkit createkit createkitfailed createkitseparator createkitsuccess createkitunsupported creative currentworld custom customtext cycle darkoak day defaultbanreason delay deletehome deletejail deletekit deletewarp delhome deljail delkit delwarp denybookedit denychangeauthor denychangetitle depth depthabovesea depthbelowsea disabledtospawnmob display disposal distance dragon drops durability e east eco editbookcontents editsign editsigncommandclear editsigncommandclearline editsigncommandlimit editsigncommandnoline editsigncommandsetsuccess editsigncommandtarget editsigncopy editsigncopyline editsignpaste editsignpasteline efspeed egg egma egmc egms egmsp egmt enchant enchantmentapplied enchantmentremoved enchantments enderchest endercrystals entities equipped errorcallingcommand errorwithmessage ess_fireball_proj ess_tnt_proj essentials ewspeed exp expbottle expset ext extinguish extinguishothers f false feed feedother fire fireball firework firework_charge firework_rocket firework_star fireworkcolor fireworkeffectscleared fireworksyntax fly flying flymode force foreveralone fspeed fullstack fullstackdefault fullstackdefaultoversize gamemode gamemodeinvalid gc gcfree gcmax gctotal gcworld get getpos give givenskull givenskullother givespawn givespawnfailure gma gmc gms gmsp gmt god godmode grindstone gunpowder hand hat hatarmor hatcurse hatempty hatfail hatplaced hatremoved heal healdead healother help helpconsole helpop herobrine holdbook holdfirework holdpotion home homeconfirmation homerenamed homes homeset hostile ice iceother ignore ignoredlist ignoreexempt ignoreplayer ignoreyourself info invalidfireworkformat invalidhome invalidhomename invalidmob invalidnumber invalidpotion invalidskull invalidwarpname invalidworld invent inventory inventoryclearfail inventoryclearingallarmor inventoryclearingallitems inventoryclearingfromall inventoryclearingstack invsee invseenoself isipbanned item itemcannotbesold itemdb itemframes itemid itemlore itemloreclear itemloreinvaliditem itemloremaxlore itemlorenoline itemlorenolore itemloresuccess itemloresuccesslore itemname itemnameclear itemnameinvaliditem itemnames itemnamesuccess items itemsconverted itemsnotconverted itemsold itemsoldconsole itemspawn itemtype jailalreadyincarcerated jailedplayers jailedplayersempty jailedplayerslist jaillist jailnotexist jailnotifyjailed jailnotifyjailedfor jailreleased jailreleasedplayernotify jails jailsentenceextended jailset jump jumpeasterdisable jumpeasterenable jumperror jungle kick kickall kickdefault kickedall kickexempt kill killexempt kit kit_ kitcontains kitgiveto kititem kitnotfound kitreceive kitreset kitresetother kits kittycannon l large lightning lightningsmited lightninguse lingeringpotion list localnoone lock loom mail mailclear mailcleared mailclearedall mailclearindex maildelay mailsent mailsentto mailsenttoexpire mailtoolong matchingaccounts matchingipaddress maxhomes maxmoney maxrange maynotjail maynotjailoffline me midnight minecarts minimumbalanceerror minimumpayamount minrange mob_spawner mobs mobsavailable mobspawnerror mobspawnlimit mobspawntarget monsters more morning motd movespeed msg msgdisabled msgdisabledfor msgenabled msgenabledfor msgtoggle multiplecharges mute mutedplayer mutedplayerfor mutedplayerforreason mutedplayerreason muteexempt muteexemptoffline mutenotify mutenotifyfor mutenotifyforreason named near nearbyplayers nearbyplayerslist nether nick nickchanged nickinuse nicknameblacklist nicknamesalpha nicknamesonlycolorchanges nicknomore nickset nicktoolong night noaccesscommand noaccesssubcommand nobreakbedrock nohomesetplayer noignored nojailsdefined nokits nolocationfound nomail nomailother nomatchingplayers none nonzeroposnumber noon nopendingrequest noperm nopermissionskull nopermtoafkmessage nopermtospawnmob nopowertools north northeast northwest notacceptingpay nothinginhand now nuke off on onlyplayers openingdisposal orderbalances oversizedmute oversizedtempban p paintings passive paste pay payconfirmoff payconfirmon payconfirmtoggle payconfirmtoggleoff payconfirmtoggleon paydisabledfor payenabledfor paymustbepositive payoff payoffline payon paytoggle paytoggleoff paytoggleon ping play_one_minute play_one_tick player player_head playerbanipaddress playerbanned playerjailed playerjailedfor playerkicked playermuted playermutedfor playermutedforreason playermutedreason playerneveronserver playernotmuted playertempbanipaddress playertempbanned playerunmuted playtime playtimeother pong pospitch posx posy posyaw posz potion potions power powertool powertoolair powertoolalreadyset powertoolattach powertoolclearall powertoollist powertoollistempty powertoolremove powertoolremoveall powertoolsdisabled powertoolsenabled powertooltoggle ptime ptimecurrent ptimecurrentfixed ptimenormal ptimeotherspermission ptimeplayers ptimereset ptimeset ptimesetfixed pweather pweathercurrent pweatherinvalidalias pweathernormal pweatherotherspermission pweatherplayers pweatherreset pweatherset r radiustoobig read realname recipe recipebadindex recipefurnace recipegrid recipegriditem recipemore
+
+## 文本资源里的帮助/用法行
+  · # After editing the config, run '/essentials reload' in-game to apply the changes.
+  · # If you need help, you can join the EssentialsX community: https://essentialsx.net/community.html
+  · # using commands such as /home or /spawn to a location that is occupied by water blocks.
+  · # The delay, in seconds, required between /home, /tp, etc.
+  · # The delay, in seconds, required between /heal or /feed attempts.
+  · # The default radius when /near is used.
+  · # What to prevent from /item and /give.
+  · # The maximum number of entities that can be spawned per use of the /spawnmob command.
+  · # Should Essentials notify smitten players when /lightning is used?
+  · # To force Essentials to handle '/god', alias 'god' to 'essentials:god $1-' in the 'commands.yml' file located in your server's root folder.
+  · # removed from '/kit list' when a player can no longer use them.
+  · # Determines the functionality of the /createkit command.
+  · # If this is true, /createkit will give the user a link with the kit code.
+  · # If this is false, /createkit will add the kit to the 'kits.yml' config file directly.
+  · # Determines if /createkit will generate kits using NBT item serialization.
+  · # If this is true, /createkit will store items as NBT. Otherwise, it will use Essentials' human-readable item format.
+  · # By using NBT serialization, /createkit can store items with complex metadata such as shulker boxes and weapons with custom attributes.
+  · # WARNING: When creating kits via /createkit with this option enabled, you will not be able to downgrade your server with these kit items.
+  · # This option only affects /createkit - you can still create kits by hand in 'kits.yml' using Essentials' human-readable item format.
+  · # See https://github.com/drtshock/Essentials/pull/699 for more information.
+  · # Backups can also be triggered manually with /backup.
+  · #command: 'rdiff-backup World1 backups/World1'
+  · # Sort the output of the /list command by groups.
+  · # You can hide and merge the groups displayed in /list by defining the desired behavior here.
+  · # Detailed instructions and examples can be found on the wiki: https://wiki.ess3.net/wiki/List
+  · # To merge groups under one name in /list, list each group on one line, separated by spaces.
+  · # Displays real names in /list next to players who are using a nickname.
+  · # For more information, visit https://essentialsx.net/wiki/Locale.html
+  · # For more information on customizing messages, see https://essentialsx.net/wiki/Locale.html
+  · # The player must use the /afk command to leave AFK mode.
+  · # Change the player's /list name when they are AFK. This is none by default, which specifies that Essentials
+  · # should not interfere with the AFK player's /list name.
+  · # This applies to /world, /back, /tp[a|o|here|all] but not warps.
+  · # This does not affect the /home command; use 'world-home-permissions' below.
+  · # The number of items given if the quantity parameter is left out in /item or /give.
+  · # They can be obtained using /give and /item if the player has the 'essentials.oversizedstacks' permission.
+  · # The maximum distance in blocks from the player that the /tree and /bigtree commands can spawn trees.
+  · # Should Essentials keep track of a player's previous location for /back in the teleport listener?
+  · # For example, if the maximum speed is set to 0.8 and a player uses '/speed 10', their actual speed will be 0.8.
+  · # Set the maximum duration, in seconds, that /mute can be applied for.
+  · # Set the maximum duration, in seconds, that /tempban can be applied for.
+  · # Changes the default /reply functionality. This can be changed on a per-player basis using /rtoggle.
+  · # This applies to the /time, /day, and /night commands.
+  · # Commands do not start with a forward slash (/). For example, instead of '/msg', write 'msg'.
+  · #  '^ban([^ip])( .*)?': 60 # 60-second /ban cooldown
+  · #feed: 100 # 100-second cooldown on /feed command
+  · # Whether NPC balances should be included in balance ranking features like /balancetop.
+  · # Allow selling items with custom names with the /sell command.
+  · # Allow in-game players to specify a world when running /broadcastworld.
+  · # If false, running /broadcastworld in-game will always send a message to the player's current world.
+  · # Set the maximum speed for projectiles spawned with /fireball.
+  · # Set the maximum amount of lore lines a user can set with the /itemlore command.
+  · # This applies to the /home command only.
+  · # If set to false, players will not be teleported when they run /home without first setting a home.
+  · # For more information, visit https://wiki.ess3.net/wiki/Essentials_Economy
+  · # You can control the values of items that are sold to the server by using the /setworth command and 'worth.yml'.
+  · # Some commands like /repair have sub-costs. Check the wiki for more information.
+  · # To make '/kit tools' cost $1500 PER USE:
+  · # Enable this to log all interactions with buy/sell/trade signs and the sell command.
+  · # The minimum acceptable amount to be used in /pay.
+  · # Enable this to block players who try to /pay someone who is ignoring them.
+  · # Allow players to receive multipliers for items sold with /sell or the sell sign.
+  · # See https://essentialsx.net/wiki/Module-Breakdown.html for more information.
+  · # See https://essentialsx.net/wiki/Color-Permissions.html for more information.
+  · # See https://essentialsx.net/wiki/Module-Breakdown.html for more information.
+  · # See https://essentialsx.net/wiki/Module-Breakdown.html and https://wiki.ess3.net/wiki/AntiBuild for more information.
+  · # See https://essentialsx.net/wiki/Module-Breakdown.html for more information.
+  · # The location must first be set using the /settpr command or in 'tpr.yml'.
+  · &c/customtext 2
+  · &c/rules /motd /news /help
+  · &6These support chapter customization such as:&c /rules grief
+  · Type /info Colors
+  · Type /info Tags
+  · If this works, it means another command is blocking /info.
+  · The user has to type /info Chapter1 to read this chapter
+  · # For detailed information on item meta, visit https://wiki.ess3.net/wiki/Item_Meta
+  · # For more information, refer to https://wiki.ess3.net/wiki/Kits
+  · - /broadcast {USERNAME} just got some fancy tools!
+  · backAfterDeath=<primary>Use the<secondary> /back<primary> command to return to your death point.
+  · backCommandDescription=Teleports you to your location prior to tp/spawn/warp.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=You added your bot to your server incorrectly\! Please follow the tutorial in the config and add your bot using https\://essentialsx.net/discord.html
+  · essentialsHelp1=The file is broken and Essentials can''t open it. Essentials is now disabled. If you can''t fix the file yourself, go to http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=The file is broken and Essentials can''t open it. Essentials is now disabled. If you can''t fix the file yourself, either type /essentialshelp in game or go to http\://tiny.cc/Essentia
+  · geoIpLicenseMissing=No license key found\! Please visit https\://essentialsx.net/geoip for first time setup instructions.
+  · helpPlugin=<dark_red>{0}<reset>\: Plugin Help\: /help {1}
+  · itemNotEnough2=<primary>If you meant to sell all of your items of that type, use<secondary> /sell itemname<primary>.
+  · itemNotEnough3=<secondary>/sell itemname -1<primary> will sell all but one item, etc.
+  · mailClear=<primary>To clear your mail, type<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>To mark your mail as read, type<secondary> /mail clear<primary>.
+  · noMetaNbtKill=JSON NBT metadata is no longer supported. You must manually convert your defined items to data components. You can convert JSON NBT to data components here: https://docs.papermc.io/misc/
+  · onlyDayNight=/time only supports day/night.
+  · onlySunStorm=<dark_red>/weather only supports sun/storm.
+  · socialspyCommandDescription=Toggles if you can see msg/mail commands in chat.
+  · typeTpacancel=<primary>To cancel this request, type <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>To teleport, type <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>To deny this request, type <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>You have<secondary> {0} <primary>messages\! Type <secondary>/mail read<primary> to view your mail.
+  · backAfterDeath=<primary>Използвайте командата /back, за да се върнете на мястото където сте умрели.
+  · backCommandDescription=Телепортира ви до вашата локация преди tp/spawn/warp.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=Добавихте бота си към сървъра си неправилно\! Моля, следвайте ръководството в конфигурацията и добавете бота си, използвайки https\://essentialsx.net/discord.html
+  · essentialsHelp1=Файлът е повреден и Essentials не може да го отвори. Essentials се изключва. Ако не можете да поправите сами, отидете на http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=Файлът е повреден и Essentials не може да го отвори. Essentials се изключва. Ако не можете да поправите сами или напишете /essentialshelp в играта, или отидете на http\://tiny.cc/Essen
+  · helpPlugin=<dark_red>{0}<reset>\: Помощ за плъгин\: /help {1}
+  · itemNotEnough2=<primary>Ако сте искали да продадете всички предмети от този тип, използвайте<secondary> /sell именапредмет<primary>.
+  · itemNotEnough3=<secondary>/sell именапредмет -1<primary> ще продаде всичко без един предмет и т.н.
+  · mailClear=<primary>За да изчистите пощата си, напишете<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>За да маркирате всички писма като прочетени, напишете<secondary> /mail clear<primary>.
+  · onlyDayNight=/time приема единствено day/night.
+  · onlySunStorm=<dark_red>/weather приема единствено sun/storm.
+  · typeTpacancel=<primary>За да отмените, напишете <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>За да се телепортирате, напишете <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>За да откажете, напишете <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>Имате<secondary> {0} <primary>съобщения\! Напишете <secondary>/mail read<primary>, за да прегледате пощата си.
+  · helpPlugin=<dark_red>{0}<reset>\: Plugin pomoc\: /help {1}
+  · markMailAsRead=&7Ako zelis staviti da si procito email, napisi &3 /mail clear &7.
+  · onlyDayNight=/Time samo podržava dan/noć.
+  · youHaveNewMail=<primary>Imaš<secondary> {0} <primary>poruka\! Kucaj <secondary>/mail read<primary> da vidiš poštu.
+  · backAfterDeath=<primary>Příkazem <secondary>/back<primary> se vrátíš na místo své smrti.
+  · backCommandDescription=Teleportuje zpět na předchozí polohu před tp/spawn/warp.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=Na server jsi bota přidal nesprávně. Postupuj podle návodu v konfiguraci a přidej svého bota pomocí https\://essentialsx.net/discord.html
+  · essentialsHelp1=Soubor je poškozen a Essentials jej nemůže otevřít. Essentials byl vypnut. Pokud nedokážete soubor opravit sami, navštivte http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=Soubor je poškozen a Essentials jej nemůže otevřít. Essentials byl vypnut. Pokud nedokážete soubor opravit sami, napište ve hře /essentialshelp nebo navštivte http\://tiny.cc/Essential
+  · geoIpLicenseMissing=Licenční klíč nebyl nalezen\! Na adrese https\://essentialsx.net/geoip jsou pokyny pro první nastavení.
+  · helpPlugin=<dark_red>{0}<reset>\: Nápověda k zásuvnému modulu\: /help {1}
+  · itemNotEnough2=<primary>Chceš-li prodat všechny předměty tohoto druhu, zadej <secondary>/sell název_předmětu<primary>.
+  · itemNotEnough3=<secondary>/sell název_předmětu -1<primary> prodá vše kromě jednoho předmětu atp.
+  · mailClear=<primary>Zprávy vymažeš příkazem <secondary>/mail clear<primary>.
+  · markMailAsRead=<primary>Příkazem<secondary> /mail clear<primary> označíš poštu jako přečtenou.
+  · noMetaNbtKill=JSON NBT metadata již nejsou podporována. Musíte ručně převést své definované předměty na datové komponenty. Můžete převést JSON NBT na datové komponenty zde\: https\://docs.papermc.io/m
+  · onlyDayNight=/time podporuje pouze day/night.
+  · onlySunStorm=<dark_red>/weather podporuje pouze sun/storm.
+  · socialspyCommandDescription=Přepíná, zda můžeš v chatu vidět příkazy msg/mail.
+  · typeTpacancel=<primary>Příkazem <secondary>/tpacancel<primary> zrušíš tuto žádost.
+  · typeTpaccept=<primary>Příkazem <secondary>/tpaccept<primary> se teleportování uskuteční.
+  · typeTpdeny=<primary>Příkazem <secondary>/tpdeny<primary> žádost odmítneš.
+  · youHaveNewMail=<primary>Máš <secondary>{0} <primary>zpráv\! Pro přečtení napiš <secondary>/mail read<primary>.
+  · backAfterDeath=<primary>Brug<secondary> /back<primary> kommandoen for at vende tilbage til der hvor du døde.
+  · backCommandDescription=Teleporterer dig til din placering før tp/spawn/warp.
+  · essentialsHelp1=Filen er ødelagt, og Essentials kan ikke åbne den. Essentials er nu deaktiveret. Hvis du ikke selv kan fikse fejlen, så besøg http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=Filen er ødelagt, og Essentials kan ikke åbne den. Essentials er nu deaktiveret. Hvis du ikke selv kan fikse fejlen, så skriv enten /essentialshelp i spillet eller besøg http\://tiny.c
+  · helpPlugin=<dark_red>{0}<reset>\: Pluginhjælp\: /help {1}
+  · itemNotEnough2=<primary>Hvis du vil sælge alle dine elementer af den type, så skriv<secondary> /sell elementnavn<primary>.
+  · itemNotEnough3=<secondary>/sell elementnavn -1<primary> vil sælge alle elementer med undtagelse af én, osv.
+  · mailClear=<primary>For at markere alt post som læst, skriv<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>For at markere alt post som læst, skriv<secondary> /mail clear<primary>.
+  · onlyDayNight=/time understøtter kun day/night.
+  · onlySunStorm=<dark_red>/weather understøtter kun sun/storm.
+  · typeTpaccept=<primary>For et teleportere, skriv <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>For at afvise denne anmodning, skriv <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>Du har<secondary> {0} <primary>beskeder\! Skriv <secondary>/mail read<primary> for at læse dine beskeder.
+  · backAfterDeath=<primary>Verwende den<secondary> /back<primary>-Befehl, um zu deinem Todespunkt zurückzukehren.
+  · backCommandDescription=Teleportiert dich zu deinem Standort vor tp/spawn/warp.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=Du hast deinen Bot nicht korrekt zu deinem Server hinzugefügt\! Bitte folge der Anleitung in der Konfiguration und füge deinen Bot mit https\://essentialsx.net/discord.html hinzu.
+  · essentialsHelp1=Die Datei ist beschädigt und Essentials kann sie nicht öffnen. Essentials ist jetzt deaktiviert. Wenn du die Datei selbst nicht reparieren kannst, gehe auf http\://tiny.cc/EssentialsCh
+  · essentialsHelp2=Die Datei ist beschädigt und Essentials kann sie nicht öffnen. Essentials ist jetzt deaktiviert. Wenn du die Datei selbst nicht reparieren kannst, versuche /essentialshelp oder gehe au
+  · geoIpLicenseMissing=Kein Lizenzschlüssel gefunden\! Bitte besuche https\://essentialsx.net/geoip für Ersteinrichtungsanweisungen.
+  · helpPlugin=<dark_red>{0}<reset>\: Plugin-Hilfe\: /help {1}
+  · itemNotEnough2=<primary>Falls du alle Gegenstände von diesem Typ verkaufen willst, benutze<secondary> /sell Gegenstandsname<primary>.
+  · itemNotEnough3=<secondary>/sell Itemname -1<primary> wird alles außer ein Item verkaufen, etc.
+  · mailClear=<primary>Um deine Nachrichten zu löschen, schreibe<secondary> /mail clear.
+  · markMailAsRead=<primary>Um deine Nachrichten zu löschen, schreibe<secondary> /mail clear.
+  · noMetaNbtKill=JSON NBT Metadaten werden nicht mehr unterstützt. Du musst deine definierten Elemente manuell in Datenkomponenten konvertieren. Du kannst JSON NBT in Datenkomponenten umwandeln\: https\:
+  · onlyDayNight=/time unterstützt nur day und night.
+  · onlySunStorm=<dark_red>/weather unterstützt nur sun und storm.
+  · typeTpacancel=<primary>Du kannst die Anfrage mit <secondary>/tpacancel<primary> ablehnen.
+  · typeTpaccept=<primary>Du kannst die Teleportationsanfrage mit <secondary>/tpaccept<primary> annehmen.
+  · typeTpdeny=<primary>Du kannst diese Anfrage mit <secondary>/tpdeny<primary> ablehnen.
+  · youHaveNewMail=<primary>Du hast <secondary>{0} <primary>Nachrichten\! Schreibe <secondary>/mail read<primary> damit du deine Nachrichten lesen kannst.
+  · backAfterDeath=<primary>Χρησιμοποιήστε την εντολή<secondary> /back<primary> για να επιστρέψετε στο σημείο του θανάτου σας.
+  · backCommandDescription=Σας τηλεμεταφέρει στη θέση σας πριν από την tp/spawn/warp.
+  · discordErrorCommand=Προσθέσατε το bot σας στον διακομιστή σας λανθασμένα\! Παρακαλούμε ακολουθήστε το σεμινάριο στο config και προσθέστε το bot σας χρησιμοποιώντας το https\://essentialsx.net/discord.
+  · essentialsHelp1=Το αρχείο είναι χαλασμένο και το Essentials δεν μπορεί να το ανοίξει. Το Essentials είναι πλέον απενεργοποιημένο. Εαν δεν μπορείς να το φτιάξεις μόνος σου, πήγαινε στο http\://tiny.cc/
+  · essentialsHelp2=Το αρχείο είναι σπασμένο και το Essentials δεν μπορεί να το ανοίξει. Το Essentials είναι τώρα απενεργοποιημένο. Εάν δεν μπορείτε να διορθώσετε το αρχείο σας, πληκτρολογήστε /essentials
+  · geoIpLicenseMissing=Δεν βρέθηκε κλειδί άδειας χρήσης\! Παρακαλούμε επισκεφθείτε το https\://essentialsx.net/geoip για οδηγίες πρώτης εγκατάστασης.
+  · helpPlugin={0} Βοήθεια Επέκτασης\: /help {1}
+  · noMetaNbtKill=Τα μεταδεδομένα JSON NBT δεν υποστηρίζονται πλέον. Πρέπει να μετατρέψετε χειροκίνητα τα καθορισμένα στοιχεία σας σε στοιχεία δεδομένων. Μπορείτε να μετατρέψετε το JSON NBT σε στοιχεία δε
+  · typeTpacancel=<primary>Για να ακυρώσετε αυτό το αίτημα, πληκτρολογήστε <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>Για να τηλεμεταφερθείτε, πληκτρολογήστε <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>Για να απορρίψετε αυτό το αίτημα, πληκτρολογήστε <secondary>/tpdeny<primary>.
+  · backAfterDeath=<primary>Use the<secondary> /back<primary> command to return to your death point.
+  · backCommandDescription=Teleports you to your location prior to tp/spawn/warp.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=You added your bot to your server incorrectly\! Please follow the tutorial in the config and add your bot using https\://essentialsx.net/discord.html
+  · essentialsHelp1=The file is broken and Essentials can''t open it. Essentials is now disabled. If you can''t fix the file yourself, go to http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=The file is broken and Essentials can''t open it. Essentials is now disabled. If you can''t fix the file yourself, either type /essentialshelp in game or go to http\://tiny.cc/Essentia
+  · geoIpLicenseMissing=No license key found\! Please visit https\://essentialsx.net/geoip for first time setup instructions.
+  · helpPlugin=<dark_red>{0}<reset>\: Plugin Help\: /help {1}
+  · itemNotEnough2=<primary>If you meant to sell all of your items of that type, use<secondary> /sell itemname<primary>.
+  · itemNotEnough3=<secondary>/sell itemname -1<primary> will sell all but one item, etc.
+  · mailClear=<primary>To clear your mail, type<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>To mark your mail as read, type<secondary> /mail clear<primary>.
+  · noMetaNbtKill=JSON NBT metadata is no longer supported. You must manually convert your defined items to data components. You can convert JSON NBT to data components here\: https\://docs.papermc.io/mis
+  · onlyDayNight=/time only supports day/night.
+  · onlySunStorm=<dark_red>/weather only supports sun/storm.
+  · socialspyCommandDescription=Toggles if you can see msg/mail commands in chat.
+  · typeTpacancel=<primary>To cancel this request, type <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>To teleport, type <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>To deny this request, type <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>You have<secondary> {0} <primary>messages\! Type <secondary>/mail read<primary> to view your mail.
+  · backAfterDeath=<primary>Use the<secondary> /back<primary> command to return to your death point.
+  · backCommandDescription=Teleports you to your location prior to tp/spawn/warp.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=You added your bot to your server incorrectly\! Please follow the tutorial in the config and add your bot using https\://essentialsx.net/discord.html
+  · essentialsHelp1=The file is broken and Essentials can''t open it. Essentials is now disabled. If you can''t fix the file yourself, go to http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=The file is broken and Essentials can''t open it. Essentials is now disabled. If you can''t fix the file yourself, either type /essentialshelp in game or go to http\://tiny.cc/Essentia
+  · geoIpLicenseMissing=No license key found\! Please visit https\://essentialsx.net/geoip for first time setup instructions.
+  · helpPlugin=<dark_red>{0}<reset>\: Plugin Help\: /help {1}
+  · itemNotEnough2=<primary>If you meant to sell all of your items of that type, use<secondary> /sell itemname<primary>.
+  · itemNotEnough3=<secondary>/sell itemname -1<primary> will sell all but one item, etc.
+  · mailClear=<primary>To clear your mail, type<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>To mark your mail as read, type<secondary> /mail clear<primary>.
+  · noMetaNbtKill=JSON NBT metadata is no longer supported. You must manually convert your defined items to data components. You can convert JSON NBT to data components here\: https\://docs.papermc.io/mis
+  · onlyDayNight=/time only supports day/night.
+  · onlySunStorm=<dark_red>/weather only supports sun/storm.
+  · socialspyCommandDescription=Toggles if you can see msg/mail commands in chat.
+  · typeTpacancel=<primary>To cancel this request, type <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>To teleport, type <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>To deny this request, type <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>You have<secondary> {0} <primary>messages\! Type <secondary>/mail read<primary> to view your mail.
+  · backAfterDeath=<primary>Usa el comando <secondary>/back <primary>para volver al lugar de tu muerte.
+  · backCommandDescription=Te teletransporta a tu ubicación anterior a tp/spawn/warp.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=¡Has añadido tu bot a tu servidor incorrectamente\! Por favor, sigue el tutorial en la configuración y añade tu bot usando https\://essentialsx.net/discord.html
+  · essentialsHelp1=Archivo corrupto, no es posible abrirlo. Essentials está ahora desactivado. Si no puedes arreglar el archivo, ve a http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=Archivo corrupto, no es posible abrirlo. Essentials está ahora desactivado. Si no puedes arreglar el archivo, escribe /essentialshelp dentro del juego o ve a http\://tiny.cc/Essentials
+  · geoIpLicenseMissing=No se encontró una llave de licencia\! Por favor, visita https\://essentialsx.net/geoip para instrucciones de configuración.
+  · helpPlugin=<dark_red>{0}<reset>\: Ayuda para el plugin\: /help {1}
+  · itemNotEnough2=<primary>Si quieres vender todos tus objetos de ese tipo, escribe<secondary> /sell nombredelobjeto<primary>.
+  · itemNotEnough3=<secondary>/sell nombredeobjeto -1<primary> venderá todos excepto un objeto, etc.
+  · mailClear=<primary>Para marcar tu correo como leído, escribe<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>Para marcar tu correo como leído, escribe<secondary> /mail clear<primary>.
+  · noMetaNbtKill=Los metadatos NBT de JSON ya no están soportados. Debe convertir manualmente sus elementos definidos a componentes de datos. Puedes convertir NBT de JSON a componentes de datos aquí\: ht
+  · onlyDayNight=<primary>/time <dark_red>únicamente funciona con los valores <primary>Day<dark_red> o <primary>Night<dark_red> (día/noche).
+  · onlySunStorm=<secondary>/weather <dark_red>solo acepta los valores <secondary>sun <dark_red>o <secondary>storm <dark_red>(<primary>sol<dark_red>/<primary>tormenta<dark_red>).
+  · socialspyCommandDescription=Cambia si puedes ver msg/mail en chat.
+  · typeTpaccept=<primary>Escribe <secondary>/tpaccept <primary>para aceptar el teletransporte.
+  · typeTpdeny=<primary>Para denegar la teletransportación, escribe <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>¡Tienes<secondary> {0} <primary>mensajes\! Escribe <secondary>/mail read<primary> para ver los correos que no has leído.
+  · backAfterDeath=<primary>Kasuta käsklust<secondary> /back<primary>, et oma surmapaigale naasta.
+  · backCommandDescription=Teleporteerib sind asukohta, kus olid enne /tp, /spawn või /warp kasutamist.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=Lisasite oma boti oma serverisse valesti. Järgige konfiguratsioonis toodud õpetust ja lisage oma bot, kasutades https\://essentialsx.net/discord.html
+  · essentialsHelp1=Fail on vigane ning Essentials ei saa seda avada. Essentials on nüüd keelatud. Kui sa ei suuda seda faili ise parandada, mine aadressile http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=Fail on vigane ning Essentials ei saa seda avada. Essentials on nüüd keelatud. Kui sa ei suuda seda faili ise parandada, kirjuta mängus /essentialshelp või mine aadressile http\://tiny
+  · geoIpLicenseMissing=Litsentsivõtit ei leitud\! Palun külasta https\://essentialsx.net/geoip esmaseadistuse juhiste saamiseks.
+  · helpPlugin=<dark_red>{0}<reset>\: Plugina abi\: /help {1}
+  · itemNotEnough2=<primary>Kui sul oli plaanis müüa kõik seda tüüpi esemed, kasuta<secondary> /sell esemenimi<primary>.
+  · itemNotEnough3=<secondary>/sell esemenimi -1<primary> müüb kõik peale ühe jne.
+  · mailClear=<primary>Postkasti tühjendamiseks kirjuta<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>Kirjade loetuks märkimiseks kirjuta <secondary> /mail clear<primary>.
+  · onlyDayNight=/time toetab vaid valikuid day ja night.
+  · onlySunStorm=<dark_red>/weather toetab vaid valikuid sun ja storm.
+  · socialspyCommandDescription=Lülitab /msg ja /mail käskluste nähtavust vestluses.
+  · tpoCommandDescription=Teleporteerumise sundimine /tptoggle jaoks.
+  · tpohereCommandDescription=Siia teleporteerimise sundimine /tptoggle jaoks.
+  · typeTpacancel=<primary>Selle taotluse tühistamiseks kirjuta <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>Teleporteerumiseks kirjuta <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>Kutse hülgamiseks kirjuta <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>Sul on<secondary> {0} <primary> uut kirja\! Oma kirjade lugemiseks kirjuta <secondary>/mail read<primary>.
+  · essentialsHelp1=Fitxategia kaltetuta dago eta Essentials-ek ezin izan du ireki. Essentials ezgaitu egingo da. Ezin baduzu zure kabuz konpondu bisitatu http\://tiny.cc/EssentialsChat orrialdea
+  · essentialsHelp2=Fitxategia kaltetuta dago eta Essentials-ek ezin izan du ireki. Essentials ezgaitu egingo da. Ezin baduzu zure kabuz konpondu erabili /essentialsgame edo bisitatu http\://tiny.cc/Essen
+  · helpPlugin=<dark_red>{0}<reset>\: Pluginaren Laguntza\: /help {1}
+  · markMailAsRead=<primary>Mezuak irakurrita bezala markatzeko, idatzi <secondary> /mail clear<primary>.
+  · onlyDayNight=/time day/night -ekin bakarrik erabil daiteke
+  · onlySunStorm=<dark_red>/weather aginduarekin sun/storm bakarrik erabil daiteke.
+  · typeTpaccept=<primary>Telegarraiatzeko, idatzi <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>Eskaera ezeztatzeko, idatzi <secondary>/tpdeny<primary>.
+  · backAfterDeath=<primary>Käytä komentoa<secondary> /back<primary> palataksesi paikkaan, jossa kuolit.
+  · backCommandDescription=Teleporttaa sinut aikaisempaan tp/spawn/warp sijaintiisi.
+  · depthCommandUsage=/depth
+  · essentialsHelp1=Tiedosto on viallinen ja Essentials ei voi avata sitä. Essentials on nyt poistettu käytöstä. Jos et voi korjata tiedostoa itse, mene osoitteeseen http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=Tiedosto on viallinen ja Essentials ei voi avata sitä. Essentials on nyt poistettu käytöstä. Jos et voi korjata tiedostoa itse, kirjoita /essentialshelp pelissä tai mene osoitteeseen h
+  · geoIpLicenseMissing=Ei löydetty lisenssiavainta\! Käy osoitteessa https\://essentialsx.net/geoip saadaksesi ohjeet alkumääritykseen.
+  · helpPlugin=<dark_red>{0}<reset>\: Lisäosa-apu\: /help {1}
+  · itemNotEnough2=<primary>Jos haluat myydä kaikki tämäntyyppiset tuotteet, kirjoita<secondary> /sell (tavaran nimi)<primary>.
+  · itemNotEnough3=<secondary>/sell (tavaran nimi) -1<primary> myy kaiken paitsi yhden tavaran, jne.
+  · mailClear=<primary>Merkataksesi viestin luetuksi, kirjoita<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>Merkataksesi viestin luetuksi, kirjoita<secondary> /mail clear<primary>.
+  · onlyDayNight=/time tukee vain alakomentoja day/night.
+  · onlySunStorm=<dark_red>/weather tukee vain komentoja sun/storm.
+  · socialspyCommandDescription=Muuttaa näetkö msg/mail komentoja chatissasi.
+  · typeTpacancel=<primary>Peruuttaaksesi tämän pyynnön, kirjoita <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>Hyväksyäksesi teleporttipyynnön, kirjoita <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>Kieltääksesi tämän pyynnön, kirjoita <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>Sinulla on<secondary> {0} <primary>viestiä\! Kirjoita <secondary>/mail read<primary> lukeaksesi viestit.
+  · backAfterDeath=<primary>Gamitin ang<secondary> /back<primary> na utos upang bumalik sa iyong punto ng kamatayan.
+  · depthCommandUsage=/depth
+  · essentialsHelp1=Sira ang file at hindi mabukas ng Essentials ito. Di-pinagana ang Essentials. Kung hindi mo kayang maayos ang file, punta ka sa http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=Sira ang file at hindi mabukas ng Essentials ito. Di-pinagana ang Essentials. Kung hindi mo kayang maayos ang file, sulatin mo ang /essentialshelp sa laro o punta ka sa http\://tiny.cc
+  · geoIpLicenseMissing=Walang lisensya para sa susi na nahanap\! Mangyaring basahin ang https\://essentialsx.net/geoip para sa unang pagkakataon na pagka-simulan na mga instruksiyon.
+  · helpPlugin=<dark_red>{0}<reset>\: Tulong ng Plugin\: /help {1}
+  · itemNotEnough2=<primary>Kung inibig mong sabihin ay ibenta ang lahat ng iyong bagay ng uri na iyon, de gamitin mo ang<secondary> /sell itemname<primary>.
+  · itemNotEnough3=<secondary>/sell itemname -1<primary> ibebenta yung lahat pero hindi isang bagay, etc.
+  · mailClear=<primary>Upang ibura ang iyong mail, sulatin mo ang<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>Upang imarkahan ang iyong mail ng nabasa, mangyaring sulatin ang<secondary> /mail clear<primary>.
+  · backAfterDeath=<primary>Utilisez la commande<secondary> /back<primary> pour retourner à l''emplacement de votre mort.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=Vous avez ajouté votre bot à votre serveur de manière incorrecte \! Veuillez suivre le tutoriel dans la configuration et ajouter votre bot en utilisant https\://essentialsx.net/dis
+  · essentialsHelp1=Le fichier est corrompu et Essentials ne peut l''ouvrir. Essentials est désormais désactivé. Si vous ne pouvez corriger vous-même le problème, rendez-vous sur https\://essentialsx.net/
+  · essentialsHelp2=Le fichier est corrompu et Essentials ne peut pas l''ouvrir. Essentials est maintenant désactivé. Si vous ne pouvez pas réparer le fichier vous-même, tapez /essentialshelp dans le jeu 
+  · geoIpLicenseMissing=Aucune clé de licence n''a été trouvée. Il faut vous rendre sur https\://essentialsx.net/geoip pour obtenir les instructions d''installation.
+  · helpPlugin=<dark_red>{0}<white> \: Aide Plugin \: /help {1}
+  · itemNotEnough2=<primary>Si vous vouliez vendre l''intégralité de vos objets de ce type, utilisez<secondary> /sell objet<primary>.
+  · itemNotEnough3=<secondary>/sell objet -1 <primary>vous permet de garder un exemplaire de l''objet, etc.
+  · mailClear=<primary>Pour supprimer votre courrier, tapez<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>Pour marquer votre courrier comme lu, tapez<secondary> /mail clear<primary>.
+  · noMetaNbtKill=Les métadonnées JSON NBT ne sont plus prises en charge. Vous devez convertir manuellement vos éléments définis en composants de données. Vous pouvez convertir JSON NBT en composants de d
+  · onlyDayNight=/time ne supporte que day/night (jour/nuit).
+  · onlySunStorm=<dark_red>/weather n''accepte que les valeurs sun/storm (soleil/tempête).
+  · socialspyCommandDescription=Active ou désactive l''affichage des commandes msg/mail dans le chat.
+  · typeTpacancel=<primary>Pour annuler cette demande, tapez <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>Pour accepter la téléportation, tapez <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>Pour refuser cette demande, tapez <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>Vous avez<secondary> {0} <primary>messages \! Tapez <secondary>/mail read<primary> pour voir votre courrier.
+  · backAfterDeath=<primary>השתמש בפקודת /back על מנת לחזור למקום בו מתת.
+  · backCommandDescription=משחק אותך למיקום קודם לtp/spawn/warp.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=אתה הוספת את הבוט שלך לשרת שלך בצורה לא נכונה\! בבקשה עקוב אחר המדריך ב"קונפיג" וצרף את הבוט שלך בעזרת https\://essentialsx.net/discord.html
+  · essentialsHelp1=הקובץ פגום ו- Essentials לא יכול להריץ אותו. Essentials עכשיו מכובה. אם אינך יכול לתקן את הקובץ בעצמך, עבור אל הכתובת הבאה http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=הקובץ פגום ו- Essentials לא יכול להריץ אותו. Essentials עכשיו מכובה. אם אינך יכול לתקן את הקובץ בעצמך, כתוב /essentialshelp במשחק, או עבור אל http\://tiny.cc/EssentialsChat
+  · helpPlugin=מידע על הפלאגין\: /help
+  · markMailAsRead=\n<primary>בשביל לסמן את כל הדואר כנקרא , רשום<secondary> /mail clear<primary>.\n
+  · onlyDayNight=/time תומך רק יום/לילה.
+  · backAfterDeath=अपने मृत्यु स्थान पर लौटने के लिए /back कमांड का उपयोग करें।
+  · backAfterDeath=<primary>Koristi <secondary>/back <primary>komandu da se vratiš na mjesto smrti.
+  · essentialsHelp1=Datoteka je pokidana i Essentials nije mogao ju otvoriti. Essentials je sada isključen. Ako ne možete popraviti datoteku pogledajte https\://tiny.cc/EssentialsChat
+  · essentialsHelp2=Datoteka je pokidana i Essentials nije mogao ju otvoriti. Essentials je sada isključen. Ako ne možete popraviti datoteku napišite /essentialshelp u igri ili pogledajte https\://tiny.cc
+  · helpPlugin=<dark_red>{0}<reset>\: Plugin pomoć\: /help {1}
+  · markMailAsRead=<primary>Da markiraš mail kao pročitam, napiši<secondary> /mail clear<primary>.
+  · onlyDayNight=/time samo podržava dan/noć.
+  · onlySunStorm=<dark_red>/weather podržava samo sun/storm.
+  · typeTpaccept=<primary>Za teleport, kucaj <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>Za odbiti ovaj zahtjev, kucaj <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>Imaš<secondary> {0} <primary>poruka\! Kucaj <secondary>/mail read<primary> da vidiš poštu.
+  · backAfterDeath=<primary>Meghaltál\! A <secondary>/back<primary> paranccsal visszajuthatsz a halálod helyszínére.
+  · backCommandDescription=Teleportál arra a helyre, ahol tp/spawn/warp előtt voltál.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=Rosszul adtad hozzá a botodat a szerveredhez\! Kérlek, kövesd a configban található útmutatót, és add hozzá a botodat a https\://essentialsx.net/discord.html segítségével
+  · essentialsHelp1=A fájl sérült, és az Essentials nem tudja megnyitni. Az Essentials most le van tiltva. Ha nem tudja megjavítani a fájlt, akkor látogasson el a http\://tiny.cc/EssentialsChat webhelyre
+  · essentialsHelp2=A fájl sérült, és az Essentials nem tudja megnyitni. Az Essentials most le van tiltva. Ha nem tudja megjavítani a fájlt, írja be a /essentialshelp parancsot a játékban, vagy látogassan
+  · geoIpLicenseMissing=Nem található licenckulcs\! Kérjük látogass el az https\://essentialsx.net/geoip webhelyre az első telepítési utasításokért.
+  · helpPlugin=<dark_red>{0}<reset>\: Plugin segítség\: /help {1}
+  · itemNotEnough2=<primary>Ha el szeretnéd adni az összes ilyen tárgyat, írd be a<secondary> /sell tárgynév<primary> parancsot.
+  · itemNotEnough3=<secondary>/sell tárgynév -1<primary> mindet elad, de csak egy elemet, stb.
+  · mailClear=<primary>A levelek törléséhez használd a<secondary> /mail clear<primary> parancsot.
+  · markMailAsRead=<primary>Hogy olvasottnak jelöld a leveled, írd be<secondary> /mail clear<primary>.
+  · noMetaNbtKill=JSON NBT metaadat nem támogatott többé. Konvertálnod kell a megadott tárgyakat adatkomponensé. Konvertálni JSON NBT adatokat adatkomponensé itt tudsz\: https\://docs.papermc.io/misc/tool
+  · onlyDayNight=A /time csak a day/night-t támogatja.
+  · onlySunStorm=<dark_red>A /weather csak a sun/storm-t támogatja.
+  · socialspyCommandDescription=Beállítja, hogy lásd vagy ne lásd az msg/mail parancsokat a chaten.
+  · typeTpacancel=<primary>A kérelem visszavonásához <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>Teleport kérelem elfogadásához <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>Teleport kérelem elutasításához <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<primary>Van<secondary> {0} <primary>üzeneted\! Írd be a <secondary>/mail read<primary> parancsot hogy megnézd a leveled.
+  · backAfterDeath=<primary>Usa il comando<secondary> /back<primary> per tornare al punto in cui sei morto.
+  · backCommandDescription=Teletrasportati alla posizione precedente ad un comando tp/spawn/warp.
+  · depthCommandUsage=/depth
+  · discordErrorCommand=Hai aggiunto il tuo bot al server in modo errato\! Segui il tutorial nel file di configurazione e aggiungi il tuo bot usando https\://essentialsx.net/discord.html
+  · essentialsHelp1=Il file è corrotto ed Essentials non lo può aprire. Essentials è ora disabilitato. Se non riesci a riparare il file, vai su http\://tiny.cc/EssentialsChat
+  · essentialsHelp2=Il file è corrotto ed Essentials non lo può aprire. Essentials è ora disabilitato. Se non riesci a riparare il file, scrivi /essentialshelp in gioco o vai su http\://tiny.cc/Essentials
+  · geoIpLicenseMissing=Nessuna chiave di licenza trovata\! Visita https\://essentialsx.net/geoip per le istruzioni di configurazione iniziale.
+  · helpPlugin=<dark_red>{0}<reset>\: Aiuto Plugin\: /help {1}
+  · itemNotEnough2=<primary>Se intendevi vendere tutti i tuoi oggetti di quel tipo, usa<secondary> /sell itemname<primary>.
+  · itemNotEnough3=<secondary>/sell nomeoggetto -1<primary> venderà tutti gli oggetti tranne uno, ecc.
+  · mailClear=<primary>Per svuotare la posta, digita<secondary> /mail clear<primary>.
+  · markMailAsRead=<primary>Per contrassegnare la posta come letta, digita<secondary> /mail clear<primary>.
+  · noMetaNbtKill=I metadati NBT in formato JSON non sono più supportati. È necessario convertire manualmente gli oggetti definiti in Data Component. Puoi convertire gli NBT JSON in Data Component qui\: h
+  · onlyDayNight=/time supporta solo day/night.
+  · onlySunStorm=<dark_red>/weather supporta solo sun/storm.
+  · typeTpacancel=<primary>Per cancellare questa richiesta, digita <secondary>/tpacancel<primary>.
+  · typeTpaccept=<primary>Per accettare il teletrasporto, digita <secondary>/tpaccept<primary>.
+  · typeTpdeny=<primary>Per rifiutare il teletrasporto, digita <secondary>/tpdeny<primary>.
+  · youHaveNewMail=<secondary>Hai {0} messaggi\!<white> digita <gray>/mail read<white> per consultare la tua mail.
+  · addedToAccount=<yellow>{0}<green> があなたの口座に追加されました。
+  · addedToOthersAccount=<yellow>{0}<green> が<yellow> {1}<green> 口座に追加されました。新しい残高\:<yellow> {2}
+  · afkCommandDescription=キーボードから離れたユーザーとしてマークします。
+  · afkCommandUsage1Description=任意の理由を付けてAFKステータスを切り替えます
+  · afkCommandUsage2Description=指定されたプレーヤーのAFK状態を、任意の理由で切り替えます
+  · alertBroke=壊れた\:
+  · alertPlaced=設置\:
+  · alertUsed=使用\:
+  · alphaNames=<dark_red>プレイヤー名には、英数字とアンダーバーのみを含めることができます。
+  · antiBuildBreak=<dark_red>あなたはここで<secondary>{0}<dark_red>ブロックを破壊することができません。
+  · antiBuildDrop=<dark_red>あなたは<secondary>{0}<dark_red>をドロップする事ができません。
+  · antiBuildInteract=<dark_red>その動作は許可されていません。<secondary> {0}<dark_red>.
+  · antiBuildPlace=<dark_red>あなたはここに<secondary>{0}<dark_red>を設置することができません。
+  · antiBuildUse=<dark_red>あなたは<secondary>{0}<dark_red>を使用することはできません。
+  · anvilCommandDescription=金床を開きます。
+  · autoAfkKickReason={0} 分以上AFKだったため、キックされました。
+  · autoTeleportDisabled=<primary>テレポート要求を自動的に承認しなくなりました。
+  · autoTeleportDisabledFor=<secondary> {0} <primary>はテレポート要求を自動的に承認しなくなりました。
+  · autoTeleportEnabled=<primary>現在、テレポート要求を自動的に承認しています。
+  · autoTeleportEnabledFor=<secondary> {0} <primary>はテレポート要求を自動的に承認します。
+  · backAfterDeath=<secondary>/back<primary>コマンドを使用して、死亡地点に戻ることができます。
+  · backCommandDescription=tp/spawn/warpの前の位置にテレポートします。
+  · backCommandUsage1Description=前の場所にテレポートする
+
+## 常量池帮助/描述文本
+  · com/earth2me/essentials/AlternativeCommandsHandler
+  · Lcom/earth2me/essentials/IEssentials;
+  · com/earth2me/essentials/IEssentials
+  · com/earth2me/essentials/ISettings
+  · Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/ref/WeakReference<Lorg/bukkit/command/Command;>;>;>;
+  · Lcom/earth2me/essentials/AlternativeCommandsHandler;
+  · Ljava/util/List;
+  · Ljava/util/List<Ljava/lang/ref/WeakReference<Lorg/bukkit/command/Command;>;>;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/ref/WeakReference<Lorg/bukkit/command/Command;>;>;>;
+  · Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/ref/WeakReference<Lorg/bukkit/command/Command;>;>;>;>;
+  · com/earth2me/essentials/CommandSource
+  · Lcom/earth2me/essentials/Essentials;
+  · com/earth2me/essentials/I18n
+  · com/earth2me/essentials/Essentials
+  · com/earth2me/essentials/adventure/AdventureFacet
+  · Lcom/earth2me/essentials/CommandSource;
+  · Lcom/earth2me/essentials/adventure/ComponentHolder;
+  · com/earth2me/essentials/EssentialsPlayerListener$CommandSendFilter
+  · Lcom/earth2me/essentials/EssentialsPlayerListener;
+  · com/earth2me/essentials/EssentialsPlayerListener
+  · com/earth2me/essentials/perm/PermissionsHandler
+  · com/earth2me/essentials/User
+  · Lcom/earth2me/essentials/EssentialsPlayerListener$CommandSendFilter;
+  · Lcom/earth2me/essentials/User;
+  · Lcom/earth2me/essentials/EssentialsPlayerListener$1;
+  · com/earth2me/essentials/EssentialsPlayerListener$1
+  · com/earth2me/essentials/commands/EssentialsCommand
+  · com/earth2me/essentials/commands/Commandafk
+  · com/earth2me/essentials/commands/PlayerNotFoundException
+  · com/earth2me/essentials/commands/NotEnoughArgumentsException
+  · com/earth2me/essentials/utils/DateUtil
+  · net/ess3/api/events/AfkStatusChangeEvent$Cause
+  · Lnet/ess3/api/events/AfkStatusChangeEvent$Cause;
+  · Lcom/earth2me/essentials/commands/Commandafk;
+  · Lcom/earth2me/essentials/commands/PlayerNotFoundException;
+  · Lcom/earth2me/essentials/IUser;
+  · net/ess3/api/events/AfkStatusChangeEvent
+  · com/earth2me/essentials/commands/Commandantioch
+  · com/earth2me/essentials/utils/LocationUtil
+  · Lcom/earth2me/essentials/commands/Commandantioch;
+  · com/earth2me/essentials/commands/Commandanvil
+  · Lcom/earth2me/essentials/commands/Commandanvil;
+  · com/earth2me/essentials/commands/Commandback
+  · com/earth2me/essentials/AsyncTeleport
+  · com/earth2me/essentials/Trade
+  · com/earth2me/essentials/commands/NoChargeException
+  · Lcom/earth2me/essentials/commands/Commandback;
+  · Lcom/earth2me/essentials/Trade;
+  · com/earth2me/essentials/commands/Commandbackup
+  · com/earth2me/essentials/Backup
+  · Lcom/earth2me/essentials/commands/Commandbackup;
+  · Lcom/earth2me/essentials/Backup;
+  · com/earth2me/essentials/commands/Commandbalance
+  · com/earth2me/essentials/utils/NumberUtil
+  · com/earth2me/essentials/adventure/AdventureUtil
+  · Lcom/earth2me/essentials/commands/Commandbalance;
+  · com/earth2me/essentials/adventure/AdventureUtil$ParsedPlaceholder
+  · com/earth2me/essentials/commands/Commandbalancetop
+  · com/earth2me/essentials/commands/Commandbalancetop$Viewer
+  · Lcom/earth2me/essentials/commands/Commandbalancetop;
+  · net/essentialsx/api/v2/services/BalanceTop
+  · com/earth2me/essentials/textreader/SimpleTextInput
+  · net/essentialsx/api/v2/services/BalanceTop$Entry
+  · com/earth2me/essentials/utils/EnumUtil
+  · com/earth2me/essentials/utils/VersionUtil
+  · Lcom/earth2me/essentials/utils/VersionUtil$BukkitVersion;
+  · com/earth2me/essentials/utils/VersionUtil$BukkitVersion
+  · Lcom/earth2me/essentials/commands/Commandbalancetop$Viewer;
+  · Lcom/earth2me/essentials/textreader/SimpleTextInput;
+  · Ljava/util/Map$Entry<Ljava/util/UUID;Lnet/essentialsx/api/v2/services/BalanceTop$Entry;>;
+  · com/earth2me/essentials/userstorage/IUserMap
+  · com/earth2me/essentials/textreader/TextPager
+  · Ljava/util/List<Ljava/lang/String;>;
+  · com/earth2me/essentials/commands/Commandban
+  · com/earth2me/essentials/OfflinePlayerStub
+  · com/earth2me/essentials/Console
+  · com/earth2me/essentials/utils/FormatUtil
+  · Lorg/bukkit/BanList$Type;
+  · com/earth2me/essentials/IUser
+  · Lcom/earth2me/essentials/commands/Commandban;
+  · com/earth2me/essentials/commands/Commandbanip
+  · Lcom/earth2me/essentials/commands/Commandbanip;
+  · com/earth2me/essentials/Mob
+  · Lcom/earth2me/essentials/Mob;
+  · com/earth2me/essentials/commands/Commandbeezooka
+  · Lcom/earth2me/essentials/commands/Commandbeezooka;
+  · Lorg/bukkit/TreeType;
+  · com/earth2me/essentials/commands/Commandbigtree
+  · Lcom/earth2me/essentials/commands/Commandbigtree;
+  · com/earth2me/essentials/craftbukkit/Inventories
+  · com/earth2me/essentials/commands/Commandbook
+  · Lcom/earth2me/essentials/commands/Commandbook;
+  · Lorg/bukkit/inventory/ItemStack;
+  · Lorg/bukkit/inventory/meta/BookMeta;
+  · com/earth2me/essentials/commands/Commandbottom
+  · net/ess3/provider/WorldInfoProvider
+  · Lcom/earth2me/essentials/commands/Commandbottom;
+  · com/earth2me/essentials/commands/Commandbreak
+  · Lcom/earth2me/essentials/commands/Commandbreak;
+  · com/earth2me/essentials/commands/Commandbroadcast
+  · Lcom/earth2me/essentials/commands/Commandbroadcast;
+  · com/earth2me/essentials/commands/Commandbroadcastworld
+  · Lcom/earth2me/essentials/commands/Commandbroadcastworld;
+  · Lorg/bukkit/World;
+  · com/earth2me/essentials/commands/Commandburn
+  · Lcom/earth2me/essentials/commands/Commandburn;
+  · com/earth2me/essentials/commands/Commandcartographytable
+  · Lcom/earth2me/essentials/commands/Commandcartographytable;
+  · com/earth2me/essentials/commands/Commandclearinventory$ClearHandlerType
+  · Lcom/earth2me/essentials/commands/Commandclearinventory$ClearHandlerType;
+  · Ljava/lang/Enum<Lcom/earth2me/essentials/commands/Commandclearinventory$ClearHandlerType;>;
+  · com/earth2me/essentials/commands/Commandclearinventory
+  · com/earth2me/essentials/commands/Commandclearinventory$Item
+  · Lcom/earth2me/essentials/commands/Commandclearinventory$Item;
+  · com/earth2me/essentials/api/IItemDb
+  · com/earth2me/essentials/utils/StringUtil
+  · Lcom/earth2me/essentials/commands/Commandclearinventory;
+  · Ljava/util/Set<Lcom/earth2me/essentials/commands/Commandclearinventory$Item;>;
+  · com/earth2me/essentials/commands/Commandclearinventoryconfirmtoggle
+  · Lcom/earth2me/essentials/commands/Commandclearinventoryconfirmtoggle;
+  · com/earth2me/essentials/commands/Commandcompass
+  · Lcom/earth2me/essentials/commands/Commandcompass;
+  · com/earth2me/essentials/commands/Commandcondense$1
+  · com/earth2me/essentials/commands/Commandcondense
+  · com/earth2me/essentials/commands/Commandcondense$SimpleRecipe
+  · Lcom/earth2me/essentials/commands/Commandcondense$SimpleRecipe;
+  · Lcom/earth2me/essentials/commands/Commandcondense$1;
+  · com/earth2me/essentials/commands/Commandcondense$SimpleRecipeComparator
+  · Lcom/earth2me/essentials/commands/Commandcondense$SimpleRecipeComparator;
+  · Ljava/lang/Object;Ljava/util/Comparator<Lcom/earth2me/essentials/commands/Commandcondense$SimpleRecipe;>;
+  · com/earth2me/essentials/Trade$OverflowType
+  · Lcom/earth2me/essentials/Trade$OverflowType;
+  · Ljava/util/Map<Lorg/bukkit/inventory/ItemStack;Lcom/earth2me/essentials/commands/Commandcondense$SimpleRecipe;>;
+  · Lcom/earth2me/essentials/commands/Commandcondense;
+  · Ljava/util/List<Lorg/bukkit/inventory/ItemStack;>;
+  · Lorg/bukkit/inventory/Recipe;
+  · com/earth2me/essentials/ChargeException
+  · Ljava/util/Collection<Lorg/bukkit/inventory/ItemStack;>;
+  · Ljava/util/Iterator<Lorg/bukkit/inventory/Recipe;>;
+  · Ljava/util/List<Lcom/earth2me/essentials/commands/Commandcondense$SimpleRecipe;>;
+  · Ljava/util/Iterator<Lorg/bukkit/inventory/ItemStack;>;
+  · com/earth2me/essentials/commands/Commandcreatekit
+  · com/earth2me/essentials/libs/configurate/yaml/YamlConfigurationLoader$Builder
+  · com/earth2me/essentials/libs/configurate/yaml/YamlConfigurationLoader
+  · com/earth2me/essentials/libs/configurate/loader/AbstractConfigurationLoader$Builder
+  · com/earth2me/essentials/libs/configurate/loader/AbstractConfigurationLoader
+  · com/earth2me/essentials/utils/PasteUtil$PasteFile
+  · com/earth2me/essentials/utils/PasteUtil
+  · com/earth2me/essentials/utils/PasteUtil$PasteResult
+  · Lcom/earth2me/essentials/commands/Commandcreatekit;
+  · com/earth2me/essentials/libs/snakeyaml/external/biz/base64Coder/Base64Coder
+  · com/earth2me/essentials/Kits
+  · com/earth2me/essentials/libs/configurate/yaml/NodeStyle
+  · Lcom/earth2me/essentials/libs/configurate/yaml/NodeStyle;
+  · com/earth2me/essentials/libs/configurate/ConfigurationNode
+  · Lcom/earth2me/essentials/libs/configurate/yaml/YamlConfigurationLoader;
+  · Lcom/earth2me/essentials/libs/configurate/ConfigurationNode;
+  · Ljava/util/concurrent/CompletableFuture<Lcom/earth2me/essentials/utils/PasteUtil$PasteResult;>;
+  · Lcom/earth2me/essentials/utils/PasteUtil$PasteResult;
+  · com/earth2me/essentials/commands/Commandcustomtext
+  · com/earth2me/essentials/textreader/TextInput
+  · com/earth2me/essentials/textreader/KeywordReplacer
+  · Lcom/earth2me/essentials/commands/Commandcustomtext;
+  · Lcom/earth2me/essentials/textreader/IText;
+  · Lcom/earth2me/essentials/textreader/TextPager;
+  · com/earth2me/essentials/textreader/IText
+  · net/essentialsx/api/v2/events/HomeModifyEvent
+  · com/earth2me/essentials/commands/Commanddelhome
+  · HomeModifyEvent canceled for /delhome execution by 
+  · Lcom/earth2me/essentials/commands/Commanddelhome;
+  · Lnet/essentialsx/api/v2/events/HomeModifyEvent;
+  · com/earth2me/essentials/commands/Commanddeljail
+  · com/earth2me/essentials/api/IJails
+  · Lcom/earth2me/essentials/commands/Commanddeljail;
+  · com/earth2me/essentials/commands/Commanddelkit
+  · com/earth2me/essentials/Kit
+  · Lcom/earth2me/essentials/commands/Commanddelkit;
+  · Lcom/earth2me/essentials/Kit;
+  · com/earth2me/essentials/commands/Commanddelwarp
+  · com/earth2me/essentials/api/IWarps
+  · net/essentialsx/api/v2/events/WarpModifyEvent
+  · net/essentialsx/api/v2/events/WarpModifyEvent$WarpModifyCause
+  · Lnet/essentialsx/api/v2/events/WarpModifyEvent$WarpModifyCause;
+  · Lcom/earth2me/essentials/commands/Commanddelwarp;
+  · Lnet/essentialsx/api/v2/events/WarpModifyEvent;
+  · com/earth2me/essentials/commands/Commanddepth
+  · Lcom/earth2me/essentials/commands/Commanddepth;
+  · com/earth2me/essentials/commands/Commanddisposal
+  · Lcom/earth2me/essentials/commands/Commanddisposal;
+  · com/earth2me/essentials/commands/Commandeco$EcoCommands
+  · Lcom/earth2me/essentials/commands/Commandeco$EcoCommands;
+  · Ljava/lang/Enum<Lcom/earth2me/essentials/commands/Commandeco$EcoCommands;>;
+  · com/earth2me/essentials/commands/Commandeco
+  · com/earth2me/essentials/commands/EssentialsLoopCommand
+  · Lcom/earth2me/essentials/commands/Commandeco;
+  · com/earth2me/essentials/commands/PlayerExemptException
+  · com/earth2me/essentials/commands/EssentialsLoopCommand$UserConsumer
+  · com/earth2me/essentials/commands/Commandeditsign$1
+  · Lcom/earth2me/essentials/commands/Commandeditsign;
+  · com/earth2me/essentials/commands/Commandeditsign$ModifiableSign
+  · Lcom/earth2me/essentials/commands/Commandeditsign$1;
+  · com/earth2me/essentials/commands/Commandeditsign
+  · com/earth2me/essentials/commands/Commandeditsign$2
+  · Lcom/earth2me/essentials/commands/Commandeditsign$2;
+  · Lcom/earth2me/essentials/commands/Commandeditsign$ModifiableSign;
+  · SignChangeEvent canceled for /editsign execution by 
+  · com/earth2me/essentials/Enchantments
+  · com/earth2me/essentials/MetaItemStack
+  · com/earth2me/essentials/commands/Commandenchant
+  · Lcom/earth2me/essentials/commands/Commandenchant;
+  · Lcom/earth2me/essentials/MetaItemStack;
+  · Lorg/bukkit/enchantments/Enchantment;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lorg/bukkit/enchantments/Enchantment;>;
+  · com/earth2me/essentials/commands/Commandenderchest
+  · Lcom/earth2me/essentials/commands/Commandenderchest;
+  · com/earth2me/essentials/commands/EssentialsTreeCommand
+  · com/earth2me/essentials/commands/essentials/VersionCommand
+  · com/earth2me/essentials/commands/Commandessentials
+  · com/earth2me/essentials/commands/essentials/DebugCommand
+  · com/earth2me/essentials/commands/essentials/CommandMapCommand
+  · com/earth2me/essentials/commands/essentials/DumpCommand
+  · com/earth2me/essentials/commands/essentials/ReloadCommand
+  · com/earth2me/essentials/commands/essentials/CleanupCommand
+  · com/earth2me/essentials/commands/essentials/HomesCommand
+  · com/earth2me/essentials/commands/essentials/UsermapCommand
+  · com/earth2me/essentials/commands/essentials/ItemTestCommand
+  · com/earth2me/essentials/commands/essentials/NyanCommand
+  · com/earth2me/essentials/commands/essentials/MooCommand
+  · Lcom/earth2me/essentials/commands/Commandessentials;
+  · com/earth2me/essentials/commands/Commandexp$ExpCommands
+  · Lcom/earth2me/essentials/commands/Commandexp$ExpCommands;
+  · Ljava/lang/Enum<Lcom/earth2me/essentials/commands/Commandexp$ExpCommands;>;
+  · com/earth2me/essentials/commands/Commandexp
+  · com/earth2me/essentials/craftbukkit/SetExpFix
+  · Lcom/earth2me/essentials/commands/Commandexp;
+  · com/earth2me/essentials/commands/Commandext
+  · Lcom/earth2me/essentials/commands/Commandext;
+  · com/earth2me/essentials/commands/Commandfeed
+  · com/earth2me/essentials/commands/QuietAbortException
+  · Lcom/earth2me/essentials/commands/Commandfeed;
+  · com/earth2me/essentials/commands/Commandfireball
+  · com/earth2me/essentials/utils/FloatUtil
+  · Lcom/earth2me/essentials/commands/Commandfireball;
+  · com/earth2me/essentials/utils/MaterialUtil
+  · com/earth2me/essentials/commands/Commandfirework
+  · com/earth2me/essentials/MobCompat
+  · Lcom/earth2me/essentials/commands/Commandfirework;
+  · Lorg/bukkit/inventory/meta/FireworkMeta;
+  · Lorg/bukkit/entity/Firework;
+  · Lorg/bukkit/FireworkEffect;
+  · com/earth2me/essentials/commands/EssentialsToggleCommand
+  · com/earth2me/essentials/commands/Commandfly
+  · net/ess3/api/events/FlyStatusChangeEvent
+  · com/earth2me/essentials/utils/CommonPlaceholders
+  · Lcom/earth2me/essentials/commands/Commandfly;
+  · Lnet/ess3/api/events/FlyStatusChangeEvent;
+  · com/earth2me/essentials/commands/Commandgamemode
+  · Lorg/bukkit/GameMode;
+  · Lcom/earth2me/essentials/commands/Commandgamemode;
+  · Lcom/earth2me/essentials/commands/NotEnoughArgumentsException;
+  · com/earth2me/essentials/commands/Commandgc$1
+  · Lorg/bukkit/World$Environment;
+  · com/earth2me/essentials/commands/Commandgc
+  · com/earth2me/essentials/EssentialsTimer
+  · Lcom/earth2me/essentials/commands/Commandgc;
+  · Ljava/util/List<Lorg/bukkit/World;>;
+  · com/earth2me/essentials/commands/Commandgetpos
+  · Lcom/earth2me/essentials/commands/Commandgetpos;
+  · com/earth2me/essentials/commands/Commandgive
+  · Lcom/earth2me/essentials/commands/Commandgive;
+  · Ljava/util/Map<Ljava/lang/Integer;Lorg/bukkit/inventory/ItemStack;>;
+  · com/earth2me/essentials/commands/Commandgod
+  · net/ess3/api/events/GodStatusChangeEvent
+  · Lcom/earth2me/essentials/commands/Commandgod;
+  · Lnet/ess3/api/events/GodStatusChangeEvent;
+  · com/earth2me/essentials/commands/Commandgrindstone
+  · Lcom/earth2me/essentials/commands/Commandgrindstone;
+  · com/earth2me/essentials/commands/Commandhat
+  · com/earth2me/essentials/utils/TriState
+  · Lcom/earth2me/essentials/utils/TriState;
+  · Lcom/earth2me/essentials/commands/Commandhat;
+  · com/earth2me/essentials/commands/Commandheal
+  · Lcom/earth2me/essentials/commands/Commandheal;
+  · Lorg/bukkit/potion/PotionEffect;
+  · com/earth2me/essentials/commands/Commandhelp
+  · com/earth2me/essentials/commands/IEssentialsCommand
+  · com/earth2me/essentials/textreader/HelpInput
+  · Lcom/earth2me/essentials/commands/Commandhelp;
+  · Lcom/earth2me/essentials/commands/IEssentialsCommand;
+  · com/earth2me/essentials/commands/Commandhelpop
+  · com/earth2me/essentials/messaging/IMessageRecipient
+  · net/essentialsx/api/v2/events/HelpopMessageSendEvent
+  · Lcom/earth2me/essentials/commands/Commandhelpop;
+  · Lcom/earth2me/essentials/messaging/IMessageRecipient;
+  · Lnet/essentialsx/api/v2/events/HelpopMessageSendEvent;
+  · Ljava/util/List<Lnet/ess3/api/IUser;>;
+  · com/earth2me/essentials/commands/Commandhome
+  · Lcom/earth2me/essentials/commands/Commandhome;
+  · com/earth2me/essentials/paperlib/PaperLib
+  · com/earth2me/essentials/commands/Commandice
+  · Lcom/earth2me/essentials/commands/Commandice;
+  · com/earth2me/essentials/commands/Commandignore
+  · Lcom/earth2me/essentials/commands/Commandignore;
+  · com/earth2me/essentials/commands/Commandinfo
+  · Lcom/earth2me/essentials/commands/Commandinfo;
+  · com/earth2me/essentials/commands/Commandinvsee
+  · Lcom/earth2me/essentials/commands/Commandinvsee;
+  · com/earth2me/essentials/commands/Commanditem
+  · Lcom/earth2me/essentials/commands/Commanditem;
+  · com/earth2me/essentials/commands/Commanditemdb
+  · com/earth2me/essentials/items/CustomItemResolver
+  · Lcom/earth2me/essentials/commands/Commanditemdb;
+  · com/earth2me/essentials/commands/Commanditemlore
+  · Lcom/earth2me/essentials/commands/Commanditemlore;
+  · Lorg/bukkit/inventory/meta/ItemMeta;
+  · com/earth2me/essentials/commands/Commanditemname
+  · Lcom/earth2me/essentials/commands/Commanditemname;
+  · com/earth2me/essentials/commands/Commandjailedplayers
+  · Lcom/earth2me/essentials/commands/Commandjailedplayers;
+  · com/earth2me/essentials/commands/Commandjails
+  · Lcom/earth2me/essentials/commands/Commandjails;
+  · com/earth2me/essentials/commands/Commandjump
+  · Lcom/earth2me/essentials/commands/Commandjump;
+  · com/earth2me/essentials/commands/Commandkick
+  · net/essentialsx/api/v2/events/UserKickEvent
+  · Lcom/earth2me/essentials/commands/Commandkick;
+  · Lnet/essentialsx/api/v2/events/UserKickEvent;
+  · com/earth2me/essentials/commands/Commandkickall
+  · Lcom/earth2me/essentials/commands/Commandkickall;
+  · com/earth2me/essentials/commands/Commandkill
+  · Lcom/earth2me/essentials/commands/Commandkill;
+  · com/earth2me/essentials/commands/Commandkit
+  · Lcom/earth2me/essentials/commands/Commandkit;
+  · Lcom/earth2me/essentials/commands/NoChargeException;
+  · Ljava/util/List<Lcom/earth2me/essentials/Kit;>;
+  · com/earth2me/essentials/commands/Commandkitreset
+  · Lcom/earth2me/essentials/commands/Commandkitreset;
+  · com/earth2me/essentials/utils/RegistryUtil
+  · com/earth2me/essentials/commands/Commandkittycannon
+  · Lcom/earth2me/essentials/commands/Commandkittycannon;
+  · com/earth2me/essentials/Mob$MobException
+  · com/earth2me/essentials/commands/Commandlightning
+  · Lcom/earth2me/essentials/commands/Commandlightning;
+  · Lorg/bukkit/entity/LightningStrike;
+  · com/earth2me/essentials/commands/Commandlist
+  · com/earth2me/essentials/PlayerList
+  · Lcom/earth2me/essentials/commands/Commandlist;
+  · Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Lcom/earth2me/essentials/User;>;>;
+  · com/earth2me/essentials/commands/Commandloom
+  · Lcom/earth2me/essentials/commands/Commandloom;
+  · com/earth2me/essentials/commands/Commandmail$1
+  · com/earth2me/essentials/commands/Commandmail
+  · com/earth2me/essentials/commands/Commandmail$ClearAll
+  · Lcom/earth2me/essentials/commands/Commandmail;
+  · Lcom/earth2me/essentials/commands/Commandmail$ClearAll;
+  · Lcom/earth2me/essentials/commands/Commandmail$1;
+  · com/earth2me/essentials/commands/Commandmail$SendAll
+  · Lcom/earth2me/essentials/commands/Commandmail$SendAll;
+  · com/earth2me/essentials/textreader/SimpleTranslatableText
+  · net/essentialsx/api/v2/services/mail/MailMessage
+  · net/essentialsx/api/v2/services/mail/MailService
+  · com/earth2me/essentials/textreader/SimpleTextPager
+  · Lnet/essentialsx/api/v2/services/mail/MailMessage;
+  · Lcom/earth2me/essentials/textreader/SimpleTranslatableText;
+  · Ljava/util/ListIterator;
+  · Lcom/earth2me/essentials/textreader/SimpleTextPager;
+  · Ljava/util/ArrayList<Lnet/essentialsx/api/v2/services/mail/MailMessage;>;
+  · Ljava/util/ListIterator<Lnet/essentialsx/api/v2/services/mail/MailMessage;>;
+  · com/earth2me/essentials/commands/Commandme
+  · net/essentialsx/api/v2/events/UserActionEvent
+  · Lcom/earth2me/essentials/commands/Commandme;
+  · Ljava/util/Set<Lcom/earth2me/essentials/User;>;
+  · com/earth2me/essentials/commands/Commandmore
+  · Lcom/earth2me/essentials/commands/Commandmore;
+  · com/earth2me/essentials/commands/Commandmotd
+  · Lcom/earth2me/essentials/commands/Commandmotd;
+  · com/earth2me/essentials/commands/Commandmsg
+  · Lcom/earth2me/essentials/commands/Commandmsg;
+  · com/earth2me/essentials/messaging/IMessageRecipient$MessageResponse
+  · com/earth2me/essentials/commands/Commandmsgtoggle
+  · Lcom/earth2me/essentials/commands/Commandmsgtoggle;
+  · com/earth2me/essentials/commands/Commandmute
+  · net/ess3/api/events/MuteStatusChangeEvent
+  · Lcom/earth2me/essentials/commands/Commandmute;
+  · Lnet/ess3/api/events/MuteStatusChangeEvent;
+  · com/earth2me/essentials/commands/Commandnear
+  · Lcom/earth2me/essentials/commands/Commandnear;
+  · Ljava/util/Queue<Lcom/earth2me/essentials/User;>;
+  · com/earth2me/essentials/commands/Commandnick
+  · net/ess3/api/events/NickChangeEvent
+  · Lcom/earth2me/essentials/commands/Commandnick;
+  · Lnet/ess3/api/events/NickChangeEvent;
+  · com/earth2me/essentials/commands/Commandnuke
+  · Lcom/earth2me/essentials/commands/Commandnuke;
+  · Ljava/lang/Iterable<Lcom/earth2me/essentials/User;>;
+  · com/earth2me/essentials/commands/Commandpay
+  · Lcom/earth2me/essentials/commands/Commandpay;
+  · com/earth2me/essentials/commands/Commandpayconfirmtoggle
+  · Lcom/earth2me/essentials/commands/Commandpayconfirmtoggle;
+  · com/earth2me/essentials/commands/Commandpaytoggle
+  · Lcom/earth2me/essentials/commands/Commandpaytoggle;
+  · com/earth2me/essentials/commands/Commandping
+  · Lcom/earth2me/essentials/commands/Commandping;
+  · com/earth2me/essentials/commands/Commandplaytime
+  · Lcom/earth2me/essentials/commands/Commandplaytime;
+  · com/earth2me/essentials/Potions
+  · com/earth2me/essentials/commands/Commandpotion
+  · Lcom/earth2me/essentials/commands/Commandpotion;
+  · Lorg/bukkit/inventory/meta/PotionMeta;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Lorg/bukkit/potion/PotionEffectType;>;
+  · com/earth2me/essentials/commands/Commandpowertool
+  · Lcom/earth2me/essentials/commands/Commandpowertool;
+  · com/earth2me/essentials/commands/Commandpowertoollist
+  · Lcom/earth2me/essentials/commands/Commandpowertoollist;
+  · Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;
+  · Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;
+  · com/earth2me/essentials/commands/Commandpowertooltoggle
+  · Lcom/earth2me/essentials/commands/Commandpowertooltoggle;
+  · com/earth2me/essentials/commands/Commandptime
+  · com/earth2me/essentials/utils/DescParseTickFormat
+  · Lcom/earth2me/essentials/commands/Commandptime;
+  · com/earth2me/essentials/commands/Commandpweather
+  · Lorg/bukkit/WeatherType;
+  · Ljava/util/Map<Ljava/lang/String;Lorg/bukkit/WeatherType;>;
+  · Lcom/earth2me/essentials/commands/Commandpweather;
+  · com/earth2me/essentials/commands/Commandr
+  · Lcom/earth2me/essentials/commands/Commandr;
+  · com/earth2me/essentials/commands/Commandrealname
+  · Lcom/earth2me/essentials/commands/Commandrealname;
+  · com/earth2me/essentials/commands/Commandrecipe
+  · Lcom/earth2me/essentials/commands/Commandrecipe;
+  · Ljava/util/List<Lorg/bukkit/inventory/Recipe;>;
+  · Lorg/bukkit/inventory/RecipeChoice;
+  · Ljava/util/Map<Ljava/lang/Character;Lorg/bukkit/inventory/ItemStack;>;
+  · com/earth2me/essentials/libs/kyori/adventure/text/format/NamedTextColor
+  · Lcom/earth2me/essentials/libs/kyori/adventure/text/format/NamedTextColor;
+  · com/earth2me/essentials/commands/Commandremove$ToRemove
+  · Lcom/earth2me/essentials/commands/Commandremove$ToRemove;
+  · Ljava/lang/Enum<Lcom/earth2me/essentials/commands/Commandremove$ToRemove;>;
+  · com/earth2me/essentials/commands/Commandremove
+  · Lcom/earth2me/essentials/commands/Commandremove;
+  · Ljava/util/ArrayList<Lcom/earth2me/essentials/commands/Commandremove$ToRemove;>;
+  · Ljava/util/ArrayList<Lcom/earth2me/essentials/Mob;>;
+  · com/earth2me/essentials/commands/Commandrenamehome
+  · HomeModifyEvent canceled for /renamehome execution by 
+  · Lcom/earth2me/essentials/commands/Commandrenamehome;
+  · com/earth2me/essentials/commands/Commandrepair
+  · Lcom/earth2me/essentials/commands/Commandrepair;
+  · Lcom/earth2me/essentials/ChargeException;
+  · com/earth2me/essentials/commands/Commandrest
+  · Lcom/earth2me/essentials/commands/Commandrest;
+  · com/earth2me/essentials/commands/Commandrtoggle
+  · Lcom/earth2me/essentials/commands/Commandrtoggle;
+  · com/earth2me/essentials/commands/Commandrules
+  · Lcom/earth2me/essentials/commands/Commandrules;
+  · com/earth2me/essentials/commands/Commandseen$1
+  · Lcom/earth2me/essentials/commands/Commandseen;
+  · com/earth2me/essentials/commands/Commandseen
+  · Lcom/earth2me/essentials/commands/Commandseen$1;
+  · com/earth2me/essentials/craftbukkit/BanLookup
+  · Lorg/bukkit/BanEntry;
+  · com/earth2me/essentials/commands/Commandsell
+  · com/earth2me/essentials/Worth
+  · Lcom/earth2me/essentials/commands/Commandsell;
+  · Lcom/earth2me/essentials/adventure/AdventureUtil$ParsedPlaceholder;
+  · com/earth2me/essentials/commands/Commandsethome
+  · Ljava/util/concurrent/TimeUnit;
+  · HomeModifyEvent canceled for /sethome execution by 
+  · Lcom/earth2me/essentials/commands/Commandsethome;
+  · com/earth2me/essentials/commands/Commandsetjail
+  · Lcom/earth2me/essentials/commands/Commandsetjail;
+  · com/earth2me/essentials/commands/Commandsettpr
+  · com/earth2me/essentials/RandomTeleport
+  · Lcom/earth2me/essentials/commands/Commandsettpr;
+  · Lcom/earth2me/essentials/RandomTeleport;
+  · com/earth2me/essentials/commands/Commandsetwarp
+  · com/earth2me/essentials/commands/WarpNotFoundException
+  · Lcom/earth2me/essentials/commands/Commandsetwarp;
+  · Lcom/earth2me/essentials/api/IWarps;
+  · com/earth2me/essentials/commands/Commandsetworth
+  · Lcom/earth2me/essentials/commands/Commandsetworth;
+  · com/earth2me/essentials/commands/Commandshowkit
+  · Lcom/earth2me/essentials/commands/Commandshowkit;
+  · com/earth2me/essentials/commands/Commandskull
+  · Lcom/earth2me/essentials/commands/Commandskull;
+  · Lorg/bukkit/inventory/meta/SkullMeta;
+  · com/earth2me/essentials/commands/Commandsmithingtable
+  · Lcom/earth2me/essentials/commands/Commandsmithingtable;
+  · com/earth2me/essentials/commands/Commandsocialspy
+  · Lcom/earth2me/essentials/commands/Commandsocialspy;
+  · com/earth2me/essentials/commands/Commandspawner
+  · net/ess3/provider/SpawnerBlockProvider
+  · Lcom/earth2me/essentials/commands/Commandspawner;
+  · Lnet/ess3/provider/SpawnerBlockProvider;
+  · com/earth2me/essentials/SpawnMob
+  · com/earth2me/essentials/commands/Commandspawnmob
+  · Lcom/earth2me/essentials/commands/Commandspawnmob;
+  · com/earth2me/essentials/commands/Commandspeed
+  · Lcom/earth2me/essentials/commands/Commandspeed;
+  · Ljava/util/List<Lorg/bukkit/entity/Player;>;
+  · com/earth2me/essentials/commands/Commandstonecutter
+  · Lcom/earth2me/essentials/commands/Commandstonecutter;
+  · com/earth2me/essentials/commands/Commandsudo$1SudoCommandTask
+  · Lcom/earth2me/essentials/commands/Commandsudo;
+  · Lcom/earth2me/essentials/commands/Commandsudo$1SudoCommandTask;
+  · com/earth2me/essentials/commands/Commandsudo
+  · com/earth2me/essentials/commands/Commandsuicide
+  · Lcom/earth2me/essentials/commands/Commandsuicide;
+  · com/earth2me/essentials/commands/Commandtempban
+  · Lcom/earth2me/essentials/commands/Commandtempban;
+  · com/earth2me/essentials/commands/Commandtempbanip
+  · Lcom/earth2me/essentials/commands/Commandtempbanip;
+  · com/earth2me/essentials/commands/Commandthunder
+  · Lcom/earth2me/essentials/commands/Commandthunder;
+  · com/earth2me/essentials/commands/Commandtime
+  · com/earth2me/essentials/commands/WorldNameComparator
+  · Lcom/earth2me/essentials/commands/Commandtime;
+  · Ljava/util/Set<Lorg/bukkit/World;>;
+  · Ljava/util/Iterator<Lorg/bukkit/World;>;
+  · Ljava/util/Collection<Lorg/bukkit/World;>;
+  · com/earth2me/essentials/commands/Commandtogglejail
+  · net/ess3/api/events/JailStatusChangeEvent
+  · com/earth2me/essentials/ISettings$TeleportWhenFreePolicy
+  · Lcom/earth2me/essentials/ISettings$TeleportWhenFreePolicy;
+  · Lcom/earth2me/essentials/commands/Commandtogglejail;
+  · Lnet/ess3/api/events/JailStatusChangeEvent;
+  · com/earth2me/essentials/commands/Commandtop
+  · Lcom/earth2me/essentials/commands/Commandtop;
+  · com/earth2me/essentials/commands/Commandtp
+  · Lcom/earth2me/essentials/commands/Commandtp;
+  · com/earth2me/essentials/commands/Commandtpa
+  · com/earth2me/essentials/AsyncTeleport$TeleportType
+  · Lcom/earth2me/essentials/AsyncTeleport$TeleportType;
+  · net/ess3/api/events/TPARequestEvent
+  · Lcom/earth2me/essentials/commands/Commandtpa;
+  · Lcom/earth2me/essentials/AsyncTeleport;
+  · Lnet/ess3/api/events/TPARequestEvent;
+  · com/earth2me/essentials/commands/Commandtpaall
+  · Lcom/earth2me/essentials/commands/Commandtpaall;
+  · com/earth2me/essentials/commands/Commandtpacancel
+  · Lcom/earth2me/essentials/commands/Commandtpacancel;
+  · com/earth2me/essentials/IUser$TpaRequest
+  · com/earth2me/essentials/commands/Commandtpaccept
+  · net/essentialsx/api/v2/events/TeleportRequestResponseEvent
+  · Lcom/earth2me/essentials/commands/Commandtpaccept;
+  · Lcom/earth2me/essentials/IUser$TpaRequest;
+  · Lnet/essentialsx/api/v2/events/TeleportRequestResponseEvent;
+  · com/earth2me/essentials/commands/Commandtpahere
+  · Lcom/earth2me/essentials/commands/Commandtpahere;
+  · com/earth2me/essentials/commands/Commandtpall
+  · Lcom/earth2me/essentials/commands/Commandtpall;
+  · com/earth2me/essentials/commands/Commandtpauto
+  · Lcom/earth2me/essentials/commands/Commandtpauto;
+  · com/earth2me/essentials/commands/Commandtpdeny
+  · Lcom/earth2me/essentials/commands/Commandtpdeny;
+  · com/earth2me/essentials/commands/Commandtphere
+  · Lcom/earth2me/essentials/commands/Commandtphere;
+  · com/earth2me/essentials/commands/Commandtpo
+  · Lcom/earth2me/essentials/commands/Commandtpo;
+  · com/earth2me/essentials/commands/Commandtpoffline
+  · Lcom/earth2me/essentials/commands/Commandtpoffline;
+  · com/earth2me/essentials/commands/Commandtpohere
+  · Lcom/earth2me/essentials/commands/Commandtpohere;
+  · com/earth2me/essentials/commands/Commandtppos
+  · Lcom/earth2me/essentials/commands/Commandtppos;
+  · com/earth2me/essentials/commands/Commandtpr
+  · Lcom/earth2me/essentials/commands/Commandtpr;
+  · com/earth2me/essentials/commands/Commandtptoggle
+  · Lcom/earth2me/essentials/commands/Commandtptoggle;
+  · com/earth2me/essentials/commands/Commandtree
+  · Lcom/earth2me/essentials/commands/Commandtree;
+  · com/earth2me/essentials/commands/Commandunban
+  · Lcom/earth2me/essentials/commands/Commandunban;
+  · com/earth2me/essentials/commands/Commandunbanip
+  · Lcom/earth2me/essentials/commands/Commandunbanip;
+  · com/earth2me/essentials/commands/Commandunlimited
+  · Lcom/earth2me/essentials/commands/Commandunlimited;
+  · com/earth2me/essentials/commands/Commandvanish
+  · net/ess3/api/events/VanishStatusChangeEvent
+  · Lcom/earth2me/essentials/commands/Commandvanish;
+  · Lnet/ess3/api/events/VanishStatusChangeEvent;
+  · com/earth2me/essentials/commands/Commandwarp
+  · Lcom/earth2me/essentials/commands/Commandwarp;
+  · com/earth2me/essentials/commands/Commandwarpinfo
+  · Lcom/earth2me/essentials/commands/Commandwarpinfo;
+  · com/earth2me/essentials/commands/Commandweather
+  · Lcom/earth2me/essentials/commands/Commandweather;
+  · com/earth2me/essentials/commands/Commandwhois
+  · Lcom/earth2me/essentials/commands/Commandwhois;
+  · com/earth2me/essentials/commands/Commandworkbench
+  · Lcom/earth2me/essentials/commands/Commandworkbench;
+  · com/earth2me/essentials/commands/Commandworld
+  · Lcom/earth2me/essentials/commands/Commandworld;
+  · com/earth2me/essentials/commands/Commandworth
+  · Lcom/earth2me/essentials/commands/Commandworth;
+  · Lcom/earth2me/essentials/IEssentialsModule;
+  · Lcom/earth2me/essentials/commands/EssentialsCommand;
+  · Lcom/earth2me/essentials/commands/EssentialsLoopCommand;
+  · Lcom/earth2me/essentials/commands/EssentialsLoopCommand$UserConsumer;
+  · Lcom/earth2me/essentials/commands/EssentialsToggleCommand;
+  · com/earth2me/essentials/commands/EssentialsTreeNode
+  · Ljava/util/Map<Ljava/lang/String;Lcom/earth2me/essentials/commands/EssentialsTreeNode;>;
+  · Lcom/earth2me/essentials/commands/EssentialsTreeCommand;
+  · Lcom/earth2me/essentials/commands/EssentialsTreeNode;
+  · com/earth2me/essentials/commands/InvalidModifierException
+  · Lcom/earth2me/essentials/commands/InvalidModifierException;
+  · Lcom/earth2me/essentials/commands/PlayerExemptException;
+  · Lcom/earth2me/essentials/commands/QuietAbortException;
+  · Lcom/earth2me/essentials/commands/WarpNotFoundException;
+  · Lcom/earth2me/essentials/commands/WorldNameComparator;
+  · Ljava/lang/Object;Ljava/util/Comparator<Lorg/bukkit/World;>;
+  · Unless you define larger default values, this command will ignore people who have more than 0 money/homes.
+  · Lcom/earth2me/essentials/commands/essentials/CleanupCommand;
+  · Lcom/earth2me/essentials/commands/essentials/CommandMapCommand;
+  · Lcom/earth2me/essentials/commands/essentials/DebugCommand;
+  · com/earth2me/essentials/utils/VersionUtil$SupportStatus
+  · com/earth2me/essentials/updatecheck/UpdateChecker
+  · com/earth2me/essentials/economy/EconomyLayers
+  · com/earth2me/essentials/economy/EconomyLayer
+  · com/earth2me/essentials/utils/CommandMapUtil
+  · https://essentialsx.net/dump?bytebin=
+  · Lcom/earth2me/essentials/commands/essentials/DumpCommand;
+  · Lcom/earth2me/essentials/utils/VersionUtil$SupportStatus;
+  · Lcom/earth2me/essentials/economy/EconomyLayer;
+  · Ljava/util/List<Lcom/earth2me/essentials/utils/PasteUtil$PasteFile;>;
+  · Lcom/earth2me/essentials/commands/essentials/HomesCommand;
+  · Lcom/earth2me/essentials/commands/essentials/ItemTestCommand;
+  · Lcom/earth2me/essentials/commands/essentials/MooCommand;
+  · com/earth2me/essentials/commands/essentials/NyanCommand$TuneRunnable
+  · Lcom/earth2me/essentials/commands/essentials/NyanCommand$TuneRunnable;
+  · Lcom/earth2me/essentials/commands/essentials/NyanCommand;
+  · Lcom/earth2me/essentials/commands/essentials/ReloadCommand;
+  · com/earth2me/essentials/userstorage/ModernUserMap
+  · com/earth2me/essentials/EssentialsUpgrade
+  · Lcom/earth2me/essentials/commands/essentials/UsermapCommand;
+  · Lcom/earth2me/essentials/userstorage/ModernUserMap;
+  · com/earth2me/essentials/commands/essentials/VersionCommand$1
+  · Lcom/earth2me/essentials/commands/essentials/VersionCommand;
+  · com/earth2me/essentials/config/entities/CommandCooldown
+  · com/earth2me/essentials/config/processors/DeleteIfIncompleteProcessor$IncompleteEntity
+  · Lcom/earth2me/essentials/config/entities/CommandCooldown;
+  · com/earth2me/essentials/config/processors/DeleteIfIncompleteProcessor
+  · com/earth2me/essentials/config/serializers/CommandCooldownSerializer
+  · Ljava/lang/Object;Lcom/earth2me/essentials/libs/configurate/serialize/TypeSerializer<Lcom/earth2me/essentials/config/entities/CommandCooldown;>;
+  · com/earth2me/essentials/libs/configurate/serialize/TypeSerializer
+  · Lcom/earth2me/essentials/config/serializers/CommandCooldownSerializer;
+  · com/earth2me/essentials/libs/configurate/serialize/SerializationException
+  · Lcom/earth2me/essentials/libs/checkerframework/checker/nullness/qual/Nullable;
+  · com/earth2me/essentials/libs/kyori/adventure/platform/bukkit/BukkitFacet$CommandSenderPointers
+  · com/earth2me/essentials/libs/kyori/adventure/platform/bukkit/BukkitFacet
+  · com/earth2me/essentials/libs/kyori/adventure/platform/facet/Facet$Pointers
+  · com/earth2me/essentials/libs/kyori/adventure/pointer/Pointers$Builder
+  · com/earth2me/essentials/libs/kyori/adventure/pointer/Pointers
+  · com/earth2me/essentials/libs/kyori/adventure/platform/facet/Facet
+  · Lcom/earth2me/essentials/libs/kyori/adventure/platform/bukkit/BukkitFacet$CommandSenderPointers;
+  · com/earth2me/essentials/libs/kyori/adventure/identity/Identity
+  · Lcom/earth2me/essentials/libs/kyori/adventure/pointer/Pointer;
+  · com/earth2me/essentials/libs/kyori/adventure/permission/PermissionChecker
+  · Lcom/earth2me/essentials/libs/kyori/adventure/pointer/Pointers$Builder;
+  · com/earth2me/essentials/libs/kyori/adventure/util/TriState
+  · Lcom/earth2me/essentials/libs/kyori/adventure/util/TriState;
+  · com/earth2me/essentials/libs/kyori/adventure/platform/bukkit/BukkitFacet$ConsoleCommandSenderPointers
+  · com/earth2me/essentials/libs/kyori/adventure/platform/facet/FacetPointers$Type
+  · com/earth2me/essentials/libs/kyori/adventure/platform/facet/FacetPointers
+  · Lcom/earth2me/essentials/libs/kyori/adventure/platform/bukkit/BukkitFacet$ConsoleCommandSenderPointers;
+  · Lcom/earth2me/essentials/libs/kyori/adventure/platform/facet/FacetPointers$Type;
+  · Lcom/earth2me/essentials/utils/CommandMapUtil;
+  · Lnet/essentialsx/providers/ProviderData;
+  · Lnet/essentialsx/providers/ProviderTest;
+  · Ljava/util/Collection<+Lcom/mojang/brigadier/tree/CommandNode<*>;>;
+  · Lcom/mojang/brigadier/tree/CommandNode;

@@ -1,45 +1,47 @@
 {
-  "name": "MahjongPlay",
-  "role": "在服务器里打日本立直麻将的小游戏",
-  "summary": "把日式立直麻将搬进 Minecraft，玩家可以在服内开桌、凑人、完整打完一局，不用跳到外部平台。主要解决休闲区没牌打、临时凑不齐人的问题，配合各子指令的权限节点可以控制谁能开桌、加机器人和踢人。适合作为大厅或休闲区的常驻小游戏，和其他小游戏插件并列使用。",
-  "whatFor": [
-    "玩家想在大厅或休闲区打一局日式立直麻将，需要开桌并拉人加入时",
-    "在线人数不够四个人，想加机器人补位做演示或陪玩时",
-    "管理员要查看现有麻将桌、清理没人用的残留桌子时"
-  ],
-  "flow": [
-    "先确认玩家有基础权限（join、leave、ready、unready、action、list、info 默认开启），开桌权限要单独给",
-    "用 /mahjong create 开一张麻将桌，其他玩家用 /mahjong join 加入",
-    "各自 /mahjong ready 准备，人齐后由有权限的人 /mahjong start 开始",
-    "牌局中用 /mahjong action 执行摸打、吃碰杠等操作",
-    "散场后玩家 /mahjong leave 退出，桌主用 /mahjong destroy 销毁桌子"
-  ],
-  "commands": [
-    {
-      "cmd": "mahjong",
-      "what": "麻将游戏主指令，开桌、加入、准备、开始与牌局操作都走它",
-      "syntax": "/mahjong create|join|leave|ready|start|bot|destroy|info|list|action",
-      "params": [
-        {
-          "name": "子指令",
-          "required": true,
-          "note": "create 开桌、join 加入、leave 离开、ready 准备、start 强制开始、bot 加机器人、destroy 销毁桌子、info 查看桌子信息、list 列出麻将桌、action 执行牌局操作"
-        }
-      ],
-      "examples": [
-        "/mahjong create",
-        "/mahjong join",
-        "/mahjong list"
-      ],
-      "notes": "别名 /mj、/majiang 等价；权限按子指令拆分，节点为 mahjongplay.command 开头（如 mahjongplay.command.create），create、start、bot、kick、destroy 类管理子指令默认只给 OP，其余默认所有人可用。"
-    }
-  ],
-  "subcommands": [],
-  "caution": [
-    "create、start、bot、kick、destroy 默认只发 OP，普通玩家不额外授权就开不了桌、也踢不了人和清桌。",
-    "取消准备（unready）和踢人（kick）在权限节点里存在，但指令用法串里没列全，具体参数与子指令以游戏内 help 为准。",
-    "别随便放开开桌权限，玩家开出的桌子会占位；建议在大厅用领地或区域圈出专门的麻将区。",
-    "玩家卡在半局或掉线时桌子不会自己消失，需要管理员用 list 找出来再 destroy 清掉。"
-  ],
-  "related": []
+ "name": "MahjongPlay",
+ "role": "麻将小游戏",
+ "summary": "服内四人麻将：开桌、入座就绪、机器人补位、出牌与结算，带权限细分到每个子指令。",
+ "quick": [
+  {"scene": "开一桌", "cmd": "/mj create", "note": "创建牌桌并拿到桌号"},
+  {"scene": "加入牌桌", "cmd": "/mj join <桌号>", "note": "提示桌号无效时先 /mj list"},
+  {"scene": "人不够，补机器人", "cmd": "/mj bot", "note": "机器人补位后再 start"},
+  {"scene": "开始牌局", "cmd": "/mj start", "note": "全员 ready 才能开始"},
+  {"scene": "打出一张牌", "cmd": "/mj action <操作>", "note": "摸/打/吃/碰/杠/胡 都在 action 下"}
+ ],
+ "commands": [
+  {"cmd": "mahjong", "what": "麻将主指令（开桌/入座/出牌/结算）", "syntax": "/mahjong <create|join|leave|ready|unready|start|bot|kick|destroy|info|list|action>",
+   "examples": ["/mj create", "/mj join 1", "/mj start"], "notes": "别名 mj、majiang；权限按子指令细分"}
+ ],
+ "subcommands": [
+  {"cmd": "/mj create", "desc": "创建牌桌（返回桌号）", "example": "/mj create"},
+  {"cmd": "/mj join <桌号>", "desc": "加入指定牌桌", "example": "/mj join 1"},
+  {"cmd": "/mj leave", "desc": "离开当前牌桌", "example": "/mj leave"},
+  {"cmd": "/mj ready", "desc": "标记自己已准备", "example": "/mj ready"},
+  {"cmd": "/mj unready", "desc": "取消准备状态", "example": "/mj unready"},
+  {"cmd": "/mj start", "desc": "开始牌局（需全员准备）", "example": "/mj start"},
+  {"cmd": "/mj bot", "desc": "用机器人补位", "example": "/mj bot"},
+  {"cmd": "/mj kick <玩家>", "desc": "把玩家移出牌桌（桌主/管理）", "example": "/mj kick Steve"},
+  {"cmd": "/mj destroy", "desc": "解散当前牌桌", "example": "/mj destroy"},
+  {"cmd": "/mj info [桌号]", "desc": "查看牌桌状态", "example": "/mj info 1"},
+  {"cmd": "/mj list", "desc": "列出所有牌桌", "example": "/mj list"},
+  {"cmd": "/mj action <摸|打|吃|碰|杠|胡>", "desc": "牌局内执行操作", "example": "/mj action 打 3万"}
+ ],
+ "caution": [
+  "玩家中途下线会占座，人不在时用 /mj kick 或 /mj destroy 清桌，否则桌号会一直被占用。",
+  "牌面依赖客户端资源包，没装包的玩家看到的是方块占位图标，不是数据错误。"
+ ],
+ "permissions": {
+  "mahjongplay.command.create": "创建牌桌",
+  "mahjongplay.command.join": "加入牌桌",
+  "mahjongplay.command.leave": "离开牌桌",
+  "mahjongplay.command.ready": "准备 / 取消准备",
+  "mahjongplay.command.start": "开始牌局",
+  "mahjongplay.command.bot": "机器人补位",
+  "mahjongplay.command.kick": "踢人出桌",
+  "mahjongplay.command.destroy": "解散牌桌",
+  "mahjongplay.command.info": "查看牌桌状态",
+  "mahjongplay.command.list": "列出牌桌",
+  "mahjongplay.command.action": "牌局内操作（摸打吃碰杠胡）"
+ }
 }

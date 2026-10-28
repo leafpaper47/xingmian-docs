@@ -130,6 +130,14 @@ def slug(name):
 CODE_SPAN = re.compile(r"`[^`\n]*`")
 
 
+def txt(s):
+    """正文段落转义：注解里的裸 < > 会被 Vue 当标签解析导致构建失败（如 <newline>）"""
+    if s is None:
+        return ""
+    s = str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    return s.replace("{{", "&#123;&#123;").replace("}}", "&#125;&#125;")
+
+
 def fix_code_spans(text):
     """反引号代码段里不该预先 HTML 转义：markdown-it 会自己转义，预先转义会显示成 &lt;x&gt;"""
     def _one(m):
@@ -339,11 +347,17 @@ def load_note(name):
     for k, v in (raw.get("permissions") or {}).items():
         if isinstance(v, str) and k:
             perm_desc[str(k)] = decolor(v)
+    quick = []
+    for x in raw.get("quick") or []:
+        if isinstance(x, dict) and x.get("cmd"):
+            quick.append({"scene": decolor(x.get("scene") or ""), "cmd": decolor(x.get("cmd")),
+                          "note": decolor(x.get("note") or "")})
     return {
         "role": s(raw.get("role")),
         "summary": s(raw.get("summary")),
-        "whatFor": sl(raw.get("whatFor")),
+        "whatFor": sl(raw.get("whatFor"))[:4],
         "flow": sl(raw.get("flow")),
+        "quick": quick,
         "commands": cmds,
         "subcommands": subs,
         "caution": sl(raw.get("caution")),
@@ -383,7 +397,11 @@ def main():
     for p in sorted(plugins, key=lambda x: (CAT_ORDER.index(x["cat"]), x["name"].lower())):
         p["slug"] = slug(p["name"])
         p["path"] = "/commands/%s/%s.md" % (p["cat"], p["slug"])
-        total_cmds += len(p["rows"])
+        # 指令数 = plugin.yml 注册指令 + 注解里补充的子指令
+        subs_n = sum(1 for k in ((p["note"] or {}).get("commands") or {})
+                     if " " in k and k.split(" ")[0] in {x["name"] for x in p["rows"]})
+        p["cnt"] = len(p["rows"]) + subs_n
+        total_cmds += p["cnt"]
         index[p["cat"]].append(p)
 
     # 名称 → 页面，供「相关插件」建链
@@ -396,13 +414,24 @@ def main():
             if n:
                 noted += 1
             rows = list(p["rows"])
-            # 注解里写了、但 plugin.yml 没单独注册的写法（如 /invSaver save 这类子指令）也补进来
+            # 注解里写了、但 plugin.yml 没单独注册的写法（如 /invSaver save 这类子指令）也补进来，
+            # 并紧跟在父指令后面，读表时一眼能看出归属
             known = {x["name"] for x in rows}
+            extra = {}
             for k, nc0 in ((n or {}).get("commands") or {}).items():
                 if k in known or " " not in k:
                     continue
-                rows.append({"name": k, "desc": nc0.get("what") or "", "usage": None,
-                             "aliases": [], "permission": nc0.get("permission") or ""})
+                row = {"name": k, "desc": nc0.get("what") or "", "usage": None,
+                       "aliases": [], "permission": nc0.get("permission") or ""}
+                extra.setdefault(k.split(" ")[0], []).append(row)
+            if extra:
+                merged = []
+                for x in rows:
+                    merged.append(x)
+                    merged.extend(extra.pop(x["name"], []))
+                for rest in extra.values():
+                    merged.extend(rest)
+                rows = merged
             head = ("%s · %s" % (p["func"], p["name"])) if p["func"] else p["name"]
             L = ["---", "title: %s" % p["name"].replace(":", "："), "createTime: %s" % TODAY, "---", ""]
             L.append("# %s" % head)
@@ -419,20 +448,28 @@ def main():
                 if n["summary"] or n["role"]:
                     L.append("::: tip %s" % (n["role"] or "这个插件是干什么的"))
                     if n["summary"]:
-                        L.append(n["summary"])
+                        L.append(txt(n["summary"]))
                     L.append(":::")
+                    L.append("")
+                if n["quick"]:
+                    L.append("## 常用用法")
+                    L.append("")
+                    L.append("| 场景 | 指令 | 说明 |")
+                    L.append("| --- | --- | --- |")
+                    for q in n["quick"]:
+                        L.append("| %s | %s | %s |" % (cell(q["scene"]) or "—", cell(q["cmd"]), cell(q["note"]) or "—"))
                     L.append("")
                 if n["whatFor"]:
                     L.append("## 什么时候会用到它")
                     L.append("")
                     for x in n["whatFor"]:
-                        L.append("- %s" % x)
+                        L.append("- %s" % txt(x))
                     L.append("")
                 if n["flow"]:
                     L.append("## 上手流程")
                     L.append("")
                     for i, x in enumerate(n["flow"], 1):
-                        L.append("%d. %s" % (i, x))
+                        L.append("%d. %s" % (i, txt(x)))
                     L.append("")
             else:
                 if p["desc"]:
@@ -499,7 +536,7 @@ def main():
                     if x["permission"]:
                         L.append("- **权限**：`%s`" % x["permission"])
                     if inf["notes"]:
-                        L.append("- **备注**：%s" % inf["notes"])
+                        L.append("- **备注**：%s" % txt(inf["notes"]))
                     L.append("")
 
             # ---------- 子指令速查 ----------
@@ -518,7 +555,7 @@ def main():
                 L.append("")
                 L.append("::: warning")
                 for x in n["caution"]:
-                    L.append("- %s" % x)
+                    L.append("- %s" % txt(x))
                 L.append(":::")
                 L.append("")
 
@@ -566,7 +603,7 @@ def main():
             role = (n["role"] if n and n["role"] else p["desc"])[:70]
             heads = "、".join("`/%s`" % x["name"] for x in p["rows"][:3])
             more = "…" if len(p["rows"]) > 3 else ""
-            L.append("| [%s](%s) | %s | %s%s | %d |" % (p["name"], p["path"], cell(role), heads, more, len(p["rows"])))
+            L.append("| [%s](%s) | %s | %s%s | %d |" % (p["name"], p["path"], cell(role), heads, more, p["cnt"]))
         L.append("")
         open(os.path.join(DOCS, "commands", c, "index.md"), "w", encoding="utf-8", newline="\n").write(fix_code_spans("\n".join(L)))
 
@@ -591,7 +628,7 @@ def main():
             role = (n["role"] if n and n["role"] else p["desc"])[:60]
             heads = "、".join("`/%s`" % x["name"] for x in p["rows"][:4])
             more = "…" if len(p["rows"]) > 4 else ""
-            L.append("| [%s](%s) | %s | %s%s | %d |" % (p["name"], p["path"], cell(role), heads, more, len(p["rows"])))
+            L.append("| [%s](%s) | %s | %s%s | %d |" % (p["name"], p["path"], cell(role), heads, more, p["cnt"]))
         L.append("")
     open(os.path.join(DOCS, "index.md"), "w", encoding="utf-8", newline="\n").write(fix_code_spans("\n".join(L)))
 

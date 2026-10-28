@@ -5,83 +5,89 @@ createTime: 2026/10/24
 
 # 元素系统 · XingmianElement
 
-> 分类 ⚔️ 战斗与 RPG · 版本 `0.1.17` · 指令 2 条 · api-version `1.21`
+> 分类 ⚔️ 战斗与 RPG · 版本 `0.1.23` · 指令 2 条 · api-version `1.21`
 
-::: tip 星冕自研的元素等级与法杖技能系统
-给玩家一条以元素为核心的成长线：打怪、做任务攒经验来提升元素等级，再用元素法杖释放对应技能。元素还牵动元素 BOSS 的强度与表现，所以它同时是 RPG 玩法与 BOSS 战之间的连接层。本插件为星冕服务器自研模块，官方说明写得比较潦草，实际细节以游戏内帮助为准。
+::: tip 元素职业
+星冕自研元素职业系统：10 级选元素发法杖、20 级转职，五种元素各有技能与护盾，RPG BOSS 也带元素属性。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 玩家问「我的元素等级怎么升」「法杖技能怎么放」时，指给他看元素面板与帮助
-- 新玩家刚进服，需要引导他了解元素属性这条养成线
-- 测试或调活动时，要临时指定下一只元素 BOSS 带几个元素
-- 排查「为什么这只元素 BOSS 打起来强度不对」时，查当前 BOSS 的元素配置状态
-
-## 上手流程
-
-1. 先给玩家或自己加上 xingmianelement.admin 权限（该节点默认仅 OP 拥有），否则 xmbe 调试指令用不了
-2. 管理员在游戏里执行 /element help 看一眼这版插件实际开放的用法，别照抄网上或旧版说明
-3. 玩家侧从元素面板确认自己的元素属性与等级进度，再按提示去获取元素法杖
-4. 需要调节 BOSS 难度时，用 /xmbe info 看当前设定，再用 /xmbe next 指定数量做验证，测完记得用 /xmbe next off 关掉
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 玩家选元素/转职 | /element | 界面里操作；10 级选元素、20 级可转职 |
+| 查个人档案 | /element info | 等级、经验、元素、护盾都在这 |
+| 给玩家补经验 | /element exp Steve 500 | 可填负数扣经验 |
+| 清掉玩家元素数据 | /element reset Steve item | 加 item 连背包法杖/技能卡一起收 |
+| 元素护盾没显示黄心 | /element shield 20 | 玩家自己跑，20 点=10 颗黄心 |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/element` | 元素之力主指令，打开帮助、查看元素等级与法杖技能入口<br>别名 `/elem`、`/ys` | `/element help` | — |
-| `/xmbe` | 元素 BOSS 调试，强制指定下一只 BOSS 的元素数量或查看状态 | `/xmbe next 数量1-5 ｜ /xmbe next off ｜ /xmbe info` | `xingmianelement.admin` |
+| `/element` | 元素之力主入口：界面、选元素、转职、档案与管理员操作<br>别名 `/elem`、`/ys` | `/element [info｜list｜choose <元素>｜switch <元素>｜exp｜le…` | — |
+| `/xmbe` | 元素 BOSS 调试：强制下一只 BOSS 带几个元素 | `/xmbe <next <1-5>｜next off｜info>` | `xingmianelement.admin` |
 
 ## 指令详解
 
-### `/element` — 元素之力主指令，打开帮助、查看元素等级与法杖技能入口
+### `/element` — 元素之力主入口：界面、选元素、转职、档案与管理员操作
 
-- **语法**：`/element help`
+- **语法**：`/element [info｜list｜choose <元素>｜switch <元素>｜exp｜level｜reset｜reload｜debug｜shield]`
 
 - **示例**：
 
 ```
-/element help
+/element
+/element list
 ```
 
 - **别名**：`/elem`、`/ys`
-- **备注**：别名 /elem、/ys，玩家常用别名进来。无需权限即可使用。这条指令下的子指令各服版本差异较大，以游戏内 help 输出的为准，不要凭猜测输入。
+- **备注**：别名 /elem、/ys；不带参数= 打开界面；管理类子指令要 xingmianelement.admin
 
-### `/xmbe` — 元素 BOSS 调试，强制指定下一只 BOSS 的元素数量或查看状态
+### `/xmbe` — 元素 BOSS 调试：强制下一只 BOSS 带几个元素
 
-- **语法**：`/xmbe next 数量1-5 ｜ /xmbe next off ｜ /xmbe info`
-
-| 参数 | 必填 | 说明 |
-| --- | --- | --- |
-| `next 数量` | 必填 | 填 1 到 5 之间的整数，表示下一只元素 BOSS 要带几个元素；off 表示取消这个强制设定，info 查看当前状态 |
-
+- **语法**：`/xmbe <next <1-5>｜next off｜info>`
 
 - **示例**：
 
 ```
-/xmbe info
 /xmbe next 3
-/xmbe next off
+/xmbe info
 ```
 
 - **权限**：`xingmianelement.admin`
-- **备注**：需要 xingmianelement.admin 权限（默认 OP）。这是调试用指令，只影响下一次刷新，测完务必用 off 恢复，否则线上 BOSS 难度会跟你测试时的设定一致。
+- **备注**：只作用于「下一只 roll 出来的 BOSS」，不改全服概率
+
+## 子指令速查
+
+| 子指令 | 功能 | 示例 |
+| --- | --- | --- |
+| `/element choose <元素>` | 10 级起选择元素，成功发放对应法杖 | `/element choose 火` |
+| `/element switch <元素>` | 20 级起转职，有冷却（默认 36 小时） | `/element switch 冰` |
+| `/element bt` | 玩家自己突破元素等级上限，控制台不可用 | `/element bt` |
+| `/element list` | 列出五种元素的定位与被动 | `/element list` |
+| `/element info` | 打开个人档案界面（等级/经验/元素/护盾） | `/element info` |
+| `/element exp <玩家> <数量>` | 调整元素经验，可为负数 | `/element exp Steve 500` |
+| `/element level <玩家> <等级>` | 直接把元素等级设为指定值（别名 setlevel） | `/element level Steve 20` |
+| `/element forceswitch <玩家> <元素>` | 管理员强制把某玩家转成指定元素（别名 强转） | `/element forceswitch Steve 雷` |
+| `/element reset <玩家> [item]` | 清等级/经验/元素/冷却/领卡记录；加 item 连法杖与技能卡一起收（别名 clear、wipe、清档） | `/element reset Steve item` |
+| `/element reload` | 重载配置与界面文案，不用重启 | `/element reload` |
+| `/element debug` | 自检面板：事件数、认成法杖数、放出去数、最近一次（必须游戏内跑） | `/element debug` |
+| `/element shield [数值]` | 手动测试元素护盾吸收，数值=护盾点数 | `/element shield 20` |
+| `/xmbe next <1-5>` | 强制下一只刷出的 BOSS 带 N 种元素 | `/xmbe next 3` |
+| `/xmbe next off` | 取消强制，恢复按权重抽 | `/xmbe next off` |
+| `/xmbe info` | 查看元素数量权重与当前强制值 | `/xmbe info` |
 
 ## 注意事项
 
 ::: warning
-- 本插件为星冕自研，具体参数与子指令以游戏内 help 为准，本页只保证 /element help 与 /xmbe 三条用法存在
-- xmbe 的 next 设定是「下一只」生效的临时调试开关，忘了关会让线上元素 BOSS 数量异常，收尾一定执行 /xmbe next off
-- xingmianelement.admin 默认只有 OP 有，给管理员配组权限时记得在 LuckPerms 里显式加上，别只给普通管理组
-- 元素等级与法杖技能的具体数值走配置文件，改完记得确认生效方式（重载还是重启），不要在 BOSS 战进行中乱改
+- 转职有冷却（默认 36 小时），玩家「转不了」先查冷却再查权限；强转 /element forceswitch 是管理员旁路。
+- level 只改元素等级，不动原版经验等级，两套等级体系别混。
+- reset 会先写 playerdata-backup.yml；控制台报「写备份失败」先修 plugins 目录写权限，否则清档没备份。
 :::
 
 ## 权限节点
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `xingmianelement.admin` | 元素之力管理权限 | op |
-
-## 相关插件
-
-[LuckPerms](/commands/core/luckperms.md)
+| `xingmianelement.admin` | 管理权限：exp / level / forceswitch / reset / reload / debug / xmbe | op |

@@ -1,0 +1,192 @@
+﻿public class io.lumine.mythic.bukkit.commands.ReloadCommand extends io.lumine.mythic.bukkit.utils.commands.Command<io.lumine.mythic.bukkit.MythicBukkit> {
+public io.lumine.mythic.bukkit.commands.ReloadCommand(io.lumine.mythic.bukkit.utils.commands.Command<io.lumine.mythic.bukkit.MythicBukkit>);
+public boolean onCommand(org.bukkit.command.CommandSender, java.lang.String[]);
+public java.util.List<java.lang.String> onTabComplete(org.bukkit.command.CommandSender, java.lang.String[]);
+public java.lang.String getPermissionNode();
+public boolean isConsoleFriendly();
+public java.lang.String getName();
+public java.lang.String[] getAliases();
+private void doReloadPart1(org.bukkit.command.CommandSender, boolean);
+private void doReloadPart2(org.bukkit.command.CommandSender, boolean);
+private long timeSinceStart();
+private static void lambda$doReloadPart2$2(io.lumine.mythic.core.mobs.ActiveMob);
+private void lambda$onCommand$1(org.bukkit.command.CommandSender, boolean);
+private void lambda$onCommand$0(org.bukkit.command.CommandSender, boolean);
+---- onCommand body ----
+onCommand(org.bukkit.command.CommandSender, java.lang.String[]);
+
+    Code:
+
+         0: aload_0
+
+         1: getfield      #22                 // Field reloading:Z
+
+         4: ifeq          15
+
+         7: aload_1
+
+         8: ldc           #42                 // String Plugin is already reloading...
+
+        10: invokestatic  #48                 // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendError:(Lorg/bukkit/command/CommandSender;Ljava/lang/String;)V
+
+        13: iconst_1
+
+        14: ireturn
+
+        15: iconst_0
+
+        16: istore_3
+
+        17: iconst_1
+
+        18: istore        4
+
+        20: aload_2
+
+        21: ifnull        78
+
+        24: aload_2
+
+        25: arraylength
+
+        26: ifle          78
+
+        29: aload_2
+
+        30: iconst_0
+
+        31: aaload
+
+        32: ldc           #50                 // String -
+
+        34: invokevirtual #56                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+
+        37: ifeq          78
+
+        40: aload_2
+
+        41: iconst_0
+
+        42: aaload
+
+        43: ldc           #58                 // String -a
+
+        45: invokevirtual #56                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+
+        48: ifeq          54
+
+        51: iconst_0
+
+        52: istore        4
+
+        54: aload_2
+
+        55: iconst_0
+
+        56: aaload
+
+        57: ldc           #60                 // String -p
+
+        59: invokevirtual #56                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+
+        62: ifeq          67
+
+        65: iconst_1
+
+        66: istore_3
+
+        67: aload_2
+
+        68: iconst_1
+
+        69: aload_2
+
+        70: arraylength
+
+        71: invokestatic  #66                 // Method java/util/Arrays.copyOfRange:([Ljava/lang/Object;II)[Ljava/lang/Object;
+
+        74: checkcast     #68                 // class "[Ljava/lang/String;"
+
+        77: astore_2
+
+        78: aload_0
+
+        79: getfield      #72                 // Field plugin:Lorg/bukkit/plugin/Plugin;
+
+        82: checkcast     #74                 // class io/lumine/mythic/bukkit/MythicBukkit
+
+        85: invokevirtual #78                 // Method io/lumine/mythic/bukkit/MythicBukkit.getConfiguration:()Lio/lumine/mythic/core/config/ConfigExecutor;
+
+        88: invokevirtual #84                 // Method io/lumine/mythic/core/config/ConfigExecutor.getAnnounceOpReload:()Ljava/lang/Boolean;
+
+        91: invokevirtual #90                 // Method java/lang/Boolean.booleanValue:()Z
+
+        94: ifeq          197
+
+        97: aload_1
+
+        98: invokeinterface #95,  1           // InterfaceMethod org/bukkit/command/CommandSender.isOp:()Z
+
+       103: ifne          121
+
+       106: aload_1
+
+       107: ldc           #97                 // String command.reload.started
+
+       109: ldc           #99                 // String Reloading plugin...
+
+       111: iconst_0
+
+       112: anewarray     #101                // class java/lang/Object
+
+       115: invokestatic  #107                // Method io/lumine/mythic/core/config/MythicLang.get:(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+       118: invokestatic  #110                // Method io/lumine/mythic/bukkit/commands/CommandHelper.sendSuccess:(Lorg/bukkit/command/CommandSender;Ljava/lang/String;)V
+
+       121: aload_0
+
+       122: getfield      #72                 // Field plugin:Lorg/bukkit/plugin/Plugin;
+
+       125: checkcast     #74                 // class io/lumine/mythic/bukkit/MythicBukkit
+
+       128: invokevirtual #114                // Method io/lumine/mythic/bukkit/MythicBukkit.getServer:()Lorg/bukkit/Server;
+
+       131: invokeinterface #120,  1          // InterfaceMethod org/bukkit/Server.getOnlinePlayers:()Ljava/util/Collection;
+
+       136: invokeinterface #126,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+
+       141: astore        5
+
+       143: aload         5
+
+       145: invokeinterface #131,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+
+       150: ifeq          194
+
+       153: aload         5
+
+       155: invokeinterface #135,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+
+       160: checkcast     #137                // class org/bukkit/entity/Player
+
+       163: astore        6
+
+       165: aload         6
+
+       167: invokeinterface #138,  1          // InterfaceMethod org/bukkit/entity/Player.isOp:()Z
+
+       172: ifeq          191
+
+       175: aload         6
+
+       177: ldc           #97                 // String command.reload.started
+
+       179: ldc           #99                 // String Reloading plugin...
+
+       181: iconst_0
+
+       182: anewarray     #101                // class java/lang/Object
+
+       185: invokestatic  #107                // Method io/lumine/mythic/core/config/MythicLang.get:(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+       188: invokestatic  #1

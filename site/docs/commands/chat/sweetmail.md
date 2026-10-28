@@ -7,66 +7,66 @@ createTime: 2026/10/24
 
 > 分类 💬 聊天与社交 · 版本 `1.1.12-unstable` · 指令 1 条 · api-version `1.13`
 
-::: tip 玩家之间离线寄信与寄物品的邮件系统
-SweetMail 给服务器加了一套游戏内邮箱：玩家可以给不在线的玩家写信、附带物品，收件人上线后开箱领取。它把「当面给不了的东西」变成异步投递，常用于玩家互助、活动奖励发放和服主补偿。邮资、图标、过期时间这些都靠权限节点控制，可以按组或个人放开。
+::: tip 站内邮件
+玩家之间发邮件、带附件与时限，支持草稿箱、收件箱、跨服新邮件提醒，管理员可向全体或指定人群群发。
 :::
 
-## 什么时候会用到它
+## 常用用法
 
-- 玩家想把自己挖的矿、做的装备送给当时不在线的朋友
-- 服主或管理员给某个玩家补发掉落损失、活动奖励，不想等对方上线
-- 开新服或做活动时，往全体玩家邮箱里塞新手礼包或公告信
-- 玩家之间约交易但时间对不上，先用邮件把东西寄过去留底
-
-## 上手流程
-
-1. 确认插件已加载，用 /sweetmail 或别名 /sm、/mail 打开邮件界面看能不能正常显示
-2. 检查权限组：默认组要有 sweetmail.icon.default、sweetmail.price.default 等基础节点，否则玩家没法选图标或寄信
-3. 自己先给一个小号寄一封带附件的测试信，确认收件方能正常打开并取走物品
-4. 按需调整过期时间相关的节点，避免邮件长期堆积或附件丢失投诉
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 给玩家发邮件带物品 | /sm send Steve 补偿 | 发出后附件就挂上，撤回要走草稿箱 |
+| 看自己收件箱 | /sm | 主指令直接开界面，附件要点领取才入包 |
+| 群发全服 | /sm send all 公告 | 需管理员权限，别在有活动时误发 |
+| 改完配置生效 | /sm admin reload | 改数据库相关配置要走 reload_database |
 
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |
 | --- | --- | --- | --- |
-| `/sweetmail` | 打开邮件界面，管理收发信件与附件<br>别名 `/sm`、`/mail` | `/sweetmail` | — |
+| `/sweetmail` | 邮件主指令：收发、草稿、群发与管理<br>别名 `/sm`、`/mail` | `/sm <send｜inbox｜outbox｜draft｜admin ...>` | — |
 
 ## 指令详解
 
-### `/sweetmail` — 打开邮件界面，管理收发信件与附件
+### `/sweetmail` — 邮件主指令：收发、草稿、群发与管理
 
-- **语法**：`/sweetmail`
+- **语法**：`/sm <send｜inbox｜outbox｜draft｜admin ...>`
 
 - **示例**：
 
 ```
-/sweetmail
 /sm
-/mail
 ```
 
 - **别名**：`/sm`、`/mail`
-- **备注**：别名 sm、mail 完全等价。多数操作在打开的图形界面里完成，不是靠敲参数；具体子指令与参数请以游戏内输入 /sweetmail 后看到的提示或 help 为准。
+- **备注**：别名 /sm、/mail；不带参数= 打开收件箱
+
+## 子指令速查
+
+| 子指令 | 功能 | 示例 |
+| --- | --- | --- |
+| `/sm send <玩家> [标题]` | 给玩家发邮件，附件在界面里添加 | `/sm send Steve 活动补偿` |
+| `/sm send all [标题]` | 向全服群发（需管理员） | `/sm send all 维护公告` |
+| `/sm inbox` | 打开收件箱（未读会标出） | `/sm inbox` |
+| `/sm outbox` | 打开发件箱，查看已发送记录 | `/sm outbox` |
+| `/sm draft` | 打开草稿箱，继续编辑未发出的邮件 | `/sm draft` |
+| `/sm admin reload` | 重载配置与界面文案 | `/sm admin reload` |
+| `/sm admin reload_database` | 重载数据库连接（改了库配置才用） | `/sm admin reload_database` |
 
 ## 注意事项
 
 ::: warning
-- 具体参数与子指令以游戏内 help 为准，本手册不臆测用法，装好后先自己点一遍界面确认流程
-- 附件物品一旦被取走或邮件过期，通常无法找回，重要物品建议让玩家先确认收件人身份
-- sweetmail.price.default 关系到寄信要不要花邮资，改动前先看清楚经济插件那边扣的是什么货币
-- sweetmail.outdate.default 与 sweetmail.draft.outdate.default 控制普通邮件和草稿的保留时长，调短前先公告，否则会有玩家抱怨信被清掉
+- 附件必须在收件人点「领取」后才进背包，玩家说「没收到东西」先让他看收件箱。
+- 邮件有过期时间（outdate），过期后附件退不回来，补偿类邮件要设长时限。
+- 识别方式是 UUID 还是玩家名由配置决定，**插件上线后不要改**，改了历史邮件会全部对不上号。
 :::
 
 ## 权限节点
 
 | 节点 | 说明 | 默认 |
 | --- | --- | --- |
-| `sweetmail.attachment.item` | — | True |
+| `sweetmail.attachment.item` | 可在邮件里附带物品（默认开启） | True |
 | `sweetmail.draft.outdate.default` | — | True |
-| `sweetmail.icon.default` | — | True |
-| `sweetmail.outdate.default` | — | True |
-| `sweetmail.price.default` | — | True |
-
-## 相关插件
-
-[Vault](/commands/core/vault.md)、[PlaceholderAPI](/commands/config/placeholderapi.md)
+| `sweetmail.icon.default` | 使用默认邮件图标 | True |
+| `sweetmail.outdate.default` | 使用默认过期时限 | True |
+| `sweetmail.price.default` | 使用默认邮费档位 | True |

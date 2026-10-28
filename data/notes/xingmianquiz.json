@@ -1,45 +1,22 @@
 {
-  "name": "XingmianQuiz",
-  "role": "定时自动百科答题，首个答对者得星点",
-  "summary": "这是星冕服自研的答题小游戏插件，服里每隔约 15 分钟自动出一道百科题，谁先在聊天里答对谁就拿到星点奖励。它负责出题、判题和发奖，星点本身通常由服内的点数或经济体系记账，因此常和星点相关的商店、兑换玩法一起用。插件本体只提供一个管理指令，日常运行基本不需要人工干预。",
-  "whatFor": [
-    "想给服务器加点轻量活动、让在线玩家有事可做时",
-    "开服初期人气不足，用答题这种零门槛玩法留住新玩家",
-    "作为星点奖励的一个来源，让玩家靠参与活动慢慢攒点数",
-    "需要临时手动触发一次答题、或答完想看看当前题目状态时"
-  ],
-  "flow": [
-    "确认插件已随服务端启动加载，检查默认的出题间隔与题库配置是否符合预期",
-    "让玩家知道玩法：题目会定时在聊天栏发出，直接在聊天框输入答案即可抢答",
-    "用管理指令手动开一题做测试，确认能正常出题、判题、发星点",
-    "根据测试结果调整配置后用重载指令生效，之后交给定时器自动跑"
-  ],
-  "commands": [
-    {
-      "cmd": "quiz",
-      "what": "答题插件的管理指令，用于重载、立即出题和查看状态",
-      "syntax": "/quiz 子命令（reload、now、info）",
-      "params": [
-        {
-          "name": "子命令",
-          "required": true,
-          "note": "reload 重载配置，now 立即出一道题，info 查看当前题目等信息"
-        }
-      ],
-      "examples": [
-        "/quiz info",
-        "/quiz now",
-        "/quiz reload"
-      ],
-      "notes": "需要 xingmian.quiz.admin 权限，默认仅 OP 拥有。改完配置文件后用 reload 生效，避免直接重启整服。"
-    }
-  ],
-  "subcommands": [],
-  "caution": [
-    "这是星冕服自研插件，具体参数与子指令以游戏内 help 为准，输错子命令时看提示而不是凭猜测",
-    "重载只影响配置读取，正在进行的题目状态可能被重置，开题前先确认没有玩家正在抢答",
-    "答题奖励的星点依赖服内点数体系，如果发不出奖励先查对应的点数插件是否正常",
-    "别把 xingmian.quiz.admin 随便给普通玩家，否则他们可以反复手动出题刷奖励"
-  ],
-  "related": []
+ "name": "XingmianQuiz",
+ "role": "定时全服答题",
+ "summary": "按固定间隔向全服广播一道百科题，第一个在聊天框答对的玩家拿星点；题库在 questions.yml，节奏、时限与奖励都在 config.yml。",
+ "quick": [
+  {"scene": "看当前题目与倒计时", "cmd": "/quiz info", "note": "含标准答案与距下一题秒数"},
+  {"scene": "手动换一题", "cmd": "/quiz now", "note": "公布本题答案并立刻换题，会打断节奏"},
+  {"scene": "改完题库生效", "cmd": "/quiz reload", "note": "回显题目总数，改 questions.yml 后必做"},
+  {"scene": "调奖励与时限", "cmd": "/quiz reload", "note": "改 config.yml 的 reward-points、answer-time-seconds"}
+ ],
+ "commands": [
+  {"cmd": "quiz", "what": "答题管理总入口，玩家侧只需在聊天框打出答案", "syntax": "/quiz <reload|now|info>", "examples": ["/quiz info"], "notes": "无别名；三条子指令都要 xingmian.quiz.admin（默认 OP）"},
+  {"cmd": "quiz info", "what": "查看当前题目、标准答案与距离下一题的倒计时", "examples": ["/quiz info"], "notes": "状态分答题中/已答对/已超时/暂无题目；空服时暂停出题，每 30 秒检查一次"},
+  {"cmd": "quiz now", "what": "公布当前题目的答案并立刻换下一题", "examples": ["/quiz now"], "notes": "会打断 30 分钟固定节奏，活动暖场用完记得对一下 /quiz info"},
+  {"cmd": "quiz reload", "what": "重新载入题库与配置", "examples": ["/quiz reload"], "notes": "回显「题库已重新载入，共 N 题」；改 config.yml 或 questions.yml 后都要执行"}
+ ],
+ "caution": [
+  "plugin.yml 里写的「每 15 分钟一道」是旧文案，真实节奏看 config.yml 的 interval-seconds，当前为 1800 秒（30 分钟）；答题情况不影响下一题时间，除非把 answer-then-wait-seconds 从 -1 改成具体秒数。",
+  "奖励走 Vault 经济的星点（reward-points 当前 50）；Vault 没就绪时会广播「经济系统不可用」且不扣不发，排查先看 Vault 是否正常启用。",
+  "答案比对由插件自动归一：忽略空格标点大小写，阿拉伯数字与中文数字、全角与半角、繁体与简体互通，所以 alts 只填「意思不同也正确」的写法；改完题库务必 /quiz reload，不重载等于没改。"
+ ]
 }

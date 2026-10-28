@@ -1,0 +1,65 @@
+# InvSaver  (InvSaver.jar)
+## 注册指令
+  /invSaver  usage=None desc='插件主命令' alias=None perm=None
+
+## 代码类
+  com.puddingkc.invsaver.commands.MainCommand
+  com.puddingkc.invsaver.commands.SubCommand
+  com.puddingkc.invsaver.commands.sub.ListCommand
+  com.puddingkc.invsaver.commands.sub.PreviewCommand
+  com.puddingkc.invsaver.commands.sub.ReloadCommand
+  com.puddingkc.invsaver.commands.sub.RestoreCommand
+  com.puddingkc.invsaver.commands.sub.SaveCommand
+
+## javap 字符串 token
+  args command invsaver list oncommand ontabcomplete preview reload restore s save sender
+
+## 文本资源里的帮助/用法行
+  · # 基础配置
+  · # 最大保留备份数量
+  · # 填写小于或等于 0 表示不限制
+  · # 备份时输出日志
+  · # 定时自动备份
+  · # 启用定时自动备份
+  · # 备份周期（分钟）
+  · # 自动备份事件
+  · # 玩家死亡
+  · # 玩家退出
+  · # 玩家传送
+  · # 服务器关闭
+  · description: 插件主命令
+
+## 常量池帮助/描述文本
+  · com/puddingkc/invsaver/commands/MainCommand
+  · com/puddingkc/invsaver/commands/sub/SaveCommand
+  · com/puddingkc/invsaver/commands/sub/RestoreCommand
+  · com/puddingkc/invsaver/commands/sub/PreviewCommand
+  · com/puddingkc/invsaver/commands/sub/ListCommand
+  · com/puddingkc/invsaver/commands/sub/ReloadCommand
+  · com/puddingkc/invsaver/InvSaver
+  · com/puddingkc/invsaver/commands/SubCommand
+  · 可用命令列表:
+  · com/puddingkc/invsaver/utils/MiscUtil
+  · 你没有执行此命令的权限。
+  · Ljava/util/Map<Ljava/lang/String;Lcom/puddingkc/invsaver/commands/SubCommand;>;
+  · Lcom/puddingkc/invsaver/commands/MainCommand;
+  · Lcom/puddingkc/invsaver/InvSaver;
+  · Lcom/puddingkc/invsaver/commands/SubCommand;
+  · 未知子命令: &f
+  · 正确指令: &f/invSaver list <玩家名>
+  · 指定的玩家不在线或不存在。
+  · 列出指定玩家的所有备份
+  · com/puddingkc/invsaver/utils/InventoryUtil
+  · Lcom/puddingkc/invsaver/commands/sub/ListCommand;
+  · 正确指令: &f/invSaver preview <玩家名> <备份名> [-e]
+  · 预览指定玩家的指定备份
+  · Lcom/puddingkc/invsaver/commands/sub/PreviewCommand;
+  · 配置文件重新加载成功。
+  · 重新加载配置文件
+  · Lcom/puddingkc/invsaver/commands/sub/ReloadCommand;
+  · 正确指令: &f/invSaver restore <玩家名> <备份名>
+  · 恢复指定玩家的背包备份
+  · Lcom/puddingkc/invsaver/commands/sub/RestoreCommand;
+  · 正确指令: &f/invSaver save <玩家名>
+  · 备份指定玩家的背包
+  · Lcom/puddingkc/invsaver/commands/sub/SaveCommand;

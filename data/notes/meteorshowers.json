@@ -1,52 +1,41 @@
 {
-  "name": "MeteorShowers",
-  "role": "生存向随机流星雨事件：预警、陨石坑、战利品",
-  "summary": "MeteorShowers 为生存服提供随机流星雨事件，触发时会有警告提示，陨石落地后留下陨石坑并散落战利品，形成风险与收益并存的资源机会。管理端只有一条主命令，用来开关自动触发、热重载配置和手动召唤一次事件，适合当作长期生存服的随机惊喜活动。该插件属小众/自研类，除命令里列出的动作外不要假设有更多能力。",
-  "whatFor": [
-    "给长期生存服增加随机可期的资源事件",
-    "在活动时段手动召唤流星雨制造话题",
-    "建造期或活动期临时关闭自动触发",
-    "改完配置后热重载生效，不必重启服务器"
-  ],
-  "flow": [
-    "确认插件已正常加载，用拥有 meteorshowers.admin 权限的账号做测试",
-    "查看配置文件中的触发间隔、陨石坑范围与战利品表，按服务器节奏调整",
-    "执行重载让改动生效，再手动召唤一次确认警告与陨石坑都正常",
-    "确认无误后才放开自动触发；有大型建造或活动时先临时关闭"
-  ],
-  "commands": [
+ "name": "MeteorShowers",
+ "role": "生存向随机流星雨事件：预",
+ "summary": "MeteorShowers 为生存服提供随机流星雨事件，触发时会有警告提示，陨石落地后留下陨石坑并散落战利品，形成风险与收益并存的资源机会。",
+ "quick": [
+  {
+   "scene": "开关自动流星雨",
+   "cmd": "/meteorshowers toggle",
+   "note": ""
+  }
+ ],
+ "commands": [
+  {
+   "cmd": "meteorshowers",
+   "what": "管理流星雨事件：开关自动触发、重载配置、手动召唤",
+   "syntax": "/meteorshowers toggle|reload|summon [player]",
+   "params": [
     {
-      "cmd": "meteorshowers",
-      "what": "管理流星雨事件：开关自动触发、重载配置、手动召唤",
-      "syntax": "/meteorshowers toggle|reload|summon [player]",
-      "params": [
-        {
-          "name": "toggle|reload|summon",
-          "required": true,
-          "note": "必填动作：toggle 切换事件开关，reload 重新加载配置，summon 立刻召唤一次流星雨"
-        },
-        {
-          "name": "player",
-          "required": false,
-          "note": "可选参数，通常用于指定这次召唤所针对的玩家；留空时按插件默认规则处理"
-        }
-      ],
-      "examples": [
-        "/meteorshowers toggle",
-        "/meteorshowers reload",
-        "/meteorshowers summon"
-      ],
-      "notes": "别名 /ms 与 /meteor；需要 meteorshowers.admin 权限（默认仅 OP）。三个动作的细节行为与是否接受更多参数，以游戏内 help 为准。"
+     "name": "toggle|reload|summon",
+     "required": true,
+     "note": "必填动作：toggle 切换事件开关，reload 重新加载配置，summon 立刻召唤一次流星雨"
+    },
+    {
+     "name": "player",
+     "required": false,
+     "note": "可选参数，通常用于指定这次召唤所针对的玩家；留空时按插件默认规则处理"
     }
-  ],
-  "subcommands": [],
-  "caution": [
-    "本插件属小众/自研类，toggle、reload、summon 之外是否还有别的参数或用法，具体参数以游戏内 help 为准。",
-    "陨石坑会真实破坏地形，开自动触发前务必确认已有 CoreProtect 之类的回滚手段。",
-    "手动 summon 在人多时可能砸到玩家或建筑，建议先广播提醒并自行挑好位置。",
-    "重载配置不一定重置正在进行的倒计时，改完建议观察一轮日志再放自动触发。"
-  ],
-  "related": [
-    "CoreProtect"
-  ]
+   ],
+   "examples": [
+    "/meteorshowers toggle",
+    "/meteorshowers reload"
+   ],
+   "notes": "别名 /ms 与 /meteor；需要 meteorshowers.admin 权限（默认仅 OP）。三个动作的细节行为与是否接受更多参数，以游戏内 help …"
+  }
+ ],
+ "caution": [
+  "本插件属小众/自研类，toggle、reload、summon 之外是否还有别的参数或用法，具体参数以游戏内 help 为准。",
+  "陨石坑会真实破坏地形，开自动触发前务必确认已有 CoreProtect 之类的回滚手段。",
+  "手动 summon 在人多时可能砸到玩家或建筑，建议先广播提醒并自行挑好位置。"
+ ]
 }

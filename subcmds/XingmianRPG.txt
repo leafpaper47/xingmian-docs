@@ -1,0 +1,678 @@
+# XingmianRPG  (XingmianRPG-1.1.53.jar)
+## 注册指令
+  /rpg  usage='/rpg - 打开菜单\n/rpg enter - 立即进入\n/rpg leave - 离开 RPG 世界\n/rpg info - 查看今日次数\n/rpg dmg - 查看身边那只 boss 的实时伤害排行（boss 死时会自动播报一次战报）\n/rpg ticket - 星之秘钥说明（价格 / 用法）\n/rpg ticket buy [数量] - 花星点购买星之秘钥（一次性进入道具，不占每日次数）\n---- 以下需要管理权限 ----\n/rpg create <名称> [触发半径] - 建空刷怪点\n/rpg create <新名称> copy <源点位> - 复制一个点位（怪物+配置照搬，位置用你站的地方）\n/rpg copy <新名称> <源点位> [触发半径] - 同上\n/rpg mob add <名称> <怪物ID> [每种几只] - 往点位里加怪（加几种就同时出现几种）\n/rpg mob list|remove <名称> [怪物ID]\n/rpg sp list|ids|tp|on|off|test|set|remove\n' desc='打开 RPG 世界菜单 / 进入 / 离开 / 查看状态（管理员还有刷怪点短命令）' alias=['rpgmenu', 'rpgw'] perm=None
+  /rpgadmin  usage='/rpgadmin reload - 重载配置\n/rpgadmin info [玩家] - 查看进入记录\n/rpgadmin reset <玩家> - 重置今日次数\n/rpgadmin set <玩家> <已用次数> - 直接设置今日已用次数\n/rpgadmin return - 以当前位置设置返回点\n/rpgadmin entry - 以当前位置设置 RPG 进入落点\n/rpgadmin tp [玩家] - 传送到 RPG 世界（不扣次数）\n/rpgadmin killmobs [点位] - 清除本插件刷出的怪\n/rpgadmin ticket give <玩家> [数量] - 发放星之秘钥（一次性进入道具）\n/rpgadmin sp create <名称> [触发半径] - 以当前位置建一个空刷怪点\n/rpgadmin sp create <新名称> copy <源点位> - 复制点位：怪物与配置照搬，位置用当前位置\n/rpgadmin sp copy <新名称> <源点位> [触发半径] - 同上\n/rpgadmin sp add <名称> [触发半径] - 同 sp create（老写法也支持 sp add <名称> <怪物ID>）\n/rpgadmin sp mob add <名称> <怪物ID>[:等级] [每种几只] - 往点位里加怪\n/rpgadmin sp mob <remove|list|clear> <名称> [怪物ID]\n/rpgadmin sp remove|list|tp|on|off|test|set|ids <名称>\n/rpgadmin sp cdreset <all|名称> - 刷新补刷冷却（立刻可再刷，不动场上的怪）\n/rpgadmin drop add <怪物ID> - 给这只怪建掉落规则（mode direct 直接给击杀者）\n/rpgadmin drop set <怪物ID> mode roll - 改成摇点分配（大型 boss）\n/rpgadmin drop set <怪物ID> pick chance|weight - 逐条独立概率 / 按权重抽件\n/rpgadmin drop item add <怪物ID> <条目名> <CE物品ID> [概率或权重] [最少] [最多]\n/rpgadmin drop cmd add <怪物ID> <条目名> [概率或权重] [最少] [最多] <命令模板>\n/rpgadmin drop entry <list|remove|set> <怪物ID> ...\n/rpgadmin drop guarantee <怪物ID> <条目id|none> - roll 摇点保底（每次必出，不占件数）\n/rpgadmin drop list | test <怪物ID>\n/rpgadmin drop ... - 与 roll 完全等价（旧名字，保留兼容）\n' desc='RPG 世界管理命令' alias=['rgpa', 'rpgadm', 'xingmianrpg'] perm='xingmianrpg.admin'
+  /roll  usage='/roll - 打开摇点界面（奖励列表 / 摇点 / 放弃摇点）\n' desc='打开 boss 掉落摇点界面（大型 boss 掉落归点数最高者）' alias=['yaodian', 'rollpoint', 'yd'] perm=None
+  /stamina  usage='/stamina - 看自己的体力\n/stamina <玩家> - 看指定玩家的体力\n/stamina add|give <玩家> <数值> - 加体力（负数即扣）\n/stamina take <玩家> <数值> - 扣体力\n/stamina set <玩家> <数值> - 设为指定值（0 ~ 每日满值）\n/stamina reset <玩家> - 重置为满值\n---- 均可由控制台执行，玩家可离线 ----\n' desc='查看 / 增减星陨之地的体力（每天 100 点，boss -30，小怪 -0.1，0 点刷新）' alias=None perm=None
+  /zjbuyer  usage='/zjbuyer - 打开收购清单\n/zjbuyer info [玩家] - 聊天里列今日清单\n/zjbuyer submit [玩家] - 直接提交今日材料\n/zjbuyer open [玩家] - 为指定玩家打开收购界面\n/zjbuyer reload - 重载 zijing.yml\n' desc='紫荆的怪物材料收购（每天 5 种，每样交 1 个换星点，每人每天一次）' alias=['zjb'] perm=None
+
+## 代码类
+  cn.xingmian.rpg.CmdRoll
+  cn.xingmian.rpg.CmdRpg
+  cn.xingmian.rpg.CmdRpgAdmin$MobSpec
+  cn.xingmian.rpg.CmdRpgAdmin
+  cn.xingmian.rpg.CmdStamina
+  cn.xingmian.rpg.CmdZijing
+
+## javap 字符串 token
+  add admin-entry-set admin-player-notfound admin-reset admin-return-set admin-set admin-tp admin-usage all b baodi buy cdreset chance clear clone cmd copy count create damage del delete despawn detail direct display dmg dps drop drop-added drop-entry-added drop-entry-removed drop-list-head drop-not-found drop-removed drop-rules-none drop-test drop-test-none drop-toggled drops-max drops-min enabled enter enter-fail-refund entry exit fallback-to-killer false from give guarantee gui height help here ids info interval item join key killmobs leave level list loc max max-amount max-points menu min min-amount min-players mob mobs mode n name new no-permission none off on open piao pick player player-only preset quit radius reload reloaded remove require-damage reset resetcd return roll set sp sp-cleared sp-list-head sp-none sp-not-found sp-removed sp-test sp-toggled spawn-radius spawnpoint state status submit take test ticket ticket-given timeout tp true type value weight world-not-loaded y
+
+## 文本资源里的帮助/用法行
+  · #  星陨之地  RPG 世界功能插件  config.yml
+  · #  改完执行 /rpgadmin reload 即时生效（世界名、返回点这类改动建议整服重启）
+  · # RPG 世界名（Multiverse 里注册为 minecraft:rpg，Bukkit 侧世界名是 rpg）
+  · # 带不带命名空间前缀都能识别，大小写不敏感
+  · # 返回点：离开 RPG / 在 RPG 死亡 / 隔天在 RPG 上线，都会被送到这里
+  · # 用游戏里站好位置敲 /rpgadmin return 自动写入，不用手改
+  · # ⚠️ 必须站在主世界里敲，站在 RPG 世界里敲会被拒绝（否则返回点会指向 RPG 世界）
+  · # 进入 RPG 世界的落点。set=false 时用该世界自己的出生点
+  · # 站好位置敲 /rpgadmin entry 自动写入
+  · # 启动/重载时自动把 RPG 世界的 keepInventory 设为 true（死亡不掉落）
+  · # 顺手关掉该世界的原版自然刷怪（MM 直接生成实体不受此影响）
+  · # 进入时强制冒险模式；离开时先还原「进入前记录的模式」，没有记录就用 exit-gamemode
+  · # 注意：leave 事件、死亡返回、上线兜底、被别的插件带出世界 —— 四条出口都会还原
+  · # 永远不会还原成 ADVENTURE（那是世界内强制的），避免卡在冒险模式里出不来
+  · # 兜底模式：正常玩家就是 SURVIVAL
+  · # RPG 世界内禁止玩家互相伤害（对所有人生效，管理员也不放过）
+  · # ===== 管理员放行 =====
+  · # true = 服务器 OP 直接无视下面这些限制：进出 RPG 的传送封锁、RPG 世界内的命令拦截、
+  · #        鞘翅（烟花/滑翔）限制，以及「会话不合法就送回去」的在场校验。
+  · # 持有 xingmianrpg.bypass 权限的人同样放行（与 OP 互相独立）。
+  · # 不影响：每日次数与收费（走 /rpgadmin tp 不扣次数）、死亡送回、PVP 关闭。
+  · # ===== 传送总闸 =====
+  · # true = RPG 世界内/进出 RPG 的传送一律拦截，只能走 /rpg 菜单
+  · # 拦截是「白名单式」的：命令、末影珍珠、紫颂果、传送门、其它插件的 TP 全部拦
+  · # 额外拦掉这些命令（防止在 RPG 世界里设家/设传送点）
+  · # 会同时匹配带命名空间的写法（如 huskhomes:sethome）
+  · # ===== 鞘翅 =====
+  · # true = RPG 世界内禁用烟花火箭（鞘翅只能滑翔，不能加速）
+  · # true = RPG 世界内彻底禁止鞘翅滑翔（含「连点空格卡出来的飞行姿态」）
+  · #   实现：事件取消 + 每 tick 持续压制客户端滑翔姿态，不是只拦一次
+  · # true = 开启「滑翔压制巡检」（每 tick 扫一遍 RPG 世界，把还在滑翔的玩家压回去）
+  · #   关掉的话只剩「事件取消」，滑着跨世界进来 / 别的插件强制滑翔这两种情况就拦不住了
+  · # true = 压掉滑翔时顺手清零摔落距离
+  · #   否则「滑到一半被收」的玩家会直接摔死在高空（那是插件害的，不是他自己跳的）
+  · # true = 烟花爆炸也不再造成伤害
+  · #  进入次数与收费
+  · # 每天最多进入次数
+  · # 当日第 1/2/3 次进入的价格（星点，Vault 经济）
+  · # 0 = 免费；条目可以少写，超出的次数按最后一条算
+  · # 几点重置（0 = 每天 0 点）。填 4 表示凌晨 4 点重置
+  · # 两次「进入」操作的最小间隔（秒），防止菜单连点
+  · # 计次时机固定为「进入那一刻」：进入时计一次，死亡、离开、原地待着都不再重复计。
+  · # 所以死亡后复活、跨夜不下线一直待着，都不会多扣次数。
+  · # 在 RPG 世界下线，隔天上线 → 送回返回点，且不计次数
+  · # 同一天内下线再上线 → 保留原位置，不额外扣次数
+  · # 在 RPG 世界死亡 → 送回返回点（true）；false = 原地复活
+  · #  星之秘钥（可购买的一次性进入道具）
+  · #  一句话：花星点买一把钥匙，右键消耗掉它就能进星陨之地，**不占用每日次数**。
+  · #  所以它是「每天 3 次用完之后」的付费通道，也是活动发福利的现成道具。
+  · #  玩家侧：/rpg ticket            看说明和价格
+  · #          /rpg ticket buy [数量] 购买（单次最多 max-buy 张）
+  · #  管理侧：/rpgadmin ticket give <玩家> [数量]
+  · #  物品形态走 CraftEngine（xingmian:star_key，资源包里有贴图）。
+  · #  CE 没就绪时自动退成本插件自造的纸片票，一样能用。
+  · # 单张价格（星点 / Vault 经济）。0 = 免费领
+  · # 单次最多买几张
+  · # 每日次数用完之后还能不能用票进场（true 才是「钥匙」的意义，别关）
+  · # ---- 物品形态 ----
+  · # CraftEngine 物品 id：发给玩家的就是这张带贴图的
+  · # 发放命令模板。{player} 玩家名  {item} 物品id  {amount} 数量
+  · # ===== 下面这些只影响「CE 不可用时的兜底纸片票」=====
+  · # 兜底票的 PDC 标签值，别和别的东西撞
+  · name: "&6&l星之秘钥"
+  · - "&7蕴含星辉的古老秘钥，传闻能开启通往星陨之地的秘门。"
+  · - "&e▶ 右键使用，消耗 1 把"
+  · - "&b使用后直接进入星陨之地，不占用每日进入次数"
+  · - "&8一次性道具，无法退还"
+  · #  月之石（RPG 世界里的不死图腾替代品）
+  · #  两件事一起做，都由本段控制：
+  · #    · block-vanilla-totem: RPG 世界里禁用原版不死图腾（不生效、也不消耗）
+  · #    · 月之石本身：带在身上（背包 / 主手 / 副手都可）即可，受到致命伤害时
+  · #      自动消耗 1 颗抵挡那一次伤害，并复刻原版图腾的一整套效果
+  · #      （清负面 / 生命恢复 II 回血 / 吸收 II 黄心 / 抗性 I）。
+  · #  「真的会死」的判定与原版引擎完全一致：拿事件最终的 getFinalDamage()
+  · #  （已含护甲 / 抗性 / 附魔 / 吸收盾等全部修正）与当前血量 getHealth() 比较，
+  · #  这正是原版 actuallyHurt() 扣血用的同一个值 —— 所以不会把打不死的一击误判成致命。
+  · #  监听必须是 HIGHEST 优先级，才能排在其它改伤害的插件之后读到最终值。
+  · #  物品本体由 CraftEngine 定义（贴图 / 名字 / 描述都在 CE 那边），
+  · #  这里只留物品 id 供插件识别 —— 两边必须写一致，否则插件认不出玩家手里的月之石。
+  · # 总开关。false = 既不拦图腾、月之石也只当普通物品
+  · # true = RPG 世界内不让原版不死图腾生效
+  · # 图腾被拦下时提示玩家一句（免得他以为是 bug）
+  · # 提前提醒：带着图腾进 RPG 世界 / 在 RPG 里手持图腾时提示一句
+  · # （上面那条是「图腾触发被拦下」的事后提示，这条是「还没用掉」的事前预警）
+  · # 同一玩家 30 秒内最多提示一次，防止刷屏
+  · # CraftEngine 物品 id（要和 CE 那边的定义一字不差）
+  · # 本插件自造兜底形态的 PDC 标签值（CE 不可用时用）
+  · #  刷怪点（玩家进入触发半径才出现，离开就清掉，再次靠近重新刷）
+  · #  【两步走】先建点，再往里加怪：
+  · #     1. 站到想刷怪的位置 → /rpg create <点名> [触发半径]
+  · #        例：/rpg create K1 128
+  · #     2. 往里加怪 → /rpg mob add <点名> <怪物ID> [每种几只]
+  · #        例：/rpg mob add K1 skeleton_melee
+  · #  【加几种就同时出现几种】—— 数量 = 你加的怪物种类的只数之和：
+  · #     · 加 4 种（各 1 只）→ 这个点同时出现 4 只，四种都有
+  · #     · 只加 1 种         → 只有那一种，1 只
+  · #     · 想让某一种多来两只 → 末尾加数字：/rpg mob add K1 skeleton_archer 2
+  · #  不确定怪物 ID 写什么 → /rpg sp ids 会列出全部。
+  · # 扫描间隔（tick）。20 = 1 秒
+  · # 默认触发半径（格）：玩家进入这个范围才刷怪，离开这个范围怪会被清掉
+  · # 默认生成散布半径（格）：怪在点位周围多大范围内冒出来（X / Z 各 ±N 格）
+  · # 兜底下限：想比「种类数」刷更多时才用（多出来的名额按顺序轮流补）
+  · # 正常不用改 —— 默认数量就是「每种各几只」的和
+  · # 同时存在的上限。0 = 自动（= 每种只数之和）；写正数才会封顶
+  · # 新建刷怪点的默认怪物等级（MM 的等级，影响血量/伤害缩放）
+  · # 每轮最多补刷几只（空场时除外，空场会把整套一次铺满，玩家一进圈就全看到）
+  · # 默认补刷间隔（秒）：一批怪被打光/清光之后，要等这么久才会补下一批。
+  · # 这期间玩家在触发半径里反复进出也**不会**刷新（防止在圈边来回蹭无限刷怪）。
+  · # 300 = 5 分钟。想快速验证效果可以 /rpg sp set <点名> interval 10
+  · # 超过「触发半径 + 这个值」的怪直接清掉，防止拉到大世界里去
+  · # MythicMobs 刷怪方式：auto（先试 API 再退回命令） / api / command
+  · # command 模式用的命令模板，占位符：
+  · #   {mob} 怪物ID   {mobLevel} 带等级的ID   {amount} 数量
+  · #   {x} {y} {z} {world} 坐标与世界名
+  · # 本插件刷出的怪身上的计分板标签前缀，别和别的东西撞
+  · #  掉落规则（本插件接管自定义怪掉落的唯一出口）
+  · #  「这只怪的掉落归谁管」就是「有没有给它建规则」：
+  · #     · 建了规则的怪 → 死时由本插件抽掉落并发放（原版掉落会被清掉）
+  · #     · 没建规则的怪 → 本插件完全不管，交给原版 / MythicMobs 自己的掉落
+  · #  一条规则有两个开关：
+  · #     mode: direct —— 抽到什么直接给击杀者（普通怪，默认）
+  · #     mode: roll   —— 发起摇点，点数最高者得（大型 boss）
+  · #     pick: chance —— 每条按自己的概率独立判定，能一次爆多件（默认）
+  · #     pick: weight —— 按权重抽 drops-min ~ drops-max 件
+  · #  规则和预设都写在 plugins/XingmianRPG/drops.yml 里，也能用命令改：
+  · #    /rpgadmin drop add skeleton_melee
+  · #    /rpgadmin drop item add skeleton_melee tooth default:monster_tooth 1
+  · #    /rpgadmin drop set rock_dragon mode roll
+  · #    /rpgadmin drop test skeleton_melee                    就地模拟一次
+  · # 总开关。false = 本插件不碰任何掉落
+  · # true = 只在 RPG 世界里判定；false = 全服任何世界都生效
+  · # true = 被接管的怪，原版掉落清掉（免得和规则里的掉落混在一起）
+  · # true = 掉落发到背包时，聊天里报一句「你获得了 X」
+  · # 新建规则时的默认值
+  · # 默认「范围内的人都能摇」；改 true = 只有打过这只怪的人能摇
+  · # 一个人都没摇时，是否把东西直接给击杀者
+  · # 掉落条目 type=item 时实际执行的命令。占位符：
+  · #   {player} 玩家名   {item} 物品ID   {amount} 数量
+  · # 注意：CraftEngine 自定义物品必须用 /ce item give 发，原版 /give 只会给到底层材质
+  · # ===== 经验（实体经验球）=====
+  · # 被本插件接管的怪，死时掉多少经验。掉的是**实体经验球** —— 落在地上、谁都能捡，
+  · # 走的是原版那条通道，所以聊天框里一个字都不会提示，手感和原版打怪一样。
+  · # （以前那种「额外经验」被做成掉落条目用 experience add 发，会刷「你获得了…」，已去掉）
+  · # 总开关。false = 不碰经验（受管怪的原版经验会被清成 0，等同旧行为）
+  · # 倍数区间：原版同种怪的经验 × [min, max] 之间的随机整数。默认 3~5 倍
+  · # 原版经验读成 0 时的兜底基数（正常怪都读得出来，这一步只是保险）
+  · # 名单里的怪，**每一次**被玩家击杀都给下面的固定值（12000 = 原版末影龙的
+  · # 掉落经验），不乘倍数、也不走摇点。杀几次给几次，没有「只给第一次」这回事，
+  · # 所以不需要任何落盘记录（旧版的 first-kills 段已废弃）。
+  · # 名单为空 = 没有 boss，所有怪都按上面的 3~5 倍走。
+  · # 名单与掉落侧 presets.boss 的那两只保持一致。
+  · - "rock_dragon"      # 磐岩龙王 8000 血
+  · - "blazewarden"      # 炽焰狱守 3000 血（玩家口中的「熔岩领主」）
+  · # ===== boss 脱战回血（1.0.12）=====
+  · # 上面 boss-mobs 名单里的怪，掉过血之后一旦「没有仇恨」持续这么久，就直接回满血。
+  · # 防「boss 被打到残血后脱战晾着，下一个人来捡残血 boss」。
+  · # 「没有仇恨」= 身上没有攻击目标，且最近也没有被玩家打到过；
+  · # 玩家重新打它 / 它重新锁定目标 → 计时清零重新数。
+  · # 回血不在聊天里提示，只在服务器后台记一行日志。
+  · # ===== roll boss 多人组队加成（1.1.1）=====
+  · # 掉落规则是 roll 的 boss（大型 boss），刷出来那一刻按「触发半径内的玩家数」加成：
+  · #   - 人数超过 base-players（不含）后，每多 1 个人：boss 血量 +percent-per-player%，
+  · #     boss 造成的伤害（近战 + MM 技能）同比例放大 —— 2 人不加成，3 人 +10%，4 人 +20%……
+  · #   - 死后摇点时，合格参与的每个人额外多掉 1 件：6 个人打、原本 6 件 → 出 12 件。
+  · # 加成倍率打在 boss 身上（rpgraid: 标签），动态掉落缩放会自动把它剔除，不会双重放大。
+  · # 中途来人不会改变已经刷出来的 boss —— 按刷出来那一刻圈里的人数定档。
+  · # 追加件数封顶（人数 = 追加件数，1 人 1 件），防止人多时刷爆摇点池
+  · #  提示文本（支持 & 颜色代码）
+  · prefix: "&8[&b星陨之地&8] &r"
+  · no-permission: "&c你没有权限执行这个命令。"
+  · player-only: "&c这个命令只能玩家执行。"
+  · reloaded: "&a配置已重载。"
+  · world-not-loaded: "&cRPG 世界没有加载，请联系管理员。"
+  · # ---- 进入相关 ----
+  · enter-success: "&a你进入了 RPG 世界。&7今日剩余次数：&e{remain}&7/{limit}"
+  · enter-free: "&a你进入了 RPG 世界。&7本次免费，今日剩余：&e{remain}&7/{limit}"
+  · enter-paid: "&a你进入了 RPG 世界。&7本次花费 &e{price} 星点&7，今日剩余：&e{remain}&7/{limit}"
+  · enter-already: "&e你已经在一个 RPG 世界里了。"
+  · enter-busy: "&e正在处理，请勿重复点击。"
+  · enter-cooldown: "&e操作太快了，请 {sec} 秒后再试。"
+  · enter-limited: "&c今天的 {limit} 次机会已用完，每天 {hour} 点重置。"
+  · enter-no-money: "&c星点不足：第 {n} 次进入需要 &e{price} &c星点，你只有 &e{bal}&c。"
+  · enter-no-economy: "&c经济系统不可用，无法收费，请联系管理员。"
+  · enter-fail-refund: "&c传送失败，本次次数与费用已退回。"
+  · enter-no-permission: "&c你没有进入 RPG 世界的权限。"
+  · # ---- 星之秘钥 ----
+  · ticket-disabled: "&e星之秘钥暂时停用。"
+  · ticket-bought: "&a你买到了 &e{n} &a把星之秘钥，共花费 &e{total}&a。右键使用即可进入。"
+  · ticket-bought-free: "&a你获得了 &e{n} &a把星之秘钥。右键使用即可进入。"
+  · ticket-no-money: "&c星点不足：&e{n} &c把秘钥需要 &e{total} &c星点，你只有 &e{bal}&c。"
+  · ticket-max: "&e单次最多买 &e{max} &e张，多的就下次再买吧。"
+  · ticket-buy-fail: "&c购买失败，星点已退回。请联系管理员。"
+  · ticket-entered: "&a秘钥化作一道星光，你进入了星陨之地。&7（本次不消耗每日次数，今日剩余 &e{remain}&7/&e{limit}&7）"
+  · ticket-refund: "&c这次没能进入星陨之地，秘钥已还给你。"
+  · ticket-given: "&a已把 &e{n} &a把星之秘钥发给 &e{player}&a。"
+  · # ---- 离开 / 返回 ----
+  · leave-success: "&a你已离开 RPG 世界。&7今天的次数明天 {hour} 点重置。"
+  · leave-not-in: "&c你不在 RPG 世界里。"
+  · leave-fail: "&c离开失败，请稍后再试。"
+  · return-stale: "&e你在 RPG 世界里下线了，已把你送回主世界。&7（这次不计次数）"
+  · return-late: "&e已经过了重置时间，已把你送回主世界。&7（这次不计次数）"
+  · death-return: "&e你在 RPG 世界里倒下了，已把你送回主城。&7今天剩余次数：&e{remain}"
+  · # ---- 传送封锁 ----
+  · teleport-denied-in: "&cRPG 世界只能通过 &e/rpg &c菜单进入。"
+  · teleport-denied-out: "&cRPG 世界内禁止传送，请用 &e/rpg leave &c离开。"
+  · teleport-denied-self: "&c你被拉回了：RPG 世界的传送由插件统一管理。"
+  · command-denied: "&cRPG 世界内不允许使用 &e/{cmd} &c。"
+  · # ---- 鞘翅 ----
+  · elytra-boost-denied: "&cRPG 世界内禁止使用烟花火箭，鞘翅只能滑翔。"
+  · elytra-glide-denied: "&cRPG 世界内禁止使用鞘翅。"
+  · pvp-denied: "&cRPG 世界内禁止 PVP。"
+  · # ---- 月之石 / 不死图腾 ----
+  · totem-blocked: "&c星陨之地压制了不死图腾的力量，它没有生效。"
+  · moon-stone-used: "&b月之石迸出一道清辉，替你挡下了这一次致命伤害。"
+  · # 提前预警（带图腾进来 / 手上拿着图腾时）
+  · totem-warn-carry: "&e&l⚠ &r&e星陨之地无法使用不死图腾 &7· &f它在这里不会生效，也不会被消耗。&7带上 &d月之石 &7吧。"
+  · totem-warn-held: "&e&l⚠ &r&e星陨之地无法使用不死图腾 &7· &f你手上这把在这里没有用。&7试试 &d月之石&7。"
+  · # ---- 管理命令 ----
+  · sp-added: "&a刷怪点 &e{name} &a已创建：&7怪物 &e{mob}&7，触发半径 &e{radius}&7 格，数量 &e{min}~{max}&7。"
+  · sp-removed: "&a刷怪点 &e{name} &a已删除。"
+  · sp-not-found: "&c找不到刷怪点 &e{name}&c。"
+  · sp-none: "&e还没有任何刷怪点。先站到位置敲 &e/rpgadmin sp add <名称> <mobId>&e。"
+  · sp-list-head: "&b刷怪点列表（{count} 个）："
+  · sp-toggled: "&a刷怪点 &e{name} &a已{state}。"
+  · sp-test: "&a已在 &e{name} &a触发一次生成。"
+  · sp-cleared: "&a已清除 &e{count} &a只本插件刷出的怪。"
+  · admin-tp: "&a已把 &e{player} &a送到 RPG 世界（未扣次数）。"
+  · admin-reset: "&a已重置 &e{player} &a的今日次数。"
+  · admin-set: "&a已把 &e{player} &a的今日已用次数设为 &e{n}&a。"
+  · admin-info-self: "&7今日已进入 &e{used}&7/&e{limit}&7，状态：&e{state}&7，日期键：&e{date}"
+  · admin-return-set: "&a返回点已设为当前位置：&7{loc}"
+  · admin-entry-set: "&aRPG 进入落点已设为当前位置：&7{loc}"
+  · admin-player-notfound: "&c找不到玩家 &e{name}&c。"
+  · admin-usage: "&e用法：&7/rpgadmin <reload|info|reset|set|return|entry|tp|killmobs|sp|drop>"
+  · # ---- 掉落 ----
+  · # 开摇时的头部（下面会跟着每件物品一行 + 一个可点按钮）—— 只有 mode: roll 的规则会发
+  · drop-start: "&6&l【{mob}】&r &f掉落了 &e{count} &f件物品，&e{sec} &f秒后结算："
+  · # 聊天里的按钮文字与悬停提示
+  · drop-button: "&a&l[ 点我摇点 ]"
+  · drop-button-hover: "&7点击参与，点数最高者获得"
+  · # 玩家摇到点之后
+  · drop-joined: "&7你为 &f{item} &7摇了 &e{points} &7点。"
+  · # 玩家敲 /roll 但当前没有他能摇的东西
+  · drop-none: "&e现在没有你可以摇的掉落。"
+  · # 结算：正常摇出结果
+  · drop-result: "&a{item} &fx{amount} &a归 &e{winner} &a（&f{points}&a 点，{players} 人参与）"
+  · # 结算：没人摇 / 摇中的人掉线，东西给了击杀者
+  · drop-nobody-killer: "&e{item} &fx{amount} &7没人摇，已直接归击杀者 &e{winner}&7。"
+  · # 结算：没人摇而击杀者也不在，东西作废
+  · drop-nobody-discard: "&e{item} &fx{amount} &7没人摇点，已作废。"
+  · # 在场人数不够门槛
+  · drop-too-few: "&e在场不足 &f{min} &e人，本次不摇点，掉落直接归你。"
+  · # 1.0.12：打过但伤害占比没过门槛（门槛 = 50% ÷ 打过的人数）
+  · # {share} 你的伤害占比   {need} 本次需要的占比
+  · drop-share-denied: "&c本次摇点需要 &e{need} &c伤害占比，你只有 &e{share}&c，这次没有资格。"
+  · # 东西到手（direct 模式的每次掉落、roll 模式发给击杀者的保底件，都用这条）
+  · drop-got: "&a你获得了 &e{item} &ax{amount}&a。"
+  · # ---- 掉落：管理命令 ----
+  · drop-added: "&a已给 &e{mob} &a建好掉落规则（{detail}）。"
+  · drop-removed: "&a已删除 &e{mob} &a的掉落规则。"
+  · drop-not-found: "&c找不到掉落规则 &e{mob}&c。先 &7/rpgadmin drop add {mob}&c。"
+  · drop-list-head: "&b掉落规则（{count} 条）："
+  · drop-rules-none: "&e还没有任何掉落规则。给某只怪建规则用 &e/rpgadmin drop add <怪物ID>&e。"
+  · drop-toggled: "&a掉落规则 &e{mob} &a已{state}。"
+  · drop-entry-added: "&a已给 &e{mob} &a加掉落 &f{entry}&a（{detail}）。"
+  · drop-entry-removed: "&a已从 &e{mob} &a移除掉落 &f{entry}&a。"
+  · drop-test: "&a已在当前位置模拟一次 &e{mob} &a的掉落，去聊天框点按钮或敲 &e/roll&a。"
+  · drop-test-none: "&c这条规则这次没抽出任何东西（池子是空的，或者概率都没中）。"
+  · #  日志（1.1.9 新增）
+  · #    本插件的提示默认写进自己的文件，不再往服务器控制台 / latest.log 里刷：
+  · #      · INFO 及以下 → plugins/XingmianRPG/logs/rpg-年-月-日.log（一天一个）
+  · #      · WARNING 及以上 → 控制台和 latest.log 照旧（真出事要看得见），同时也写进文件
+  · #    文件保留 keep-days 天，过期自动删（启用时清一次，之后每 6 小时清一次）。
+  · #    想临时关掉就 to-file: false —— 那样所有提示恢复原样全部进控制台。
+  · # 提示写进独立文件（false = 全部照旧进控制台）
+  · # 日志文件保留几天，过期自动删（1 = 只留今天）
+  · #  血量守卫（2026-09-26 加入，1.1.9 起随源码一起打包）
+  · #    怪物刷出来时核对：属性栏里的「最大生命」是否等于 MythicMobs 设定的血量。
+  · #    不等就强制改回去（按比例保留已经被打掉的那部分血量）。
+  · #    病根是原版「领袖僵尸」机制：僵尸系生物（Zombie/Husk/Drowned/ZombifiedPiglin）
+  · #    生成时有 5%×难度 的概率被判定为领袖，MAX_HEALTH 上会多一个
+  · #    minecraft:leader_zombie_bonus 修饰符（ADD_MULTIPLIED_TOTAL，1.0~4.0），
+  · #    于是上限变成配置值的 2~5 倍，玩家看到的就是「血量莫名其妙好几倍」。
+  · #    带 rpgraidbase: / rpgraid: 标签的怪（正在吃多人加成的）本模块一律不碰，
+  · #    所以不会和 raid 缩放互相覆盖。
+  · #    生效方式：/plugman reload XingmianRPG（只改配置的话 /rpgadmin reload 就够）
+  · # 总开关 —— 出问题想一键停掉就把它改成 false
+  · # 只在这些世界里生效（填世界名 rpg，不是显示名）
+  · # 刷出后等几个 tick 再核对（等 MythicMobs 把属性应用完）
+  · # 再过多少 tick 复查一次；0 = 不复查
+  · # 插件启用时，把世界里已经在的怪也核一遍（延迟 5 秒执行，等世界加载完）
+  · # 之后每隔多少秒全量核一遍（兜住「刷出来之后才被改坏」的情况）；0 = 关掉
+  · # true = 每次核对都打日志（哪怕没改），只在排查时打开
+  · # 要剥掉的、会越过 MythicMobs 设定值把上限抬高的属性修饰符。
+  · # 写全名（minecraft:leader_zombie_bonus）或只写本地名（leader_zombie_bonus）都认。
+  · # true = 无差别剥掉 MAX_HEALTH 上所有修饰符（慎用）。默认只剥上面名单里的。
+  · description: 星陨之地 RPG 世界功能插件 —— 进入次数管控 / 星之秘钥（一次性进入道具）/ 传送封锁 / 鞘翅限滑翔 / 距离触发刷怪点 / 掉落与摇点 / boss 伤害战报
+  · description: 打开 RPG 世界菜单 / 进入 / 离开 / 查看状态（管理员还有刷怪点短命令）
+  · /rpg - 打开菜单
+  · /rpg enter - 立即进入
+  · /rpg leave - 离开 RPG 世界
+  · /rpg info - 查看今日次数
+  · /rpg dmg - 查看身边那只 boss 的实时伤害排行（boss 死时会自动播报一次战报）
+  · /rpg ticket - 星之秘钥说明（价格 / 用法）
+  · /rpg ticket buy [数量] - 花星点购买星之秘钥（一次性进入道具，不占每日次数）
+  · ---- 以下需要管理权限 ----
+  · /rpg create <名称> [触发半径] - 建空刷怪点
+  · /rpg create <新名称> copy <源点位> - 复制一个点位（怪物+配置照搬，位置用你站的地方）
+  · /rpg copy <新名称> <源点位> [触发半径] - 同上
+  · /rpg mob add <名称> <怪物ID> [每种几只] - 往点位里加怪（加几种就同时出现几种）
+  · /rpg mob list|remove <名称> [怪物ID]
+  · /rpg sp list|ids|tp|on|off|test|set|remove
+  · description: RPG 世界管理命令
+  · /rpgadmin reload - 重载配置
+  · /rpgadmin info [玩家] - 查看进入记录
+  · /rpgadmin reset <玩家> - 重置今日次数
+  · /rpgadmin set <玩家> <已用次数> - 直接设置今日已用次数
+  · /rpgadmin return - 以当前位置设置返回点
+  · /rpgadmin entry - 以当前位置设置 RPG 进入落点
+  · /rpgadmin tp [玩家] - 传送到 RPG 世界（不扣次数）
+  · /rpgadmin killmobs [点位] - 清除本插件刷出的怪
+  · /rpgadmin ticket give <玩家> [数量] - 发放星之秘钥（一次性进入道具）
+  · /rpgadmin sp create <名称> [触发半径] - 以当前位置建一个空刷怪点
+  · /rpgadmin sp create <新名称> copy <源点位> - 复制点位：怪物与配置照搬，位置用当前位置
+  · /rpgadmin sp copy <新名称> <源点位> [触发半径] - 同上
+  · /rpgadmin sp add <名称> [触发半径] - 同 sp create（老写法也支持 sp add <名称> <怪物ID>）
+  · /rpgadmin sp mob add <名称> <怪物ID>[:等级] [每种几只] - 往点位里加怪
+  · /rpgadmin sp mob <remove|list|clear> <名称> [怪物ID]
+  · /rpgadmin sp remove|list|tp|on|off|test|set|ids <名称>
+  · /rpgadmin sp cdreset <all|名称> - 刷新补刷冷却（立刻可再刷，不动场上的怪）
+  · /rpgadmin drop add <怪物ID> - 给这只怪建掉落规则（mode direct 直接给击杀者）
+  · /rpgadmin drop set <怪物ID> mode roll - 改成摇点分配（大型 boss）
+  · /rpgadmin drop set <怪物ID> pick chance|weight - 逐条独立概率 / 按权重抽件
+  · /rpgadmin drop item add <怪物ID> <条目名> <CE物品ID> [概率或权重] [最少] [最多]
+  · /rpgadmin drop cmd add <怪物ID> <条目名> [概率或权重] [最少] [最多] <命令模板>
+  · /rpgadmin drop entry <list|remove|set> <怪物ID> ...
+  · /rpgadmin drop guarantee <怪物ID> <条目id|none> - roll 摇点保底（每次必出，不占件数）
+  · /rpgadmin drop list | test <怪物ID>
+  · /rpgadmin drop ... - 与 roll 完全等价（旧名字，保留兼容）
+  · description: 打开 boss 掉落摇点界面（大型 boss 掉落归点数最高者）
+  · /roll - 打开摇点界面（奖励列表 / 摇点 / 放弃摇点）
+  · description: 查看 / 增减星陨之地的体力（每天 100 点，boss -30，小怪 -0.1，0 点刷新）
+  · /stamina - 看自己的体力
+  · /stamina <玩家> - 看指定玩家的体力
+  · /stamina add|give <玩家> <数值> - 加体力（负数即扣）
+  · /stamina take <玩家> <数值> - 扣体力
+  · /stamina set <玩家> <数值> - 设为指定值（0 ~ 每日满值）
+  · /stamina reset <玩家> - 重置为满值
+  · ---- 均可由控制台执行，玩家可离线 ----
+  · description: 紫荆的怪物材料收购（每天 5 种，每样交 1 个换星点，每人每天一次）
+  · /zjbuyer - 打开收购清单
+  · /zjbuyer info [玩家] - 聊天里列今日清单
+  · /zjbuyer submit [玩家] - 直接提交今日材料
+  · /zjbuyer open [玩家] - 为指定玩家打开收购界面
+  · /zjbuyer reload - 重载 zijing.yml
+  · description: 使用 RPG 菜单与进入 RPG 世界
+  · description: RPG 世界管理权限
+  · description: 无视 RPG 世界的传送封锁（进出都放行）、命令拦截与鞘翅限制（OP 已自动拥有）
+  · description: 使用紫荆的怪物材料收购
+  · description: 重载紫荆收购配置
+
+## 常量池帮助/描述文本
+  · cn/xingmian/rpg/CmdRoll
+  · Lcn/xingmian/rpg/XingmianRPG;
+  · cn/xingmian/rpg/XingmianRPG
+  · cn/xingmian/rpg/Msg
+  · cn/xingmian/rpg/DropService
+  · cn/xingmian/rpg/XmRollUi
+  · cn/xingmian/rpg/CmdRpg
+  · cn/xingmian/rpg/DamageBoard
+  · cn/xingmian/rpg/RpgHud
+  · cn/xingmian/rpg/CmdRpgAdmin
+  · cn/xingmian/rpg/RpgMenu
+  · cn/xingmian/rpg/EntryService
+  · cn/xingmian/rpg/DataStore
+  · cn/xingmian/rpg/PlayerData
+  · cn/xingmian/rpg/RpgWorlds
+  · 在 RPG 世界内
+  · 在主世界
+  · cn/xingmian/rpg/EconomyBridge
+  · cn/xingmian/rpg/RpgConfig
+  · &e用法：&7/rpg [menu|enter|leave|info|ticket|dmg]
+  · &7管理：&e/rpg create <名称> [半径]&7、&e/rpg create <新名> copy <源点位>&7、&e/rpg mob add <名称> <怪物ID> [几只]&7、&e/rpg sp <list|set|test|tp|on|off|remove|ids>
+  · &b&l✦ 星之秘钥 ✦
+  · &7一次性道具，&e右键使用&7，消耗 1 把即可进入星陨之地。
+  · &7使用它 &b不占用每日次数&7，今天次数用完了也能进。
+  · cn/xingmian/rpg/EntryTicket
+  · &7（星点）
+  · &c数量要写数字，例如 &e/rpg ticket buy 3
+  · &c数量要大于 0。
+  · &7附近没有正在战斗中的 boss。
+  · cn/xingmian/rpg/MythicSpawner
+  · &7今日已进入 &e&7/&e&7，剩余 &e&7 次
+  · &7状态：&e
+  · &7下一次进入价格：&e
+  · &7每天 &e&7 点重置次数
+  · &7单张价格：&e
+  · &e用法：&7/rpg ticket buy [数量]&7（单次最多  张）
+  · &8&m━━━━━━&r &6&l✦  &7· 伤害统计 &8&m━━━━━━
+  · &7参战 &e &7人
+  · &7… 还有 &e &7人未显示
+  · cn/xingmian/rpg/EntryService$Result
+  · cn/xingmian/rpg/CmdRpgAdmin$MobSpec
+  · 记录为进行中（可能残留）
+  · 主世界
+  · &c次数要写数字。
+  · &c你正站在 RPG 世界里，不能把返回点设在这里。请先回到主世界，站到想让人落地的位置再敲一次。
+  · &7已立即生效 —— 死亡返回、离开、跨夜上线都走这个点。
+  · &c请站在 RPG 世界里执行，这样落点才有意义。
+  · &7已立即生效 —— 之后 /rpg enter 就落在这里。
+  · cn/xingmian/rpg/SpawnPointManager
+  · &e用法：&7/rpgadmin ticket give <玩家> [数量]
+  · &c数量要写数字。
+  · &c发放失败，请看后台日志。
+  · cn/xingmian/rpg/TeleportGate
+  · &e用法：&7/rpgadmin sp create <名称> [触发半径] [copy <源点位>]
+  · &7例：&e/rpg create K1 96&7 —— 先建空点位，再往里加怪
+  · &7例：&e/rpg create K2 copy K1&7 —— 把 K1 的怪和配置复制到 K2，位置用你站的地方
+  · &7例：&e/rpg create K2 copy K1
+  · cn/xingmian/rpg/SpawnPoint
+  · &7· 加 4 种怪 → 这个点就同时出现 4 种（每种 1 只）
+  · &7· 只加 1 种 → 这个点就只有那一种
+  · &7不确定 ID 写什么 → &e/rpg sp ids
+  · &e用法：&7/rpg copy <新名称> <源点位> [触发半径]
+  · &7例：&e/rpg create K2 copy K1&7（和这条等价）
+  · &7复制的是怪物与配置；&f位置用你当前站的地方&7。
+  · cn/xingmian/rpg/SpawnPoint$MobEntry
+  · &e用法：&7/rpgadmin sp set <名称> <字段> <值>
+  · &7默认数量就是「每种各几只」的和，一般不用调；想多刷就 &emin&7 写大点，想封顶就 &emax&7（&e0&7 = 不封顶）。
+  · &7&einterval&7 是「这批怪被打光之后等几秒才补下一批」，期间玩家在圈里来回跑也不会刷新（默认 300 秒 = 5 分钟）
+  · &7&ey&7 是点位的高度：怪只在这个高度上下 &f5 &7格内出现。桥、悬空平台这类地图，刷到桥下了就把 y 改成桥面的高度。改成「你现在站的高度」最省事：&e/rpg sp set <名称> y here
+  · &7例：&e/rpgadmin sp set K1 radius 96
+  · &7　　&e/rpgadmin sp set K1 interval 300   &7← 改成 5 分钟
+  · &e用法：&7/rpgadmin sp remove <名称>
+  ·  &a（已满）
+  · &c拿不到 MythicMobs 的怪物名单（MM 没装、没加载完，或 API 变了）。
+  · &7可以先用 &e/mm mobs list&7 在游戏里看一眼，或翻 &eplugins/MythicMobs/mobs/&7。
+  · &e用法：&7/rpgadmin sp tp <名称>
+  · &e用法：&7/rpgadmin sp on|off <名称>
+  · &e用法：&7/rpgadmin sp test <名称> [怪物ID]
+  · &7不写怪物 ID 就把这个点整套试刷一次；写了就只试那一只。
+  · &c没能刷出来。检查一下这个 ID 是不是 MM 里的怪。
+  · &8· &7sp test 是&f临时试刷&7：这只怪杀掉就没了，&c不会写进点位名单&7、也不会补刷，&c更不会影响正式冷却&7。
+  · &c一只都没刷出来。检查：该点世界是否加载、点位周围有没有可站立的地面。
+  · &e用法：&7/rpgadmin sp cdreset <all|名称>
+  · &7把补刷冷却清零 → 回到「本轮未刷」，下一个进圈的玩家立刻看到整批怪。
+  · &7· 场上已有的怪&f不会被动&7（不会刷出第二批）；想连怪一起清：&e/rpgadmin killmobs
+  · &7现在有玩家进圈就会&f整批刷&7（当前在冷却里的 boss 也一样）。
+  · &7可复制的点位：&f
+  ·  &7| 离开不清怪
+  · &e⚠ 附近还有别的点位，两边的怪会互相串（会追着玩家跑过去）：
+  · &7· 想分清场上的怪属于哪个点：&e/rpgadmin sp list&7（每个点单独一行「场上 N / 目标 N」）
+  · &7· 只清某一边场上的怪：&e/rpgadmin killmobs <点名>
+  · &e用法：&7/rpgadmin sp mob <add|remove|list|clear> <名称> [怪物ID] [每种几只]
+  · &e用法：&7/rpgadmin sp mob add <名称> <怪物ID>[:等级] [每种几只]
+  · &7例：&e/rpg mob add K1 skeleton_melee&7 —— 这个点以后就出它
+  · &7再加一种：&e/rpg mob add K1 skeleton_archer&7 —— 两种会一起出现
+  · &7想让某一种多来两只：末尾加数字，如 &e... skeleton_archer 2
+  · &e用法：&7/rpgadmin sp mob remove <名称> <怪物ID>
+  · &e这个点位还没加怪，所以不会刷。
+  · &7(跟点位)
+  · &c⚠ 注意：它现在是「空点位」，不会再刷任何怪。
+  · &e用法：&7/rpgadmin sp mob <add|remove|list|clear> <名称> [怪物ID] [权重]
+  · cn/xingmian/rpg/DropManager
+  · cn/xingmian/rpg/DropRule
+  · &e用法：&7/rpgadmin drop add <怪物ID>
+  · 掉落池还空着
+  · &7往里加掉落，例如：
+  · &e用法：&7/rpgadmin drop remove <怪物ID>
+  · &e用法：&7/rpgadmin drop on|off <怪物ID>
+  · &e用法：&7/rpgadmin drop set <怪物ID> <字段> <值>
+  · &7例：&e/rpgadmin drop set rock_dragon mode roll
+  · &e用法：&7/rpgadmin drop guarantee <怪物ID> <条目id|none>
+  · &7保底条目在 roll 摇点时&e每次必出&7，不占 drops-min/max 件数。
+  · &7例：&e/rpgadmin drop guarantee Stone_Golem core-3
+  · &7清空：&e/rpgadmin drop guarantee Stone_Golem none
+  · &e用法：&7/rpgadmin drop test <怪物ID>
+  · cn/xingmian/rpg/RollSession
+  · cn/xingmian/rpg/RollSession$Item
+  · &e这次抽到的都是「直接给击杀者」的条目，已经发到你身上了，没有发起摇点。
+  · &e用法：
+  · &7 物品 &e/rpgadmin drop item add <怪物ID> <条目名> <CE物品ID> [概率或权重] [最少] [最多]
+  · &7 命令 &e/rpgadmin drop cmd add <怪物ID> <条目名> [概率或权重] [最少] [最多] <命令模板>
+  · &7例：&e/rpgadmin drop item add skeleton_melee tooth default:monster_tooth 1
+  · &7例：&e/rpgadmin drop cmd add skeleton_melee 星点 10 5 5 eco give {player} {amount}
+  · &c命令模板没写。命令放最后，可以带空格，支持 {player} 与 {amount}。
+  · 命令 
+  · 物品 
+  · cn/xingmian/rpg/DropEntry
+  · &e用法：&7/rpgadmin drop entry <list|remove|set> <怪物ID> [条目名] [字段] [值]
+  · &e用法：&7/rpgadmin drop entry remove <怪物ID> <条目名>
+  · &e用法：&7/rpgadmin drop entry set <怪物ID> <条目名> <字段> <值>
+  · &7字段：&echance&7(概率%) &eweight&7(权重) &emin-amount &emax-amount &eroll&7(true/false) &edisplay &etype &evalue
+  · &7例：&e/rpgadmin drop entry set rock_dragon 星辉 roll false
+  · &7例：&e/rpgadmin drop entry set skeleton_melee tooth chance 1.5
+  · &b掉落规则命令（&7本插件接管自定义怪掉落的唯一出口&b）：
+  · &7一只怪建一条规则。两种归属方式：
+  · &7 · &fmode direct&7 —— 抽到什么&f直接给击杀者&7（普通怪用，默认）
+  · &7 · &fmode roll&7   —— 发起&f摇点&7，点数最高者得（大型 boss 用）
+  · &7两种抽取方式：
+  · &7 · &fpick chance&7 —— 每条按自己的概率独立判定，能一次爆多件（默认）
+  · &7 · &fpick weight&7 —— 按权重抽 drops-min~drops-max 件
+  · &7最简三步：
+  · &7 1. 建规则 &e/rpgadmin drop add <怪物ID>
+  · &7 2. 加掉落 &e/rpgadmin drop item add <怪物ID> <条目名> <CE物品ID> [概率] [最少] [最多]
+  · &7 3. 就地试一次 &e/rpgadmin drop test <怪物ID>
+  · &7命令类奖励（星点/星钻）：&e/rpgadmin drop cmd add skeleton_melee 星点 10 5 5 eco give {player} {amount}
+  · &7看这只怪掉什么：&e/rpgadmin drop list <怪物ID>
+  · &7其它：&e/rpgadmin drop <list|remove|on|off|set|entry|test>
+  · &b刷怪点命令（两步走：先建点 → 再加怪）
+  · &7 1. 站到位置建点 &e/rpg create <名称> [触发半径]
+  · &7    例：&e/rpg create K1 96
+  · &7 2. 往里加怪 &e/rpg mob add <名称> <怪物ID> [每种几只]
+  · &7    例：&e/rpg mob add K1 skeleton_melee
+  · &7加几种怪，这个点就同时出现几种：
+  · &7 · 加 4 种 → 4 种一起出现（每种各 1 只）
+  · &7 · 加 1 种 → 只有那一种
+  · &7 · 想让某一种多来两只 → 末尾加数字，如 &e/rpg mob add K1 skeleton_archer 2
+  · &7想照抄一个现成点位：&e/rpg create K2 copy K1
+  · &7 · 把 K1 的怪和配置复制到 K2，&f位置用你站的地方&7
+  · &7看这个点现在出什么：&e/rpg mob list <名称>&7；立刻试刷：&e/rpg sp test <名称>
+  · &7补刷节奏：一批怪&f被打光后等 5 分钟&7才补下一批，这期间在圈里来回跑也不会刷新
+  · &7 · 改这个等待时间：&e/rpg sp set <名称> interval 300&7（秒）
+  · &7不确定怪物 ID → &e/rpg sp ids
+  · &7刷新补刷冷却（想立刻再刷）：&e/rpg sp cdreset <all|名称>
+  · &7调参：&e/rpg sp set <名称> <字段> <值>&7；其它：&e/rpg sp <list|tp|on|off|remove|copy>
+  · &7完整清单：&e/rpgadmin sp ids
+  · &7你是不是想写：
+  · &b[RPG] &f &7| 今日已用 &e&7/&e&7 | 剩余 &e
+  · &7 状态：&e&7 | 日期键：&e&7 | 会话键：&e
+  · &7 进入前模式记录：&e
+  · &c已存在同名刷怪点：&7（想覆盖先 &e/rpg sp remove &7，或换个名字）
+  · &ccopy 后面要写源点位名，例如：&e/rpg create  copy K1
+  · &c不认识「」。用法：&7/rpg create <名称> [触发半径] [copy <源点位>]
+  · &a刷怪点 &e &a已创建（空点位，触发半径 &e &a格）
+  · &7· 记录高度：&fY= &7→ 怪只会在 &f ~  &7之间出现（桥下、楼板下都不会刷）
+  · &7· 站错层了？站到正确那层执行：&e/rpg sp set  y here
+  · &7往里加怪：&e/rpg mob add  <怪物ID> [每种几只]
+  · &7想照抄现成的点位：&e/rpg create  copy <原点位>
+  · &c已存在同名刷怪点：
+  · &a刷怪点 &e &a已创建（触发半径 &e &a格）
+  · &7· 记录高度：&fY= &7→ 怪只会在 &f ~  &7之间出现
+  · &7现状 → &f
+  · &7继续加怪：&e/rpg mob add  <怪物ID> [每种几只]
+  · &c控制台没法用 here，请直接写高度数字，例如：&7/rpgadmin sp set  y 72
+  · &a已修改 &e&a：&7 = 
+  · &7之后怪只会刷在高度 &f ~  &7之间（点位高度 ±2 格）
+  · &7场上已有的怪已清掉，重新进圈即按新高度铺场（用 &e/rpg sp test  &7立刻试）。
+  · &7现在是 → &f
+  · &7下一批还要等 &e &7秒（怪被打光后要等  秒；想立刻刷一批用 &e/rpg sp test &7）
+  · &7补刷间隔 &e &7秒 —— 怪被打光/清光后等这么久才补下一批，期间来回进出也不会刷
+  ·    &8↳ &c⛔ 这个点位还没加怪 → 完全不会刷。&7加怪：&e/rpg mob add  <怪物ID>
+  ·    &8↳ 场上 &7 &8只 / 目标 &7 &8只
+  ·  分  秒
+  ·  秒
+  ·    &8↳ 冷却中：还要 &7 &8才补下一批（间隔  秒）
+  · &b当前可用的怪物 ID（共  个，直接填进 &e/rpg mob add <点名> <怪物ID>&b）：
+  · &c该刷怪点的世界没加载：
+  · &a成功刷出一只 &e&a，说明这个 ID 能用。
+  · &8  想让它以后一直出：&e/rpg mob add  
+  · &8  当前 &e &8的怪名单是&c空的&8，所以现在这个点&c一个怪都不会自动刷&8。
+  · &c这个点位还没加怪，先加：&e/rpg mob add  <怪物ID>
+  · &7刷出 &e &7只 → &f
+  · &8· &7这是&f影子试刷&7：走的是临时轮次，&c不会改变正式冷却&7（当前正式冷却剩余 &e &7秒）。
+  · &7这批怪被打光后要等 &e &7秒才补下一批；这期间在  格内来回跑、反复进出，都不会刷新。
+  · &a已刷新全服 &e &a个点位的补刷冷却。
+  · &a已刷新 &e &a的补刷冷却。
+  · &7场上的怪没动；下一位进圈  格内的玩家会立刻看到整批怪。
+  · &7服务器上还没有任何点位。先建一个：&e/rpg create  96
+  · &a已复制 &e &a→ &e &7（位置 = 你站的地方：&7）
+  · &7· 怪物：&f &7种，进场后同时出现 &f &7只
+  · &7· 触发半径 &f &7格 | 散布 &f &7格 | 高度&fY= &7(上下 &f2 &7格内刷) &7| 默认等级 &fLv &7| 补刷 &f &7秒
+  · &7（触发半径按你写的 &f &7格，没照抄源点位的  格）
+  · &e源点位 &f &e现在还是空的（没加怪），所以 &f &e也是空的。
+  · &e源点位是「停用」状态，&f &e也照抄成停用了。要开：&7/rpg sp on 
+  · &e注意：源点位在 &f &e世界，而你站在 &f&e，所以 &f &e的位置记在后者。想让它落在 RPG 世界，要先站到目标位置再复制。
+  · &7源点位 &e &7原样不动，改 &f &7不会影响它。
+  · &7立刻试刷：&e/rpg sp test 
+  ·    &8· &f &7相距 &f &7格（触发半径  / ）
+  · &7· 想彻底分开：把两个点拉开到 &f &7格以上，或把触发半径改小
+  · &7先建点位：&e/rpg create  96
+  · &e这个点位里已经有 &f &e了，不用重复加。
+  · &7想改每种几只，先 &e/rpg mob remove  &7 再加。
+  · &a已加入 &e&a，每种 &e &a只。
+  · &7（点位上限已自动抬到 &e&7，不然新加的怪轮不到出场）
+  · &7现在这个点：&f &7种怪，场上 &f &7只 → &f
+  · &c这个点位里没有 &e&c。
+  · &a已从 &e &a移除 &f&a。
+  · &e注意：这个点位现在一只怪都没有了，不会再刷。用 &7/rpg mob add  <怪物ID>&e 补上。
+  · &7往里加：&e/rpg mob add  <怪物ID> [每种几只]
+  · &b &7的怪物列表（默认等级 Lv）：
+  · &7· &f&7 | 每种 &f &7只&7 | 等级 &fLv
+  · &7（上限 ）
+  · &7合计：&f &7种，进场后同时出现 &f &7只
+  · &7整点摘要：&f
+  · &a已清空 &e &a的怪物列表，并清掉了场上这批怪。
+  · &7  · 重新加怪：&e/rpg mob add  <怪物ID> [每种几只]
+  · &7  · 只想清场上的怪、保留这条列表：用 &e/rpgadmin killmobs 
+  · &e掉落池是空的。用 &7/rpgadmin drop item add  <条目名> <CE物品ID>&e 加。
+  · &e 已经有摇点规则了。想改参数用 &7/rpgadmin drop set  <字段> <值>
+  · &e/rpgadmin drop item add  星辉 default:star_glow 10 1 3
+  · &7加完用 &e/rpgadmin drop test  &7就地模拟一次看效果。
+  · &a已更新 &e &a的摇点保底：&f
+  · &7当前保底：&f
+  · &a这是「直接给击杀者」的规则，本次抽到 &e &a件，已经发到你身上：
+  · 概率 %
+  · 权重 
+  · ，，数量 ~
+  · &7掉落池共 &f &7条（每条独立判定）：
+  · &7合计期望：每杀一次平均掉 &f &7件
+  · &7掉落池共 &f &7条，每次抽 &e~ &7件：
+  · &7 · &f &7| 单次抽中 &f%
+  · &e 的掉落池是空的。用 &7/rpgadmin drop item add  <条目名> <CE物品ID>&e 加。
+  · &cMythicMobs 里没有叫 &e &c的怪。
+  · cn/xingmian/rpg/CmdStamina
+  · cn/xingmian/rpg/Stamina
+  · &c体力系统未启用（插件没加载完，或 stamina.enabled=false）。
+  · &c你没有权限调整体力（需要 xingmianrpg.admin）。
+  · &e/stamina 用法：
+  · &7  /stamina &8- 看自己的体力
+  · &7  /stamina <玩家> &8- 看别人的体力
+  · &7  /stamina add <玩家> <数值> &8- 加体力（负数即扣）
+  · &7  /stamina give <玩家> <数值> &8- 同上
+  · &7  /stamina take <玩家> <数值> &8- 扣体力
+  · &7  /stamina set <玩家> <数值> &8- 设为指定值（0 ~ 每日满值）
+  · &7  /stamina reset <玩家> &8- 重置为满值
+  · &8  控制台直接执行，例如：stamina give 张三 30
+  · &8未知
+  · &7你的体力： &8（每日 ，boss -，小怪 -，每天 0 点刷新）
+  · &c找不到玩家 &e&c（名字从没进过服）。
+  · &a已把 &e &a的体力重置为满值：
+  · &c数值不合法：&e
+  · 设为 
+  · &a已更新 &e &7的体力： &8()
+  · &c找不到玩家 &e&c。
+  · &e &7的体力： &8（每日 ，每天 0 点刷新）
+  · cn/xingmian/rpg/CmdZijing
+  · Lcn/xingmian/rpg/ZijingBuy;
+  · cn/xingmian/rpg/ZijingGui
+  · cn/xingmian/rpg/ZijingBuy
+  · cn/xingmian/rpg/ZijingListener
+  · cn/xingmian/rpg/ZijingBuy$Outcome
+  · Lcn/xingmian/rpg/ZijingBuy$Outcome$Kind;
+  · cn/xingmian/rpg/ZijingBuy$Outcome$Kind
+  · &c你没有权限。
+  · &7用法：&f/zjbuyer [open|info|submit|reload] [玩家]
+  · &6&l紫荆 &8» &f今天的单子：
+  · cn/xingmian/rpg/ZijingBuy$Mat
+  · &a✔ 已备齐
+  ·   &c（今日已交过）
+  · &c控制台要指定玩家名。
+  · &a成功 &e &a星点
+  · &7已为 &f &7结算：
+  · &a紫荆收购配置已重载（材料  种，每日取  种）。
+  · &c还缺  个
+  ·   &8· &f &7× 1  &8| &e &7星点  &8| &7背包  个  
+  ·   &7凑齐交付可得 &e &7星点
+  · &c找不到在线玩家：&f

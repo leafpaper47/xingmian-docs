@@ -1,0 +1,106 @@
+# allmusic  ([paper]AllMusic_Server-4.0.2.jar)
+## 注册指令
+  /music  usage='§4[AllMusic]§6/music help' desc='AllMusic' alias=None perm=None
+
+## 代码类
+  com.coloryr.allmusic.codec.CommandType
+  com.coloryr.allmusic.libs.org.apache.hc.client5.http.impl.auth.NTLMEngineImpl$HMACMD5
+  com.coloryr.allmusic.libs.org.apache.hc.core5.http.nio.command.CommandSupport
+  com.coloryr.allmusic.libs.org.apache.hc.core5.http.nio.command.ExecutableCommand
+  com.coloryr.allmusic.libs.org.apache.hc.core5.http.nio.command.package-info
+  com.coloryr.allmusic.libs.org.apache.hc.core5.http.nio.command.RequestExecutionCommand
+  com.coloryr.allmusic.libs.org.apache.hc.core5.http.nio.command.ShutdownCommand
+  com.coloryr.allmusic.libs.org.apache.hc.core5.http.nio.command.StaleCheckCommand
+  com.coloryr.allmusic.libs.org.apache.hc.core5.http2.nio.command.package-info
+  com.coloryr.allmusic.libs.org.apache.hc.core5.http2.nio.command.PingCommand
+  com.coloryr.allmusic.libs.org.apache.hc.core5.http2.nio.command.PushResponseCommand
+  com.coloryr.allmusic.libs.org.apache.hc.core5.reactor.Command$Priority
+  com.coloryr.allmusic.libs.org.apache.hc.core5.reactor.Command
+  com.coloryr.allmusic.libs.org.slf4j.helpers.BasicMDCAdapter$1
+  com.coloryr.allmusic.libs.org.slf4j.helpers.BasicMDCAdapter
+  com.coloryr.allmusic.server.CommandPaper
+  com.coloryr.allmusic.server.core.command.ACommand
+  com.coloryr.allmusic.server.core.command.AHudCommand
+  com.coloryr.allmusic.server.core.command.CommandEX
+  com.coloryr.allmusic.server.core.command.ICommand
+  com.coloryr.allmusic.server.core.command.PermissionList
+  com.coloryr.allmusic.server.core.command.sub.CommandAddList
+  com.coloryr.allmusic.server.core.command.sub.CommandBan
+  com.coloryr.allmusic.server.core.command.sub.CommandBanPlayer
+  com.coloryr.allmusic.server.core.command.sub.CommandCancel
+  com.coloryr.allmusic.server.core.command.sub.CommandClearBanList
+  com.coloryr.allmusic.server.core.command.sub.CommandClearBanPlayerList
+  com.coloryr.allmusic.server.core.command.sub.CommandClearList
+  com.coloryr.allmusic.server.core.command.sub.CommandDelete
+  com.coloryr.allmusic.server.core.command.sub.CommandHelp
+  com.coloryr.allmusic.server.core.command.sub.CommandHud$1
+  com.coloryr.allmusic.server.core.command.sub.CommandHud$2
+  com.coloryr.allmusic.server.core.command.sub.CommandHud$HudAlpha
+  com.coloryr.allmusic.server.core.command.sub.CommandHud$HudEnable
+  com.coloryr.allmusic.server.core.command.sub.CommandHud$HudReset
+  com.coloryr.allmusic.server.core.command.sub.CommandHud
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$1
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$2
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$3
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$4
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$5
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudAlpha
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudColor
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudDir$1
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudDir
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudEnable
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudGap
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudLoop
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudMaxWidth
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudPos
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudReset
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$HudShadow
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$PicRotate
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$PicRotateSpeed
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet$PicSize
+  com.coloryr.allmusic.server.core.command.sub.CommandHudSet
+  com.coloryr.allmusic.server.core.command.sub.CommandJoin
+  com.coloryr.allmusic.server.core.command.sub.CommandLastPage
+  com.coloryr.allmusic.server.core.command.sub.CommandList
+  com.coloryr.allmusic.server.core.command.sub.CommandMute$1
+  com.coloryr.allmusic.server.core.command.sub.CommandMute
+  com.coloryr.allmusic.server.core.command.sub.CommandNext
+  com.coloryr.allmusic.server.core.command.sub.CommandNextPage
+  com.coloryr.allmusic.server.core.command.sub.CommandPush
+  com.coloryr.allmusic.server.core.command.sub.CommandReload
+  com.coloryr.allmusic.server.core.command.sub.CommandSearch
+  com.coloryr.allmusic.server.core.command.sub.CommandSearchApi
+  com.coloryr.allmusic.server.core.command.sub.CommandSelect
+  com.coloryr.allmusic.server.core.command.sub.CommandStop
+  com.coloryr.allmusic.server.core.command.sub.CommandTest
+  com.coloryr.allmusic.server.core.command.sub.CommandUnban
+  com.coloryr.allmusic.server.core.command.sub.CommandUnbanPlayer
+  com.coloryr.allmusic.server.core.command.sub.CommandVote
+  com.coloryr.allmusic.server.core.objs.message.CommandObj
+
+## javap 字符串 token
+  addlist alpha ban banplayer callback cancel clear clearban clearbanplayer clearlist color delete dir enable false gap handler help hud hud_data img immediate info join lastpage list loop lyric lyric_ktv maxwidth music mute next nextpage normal pic play pos push reload reset rotate search searchapi select shadow size speed state stop test time true unban unbanplayer vote
+
+## 文本资源里的帮助/用法行
+  · usage: §4[AllMusic]§6/music help
+
+## 常量池帮助/描述文本
+  · Lcom/coloryr/allmusic/server/core/objs/message/MusicPlayObj;
+  · com/coloryr/allmusic/server/core/objs/message/MusicPlayObj
+  · com/coloryr/allmusic/server/core/objs/music/PlayerAddMusicObj
+  · com/coloryr/allmusic/server/core/music/MusicSearch
+  · com/coloryr/allmusic/server/core/music/PlayMusic
+  · Lcom/coloryr/allmusic/server/core/objs/music/PlayerAddMusicObj;
+  ·  已禁止点歌
+  · Lcom/coloryr/allmusic/server/core/objs/music/SongInfoObj;
+  · com/coloryr/allmusic/server/core/objs/music/SongInfoObj
+  · Ljava/util/List<Lcom/coloryr/allmusic/server/core/objs/music/SongInfoObj;>;
+  · com/coloryr/allmusic/server/core/objs/music/SearchPageObj
+  · Lcom/coloryr/allmusic/server/core/objs/music/SearchPageObj;
+  · 已取消玩家：
+  · 的静音
+  · 已设置玩家：
+  · com/coloryr/allmusic/server/core/music/PlayRuntime
+  · 已停止玩家：
+  · 的音乐播放
+  · 已解封点歌

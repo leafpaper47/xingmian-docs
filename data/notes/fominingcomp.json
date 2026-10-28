@@ -1,47 +1,36 @@
 {
-  "name": "FoMiningComp",
-  "role": "挖矿竞赛活动插件，按挖矿量排名发奖",
-  "summary": "FoMiningComp 用来在服里办限时的挖矿比赛：统计玩家挖到的矿石数量并做排行榜，活动结束后按名次给奖励。它的特点是配置项多但运行开销小，适合人多时也不卡服。常和权限插件配合，把管理指令收在管理员组里。",
-  "whatFor": [
-    "开服活动、节假日福利场，想让玩家集中去挖矿比一比",
-    "新版本上线矿石后，办一场限时挖矿赛拉活跃",
-    "需要按挖矿数量自动排名并发放奖励时"
-  ],
-  "flow": [
-    "把插件放进 plugins 目录并重启服务器，让它生成配置文件",
-    "打开配置，设置比赛时长、允许计数的矿石种类和奖励内容",
-    "给活动管理员发 fominingcomp.admin 权限（默认仅 OP 拥有）",
-    "用 /miningcomp help 查看可用的子指令，按提示开启一场比赛"
-  ],
-  "commands": [
+ "name": "FoMiningComp",
+ "role": "挖矿竞赛活动插件",
+ "summary": "FoMiningComp 用来在服里办限时的挖矿比赛：统计玩家挖到的矿石数量并做排行榜，活动结束后按名次给奖励。",
+ "quick": [
+  {
+   "scene": "看可用子指令",
+   "cmd": "/fominingcomp help",
+   "note": "管理操作需 admin"
+  }
+ ],
+ "commands": [
+  {
+   "cmd": "fominingcomp",
+   "what": "插件主命令，用于查看帮助与执行管理操作",
+   "syntax": "/fominingcomp help",
+   "params": [
     {
-      "cmd": "fominingcomp",
-      "what": "插件主命令，用于查看帮助与执行管理操作",
-      "syntax": "/fominingcomp help",
-      "params": [
-        {
-          "name": "help",
-          "required": false,
-          "note": "查看子指令列表，具体参数以游戏内 help 输出为准"
-        }
-      ],
-      "examples": [
-        "/fominingcomp help",
-        "/miningcomp help"
-      ],
-      "notes": "别名 miningcomp 等价；需要 fominingcomp.admin 权限（默认仅 OP）。带子指令的具体写法以游戏内 help 为准。"
+     "name": "help",
+     "required": false,
+     "note": "查看子指令列表，具体参数以游戏内 help 输出为准"
     }
-  ],
-  "subcommands": [],
-  "caution": [
-    "具体参数与子指令以游戏内 help 为准，本文不列举未确认的写法",
-    "只给活动管理员 fominingcomp.admin 权限，避免普通玩家误开或误停比赛",
-    "改完配置建议重启服务器，而不是只 reload，避免数值不生效",
-    "比赛期间统计口径（哪些矿石计数、是否计时运掉落）务必先在配置里确认清楚"
-  ],
-  "related": [
-    "LuckPerms",
-    "Vault",
-    "PlaceholderAPI"
-  ]
+   ],
+   "examples": [
+    "/fominingcomp help",
+    "/miningcomp help"
+   ],
+   "notes": "别名 miningcomp 等价；需要 fominingcomp.admin 权限（默认仅 OP）。带子指令的具体写法以游戏内 help 为准。"
+  }
+ ],
+ "caution": [
+  "具体参数与子指令以游戏内 help 为准，本文不列举未确认的写法",
+  "只给活动管理员 fominingcomp.admin 权限，避免普通玩家误开或误停比赛",
+  "改完配置建议重启服务器，而不是只 reload，避免数值不生效"
+ ]
 }

@@ -1,0 +1,145 @@
+# PlaceholderAPI  (PlaceholderAPI-2.12.3.jar)
+## 注册指令
+  /placeholderapi  usage=None desc='PlaceholderAPI Command' alias=['papi'] perm=None
+
+## 代码类
+  me.clip.placeholderapi.commands.PlaceholderCommand
+  me.clip.placeholderapi.commands.PlaceholderCommandRouter
+  me.clip.placeholderapi.commands.impl.cloud.CommandECloud
+  me.clip.placeholderapi.commands.impl.cloud.CommandECloudClear
+  me.clip.placeholderapi.commands.impl.cloud.CommandECloudDownload
+  me.clip.placeholderapi.commands.impl.cloud.CommandECloudExpansionInfo
+  me.clip.placeholderapi.commands.impl.cloud.CommandECloudExpansionList
+  me.clip.placeholderapi.commands.impl.cloud.CommandECloudExpansionPlaceholders
+  me.clip.placeholderapi.commands.impl.cloud.CommandECloudRefresh
+  me.clip.placeholderapi.commands.impl.cloud.CommandECloudStatus
+  me.clip.placeholderapi.commands.impl.cloud.CommandECloudUpdate
+  me.clip.placeholderapi.commands.impl.local.CommandDump
+  me.clip.placeholderapi.commands.impl.local.CommandExpansionRegister
+  me.clip.placeholderapi.commands.impl.local.CommandExpansionUnregister
+  me.clip.placeholderapi.commands.impl.local.CommandHelp
+  me.clip.placeholderapi.commands.impl.local.CommandInfo
+  me.clip.placeholderapi.commands.impl.local.CommandList
+  me.clip.placeholderapi.commands.impl.local.CommandParse
+  me.clip.placeholderapi.commands.impl.local.CommandReload
+  me.clip.placeholderapi.commands.impl.local.CommandVersion
+  me.clip.placeholderapi.exceptions.NoDefaultCommandException
+  me.clip.placeholderapi.libs.kyori.adventure.platform.bukkit.BukkitFacet$CommandSenderPointers
+  me.clip.placeholderapi.libs.kyori.adventure.platform.bukkit.BukkitFacet$ConsoleCommandSenderPointers
+
+## javap 字符串 token
+  ago all bcparse clear cmdparse content-type download dump ecloud help info installed key list me papi_blocked_expansions parse parserel placeholders post refresh register reload s status unknown unregister update utc version
+
+## 文本资源里的帮助/用法行
+  · # Contributors: https://github.com/PlaceholderAPI/PlaceholderAPI/graphs/contributors
+  · # Issues: https://github.com/PlaceholderAPI/PlaceholderAPI/issues
+  · # Expansions: https://placeholderapi.com/ecloud
+
+## 常量池帮助/描述文本
+  · me/clip/placeholderapi/commands/PlaceholderCommand
+  · Lme/clip/placeholderapi/commands/PlaceholderCommand;
+  · Ljava/util/stream/Stream<Lme/clip/placeholderapi/commands/PlaceholderCommand;>;
+  · Lme/clip/placeholderapi/PlaceholderAPIPlugin;
+  · me/clip/placeholderapi/commands/PlaceholderCommandRouter
+  · me/clip/placeholderapi/util/Msg
+  · me/clip/placeholderapi/commands/impl/local/CommandHelp
+  · me/clip/placeholderapi/commands/impl/local/CommandInfo
+  · me/clip/placeholderapi/commands/impl/local/CommandList
+  · me/clip/placeholderapi/commands/impl/local/CommandDump
+  · me/clip/placeholderapi/commands/impl/cloud/CommandECloud
+  · me/clip/placeholderapi/commands/impl/local/CommandParse
+  · me/clip/placeholderapi/commands/impl/local/CommandReload
+  · me/clip/placeholderapi/commands/impl/local/CommandVersion
+  · me/clip/placeholderapi/commands/impl/local/CommandExpansionRegister
+  · me/clip/placeholderapi/commands/impl/local/CommandExpansionUnregister
+  · Ljava/util/List<Lme/clip/placeholderapi/commands/PlaceholderCommand;>;
+  · Ljava/util/Map<Ljava/lang/String;Lme/clip/placeholderapi/commands/PlaceholderCommand;>;
+  · Lme/clip/placeholderapi/commands/PlaceholderCommandRouter;
+  · Lcom/google/common/collect/ImmutableMap$Builder<Ljava/lang/String;Lme/clip/placeholderapi/commands/PlaceholderCommand;>;
+  · me/clip/placeholderapi/PlaceholderAPIPlugin
+  · me/clip/placeholderapi/configuration/PlaceholderAPIConfig
+  · me/clip/placeholderapi/expansion/manager/CloudExpansionManager
+  · me/clip/placeholderapi/commands/impl/cloud/CommandECloudClear
+  · me/clip/placeholderapi/commands/impl/cloud/CommandECloudStatus
+  · me/clip/placeholderapi/commands/impl/cloud/CommandECloudUpdate
+  · me/clip/placeholderapi/commands/impl/cloud/CommandECloudRefresh
+  · me/clip/placeholderapi/commands/impl/cloud/CommandECloudDownload
+  · me/clip/placeholderapi/commands/impl/cloud/CommandECloudExpansionInfo
+  · me/clip/placeholderapi/commands/impl/cloud/CommandECloudExpansionList
+  · me/clip/placeholderapi/commands/impl/cloud/CommandECloudExpansionPlaceholders
+  · Lme/clip/placeholderapi/commands/impl/cloud/CommandECloud;
+  · Lme/clip/placeholderapi/commands/impl/cloud/CommandECloudClear;
+  · me/clip/placeholderapi/expansion/cloud/CloudExpansion
+  · me/clip/placeholderapi/expansion/cloud/CloudExpansion$Version
+  · Lme/clip/placeholderapi/commands/impl/cloud/CommandECloudDownload;
+  · Lme/clip/placeholderapi/expansion/cloud/CloudExpansion$Version;
+  · Lme/clip/placeholderapi/expansion/cloud/CloudExpansion;
+  · Ljava/util/Optional<Lme/clip/placeholderapi/expansion/cloud/CloudExpansion;>;
+  · Lme/clip/placeholderapi/commands/impl/cloud/CommandECloudExpansionInfo;
+  · me/clip/placeholderapi/libs/kyori/adventure/text/TextComponent$Builder
+  · me/clip/placeholderapi/libs/kyori/adventure/text/TextComponent
+  · me/clip/placeholderapi/util/Format$Align
+  · me/clip/placeholderapi/util/Format
+  · Ljava/util/function/Function<Lme/clip/placeholderapi/expansion/cloud/CloudExpansion;Ljava/lang/Object;>;
+  · Lme/clip/placeholderapi/commands/impl/cloud/CommandECloudExpansionList;
+  · Ljava/util/List<Lme/clip/placeholderapi/expansion/cloud/CloudExpansion;>;
+  · me/clip/placeholderapi/libs/kyori/adventure/text/Component
+  · me/clip/placeholderapi/libs/kyori/adventure/text/format/NamedTextColor
+  · Lme/clip/placeholderapi/libs/kyori/adventure/text/format/NamedTextColor;
+  · me/clip/placeholderapi/libs/kyori/adventure/text/event/ClickEvent
+  · me/clip/placeholderapi/libs/kyori/adventure/text/format/TextColor
+  · me/clip/placeholderapi/libs/kyori/adventure/text/format/TextDecoration
+  · Lme/clip/placeholderapi/libs/kyori/adventure/text/format/TextDecoration;
+  · me/clip/placeholderapi/libs/kyori/adventure/text/event/HoverEvent
+  · me/clip/placeholderapi/libs/kyori/adventure/text/ComponentLike
+  · Lme/clip/placeholderapi/libs/kyori/adventure/text/TextComponent$Builder;
+  · Lme/clip/placeholderapi/util/Format$Align;
+  · Ljava/util/Map<Ljava/lang/String;Ljava/util/function/Function<Lme/clip/placeholderapi/expansion/cloud/CloudExpansion;Ljava/lang/Object;>;>;
+  · me/clip/placeholderapi/configuration/ExpansionSort
+  · Lme/clip/placeholderapi/configuration/ExpansionSort;
+  · me/clip/placeholderapi/libs/kyori/adventure/platform/bukkit/BukkitAudiences
+  · me/clip/placeholderapi/libs/kyori/adventure/audience/Audience
+  · Lme/clip/placeholderapi/libs/kyori/adventure/text/Component;
+  · me/clip/placeholderapi/expansion/manager/LocalExpansionManager
+  · me/clip/placeholderapi/expansion/PlaceholderExpansion
+  · Lme/clip/placeholderapi/commands/impl/cloud/CommandECloudExpansionPlaceholders;
+  · Lme/clip/placeholderapi/commands/impl/cloud/CommandECloudRefresh;
+  · Lme/clip/placeholderapi/commands/impl/cloud/CommandECloudStatus;
+  · Lme/clip/placeholderapi/expansion/manager/CloudExpansionManager;
+  · me/clip/placeholderapi/util/Futures
+  · Lme/clip/placeholderapi/commands/impl/cloud/CommandECloudUpdate;
+  · Lme/clip/placeholderapi/expansion/PlaceholderExpansion;
+  · Lme/clip/placeholderapi/commands/impl/local/CommandDump;
+  · Ljava/util/List<Lme/clip/placeholderapi/expansion/PlaceholderExpansion;>;
+  · Lme/clip/placeholderapi/commands/impl/local/CommandExpansionRegister;
+  · Lme/clip/placeholderapi/expansion/manager/LocalExpansionManager;
+  · Ljava/util/Optional<Lme/clip/placeholderapi/expansion/PlaceholderExpansion;>;
+  · me/clip/placeholderapi/PlaceholderAPI
+  · Lme/clip/placeholderapi/commands/impl/local/CommandExpansionUnregister;
+  · Lme/clip/placeholderapi/commands/impl/local/CommandHelp;
+  · Lme/clip/placeholderapi/commands/impl/local/CommandInfo;
+  · Lme/clip/placeholderapi/commands/impl/local/CommandList;
+  · Lme/clip/placeholderapi/commands/impl/local/CommandParse;
+  · me/clip/placeholderapi/util/ExpansionSafetyCheck
+  · Lme/clip/placeholderapi/commands/impl/local/CommandReload;
+  · Lme/clip/placeholderapi/commands/impl/local/CommandVersion;
+  · me/clip/placeholderapi/exceptions/NoDefaultCommandException
+  · Lme/clip/placeholderapi/exceptions/NoDefaultCommandException;
+  · me/clip/placeholderapi/libs/kyori/adventure/platform/bukkit/BukkitFacet$CommandSenderPointers
+  · me/clip/placeholderapi/libs/kyori/adventure/platform/bukkit/BukkitFacet
+  · me/clip/placeholderapi/libs/kyori/adventure/platform/facet/Facet$Pointers
+  · me/clip/placeholderapi/libs/kyori/adventure/pointer/Pointers$Builder
+  · me/clip/placeholderapi/libs/kyori/adventure/pointer/Pointers
+  · me/clip/placeholderapi/libs/kyori/adventure/platform/facet/Facet
+  · Lme/clip/placeholderapi/libs/kyori/adventure/platform/bukkit/BukkitFacet$CommandSenderPointers;
+  · me/clip/placeholderapi/libs/kyori/adventure/identity/Identity
+  · Lme/clip/placeholderapi/libs/kyori/adventure/pointer/Pointer;
+  · me/clip/placeholderapi/libs/kyori/adventure/permission/PermissionChecker
+  · Lme/clip/placeholderapi/libs/kyori/adventure/pointer/Pointers$Builder;
+  · me/clip/placeholderapi/libs/kyori/adventure/util/TriState
+  · Lme/clip/placeholderapi/libs/kyori/adventure/util/TriState;
+  · me/clip/placeholderapi/libs/kyori/adventure/platform/bukkit/BukkitFacet$ConsoleCommandSenderPointers
+  · me/clip/placeholderapi/libs/kyori/adventure/platform/facet/FacetPointers$Type
+  · me/clip/placeholderapi/libs/kyori/adventure/platform/facet/FacetPointers
+  · Lme/clip/placeholderapi/libs/kyori/adventure/platform/bukkit/BukkitFacet$ConsoleCommandSenderPointers;
+  · Lme/clip/placeholderapi/libs/kyori/adventure/platform/facet/FacetPointers$Type;

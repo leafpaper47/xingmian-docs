@@ -1,0 +1,67 @@
+# WorldGuardGUI  (WorldGuardGUI-1.0.6.jar)
+## 注册指令
+  /wggui  usage='/wggui' desc='打开 WorldGuard 区域管理 GUI' alias=None perm=None
+
+## 代码类
+  com.marvis.wggui.WGCommand
+
+## javap 字符串 token
+  addmember addowner allow create delete deny flag help info list member none owner pri priority remmember remove remowner tp
+
+## 文本资源里的帮助/用法行
+  · description: WorldGuard 图形化区域管理工具 (Paper 26.2 / WG 7.0.18)
+  · description: 打开 WorldGuard 区域管理 GUI
+  · usage: /wggui
+  · description: 允许使用 /wggui 管理自己的区域
+  · description: 允许管理所有区域
+
+## 常量池帮助/描述文本
+  · com/marvis/wggui/WGCommand
+  · Lcom/marvis/wggui/WGMain;
+  · §c该命令只能由玩家执行
+  · §c你没有权限
+  · com/marvis/wggui/WGMain
+  · com/marvis/wggui/GuiManager
+  · com/marvis/wggui/RegionOps
+  · §c区域管理器不可用
+  · §c用法: /wggui info <区域ID>
+  · §7坐标: §c全局区域 · 无边界
+  · §c用法: /wggui create <区域ID>
+  · §c区域 ID 不合法
+  · §c创建失败：ID 已存在或区域管理器不可用
+  · §c用法: /wggui delete <区域ID>
+  · §c你不是该区域的 Owner
+  · §c全局区域不可删除
+  · §c用法: /wggui pri <区域ID> <数值>
+  · §c优先级必须是整数
+  · §c全局区域不支持成员管理
+  · §c用法: /wggui flag <区域ID> <flag名> <allow|deny|none>
+  · com/marvis/wggui/FlagDefs
+  · §c状态必须是 allow / deny / none
+  · §c用法: /wggui tp <区域ID>
+  · §c全局区域无法传送
+  · §a/wggui §7- 打开 GUI
+  · §a/wggui list [页] §7- 区域列表
+  · §a/wggui info <ID> §7- 区域详情
+  · §a/wggui create <ID> §7- 创建区域
+  · §a/wggui delete <ID> §7- 删除区域
+  · §a/wggui pri <ID> <数值> §7- 设置优先级
+  · §a/wggui addowner|addmember|remowner|remmember <ID> <玩家> §7- 成员管理
+  · §a/wggui tp <ID> §7- 传送到区域中心
+  · §a/wggui flag <ID> <flag> <allow|deny|none> §7- 设置 Flag
+  · §8===== §b区域列表 §8=====  §7世界:   §7共  个
+  · §7第 / 页
+  · §c未找到区域 §e
+  · §7类型: §f  §7优先级: §f
+  · §7坐标: §f,, → ,,  §7体积: §f
+  · §7父区域: §f
+  · §a区域 §e §a已创建
+  · §c区域 §e §c已删除
+  · §a区域 §e §a优先级已设为 §f
+  · §c用法: /wggui  <区域ID> <玩家名>
+  · §e §a已添加为 
+  · §e §a已从  移除
+  · §c操作失败: 
+  · §c未找到 Flag §e
+  · §a区域 §e §a的 Flag §e §a已设为 
+  · §a已传送到区域 §e §a中心
