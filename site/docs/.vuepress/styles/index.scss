@@ -216,7 +216,9 @@ body::before {
 }
 
 .vp-sidebar .nav {
-  padding: 10px 12px 24px 14px;
+  /* 左侧留白交给 .vp-sidebar 的 padding-left，
+     这里只管上下间距和右侧一点呼吸位，避免和折叠按钮打架 */
+  padding: 10px 10px 28px 0;
 }
 
 /* 分类标题（level-0）：小号等宽大写 */
@@ -843,6 +845,15 @@ body::before {
   }
 }
 
+/* 侧栏底部那个「收起/展开侧栏」按钮：它所在的 .vp-sidebar-control 按
+   --vp-sidebar-width 定宽，而我们把侧栏加宽了 24px，导致按钮悬在侧栏内侧
+   24px 处看起来错位。这里让这条控制条跟侧栏同宽。 */
+@media (min-width: 960px) {
+  .vp-sidebar-control {
+    width: calc(var(--vp-sidebar-width) + var(--sc-gutter)) !important;
+  }
+}
+
 @media (min-width: 1440px) {
   .vp-sidebar {
     width: calc(var(--vp-sidebar-width) + var(--sc-gutter)) !important;
@@ -917,4 +928,36 @@ body::before {
     width: auto;
     padding-left: 0;
   }
+}
+
+/* 分类行的折叠按钮（.caret）：主题默认 margin-right:-7px 顶出容器，
+   叠加内边距后看起来贴边/压住滚动条，这里收回并统一尺寸 */
+.vp-sidebar .sidebar-item .caret {
+  width: 28px;
+  height: 28px;
+  margin-right: 0;
+  border-radius: 6px;
+  color: var(--vp-c-text-3);
+  transition: color 0.16s ease, background 0.16s ease;
+}
+
+.vp-sidebar .sidebar-item .caret:hover {
+  color: var(--sc-blue);
+  background: rgb(37 99 235 / 0.07);
+}
+
+.vp-sidebar .sidebar-item .caret-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 分类标题右侧给折叠按钮留出空间，长标题不会被箭头压住 */
+.vp-sidebar .sidebar-item.level-0 > .item > a > .text {
+  padding-right: 6px;
+}
+
+/* 当前项指示条：主题放在 left:-17px 对齐子项那条 1px 竖线，
+   这里补齐宽度并保证不被裁掉 */
+.vp-sidebar .sidebar-item .indicator {
+  left: -16px;
 }
