@@ -607,9 +607,19 @@ def main():
         open(os.path.join(DOCS, "commands", c, "index.md"), "w", encoding="utf-8", newline="\n").write(fix_code_spans("\n".join(L)))
 
     # ---------- 指令总览（站点根页面，取代原「首页」） ----------
-    L = ["---", "title: 指令总览", "createTime: %s" % TODAY, "---", "", "# 星冕服务器 · 指令总览", ""]
-    L.append("共 **%d** 个插件、**%d** 条指令。每个插件页含「指令一览（指令/功能/用法/权限）」与「指令详解（语法、参数、示例）」。用右上角搜索（`Ctrl + K`）可直接搜指令名，例如 `co`、`lp`、`res`。"
-             % (len(plugins), total_cmds))
+    L = ["---", "title: 指令总览", "createTime: %s" % TODAY, "---", ""]
+    # 页首装饰与状态条（控制台风格）
+    L.append('<p class="sc-eyebrow"><span class="sc-eyebrow__dot"></span>XINGMIAN SERVER <em>//</em> ADMIN COMMAND INDEX</p>')
+    L.append("")
+    L.append("# 星冕服务器 · 指令总览")
+    L.append("")
+    L.append('<div class="sc-strip">')
+    for k, v in (("PLUGINS", len(plugins)), ("COMMANDS", total_cmds), ("CATEGORIES", len([c for c in CAT_ORDER if index[c]])), ("UPDATED", TODAY.replace("/", "-"))):
+        L.append('<span class="sc-strip__cell"><i>%s</i><b>%s</b></span>' % (k, v))
+    L.append('<span class="sc-strip__caret"></span>')
+    L.append("</div>")
+    L.append("")
+    L.append("左侧栏已展开全部插件；按 `Ctrl + K` 可直接搜指令名，例如 `co`、`lp`、`res`。每个插件页含「指令一览」与「指令详解（语法 / 参数 / 示例 / 权限）」。")
     L.append("")
     for c in CAT_ORDER:
         items = index[c]

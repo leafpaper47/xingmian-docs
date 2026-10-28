@@ -3,9 +3,19 @@ title: 指令总览
 createTime: 2026/10/24
 ---
 
+<p class="sc-eyebrow"><span class="sc-eyebrow__dot"></span>XINGMIAN SERVER <em>//</em> ADMIN COMMAND INDEX</p>
+
 # 星冕服务器 · 指令总览
 
-共 **85** 个插件、**434** 条指令。每个插件页含「指令一览（指令/功能/用法/权限）」与「指令详解（语法、参数、示例）」。用右上角搜索（`Ctrl + K`）可直接搜指令名，例如 `co`、`lp`、`res`。
+<div class="sc-strip">
+<span class="sc-strip__cell"><i>PLUGINS</i><b>85</b></span>
+<span class="sc-strip__cell"><i>COMMANDS</i><b>434</b></span>
+<span class="sc-strip__cell"><i>CATEGORIES</i><b>13</b></span>
+<span class="sc-strip__cell"><i>UPDATED</i><b>2026-10-24</b></span>
+<span class="sc-strip__caret"></span>
+</div>
+
+左侧栏已展开全部插件；按 `Ctrl + K` 可直接搜指令名，例如 `co`、`lp`、`res`。每个插件页含「指令一览」与「指令详解（语法 / 参数 / 示例 / 权限）」。
 
 ## 🛡️ 基础与权限
 
