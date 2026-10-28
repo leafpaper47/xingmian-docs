@@ -343,30 +343,148 @@ body::before {
   background: rgb(37 99 235 / 0.05);
 }
 
-/* 行内代码：浅蓝芯片 */
-.vp-doc code {
+/* ------------------------------------------------------------
+   行内代码：只留一层浅蓝底，不加描边
+   指令名在表格里会连着出现好几次，加边框会变成一排小方框，很吵
+   ------------------------------------------------------------ */
+.vp-doc :not(pre) > code {
   font-family: var(--sc-mono);
-  font-size: 0.9em;
-  background: #eff5fd;
-  border: 1px solid #dbe8f6;
-  border-radius: 4px;
+  font-size: 0.92em;
+  background: #eef5fd;
+  border: none;
+  border-radius: 3px;
   padding: 1px 5px;
-  color: #1c4b8b;
-  transition: border-color 0.16s ease, background 0.16s ease;
+  color: #1a4f90;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.vp-doc a > code:hover,
+.vp-doc a > code {
+  color: var(--sc-blue);
+  border-bottom: 1px solid rgb(37 99 235 / 0.3);
+}
+
+.vp-doc a:hover > code,
 .vp-doc td code:hover {
-  border-color: rgb(37 99 235 / 0.45);
-  background: #e7f0fc;
+  background: #e2eefb;
+  color: #12386e;
 }
 
-/* 代码块：浅底 + 左侧蓝条 */
+/* 表格里的指令芯片：允许换行，别把列撑破 */
+.vp-doc table code {
+  white-space: normal;
+  word-break: break-all;
+  display: inline-block;
+  margin: 1px 0;
+}
+
+/* ------------------------------------------------------------
+   可复制代码块：一块完整的面板（不是「左侧一条竖线」）
+   原来那版有三处视觉打架：
+   ① shiki 给 <pre> 铺了白底，外层容器却是浅蓝底 → 双底色 + 一圈套一框
+   ② 外层挂了 2px 左蓝条，被 pre 的白底截断 → 看着像个 L 形缺口
+   ③ 单行指令也带行号装订线，一个 "1" 独占 32px，左边空一块
+   ------------------------------------------------------------ */
 .vp-doc div[class*='language-'] {
-  background: #f7fafd !important;
-  border: 1px solid var(--sc-blue-line);
-  border-left: 2px solid rgb(37 99 235 / 0.5);
-  border-radius: var(--sc-radius);
+  position: relative;
+  margin: 14px 0;
+  padding: 0 !important;
+  background: #f5f9fe !important;
+  border: 1px solid #dae7f5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 内层 pre / code 全部透明，底色只由上面那层容器决定 */
+.vp-doc div[class*='language-'] pre,
+.vp-doc div[class*='language-'] pre.vp-code,
+.vp-doc div[class*='language-'] code,
+.vp-doc div[class*='language-'] .shiki {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+.vp-doc div[class*='language-'] pre {
+  padding: 11px 46px 11px 14px;
+  overflow-x: auto;
+  font-family: var(--sc-mono);
+  font-size: 13px;
+  line-height: 1.85;
+  color: #123a6b;
+  tab-size: 2;
+}
+
+.vp-doc div[class*='language-'] code {
+  font-family: var(--sc-mono);
+  font-size: 13px;
+  color: inherit;
+  white-space: pre;
+}
+
+/* 单行指令：整条压成一行，读起来像终端里敲的一行 */
+.vp-doc div[class*='language-'] pre code .line:only-child {
+  display: block;
+  padding: 2px 0;
+}
+
+/* 不要右上角的语言标签 */
+.vp-doc div[class*='language-']::before {
+  display: none !important;
+}
+
+/* 行号：整站关掉（都是一两行的指令，行号纯占地方） */
+.vp-doc div[class*='language-'].line-numbers-mode {
+  padding-left: 0 !important;
+}
+.vp-doc div[class*='language-'] .line-numbers,
+.vp-doc div[class*='language-'].line-numbers-mode .line-numbers {
+  display: none !important;
+}
+.vp-doc div[class*='language-'].line-numbers-mode::after {
+  display: none !important;
+}
+
+/* 复制按钮：右上角小方块，常态低调、悬停变实心蓝 */
+.vp-doc div[class*='language-'] .vp-copy-code-button {
+  top: 7px;
+  right: 7px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d3e2f3;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #6b8cb0;
+  opacity: 1;
+  transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+}
+
+.vp-doc div[class*='language-'] .vp-copy-code-button:hover {
+  background: var(--sc-blue);
+  border-color: var(--sc-blue);
+  color: #ffffff;
+}
+
+.vp-doc div[class*='language-'] .vp-copy-code-button svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* 复制成功提示：别顶到面板外面 */
+.vp-doc div[class*='language-'] .vp-copy-code-button.copied::after {
+  top: 30px;
+  right: 0;
+  height: auto;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--sc-mono);
+  font-size: 11px;
+  background: var(--sc-blue);
+  color: #fff;
 }
 
 .vp-doc blockquote {
