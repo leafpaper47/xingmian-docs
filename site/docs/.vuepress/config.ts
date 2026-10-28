@@ -20,7 +20,9 @@ export default defineUserConfig({
     ['meta', { name: 'theme-color', content: '#3b6cf6' }],
   ],
   theme: plumeTheme({
-    logo: `${BASE}logo.svg`,
+    // 注意：这里不要再手动拼 BASE，VuePress 会自动加 base 前缀，
+    // 之前写成 `${BASE}logo.svg` 导致产物里出现 /xingmian-docs/xingmian-docs/logo.svg（图标 404、标题错位）
+    logo: '/logo.svg',
     hostname: HOSTNAME,
     navbar,
     sidebar,

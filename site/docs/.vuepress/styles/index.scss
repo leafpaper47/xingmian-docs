@@ -1,73 +1,77 @@
 /**
  * 星冕服务器 · 管理员指令手册
- * UI 主题层：控制台式（terminal / utilitarian）深色主题
+ * UI 主题层：蓝白配色（light / blue-white）
  *
- * 设计意图：这套文档的使用场景是「管理员开着控制台查指令」，
- * 所以整个界面按服务器终端来设计——等宽字体、荧光绿光标色、
- * 极细的分割线、CRT 扫描线，表格做成控制台输出表的密度。
- * 结构信息（分类 / 插件 / 指令 / 权限）保持原样，只重做视觉层。
+ * 设计意图：一套给管理员用的指令手册，要的是「干净、可扫读、久看不累」。
+ * 主色是海域蓝（#2563eb 一路到 #eff6ff 的浅蓝阶），底色纯白，
+ * 结构信息用等宽字体（分类 / 插件 / 指令 / 表头），叙述文字用无衬线。
+ * 强调永远靠「一条细蓝线 + 蓝色文字」，不加阴影堆叠、不用大面积色块。
  */
 
 /* ============================================================
    1. 设计 Token
    ============================================================ */
 :root,
-[data-theme='dark'],
-[data-theme='light'] {
-  /* —— 底色：带一点绿色的墨黑，不用纯黑 —— */
-  --vp-c-bg: #0a0f0d;
-  --vp-c-bg-alt: #0d1412;
-  --vp-c-bg-elv: #111b17;
-  --vp-c-bg-soft: #101917;
-  --vp-c-bg-safe: #101917;
+[data-theme='light'],
+[data-theme='dark'] {
+  /* —— 底色：纯白为底，浅蓝做层次 —— */
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f7fafd;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f3f8fe;
+  --vp-c-bg-safe: #f3f8fe;
 
-  /* —— 文字 —— */
-  --vp-c-text: #cfe0d7;
-  --vp-c-text-1: #e2efe8;
-  --vp-c-text-2: #9db0a7;
-  --vp-c-text-3: #6b7d75;
-  --vp-c-text-mute: #6b7d75;
-  --vp-c-text-subtle: #55655e;
+  /* —— 文字：深海军蓝，不用纯黑 —— */
+  --vp-c-text: #22374d;
+  --vp-c-text-1: #0b1f33;
+  --vp-c-text-2: #46617d;
+  --vp-c-text-3: #7d93ac;
+  --vp-c-text-mute: #8298b0;
+  --vp-c-text-subtle: #9aadc2;
 
-  /* —— 线条：极细、低对比，靠密度而不是靠粗细 —— */
-  --vp-c-border: #1e2c26;
-  --vp-c-border-hard: #2a3b34;
-  --vp-c-divider: #16211c;
-  --vp-c-gutter: #0a0f0d;
+  /* —— 线条：浅蓝灰，靠密度分层 —— */
+  --vp-c-border: #dbe6f2;
+  --vp-c-border-hard: #c3d6e9;
+  --vp-c-divider: #e9f0f8;
+  --vp-c-gutter: #ffffff;
 
-  /* —— 强调色：荧光绿（光标）+ 琥珀（次级）—— */
-  --vp-c-brand: #6ee7a8;
-  --vp-c-brand-1: #6ee7a8;
-  --vp-c-brand-2: #4bd48e;
-  --vp-c-brand-3: #34b878;
-  --vp-c-brand-soft: rgb(110 231 168 / 0.14);
-  --vp-c-accent: #f5b555;
-  --vp-c-accent-bg: #f5b555;
-  --vp-c-accent-hover: #ffc978;
-  --vp-c-accent-soft: rgb(245 181 85 / 0.14);
-  --vp-c-accent-text: #f5b555;
+  /* —— 强调：海域蓝 —— */
+  --vp-c-brand: #2563eb;
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #1d4ed8;
+  --vp-c-brand-3: #1e40af;
+  --vp-c-brand-soft: rgb(37 99 235 / 0.1);
+  --vp-c-accent: #0284c7;
+  --vp-c-accent-bg: #2563eb;
+  --vp-c-accent-hover: #1d4ed8;
+  --vp-c-accent-soft: rgb(2 132 199 / 0.1);
+  --vp-c-accent-text: #0284c7;
 
-  --vp-c-danger-1: #ff6b6b;
-  --vp-c-danger-soft: rgb(255 107 107 / 0.12);
-  --vp-c-warning-1: #f5b555;
-  --vp-c-tip-1: #6ee7a8;
+  --vp-c-danger-1: #dc2626;
+  --vp-c-danger-soft: rgb(220 38 38 / 0.08);
+  --vp-c-warning-1: #b45309;
+  --vp-c-tip-1: #2563eb;
 
-  /* —— 字体：标题/导航/表格用等宽，正文用无衬线 —— */
+  /* —— 字体：结构用等宽，正文用无衬线 —— */
   --vp-font-family-base: 'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei',
     system-ui, -apple-system, 'Segoe UI', sans-serif;
   --vp-font-family-mono: ui-monospace, 'Cascadia Code', 'JetBrains Mono',
     'SFMono-Regular', Consolas, 'Sarasa Mono SC', 'Microsoft YaHei Mono', monospace;
 
   --sc-mono: var(--vp-font-family-mono);
-  --sc-lime: #6ee7a8;
-  --sc-amber: #f5b555;
-  --sc-hair: #1e2c26;
+  --sc-blue: #2563eb;
+  --sc-blue-deep: #1e40af;
+  --sc-blue-ink: #12386e;
+  --sc-blue-wash: #f3f8fe;
+  --sc-blue-line: #dbe6f2;
   --sc-radius: 6px;
+
+  --vp-nav-logo-height: 22px;
 }
 
-/* 站点常驻深色：隐藏明暗切换按钮，并声明配色方案（滚动条/表单跟随） */
+/* 站点固定浅色主题：隐藏明暗切换按钮，声明配色方案（滚动条/表单跟随） */
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 .vp-navbar-appearance,
@@ -76,21 +80,21 @@ html {
 }
 
 /* ============================================================
-   2. 全局氛围：暗底 + 扫描线 + 顶部荧光檐线
+   2. 全局氛围：白底 + 顶部一层蓝色微光
    ============================================================ */
 body {
-  background-color: var(--vp-c-bg);
-  /* CRT 扫描线：1px 亮线 + 3px 间隔，透明度极低，只作纹理不抢阅读 */
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgb(110 231 168 / 0.028) 0 1px,
-    transparent 1px 3px
+  background-color: #ffffff;
+  /* 顶部极淡的蓝色光雾，给纯白一点纵深，不影响正文对比度 */
+  background-image: radial-gradient(
+    1100px 420px at 50% -180px,
+    rgb(37 99 235 / 0.07),
+    transparent 70%
   );
-  background-attachment: fixed;
+  background-repeat: no-repeat;
   -webkit-font-smoothing: antialiased;
 }
 
-/* 顶部一条发光檐线：整站最显眼的识别符号 */
+/* 顶部一条蓝色檐线：整站的识别符号 */
 body::before {
   content: '';
   position: fixed;
@@ -99,63 +103,82 @@ body::before {
   z-index: 60;
   background: linear-gradient(
     90deg,
-    rgb(110 231 168 / 0) 0%,
-    var(--sc-lime) 18%,
-    var(--sc-amber) 50%,
-    var(--sc-lime) 82%,
-    rgb(110 231 168 / 0) 100%
+    rgb(37 99 235 / 0) 0%,
+    #2563eb 20%,
+    #60a5fa 50%,
+    #2563eb 80%,
+    rgb(37 99 235 / 0) 100%
   );
-  opacity: 0.75;
+  opacity: 0.9;
   pointer-events: none;
 }
 
 ::selection {
-  background: rgb(110 231 168 / 0.26);
-  color: #eafff4;
+  background: rgb(37 99 235 / 0.16);
+  color: #0b1f33;
 }
 
 /* 细滚动条 */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #24352d transparent;
+  scrollbar-color: #cfdfef transparent;
 }
 *::-webkit-scrollbar {
   width: 9px;
   height: 9px;
 }
 *::-webkit-scrollbar-thumb {
-  background: #24352d;
+  background: #cfdfef;
   border-radius: 9px;
-  border: 2px solid var(--vp-c-bg);
+  border: 2px solid #ffffff;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background: #34503f;
+  background: #a9c3de;
 }
 
 /* ============================================================
-   3. 顶栏
+   3. 顶栏（标题/图标的对齐在这里修正）
    ============================================================ */
 .vp-navbar {
-  background: rgb(10 15 13 / 0.88) !important;
-  border-bottom: 1px solid var(--sc-hair);
-  backdrop-filter: blur(10px) saturate(120%);
+  background: rgb(255 255 255 / 0.9) !important;
+  border-bottom: 1px solid var(--sc-blue-line);
+  backdrop-filter: blur(10px) saturate(140%);
 }
 
+/* 标题容器：不要加任何 ::before/transform，否则整块会相对 logo 偏移 */
 .vp-navbar-title {
+  padding: 0;
+  margin: 0;
+}
+
+/* 真正排版的元素是里面那个 flex 链接（.title） */
+.vp-navbar-title .title {
   font-family: var(--sc-mono);
   font-size: 13.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--vp-c-text-1);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--sc-blue-ink);
+  gap: 0;
 }
 
-.vp-navbar-title::before {
-  content: '❯ ';
-  color: var(--sc-lime);
-  opacity: 0.9;
+/* logo 与文字的间距交给主题的 margin-right，这里只固定对齐 */
+.vp-navbar-title .title > .logo,
+.vp-navbar-title .title > img {
+  display: block;
+  flex: none;
+  margin-right: 8px;
+  align-self: center;
 }
 
-/* 顶栏菜单项：等宽 + 细下划线动效 */
+.vp-navbar-title .title > span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 顶栏菜单项 */
 .vp-navbar .vp-nav-item .vp-link,
 .vp-navbar .vp-nav-item a {
   font-family: var(--sc-mono);
@@ -167,38 +190,38 @@ body::before {
 
 .vp-navbar .vp-nav-item .vp-link:hover,
 .vp-navbar .vp-nav-item a:hover {
-  color: var(--sc-lime);
+  color: var(--sc-blue);
 }
 
 /* ============================================================
-   4. 侧边栏：做成「插件索引列表」
+   4. 侧边栏：插件索引列表
    ============================================================ */
 .vp-sidebar {
-  border-right: 1px solid var(--sc-hair);
-  background: linear-gradient(180deg, #0b1210 0%, #0a0f0d 60%);
+  border-right: 1px solid var(--sc-blue-line);
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 55%);
 }
 
 .vp-sidebar .nav {
   padding-top: 10px;
 }
 
-/* 分组标题（level-0）：小号等宽大写，像终端里的目录 */
+/* 分类标题（level-0）：小号等宽大写 */
 .vp-sidebar .sidebar-item.level-0 > .item > a > .text {
   font-family: var(--sc-mono);
   font-size: 11.5px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--vp-c-text-3);
+  color: #8ba2ba;
   transition: color 0.18s ease;
 }
 
 .vp-sidebar .sidebar-item.level-0 > .item:hover > a > .text,
 .vp-sidebar .sidebar-item.level-0.has-active > .item > a > .text {
-  color: var(--sc-amber);
+  color: var(--sc-blue);
 }
 
-/* 每个条目的指示灯：默认是一条暗色竖线 */
+/* 指示灯：默认是一条透明竖线 */
 .vp-sidebar .sidebar-item .indicator {
   width: 2px;
   border-radius: 2px;
@@ -211,44 +234,41 @@ body::before {
   transition: background 0.16s ease, transform 0.16s ease;
 }
 
-/* 插件行：等宽小字，悬停左移 + 指示灯点亮 */
 .vp-sidebar .sidebar-item.level-1 > .item > a > .text {
   font-family: var(--sc-mono);
   font-size: 12.5px;
-  letter-spacing: 0.01em;
   color: var(--vp-c-text-2);
   transition: color 0.16s ease;
 }
 
 .vp-sidebar .sidebar-item.level-1 > .item:hover {
-  background: rgb(110 231 168 / 0.06);
+  background: rgb(37 99 235 / 0.055);
   transform: translateX(2px);
 }
 
 .vp-sidebar .sidebar-item.level-1 > .item:hover > .indicator {
-  background: var(--sc-lime);
-  box-shadow: 0 0 8px rgb(110 231 168 / 0.7);
+  background: var(--sc-blue);
 }
 
 .vp-sidebar .sidebar-item.level-1 > .item:hover > a > .text {
   color: var(--vp-c-text-1);
 }
 
-/* 当前页：指示灯常亮 + 背景泛绿 */
+/* 当前页 */
 .vp-sidebar .sidebar-item.level-1.active > .item,
 .vp-sidebar .sidebar-item.level-1 .item.active {
-  background: rgb(110 231 168 / 0.1);
+  background: rgb(37 99 235 / 0.09);
 }
 
 .vp-sidebar .sidebar-item.level-1.active > .item > .indicator,
 .vp-sidebar .sidebar-item.level-1 .item.active > .indicator,
 .vp-sidebar .sidebar-item.has-active > .item > .indicator {
-  background: var(--sc-lime);
-  box-shadow: 0 0 10px rgb(110 231 168 / 0.8);
+  background: var(--sc-blue);
+  box-shadow: 0 0 0 1px rgb(37 99 235 / 0.25);
 }
 
 .vp-sidebar .sidebar-item.level-1.active > .item > a > .text {
-  color: #eafff4;
+  color: var(--sc-blue-deep);
   font-weight: 600;
 }
 
@@ -261,7 +281,6 @@ body::before {
   color: var(--vp-c-text);
 }
 
-/* 标题统一等宽，并加终端提示符装饰 */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
@@ -275,105 +294,102 @@ body::before {
   font-size: 30px;
   letter-spacing: -0.02em;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--sc-hair);
+  border-bottom: 1px solid var(--sc-blue-line);
 }
 
 .vp-doc h2 {
   font-size: 20px;
   margin-top: 42px;
   padding-bottom: 8px;
-  border-bottom: 1px dashed #1a2721;
+  border-bottom: 1px dashed #e4eef9;
 }
 
 .vp-doc h2::before {
   content: '▚ ';
-  color: var(--sc-amber);
-  opacity: 0.85;
+  color: #93b8e6;
   font-size: 0.85em;
 }
 
 .vp-doc h3 {
   font-size: 16px;
   margin-top: 30px;
-  color: var(--sc-lime);
-  opacity: 0.92;
+  color: var(--sc-blue);
 }
 
 .vp-doc h3::before {
   content: '› ';
-  opacity: 0.7;
+  color: #a9c7e8;
 }
 
-/* 链接：荧光绿 + 悬停下划线加粗 */
+/* 链接：蓝 + 细下划线，悬停加深 */
 .vp-doc a {
-  color: var(--sc-lime);
+  color: var(--sc-blue);
   text-decoration: none;
-  border-bottom: 1px solid rgb(110 231 168 / 0.28);
+  border-bottom: 1px solid rgb(37 99 235 / 0.24);
   transition: border-color 0.16s ease, background 0.16s ease;
 }
 
 .vp-doc a:hover {
-  border-bottom-color: var(--sc-lime);
-  background: rgb(110 231 168 / 0.07);
+  border-bottom-color: var(--sc-blue);
+  background: rgb(37 99 235 / 0.05);
 }
 
-/* 行内代码：做成「芯片」 */
+/* 行内代码：浅蓝芯片 */
 .vp-doc code {
   font-family: var(--sc-mono);
   font-size: 0.9em;
-  background: #0c1712;
-  border: 1px solid #1d2d26;
+  background: #eff5fd;
+  border: 1px solid #dbe8f6;
   border-radius: 4px;
   padding: 1px 5px;
-  color: #9ff0c4;
-  transition: border-color 0.16s ease, color 0.16s ease;
+  color: #1c4b8b;
+  transition: border-color 0.16s ease, background 0.16s ease;
 }
 
 .vp-doc a > code:hover,
 .vp-doc td code:hover {
-  border-color: rgb(110 231 168 / 0.55);
-  color: #d6ffe9;
+  border-color: rgb(37 99 235 / 0.45);
+  background: #e7f0fc;
 }
 
-/* 代码块：左侧荧光条 */
+/* 代码块：浅底 + 左侧蓝条 */
 .vp-doc div[class*='language-'] {
-  background: #08100d !important;
-  border: 1px solid var(--sc-hair);
-  border-left: 2px solid rgb(110 231 168 / 0.55);
+  background: #f7fafd !important;
+  border: 1px solid var(--sc-blue-line);
+  border-left: 2px solid rgb(37 99 235 / 0.5);
   border-radius: var(--sc-radius);
 }
 
 .vp-doc blockquote {
-  border-left: 2px solid var(--sc-amber);
-  background: rgb(245 181 85 / 0.05);
+  border-left: 2px solid #93b8e6;
+  background: #f7fbff;
   color: var(--vp-c-text-2);
   border-radius: 0 var(--sc-radius) var(--sc-radius) 0;
 }
 
 .vp-doc hr {
   border: none;
-  border-top: 1px dashed #1a2721;
+  border-top: 1px dashed #e4eef9;
 }
 
-/* 列表标记用终端项目符 */
 .vp-doc ul > li::marker {
-  color: rgb(110 231 168 / 0.55);
+  color: #93b8e6;
 }
 
 .vp-doc strong {
-  color: #eafff4;
+  color: var(--vp-c-text-1);
   font-weight: 600;
 }
 
-/* 提示容器（::: warning 等）压暗，不要跳出色系 */
+/* 提示容器 */
 .vp-doc .hint-container {
   border-radius: var(--sc-radius);
-  border: 1px solid var(--sc-hair);
-  background: #0d1512;
+  border: 1px solid var(--sc-blue-line);
+  background: #f9fcff;
 }
 
 /* ============================================================
-   6. 表格：控制台输出表
+   6. 表格：编码输出表（浅蓝表头 / 细分隔 / 行悬停）
    ============================================================ */
 .vp-doc table {
   display: table !important;
@@ -384,8 +400,9 @@ body::before {
   margin: 18px 0;
   font-size: 13.5px;
   overflow-x: visible !important;
-  border: 1px solid var(--sc-hair);
+  border: 1px solid var(--sc-blue-line);
   border-radius: var(--sc-radius);
+  background: #ffffff;
 }
 
 .vp-doc table th,
@@ -395,7 +412,7 @@ body::before {
   line-height: 1.62;
   word-break: break-word;
   overflow-wrap: anywhere;
-  border-bottom: 1px solid #14201b;
+  border-bottom: 1px solid #eef4fa;
 }
 
 .vp-doc table th {
@@ -405,9 +422,9 @@ body::before {
   letter-spacing: 0.11em;
   text-transform: uppercase;
   white-space: nowrap;
-  color: var(--sc-amber);
-  background: #0c1512;
-  border-bottom: 1px solid var(--sc-hair);
+  color: #1d4f8f;
+  background: #eff5fd;
+  border-bottom: 1px solid #d8e6f5;
 }
 
 .vp-doc table tbody tr {
@@ -415,14 +432,13 @@ body::before {
 }
 
 .vp-doc table tbody tr:hover {
-  background: rgb(110 231 168 / 0.055);
+  background: #f5faff;
 }
 
 .vp-doc table tbody tr:last-child td {
   border-bottom: none;
 }
 
-/* 行内代码不撑破列宽 */
 .vp-doc table td code {
   white-space: normal;
   word-break: break-all;
@@ -445,7 +461,7 @@ body::before {
 .vp-doc table:has(> thead > tr > th:nth-child(4)) > tbody > tr > :nth-child(4) {
   width: 12% !important;
   font-family: var(--sc-mono);
-  color: var(--vp-c-text-2);
+  color: var(--vp-c-text-3);
 }
 
 .vp-doc table:not(:has(> thead > tr > th:nth-child(4))) > thead > tr > :nth-child(1),
@@ -461,10 +477,11 @@ body::before {
   width: 36% !important;
 }
 
-/* 表格首列（插件名 / 指令名）用等宽，辨识度更高 */
+/* 首列（插件名 / 指令名）用等宽，扫读更快 */
 .vp-doc table tbody tr > td:first-child {
   font-family: var(--sc-mono);
   font-size: 12.8px;
+  color: var(--vp-c-text-1);
 }
 
 /* ============================================================
@@ -479,23 +496,22 @@ body::before {
   font-size: 11.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sc-amber);
+  color: var(--sc-blue);
 }
 
 .sc-eyebrow em {
   font-style: normal;
-  color: var(--vp-c-text-3);
+  color: #a3b8cd;
   letter-spacing: 0.1em;
 }
 
-/* 呼吸绿点 */
 .sc-eyebrow__dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--sc-lime);
-  box-shadow: 0 0 10px rgb(110 231 168 / 0.9);
-  animation: sc-pulse 2.4s ease-in-out infinite;
+  background: var(--sc-blue);
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.14);
+  animation: sc-pulse 2.6s ease-in-out infinite;
 }
 
 @keyframes sc-pulse {
@@ -505,21 +521,20 @@ body::before {
     transform: scale(1);
   }
   50% {
-    opacity: 0.45;
-    transform: scale(0.82);
+    opacity: 0.5;
+    transform: scale(0.85);
   }
 }
 
-/* 状态条：像终端里的状态栏 */
+/* 状态条：白卡片 + 蓝色数字 */
 .sc-strip {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0;
   margin: 18px 0 26px;
-  border: 1px solid var(--sc-hair);
+  border: 1px solid var(--sc-blue-line);
   border-radius: var(--sc-radius);
-  background: linear-gradient(180deg, #0c1512 0%, #0a110e 100%);
+  background: linear-gradient(180deg, #f9fcff 0%, #ffffff 100%);
   overflow: hidden;
   font-family: var(--sc-mono);
 }
@@ -529,7 +544,7 @@ body::before {
   align-items: baseline;
   gap: 8px;
   padding: 10px 16px;
-  border-right: 1px solid var(--sc-hair);
+  border-right: 1px solid #eaf1f9;
 }
 
 .sc-strip__cell i {
@@ -537,31 +552,29 @@ body::before {
   font-size: 10.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--vp-c-text-3);
+  color: #8fa7bf;
 }
 
 .sc-strip__cell b {
   font-size: 15px;
-  font-weight: 600;
-  color: var(--sc-lime);
+  font-weight: 700;
+  color: var(--sc-blue);
   font-variant-numeric: tabular-nums;
 }
 
-/* 末尾一个闪烁光标，点睛 */
 .sc-strip__caret {
-  width: 8px;
-  height: 15px;
+  width: 7px;
+  height: 14px;
   margin-left: auto;
   margin-right: 14px;
-  background: var(--sc-lime);
-  opacity: 0.9;
-  animation: sc-blink 1.1s step-end infinite;
+  background: var(--sc-blue);
+  animation: sc-blink 1.2s step-end infinite;
 }
 
 @keyframes sc-blink {
   0%,
   49% {
-    opacity: 0.9;
+    opacity: 0.85;
   }
   50%,
   100% {
@@ -570,12 +583,12 @@ body::before {
 }
 
 /* ============================================================
-   8. 动效：进入时逐行淡入（一次性，不干扰阅读）
+   8. 动效：进入时逐行淡入（一次性）
    ============================================================ */
 @keyframes sc-fade-up {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(5px);
   }
   to {
     opacity: 1;
@@ -585,15 +598,15 @@ body::before {
 
 .vp-doc .sc-strip,
 .vp-doc table {
-  animation: sc-fade-up 0.32s ease-out both;
-}
-
-.vp-doc table tbody tr {
   animation: sc-fade-up 0.3s ease-out both;
 }
 
+.vp-doc table tbody tr {
+  animation: sc-fade-up 0.28s ease-out both;
+}
+
 .vp-doc table tbody tr:nth-child(-n + 12) {
-  animation-delay: calc(var(--sc-i, 0) * 18ms);
+  animation-delay: calc(var(--sc-i, 0) * 16ms);
 }
 
 .vp-doc table tbody tr:nth-child(1) { --sc-i: 0; }
@@ -610,39 +623,38 @@ body::before {
 .vp-doc table tbody tr:nth-child(12) { --sc-i: 11; }
 
 /* ============================================================
-   9. 搜索框 / 页脚 / 目录
+   9. 搜索 / 页脚 / 目录
    ============================================================ */
 .vp-navbar-search input,
 .vp-search-modal input {
   font-family: var(--sc-mono);
-  background: #0d1512 !important;
-  border: 1px solid var(--sc-hair) !important;
+  background: #f7fafd !important;
+  border: 1px solid var(--sc-blue-line) !important;
   color: var(--vp-c-text-1) !important;
 }
 
 .vp-search-modal {
-  --vp-c-bg-elv: #0f1815;
+  --vp-c-bg-elv: #ffffff;
 }
 
 .vp-footer {
-  border-top: 1px solid var(--sc-hair);
+  border-top: 1px solid var(--sc-blue-line);
   font-family: var(--sc-mono);
   font-size: 11.5px;
   letter-spacing: 0.06em;
-  color: var(--vp-c-text-3);
+  color: #8fa7bf;
 }
 
-/* 右侧目录 */
 .vp-toc .toc-item,
 .vp-doc-toc a {
   font-family: var(--sc-mono);
   font-size: 12px;
-  color: var(--vp-c-text-3);
+  color: #8fa7bf;
 }
 
 .vp-doc-toc a:hover,
 .vp-doc-toc a.active {
-  color: var(--sc-lime);
+  color: var(--sc-blue);
 }
 
 /* ============================================================
