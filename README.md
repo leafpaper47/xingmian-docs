@@ -154,3 +154,15 @@ python gen_docs.py              # 重新生成页面（会自动读 zh_cache.jso
 
 - `/` 直接是**指令总览**（不再有单独首页），进来就是 13 个分类的插件表
 - `/commands/<分类>/<插件>.md` 插件页：定位 → 上手流程 → 指令一览（指令/功能/用法/权限）→ 指令详解（语法/参数/示例/别名/权限/备注）→ 子指令速查 → 注意事项 → 权限节点 → 相关插件
+
+## 字体
+
+站点正文与代码全部使用 **Fusion Pixel 12px**（像素字体，视觉上是 Minecraft 那一挂）：
+正文用比例宽度版、结构与代码用等宽版。字体文件随仓库分发，位于
+`site/docs/.vuepress/styles/fonts/`（`prop/` 与 `mono/` 各 78 个按 unicode-range 切分的 woff2
+子集，浏览器只下载页面实际用到的分片）。由 `styles/_fusion-*.scss` 里的 `@font-face` 引入。
+
+- 字体：Fusion Pixel Font，作者 TakWolf
+- 授权：SIL Open Font License 1.1（可自由分发与商用，保留授权文件即可）
+- 注意：Minecraft 官方字体（Mojang 的 `Minecraft.ttf`）授权不允许随站点再分发，
+  所以这里用同为像素风的开源字体替代，观感一致且无授权风险。

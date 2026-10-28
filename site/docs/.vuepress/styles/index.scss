@@ -1,12 +1,19 @@
 /**
  * 星冕服务器 · 管理员指令手册
- * UI 主题层：蓝白配色（light / blue-white）
+ * UI 主题层：蓝白配色 + 像素（Minecraft 风格）字体
  *
  * 设计意图：一套给管理员用的指令手册，要的是「干净、可扫读、久看不累」。
- * 主色是海域蓝（#2563eb 一路到 #eff6ff 的浅蓝阶），底色纯白，
- * 结构信息用等宽字体（分类 / 插件 / 指令 / 表头），叙述文字用无衬线。
+ * 主色是海域蓝（#2563eb 一路到 #eff6ff 的浅蓝阶），底色纯白。
+ * 字体用 Fusion Pixel 12px（像素字体，视觉上就是 Minecraft 那一挂），
+ * 正文用比例宽度版本、结构信息（分类 / 插件 / 指令 / 表头 / 代码）用等宽版本。
  * 强调永远靠「一条细蓝线 + 蓝色文字」，不加阴影堆叠、不用大面积色块。
  */
+
+/* 像素字体：Fusion Pixel 12px（SIL OFL-1.1，TakWolf）
+ * 按 unicode-range 切成 78 个子集，浏览器只下载页面实际用到的分片。
+ * @use 必须放在最前面（SCSS 规则），字体文件在 fonts/prop 与 fonts/mono 下。 */
+@use './fonts/fusion-prop';
+@use './fonts/fusion-mono';
 
 /* ============================================================
    1. 设计 Token
@@ -52,11 +59,11 @@
   --vp-c-warning-1: #b45309;
   --vp-c-tip-1: #2563eb;
 
-  /* —— 字体：结构用等宽，正文用无衬线 —— */
-  --vp-font-family-base: 'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei',
-    system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --vp-font-family-mono: ui-monospace, 'Cascadia Code', 'JetBrains Mono',
-    'SFMono-Regular', Consolas, 'Sarasa Mono SC', 'Microsoft YaHei Mono', monospace;
+  /* —— 字体：全站像素字体（Minecraft 风），正文比例版、结构等宽版 —— */
+  --vp-font-family-base: 'Fusion Pixel 12px Proportional Simplified Chinese',
+    'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
+  --vp-font-family-mono: 'Fusion Pixel 12px Monospaced Simplified Chinese',
+    'Fusion Pixel 12px Proportional Simplified Chinese', Consolas, monospace;
 
   --sc-mono: var(--vp-font-family-mono);
   --sc-blue: #2563eb;
@@ -154,9 +161,9 @@ body::before {
 /* 真正排版的元素是里面那个 flex 链接（.title） */
 .vp-navbar-title .title {
   font-family: var(--sc-mono);
-  font-size: 13.5px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   line-height: 1;
   color: var(--sc-blue-ink);
   gap: 0;
@@ -276,9 +283,11 @@ body::before {
    5. 正文排版
    ============================================================ */
 .vp-doc {
-  font-size: 15.5px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.85;
   color: var(--vp-c-text);
+  /* 像素字体：关掉合成斜体/粗体，避免浏览器把像素字形拉伸变形 */
+  font-synthesis: none;
 }
 
 .vp-doc h1,
@@ -398,7 +407,7 @@ body::before {
   table-layout: fixed !important;
   border-collapse: collapse;
   margin: 18px 0;
-  font-size: 13.5px;
+  font-size: 14px;
   overflow-x: visible !important;
   border: 1px solid var(--sc-blue-line);
   border-radius: var(--sc-radius);
