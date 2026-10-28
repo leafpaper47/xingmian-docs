@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # 图形化NPC · FancyNpcsGUI
 
-> 分类 🧟 生物与展示 · 版本 `1.1.0` · 指令 1 条 · api-version `1.21`
+> 分类 🧟 生物与外观 · 版本 `1.1.0` · 指令 1 条 · api-version `1.21`
 
 ::: tip FancyNpcs 图形化 NPC 编辑
 这是 FancyNpcs 的第三方非官方图形编辑器，把原本要敲命令才能完成的 NPC 增删改操作搬到界面里点。

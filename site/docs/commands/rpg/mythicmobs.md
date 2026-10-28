@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # 自定义怪物 · MythicMobs
 
-> 分类 ⚔️ 战斗与 RPG · 版本 `5.13.0-SNAPSHOT-850a23db` · 指令 39 条 · api-version `1.13`
+> 分类 ⚔️ 战斗与成长 · 版本 `5.13.0-SNAPSHOT-850a23db` · 指令 39 条 · api-version `1.13`
 
 ::: tip 自定义怪物
 用 YAML 写怪物、物品、技能和刷怪点，再用 /mm 的子指令在游戏里生成、调试和批量管理。子指令很多，先记 mobs、items、spawners 三组。

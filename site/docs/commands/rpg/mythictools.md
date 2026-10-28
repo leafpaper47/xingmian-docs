@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # 神话工具包 · MythicTools
 
-> 分类 ⚔️ 战斗与 RPG · 版本 `1.0.4` · 指令 1 条 · api-version `1.20`
+> 分类 ⚔️ 战斗与成长 · 版本 `1.0.4` · 指令 1 条 · api-version `1.20`
 
 ::: tip MythicMobs 掉落与 Boss 工具
 它是 MythicMobs 的配套小工具，把掉落表、刷怪点、Boss 相关的东西收拢到一个管理界面和几条主命令里，省得管理员去翻一堆 YAML。

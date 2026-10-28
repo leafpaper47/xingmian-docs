@@ -19,50 +19,55 @@ TODAY = "2026/10/24"
 
 # ---------------- 分类定义 ----------------
 CATS = [
-    ("core", "基础与权限", "🛡️", "权限、插件加载、维护模式、Vault 经济桥等服务器底座。"),
-    ("essentials", "基础工具", "🧰", "Essentials 系与各类物品/背包/生存辅助工具。"),
-    ("teleport", "传送与出生点", "🌀", "随机传送、出生点、回家相关。"),
-    ("world", "世界与地图", "🗺️", "地图渲染、坐标同步、天气与天象、镜像世界。"),
-    ("protect", "领地与保护", "🔒", "领地、容器锁、WorldGuard 图形界面。"),
-    ("economy", "经济与商店", "🪙", "点券、商店、玩家交易、赞助充值。"),
-    ("rpg", "战斗与 RPG", "⚔️", "MythicMobs 系、附魔、Boss、属性、自定义战斗。"),
-    ("entity", "生物与展示", "🧟", "伪装、模型、NPC、实体编辑。"),
-    ("chat", "聊天与社交", "💬", "聊天格式、公告、邮件、称号、语音、计分板。"),
-    ("config", "脚本与菜单", "🧩", "Skript、DeluxeMenus、PlaceholderAPI 等二次开发底座。"),
-    ("audit", "记录与性能", "📊", "方块回滚、性能采样、审计。"),
-    ("minigame", "小游戏与娱乐", "🎲", "服务器自研玩法与休闲小游戏。"),
-    ("other", "其他", "📦", "未归类的插件。"),
+    ("core", "权限与底座", "🛡️", "权限、经济接口、插件热管理与脚本/菜单等二次开发底座。"),
+    ("essentials", "基础指令", "🧰", "Essentials 总控、签到、挂机、玩家任务与配方速查。"),
+    ("items", "物品与合成", "🎒", "物品编辑、背包快照、远程开箱、合成台与装备增强。"),
+    ("teleport", "移动与传送", "🌀", "随机传送与出生点。"),
+    ("world", "世界与地图", "🗺️", "小地图坐标、地图画与图片、天气天象、镜像方块、网页地图互通。"),
+    ("protect", "领地与保护", "🔒", "领地、城镇、区域管理、容器锁与爆炸防护。"),
+    ("economy", "经济与商店", "🪙", "赞助充值、NPC 商店、点券流水、红包与建造接单。"),
+    ("rpg", "战斗与成长", "⚔️", "自定义怪物与 Boss、附魔强化、决斗排位、RPG 世界与元素职业。"),
+    ("entity", "生物与外观", "🧟", "伪装、自定义模型、NPC 编辑、盔甲架与血条显示。"),
+    ("chat", "聊天与社交", "💬", "聊天格式与公告、列表与称号、邮件、语音、互动与邀请。"),
+    ("cook", "烹饪与采集", "🍳", "森罗厨房菜谱/图鉴/收购、酿酒图鉴与考古采集。"),
+    ("minigame", "休闲与小游戏", "🎲", "台球、麻将、坐姿、牵人、玩具、狼人杀、答题、点歌与活动赛。"),
+    ("audit", "记录与性能", "📊", "方块日志回滚与性能剖析。"),
 ]
 CAT_ORDER = [c[0] for c in CATS]
 CAT_META = {c[0]: {"title": c[1], "icon": c[2], "desc": c[3]} for c in CATS}
 
 ASSIGN = {
-    "AfDianPay": "economy", "Ah-Toy-1.0": "minigame", "Ah-WolfmanKill-1.0": "minigame",
-    "ALCERecipeViewer": "essentials", "allmusic": "minigame", "AntiBoom": "protect", "ArchitectPlugin": "economy",
-    "ArmoredElytra": "essentials", "ArmorUnbreaking": "essentials", "ArtMap": "world",
-    "BetterRTP": "teleport", "BlockLocker": "protect", "BookEdit": "essentials",
-    "BossBarHealth": "entity", "BroadcastPlusPlus": "chat", "CMILib": "essentials",
-    "ConsoleSpamFixReborn": "core", "CoreProtect": "audit", "CraftBench": "essentials",
-    "DeluxeMenus": "config", "DummyPool": "economy", "EcoEnchants": "rpg",
-    "EditableStands": "entity", "EliteMobs": "rpg", "EnchantInfuser": "rpg",
-    "Essentials": "essentials", "EssentialsSpawn": "teleport", "FancyNpcsGUI": "entity",
-    "FoMiningComp": "rpg", "GSit": "minigame", "Images": "world", "InBlock": "essentials",
-    "InfiniteFuel": "essentials", "InvSaver": "essentials", "ItemEdit": "essentials",
-    "KaleidoscopeCookeryPlugin": "rpg", "KaoguGuide": "rpg", "KaoguPlugin": "rpg",
-    "LeafChat": "chat", "LeafHat": "essentials", "LeashPlayers": "minigame",
-    "LibsDisguises": "entity", "LobbyGames": "minigame", "LuckPerms": "core",
-    "MagicPointsLog": "economy", "MahjongPlay": "minigame", "MaintenanceMode": "core",
-    "MeteorShowers": "world", "Mirrora": "world", "ModelEngine": "entity",
-    "MythicMobs": "rpg", "MythicTools": "rpg", "OpenInv": "essentials",
-    "PatPatPlugin": "chat", "PlaceholderAPI": "config", "PlayerSignIn": "essentials", "PlayerTask": "essentials",
-    "PlayerTitle": "chat", "PlugManX": "core", "PVPPlugin": "rpg", "Residence": "protect",
-    "SenluoCookbook": "rpg", "SenluoBuyer": "economy", "Shopkeepers": "economy", "Skript": "config", "spark": "audit",
-    "StarAFK": "essentials", "StarPact": "rpg", "SweetMail": "chat", "TAB": "chat",
-    "TownPlugin": "protect", "Vault": "core", "vcm": "chat", "voicechat": "chat",
-    "WeatherCard": "world", "WebBridge": "core", "WineSuite": "economy",
-    "WorldGuardGUI": "protect", "XaeroTracker": "world", "XingmianElement": "rpg",
-    "XingmianQuiz": "minigame", "XingmianRPG": "rpg", "YaoqingPlugin": "chat",
-    "YccHongBao": "economy", "YiyunCEskin": "entity",
+    "LuckPerms": "core", "Vault": "core", "PlugManX": "core", "MaintenanceMode": "core",
+    "ConsoleSpamFixReborn": "core", "CMILib": "core", "PlaceholderAPI": "core",
+    "Skript": "core", "DeluxeMenus": "core",
+    "Essentials": "essentials", "StarAFK": "essentials", "PlayerSignIn": "essentials",
+    "PlayerTask": "essentials", "ALCERecipeViewer": "essentials",
+    "ItemEdit": "items", "InvSaver": "items", "OpenInv": "items", "LeafHat": "items",
+    "CraftBench": "items", "BookEdit": "items", "ArmorUnbreaking": "items",
+    "ArmoredElytra": "items", "InfiniteFuel": "items", "InBlock": "items",
+    "YiyunCEskin": "items",
+    "BetterRTP": "teleport", "EssentialsSpawn": "teleport",
+    "XaeroTracker": "world", "Images": "world", "ArtMap": "world", "Mirrora": "world",
+    "MeteorShowers": "world", "WeatherCard": "world", "WebBridge": "world",
+    "Residence": "protect", "TownPlugin": "protect", "WorldGuardGUI": "protect",
+    "BlockLocker": "protect", "AntiBoom": "protect",
+    "AfDianPay": "economy", "Shopkeepers": "economy", "MagicPointsLog": "economy",
+    "YccHongBao": "economy", "ArchitectPlugin": "economy",
+    "MythicMobs": "rpg", "MythicTools": "rpg", "EliteMobs": "rpg", "EcoEnchants": "rpg",
+    "EnchantInfuser": "rpg", "PVPPlugin": "rpg", "XingmianRPG": "rpg",
+    "XingmianElement": "rpg",
+    "LibsDisguises": "entity", "ModelEngine": "entity", "FancyNpcsGUI": "entity",
+    "EditableStands": "entity", "BossBarHealth": "entity",
+    "LeafChat": "chat", "BroadcastPlusPlus": "chat", "TAB": "chat", "PlayerTitle": "chat",
+    "SweetMail": "chat", "PatPatPlugin": "chat", "YaoqingPlugin": "chat", "vcm": "chat",
+    "voicechat": "chat", "StarPact": "chat",
+    "KaleidoscopeCookeryPlugin": "cook", "SenluoCookbook": "cook", "SenluoBuyer": "cook",
+    "WineSuite": "cook", "KaoguPlugin": "cook", "KaoguGuide": "cook",
+    "DummyPool": "minigame", "MahjongPlay": "minigame", "GSit": "minigame",
+    "LeashPlayers": "minigame", "Ah-Toy-1.0": "minigame", "Ah-WolfmanKill-1.0": "minigame",
+    "LobbyGames": "minigame", "XingmianQuiz": "minigame", "allmusic": "minigame",
+    "FoMiningComp": "minigame",
+    "CoreProtect": "audit", "spark": "audit",
 }
 
 # 侧边栏 / 标题用的功能简称
@@ -373,7 +378,7 @@ def main():
     for r in data:
         name = r.get("name") or r.get("file")
         rows = collect_commands(r)
-        cat = ASSIGN.get(name, "other")
+        cat = ASSIGN.get(name, "essentials")
         note = load_note(name)
         perms = dict(r.get("permissions") or {}) if isinstance(r.get("permissions"), dict) else {}
         if note and note.get("permissions"):

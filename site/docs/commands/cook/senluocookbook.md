@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # 菜谱图鉴 · SenluoCookbook
 
-> 分类 ⚔️ 战斗与 RPG · 版本 `1.0.0` · 指令 1 条 · api-version `1.21`
+> 分类 🍳 烹饪与采集 · 版本 `1.0.0` · 指令 1 条 · api-version `1.21`
 
 ::: tip 森罗厨房图鉴
 森罗厨房图鉴：炒出或做出 kaleidoscopecookery 菜品即解锁，全菜品图鉴 GUI。

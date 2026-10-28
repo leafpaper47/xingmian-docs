@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # 出生点 · EssentialsSpawn
 
-> 分类 🌀 传送与出生点 · 版本 `2.22.1-dev+12-776f709` · 指令 2 条 · api-version `1.13`
+> 分类 🌀 移动与传送 · 版本 `2.22.1-dev+12-776f709` · 指令 2 条 · api-version `1.13`
 
 ::: tip 出生点传送
 Essentials 的出生点模块：按组存出生点，玩家用 /spawn 回城，可配登录自动传送。必须和 Essentials 一起装，单人装它不生效。

@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # GUI菜单 · DeluxeMenus
 
-> 分类 🧩 脚本与菜单 · 版本 `1.14.1-Release` · 指令 1 条 · api-version `1.13`
+> 分类 🛡️ 权限与底座 · 版本 `1.14.1-Release` · 指令 1 条 · api-version `1.13`
 
 ::: tip GUI 菜单
 用 YAML 定义箱子菜单：按钮、图标、点击动作全配置化，服务端的商店、传送、活动面板基本都靠它。

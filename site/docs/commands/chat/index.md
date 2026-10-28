@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # 💬 聊天与社交
 
-聊天格式、公告、邮件、称号、语音、计分板。
+聊天格式与公告、列表与称号、邮件、语音、互动与邀请。
 
 | 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
@@ -13,6 +13,7 @@ createTime: 2026/10/24
 | [LeafChat](/commands/chat/leafchat.md) | 统一管理聊天格式 | `/chatcolor`、`/leafchat`、`/leafchatview`… | 8 |
 | [PatPatPlugin](/commands/chat/patpatplugin.md) | 拍拍互动 | `/patpat` | 1 |
 | [PlayerTitle](/commands/chat/playertitle.md) | 称号系统 | `/playerTitle` | 1 |
+| [StarPact](/commands/chat/starpact.md) | 关系契约社交 | `/gender`、`/xzqy`、`/xzqyxb` | 16 |
 | [SweetMail](/commands/chat/sweetmail.md) | 站内邮件 | `/sweetmail` | 1 |
 | [TAB](/commands/chat/tab.md) | TAB 列表 | `/tab` | 1 |
 | [vcm](/commands/chat/vcm.md) | 语音喇叭 | `/vcm` | 1 |

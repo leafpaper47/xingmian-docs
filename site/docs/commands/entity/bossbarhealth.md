@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # 血量显示 · BossBarHealth
 
-> 分类 🧟 生物与展示 · 版本 `4.1.16-SNAPSHOT` · 指令 1 条 · api-version `1.13`
+> 分类 🧟 生物与外观 · 版本 `4.1.16-SNAPSHOT` · 指令 1 条 · api-version `1.13`
 
 ::: tip 用BOSS栏实时显示玩家与敌人血量
 BossBarHealth 把玩家自己以及当前目标生物的生命值画在屏幕顶部的 BOSS 栏上，打架时不用一直盯着血条也知道还剩多少。

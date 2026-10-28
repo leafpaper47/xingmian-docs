@@ -1,11 +1,11 @@
 ---
-title: 生物与展示
+title: 生物与外观
 createTime: 2026/10/24
 ---
 
-# 🧟 生物与展示
+# 🧟 生物与外观
 
-伪装、模型、NPC、实体编辑。
+伪装、自定义模型、NPC 编辑、盔甲架与血条显示。
 
 | 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
@@ -14,4 +14,3 @@ createTime: 2026/10/24
 | [FancyNpcsGUI](/commands/entity/fancynpcsgui.md) | FancyNpcs 图形化 NPC 编辑 | `/npcgui` | 1 |
 | [LibsDisguises](/commands/entity/libsdisguises.md) | 伪装系统 | `/copydisguise`、`/disguise`、`/disguiseanimation`… | 28 |
 | [ModelEngine](/commands/entity/modelengine.md) | 自定义模型 | `/meg` | 1 |
-| [YiyunCEskin](/commands/entity/yiyunceskin.md) | 给 CraftEngine 物品套用皮肤 | `/yiyunceskin` | 1 |

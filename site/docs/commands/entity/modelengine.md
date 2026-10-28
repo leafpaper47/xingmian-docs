@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # 模型引擎 · ModelEngine
 
-> 分类 🧟 生物与展示 · 版本 `R4.1.1` · 指令 1 条 · api-version `1.19`
+> 分类 🧟 生物与外观 · 版本 `R4.1.1` · 指令 1 条 · api-version `1.19`
 
 ::: tip 自定义模型
 把 Blockbench 做的 3D 模型挂到生物或玩家身上，提供召唤、伪装、状态机与 LOD 控制，是自定义 BOSS 外观的底层支撑。

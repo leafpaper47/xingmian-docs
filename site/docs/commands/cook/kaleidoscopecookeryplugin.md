@@ -5,7 +5,7 @@ createTime: 2026/10/24
 
 # 森罗厨房 · KaleidoscopeCookeryPlugin
 
-> 分类 🧩 脚本与菜单 · 版本 `1.3.0` · 指令 1 条 · api-version `1.21`
+> 分类 🍳 烹饪与采集 · 版本 `1.3.0` · 指令 1 条 · api-version `1.21`
 
 ::: tip 森罗厨房菜谱系统
 森罗厨房（KaleidoscopeCookery）是把自定义食物与烹饪配方做成菜单的服务端插件，玩家在一个图形菜单里就能查到每道菜要什么材料、怎么做。
