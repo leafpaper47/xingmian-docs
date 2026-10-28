@@ -11,6 +11,13 @@ createTime: 2026/10/24
 Explosion protection plugin for Paper 26.1.2+, including 26.2, and Folia
 :::
 
+## 常用用法
+
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 给玩家开防爆权限 | /antiboom Steve | 让他在爆炸中不受伤害 |
+| 关掉某人的防爆 | /antiboom Steve off | 恢复默认 |
+
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |

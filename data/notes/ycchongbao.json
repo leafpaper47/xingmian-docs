@@ -2,7 +2,18 @@
  "name": "YccHongBao",
  "role": "GUI and chat",
  "summary": "GUI and chat red packet economy plugin for Bukkit, Spigot, Paper, Purpur, and Folia cores.",
- "quick": [],
+ "quick": [
+  {
+   "scene": "发一个红包",
+   "cmd": "/ycch 100 5",
+   "note": "金额 100、份数 5"
+  },
+  {
+   "scene": "看自己领到的红包",
+   "cmd": "/ycch list",
+   "note": "查发放与领取记录"
+  }
+ ],
  "commands": [
   {
    "cmd": "ycch",

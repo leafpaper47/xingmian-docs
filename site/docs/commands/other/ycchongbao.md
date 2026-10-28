@@ -11,6 +11,13 @@ createTime: 2026/10/24
 GUI and chat red packet economy plugin for Bukkit, Spigot, Paper, Purpur, and Folia cores.
 :::
 
+## 常用用法
+
+| 场景 | 指令 | 说明 |
+| --- | --- | --- |
+| 发一个红包 | /ycch 100 5 | 金额 100、份数 5 |
+| 看自己领到的红包 | /ycch list | 查发放与领取记录 |
+
 ## 指令一览
 
 | 指令 | 功能 | 用法 | 权限节点 |

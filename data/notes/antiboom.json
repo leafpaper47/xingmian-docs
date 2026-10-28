@@ -2,7 +2,18 @@
  "name": "AntiBoom",
  "role": "Explosion pr",
  "summary": "Explosion protection plugin for Paper 26.1.2+, including 26.2, and Folia",
- "quick": [],
+ "quick": [
+  {
+   "scene": "给玩家开防爆权限",
+   "cmd": "/antiboom Steve",
+   "note": "让他在爆炸中不受伤害"
+  },
+  {
+   "scene": "关掉某人的防爆",
+   "cmd": "/antiboom Steve off",
+   "note": "恢复默认"
+  }
+ ],
  "commands": [
   {
    "cmd": "antiboom",
