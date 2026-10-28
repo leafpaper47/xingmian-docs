@@ -9,6 +9,7 @@ createTime: 2026/10/24
 
 | 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
+| [AntiBoom](/commands/protect/antiboom.md) | 爆炸伤害防护与区域豁免 | `/antiboom` | 1 |
 | [BlockLocker](/commands/protect/blocklocker.md) | 用告示牌给箱子门做私有上锁 | `/blocklocker` | 1 |
 | [Residence](/commands/protect/residence.md) | 领地保护 | `/rc`、`/res`、`/resadmin`… | 35 |
 | [TownPlugin](/commands/protect/townplugin.md) | 城镇系统 | `/town`、`/townadmin`、`/townui`… | 5 |

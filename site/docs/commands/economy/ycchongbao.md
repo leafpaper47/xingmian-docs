@@ -3,9 +3,9 @@ title: YccHongBao
 createTime: 2026/10/24
 ---
 
-# YccHongBao
+# 红包 · YccHongBao
 
-> 分类 📦 其他 · 版本 `1.0.0` · 指令 1 条 · api-version `1.20`
+> 分类 🪙 经济与商店 · 版本 `1.0.0` · 指令 1 条 · api-version `1.20`
 
 ::: tip 红包发放与领取记录查询
 GUI and chat red packet economy plugin for Bukkit, Spigot, Paper, Purpur, and Folia cores.

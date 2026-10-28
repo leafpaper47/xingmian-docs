@@ -10,7 +10,7 @@ createTime: 2026/10/24
 <div class="sc-strip">
 <span class="sc-strip__cell"><i>PLUGINS</i><b>85</b></span>
 <span class="sc-strip__cell"><i>COMMANDS</i><b>434</b></span>
-<span class="sc-strip__cell"><i>CATEGORIES</i><b>13</b></span>
+<span class="sc-strip__cell"><i>CATEGORIES</i><b>12</b></span>
 <span class="sc-strip__cell"><i>UPDATED</i><b>2026-10-24</b></span>
 <span class="sc-strip__caret"></span>
 </div>
@@ -69,6 +69,7 @@ Essentials 系与各类物品/背包/生存辅助工具。
 | 插件 | 定位 | 主要指令 | 指令数 |
 | --- | --- | --- | --- |
 | [ArtMap](/commands/world/artmap.md) | 把画架变成像素画板 | `/art` | 1 |
+| [Images](/commands/world/images.md) | 自定义图片 | `/image` | 1 |
 | [MeteorShowers](/commands/world/meteorshowers.md) | 随机流星雨事件与预警 | `/meteorshowers` | 1 |
 | [Mirrora](/commands/world/mirrora.md) | 镜像方块插件 | `/mirror` | 1 |
 | [WeatherCard](/commands/world/weathercard.md) | 四张扑克天气卡 | `/weathercard` | 1 |
@@ -80,6 +81,7 @@ Essentials 系与各类物品/背包/生存辅助工具。
 
 | 插件 | 定位 | 主要指令 | 指令数 |
 | --- | --- | --- | --- |
+| [AntiBoom](/commands/protect/antiboom.md) | 爆炸伤害防护与区域豁免 | `/antiboom` | 1 |
 | [BlockLocker](/commands/protect/blocklocker.md) | 用告示牌给箱子门做私有上锁 | `/blocklocker` | 1 |
 | [Residence](/commands/protect/residence.md) | 领地保护 | `/rc`、`/res`、`/resadmin`、`/resload`… | 35 |
 | [TownPlugin](/commands/protect/townplugin.md) | 城镇系统 | `/town`、`/townadmin`、`/townui`、`/townwarp`… | 5 |
@@ -92,11 +94,13 @@ Essentials 系与各类物品/背包/生存辅助工具。
 | 插件 | 定位 | 主要指令 | 指令数 |
 | --- | --- | --- | --- |
 | [AfDianPay](/commands/economy/afdianpay.md) | 爱发电对接 | `/afDianPay` | 1 |
+| [ArchitectPlugin](/commands/economy/architectplugin.md) | 星冕服务器的建筑师认证与接单系统 | `/arch`、`/archadmin`、`/archshop`、`/task` | 4 |
 | [DummyPool](/commands/economy/dummypool.md) | 服务器里的台球玩法插件 | `/dummypool`、`/dump` | 2 |
 | [MagicPointsLog](/commands/economy/magicpointslog.md) | PlayerPoints 点数变动记录 | `/mpl` | 1 |
 | [SenluoBuyer](/commands/economy/senluobuyer.md) | 森罗厨房每日随机收购回收面板 | `/senluobuyer` | 1 |
 | [Shopkeepers](/commands/economy/shopkeepers.md) | NPC 商店 | `/shopkeeper` | 1 |
 | [WineSuite](/commands/economy/winesuite.md) | 酿酒图鉴 | `/winebook`、`/winebuyer` | 2 |
+| [YccHongBao](/commands/economy/ycchongbao.md) | 红包发放与领取记录查询 | `/ycch` | 1 |
 
 ## ⚔️ 战斗与 RPG
 
@@ -108,11 +112,13 @@ MythicMobs 系、附魔、Boss、属性、自定义战斗。
 | [EliteMobs](/commands/rpg/elitemobs.md) | 精英怪物 | `/elitemobs` | 1 |
 | [EnchantInfuser](/commands/rpg/enchantinfuser.md) | 铁匠铺式附魔强化 | `/enin` | 1 |
 | [FoMiningComp](/commands/rpg/fominingcomp.md) | 挖矿竞赛活动插件 | `/fominingcomp` | 1 |
+| [KaleidoscopeCookeryPlugin](/commands/rpg/kaleidoscopecookeryplugin.md) | 森罗厨房菜谱系统 | `/kcrecipe` | 1 |
 | [KaoguGuide](/commands/rpg/kaoguguide.md) | 考古图鉴 | `/kaoguguide` | 1 |
 | [KaoguPlugin](/commands/rpg/kaoguplugin.md) | 考古玩法 | `/kaogu` | 1 |
 | [MythicMobs](/commands/rpg/mythicmobs.md) | 自定义怪物 | `/addpin`、`/mythicmobs`、`/mythicmobsmenu`、`/pins`… | 5 |
 | [MythicTools](/commands/rpg/mythictools.md) | MythicMobs 掉落与 Boss 工具 | `/mythictools` | 1 |
 | [PVPPlugin](/commands/rpg/pvpplugin.md) | 玩家间决斗与公平排位的可视化管理插件 | `/pvp` | 1 |
+| [SenluoCookbook](/commands/rpg/senluocookbook.md) | 森罗厨房图鉴 | `/cookbook` | 1 |
 | [StarPact](/commands/rpg/starpact.md) | 关系契约社交 | `/gender`、`/xzqy`、`/xzqyxb` | 16 |
 | [XingmianElement](/commands/rpg/xingmianelement.md) | 元素职业 | `/element`、`/xmbe` | 2 |
 | [XingmianRPG](/commands/rpg/xingmianrpg.md) | RPG 世界管控 | `/roll`、`/rpg`、`/rpgadmin`、`/stamina`… | 49 |
@@ -138,6 +144,7 @@ MythicMobs 系、附魔、Boss、属性、自定义战斗。
 | --- | --- | --- | --- |
 | [BroadcastPlusPlus](/commands/chat/broadcastplusplus.md) | 公告广播 | `/broadcast` | 1 |
 | [LeafChat](/commands/chat/leafchat.md) | 统一管理聊天格式 | `/chatcolor`、`/leafchat`、`/leafchatview`、`/msg`… | 8 |
+| [PatPatPlugin](/commands/chat/patpatplugin.md) | 拍拍互动 | `/patpat` | 1 |
 | [PlayerTitle](/commands/chat/playertitle.md) | 称号系统 | `/playerTitle` | 1 |
 | [SweetMail](/commands/chat/sweetmail.md) | 站内邮件 | `/sweetmail` | 1 |
 | [TAB](/commands/chat/tab.md) | TAB 列表 | `/tab` | 1 |
@@ -152,7 +159,6 @@ Skript、DeluxeMenus、PlaceholderAPI 等二次开发底座。
 | 插件 | 定位 | 主要指令 | 指令数 |
 | --- | --- | --- | --- |
 | [DeluxeMenus](/commands/config/deluxemenus.md) | GUI 菜单 | `/deluxemenus` | 1 |
-| [KaleidoscopeCookeryPlugin](/commands/config/kaleidoscopecookeryplugin.md) | 森罗厨房菜谱系统 | `/kcrecipe` | 1 |
 | [PlaceholderAPI](/commands/config/placeholderapi.md) | 变量占位符 | `/placeholderapi` | 1 |
 | [Skript](/commands/config/skript.md) | 脚本引擎 | `/skript` | 1 |
 
@@ -179,16 +185,3 @@ Skript、DeluxeMenus、PlaceholderAPI 等二次开发底座。
 | [LobbyGames](/commands/minigame/lobbygames.md) | 小游戏汇总 | `/lgjoin`、`/lgjoinplayer`、`/lobbygames` | 3 |
 | [MahjongPlay](/commands/minigame/mahjongplay.md) | 麻将小游戏 | `/mahjong` | 1 |
 | [XingmianQuiz](/commands/minigame/xingmianquiz.md) | 定时全服答题 | `/quiz` | 4 |
-
-## 📦 其他
-
-未归类的插件。
-
-| 插件 | 定位 | 主要指令 | 指令数 |
-| --- | --- | --- | --- |
-| [AntiBoom](/commands/other/antiboom.md) | 爆炸伤害防护与区域豁免 | `/antiboom` | 1 |
-| [ArchitectPlugin](/commands/other/architectplugin.md) | 星冕服务器的建筑师认证与接单系统 | `/arch`、`/archadmin`、`/archshop`、`/task` | 4 |
-| [Images](/commands/other/images.md) | 自定义图片 | `/image` | 1 |
-| [PatPatPlugin](/commands/other/patpatplugin.md) | 拍拍互动 | `/patpat` | 1 |
-| [SenluoCookbook](/commands/other/senluocookbook.md) | 森罗厨房图鉴 | `/cookbook` | 1 |
-| [YccHongBao](/commands/other/ycchongbao.md) | 红包发放与领取记录查询 | `/ycch` | 1 |

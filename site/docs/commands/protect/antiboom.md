@@ -3,9 +3,9 @@ title: AntiBoom
 createTime: 2026/10/24
 ---
 
-# AntiBoom
+# 爆炸防护 · AntiBoom
 
-> 分类 📦 其他 · 版本 `1.0.4` · 指令 1 条 · api-version `26.1.2`
+> 分类 🔒 领地与保护 · 版本 `1.0.4` · 指令 1 条 · api-version `26.1.2`
 
 ::: tip 爆炸伤害防护与区域豁免
 Explosion protection plugin for Paper 26.1.2+, including 26.2, and Folia

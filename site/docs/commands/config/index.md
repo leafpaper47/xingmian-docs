@@ -10,6 +10,5 @@ Skript、DeluxeMenus、PlaceholderAPI 等二次开发底座。
 | 插件 | 定位 | 指令 | 指令数 |
 | --- | --- | --- | --- |
 | [DeluxeMenus](/commands/config/deluxemenus.md) | GUI 菜单 | `/deluxemenus` | 1 |
-| [KaleidoscopeCookeryPlugin](/commands/config/kaleidoscopecookeryplugin.md) | 森罗厨房菜谱系统 | `/kcrecipe` | 1 |
 | [PlaceholderAPI](/commands/config/placeholderapi.md) | 变量占位符 | `/placeholderapi` | 1 |
 | [Skript](/commands/config/skript.md) | 脚本引擎 | `/skript` | 1 |
