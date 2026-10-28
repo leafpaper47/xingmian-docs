@@ -5,7 +5,6 @@
 
 页面结构：
   /                    指令总览（站点入口，不再有「首页」）
-  /permissions.md      权限节点总表
   /commands/<cat>/     分类索引
   /commands/<cat>/<slug>.md   单插件页（有注解 → 完整版；无注解 → plugin.yml 极简版）
 """
@@ -637,62 +636,40 @@ def main():
     if os.path.isfile(old_cmd_index):
         os.remove(old_cmd_index)
 
-    # ---------- 权限节点总表 ----------
-    L = ["---", "title: 权限节点总表", "createTime: %s" % TODAY, "---", "", "# 权限节点总表", ""]
-    L.append("下表汇总了各插件 `plugin.yml` 中声明的权限节点。默认值 `op` 表示仅管理员组默认拥有，`true` 表示所有玩家默认拥有。")
-    L.append("")
-    L.append("::: warning")
-    L.append("LuckPerms 等权限插件会覆盖这里的默认值。实际生效权限请以 `lp group <组> permission info` 或游戏内测试为准。")
-    L.append(":::")
-    L.append("")
-    L.append("::: warning 别外传")
-    L.append("本手册包含服务器权限节点与内部指令结构，仅供服内管理组使用。")
-    L.append(":::")
-    L.append("")
-    for c in CAT_ORDER:
-        block = [(p, p["perms"]) for p in index[c] if isinstance(p["perms"], dict) and p["perms"]]
-        if not block:
-            continue
-        L.append("## %s %s" % (CAT_META[c]["icon"], CAT_META[c]["title"]))
-        L.append("")
-        L.append("| 插件 | 节点 | 说明 | 默认 |")
-        L.append("| --- | --- | --- | --- |")
-        for p, perms in block:
-            for k, v in sorted(perms.items()):
-                v = v if isinstance(v, dict) else {}
-                L.append("| [%s](%s) | `%s` | %s | %s |" % (p["name"], p["path"], k, cell(zh(v.get("description")))[:50], cell(v.get("default") or "—")))
-        L.append("")
-    open(os.path.join(DOCS, "permissions.md"), "w", encoding="utf-8", newline="\n").write(fix_code_spans("\n".join(L)))
+    # 权限节点总表已下线（用户要求），同时清掉历史文件
+    stale_perm = os.path.join(DOCS, "permissions.md")
+    if os.path.isfile(stale_perm):
+        os.remove(stale_perm)
 
     # ---------- 侧边栏 / 导航 ----------
-    T = ["import type { ThemeNavItem, ThemeSidebarMulti } from 'vuepress-theme-plume'", ""]
-    T.append("export const navbar: ThemeNavItem[] = [")
-    T.append("  { text: '指令总览', link: '/' },")
-    T.append("  { text: '权限总表', link: '/permissions.md' },")
-    T.append("]")
-    T.append("")
-    T.append("export const sidebar: ThemeSidebarMulti = {")
-    T.append("  '/commands/': [")
-    T.append("    { text: '← 指令总览', link: '/' },")
+    # 侧边栏只保留一棵「分类 → 插件」树，并让所有页面（含根页面）共用它，
+    # 这样网页一打开左边就能直接看到各插件名。
+    tree = ["    { text: '指令总览', link: '/' },"]
     for c in CAT_ORDER:
         if not index[c]:
             continue
         meta = CAT_META[c]
-        T.append("    {")
-        T.append("      text: '%s %s'," % (meta["icon"], meta["title"]))
-        T.append("      link: '/commands/%s/'," % c)
-        T.append("      collapsed: false,")
-        T.append("      items: [")
+        tree.append("    {")
+        tree.append("      text: '%s %s'," % (meta["icon"], meta["title"]))
+        tree.append("      link: '/commands/%s/'," % c)
+        tree.append("      collapsed: false,")
+        tree.append("      items: [")
         for p in index[c]:
             label = FUNC_CN.get(p["name"], meta["title"])
-            T.append("        { text: '%s-%s', link: '%s' }," % (label, p["name"].replace("'", ""), p["path"]))
-        T.append("      ],")
-        T.append("    },")
-    T.append("  ],")
-    T.append("  '/': [")
-    T.append("    { text: '指令总览', link: '/' },")
-    T.append("    { text: '权限节点总表', link: '/permissions.md' },")
-    T.append("  ],")
+            tree.append("        { text: '%s-%s', link: '%s' }," % (label, p["name"].replace("'", ""), p["path"]))
+        tree.append("      ],")
+        tree.append("    },")
+
+    T = ["import type { ThemeNavItem, ThemeSidebarMulti } from 'vuepress-theme-plume'", ""]
+    T.append("export const navbar: ThemeNavItem[] = [")
+    T.append("  { text: '指令总览', link: '/' },")
+    T.append("]")
+    T.append("")
+    T.append("export const sidebar: ThemeSidebarMulti = {")
+    for key in ("/commands/", "/"):
+        T.append("  '%s': [" % key)
+        T.extend(tree)
+        T.append("  ],")
     T.append("}")
     os.makedirs(os.path.join(DOCS, ".vuepress"), exist_ok=True)
     open(os.path.join(DOCS, ".vuepress", "sidebar.ts"), "w", encoding="utf-8", newline="\n").write("\n".join(T))
