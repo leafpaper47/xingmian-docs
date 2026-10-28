@@ -11,7 +11,7 @@ const HOSTNAME = 'https://xingmian.github.io/'
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: '星冕服务器 · 管理员指令手册',
+  title: '星冕 · 管理员指令手册',
   description: '星冕服务器插件管理指令、用法与权限节点速查手册',
   base: BASE,
   bundler: viteBundler(),
@@ -39,7 +39,7 @@ export default defineUserConfig({
     changelog: false,
     lastUpdated: false,
     footer: {
-      message: '星冕服务器 · 管理员指令手册',
+      message: '星冕 · 管理员指令手册',
       copyright: '仅供服内管理使用，请勿外传',
     },
     markdown: {
