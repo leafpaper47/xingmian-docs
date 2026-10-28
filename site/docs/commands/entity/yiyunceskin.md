@@ -3,7 +3,7 @@ title: YiyunCEskin
 createTime: 2026/10/24
 ---
 
-# 云皮肤 · YiyunCEskin
+# CE物品皮肤 · YiyunCEskin
 
 > 分类 🧟 生物与展示 · 版本 `1.3.0` · 指令 1 条 · api-version `1.21`
 

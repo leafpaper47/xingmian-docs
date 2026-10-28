@@ -67,10 +67,10 @@ ASSIGN = {
 
 # 侧边栏 / 标题用的功能简称
 FUNC_CN = {
-    "ALCERecipeViewer": "配方查询", "AfDianPay": "爱发电支付", "Ah-Toy-1.0": "小玩具",
+    "ALCERecipeViewer": "配方查询", "AfDianPay": "爱发电支付", "Ah-Toy-1.0": "阿叶玩具",
     "Ah-WolfmanKill-1.0": "狼人杀", "ArchitectPlugin": "建筑师认证", "ArmorUnbreaking": "盔甲免损耗",
     "ArmoredElytra": "装甲鞘翅", "ArtMap": "像素画板", "BetterRTP": "随机传送",
-    "BlockLocker": "告示牌锁", "BookEdit": "成书编辑", "BossBarHealth": "BOSS血条",
+    "BlockLocker": "告示牌锁", "BookEdit": "成书编辑", "BossBarHealth": "血量显示",
     "BroadcastPlusPlus": "公告广播", "CMILib": "CMI前置库", "ConsoleSpamFixReborn": "控制台屏蔽",
     "CoreProtect": "日志回滚", "CraftBench": "随身工作台", "DeluxeMenus": "GUI菜单",
     "DummyPool": "台球", "EcoEnchants": "自定义附魔", "EditableStands": "盔甲架编辑",
@@ -80,20 +80,20 @@ FUNC_CN = {
     "InvSaver": "背包快照", "ItemEdit": "物品编辑", "KaleidoscopeCookeryPlugin": "森罗厨房",
     "KaoguGuide": "考古图鉴", "KaoguPlugin": "考古系统", "LeafChat": "聊天管理",
     "LeafHat": "头顶帽子", "LeashPlayers": "玩家拴绳", "LibsDisguises": "伪装",
-    "LobbyGames": "大厅小游戏", "LuckPerms": "权限组", "MagicPointsLog": "点券流水",
+    "LobbyGames": "大厅小游戏", "LuckPerms": "权限组", "MagicPointsLog": "点券日志",
     "MahjongPlay": "麻将", "MaintenanceMode": "维护模式", "MeteorShowers": "流星雨",
     "Mirrora": "镜像方块", "ModelEngine": "模型引擎", "MythicMobs": "自定义怪物",
     "MythicTools": "神话工具包", "OpenInv": "远程背包", "PlaceholderAPI": "变量占位符",
     "PlayerSignIn": "每日签到", "PlayerTask": "玩家任务", "PlayerTitle": "称号",
     "PlugManX": "插件管理", "PVPPlugin": "决斗排位", "Residence": "领地",
     "SenluoBuyer": "菜品收购", "Shopkeepers": "商店NPC", "Skript": "脚本引擎",
-    "spark": "性能分析", "StarAFK": "挂机检测", "StarPact": "星契",
+    "spark": "性能分析", "StarAFK": "挂机检测", "StarPact": "星契社交",
     "SweetMail": "邮件", "TAB": "列表计分板", "TownPlugin": "城镇",
     "Vault": "经济前置", "vcm": "语音喇叭", "voicechat": "语音聊天",
     "WeatherCard": "天气卡", "WebBridge": "网页桥接", "WineSuite": "酿酒图鉴",
     "WorldGuardGUI": "区域管理", "XaeroTracker": "小地图追踪", "XingmianElement": "元素系统",
     "XingmianQuiz": "知识问答", "XingmianRPG": "星陨RPG", "YaoqingPlugin": "玩家邀请",
-    "YiyunCEskin": "云皮肤", "allmusic": "全服音乐",
+    "YiyunCEskin": "CE物品皮肤", "allmusic": "全服音乐",
 }
 
 COLOR = re.compile(r"[§&](?![a-zA-Z]+;)[0-9a-fk-orxA-FK-ORX]")

@@ -3,7 +3,7 @@ title: StarPact
 createTime: 2026/10/24
 ---
 
-# 星契 · StarPact
+# 星契社交 · StarPact
 
 > 分类 ⚔️ 战斗与 RPG · 版本 `0.6.0` · 指令 16 条 · api-version `1.21`
 

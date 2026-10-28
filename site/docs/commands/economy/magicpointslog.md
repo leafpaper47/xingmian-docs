@@ -3,7 +3,7 @@ title: MagicPointsLog
 createTime: 2026/10/24
 ---
 
-# 点券流水 · MagicPointsLog
+# 点券日志 · MagicPointsLog
 
 > 分类 🪙 经济与商店 · 版本 `1.0.0` · 指令 1 条
 

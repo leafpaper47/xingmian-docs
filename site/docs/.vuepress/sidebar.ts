@@ -82,7 +82,7 @@ export const sidebar: ThemeSidebarMulti = {
       items: [
         { text: '爱发电支付-AfDianPay', link: '/commands/economy/afdianpay.md' },
         { text: '台球-DummyPool', link: '/commands/economy/dummypool.md' },
-        { text: '点券流水-MagicPointsLog', link: '/commands/economy/magicpointslog.md' },
+        { text: '点券日志-MagicPointsLog', link: '/commands/economy/magicpointslog.md' },
         { text: '菜品收购-SenluoBuyer', link: '/commands/economy/senluobuyer.md' },
         { text: '商店NPC-Shopkeepers', link: '/commands/economy/shopkeepers.md' },
         { text: '酿酒图鉴-WineSuite', link: '/commands/economy/winesuite.md' },
@@ -102,7 +102,7 @@ export const sidebar: ThemeSidebarMulti = {
         { text: '自定义怪物-MythicMobs', link: '/commands/rpg/mythicmobs.md' },
         { text: '神话工具包-MythicTools', link: '/commands/rpg/mythictools.md' },
         { text: '决斗排位-PVPPlugin', link: '/commands/rpg/pvpplugin.md' },
-        { text: '星契-StarPact', link: '/commands/rpg/starpact.md' },
+        { text: '星契社交-StarPact', link: '/commands/rpg/starpact.md' },
         { text: '元素系统-XingmianElement', link: '/commands/rpg/xingmianelement.md' },
         { text: '星陨RPG-XingmianRPG', link: '/commands/rpg/xingmianrpg.md' },
       ],
@@ -112,12 +112,12 @@ export const sidebar: ThemeSidebarMulti = {
       link: '/commands/entity/',
       collapsed: false,
       items: [
-        { text: 'BOSS血条-BossBarHealth', link: '/commands/entity/bossbarhealth.md' },
+        { text: '血量显示-BossBarHealth', link: '/commands/entity/bossbarhealth.md' },
         { text: '盔甲架编辑-EditableStands', link: '/commands/entity/editablestands.md' },
         { text: '图形化NPC-FancyNpcsGUI', link: '/commands/entity/fancynpcsgui.md' },
         { text: '伪装-LibsDisguises', link: '/commands/entity/libsdisguises.md' },
         { text: '模型引擎-ModelEngine', link: '/commands/entity/modelengine.md' },
-        { text: '云皮肤-YiyunCEskin', link: '/commands/entity/yiyunceskin.md' },
+        { text: 'CE物品皮肤-YiyunCEskin', link: '/commands/entity/yiyunceskin.md' },
       ],
     },
     {
@@ -160,7 +160,7 @@ export const sidebar: ThemeSidebarMulti = {
       link: '/commands/minigame/',
       collapsed: false,
       items: [
-        { text: '小玩具-Ah-Toy-1.0', link: '/commands/minigame/ah-toy-1-0.md' },
+        { text: '阿叶玩具-Ah-Toy-1.0', link: '/commands/minigame/ah-toy-1-0.md' },
         { text: '狼人杀-Ah-WolfmanKill-1.0', link: '/commands/minigame/ah-wolfmankill-1-0.md' },
         { text: '全服音乐-allmusic', link: '/commands/minigame/allmusic.md' },
         { text: '坐下趴下-GSit', link: '/commands/minigame/gsit.md' },
@@ -261,7 +261,7 @@ export const sidebar: ThemeSidebarMulti = {
       items: [
         { text: '爱发电支付-AfDianPay', link: '/commands/economy/afdianpay.md' },
         { text: '台球-DummyPool', link: '/commands/economy/dummypool.md' },
-        { text: '点券流水-MagicPointsLog', link: '/commands/economy/magicpointslog.md' },
+        { text: '点券日志-MagicPointsLog', link: '/commands/economy/magicpointslog.md' },
         { text: '菜品收购-SenluoBuyer', link: '/commands/economy/senluobuyer.md' },
         { text: '商店NPC-Shopkeepers', link: '/commands/economy/shopkeepers.md' },
         { text: '酿酒图鉴-WineSuite', link: '/commands/economy/winesuite.md' },
@@ -281,7 +281,7 @@ export const sidebar: ThemeSidebarMulti = {
         { text: '自定义怪物-MythicMobs', link: '/commands/rpg/mythicmobs.md' },
         { text: '神话工具包-MythicTools', link: '/commands/rpg/mythictools.md' },
         { text: '决斗排位-PVPPlugin', link: '/commands/rpg/pvpplugin.md' },
-        { text: '星契-StarPact', link: '/commands/rpg/starpact.md' },
+        { text: '星契社交-StarPact', link: '/commands/rpg/starpact.md' },
         { text: '元素系统-XingmianElement', link: '/commands/rpg/xingmianelement.md' },
         { text: '星陨RPG-XingmianRPG', link: '/commands/rpg/xingmianrpg.md' },
       ],
@@ -291,12 +291,12 @@ export const sidebar: ThemeSidebarMulti = {
       link: '/commands/entity/',
       collapsed: false,
       items: [
-        { text: 'BOSS血条-BossBarHealth', link: '/commands/entity/bossbarhealth.md' },
+        { text: '血量显示-BossBarHealth', link: '/commands/entity/bossbarhealth.md' },
         { text: '盔甲架编辑-EditableStands', link: '/commands/entity/editablestands.md' },
         { text: '图形化NPC-FancyNpcsGUI', link: '/commands/entity/fancynpcsgui.md' },
         { text: '伪装-LibsDisguises', link: '/commands/entity/libsdisguises.md' },
         { text: '模型引擎-ModelEngine', link: '/commands/entity/modelengine.md' },
-        { text: '云皮肤-YiyunCEskin', link: '/commands/entity/yiyunceskin.md' },
+        { text: 'CE物品皮肤-YiyunCEskin', link: '/commands/entity/yiyunceskin.md' },
       ],
     },
     {
@@ -339,7 +339,7 @@ export const sidebar: ThemeSidebarMulti = {
       link: '/commands/minigame/',
       collapsed: false,
       items: [
-        { text: '小玩具-Ah-Toy-1.0', link: '/commands/minigame/ah-toy-1-0.md' },
+        { text: '阿叶玩具-Ah-Toy-1.0', link: '/commands/minigame/ah-toy-1-0.md' },
         { text: '狼人杀-Ah-WolfmanKill-1.0', link: '/commands/minigame/ah-wolfmankill-1-0.md' },
         { text: '全服音乐-allmusic', link: '/commands/minigame/allmusic.md' },
         { text: '坐下趴下-GSit', link: '/commands/minigame/gsit.md' },

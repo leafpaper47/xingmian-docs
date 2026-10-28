@@ -3,7 +3,7 @@ title: Ah-Toy-1.0
 createTime: 2026/10/24
 ---
 
-# 小玩具 · Ah-Toy-1.0
+# 阿叶玩具 · Ah-Toy-1.0
 
 > 分类 🎲 小游戏与娱乐 · 版本 `1.0` · 指令 1 条 · api-version `26.1`
 
